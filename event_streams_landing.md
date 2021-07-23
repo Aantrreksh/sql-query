@@ -108,5 +108,5 @@ The following permissions are needed for creating a stream landing job:
 
 With a stream landing job you can process up to 1 MB event data per second. The final reached data throughput 
 depends on parameters, such as topic partitions and size and format of the events. For one {{site.data.keyword.sqlquery_short}} instance 
-there is a limit of five concurrent stream landing jobs. The limit can be raised upon request via support ticket. The {{site.data.keyword.messagehub}} feature is currently only available for instances created in the US-South region, as well a in Frankfurt. 
+there is a limit of five concurrent stream landing jobs. The limit can be raised upon request via support ticket. The {{site.data.keyword.messagehub}} feature is currently only available for instances created in the US-South region, as well as in Frankfurt. 
 
