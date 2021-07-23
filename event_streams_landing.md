@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-20"
+lastupdated: "2021-07-23"
 
 keywords: SQL query, event streams, streaming, cloud object storage, Kafka
 
@@ -40,7 +40,7 @@ EXECUTE AS crn:v1:bluemix:public:kms:us-south:a/33e58e0da6e6926e09fd68480e66078e
 ```
 
 The difference from a batch query is that the FROM clause now points to a {{site.data.keyword.messagehub}} topic by using the CRN of an {{site.data.keyword.messagehub}} instance. 
-The allowed formats of the events are JSON and AVRO. The EMIT specifies the Cloud {{site.data.keyword.cos_short}} bucket 
+The allowed format of the events is JSON. The EMIT specifies the Cloud {{site.data.keyword.cos_short}} bucket 
 and the required format is Parquet. The last option to specify is a valid {{site.data.keyword.keymanagementserviceshort}} key that holds an API key with the permissions to read from {{site.data.keyword.messagehub}} and write to Cloud {{site.data.keyword.cos_short}}. 
 The API key is needed, as in theory, the job can run forever. 
 
