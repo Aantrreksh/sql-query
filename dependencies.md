@@ -17,15 +17,15 @@ subcollection: sql-query
 {:pre: .pre}
 
 # Dependencies
-{:dependencies}
+{: dependencies}
 
 ## Dependencies to other IBM Cloud Services
-{:dependencies_cloud}
+{: dependencies_cloud}
 
 In general, customer data is not leaving the region or country, in which an instance of {{site.data.keyword.sqlquery_full}} was provisioned. This rule excludes customer data that is used by dependant service instances that are under customer responsibility.
 
 ### Critical Dependencies
-{:critical}
+{: critical}
 
 The following dependencies of {{site.data.keyword.sqlquery_short}} are considered critical. 
 Any loss of connectivity or service of one of these dependencies results in a functional impact to the customer on {{site.data.keyword.sqlquery_short}}.
@@ -44,7 +44,7 @@ IBM Cloud Messages for RabbitMQ | Queues used for internal communication between
 IBM Cloud Resource Controller and IBM Cloud catalog | Used to load required information about your service instance and offering plan. To learn more, see [IBM Cloud Resource Controller API](https://cloud.ibm.com/apidocs/resource-controller/resource-controller).
 
 ### Dependencies to IBM service instances owned and managed by you
-{:dependencies_service_instances}
+{: dependencies_service_instances}
 
 Service name | Description
 --- | ---
@@ -54,14 +54,14 @@ IBM Key Protect for IBM Cloud | The user-provided instances provide keys for env
 IBM Cloud Activity Tracker with LogDNA | IBM Cloud SQL Query integrates with IBM Cloud Activity Tracker with LogDNA to forward location audit events to the IBM Cloud Activity Tracker with LogDNA service instance that is set up and owned by you. To learn more, see [IBM Cloud Activity Tracker with LogDNA](https://cloud.ibm.com/docs/Activity-Tracker-with-LogDNA).
 
 ### Other dependencies 
-{:other_dependencies}
+{: other_dependencies}
 
 Service name | Description
 --- | ---
 IBM Cloud Databases for Redis | Used as UI session store and for caching of Cloudant data. To learn more, see [IBM Cloud Databases for Redis](https://cloud.ibm.com/docs/databases-for-redis).
 
 ## Dependencies to third-party services
-{:third_party_dependencies}
+{: third_party_dependencies}
 
 Service name | Description
 --- | ---
