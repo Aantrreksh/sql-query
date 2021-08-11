@@ -17,10 +17,10 @@ subcollection: sql-query
 {:pre: .pre}
 
 # Overview
-{:shortdesc}
+{: overview}
 
 {{site.data.keyword.sqlquery_full}} is a fully managed service that runs SQL queries (that is, SELECT statements) to analyze, transform, or clean up rectangular data.
-{:shortdesc}
+{: shortdesc}
 
 **Note:** You can use {{site.data.keyword.sqlquery_short}} to create SELECT statements only; actions such as CREATE, DELETE, INSERT, and UPDATE are not possible.
 
@@ -385,8 +385,8 @@ You can also create timestamp values in a different time zone from a Coordinated
 
 - If a JSON, ORC, or Parquet object contains a nested or arrayed structure, a query with CSV output that uses a wildcard (for example, `SELECT * from cos://...`) returns an error such as "Invalid CSV data type used: `struct<nested JSON object>`."
 Use one of the following workarounds:
-  - For a nested structure, use the [`FLATTEN`](/docs/sql-query?topic=sql-query-sql-reference#tableTransformer) table transformation function. Alternatively, you can specify the fully nested column names instead of the wildcard, for example, `SELECT address.city, address.street, ... from cos://...`.
-  - For an array, use the Spark SQL explode() function, for example, `select explode(contact_names) from cos://...`.
+    - For a nested structure, use the [`FLATTEN`](/docs/sql-query?topic=sql-query-sql-reference#tableTransformer) table transformation function. Alternatively, you can specify the fully nested column names instead of the wildcard, for example, `SELECT address.city, address.street, ... from cos://...`.
+    - For an array, use the Spark SQL explode() function, for example, `select explode(contact_names) from cos://...`.
 
 - If you receive a corrupted result, verify that the source URI is correct and that the correct input format is specified, by using 'STORED AS' in the SQL statement.
 
