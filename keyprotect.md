@@ -34,15 +34,15 @@ By default, {{site.data.keyword.sqlquery_full}} uses server-managed encryption a
 For performance reasons, create both the {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.sqlquery_short}} instances in the same {{site.data.keyword.cloud_notm}} region.
 4. Give the new {{site.data.keyword.sqlquery_short}} instance [access](/docs/account?topic=account-serviceauth) to your {{site.data.keyword.keymanagementserviceshort}} key.
 
-  - Open your {{site.data.keyword.cloud_notm}} dashboard.
-  - From the menu bar, click **Manage** > **Access (IAM)**, and select **Authorizations**.
-  - Click **Create**.
-  - In the source service menu, select **IBM SQL Query**.
-  - In the source service instance menu, select the service instance to authorize.
-  - In the target service menu, select **IBM Key Protect**.
-  - In the target service instance menu, select the service instance to authorize.
-  - Enable the **Reader** role.
-  - Click **Authorize**.
+    - Open your {{site.data.keyword.cloud_notm}} dashboard.
+    - From the menu bar, click **Manage** > **Access (IAM)**, and select **Authorizations**.
+    - Click **Create**.
+    - In the source service menu, select **IBM SQL Query**.
+    - In the source service instance menu, select the service instance to authorize.
+    - In the target service menu, select **IBM Key Protect**.
+    - In the target service instance menu, select the service instance to authorize.
+    - Enable the **Reader** role.
+    - Click **Authorize**.
 
 ## Further considerations
 {: #considerations}
