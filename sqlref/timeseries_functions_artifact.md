@@ -355,7 +355,7 @@ Each of these functions creates an *anchor* artifact, which is used by other fun
 
 Anchor functions are deprecated, use expression creation functions instead.
 Expression creation functions are similar to anchor functions but they are more feature rich.
-{:note}
+{: note}
 
 **TS_ANCHOR_EQ(see below<sup>3</sup>)**
 Output: AnchorType  

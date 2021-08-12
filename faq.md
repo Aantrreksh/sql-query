@@ -17,10 +17,10 @@ subcollection: sql-query
 {:pre: .pre}
 
 # FAQ
-{:faq}
+{: faq}
 
 ## Is {{site.data.keyword.sqlquery_full}} transaction safe?
-{:transaction_safe}
+{: transaction_safe}
 
 {{site.data.keyword.sqlquery_short}} does not support INSERT, UPDATE or DELETE operations, while it can be used 
 to create {{site.data.keyword.cos_short}} objects using the INTO clause. For the created objects in {{site.data.keyword.cos_short}}, the question arises if this operation is transaction safe and ACID compliant?
@@ -30,7 +30,7 @@ The answer is {{site.data.keyword.cos_full}} does not support transactions, but 
 For the latter scenario, use Hive-style partitioned tables, which means that the SQL job writes a new set of objects into a new {{site.data.keyword.cos_short}} prefix location. This does not affect anything in the Hive-style partitioned table. Only when you then also issue an `ALTER TABLE … ADD PARTITION` with the newly written object location, the data will be made available in the Hive-style partitioned table. That ALTER TABLE DDL is in fact also an atomic operation.
 
 ## How to handle very large time series data sets?
-{:large_ts}
+{: large_ts}
 
 When using time-series queries, in general, the more time series that exist, the better the parallelism.
 
@@ -73,7 +73,7 @@ In this case, you will not only have the set of unique keys, but the dates assoc
 By doing so, each time series will be much smaller, and have a better chance of fitting in memory.
 
 ## How to avoid exhausting allocated resources/out of memory errors (OOM)?
-{:oom}
+{: oom}
 
 The most common cause for exhausting allocated resources or out of memory errors is the structure of the query or the layout of the data. The following best practices help to avoid such issues:
 
