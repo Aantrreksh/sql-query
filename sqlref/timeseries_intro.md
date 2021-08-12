@@ -23,12 +23,12 @@ A time series is a sequence of data values that are measured at successive, thou
 
 See the following examples of time series:
 
-- Stock share prices and trading volumes.
-- Electrocardiogram (ECG) data.
-- Temperature or seismographic data.
-- Network performance measurements.
-- Electricity usage as recorded by a smart meter and reported through an Internet of Things data feed.
-- A clickstream log that records, for an individual computer user, which buttons were clicked, which pages or websites were visited, and other information of interest.
+-   Stock share prices and trading volumes.
+-   Electrocardiogram (ECG) data.
+-   Temperature or seismographic data.
+-   Network performance measurements.
+-   Electricity usage as recorded by a smart meter and reported through an Internet of Things data feed.
+-   A clickstream log that records, for an individual computer user, which buttons were clicked, which pages or websites were visited,       and other information of interest.
 
 Each entry in a time series is called an observation. Each observation comprises a timetick (a 64-bit integer that indicates when the observation was made) and the data that is recorded for that observation. The recorded data can be either numerical (for example, temperature or stock share price) or categorical (for example, geographic area). 
 A time series can be, but must not necessarily be, associated with a [time reference system (TRS)](/docs/services/sql-query?topic=sql-query-TRS), which defines the granularity of each timetick and the start time.
@@ -47,8 +47,8 @@ Retrieve information about a time series.
 **Statistical**  
 Derive statistical insight from time series data. Each statistical function is of one of the following types:  
   
-  - A transform produces, as output, a new time series.
-  - A reducer produces, as output, a single value per time series or segment, such as a distance or average.  
+-   A transform produces, as output, a new time series.
+-   A reducer produces, as output, a single value per time series or segment, such as a distance or average.  
   
 **Forecasting**  
 Use [forecasting models](/docs/services/sql-query?topic=sql-query-artifact#forecasting_model_creation) to detect anomalies or predict future behavior based on past events.  
@@ -74,11 +74,11 @@ Match the values of a string time series against a string sequence (sequence mat
 **Time functions**  
 Convert a string or timestamp into a value of type Long.  
   
-  - [Time reference systems](/docs/services/sql-query?topic=sql-query-TRS)  
-    A time reference system (TRS) defines the *granularity* of a time series (that is, the length of each timetick), and the date and time from which the timeticks are to be counted (that is, the time series start time).  
-  - [Time series data types](/docs/services/sql-query?topic=sql-query-ts_datatypes)  
+-   [Time reference systems](/docs/services/sql-query?topic=sql-query-TRS)  
+    A time reference system (TRS) defines the *granularity* of a time series (that is, the length of each timetick), and the date and       time from which the timeticks are to be counted (that is, the time series start time).  
+-   [Time series data types](/docs/services/sql-query?topic=sql-query-ts_datatypes)  
     Time series functions operate on a wide variety of special data types that are designed especially for time series data.  
-  - [Using SQL statements to process time series data](/docs/services/sql-query?topic=sql-query-using_sql)  
+-   [Using SQL statements to process time series data](/docs/services/sql-query?topic=sql-query-using_sql)  
     You can call time series functions from within SQL statements to manipulate and analyze time series data.  
-  - [Time series functions](/docs/services/sql-query?topic=sql-query-ts_functions) 
+-   [Time series functions](/docs/services/sql-query?topic=sql-query-ts_functions) 
     Use time series functions to process time series data.
