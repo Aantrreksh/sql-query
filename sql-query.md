@@ -17,7 +17,7 @@ subcollection: sql-query
 {:pre: .pre}
 
 # Overview
-{: overview}
+{: #overview}
 
 {{site.data.keyword.sqlquery_full}} is a fully managed service that runs SQL queries (that is, SELECT statements) to analyze, transform, or clean up rectangular data.
 {: shortdesc}
@@ -170,7 +170,7 @@ objects `mydir/test100`, and `mydir/test101/nested/object`.
 - For an output URI, it is the prefix under which the [result objects](#result) are to be written.
 
 ### Composite input tables
-{: compositeInput}
+{: #compositeInput}
 
 As noted previously, the URI for an input table on Cloud {{site.data.keyword.cos_short}} can match multiple objects, forming a "composite" input table. When you run a query over composite input, ensure that the schema of each matching object is appropriate within the context of the SELECT statement. The schemas of the objects do not need to be identical; depending on the input format, the schemas of multiple objects can be merged:
 - For CSV format, columns are matched based on their *order*. Some input objects can contain more columns than others, but common columns must always use the same order across objects. The number of columns in the composite input is the maximum number of columns from all matched objects.
@@ -387,3 +387,4 @@ Use one of the following workarounds:
   If you use {{site.data.keyword.sqlquery_short}} to generate CSV results from other data formats like Parquet that support newlines within values and these CSV results are queried again, newlines must explicitly be removed before you write the results. To do so, use the SQL function `regexp_replace`. For example, a Parquet object `data` has an attribute `multi_line` containing values that span multiple lines. To select a subset of rows based on a `condition` and store it on Cloud {{site.data.keyword.cos_short}} for further processing, a skeleton SQL statement looks like the following example:
 
 	`SELECT regexp_replace(multi_line, '[\\r\\n]', ' ') as multi_line FROM data STORED AS parquet WHERE condition`
+
