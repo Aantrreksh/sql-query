@@ -3,7 +3,7 @@
 copyright:
   year: 2018, 2021
 
-lastupdated: "2021-07-23"
+lastupdated: "2021-08-13"
 
 
 keywords: what's new, support, release, beta
@@ -26,7 +26,8 @@ subcollection: sql-query
 ## June 2021
 <!--- The {{site.data.keyword.sqlquery_full}} UI can now display Parquet results, in addition to CSV and JSON data. --->
 -   {{site.data.keyword.sqlquery_short}} now supports stream landing that enables you to stream your data in real-time from a topic to a bucket of your choice. This capability enables efficient analytics on the new objects created.
--   {{site.data.keyword.cpd_full}} now comes with an integrated connector to {{site.data.keyword.sqlquery_short}} that allows to connect to cloud data lakes and import data assets into projects and catalogs in {{site.data.keyword.cpd_short}}. For more information, see [Connecting to a Cloud Data Lake with IBM Cloud Pak for Data](https://www.ibm.com/cloud/blog/connecting-to-a-cloud-data-lake-with-ibm-cloud-pak-for-data).
+-   {{site.data.keyword.cpd_full}} now comes with an integrated connector to {{site.data.keyword.sqlquery_short}} that allows to connect to cloud data lakes and import data assets into projects and catalogs in {{site.data.keyword.cpd_short}}. For more information, see [Connecting to a Cloud Data Lake with IBM Cloud Pak for Data]
+(https://www.ibm.com/cloud/blog/connecting-to-a-cloud-data-lake-with-ibm-cloud-pak-for-data).
 
 ## December 2020
 -   {{site.data.keyword.sqlquery_short}} is available in Chennai, India. When you provision new instances, you can select whether it is being provisioned in Dallas, Frankfurt, or Chennai.
@@ -51,7 +52,7 @@ You can view completed and failed jobs, the number of bytes processed, and the j
 
 ## May 2020
 
--   {{site.data.keyword.sqlquery_short}} supports index management, also referred to as data skipping. Index management can significantly boost performance and reduce cost of your SQL queries by skipping over irrelevant data.![Beta](beta.png)
+-   {{site.data.keyword.sqlquery_short}} supports index management, also referred to as data skipping. Index management can significantly boost performance and reduce cost of your SQL queries by skipping over irrelevant data.
 -   Service access role **Manager** is required to run catalog management or index management commands.
 -   {{site.data.keyword.sqlquery_short}} database catalog support is extended to support [views](/docs/sql-query?topic=sql-query-sql-reference#chapterCreateView).
 -   {{site.data.keyword.sqlquery_short}} catalog management is out of the Beta stage and can be used with the Standard plan.
