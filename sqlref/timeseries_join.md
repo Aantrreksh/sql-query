@@ -24,7 +24,7 @@ A temporal join produces a single array time series based on the observations of
 ## Temporal join
 {: #temporal_join}
 
-A *temporal join* is a [join operation](https://en.wikipedia.org/wiki/Join_(SQL) that operates on time series data. An interpolator is used to complete missing values.
+A *temporal join* is a [join operation](https://en.wikipedia.org/wiki/Join_(SQL)) that operates on time series data. An interpolator is used to complete missing values.
 
 For example, consider the following two input time series, which are stored in table column with the names table1.col7 and table2.col8:  
 
