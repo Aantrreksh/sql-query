@@ -38,8 +38,8 @@ Each subsequence has a corresponding *match sublist*, which is the sublist that 
 
 For sequence matching, all the members of the specified array of string values (the *pattern*) must match, in the order specified, values in the input string time series. If any of the pattern values do not occur in the time series, or if they occur but are out of order, the matching function returns null. Each matching function specifies a matcher artifact, which determines the behavior of the matching function:  
 
--   Whether the matching function is to match the pattern with the entire sequence of time series values, with a sublist of the             sequence, or with a subsequence.  
--   The threshold that must be met for a match to be considered successful. Depending on the matcher that is used, it is based on one of     the following ratios:  
+-   Whether the matching function is to match the pattern with the entire sequence of time series values, with a sublist of the sequence, or with a subsequence.  
+-   The threshold that must be met for a match to be considered successful. Depending on the matcher that is used, it is based on one of the following ratios:  
     - The length of the pattern (P) divided by the length of the entire sequence (S).
     - The length of the pattern (P) divided by the length of the match sublist (M).
     - The length of the match sublist (M) divided by the length of the entire sequence (S).
@@ -59,7 +59,7 @@ For example, consider the following string time series that contains five observ
 
     `[(0,'a'), (1,'b'), (3,'c'), (7,'d'), (8,'e')]`  
 
--   The following SELECT statement returns null because although all members of the specified array occur in ts4 in the correct order,       the array does not match ts4 exactly.  
+-   The following SELECT statement returns null because although all members of the specified array occur in ts4 in the correct order, the array does not match ts4 exactly.  
 
     ```
     SELECT TS_MATCH(ts4, TS_MATCHER_SEQ(), ARRAY('a','b','c'))
@@ -69,9 +69,9 @@ For example, consider the following string time series that contains five observ
 
     NaN  
 
--   The following SELECT statement returns the matching observations. The array `[b,c,d]` is a match because the following conditions       are satisfied:  
+-   The following SELECT statement returns the matching observations. The array `[b,c,d]` is a match because the following conditions are satisfied:  
     -   The three values of the pattern occur in the input time series contiguously.
-    -   The matcher threshold is 0.6, and the three input values represent at least 60% of the entire time series. If the threshold is           set to a number greater than 0.6, this function returns null.  
+    -   The matcher threshold is 0.6, and the three input values represent at least 60% of the entire time series. If the threshold is set to a number greater than 0.6, this function returns null.  
     
     ```
     SELECT TS_MATCH(ts4, TS_MATCHER_SUBLIST(0.6), ARRAY('b','c','d'))
@@ -81,9 +81,9 @@ For example, consider the following string time series that contains five observ
 
     `[(1,'b'), (3,'c'), (7,'d')]`  
 
--   The following SELECT statement returns the matching observations. The array `[a,b,d]` is a match because the following conditions       are satisfied:  
+-   The following SELECT statement returns the matching observations. The array `[a,b,d]` is a match because the following conditions are satisfied:  
     -   The three values of the pattern occur in the input time series in the specified order. (They do not have to be contiguous.)
-    -   The matcher threshold is 0.6, and the three input values represent at least 60% of the entire time series. If the threshold is           set to a number greater than 0.6, this function returns null.  
+    -   The matcher threshold is 0.6, and the three input values represent at least 60% of the entire time series. If the threshold is set to a number greater than 0.6, this function returns null.  
     
     ```
     SELECT TS_MATCH(ts4, TS_MATCHER_SUBSET_PS(0.6), ARRAY('a','b','d'))
@@ -93,9 +93,9 @@ For example, consider the following string time series that contains five observ
 
     `[(0,'a'), (1,'b'), (7,'d')]`  
 
--   The following SELECT statement returns the matching observations. The array `[a,b,d]` is a match because the following conditions       are satisfied:  
+-   The following SELECT statement returns the matching observations. The array `[a,b,d]` is a match because the following conditions are satisfied:  
     -   The three values of the pattern occur in the input time series in the specified order. (They do not have to be contiguous.)
-    -   The matcher threshold is 0.75, and the three input values represent at least 75% of the match sublist `(a,b,c,d)`. If the               threshold is set to a number greater than 0.75, this function returns null.  
+    -   The matcher threshold is 0.75, and the three input values represent at least 75% of the match sublist `(a,b,c,d)`. If the threshold is set to a number greater than 0.75, this function returns null.  
     
     ```
     SELECT TS_MATCH(ts4, TS_MATCHER_SUBSET_PM(0.75), ARRAY('a','b','d'))
@@ -105,9 +105,9 @@ For example, consider the following string time series that contains five observ
 
     `[(0,'a'), (1,'b'), (7,'d')]`  
 
--   The following SELECT statement returns the observations that correspond to the entire match sublist, not merely the observations         that correspond to the pattern. The array `[a,b,d]` is a match because the following conditions are satisfied:  
+-   The following SELECT statement returns the observations that correspond to the entire match sublist, not merely the observations that correspond to the pattern. The array `[a,b,d]` is a match because the following conditions are satisfied:  
     -   The three values of the pattern occur in the input time series in the specified order. (They do not have to be contiguous.)
-    -   The matcher threshold is 0.8, and the resulting match sublist `[a.b.c.d]` represents at least 80% of the entire sequence                 `(a,b,c,d,e)`. If the threshold is set to a number greater than 0.8, this function returns null.  
+    -   The matcher threshold is 0.8, and the resulting match sublist `[a.b.c.d]` represents at least 80% of the entire sequence `(a,b,c,d,e)`. If the threshold is set to a number greater than 0.8, this function returns null.  
     
     ```
     SELECT TS_MATCH(ts4, TS_MATCHER_SUBSET_MS(0.8), ARRAY('a','b','d'))

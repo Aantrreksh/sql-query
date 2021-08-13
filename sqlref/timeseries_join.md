@@ -19,8 +19,7 @@ subcollection: sql-query
 # Using a temporal join or align
 {: #temporal_align}
 
-A temporal join produces a single array time series based on the observations of the two input time series. 
-A temporal align produces two output time series with identical timeticks. In both cases, an interpolator is used to complete missing values.
+A temporal join produces a single array time series based on the observations of the two input time series. A temporal align produces two output time series with identical timeticks. In both cases, an interpolator is used to complete missing values.
 
 ## Temporal join
 {: #temporal_join}
@@ -42,7 +41,7 @@ For example, consider the following two input time series, which are stored in t
 
     `[(1, [1.2, 2.0]), (9, [5.4, 8.0])]`  
 
--   The following SELECT statement left-joins the two input DoubleTimeSeries to produce the following output DoubleArrayTimeSeries:  
+-   The following SELECT statement left-joins the two input DoubleTimeSeries to produce the following output DoubleArrayTimeSeries:
 
     ```
     SELECT TS_LEFT_JOIN(table1.col7, table2.col8, TS_INTERPOLATOR_PREV(-1.0))
@@ -52,31 +51,31 @@ For example, consider the following two input time series, which are stored in t
 
     `[(1, [1.2, 2.0]), (3, [2.2, 2.8]), (5, [3.6, 3.4]), (7, [4.4, NaN]), (9, [5.4, 8.0])]`  
 
-    Where no matching timetick exists in the right table, this statement uses an interpolator of type TS_INTERPOLATOR_PREV to generate       the missing value.
+    Where no matching timetick exists in the right table, this statement uses an interpolator of type TS_INTERPOLATOR_PREV to generate the missing value.
 
--   The following SELECT statement left-outer-joins the two input DoubleTimeSeries to produce the following output                           DoubleArrayTimeSeries:  
+-   The following SELECT statement left-outer-joins the two input DoubleTimeSeries to produce the following output DoubleArrayTimeSeries:
 
     ```
     SELECT TS_LEFT_OUTER_JOIN(table1.col7, table2.col8, TS_INTERPOLATOR_PREV(-1.0))
     ```
 
-    Result:  
+    Result:
 
     `[(3, [2.2, 2.8]), (5, [3.6, 3.4]), (7, [4.4, NaN])]`  
 
-    Where no matching timetick exists in the right table, this statement uses an interpolator of type TS_INTERPOLATOR_PREV to generate       the missing value.  
+    Where no matching timetick exists in the right table, this statement uses an interpolator of type TS_INTERPOLATOR_PREV to generate the missing value.  
 
--   The following SELECT statement full-joins the two input DoubleTimeSeries to produce the following output DoubleArrayTimeSeries:  
+-   The following SELECT statement full-joins the two input DoubleTimeSeries to produce the following output DoubleArrayTimeSeries:
 
     ```
     SELECT TS_FULL_JOIN(table1.col7, table2.col8, TS_INTERPOLATOR_NEAREST(-1.0))
     ```
 
-    Result:  
+    Result:
 
-    `[(1, [1.2, 2.0]), (2, [1.2, 2.8]), (3, [2.2, 2.8]), (4, [2.2, 3.4]), (5, [3.6, 3.4]), (6, [3.6, NaN]), (7, [4.4, NaN]), (9, [5.4,       8.0])]`  
+    `[(1, [1.2, 2.0]), (2, [1.2, 2.8]), (3, [2.2, 2.8]), (4, [2.2, 3.4]), (5, [3.6, 3.4]), (6, [3.6, NaN]), (7, [4.4, NaN]), (9, [5.4, 8.0])]`
 
-    Where no matching timetick exists in one table, this statement uses an interpolator of type TS_INTERPOLATOR_NEAREST to generate the     missing value.
+    Where no matching timetick exists in one table, this statement uses an interpolator of type TS_INTERPOLATOR_NEAREST to generate the missing value.
 
 
 ## Temporal align

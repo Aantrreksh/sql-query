@@ -17,20 +17,19 @@ subcollection: sql-query
 {:pre: .pre}
 
 # FAQ
-{: faq}
+{: #faq}
 
 ## Is {{site.data.keyword.sqlquery_full}} transaction safe?
-{: transaction_safe}
+{: #transaction_safe}
 
-{{site.data.keyword.sqlquery_short}} does not support INSERT, UPDATE or DELETE operations, while it can be used 
-to create {{site.data.keyword.cos_short}} objects using the INTO clause. For the created objects in {{site.data.keyword.cos_short}}, the question arises if this operation is transaction safe and ACID compliant?
+{{site.data.keyword.sqlquery_short}} does not support INSERT, UPDATE or DELETE operations, while it can be used to create {{site.data.keyword.cos_short}} objects using the INTO clause. For the created objects in {{site.data.keyword.cos_short}}, the question arises if this operation is transaction safe and ACID compliant?
 In other words, if you create an object in {{site.data.keyword.cos_short}} using {{site.data.keyword.sqlquery_short}}, can you assume that this creation is transaction safe and if anything happens before the creation is done, it will be rolled back?
 
 The answer is {{site.data.keyword.cos_full}} does not support transactions, but an object is rolled back if you are creating it with a single SQL query job on a non-partitioned object on {{site.data.keyword.cos_short}}, because {{site.data.keyword.cos_short}} itself does object write in an atomic fashion. If you want to write complex hierarchies of objects with a single SQL job, then a) it can happen that the job fails half way and only part of the objects are written, and b) during job execution some objects are already visible while others are still in process to be written.
 For the latter scenario, use Hive-style partitioned tables, which means that the SQL job writes a new set of objects into a new {{site.data.keyword.cos_short}} prefix location. This does not affect anything in the Hive-style partitioned table. Only when you then also issue an `ALTER TABLE … ADD PARTITION` with the newly written object location, the data will be made available in the Hive-style partitioned table. That ALTER TABLE DDL is in fact also an atomic operation.
 
 ## How to handle very large time series data sets?
-{: large_ts}
+{: #large_ts}
 
 When using time-series queries, in general, the more time series that exist, the better the parallelism.
 
@@ -44,8 +43,7 @@ from table
 using time_series_format(key="key", timetick="time_tick", value="amount") in ts
 ```
 
-The above query creates one time series per key, and partitions the data based on the key. Anytime a query is run against "ts", 
-it will be run in parallel across time series. The issue arises if "ts" is very large and thus does not fit in the memory of one machine. To mitigate this, modify your key as follows:
+The above query creates one time series per key, and partitions the data based on the key. Anytime a query is run against "ts", it will be run in parallel across time series. The issue arises if "ts" is very large and thus does not fit in the memory of one machine. To mitigate this, modify your key as follows.
 
 First, add a date or any granularity of time to your key (to generate a smaller time series):
 
@@ -58,7 +56,7 @@ from table
 into table2
 ```
 
-Second, create your time series with the new `date_and_key` key.
+Second, create your time series with the new `date_and_key` key:
 
 ```
 select
@@ -69,11 +67,10 @@ using time_series_format(key="date_and_key", timetick="time_tick", value="amount
 ```
 
 The final queries will better use parallelism by providing a larger set of keys. 
-In this case, you will not only have the set of unique keys, but the dates associated with each key, as well. 
-By doing so, each time series will be much smaller, and have a better chance of fitting in memory.
+In this case, you will not only have the set of unique keys, but the dates associated with each key, as well. By doing so, each time series will be much smaller, and have a better chance of fitting in memory.
 
 ## How to avoid exhausting allocated resources/out of memory errors (OOM)?
-{: oom}
+{: #oom}
 
 The most common cause for exhausting allocated resources or out of memory errors is the structure of the query or the layout of the data. The following best practices help to avoid such issues:
 

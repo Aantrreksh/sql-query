@@ -263,42 +263,42 @@ The following tables list some examples of currently supported {{site.data.keywo
 
 Cross region endpoint name | Alias
 --- | ---
-s3.us.cloud-object-storage.appdomain.cloud       | us-geo
-s3.eu.cloud-object-storage.appdomain.cloud       | eu-geo
-s3.ap.cloud-object-storage.appdomain.cloud       | ap-geo
+s3.us.cloud-object-storage.appdomain.cloud | us-geo
+s3.eu.cloud-object-storage.appdomain.cloud | eu-geo
+s3.ap.cloud-object-storage.appdomain.cloud | ap-geo
 
 Regional endpoint name | Alias
 --- | ---
-s3.eu-de.cloud-object-storage.appdomain.cloud    | eu-de
-s3.eu-gb.cloud-object-storage.appdomain.cloud    | eu-gb
+s3.eu-de.cloud-object-storage.appdomain.cloud | eu-de
+s3.eu-gb.cloud-object-storage.appdomain.cloud | eu-gb
 s3.us-south.cloud-object-storage.appdomain.cloud | us-south
-s3.us-east.cloud-object-storage.appdomain.cloud  | us-east
-s3.au-syd.cloud-object-storage.appdomain.cloud   | au-syd
-s3.jp-tok.cloud-object-storage.appdomain.cloud   | jp-tok
+s3.us-east.cloud-object-storage.appdomain.cloud | us-east
+s3.au-syd.cloud-object-storage.appdomain.cloud | au-syd
+s3.jp-tok.cloud-object-storage.appdomain.cloud | jp-tok
 
 Single data center endpoint name | Alias
 --- | ---
-s3.ams03.cloud-object-storage.appdomain.cloud    | ams03
-s3.che01.cloud-object-storage.appdomain.cloud    | che01
-s3.tor01.cloud-object-storage.appdomain.cloud    | tor01
-s3.osl01.cloud-object-storage.appdomain.cloud    | osl01
-s3.mel01.cloud-object-storage.appdomain.cloud    | mel01
-s3.sao01.cloud-object-storage.appdomain.cloud    | sao01
-s3.hkg02.cloud-object-storage.appdomain.cloud    | hkg02
-s3.mex01.cloud-object-storage.appdomain.cloud    | mex01
-s3.mil01.cloud-object-storage.appdomain.cloud    | mil01
-s3.mon01.cloud-object-storage.appdomain.cloud    | mon01
-s3.par01.cloud-object-storage.appdomain.cloud    | par01
-s3.sjc04.cloud-object-storage.appdomain.cloud    | sjc04
-s3.seo01.cloud-object-storage.appdomain.cloud    | seo01
-s3.sng01.cloud-object-storage.appdomain.cloud    | sng01
+s3.ams03.cloud-object-storage.appdomain.cloud | ams03
+s3.che01.cloud-object-storage.appdomain.cloud | che01
+s3.tor01.cloud-object-storage.appdomain.cloud | tor01
+s3.osl01.cloud-object-storage.appdomain.cloud | osl01
+s3.mel01.cloud-object-storage.appdomain.cloud | mel01
+s3.sao01.cloud-object-storage.appdomain.cloud | sao01
+s3.hkg02.cloud-object-storage.appdomain.cloud | hkg02
+s3.mex01.cloud-object-storage.appdomain.cloud | mex01
+s3.mil01.cloud-object-storage.appdomain.cloud | mil01
+s3.mon01.cloud-object-storage.appdomain.cloud | mon01
+s3.par01.cloud-object-storage.appdomain.cloud | par01
+s3.sjc04.cloud-object-storage.appdomain.cloud | sjc04
+s3.seo01.cloud-object-storage.appdomain.cloud | seo01
+s3.sng01.cloud-object-storage.appdomain.cloud | sng01
 
 ## Availability zones
 {: #availability}
 
 Regions | Availability zones
 --- | ---
-Dallas  | 3
+Dallas | 3
 Frankfurt | 3
 Chennai | 1
 
@@ -357,9 +357,9 @@ Each successful query is charged with at least 10 MB.
 ### Example
 {: #data-scanned-example}
 
-Assume you have 1 PB of data that is stored on Cloud {{site.data.keyword.cos_short}} that is laid out as described in the
-[blog post](https://www.ibm.com/cloud/blog/big-data-layout) and is optimized for the queries you want to run.
-If you run a single query, the most expensive query possible is `SELECT * FROM`, as reading 1 PB of data is required. Any other query is much cheaper and faster. For example, a 1 PB data set consists of audit events for users of a system (user A performed action B in system X at time T) and the data is laid out in a way that it is partitioned by time (one file per day and system). So to answer a query like `SELECT DISTINCT user FROM WHERE System='X' AND Day >= (TODAY - 30)`, {{site.data.keyword.sqlquery_short}} must access all objects for system X that contain data for the last 30 days. The sum of the size of these objects is the maximum estimate of data that is scanned that you would be charged for. But as {{site.data.keyword.sqlquery_short}} accesses only one field, and data is stored as Parquet, it is much less. Calculating the precise price of the query is not possible in advance because much of it depends on the data itself. Parquet, for example, stores compressed columns, so if the column can be compressed effectively, even less data needs to be read. You also find some further details in the blog post [SQL Query releases serverless transformation and partitioning of data in open formats](https://www.ibm.com/cloud/blog/announcements/sql-query-releases-serverless-transformation-and-partitioning-of-data-in-open-formats) about {{site.data.keyword.sqlquery_short}} ETL capabilities and how they affect scanned data.
+Assume you have 1 PB of data that is stored on Cloud {{site.data.keyword.cos_short}} that is laid out as described in the [blog post](https://www.ibm.com/cloud/blog/big-data-layout) and is optimized for the queries you want to run.
+If you run a single query, the most expensive query possible is `SELECT * FROM`, as reading 1 PB of data is required. Any other query is much cheaper and faster. For example, a 1 PB data set consists of audit events for users of a system (user A performed action B in system X at time T) and the data is laid out in a way that it is partitioned by time (one file per day and system). So to answer a query like `SELECT DISTINCT user FROM WHERE System='X' AND Day >= (TODAY - 30)`, {{site.data.keyword.sqlquery_short}} must access all objects for system X that contain data for the last 30 days. The sum of the size of these objects is the maximum estimate of data that is scanned that you would be charged for. But as {{site.data.keyword.sqlquery_short}} accesses only one field, and data is stored as Parquet, it is much less. Calculating the precise price of the query is not possible in advance because much of it depends on the data itself. Parquet, for example, stores compressed columns, so if the column can be compressed effectively, even less data needs to be read. You also find some further details in the blog post [SQL Query releases serverless transformation and partitioning of data in open formats]
+(https://www.ibm.com/cloud/blog/announcements/sql-query-releases-serverless-transformation-and-partitioning-of-data-in-open-formats) about {{site.data.keyword.sqlquery_short}} ETL capabilities and how they affect scanned data.
 
 ## Timestamps
 {: #timestamps}
