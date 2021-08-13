@@ -66,7 +66,7 @@ You can view completed and failed jobs, the number of bytes processed, and the j
 
 ## January 2020
 
--   {{site.data.keyword.sqlquery_short}} fully supports all current public and private {{site.data.keyword.cos_full}} endpoints (ending with `.appdomain.cloud`, for example,  `s3.us.cloud-object-storage.appdomain.cloud`) and all new single data center endpoints (for example, sng01).
+-   {{site.data.keyword.sqlquery_short}} fully supports all current public and private {{site.data.keyword.cos_full}} endpoints (ending with `appdomain.cloud`, for example, `s3.us.cloud-object-storage.appdomain.cloud`) and all new single data center endpoints (for example, `sng01`).
 
 ## December 2019
 
