@@ -20,27 +20,27 @@ subcollection: sql-query
 -->
 
 ## July 2021
--   A detailed [getting started tutorial](https://www.ibm.com/cloud/blog/stream-landing-from-event-streams-kafka-service-to-ibm-cloud-       data-lake-on-object-storage) for stream landing with {{site.data.keyword.sqlquery_full}} is now available.
+-   A detailed [getting started tutorial](https://www.ibm.com/cloud/blog/stream-landing-from-event-streams-kafka-service-to-ibm-cloud-data-lake-on-object-storage) for stream landing with {{site.data.keyword.sqlquery_full}} is now available.
 -   The stream landing capability is now also available in Frankfurt, in addition to Dallas.
 
 ## June 2021
 <!--- The {{site.data.keyword.sqlquery_full}} UI can now display Parquet results, in addition to CSV and JSON data. --->
--   {{site.data.keyword.sqlquery_short}} now supports stream landing that enables you to stream your data in real-time from a topic to a     bucket of your choice. This capability enables efficient analytics on the new objects created.
--   {{site.data.keyword.cpd_full}} now comes with an integrated connector to {{site.data.keyword.sqlquery_short}} that allows to connect     to cloud data lakes and import data assets into projects and catalogs in {{site.data.keyword.cpd_short}}. For more information, see     [Connecting to a Cloud Data Lake with IBM Cloud Pak for Data](https://www.ibm.com/cloud/blog/connecting-to-a-cloud-data-lake-with-       ibm-cloud-pak-for-data).
+-   {{site.data.keyword.sqlquery_short}} now supports stream landing that enables you to stream your data in real-time from a topic to a bucket of your choice. This capability enables efficient analytics on the new objects created.
+-   {{site.data.keyword.cpd_full}} now comes with an integrated connector to {{site.data.keyword.sqlquery_short}} that allows to connect to cloud data lakes and import data assets into projects and catalogs in {{site.data.keyword.cpd_short}}. For more information, see [Connecting to a Cloud Data Lake with IBM Cloud Pak for Data](https://www.ibm.com/cloud/blog/connecting-to-a-cloud-data-lake-with-ibm-cloud-pak-for-data).
 
 ## December 2020
--   {{site.data.keyword.sqlquery_short}} is available in Chennai, India. When you provision new instances, you can select whether it is     being provisioned in Dallas, Frankfurt, or Chennai.
--   {{site.data.keyword.cos_full_notm}} web console discovers SQL-queryable objects and folders and directly launches the                   {{site.data.keyword.sqlquery_short}} web console with a prefilled SQL statement for seamless interactive data exploration.
+-   {{site.data.keyword.sqlquery_short}} is available in Chennai, India. When you provision new instances, you can select whether it is being provisioned in Dallas, Frankfurt, or Chennai.
+-   {{site.data.keyword.cos_full_notm}} web console discovers SQL-queryable objects and folders and directly launches the {{site.data.keyword.sqlquery_short}} web console with a prefilled SQL statement for seamless interactive data exploration.
 
 ## November 2020
 - The location of Hive partitions can be modified by using the [`ALTER TABLE SET LOCATION`](/docs/sql-query?topic=sql-query-sql-reference#chapterAlterTableSetLocation) feature.
 
 ## October 2020
 -   {{site.data.keyword.sqlquery_short}} index management, also referred to as data skipping is generally available with full production support.
--   {{site.data.keyword.sqlquery_full}} comes with open data out of the box, including geolocation, and demographic data that can be         used as reference data to combine with your own data sets. It is based on open data from US Census, Eurostat Census, UNdata,             OpenStreetMap, and Natural Earth. Explore it by using the new category **Reference data statements** in SAMPLES.
--   {{site.data.keyword.sqlquery_short}} time series functions: The anchor functions are deprecated and replaced by the new and more         powerful expression creation functions.
--   The [ibmcloudsql](https://pypi.org/project/ibmcloudsql) Python SDK significantly expanded in functionality for even more powerful       Python analytics with SQL. Take a tour of the functions in the [SQL Query Starter Notebook]                                             (https://dataplatform.cloud.ibm.com/exchange/public/entry/view/4a9bb1c816fb1e0f31fec5d580e4e14d). The Python SDK also comes with a        dedicated [online documentation](https://ibm-cloud.github.io/sql-query-clients/intro.html#ibmcloudsql).
--   The usage of the legacy SoftLayer endpoints of Cloud {{site.data.keyword.cos_full_notm}} is discontinued. Check out the [Cloud        Object Storage announcement](https://cloud.ibm.com/status?component=cloud-object-     storage&location=global&selected=announcement&query=2020+Actions) for more details.
+-   {{site.data.keyword.sqlquery_full}} comes with open data out of the box, including geolocation, and demographic data that can be used as reference data to combine with your own data sets. It is based on open data from US Census, Eurostat Census, UNdata, OpenStreetMap, and Natural Earth. Explore it by using the new category **Reference data statements** in SAMPLES.
+-   {{site.data.keyword.sqlquery_short}} time series functions: The anchor functions are deprecated and replaced by the new and more powerful expression creation functions.
+-   The [ibmcloudsql](https://pypi.org/project/ibmcloudsql) Python SDK significantly expanded in functionality for even more powerful Python analytics with SQL. Take a tour of the functions in the [SQL Query Starter Notebook](https://dataplatform.cloud.ibm.com/exchange/public/entry/view/4a9bb1c816fb1e0f31fec5d580e4e14d). The Python SDK also comes with a dedicated [online documentation](https://ibm-cloud.github.io/sql-query-clients/intro.html#ibmcloudsql).
+-   The usage of the legacy SoftLayer endpoints of Cloud {{site.data.keyword.cos_full_notm}} is discontinued. Check out the [Cloud Object Storage announcement](https://cloud.ibm.com/status?component=cloud-object-storage&location=global&selected=announcement&query=2020+Actions) for more details.
 
 ## September 2020
 
@@ -94,24 +94,24 @@ You can view completed and failed jobs, the number of bytes processed, and the j
 ## July 2019
 
 -   JSON preview:
-    You can directly preview query results in JSON format in the SQL console. Add `INTO <COS URI> STORED AS JSON` to your SQL statement     to produce JSON output and preview it in the web console.
--   Support for Parquet schema evolution through the [`MERGE SCHEMA`](/docs/sql-query?topic=sql-query-sql-reference#externalTableSpec)       sub clause for `STORED AS PARQUET` input data. Check out the new samples in the UI.
--   Support for [`CLEANCOLS`](/docs/sql-query?topic=sql-query-sql-reference#tableTransformer) table transformation function that             generically cleanses all input column names from characters that are not supported by the Parquet target format. Check out the new       Samples.
+    You can directly preview query results in JSON format in the SQL console. Add `INTO <COS URI> STORED AS JSON` to your SQL statement to produce JSON output and preview it in the web console.
+-   Support for Parquet schema evolution through the [`MERGE SCHEMA`](/docs/sql-query?topic=sql-query-sql-reference#externalTableSpec) sub clause for `STORED AS PARQUET` input data. Check out the new samples in the UI.
+-   Support for [`CLEANCOLS`](/docs/sql-query?topic=sql-query-sql-reference#tableTransformer) table transformation function that generically cleanses all input column names from characters that are not supported by the Parquet target format. Check out the new Samples.
 -   Support for [`FLATTEN`](/docs/sql-query?topic=sql-query-sql-reference#tableTransformer) table transformation function that
     generically flattens all nested input columns into a flat hierarchy, allowing to easily work with, for example, JSON input data and
     write the results out to flat CSV files. Check out the new samples in the UI.
 
 ## June 2019
 
--   {{site.data.keyword.sqlquery_short}} is available in Frankfurt, Germany. When you provision new instances, you can select whether it     is being provisioned in Dallas or in Frankfurt.
+-   {{site.data.keyword.sqlquery_short}} is available in Frankfurt, Germany. When you provision new instances, you can select whether it is being provisioned in Dallas or in Frankfurt.
 -   Support for [time series SQL functions](/docs/services/sql-query?topic=sql-query-ts_intro) to process time series data, for example,
     to identify trends and to predict future values based on these trends.
 
 ## May 2019
 
 -   Updates to the [SQL reference](/docs/services/sql-query?topic=sql-query-sql-reference):
-    -   [`JOBPREFIX JOBID/NONE`](/docs/sql-query?topic=sql-query-sql-reference#cosResultClause), you can specify whether you want the           job ID to be appended to the target prefix, or not.
-    -   The [`SORT BY`](/docs/sql-query?topic=sql-query-sql-reference#sortClause) clause for SQL targets is new. You can use it to sort         SQL result sets in many ways before writing the results to {{site.data.keyword.cos_full_notm}}. It can be used in combination           with [`PARTITIONED BY`](/docs/sql-query?topic=sql-query-sql-reference#partitionedClause), [`PARTITIONED INTO`](/docs/sql-query?         topic=sql-query-sql-reference#partitionedClause) (to cluster the results), or without the PARTITIONED clause.
+    -   [`JOBPREFIX JOBID/NONE`](/docs/sql-query?topic=sql-query-sql-reference#cosResultClause), you can specify whether you want the job ID to be appended to the target prefix, or not.
+    -   The [`SORT BY`](/docs/sql-query?topic=sql-query-sql-reference#sortClause) clause for SQL targets is new. You can use it to sort SQL result sets in many ways before writing the results to {{site.data.keyword.cos_full_notm}}. It can be used in combination with [`PARTITIONED BY`](/docs/sql-query?topic=sql-query-sql-reference#partitionedClause), [`PARTITIONED INTO`](/docs/sql-query?topic=sql-query-sql-reference#partitionedClause) (to cluster the results), or without the PARTITIONED clause.
     -   [`PARTITIONED INTO BUCKETS`](/docs/sql-query?topic=sql-query-sql-reference#partitionedClause) and [`PARTITIONED INTO OBJECTS`]           (/docs/sql-query?topic=sql-query-sql-reference#partitionedClause) are both supported, thus you can use them synonymously.
 
 ## April 2019
