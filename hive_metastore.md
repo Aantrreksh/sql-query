@@ -69,24 +69,24 @@ If you want to use more specific data types than the data types inferred by auto
 
 ```sql
 CREATE TABLE employees (
-  employeeID int,
-  lastName string,
-  firstName string,
-  title string,
-  titleOfCourtesy string,
-  birthDate timestamp,
-  hireDate timestamp,
-  address string,
-  city string,
-  region string,
-  postalCode string,
-  country string,
-  homePhone string,
-  extension int,
-  photo string,
-  notes string,
-  reportsTo string,
-  photoPath string
+    employeeID int,
+    lastName string,
+    firstName string,
+    title string,
+    titleOfCourtesy string,
+    birthDate timestamp,
+    hireDate timestamp,
+    address string,
+    city string,
+    region string,
+    postalCode string,
+    country string,
+    homePhone string,
+    extension int,
+    photo string,
+    notes string,
+    reportsTo string,
+    photoPath string
 )
 USING PARQUET
 LOCATION cos://us-geo/sql/employees.parquet
@@ -143,16 +143,16 @@ This data partitioning is reflected in the PARTITIONED BY clause of the followin
 
 ```sql
 CREATE TABLE customers (
-  customerID string,
-  companyName string,
-  contactName string,
-  contactTitle string,
-  address string,
-  region string,
-  postalCode string,
-  country string,
-  phone string,
-  fax string
+    customerID string,
+    companyName string,
+    contactName string,
+    contactTitle string,
+    address string,
+    region string,
+    postalCode string,
+    country string,
+    phone string,
+    fax string
 )
 USING CSV
 PARTITIONED BY (country)
@@ -205,6 +205,6 @@ The query execution reads the objects only under the `cos://us-geo/sql/customers
 
 - The `ADD PARTITION` option of the `ALTER TABLE` statement may not correctly locate partitions if the value for a partition column contains special characters, such as the colon `:` that can appear as a timestamp separator.
 
-  When the location is inferred from one or more partition values, some special characters in the values are URL escaped when you construct the {{site.data.keyword.cos_short}} location. For example, the statement `ALTER TABLE mytable ADD PARTITION ( startTime = '2020-01-01 12:00:00' )` constructs a partition with an {{site.data.keyword.cos_short}} location `.../startTime=2020-01-01 12%3A00%3A00/`. If that location does not match the location of the objects to be added, the objects are not found and the new partition is empty.
+    When the location is inferred from one or more partition values, some special characters in the values are URL escaped when you construct the {{site.data.keyword.cos_short}} location. For example, the statement `ALTER TABLE mytable ADD PARTITION ( startTime = '2020-01-01 12:00:00' )` constructs a partition with an {{site.data.keyword.cos_short}} location `.../startTime=2020-01-01 12%3A00%3A00/`. If that location does not match the location of the objects to be added, the objects are not found and the new partition is empty.
 
-  Avoid this case by explicitly specifying the _exact_ object location, as in `ALTER TABLE mytable ADD PARTITION ( startTime = '2020-01-01 12:00:00' ) LOCATION <base-location>/startTime=2020-01-01 12:00:00/` (note the unescaped colons in the location).
+    Avoid this case by explicitly specifying the _exact_ object location, as in `ALTER TABLE mytable ADD PARTITION ( startTime = '2020-01-01 12:00:00' ) LOCATION <base-location>/startTime=2020-01-01 12:00:00/` (note the unescaped colons in the location).

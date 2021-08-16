@@ -17,11 +17,9 @@ subcollection: sql-query
 {:pre: .pre}
 
 # Deployment model
-{:deployment}
+{: #deployment}
 
-{{site.data.keyword.sqlquery_full}}'s Deployment Model corresponds to a public service with public endpoints.
-It is the publicly shared multi-tenant deployment model for IBM Services, and as such, this model is not dedicated. 
-The service is accessed through public endpoints. Both, the control and data plane of the service, are shared across tenants.
+{{site.data.keyword.sqlquery_full}}'s Deployment Model corresponds to a public service with public endpoints. It is the publicly shared multi-tenant deployment model for IBM Services, and as such, this model is not dedicated. The service is accessed through public endpoints. Both, the control and data plane of the service, are shared across tenants.
 
 Tenant isolation models | Tenant domain isolation | Endpoint isolation | Compute isolation | Storage isolation | Network isolation
 --- | --- | --- | --- | --- | ---

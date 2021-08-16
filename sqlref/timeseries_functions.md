@@ -21,7 +21,7 @@ subcollection: sql-query
 
 Use time series functions to process time series data.
 
-- [Artifact creation functions](/docs/services/sql-query?topic=sql-query-artifact)  
-  Each of these functions produces, as its output, a time series or some other artifact that some data processing functions require as input.
-- [Data processing functions](/docs/services/sql-query?topic=sql-query-data_processing_functions)  
-  Each of these functions evaluates or manipulates input data and produces output data.
+-   [Artifact creation functions](/docs/services/sql-query?topic=sql-query-artifact)  
+    Each of these functions produces, as its output, a time series or some other artifact that some data processing functions require as     input.
+-   [Data processing functions](/docs/services/sql-query?topic=sql-query-data_processing_functions)  
+    Each of these functions evaluates or manipulates input data and produces output data.

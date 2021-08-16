@@ -85,8 +85,8 @@ The following limitations are implied by the use of {{site.data.keyword.sqlquery
 - Query results are returned through results in Cloud {{site.data.keyword.cos_short}}. A `SELECT *` query creates a full copy of the selected table (or Cloud {{site.data.keyword.cos_short}}) in the `targetcosurl` location.
 - Streaming of query results cannot start until the execution fully completed and results were written to Cloud {{site.data.keyword.cos_short}}.
 - {{site.data.keyword.sqlquery_short}} works on read-only data in Cloud {{site.data.keyword.cos_short}}, so the following functionality that is related to data updates is not supported:
-  - Transactions are not supported. `commit()` and `rollback()` are no-ops.
-  - Result sets that can be updated are not supported.
+    - Transactions are not supported. `commit()` and `rollback()` are no-ops.
+    - Result sets that can be updated are not supported.
 - SQL statements cannot be canceled.
 
 ## Driver-specific limitations
@@ -141,38 +141,38 @@ The following steps describe how to make Tableau Desktop for Windows work with t
 
 2. Download the {{site.data.keyword.sqlquery_short}} JDBC driver and copy it to the installation directory of Tableau.
 
-   - For **Windows**: `C:\Program Files\Tableau\Drivers\ibmcloudsql-jdbc-<version>.jar`
+    - For **Windows**: `C:\Program Files\Tableau\Drivers\ibmcloudsql-jdbc-<version>.jar`
 
-   - For **Mac**: `~/Library/Tableau/Drivers/ibmcloudsql-jdbc-<version>.jar`
+    - For **Mac**: `~/Library/Tableau/Drivers/ibmcloudsql-jdbc-<version>.jar`
 
 3. Create a Tableau Datasource Customization file (*.tdc) with the following content:
 
   ```
   <connection-customization class='genericjdbc' enabled='true' version='2020.2'>
   <vendor name='genericjdbc' />
-    <driver name='ibmcloudsql' />
-        <customizations>
-        <customization name='CAP_CREATE_TEMP_TABLES' value='no'/>
-        <customization name='CAP_SELECT_TOP_INTO' value='no'/>
-        <customization name='CAP_QUERY_TOP_N' value='yes'/>
-        <customization name='CAP_QUERY_TOPSTYLE_TOP' value='no'/>
-        <customization name='CAP_QUERY_TOPSTYLE_ROWNUM' value='no'/>
-        <customization name='CAP_QUERY_TOPSTYLE_LIMIT' value='yes'/>
-        <customization name='CAP_QUERY_SUBQUERIES_WITH_TOP' value='no'/>
-        <customization name='CAP_QUERY_GROUP_BY_DEGREE' value='no'/>`
-        <customization name='CAP_JDBC_SUPPRESS_ENUMERATE_DATABASES' value='yes'/>
-        <customization name='CAP_JDBC_SUPPRESS_ENUMERATE_SCHEMAS' value='yes'/>
-       </customizations>
+      <driver name='ibmcloudsql' />
+          <customizations>
+          <customization name='CAP_CREATE_TEMP_TABLES' value='no'/>
+          <customization name='CAP_SELECT_TOP_INTO' value='no'/>
+          <customization name='CAP_QUERY_TOP_N' value='yes'/>
+          <customization name='CAP_QUERY_TOPSTYLE_TOP' value='no'/>
+          <customization name='CAP_QUERY_TOPSTYLE_ROWNUM' value='no'/>
+          <customization name='CAP_QUERY_TOPSTYLE_LIMIT' value='yes'/>
+          <customization name='CAP_QUERY_SUBQUERIES_WITH_TOP' value='no'/>
+          <customization name='CAP_QUERY_GROUP_BY_DEGREE' value='no'/>`
+          <customization name='CAP_JDBC_SUPPRESS_ENUMERATE_DATABASES' value='yes'/>
+          <customization name='CAP_JDBC_SUPPRESS_ENUMERATE_SCHEMAS' value='yes'/>
+          </customizations>
 </connection-customization>
 ```
 
-   - Store the content in a *.tdc file in the following folder:
+    - Store the content in a *.tdc file in the following folder:
 
-     **Windows**: `C:\Documents\My Tableau Repository\Datasources\ibmcloudsql-jdbc.tdc`
+      **Windows**: `C:\Documents\My Tableau Repository\Datasources\ibmcloudsql-jdbc.tdc`
 
-     **Mac**: `~/My Tableau Repository/Datasources/ibmcloudsql-jdbc.tdc`
+      **Mac**: `~/My Tableau Repository/Datasources/ibmcloudsql-jdbc.tdc`
 
-     If further customization is needed in future, look [here](https://help.tableau.com/current/pro/desktop/en-us/jdbc_capabilities.htm) for capabilities that can be turned on and off.
+      If further customization is needed in future, look [here](https://help.tableau.com/current/pro/desktop/en-us/jdbc_capabilities.htm) for capabilities that can be turned on and off.
 
 4. Start Tableau Desktop. Go to **Connect > To a Server > More**.
 5. On the next page, you see a list of supported connectors. Select **Other Databases (JDBC)**.

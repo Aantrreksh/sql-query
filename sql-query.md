@@ -17,10 +17,10 @@ subcollection: sql-query
 {:pre: .pre}
 
 # Overview
-{:shortdesc}
+{: #overview}
 
 {{site.data.keyword.sqlquery_full}} is a fully managed service that runs SQL queries (that is, SELECT statements) to analyze, transform, or clean up rectangular data.
-{:shortdesc}
+{: shortdesc}
 
 **Note:** You can use {{site.data.keyword.sqlquery_short}} to create SELECT statements only; actions such as CREATE, DELETE, INSERT, and UPDATE are not possible.
 
@@ -44,9 +44,7 @@ frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; pict
 {: #stored}
 
 Before you can use the {{site.data.keyword.sqlquery_short}} service to run SQL queries, the input data must be uploaded to one or more Cloud {{site.data.keyword.cos_short}} instances.
-You must also have at least 'Writer' access to at least one Cloud {{site.data.keyword.cos_short}} bucket, so that result objects
-(that is, the objects that contain output data) can be written there.
-For more information about Cloud {{site.data.keyword.cos_short}}, including how to provision an instance, create buckets, and upload data, see the [Cloud Object Storage Getting Started Guide](/docs/cloud-object-storage/getting-started.html#getting-started-console).
+You must also have at least 'Writer' access to at least one Cloud {{site.data.keyword.cos_short}} bucket, so that result objects (that is, the objects that contain output data) can be written there. For more information about Cloud {{site.data.keyword.cos_short}}, including how to provision an instance, create buckets, and upload data, see the [Cloud Object Storage Getting Started Guide](/docs/cloud-object-storage/getting-started.html#getting-started-console).
 
 ## Running a query
 {: #running}
@@ -70,7 +68,7 @@ However, if the format is JSON, ORC, Parquet, or AVRO, after the `FROM` clause, 
     - If the format of the input objects is CSV and a delimiter other than the default `,` (comma) is used, you must specify the delimiter by using the `FIELDS TERMINATED BY` option of the [`STORED AS`](/docs/sql-query?topic=sql-query-sql-reference#externalTableSpec) clause. All single Unicode characters are allowed as delimiters.
     - By default, it is assumed that CSV input objects have a header line that specifies the names of the input columns. If the objects don't have a header line, you must specify `NOHEADER` in the [`STORED AS`](/docs/sql-query?topic=sql-query-sql-reference#externalTableSpec) clause.
     - By default, it is assumed that JSON input objects consist of a single JSON record per line. If individual records span multiple lines, you must specify `MULTILINE` in the [`STORED AS`](/docs/sql-query?topic=sql-query-sql-reference#externalTableSpec) clause.
-    - If required, you can use `JOIN` constructs to join data from several input URIs, even if those URIs point to different instances of Cloud {{site.data.keyword.cos_short}} .
+    - If required, you can use `JOIN` constructs to join data from several input URIs, even if those URIs point to different instances of Cloud {{site.data.keyword.cos_short}}.
     - Use the `INTO` clause of a [query](/docs/sql-query?topic=sql-query-sql-reference#chapterSQLQueryStatement) to specify the output [URI](#unique), that is, the location to which the result is to be written and the wanted result format.
 2. The **Target location** field displays where the result is stored. An initial bucket in one of your {{site.data.keyword.cos_short}} instances is automatically created for you when you open the UI. It is then chosen as your default location, if your query does not specify an `INTO` clause. To ensure the automatic setup of an initial bucket, do the following steps in advance:
 
@@ -138,8 +136,7 @@ The latter is only supported for target locations of an SQL query, and only for 
 ### Cloud Object Storage locations
 {: #cos-location}
 
-This identifier points to a location on Cloud {{site.data.keyword.cos_short}} with a URI format. The access to this Cloud {{site.data.keyword.cos_short}} bucket is given through the {{site.data.keyword.iamlong}} (IAM) identity
-of the user that submitted the SQL statement to {{site.data.keyword.sqlquery_short}}. So, make sure that the user's IAM identity has the necessary access rights that are granted on the Cloud {{site.data.keyword.cos_short}} bucket.
+This identifier points to a location on Cloud {{site.data.keyword.cos_short}} with a URI format. The access to this Cloud {{site.data.keyword.cos_short}} bucket is given through the {{site.data.keyword.iamlong}} (IAM) identity of the user that submitted the SQL statement to {{site.data.keyword.sqlquery_short}}. So, make sure that the user's IAM identity has the necessary access rights that are granted on the Cloud {{site.data.keyword.cos_short}} bucket.
 
 The identifier has the following form:
 
@@ -173,7 +170,7 @@ objects `mydir/test100`, and `mydir/test101/nested/object`.
 - For an output URI, it is the prefix under which the [result objects](#result) are to be written.
 
 ### Composite input tables
-{: compositeInput}
+{: #compositeInput}
 
 As noted previously, the URI for an input table on Cloud {{site.data.keyword.cos_short}} can match multiple objects, forming a "composite" input table. When you run a query over composite input, ensure that the schema of each matching object is appropriate within the context of the SELECT statement. The schemas of the objects do not need to be identical; depending on the input format, the schemas of multiple objects can be merged:
 - For CSV format, columns are matched based on their *order*. Some input objects can contain more columns than others, but common columns must always use the same order across objects. The number of columns in the composite input is the maximum number of columns from all matched objects.
@@ -266,42 +263,42 @@ The following tables list some examples of currently supported {{site.data.keywo
 
 Cross region endpoint name | Alias
 --- | ---
-s3.us.cloud-object-storage.appdomain.cloud     | us-geo
-s3.eu.cloud-object-storage.appdomain.cloud     | eu-geo
-s3.ap.cloud-object-storage.appdomain.cloud     | ap-geo
+s3.us.cloud-object-storage.appdomain.cloud | us-geo
+s3.eu.cloud-object-storage.appdomain.cloud | eu-geo
+s3.ap.cloud-object-storage.appdomain.cloud | ap-geo
 
 Regional endpoint name | Alias
 --- | ---
-s3.eu-de.cloud-object-storage.appdomain.cloud    | eu-de
-s3.eu-gb.cloud-object-storage.appdomain.cloud    | eu-gb
+s3.eu-de.cloud-object-storage.appdomain.cloud | eu-de
+s3.eu-gb.cloud-object-storage.appdomain.cloud | eu-gb
 s3.us-south.cloud-object-storage.appdomain.cloud | us-south
-s3.us-east.cloud-object-storage.appdomain.cloud  | us-east
-s3.au-syd.cloud-object-storage.appdomain.cloud   | au-syd
-s3.jp-tok.cloud-object-storage.appdomain.cloud   | jp-tok
+s3.us-east.cloud-object-storage.appdomain.cloud | us-east
+s3.au-syd.cloud-object-storage.appdomain.cloud | au-syd
+s3.jp-tok.cloud-object-storage.appdomain.cloud | jp-tok
 
 Single data center endpoint name | Alias
 --- | ---
-s3.ams03.cloud-object-storage.appdomain.cloud   | ams03
-s3.che01.cloud-object-storage.appdomain.cloud   | che01
-s3.tor01.cloud-object-storage.appdomain.cloud   | tor01
-s3.osl01.cloud-object-storage.appdomain.cloud   | osl01
-s3.mel01.cloud-object-storage.appdomain.cloud   | mel01
-s3.sao01.cloud-object-storage.appdomain.cloud   | sao01
-s3.hkg02.cloud-object-storage.appdomain.cloud   | hkg02
-s3.mex01.cloud-object-storage.appdomain.cloud   | mex01
-s3.mil01.cloud-object-storage.appdomain.cloud   | mil01
-s3.mon01.cloud-object-storage.appdomain.cloud   | mon01
-s3.par01.cloud-object-storage.appdomain.cloud   | par01
-s3.sjc04.cloud-object-storage.appdomain.cloud   | sjc04
-s3.seo01.cloud-object-storage.appdomain.cloud   | seo01
-s3.sng01.cloud-object-storage.appdomain.cloud   | sng01
+s3.ams03.cloud-object-storage.appdomain.cloud | ams03
+s3.che01.cloud-object-storage.appdomain.cloud | che01
+s3.tor01.cloud-object-storage.appdomain.cloud | tor01
+s3.osl01.cloud-object-storage.appdomain.cloud | osl01
+s3.mel01.cloud-object-storage.appdomain.cloud | mel01
+s3.sao01.cloud-object-storage.appdomain.cloud | sao01
+s3.hkg02.cloud-object-storage.appdomain.cloud | hkg02
+s3.mex01.cloud-object-storage.appdomain.cloud | mex01
+s3.mil01.cloud-object-storage.appdomain.cloud | mil01
+s3.mon01.cloud-object-storage.appdomain.cloud | mon01
+s3.par01.cloud-object-storage.appdomain.cloud | par01
+s3.sjc04.cloud-object-storage.appdomain.cloud | sjc04
+s3.seo01.cloud-object-storage.appdomain.cloud | seo01
+s3.sng01.cloud-object-storage.appdomain.cloud | sng01
 
 ## Availability zones
 {: #availability}
 
 Regions | Availability zones
 --- | ---
-Dallas  | 3
+Dallas | 3
 Frankfurt | 3
 Chennai | 1
 
@@ -330,25 +327,18 @@ in the [IBM Cloud Pak for Data Gallery](https://dataplatform.cloud.ibm.com/galle
 ### Cloud functions
 {: #cloud}
 
-{{site.data.keyword.sqlquery_short}} is a serverless mechanism to submit SQL queries, making it a natural match for the serverless
-[IBM Cloud Functions](https://www.ibm.com/cloud/functions). You can use the generic
-[SQL Cloud function](https://hub.docker.com/r/ibmfunctions/sqlquery) to run {{site.data.keyword.sqlquery_short}} as an IBM Cloud function.
+{{site.data.keyword.sqlquery_short}} is a serverless mechanism to submit SQL queries, making it a natural match for the serverless [IBM Cloud Functions](https://www.ibm.com/cloud/functions). You can use the generic [SQL Cloud function](https://hub.docker.com/r/ibmfunctions/sqlquery) to run {{site.data.keyword.sqlquery_short}} as an IBM Cloud function.
 
 ### Geospatial functions
 {: #geospatial-functions}
 
-The [Geospatial Toolkit](https://www.ibm.com/support/knowledgecenter/en/SSCJDQ/com.ibm.swg.im.dashdb.analytics.doc/doc/geo_intro.html)
-provides a set of [geospatial functions](https://www.ibm.com/support/knowledgecenter/en/SSCJDQ/com.ibm.swg.im.dashdb.analytics.doc/doc/geo_functions.html)
-that you can use to efficiently process and index spatial data.
-These functions are integrated into the {{site.data.keyword.sqlquery_short}} service and ready for immediate use.
-The {{site.data.keyword.sqlquery_short}} service also provides several sample queries that illustrate how
-to use these functions.
+The [Geospatial Toolkit](https://www.ibm.com/support/knowledgecenter/en/SSCJDQ/com.ibm.swg.im.dashdb.analytics.doc/doc/geo_intro.html) provides a set of [geospatial functions](https://www.ibm.com/support/knowledgecenter/en/SSCJDQ/com.ibm.swg.im.dashdb.analytics.doc/doc/geo_functions.html) that you can use to efficiently process and index spatial data.
+These functions are integrated into the {{site.data.keyword.sqlquery_short}} service and ready for immediate use. The {{site.data.keyword.sqlquery_short}} service also provides several sample queries that illustrate how to use these functions.
 
 ## Required user roles
 {: #user-roles}
 
-The following table shows which user roles are required to start a particular service action or API endpoint.
-Use this information to decide which access rights to grant your users when you create new user IDs.
+The following table shows which user roles are required to start a particular service action or API endpoint. Use this information to decide which access rights to grant your users when you create new user IDs.
 
 Description | Service action | API endpoint | Required user roles
 --- | --- | --- | ---
@@ -360,15 +350,13 @@ Submit a catalog or index management statement | sql-query.api.managecatalog | `
 ## Behavior of scanned data
 {: #data-scanned}
 
-{{site.data.keyword.sqlquery_short}} reads as little data as possible based on your query. The amount of data that is scanned depends on the amount of data that {{site.data.keyword.sqlquery_short}} must read to run your query, and not on the actual size of your data. Several factors play a role when it comes to how much data needs to be accessed to run a query. First, data layout is important. Columnar formats, such as Parquet, lead to less data to be scanned, as {{site.data.keyword.sqlquery_short}} can selectively read ranges and single columns. Furthermore, the actual object layout determines how many objects need to be scanned. Read [How to lay out big data in IBM Cloud Object Storage for Spark SQL](https://www.ibm.com/cloud/blog/big-data-layout) for more details on how to lay out big data on Cloud {{site.data.keyword.cos_short}} to improve cost and performance of SQL queries.
-
+{{site.data.keyword.sqlquery_short}} reads as little data as possible based on your query. The amount of data that is scanned depends on the amount of data that {{site.data.keyword.sqlquery_short}} must read to run your query, and not on the actual size of your data. Several factors play a role when it comes to how much data needs to be accessed to run a query. First, data layout is important. Columnar formats, such as Parquet, lead to less data to be scanned, as {{site.data.keyword.sqlquery_short}} can selectively read ranges and single columns. Furthermore, the actual object layout determines how many objects need to be scanned. Read [How to lay out big data in IBM Cloud Object Storage for Spark SQL](https://www.ibm.com/cloud/blog/big-data-layout) for more details on how to lay out big data on Cloud {{site.data.keyword.cos_short}} to improve cost and performance of SQL queries. 
 Each successful query is charged with at least 10 MB.
 
 ### Example
 {: #data-scanned-example}
 
-Assume you have 1 PB of data that is stored on Cloud {{site.data.keyword.cos_short}} that is laid out as described in the
-[blog post](https://www.ibm.com/cloud/blog/big-data-layout) and is optimized for the queries you want to run.
+Assume you have 1 PB of data that is stored on Cloud {{site.data.keyword.cos_short}} that is laid out as described in the [blog post](https://www.ibm.com/cloud/blog/big-data-layout) and is optimized for the queries you want to run.
 If you run a single query, the most expensive query possible is `SELECT * FROM`, as reading 1 PB of data is required. Any other query is much cheaper and faster. For example, a 1 PB data set consists of audit events for users of a system (user A performed action B in system X at time T) and the data is laid out in a way that it is partitioned by time (one file per day and system). So to answer a query like `SELECT DISTINCT user FROM WHERE System='X' AND Day >= (TODAY - 30)`, {{site.data.keyword.sqlquery_short}} must access all objects for system X that contain data for the last 30 days. The sum of the size of these objects is the maximum estimate of data that is scanned that you would be charged for. But as {{site.data.keyword.sqlquery_short}} accesses only one field, and data is stored as Parquet, it is much less. Calculating the precise price of the query is not possible in advance because much of it depends on the data itself. Parquet, for example, stores compressed columns, so if the column can be compressed effectively, even less data needs to be read. You also find some further details in the blog post [SQL Query releases serverless transformation and partitioning of data in open formats](https://www.ibm.com/cloud/blog/announcements/sql-query-releases-serverless-transformation-and-partitioning-of-data-in-open-formats) about {{site.data.keyword.sqlquery_short}} ETL capabilities and how they affect scanned data.
 
 ## Timestamps
@@ -385,8 +373,8 @@ You can also create timestamp values in a different time zone from a Coordinated
 
 - If a JSON, ORC, or Parquet object contains a nested or arrayed structure, a query with CSV output that uses a wildcard (for example, `SELECT * from cos://...`) returns an error such as "Invalid CSV data type used: `struct<nested JSON object>`."
 Use one of the following workarounds:
-  - For a nested structure, use the [`FLATTEN`](/docs/sql-query?topic=sql-query-sql-reference#tableTransformer) table transformation function. Alternatively, you can specify the fully nested column names instead of the wildcard, for example, `SELECT address.city, address.street, ... from cos://...`.
-  - For an array, use the Spark SQL explode() function, for example, `select explode(contact_names) from cos://...`.
+    - For a nested structure, use the [`FLATTEN`](/docs/sql-query?topic=sql-query-sql-reference#tableTransformer) table transformation function. Alternatively, you can specify the fully nested column names instead of the wildcard, for example, `SELECT address.city, address.street, ... from cos://...`.
+    - For an array, use the Spark SQL explode() function, for example, `select explode(contact_names) from cos://...`.
 
 - If you receive a corrupted result, verify that the source URI is correct and that the correct input format is specified, by using 'STORED AS' in the SQL statement.
 
@@ -397,3 +385,4 @@ Use one of the following workarounds:
   If you use {{site.data.keyword.sqlquery_short}} to generate CSV results from other data formats like Parquet that support newlines within values and these CSV results are queried again, newlines must explicitly be removed before you write the results. To do so, use the SQL function `regexp_replace`. For example, a Parquet object `data` has an attribute `multi_line` containing values that span multiple lines. To select a subset of rows based on a `condition` and store it on Cloud {{site.data.keyword.cos_short}} for further processing, a skeleton SQL statement looks like the following example:
 
 	`SELECT regexp_replace(multi_line, '[\\r\\n]', ' ') as multi_line FROM data STORED AS parquet WHERE condition`
+

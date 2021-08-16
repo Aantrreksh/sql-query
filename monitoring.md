@@ -23,7 +23,7 @@ subcollection: sql-query
 {: #metrics}
 
 {{site.data.keyword.mon_full}} is a cloud-native, and container-intelligence management system that you can include as part of your {{site.data.keyword.cloud_notm}} architecture. Use it to gain operational visibility into the performance and health of your applications, services, and platforms. It offers administrators, DevOps teams, and developers full stack telemetry with advanced features to monitor and troubleshoot, define alerts, and design custom dashboards.
-{:shortdesc}
+{: shortdesc}
 
 
 ## Opting in to and enabling {{site.data.keyword.sqlquery_full}} metrics
@@ -31,14 +31,14 @@ subcollection: sql-query
 
 Before you can start to use {{site.data.keyword.sqlquery_short}} metrics, you must first opt in and then enable platform metrics by completing the following steps:
 
-1. Enable platform metrics for {{site.data.keyword.sqlquery_short}}. For more information, see [Enabling platform metrics ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-platform_metrics_enabling){:new_window}. The owner of the account has full access to the metrics data. For more information about managing access for other users, see [Getting started tutorial for {{site.data.keyword.mon_full}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-getting-started){:new_window}.
+1. Enable platform metrics for {{site.data.keyword.sqlquery_short}}. For more information, see [Enabling platform metrics ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-platform_metrics_enabling){: new_window}. The owner of the account has full access to the metrics data. For more information about managing access for other users, see [Getting started tutorial for {{site.data.keyword.mon_full}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-getting-started){:new_window}.
 
 2. To navigate from the {{site.data.keyword.sqlquery_short}} instance page to the {{site.data.keyword.mon_full_notm}} dashboard, click the three vertical dots in the upper right corner of the instance page (**Service instance options**) and select **Monitoring**.
 
    On your first usage, you might see a welcome wizard. To advance to the dashboard selection menu, select **Next** and then **Skip** at the bottom of the **Choosing an installation method** page. Accept the prompts that follow. You can then select the **{{site.data.keyword.sqlquery_short}}** dashboard.
 
    Dashboards are available only after metrics start to be recorded; this might take a few minutes to initialize.
-   {:note}
+   {: note}
 
 
 ## {{site.data.keyword.sqlquery_short}} metrics cost information
