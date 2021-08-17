@@ -270,9 +270,9 @@ Currently, {{site.data.keyword.Db2_on_Cloud_long}} is the only supported target 
 
 Storing query results in a database creates a new table with the columns that are determined by the query result. When you write to Db2,
 the following type-mapping rules apply:
- * String types are mapped to VARCHAR(32000) columns.
- * Struct types are not mapped and must be flattened first. See the `FLATTEN` [table transformation function](#tableTransformer).
- * Arrays, time series, and spatial data types are not mapped and must be converted with appropriate SQL functions.
+* String types are mapped to VARCHAR(32000) columns.
+* Struct types are not mapped and must be flattened first. See the `FLATTEN` [table transformation function](#tableTransformer).
+* Arrays, time series, and spatial data types are not mapped and must be converted with appropriate SQL functions.
 
 The table name and optional schema are specified as part of the target URI.
 **Important**: If a table with the name that is indicated exists in the target database, that table is dropped before the query executes
@@ -1634,11 +1634,11 @@ SELECT * FROM cos://us-geo/sql/employees.parquet STORED AS PARQUET TABLESAMPLE (
 <h3>More topics</h3>
 
 For more information about the clauses that are used in a *table sample clause*, see the following topics:
- * [expression](#expression)
- * [identifier](#identifier)
- * [qualifiedName](#qualifiedName)
- * [unsignedInteger](#unsignedInteger)
- * [unsignedNumber](#unsignedNumber)
+* [expression](#expression)
+* [identifier](#identifier)
+* [qualifiedName](#qualifiedName)
+* [unsignedInteger](#unsignedInteger)
+* [unsignedNumber](#unsignedNumber)
 
 <h3>Related references</h3>
 
@@ -2284,7 +2284,7 @@ WITH ts AS (
     SELECT CURRENT_TIMESTAMP AS now FROM VALUES ('dummy')
     )
 SELECT
-  now - INTERVAL 1 YEAR - INTERVAL 2 MONTH AS LONG_VERSION,
+    now - INTERVAL 1 YEAR - INTERVAL 2 MONTH AS LONG_VERSION,
     now - INTERVAL '1-2' YEAR TO MONTH  AS SHORT_VERSION
 FROM ts
 ```
@@ -3361,17 +3361,17 @@ See [data types](#dataType) for details on the supported column types.
 ```sql
 -- create a definition for the table customer
 CREATE TABLE customers (
-  customerID string,
-  companyName string,
-  contactName string,
-  contactTitle string,
-  address string,
-  city string,
-  region string,
-  postalCode string,
-  country string,
-  phone string,
-  fax string
+    customerID string,
+    companyName string,
+    contactName string,
+    contactTitle string,
+    address string,
+    city string,
+    region string,
+    postalCode string,
+    country string,
+    phone string,
+    fax string
 )
 USING CSV
 location  cos://us-geo/sql/customers.csv
@@ -3383,17 +3383,17 @@ Before you can use a newly created partitioned table, you must call `ALTER TABLE
 ```sql
 -- create a definition for the table customers_partitioned
 CREATE TABLE customers_partitioned (
-  customerID string,
-  companyName string,
-  contactName string,
-  contactTitle string,
-  address string,
-  city string,
-  region string,
-  postalCode string,
-  country string,
-  phone string,
-  fax string
+    customerID string,
+    companyName string,
+    contactName string,
+    contactTitle string,
+    address string,
+    city string,
+    region string,
+    postalCode string,
+    country string,
+    phone string,
+    fax string
 )
 USING CSV
 PARTITIONED BY (COUNTRY)
