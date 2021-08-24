@@ -22,16 +22,14 @@ subcollection: sql-query
 {: #getting-started}
 
 In this {{site.data.keyword.sqlquery_full}} tutorial, we set you up to begin querying rectangular data in {{site.data.keyword.cos_full}} and storing the results in {{site.data.keyword.cos_short}}.
-
-
 {: shortdesc}
 
 ## Before you begin
 {: #prereqs}
 
-Before you can run SQL queries, you need to have one or more Cloud {{site.data.keyword.cos_short}} buckets to hold the data to be analyzed and to hold the query results.
-Cloud {{site.data.keyword.cos_short}} offers several plans, including a free "Lite" plan.
+Before you can run SQL queries, you need to have one or more Cloud {{site.data.keyword.cos_short}} buckets to hold the data to be analyzed and to hold the query results. Cloud {{site.data.keyword.cos_short}} offers several plans, including a free "Lite" plan.
 To create a Cloud {{site.data.keyword.cos_short}} instance, do the following steps:
+
 1.  Go to the [**IBM Cloud catalog > Storage > Object Storage**](https://cloud.ibm.com/catalog/infrastructure/cloud-object-storage) page.
 2.  Select one of the plans and create the service.
 
