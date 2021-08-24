@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  year:  2020
-lastupdated: "2020-07-15"
+  year:  2020, 2021
+lastupdated: "2021-08-24"
 
 keywords: hive, metastore, catalog, performance, create table, object storage
 
@@ -100,8 +100,7 @@ SELECT * FROM describe (<data-location> stored as <storage-format>)
 
 Note that column names are case-sensitive. Incorrect column name specification results in an empty column, that is, the column seems to contain no data. To solve such a problem, use the automatic schema detection, reorder the columns, or omit some columns.
 
-The `SHOW TABLES` statement provides you with an overview of the existing tables in your instance.
-This statement allows an optional search filter to limit the number of results:
+The `SHOW TABLES` statement provides you with an overview of the existing tables in your instance. This statement allows an optional search filter to limit the number of results:
 
 ```sql
 SHOW TABLES LIKE '*cus*'
@@ -113,7 +112,6 @@ This statement removes the table definition from the catalog without affecting t
 ```sql
 DROP TABLE customers
 ```
-
 
 ## Partitioned tables
 {: #partitioned}
