@@ -57,11 +57,8 @@ Watch the following video to learn more about {{site.data.keyword.sqlquery_short
 In SQL, the term *query* is just another way of saying *SELECT statement*. To run a query:
 
 1. In the SQL editor field of the {{site.data.keyword.sqlquery_short}} UI, enter a SELECT statement. In this statement:
-    - After the FROM keyword, specify one or more [unique resource identifiers](#unique) (URIs).
-Each URI can be thought of as a table. It specifies one or more input objects; each input object can be thought of as a table partition.
-You must have at least 'Reader' access to the buckets that contain the input objects.
-    - If the format of the input objects is CSV, and no special options are required, it is not necessary to specify a `STORED AS` clause.
-However, if the format is JSON, ORC, Parquet, or AVRO, after the `FROM` clause, specify STORED AS JSON, STORED AS ORC, STORED AS PARQUET, or STORED AS AVRO.
+    - After the FROM keyword, specify one or more [unique resource identifiers](#unique) (URIs). Each URI can be thought of as a table. It specifies one or more input objects; each input object can be thought of as a table partition. You must have at least 'Reader' access to the buckets that contain the input objects.
+    - If the format of the input objects is CSV, and no special options are required, it is not necessary to specify a `STORED AS` clause. However, if the format is JSON, ORC, Parquet, or AVRO, after the `FROM` clause, specify STORED AS JSON, STORED AS ORC, STORED AS PARQUET, or STORED AS AVRO.
     - If text formats, such as JSON and CSV, are compressed with either gzip or bzip2 and have the extensions *.gz and *.bz, they automatically get recognized as compressed files. However, do not use these kinds of compressed files due to performance reasons.
     - If the format of the input objects is CSV and a delimiter other than the default `,` (comma) is used, you must specify the delimiter by using the `FIELDS TERMINATED BY` option of the [`STORED AS`](/docs/sql-query?topic=sql-query-sql-reference#externalTableSpec) clause. All single Unicode characters are allowed as delimiters.
     - By default, it is assumed that CSV input objects have a header line that specifies the names of the input columns. If the objects don't have a header line, you must specify `NOHEADER` in the [`STORED AS`](/docs/sql-query?topic=sql-query-sql-reference#externalTableSpec) clause.
@@ -70,13 +67,14 @@ However, if the format is JSON, ORC, Parquet, or AVRO, after the `FROM` clause, 
     - Use the `INTO` clause of a [query](/docs/sql-query?topic=sql-query-sql-reference#chapterSQLQueryStatement) to specify the output [URI](#unique), that is, the location to which the result is to be written and the wanted result format.
 2. The **Target location** field displays where the result is stored. An initial bucket in one of your {{site.data.keyword.cos_short}} instances is automatically created for you when you open the UI. It is then chosen as your default location, if your query does not specify an `INTO` clause. To ensure the automatic setup of an initial bucket, do the following steps in advance:
 
-    - You must create a {{site.data.keyword.cos_short}} instance.
+    - You must create an {{site.data.keyword.cos_short}} instance.
     - You must have at least 'Writer' access to the corresponding {{site.data.keyword.cos_short}} bucket.
 
-In the *Details* tab of the selected job, you can set any location that you specified in the `INTO` clause as your default location.
+    In the *Details* tab of the selected job, you can set any location that you specified in the `INTO` clause as your default location.
 
 3. Click **Run**.
-When the query completes, a preview of the query result is displayed in the query result tab of the UI. Preview functionality is only available for CSV and JSON result formats. You can run up to five queries simultaneously with a Standard plan instance of {{site.data.keyword.sqlquery_short}}.
+
+    When the query completes, a preview of the query result is displayed in the query result tab of the UI. Preview functionality is only available for CSV and JSON result formats. You can run up to five queries simultaneously with a Standard plan instance of {{site.data.keyword.sqlquery_short}}.
 
 ### Sample queries
 {: #sample}
