@@ -286,11 +286,9 @@ ALTER TABLE metergen DROP METAINDEX LOCATION
   ```
   select * from table where shortType > cast(1 as short)
   ```
-
+  
 - Concurrent `CREATE`/`REFRESH` operations are not supported.
-
 - Indexing nested geospatial field is not supported.
-
 - With the Lite plan, data skipping features, such as `CREATE METAINDEX`, are not allowed.
 
 
