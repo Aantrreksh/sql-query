@@ -426,6 +426,7 @@ Convert the specified string or timestamp into a value of type Long that contain
 ## General functions
 {: #general_functions}
 
-**TS_MAP (time_series, value_expression)** 
+**TS_MAP (time_series, value_expression)**
 Output: TimeSeries
 Map each value of the time series to a new time series given an expression.
+
