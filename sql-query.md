@@ -225,6 +225,7 @@ The **`<table name>`** part specifies the table that is created in your database
 If you omit the **`<schemaname>`** part, the table is created in the schema of database user that was created for the IBMid of the SQL user. The table name is case-preserving, so use upper case to match database defaults.
 
 The following URI is an example of a Db2 table URI:
+
 `db2://db2w-vqplkwx.us-south.db2w.cloud.ibm.com/MYSCHEMA.QUERY_RESULT`
 
 ## Object result set
