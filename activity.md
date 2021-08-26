@@ -28,7 +28,7 @@ The {{site.data.keyword.at_full_notm}} service records user-initiated activities
 
 You can use the {{site.data.keyword.sqlquery_short}} service to query {{site.data.keyword.at_short}} archive files that are stored in an {{site.data.keyword.cos_short}} bucket in your account. For more information, see [Searching archive data by using the SQL Query service](/docs/activity-tracker?topic=activity-tracker-sqlquery).
 
-You can search activity tracker events with {{site.data.keyword.sqlquery_short}}
+You can search activity tracker events with {{site.data.keyword.sqlquery_short}}.
 
 ## List of events
 {: #events}
