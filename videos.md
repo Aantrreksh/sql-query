@@ -23,11 +23,11 @@ The following videos help you to get provisioned and use {{site.data.keyword.sql
 
 The first video shows you how to provision {{site.data.keyword.cos_full}} and {{site.data.keyword.sqlquery_full}} to get you started.
 
-<iframe width="640" height="390" title="IBM Cloud SQL Query: Provision the IBM Cloud Services"  
+<iframe width="640" height="390" title="IBM Cloud SQL Query: Provision the IBM Cloud services"  
 src="https://www.youtube.com/embed/_fMEyqRC__c?list=PLzpeuWUENMK2R9CqhF0eJDSxfPBi6JeXA" 
 frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
 
-*Video 1. Provision the IBM Cloud Services*.
+*Video 1. Provision the IBM Cloud services*.
 
 <br>
 
@@ -41,14 +41,13 @@ frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; pict
 
 <br>
 
-The next video gives a broader introduction to the service, introduces some of the sample queries in the UI, shows the use of
-real-life data, Notebooks, and REST API.
+The next video gives a broader introduction to the service, introduces some of the sample queries in the UI, shows the use of real-life data, Notebooks, and REST API.
 
 <iframe width="640" height="390" title="IBM Cloud SQL Query Introduction"  
 src="https://www.youtube.com/embed/s-FznfHJpoU?list=PLzpeuWUENMK2R9CqhF0eJDSxfPBi6JeXAA" 
 frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
 
-*Video 3. {{site.data.keyword.sqlquery_full}} Introduction*.
+*Video 3. {{site.data.keyword.sqlquery_full}} introduction*.
 
 <br>
 
