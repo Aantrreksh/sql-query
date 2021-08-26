@@ -265,7 +265,7 @@ ALTER TABLE metergen DROP METAINDEX LOCATION
 ### Notes
 {: #notes_ds}
 
--	The metadata for a partitioned table must be different from the metadata on the physical location (the location that was defined in the LOCATION clause of the CREATE TABLE query) because the table can contain partitions that are not located under the physical location. Therefore, depending on what data skipping metadata was generated for each case, you can get different results by using the table name than by using the Cloud {{site.data.keyword.cos_short}} URI. 
+The metadata for a partitioned table must be different from the metadata on the physical location (the location that was defined in the LOCATION clause of the CREATE TABLE query) because the table can contain partitions that are not located under the physical location. Therefore, depending on what data skipping metadata was generated for each case, you can get different results by using the table name than by using the Cloud {{site.data.keyword.cos_short}} URI. 
 
 
 ## Limitations
