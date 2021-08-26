@@ -32,7 +32,6 @@ To create a Cloud {{site.data.keyword.cos_short}} instance, do the following ste
 
 1.  Go to the [**IBM Cloud catalog > Storage > Object Storage**](https://cloud.ibm.com/catalog/infrastructure/cloud-object-storage) page.
 2.  Select one of the plans and create the service.
-
     If you want to find your Cloud {{site.data.keyword.cos_short}} instance later, go to your
     [**IBM Cloud Dashboard > Services**](https://cloud.ibm.com/dashboard/apps).
     (If you do not see it in the list, select the resource group "All Resources".)
