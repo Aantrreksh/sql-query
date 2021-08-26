@@ -138,13 +138,9 @@ To make sure that Tableau only generates SQL that is supported by a specific JDB
 The following steps describe how to make Tableau Desktop for Windows work with the {{site.data.keyword.sqlquery_short}} JDBC driver:
 
 1. Install Tableau Desktop for Windows.
-
 2. Download the {{site.data.keyword.sqlquery_short}} JDBC driver and copy it to the installation directory of Tableau.
-
     - For **Windows**: `C:\Program Files\Tableau\Drivers\ibmcloudsql-jdbc-<version>.jar`
-
     - For **Mac**: `~/Library/Tableau/Drivers/ibmcloudsql-jdbc-<version>.jar`
-
 3. Create a Tableau Datasource Customization file (*.tdc) with the following content:
 
   ```
@@ -167,13 +163,9 @@ The following steps describe how to make Tableau Desktop for Windows work with t
 ```
 
     - Store the content in a *.tdc file in the following folder:
-
       **Windows**: `C:\Documents\My Tableau Repository\Datasources\ibmcloudsql-jdbc.tdc`
-
       **Mac**: `~/My Tableau Repository/Datasources/ibmcloudsql-jdbc.tdc`
-
       If further customization is needed in future, look [here](https://help.tableau.com/current/pro/desktop/en-us/jdbc_capabilities.htm) for capabilities that can be turned on and off.
-
 4. Start Tableau Desktop. Go to **Connect > To a Server > More**.
 5. On the next page, you see a list of supported connectors. Select **Other Databases (JDBC)**.
 6. On the raised input form enter the following information:
