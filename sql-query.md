@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-04-06"
+lastupdated: "2021-08-26"
 
 keywords: SQL query, analyze, data, CVS, JSON, ORC, Parquet, Avro, object storage, SELECT, cloud instance, URI, endpoint, api, user roles
 
@@ -31,7 +31,6 @@ Each query result is written to a CSV, JSON, ORC, Parquet, or AVRO object in a C
 Use the {{site.data.keyword.sqlquery_short}} user interface (UI) to develop your queries and the
 [SQL Query REST API](#restapi) to automate them.
 
-<br>
 
 <iframe width="640" height="390" title="IBM Cloud SQL Query: Provision the IBM Cloud Services"
 src="https://www.youtube.com/embed/_fMEyqRC__c?list=PLzpeuWUENMK2R9CqhF0eJDSxfPBi6JeXA"
@@ -43,8 +42,7 @@ frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; pict
 ## Where your input data and query results are stored
 {: #stored}
 
-Before you can use the {{site.data.keyword.sqlquery_short}} service to run SQL queries, the input data must be uploaded to one or more Cloud {{site.data.keyword.cos_short}} instances.
-You must also have at least 'Writer' access to at least one Cloud {{site.data.keyword.cos_short}} bucket, so that result objects (that is, the objects that contain output data) can be written there. For more information about Cloud {{site.data.keyword.cos_short}}, including how to provision an instance, create buckets, and upload data, see the [Cloud Object Storage Getting Started Guide](/docs/cloud-object-storage/getting-started.html#getting-started-console).
+Before you can use the {{site.data.keyword.sqlquery_short}} service to run SQL queries, the input data must be uploaded to one or more Cloud {{site.data.keyword.cos_short}} instances. You must also have at least 'Writer' access to at least one Cloud {{site.data.keyword.cos_short}} bucket, so that result objects (that is, the objects that contain output data) can be written there. For more information about Cloud {{site.data.keyword.cos_short}}, including how to provision an instance, create buckets, and upload data, see the [Cloud Object Storage Getting Started Guide](/docs/cloud-object-storage/getting-started.html#getting-started-console).
 
 ## Running a query
 {: #running}
@@ -59,26 +57,25 @@ Watch the following video to learn more about {{site.data.keyword.sqlquery_short
 In SQL, the term *query* is just another way of saying *SELECT statement*. To run a query:
 
 1. In the SQL editor field of the {{site.data.keyword.sqlquery_short}} UI, enter a SELECT statement. In this statement:
-    - After the FROM keyword, specify one or more [unique resource identifiers](#unique) (URIs).
-Each URI can be thought of as a table. It specifies one or more input objects; each input object can be thought of as a table partition.
-You must have at least 'Reader' access to the buckets that contain the input objects.
-    - If the format of the input objects is CSV, and no special options are required, it is not necessary to specify a `STORED AS` clause.
-However, if the format is JSON, ORC, Parquet, or AVRO, after the `FROM` clause, specify STORED AS JSON, STORED AS ORC, STORED AS PARQUET, or STORED AS AVRO.
+    - After the FROM keyword, specify one or more [unique resource identifiers](#unique) (URIs). Each URI can be thought of as a table. It specifies one or more input objects; each input object can be thought of as a table partition. You must have at least 'Reader' access to the buckets that contain the input objects.
+    - If the format of the input objects is CSV, and no special options are required, it is not necessary to specify a `STORED AS` clause. However, if the format is JSON, ORC, Parquet, or AVRO, after the `FROM` clause, specify STORED AS JSON, STORED AS ORC, STORED AS PARQUET, or STORED AS AVRO.
     - If text formats, such as JSON and CSV, are compressed with either gzip or bzip2 and have the extensions *.gz and *.bz, they automatically get recognized as compressed files. However, do not use these kinds of compressed files due to performance reasons.
     - If the format of the input objects is CSV and a delimiter other than the default `,` (comma) is used, you must specify the delimiter by using the `FIELDS TERMINATED BY` option of the [`STORED AS`](/docs/sql-query?topic=sql-query-sql-reference#externalTableSpec) clause. All single Unicode characters are allowed as delimiters.
     - By default, it is assumed that CSV input objects have a header line that specifies the names of the input columns. If the objects don't have a header line, you must specify `NOHEADER` in the [`STORED AS`](/docs/sql-query?topic=sql-query-sql-reference#externalTableSpec) clause.
     - By default, it is assumed that JSON input objects consist of a single JSON record per line. If individual records span multiple lines, you must specify `MULTILINE` in the [`STORED AS`](/docs/sql-query?topic=sql-query-sql-reference#externalTableSpec) clause.
     - If required, you can use `JOIN` constructs to join data from several input URIs, even if those URIs point to different instances of Cloud {{site.data.keyword.cos_short}}.
     - Use the `INTO` clause of a [query](/docs/sql-query?topic=sql-query-sql-reference#chapterSQLQueryStatement) to specify the output [URI](#unique), that is, the location to which the result is to be written and the wanted result format.
+    
 2. The **Target location** field displays where the result is stored. An initial bucket in one of your {{site.data.keyword.cos_short}} instances is automatically created for you when you open the UI. It is then chosen as your default location, if your query does not specify an `INTO` clause. To ensure the automatic setup of an initial bucket, do the following steps in advance:
 
-    - You must create a {{site.data.keyword.cos_short}} instance.
+    - You must create an {{site.data.keyword.cos_short}} instance.
     - You must have at least 'Writer' access to the corresponding {{site.data.keyword.cos_short}} bucket.
 
-In the *Details* tab of the selected job, you can set any location that you specified in the `INTO` clause as your default location.
+    In the *Details* tab of the selected job, you can set any location that you specified in the `INTO` clause as your default location.
 
 3. Click **Run**.
-When the query completes, a preview of the query result is displayed in the query result tab of the UI. Preview functionality is only available for CSV and JSON result formats. You can run up to five queries simultaneously with a Standard plan instance of {{site.data.keyword.sqlquery_short}}.
+
+    When the query completes, a preview of the query result is displayed in the query result tab of the UI. Preview functionality is only available for CSV and JSON result formats. You can run up to five queries simultaneously with a Standard plan instance of {{site.data.keyword.sqlquery_short}}.
 
 ### Sample queries
 {: #sample}
@@ -156,13 +153,13 @@ The bucket name:
 A more exact specification of the object or objects:
 - The specified path is interpreted in a similar way as listing file system contents with `ls`, interpreting slashes `/` in object names as a folder hierarchy.
 
-  - If the path is identical to the name of an existing (non-empty) object, it matches only that single object.
-  - If the path is a prefix of multiple objects at a slash `/` character, it matches all those objects that are not empty. For example, the path `mydir/test1` (or `mydir/test1/`) matches objects `mydir/test1/object1`, `mydir/test1/nested/object2`, but not `mydir/test100`.
-  - The usage of a * wildcard depends on how the object structure was created:
-	   - If the object structure was created as Hive-partitioned structure,
+    - If the path is identical to the name of an existing (non-empty) object, it matches only that single object.
+    - If the path is a prefix of multiple objects at a slash `/` character, it matches all those objects that are not empty. For example, the path `mydir/test1` (or `mydir/test1/`) matches objects `mydir/test1/object1`, `mydir/test1/nested/object2`, but not `mydir/test100`.
+    - The usage of a * wildcard depends on how the object structure was created:
+	    - If the object structure was created as Hive-partitioned structure,
 for example as SQL Query result output, and the result objects are starting with the prefix `part-`, wildcards are not supported.
 Using SQL constructs based on the Hive structure is always the preferred method to restrict the number of objects to be read during query processing.
-	   - If the object structure was created as Hive-partitioned structure,
+	    - If the object structure was created as Hive-partitioned structure,
 but by using arbitrary file names, the usage of wildcards is supported.
 The wildcard matches all objects with the indicated path prefix. For example, `mydir/test1*`, matches
 objects `mydir/test100`, and `mydir/test101/nested/object`.
@@ -227,7 +224,9 @@ The **`<db2 port number>`** is optional. It is the port number of the DRDA endpo
 The **`<table name>`** part specifies the table that is created in your database. It has the format **`<schemaname>.<tablename>`**.
 If you omit the **`<schemaname>`** part, the table is created in the schema of database user that was created for the IBMid of the SQL user. The table name is case-preserving, so use upper case to match database defaults.
 
-The following URI is an example of a Db2 table URI: `db2://db2w-vqplkwx.us-south.db2w.cloud.ibm.com/MYSCHEMA.QUERY_RESULT`
+The following URI is an example of a Db2 table URI:
+
+`db2://db2w-vqplkwx.us-south.db2w.cloud.ibm.com/MYSCHEMA.QUERY_RESULT`
 
 ## Object result set
 {: #result}
@@ -237,6 +236,7 @@ By default, the following three objects are written to Cloud {{site.data.keyword
 1. `<target>/jobid=<job_id>`
 2. `<target>/jobid=<job_id>/_SUCCESS`
 3. `<target>/jobid=<job_id>/<part-number>`
+
 
 Only the last object contains the result set, the other two objects are empty and don't contain any data. It is important not to delete any of the objects if you want to use the result set for subsequent queries. By default, the object names include the job ID. For example, if you specify `mydir/out` or `mydir/out/` as the target directory, the result objects are written under `mydir/out/jobid=<job_id>`. So, when a query is run multiple times, the result set is not overwritten. You can change this behavior with the [`JOBPREFIX`](/docs/sql-query?topic=sql-query-sql-reference#cosResultClause) option of the `INTO` clause.
 
@@ -252,7 +252,8 @@ If you want to run a query over the combined results of multiple previous querie
 
 Your Cloud {{site.data.keyword.cos_short}} instance has one of the supported endpoints. {{site.data.keyword.sqlquery_short}} supports all [public and private {{site.data.keyword.cos_short}} endpoints](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-endpoints). To save space, you can use the alias that is shown instead of the full endpoint name.
 
-Aliases to tethering endpoints (specific endpoints within cross region domains, for example, `dal-us-geo`) are considered legacy. They continue to work until further notice but are planned to be deprecated sometime in the future. To be prepared, update your applications to use the alias of the corresponding cross region endpoint (for example, `us-geo`).
+Aliases to tethering endpoints (specific endpoints within cross region domains, for example, `dal-us-geo`) are considered legacy. They continue to work until further notice but are planned to be deprecated sometime in the future. To be prepared, update your applications to use the alias of the corresponding cross region endpoint 
+(for example, `us-geo`).
 
 **Note:** {{site.data.keyword.sqlquery_short}} always uses the internal endpoint to interact with {{site.data.keyword.cos_short}},
 even if an external endpoint was specified in the query. The result location for a query always indicates the external endpoint name.

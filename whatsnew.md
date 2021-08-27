@@ -33,7 +33,7 @@ subcollection: sql-query
 -   {{site.data.keyword.cos_full_notm}} web console discovers SQL-queryable objects and folders and directly launches the {{site.data.keyword.sqlquery_short}} web console with a prefilled SQL statement for seamless interactive data exploration.
 
 ## November 2020
-- The location of Hive partitions can be modified by using the [`ALTER TABLE SET LOCATION`](/docs/sql-query?topic=sql-query-sql-reference#chapterAlterTableSetLocation) feature.
+-   The location of Hive partitions can be modified by using the [`ALTER TABLE SET LOCATION`](/docs/sql-query?topic=sql-query-sql-reference#chapterAlterTableSetLocation) feature.
 
 ## October 2020
 -   {{site.data.keyword.sqlquery_short}} index management, also referred to as data skipping is generally available with full production support.
@@ -97,15 +97,12 @@ You can view completed and failed jobs, the number of bytes processed, and the j
     You can directly preview query results in JSON format in the SQL console. Add `INTO <COS URI> STORED AS JSON` to your SQL statement to produce JSON output and preview it in the web console.
 -   Support for Parquet schema evolution through the [`MERGE SCHEMA`](/docs/sql-query?topic=sql-query-sql-reference#externalTableSpec) sub clause for `STORED AS PARQUET` input data. Check out the new samples in the UI.
 -   Support for [`CLEANCOLS`](/docs/sql-query?topic=sql-query-sql-reference#tableTransformer) table transformation function that generically cleanses all input column names from characters that are not supported by the Parquet target format. Check out the new Samples.
--   Support for [`FLATTEN`](/docs/sql-query?topic=sql-query-sql-reference#tableTransformer) table transformation function that
-    generically flattens all nested input columns into a flat hierarchy, allowing to easily work with, for example, JSON input data and
-    write the results out to flat CSV files. Check out the new samples in the UI.
+-   Support for [`FLATTEN`](/docs/sql-query?topic=sql-query-sql-reference#tableTransformer) table transformation function that generically flattens all nested input columns into a flat hierarchy, allowing to easily work with, for example, JSON input data and write the results out to flat CSV files. Check out the new samples in the UI.
 
 ## June 2019
 
 -   {{site.data.keyword.sqlquery_short}} is available in Frankfurt, Germany. When you provision new instances, you can select whether it is being provisioned in Dallas or in Frankfurt.
--   Support for [time series SQL functions](/docs/services/sql-query?topic=sql-query-ts_intro) to process time series data, for example,
-    to identify trends and to predict future values based on these trends.
+-   Support for [time series SQL functions](/docs/services/sql-query?topic=sql-query-ts_intro) to process time series data, for example, to identify trends and to predict future values based on these trends.
 
 ## May 2019
 
@@ -130,7 +127,7 @@ Request to participate by sending an email to Joshua.Mintz@ibm.com.
 
 ## December 2018
 
-Release of a complete SQL Reference Guide, an SQL introduction for Cloud SQL/Spark SQL.
+-   Release of a complete SQL Reference Guide, an SQL introduction for Cloud SQL/Spark SQL.
 This Guide includes examples that can be copied and directly pasted into the web UI to be run.
 
 ## November 2018
@@ -140,7 +137,7 @@ This Guide includes examples that can be copied and directly pasted into the web
 
 ## October 2018
 
-Support for SELECT INTO to control the format the SQL result is written in.
+-   Support for SELECT INTO to control the format the SQL result is written in.
 
 ## August 2018
 
@@ -157,6 +154,6 @@ Support for SELECT INTO to control the format the SQL result is written in.
 
 ## April 2018
 
-[{{site.data.keyword.sqlquery_notm}} release beta](https://www.ibm.com/cloud/blog/analyzing-data-with-ibm-cloud-sql-query?mhsrc=ibmsearch_a&mhq=ibm%20sql%20query).
+-   [{{site.data.keyword.sqlquery_notm}} release beta](https://www.ibm.com/cloud/blog/analyzing-data-with-ibm-cloud-sql-query?mhsrc=ibmsearch_a&mhq=ibm%20sql%20query).
 
 

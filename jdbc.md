@@ -138,42 +138,34 @@ To make sure that Tableau only generates SQL that is supported by a specific JDB
 The following steps describe how to make Tableau Desktop for Windows work with the {{site.data.keyword.sqlquery_short}} JDBC driver:
 
 1. Install Tableau Desktop for Windows.
-
 2. Download the {{site.data.keyword.sqlquery_short}} JDBC driver and copy it to the installation directory of Tableau.
-
     - For **Windows**: `C:\Program Files\Tableau\Drivers\ibmcloudsql-jdbc-<version>.jar`
-
     - For **Mac**: `~/Library/Tableau/Drivers/ibmcloudsql-jdbc-<version>.jar`
-
 3. Create a Tableau Datasource Customization file (*.tdc) with the following content:
 
-  ```
-  <connection-customization class='genericjdbc' enabled='true' version='2020.2'>
-  <vendor name='genericjdbc' />
-      <driver name='ibmcloudsql' />
-          <customizations>
-          <customization name='CAP_CREATE_TEMP_TABLES' value='no'/>
-          <customization name='CAP_SELECT_TOP_INTO' value='no'/>
-          <customization name='CAP_QUERY_TOP_N' value='yes'/>
-          <customization name='CAP_QUERY_TOPSTYLE_TOP' value='no'/>
-          <customization name='CAP_QUERY_TOPSTYLE_ROWNUM' value='no'/>
-          <customization name='CAP_QUERY_TOPSTYLE_LIMIT' value='yes'/>
-          <customization name='CAP_QUERY_SUBQUERIES_WITH_TOP' value='no'/>
-          <customization name='CAP_QUERY_GROUP_BY_DEGREE' value='no'/>`
-          <customization name='CAP_JDBC_SUPPRESS_ENUMERATE_DATABASES' value='yes'/>
-          <customization name='CAP_JDBC_SUPPRESS_ENUMERATE_SCHEMAS' value='yes'/>
-          </customizations>
-</connection-customization>
-```
+    ```
+    <connection-customization class='genericjdbc' enabled='true' version='2020.2'>
+    <vendor name='genericjdbc' />
+        <driver name='ibmcloudsql' />
+            <customizations>
+            <customization name='CAP_CREATE_TEMP_TABLES' value='no'/>
+            <customization name='CAP_SELECT_TOP_INTO' value='no'/>
+            <customization name='CAP_QUERY_TOP_N' value='yes'/>
+            <customization name='CAP_QUERY_TOPSTYLE_TOP' value='no'/>
+            <customization name='CAP_QUERY_TOPSTYLE_ROWNUM' value='no'/>
+            <customization name='CAP_QUERY_TOPSTYLE_LIMIT' value='yes'/>
+            <customization name='CAP_QUERY_SUBQUERIES_WITH_TOP' value='no'/>
+            <customization name='CAP_QUERY_GROUP_BY_DEGREE' value='no'/>`
+            <customization name='CAP_JDBC_SUPPRESS_ENUMERATE_DATABASES' value='yes'/>
+            <customization name='CAP_JDBC_SUPPRESS_ENUMERATE_SCHEMAS' value='yes'/>
+            </customizations>
+    </connection-customization>
+    ```
 
     - Store the content in a *.tdc file in the following folder:
-
       **Windows**: `C:\Documents\My Tableau Repository\Datasources\ibmcloudsql-jdbc.tdc`
-
       **Mac**: `~/My Tableau Repository/Datasources/ibmcloudsql-jdbc.tdc`
-
       If further customization is needed in future, look [here](https://help.tableau.com/current/pro/desktop/en-us/jdbc_capabilities.htm) for capabilities that can be turned on and off.
-
 4. Start Tableau Desktop. Go to **Connect > To a Server > More**.
 5. On the next page, you see a list of supported connectors. Select **Other Databases (JDBC)**.
 6. On the raised input form enter the following information:
@@ -189,7 +181,7 @@ As Tableau does not support complex data types, such as `struct`, if a table con
 - Create a flattened view on the table.
 - You can set the `filterType` option to `view`. This option effectively hides all tables and reveals views only to Tableau. To set the option with the JDBC URL, use the following URL:
 
-  `jdbc:ibmcloudsql:{CRN of your {{site.data.keyword.sqlquery_short}} service instance}?targetcosurl={COS location for results}&filterType=view`
+    `jdbc:ibmcloudsql:{CRN of your {{site.data.keyword.sqlquery_short}} service instance}?targetcosurl={COS location for results}&filterType=view`
 
 ## ODBC connectivity using the JDBC driver with Progress Data Direct HDP
 {: #odbc_connectivity}
