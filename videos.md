@@ -44,7 +44,7 @@ frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; pict
 The next video gives a broader introduction to the service, introduces some of the sample queries in the UI, shows the use of real-life data, Notebooks, and REST API.
 
 <iframe width="640" height="390" title="IBM Cloud SQL Query Introduction"  
-src="https://www.youtube.com/embed/s-FznfHJpoU?list=PLzpeuWUENMK2R9CqhF0eJDSxfPBi6JeXAA" 
+src="https://www.youtube.com/watch?v=s-FznfHJpoU" 
 frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
 
 *Video 3. {{site.data.keyword.sqlquery_full}} introduction*.
