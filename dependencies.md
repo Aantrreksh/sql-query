@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-23"
+lastupdated: "2021-09-21"
 
 keywords: SQL query, dependencies, cloud
 
@@ -66,4 +66,4 @@ IBM Cloud Databases for Redis | Used as UI session store and for caching of Clou
 Service name | Description
 --- | ---
 Amplitude, Segment | Amplitude and Segment are used to monitor user behavior in the IBM Cloud console, such as page hits or click-through paths. This information is used for IBM-internal marketing and data analytics purposes.
-NewRelic, Slack | Those Services are used for external monitoring aggregation, problem determination and alerting.
+ServiceNow, Slack | Those Services are used for problem determination and alerting.
