@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-07-23"
+lastupdated: "2021-09-22"
 
 keywords: SQL query, event streams, streaming, cloud object storage, Kafka
 
@@ -19,11 +19,11 @@ subcollection: sql-query
 # Stream landing
 {: #event-streams-landing}
 
-With stream landing you can now stream your data in real-time from a topic to a bucket of your choice. {{site.data.keyword.sqlquery_full}} connects to {{site.data.keyword.messagehub_full}} and copies the data to Cloud {{site.data.keyword.cos_full}} in Parquet format. This capability enables efficient analytics on the new objects created.
+With stream landing, you can now stream your data in real-time from a topic to a bucket of your choice. {{site.data.keyword.sqlquery_full}} connects to {{site.data.keyword.messagehub_full}} and copies the data to Cloud {{site.data.keyword.cos_full}} in Parquet format. This capability enables efficient analytics on the new objects created.
 
-![Kafka Event Streams landing](streaming_diagram.svg)
+![Kafka Event Streams landing](streams_landing_new.svg)
 
-You can now enable a stream landing job on the {{site.data.keyword.messagehub}} UI by selecting the required resources, such as Cloud {{site.data.keyword.cos_short}} bucket, {{site.data.keyword.keymanagementservicelong}} instance and the {{site.data.keyword.sqlquery_short}} instance by using a tailored wizard. If you want to stop the streaming job, you need to switch to the {{site.data.keyword.messagehub}} UI. For more details on configuring stream landing in {{site.data.keyword.messagehub}}, see [Streaming to Cloud Object Storage by using SQL Query](/docs/EventStreams?topic=EventStreams-streaming_cos_sql).
+You can enable a stream landing job on the {{site.data.keyword.messagehub}} UI by selecting the required resources, such as Cloud {{site.data.keyword.cos_short}} bucket, {{site.data.keyword.keymanagementservicelong}} instance, and the {{site.data.keyword.sqlquery_short}} instance by using a tailored wizard. If you want to stop the streaming job, you need to switch to the {{site.data.keyword.messagehub}} UI. For more information on configuring stream landing in {{site.data.keyword.messagehub}}, see [Streaming to Cloud Object Storage by using SQL Query](/docs/EventStreams?topic=EventStreams-streaming_cos_sql).
 
 ## Using {{site.data.keyword.sqlquery_short}}
 {: #using-event-streams}
@@ -57,14 +57,14 @@ In addition to the objects that are written when you do a [batch query](https://
 - `_checkpoint`: Do not delete or modify the objects in this structure as it stores the last offsets of the topic.
 - `_schema_as_json`: Do not delete or modify the objects in this structure as it stores the schema of the Kafka events.
 
-The objects are written to Cloud {{site.data.keyword.cos_short}} in micro batches. The number of events included in one object depends on the specified event size and the provision rate of the topic. The same applies to the times when data is written to Cloud {{site.data.keyword.cos_short}}. If the provision rate is high, you see more objects within the same timeframe. If it is low, you see a new object at least every 5 minutes.
+The objects are written to Cloud {{site.data.keyword.cos_short}} in micro batches. The number of events that are included in one object depends on the specified event size and the provision rate of the topic. The same applies to the times when data is written to Cloud {{site.data.keyword.cos_short}}. If the provision rate is high, you see more objects within the same timeframe. If it is low, you see a new object at least every 5 minutes.
 
 ## Streaming job details
 {: #streaming-job-details}
 
 The details of a streaming job show that the states differ from batch query processing. 
-There is an additional state, *stopping*, which tells you that {{site.data.keyword.sqlquery_short}} is stopping a running job. 
-And instead of the state *completed*, a streaming job goes into the *stopped* state.
+*Stopping* is an extra state, which indicates that {{site.data.keyword.sqlquery_short}} is stopping a running job. 
+And instead of the *completed* state, a streaming job goes into the *stopped* state.
 The streaming states change from *queued* to *running* to *stopping* or *failed*.
 
 The job details show the following metrics (instead of *rows_returned*, *rows_read* and *bytes_read*):
@@ -84,9 +84,9 @@ Feature | Price
 {{site.data.keyword.messagehub}} outbound bandwidth charge | $0.028 for 3.6 GB data transmitted per hour
 {{site.data.keyword.sqlquery_short}} stream landing job | $0.11 per hour
 Cloud {{site.data.keyword.cos_short}} Class A requests for writing data | ~$0.02 per hour
-Cloud {{site.data.keyword.cos_short}} | $0.05 per month for each 3.6 GB using the smart storage tier class
+Cloud {{site.data.keyword.cos_short}} | $0.05 per month for each 3.6 GB by using the smart storage tier class
 
-Your total cost per hour, with the data subsequently stored for a month, would be approximately: $0.222. The above is only an example, and you should evaluate your own planned usage with the IBM Cloud cost calculator.
+Your total cost per hour, with the data stored for a month, would be approximately: $0.222. This is only an example, evaluate your own planned usage with the IBM Cloud cost calculator.
 
 ## Permissions
 {: #permissions-event-streams}
@@ -95,12 +95,12 @@ The following permissions are needed for creating a stream landing job:
 
 - Permission to create service-to-service authentication.
 - Permission to write to {{site.data.keyword.keymanagementservicelong}} (to store the API key).
-- Permission to create service IDs and API keys. The service ID need to have following permissions:
+- Permission to create service IDs and API keys. The service ID needs to have following permissions:
   - Writer role for the Cloud {{site.data.keyword.cos_short}} bucket.
-  - Reader access role for the cluster, topic and group resources within the {{site.data.keyword.messagehub}} service instance.
+  - Reader access role for the cluster, topic, and group resources within the {{site.data.keyword.messagehub}} service instance.
 
 ## Limitations
 {: #limitations-streams-landing}
 
-With a stream landing job you can process up to 1 MB event data per second. The final reached data throughput depends on parameters, such as topic partitions and size and format of the events. For one {{site.data.keyword.sqlquery_short}} instance there is a limit of five concurrent stream landing jobs. The limit can be raised upon request via support ticket. The {{site.data.keyword.messagehub}} feature is currently only available for instances created in the US-South region, as well as in Frankfurt. 
+With a stream landing job, you can process up to 1 MB event data per second. The final reached data throughput depends on parameters, such as topic partitions and size and format of the events. For one {{site.data.keyword.sqlquery_short}} instance, a maximum of five concurrent stream landing jobs are possible. The limit can be raised upon request by opening a support ticket. The {{site.data.keyword.messagehub}} feature is only available for instances that are created in the US-South region and in Frankfurt. 
 

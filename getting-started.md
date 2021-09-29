@@ -2,7 +2,7 @@
 
 copyright:
   year: 2018, 2021
-lastupdated: "2021-03-12"
+lastupdated: "2021-09-27"
 
 keywords: SQL, query, object storage, bucket, sample, instance, analyze, CSV, JSON, ORC, Parquet
 
@@ -27,8 +27,8 @@ In this {{site.data.keyword.sqlquery_full}} tutorial, we set you up to begin que
 ## Before you begin
 {: #prereqs}
 
-Before you can run SQL queries, you need to have one or more Cloud {{site.data.keyword.cos_short}} buckets to hold the data to be analyzed and to hold the query results. Cloud {{site.data.keyword.cos_short}} offers several plans, including a free "Lite" plan.
-To create a Cloud {{site.data.keyword.cos_short}} instance, do the following steps:
+Before you can run SQL queries, you need to have one or more Cloud {{site.data.keyword.cos_short}} buckets to hold the data to be analyzed and to hold the query results. Cloud {{site.data.keyword.cos_short}} offers several plans, including a Lite plan at no cost.
+To create a Cloud {{site.data.keyword.cos_short}} instance, do the following steps.
 
 1.  Go to the [**IBM Cloud catalog > Storage > Object Storage**](https://cloud.ibm.com/catalog/infrastructure/cloud-object-storage) page.
 2.  Select one of the plans and create the service.
@@ -65,7 +65,8 @@ For example, change `orders.parquet STORED AS PARQUET` to `orders.orc STORED AS 
 
 To analyze your own data (CSV, JSON, ORC, or Parquet), upload it to a Cloud {{site.data.keyword.cos_short}} instance and run SQL queries as described [here](/docs/services/sql-query?topic=sql-query-overview#running).
 
-For more advanced capabilities, check out the following video tutorials:
+For more advanced capabilities, check out the following video tutorials.
+
 -   [How to run basic queries](http://ibm.biz/csq-run-queries)
 -   [How to connect to IBM Cloud Object Storage through the Command Line](http://ibm.biz/csq-aws-sli)
 -   [How to use the SQL Query REST API](http://ibm.biz/csq-use-api)

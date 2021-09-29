@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-07-19"
+lastupdated: "2021-09-27"
 
 keywords: jdbc
 
@@ -39,7 +39,7 @@ The JDBC URL needs to include the CRN of an {{site.data.keyword.sqlquery_full}} 
 
 `jdbc:ibmcloudsql:{instance-crn}[?{key1}={value1}&{key2}={value2}...]`
 
-The CRN can be obtained from the service dashboard in the IBM Cloud console. The following is an example of a JDBC URL:
+The CRN can be obtained from the service dashboard in the IBM Cloud console. The following example shows a JDBC URL:
 
 `jdbc:ibmcloudsql:crn:v1:bluemix:public:sql-query:eu-de:a/290ec9931c0737248f3dc2aa57187d14%3AAf86d20c4-7646-441e-ad4b-182c57008471::?targetcosurl=cos://us-geo/sample-result-bucket/results/`
 
@@ -112,19 +112,19 @@ FROM cos://source1 JOIN cos://source2 ON ... JOIN ...
 INTO cos://target STORED AS ... PARTITIONED BY ...
 ```
 
-You can run this type of statement (with a user-defined INTO clause) by the `Statement.executeUpdate` method. This statement does not give you a result set in the JDBC client (and avoid all overhead for result fetching), but creates a target object with the specific format and partitioning that you need.
+You can run this type of statement (with a user-defined INTO clause) by the `Statement.executeUpdate` method. This statement does not give you a result set in the JDBC client (and avoids all overhead for result fetching), but creates a target object with the specific format and partitioning that you need.
 
-You cannot run statements with an `INTO` clause by using the generic `Statement.execute()` method because the driver cannot detect that these statements should be treated as an update, not a query. Therefore, the driver generates a second `INTO` clause, leading to a syntax error.
+You cannot run statements with an `INTO` clause by using the generic `Statement.execute()` method because the driver cannot detect to treat these statements as an update, not a query. Therefore, the driver generates a second `INTO` clause, leading to a syntax error.
 
 ## JDBC driver logging
 {: #jdbc_driver_logging}
 
-JDBC driver logging uses the java.util.logging framework, similar to the [postgresql JDBC driver](https://jdbc.postgresql.org/documentation/head/logging.html). However, since driver version 2.5.30, logging is turned off by default to avoid unexpected console output in a default logging configuration. To turn logging on, use the connection property `loggerLevel`:
+JDBC driver logging uses the java.util.logging framework, similar to the [postgresql JDBC driver](https://jdbc.postgresql.org/documentation/head/logging.html). However, since driver version 2.5.30, logging is turned off by default to avoid unexpected console output in a default logging configuration. To turn on logging, use the connection property `loggerLevel`:
 
-Set `loggerLevel` to an explicit log level name, such as INFO, to configure that log level for the driver base logger `com.ibm.cloud.sql.jdbc`.
-Set `loggerLevel` to the value default to respect the `existing java.util.logging` configuration without overriding the base logger level. Java™ SE Development Kit default is usually to log to the console at INFO level, but you can [set log levels and log destinations with a configuration file](https://docs.oracle.com/javase/8/docs/api/java/util/logging/LogManager.html). The file name must be specified as Java system property `-D java.util.logging.config.file=<path>`.
+Set `loggerLevel` to an explicit log level name, such as `INFO`, to configure that log level for the driver base logger `com.ibm.cloud.sql.jdbc`.
+Set `loggerLevel` to the value default to respect the `existing java.util.logging` configuration without overriding the base logger level. Java™ SE Development Kit default is usually to log to the console at `INFO` level, but you can [set log levels and log destinations with a configuration file](https://docs.oracle.com/javase/8/docs/api/java/util/logging/LogManager.html). The file name must be specified as Java system property `-D java.util.logging.config.file=<path>`.
 Not setting the `loggerLevel` property is equivalent to setting the value to `OFF` explicitly.
-For convenience, and in cases where JVM system properties are not under your control, there is an additional connection property `loggerFile` to control the log destination. This property installs a file handler for the driver base logger. For example, append `&loggerLevel=debug&loggerFile=/tmp/sqlquery.log` to the JDBC URL to create detailed logging output in files `/tmp/sqlquery.log.<n>`
+For convenience, and in cases where JVM system properties are not under your control, use the connection property `loggerFile` to control the log destination. This property installs a file handler for the driver base logger. For example, append `&loggerLevel=debug&loggerFile=/tmp/sqlquery.log` to the JDBC URL to create detailed logging output in files `/tmp/sqlquery.log.<n>`.
 
 If you set `loggerLevel` higher than `INFO` (for example, `DEBUG`), it has no effect, unless you also configure `loggerFile` or install a log handler because the default console handler suppresses all messages with a log level higher than `INFO`.
 
@@ -133,7 +133,7 @@ If you set `loggerLevel` higher than `INFO` (for example, `DEBUG`), it has no ef
 
 [Tableau Desktop](https://www.tableau.com/products/desktop) is a BI reporting tool that connects to a rich set of data sources. You can connect to any custom JDBC driver by using the generic JDBC connector offered by Tableau. Download Tableau Desktop version 2020.2 or later.
 
-To make sure that Tableau only generates SQL that is supported by a specific JDBC driver, you must specify the supported and unsupported SQL capabilities of the driver. Tableau generates appropriate SQL statements dependent on this specification.
+To make sure that Tableau generates SQL that is supported by a specific JDBC driver only, you must specify the supported and unsupported SQL capabilities of the driver. Tableau generates appropriate SQL statements dependent on this specification.
 
 The following steps describe how to make Tableau Desktop for Windows work with the {{site.data.keyword.sqlquery_short}} JDBC driver:
 
@@ -162,10 +162,10 @@ The following steps describe how to make Tableau Desktop for Windows work with t
     </connection-customization>
     ```
 
-    - Store the content in a *.tdc file in the following folder:
+    - Store the content in a `*.tdc` file in the following folder:
       **Windows**: `C:\Documents\My Tableau Repository\Datasources\ibmcloudsql-jdbc.tdc`
       **Mac**: `~/My Tableau Repository/Datasources/ibmcloudsql-jdbc.tdc`
-      If further customization is needed in future, look [here](https://help.tableau.com/current/pro/desktop/en-us/jdbc_capabilities.htm) for capabilities that can be turned on and off.
+      If further customization is needed in future, check out [capabilities](https://help.tableau.com/current/pro/desktop/en-us/jdbc_capabilities.htm) that can be turned on and off.
 4. Start Tableau Desktop. Go to **Connect > To a Server > More**.
 5. On the next page, you see a list of supported connectors. Select **Other Databases (JDBC)**.
 6. On the raised input form enter the following information:
@@ -183,15 +183,15 @@ As Tableau does not support complex data types, such as `struct`, if a table con
 
     `jdbc:ibmcloudsql:{CRN of your {{site.data.keyword.sqlquery_short}} service instance}?targetcosurl={COS location for results}&filterType=view`
 
-## ODBC connectivity using the JDBC driver with Progress Data Direct HDP
+## ODBC connectivity that uses the JDBC driver with Progress Data Direct HDP
 {: #odbc_connectivity}
 
 The JDBC driver enables BI Tools to integrate data on Cloud {{site.data.keyword.cos_short}} into business reports.
-However, some BI tools exist that only provide ODBC connectors but no JDBC connectors.
+However, some BI tools exist that provide only ODBC connectors but no JDBC connectors.
 If you use such business intelligence tools, you need another way to connect to your data.
 
 An easy way to set up ODBC connectivity to {{site.data.keyword.sqlquery_short}} is to use the [Progress DataDirect Hybrid Data Pipeline](https://www.progress.com/cloud-and-hybrid-data-integration) product.
 
 ![Progress DataDirect Hybrid Data Pipeline](ODBCIBMSQLQuery.svg)
 
-There is a [step-by-step tutorial](https://www.ibm.com/cloud/blog/odbc-connectivity-to-ibm-cloud-sql-query) explaining how easily IBM Cloud SQL Query and Hybrid Data Pipeline (HDP) can complement one another to achieve this.
+A [step-by-step tutorial](https://www.ibm.com/cloud/blog/odbc-connectivity-to-ibm-cloud-sql-query) explains how easily {{site.data.keyword.sqlquery_short}} and Hybrid Data Pipeline (HDP) can complement one another to achieve this task.
