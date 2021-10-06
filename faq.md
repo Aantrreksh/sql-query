@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-08-22"
+lastupdated: "2021-10-06"
 
 keywords: best practice, faq, sql query
 
@@ -80,3 +80,17 @@ The most common cause for exhausting allocated resources or out of memory errors
 Depending on how a join clause is written, it can cause memory-intensive operations. Avoid to use functions in the join clause, such as trim. It is better to cleanse the data first with a preparation step and then to use the cleansed data in the join operation, without needing the functions.
 - If you already follow the previous recommendations and still get the out of memory errors, try breaking down complex statements into multiple SQL statements.
 - When you use time series functions, look at the following [FAQ](https://cloud.ibm.com/docs/sql-query?topic=sql-query-faq).
+
+## How to work with many objects?
+{: #many_objects}
+
+If you have more than 150,000 objects in a single source location and you don't use a catalog table, it's possible that your query 
+fails with an error, such as "Too many objects for a single query". If you don't use Hive-style partitioning or catalog tables, 
+all objects in the source location must be listed as part of the query execution, even if only a single row from a single object is required for the query.
+
+In order to successfully query the source location, use the following best practices:
+
+- Create a table with the correct schema specified. Without specifying the schema, the same out of resource problem occurs.
+- If you use more than ten UNION/JOIN constructs for different source URIs, try to lower the number of different sources.
+- Depending on the number of table partitions, you can either add the partition manually one by one, or use the `ALTER TABLE … RECOVER PARTITION` command. The limit is 20,000 partitions, but performance recommendation is to stay below 10,000. 
+- Structure your data by using Hive partitioning, and avoid small objects within that partitioning. An object size of 128 MB is optimal.
