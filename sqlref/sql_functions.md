@@ -2,7 +2,7 @@
 
 copyright:
   year: 2018, 2021
-lastupdated: "2021-03-01"
+lastupdated: "2021-10-07"
 
 keywords: SQL, functions
 
@@ -848,7 +848,7 @@ ceiling(expr) - Returns the smallest integer not smaller than <code>expr</code>.
 ## char
 {: #char}
 
-char(expr) - Returns the ASCII character that has the binary equivalent to <code>expr</code>. If n is larger than 256 the result is equivalent to chr(n % 256)
+char(expr) - Returns the ASCII character that has the binary equivalent to <code>expr</code>. If n is larger than 256, the result is equivalent to chr(n % 256)
 
 **Example of an SQL function usage fragment:**
 
@@ -922,7 +922,7 @@ character_length(expr) - Returns the character length of string data or number o
 ## chr
 {: #chr}
 
-chr(expr) - Returns the ASCII character that has the binary equivalent to <code>expr</code>. If n is larger than 256 the result is equivalent to chr(n % 256)
+chr(expr) - Returns the ASCII character that has the binary equivalent to <code>expr</code>. If n is larger than 256, the result is equivalent to chr(n % 256)
 
 **Example of an SQL function usage fragment:**
 
@@ -1555,7 +1555,7 @@ floor(expr) - Returns the largest integer not greater than <code>expr</code>.
 
 format_number(expr1, expr2) - Formats the number <code>expr1</code> like '#,###,###.##', rounded to <code>expr2</code>
 decimal places. If <code>expr2</code> is 0, the result has no decimal point or fractional part.
-This is supposed to function like MySQL's FORMAT.
+This function is supposed to work like MySQL's FORMAT.
 
 **Example of an SQL function usage fragment:**
 
@@ -2621,12 +2621,10 @@ percent_rank() - Computes the percentage ranking of a value in a group of values
 {: #percentile}
 
 percentile(col, percentage [, frequency]) - Returns the exact percentile value of numeric column
-<code>col</code> at the indicated percentage. The value of percentage must be between 0.0 and 1.0. The
-value of frequency should be positive integral.
+<code>col</code> at the indicated percentage. The value of percentage must be between 0.0 and 1.0. The value of frequency must be a positive integral.
 
 percentile(col, array(percentage1 [, percentage2]...) [, frequency]) - Returns the exact
-percentile value array of numeric column <code>col</code> at the indicated percentage. Each value
-of the percentage array must be between 0.0 and 1.0. The value of frequency should be
+percentile value array of numeric column <code>col</code> at the indicated percentage. Each value of the percentage array must be between 0.0 and 1.0. The value of frequency must be a 
 positive integral.
 
 
@@ -2805,7 +2803,7 @@ printf(strfmt, obj, ...) - Returns a formatted string from printf-style format s
 ## quarter
 {: #quarter}
 
-quarter(date) - Returns the quarter of the year for date, in the range 1 to 4.
+quarter(date) - Returns the quarter of the year for date, in the range 1 - 4.
 
 **Example of an SQL function usage fragment:**
 
@@ -3018,7 +3016,7 @@ str rlike regexp - Returns true if <code>str</code> matches <code>regexp</code>,
 <li>str - A string expression.</li>
 </ul>
 
-regexp - A string expression. The pattern string is a Java regular expression.
+regexp - A string expression. The pattern string is a Java™ regular expression.
 
 String literals (including regex patterns) are unescaped in our SQL
 parser. For example, to match "\abc", a regular expression for <code>regexp</code> can be
@@ -3356,7 +3354,7 @@ space(n) - Returns a string that consists of <code>n</code> spaces.
 ## spark_partition_id
 {: #spark_partition_id}
 
-spark_partition_id() - Returns the current partition id.
+spark_partition_id() - Returns the current partition ID.
 
 
 ## split
@@ -3974,8 +3972,8 @@ CASE WHEN expr1 THEN expr2 [WHEN expr3 THEN expr4]* [ELSE expr5] END - When <cod
 **Arguments:**
 
 <ul>
-<li>expr1, expr3 - the branch condition expressions should all be Boolean type.</li>
-<li>expr2, expr4, expr5 - the branch value expressions and else value expression should all be
+<li>expr1, expr3 - the branch condition expressions must all be Boolean type.</li>
+<li>expr2, expr4, expr5 - the branch value expressions and else value expression must all be
     same type or coercible to a common type.</li>
 </ul>
 
