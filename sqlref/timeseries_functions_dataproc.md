@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-03-05"
+lastupdated: "2021-10-11"
 
 keywords: SQL query, time series, SQL, data processing function
 
@@ -146,7 +146,7 @@ Returns the Damerau–Levenshtein distance between each pair of corresponding se
 
 **TS_FFT(DoubleTimeSeries, String)**  
 Output: DoubleArray  
-Uses a [fast Fourier transform (FFT)](https://en.wikipedia.org/wiki/Fast_Fourier_transform) algorithm to return the discrete Fourier transform of a time series. The stringt that is specified for the second parameter determines the type of transform:
+Uses a [fast Fourier transform (FFT)](https://en.wikipedia.org/wiki/Fast_Fourier_transform) algorithm to return the discrete Fourier transform of a time series. The string that is specified for the second parameter determines the type of transform:
 
 - `forward` or `f` for a forward transform
 - `inverse` or `i` for an inverse transform
@@ -297,7 +297,7 @@ Each of these functions creates, as output, a segmented version of a time series
 **TS_SEGMENT(see below<sup>2</sup>, Int, Int)**  
 Output: The type of the output segment time series corresponds to the type of the input.  
 Returns a SegmentTimeSeries based on the input time series and the specified segment size (second parameter) and step size (third parameter). 
-The step size corresponds to a number of observations. For example, the array `[1,2,3,4,5,6,7]` segmented with a segment size of 3 and a step size of 2 produces the result `[1,2,3]`, `[3,4,5]`, `[5,6,7]`.
+The step size corresponds to a number of observations. For example, the array `[1,2,3,4,5,6,7]` segmented with a segment size of three and a step size of two produces the result `[1,2,3]`, `[3,4,5]`, `[5,6,7]`.
 
 **TS_SEGMENT_BY_TIME(see below<sup>2</sup>, Long, Long)**  
 Output: The type of the output segment time series corresponds to the type of the input.  
@@ -322,8 +322,8 @@ Output: The type of the output segment time series corresponds to the type of th
 Segment a time series based on the specified anchor. The specified Long values determine a segment that begins before (third parameter) and ends after (fourth parameter) each anchor point. For example:
 
 - Specify 0,0 to return only those observations that correspond to the anchor points.
-- Specify 5,3 to create a segment that includes, in addition to the observation at each anchor point, all observations that occur between 5 timeticks before and 3 timeticks after each anchor point.
-- Specify 5,-3 to create a segment that includes all observations that occur between 5 and 3 timeticks before the anchor point.
+- Specify 5,3 to create a segment that includes, in addition to the observation at each anchor point, all observations that occur between five timeticks before and three timeticks after each anchor point.
+- Specify 5,-3 to create a segment that includes all observations that occur between five and three timeticks before the anchor point.
 
 **TS_SEGMENT_BY_MARKER (ts: AnyTimeSeries, marker: BooleanExpressionType[Any], prevInclusive: Boolean, nextInclusive: Boolean, requiresStartAndEnd: Boolean)**
 Output: Same as input 
@@ -421,7 +421,7 @@ Convert a string or timestamp into a value of type Long.
 Output: Long  
 Convert the specified string or timestamp into a value of type Long that contains an epoch millisecond timestamp in [Unix time](https://en.wikipedia.org/wiki/Unix_time).  
 - If the input parameter is a string, it is parsed by using the [DateTimeFormatter](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html).
-- If the input parameter is a TimeStampType value, it is treated as a Java timestamp.
+- If the input parameter is a TimeStampType value, it is treated as a Java™ timestamp.
 
 ## General functions
 {: #general_functions}
