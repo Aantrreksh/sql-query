@@ -109,7 +109,7 @@ WHERE totalpay = (SELECT MAX(totalpay) FROM dtotal)
 
 | DEPTNO |
 | ------ |
-| 2 |
+| 2      |
 {: caption="Table 1. Query result for example 'find the department with the highest total pay'" caption-side="top"}
 
 
