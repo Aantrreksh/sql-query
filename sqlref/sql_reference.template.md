@@ -3,7 +3,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-10-12"
+lastupdated: "2021-10-14"
 
 ---
 
@@ -89,7 +89,7 @@ WHERE totalpay = (SELECT MAX(totalpay) FROM dtotal)
 {: codeblock}
 
 | DEPTNO |
-| ------ |
+| ------ |
 | 2      |
 <!--table-caption title="Query result for example 'find the department with the highest total pay'"-->
 
