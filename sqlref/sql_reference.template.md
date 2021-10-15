@@ -93,7 +93,7 @@ The result of the example queries is shown in the following table.
 
 |DEPTNO|
 |------|
-|2    |
+|2     |
 
 <!--table-caption title="Query result for example 'find the department with the highest total pay'"-->
 
