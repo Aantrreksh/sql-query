@@ -3,7 +3,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-10-14"
+lastupdated: "2021-10-15"
 
 ---
 
@@ -86,11 +86,15 @@ SELECT deptno
 FROM dtotal
 WHERE totalpay = (SELECT MAX(totalpay) FROM dtotal)
 ```
+
 {: codeblock}
 
-| DEPTNO |
-| ------ |
-| 2      |
+The result of the example queries is shown in the following table.
+
+|DEPTNO|
+|------|
+|2     |
+
 <!--table-caption title="Query result for example 'find the department with the highest total pay'"-->
 
 ```sql
