@@ -3,7 +3,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-03-25"
+lastupdated: "2021-10-12"
 
 ---
 
@@ -24,7 +24,7 @@ The SELECT statement (or query statement) is used to read object data from {{sit
 process the data, and store it back on Cloud {{site.data.keyword.cos_short}} eventually.
 
 You can use {{site.data.keyword.sqlquery_short}} as a data transformation service, as it always writes the results of a query to a specified location in either {{site.data.keyword.cos_short}} or Db2 tables.
-{{site.data.keyword.sqlquery_short}} provides extended SQL syntax inside a special INTO clause to control how the result data is stored physically. This includes control over data location, format, layout, and partitioning.
+{{site.data.keyword.sqlquery_short}} provides extended SQL syntax inside a special INTO clause to control how the result data is stored physically. This extended SQL syntax includes control over data location, format, layout, and partitioning.
 
 A query statement can be submitted through {{site.data.keyword.sqlquery_short}}'s web UI or programmatically,
 either by using the service's REST API, or by using the Python or Node.JS SDK. You can also use {{site.data.keyword.DSX_full}}
@@ -35,7 +35,7 @@ In addition to the ad hoc usage of data in {{site.data.keyword.cos_full}}, you c
 Several benefits to cataloging your data exist:
 
 - It simplifies SQL SELECT statements because the SQL author does not need not know and specify exactly where and how the data is stored.
-- The SQL execution can skip the inference of schema and partitioning because this information is available in the metastore. This can improve you query performance, especially for text-based data formats, such as CSV and JSON, where the schema inference requires a full scan of the data before the actual query execution.
+- The SQL execution can skip the inference of schema and partitioning because this information is available in the metastore. Thus, cataloging improves your query performance, especially for text-based data formats, such as CSV and JSON, where the schema inference requires a full scan of the data before the actual query execution.
 <!-- Hide - With the *ANALYZE TABLE* command, you can gather statistics about your data, which is then used by the SQL compiler to do a cost-based optimization of the query plan, which can result in significantly improved query performance for queries on larger data volumes. -->
 
 ## Select
@@ -103,19 +103,19 @@ WITH dtotal AS (
 )
 SELECT deptno
 FROM dtotal
-WHERE totalpay = (SELECT MAX(totalpay) FROM  dtotal)
+WHERE totalpay = (SELECT MAX(totalpay) FROM dtotal)
 ```
 {: codeblock}
 
 | DEPTNO |
 | ------ |
-| 2 |
+| 2      |
 {: caption="Table 1. Query result for example 'find the department with the highest total pay'" caption-side="top"}
 
 
 ```sql
 -- list products with a price above the average price
-WITH  products AS (
+WITH products AS (
     SELECT
         col1 AS productid,
         col2 AS price
@@ -151,9 +151,7 @@ FROM products WHERE price > (SELECT * FROM avg_product_price)
 You can use the Cloud {{site.data.keyword.cos_short}} result clause to apply detailed control over the location, format, and layout of the SQL query result set being stored on Cloud {{site.data.keyword.cos_short}}.
 
 The default is `JOBPREFIX JOBID`, which means that `jobid=` is always appended to the target prefix.
-You can optionally specify `JOBID NONE`, which skips the appending of `jobid=`. This means that the results are written
-exactly to the requested path. However, if that path contains existing objects (for example, from a previous query execution with the same target path),
-all existing objects get removed when the new result objects are written.
+You can optionally specify `JOBID NONE`, which skips the appending of `jobid=`. The results are then written exactly to the requested path. However, if that path contains existing objects (for example, from a previous query execution with the same target path), all existing objects get removed when the new result objects are written.
 
 A query cannot run if `JOBPREFIX NONE` is specified and the target overlaps with at least one of the input URIs.
 The reason is that data cannot be overwritten by a query that is reading that same data.
@@ -210,7 +208,7 @@ This clause can be used to sort in many ways. When specified in combination with
 by the sort order that is specified in the SORT BY clause. When specified in combination with PARTITIONED INTO, the same is done,
 which is often referred to as clustering the rows by the specified columns into the fixed number of partitions specified by PARTITIONED INTO.
 When specified without the PARTITIONED clause, it is equivalent to an ORDER BY clause specified at the top level of the SQL SELECT statement.
-The ORDER BY clause is ignored, as soon PARTITIONED INTO is specified.
+If PARTITIONED INTO is specified, the ORDER BY clause is ignored.
 
 <div style="overflow-x : auto;">
 <map name="sortClauseImgMap">
@@ -224,14 +222,12 @@ The ORDER BY clause is ignored, as soon PARTITIONED INTO is specified.
 
 When you use the `PARTITIONED BY (column-list)` clause without specifying `INTO x BUCKETS/OBJECTS`, you can store the query result
 by using Hive-style partitioning, that is, to create partitions that contain only rows that have certain values for one or more columns.
-Chose this physical layout if the stored object is further analyzed by using SQL queries that specify predicates on the partition columns.
+Choose this physical layout if the stored object is further analyzed by using SQL queries that specify predicates on the partition columns.
 
 For example, a result object that contains worldwide order data has a column `country` to represent the country that the order is initiated from.
 Partitioning the result object by the column `PARTITIONED BY (country)`, would create a result object with a partition for each country present in the query result.
 
-When the result object is stored this way on Cloud {{site.data.keyword.cos_short}}, each SQL query that contains a predicate,
-such as `country = 'USA'` or `country in ('MALTA', 'ITALY', 'VATICAN CITY')`, benefits from this physical layout. The reason is that during
-SQL query execution partitions must only be read if they contain data for the countries of interest. This tremendously cuts down the I/O traffic of the SQL query.
+When the result object is stored this way on Cloud {{site.data.keyword.cos_short}}, each SQL query that contains a predicate, such as `country = 'USA'` or `country in ('MALTA', 'ITALY', 'VATICAN CITY')`, benefits from this physical layout. The reason is that during SQL query execution partitions must be read only if they contain data for the countries of interest. This layout tremendously cuts down the I/O traffic of the SQL query.
 
 Some additional remarks on Hive-style partitioning:
 
@@ -239,25 +235,25 @@ Some additional remarks on Hive-style partitioning:
 - Hive-style partitions do not contain any values for partition columns since their values are *stored* in the object prefix of the partition.
 Thus, if you copy a HIVE-style partition and rename the object prefix by removing the partition column values, you lose data.
 - Hive-style partitions have a tendency for data skewing. For example, the partition that represents order data from Malta is likely much smaller
-than the partition that represents order data from the US. You can partition the query result into separate objects if you want to have *equally sized* partitions.
+than the partition that represents order data from the US. You can partition the query result into separate objects if you want to have *equally-sized* partitions.
 
 
 <h4>Partition by columns into objects</h4>
 
-By partitioning a query result into objects you can specify the exact number of *equally sized* result partitions. This lets you experimentally fine-tune the number of objects to meet certain criteria for partition size. To specify the number of partitions, use the `PARTITIONED INTO x BUCKETS/OBJECTS` clause.
+By partitioning a query result into objects, you can specify the exact number of *equally-sized* result partitions. With this partitioning, you can experimentally fine-tune the number of objects to meet certain criteria for partition size. To specify the number of partitions, use the `PARTITIONED INTO x BUCKETS/OBJECTS` clause.
 
 For example, knowing the size of the query result, it is possible to calculate the number of objects to end up with partitions that have a certain size. For example, 128 MB, that is the Hadoop default file size, or any other size that meets application requirements.
 
-The `INTO x BUCKETS/OBJECTS` clause can be combined with the `BY (column-list)` clause to create a certain number of partitions that support data affinity regarding specified partition columns.
+The `INTO x BUCKETS/OBJECTS` clause can be combined with the `BY (column-list)` clause to create some partitions that support data affinity regarding specified partition columns.
 
-Continue with the preceding example that specifies `PARTITION BY (customerid) INTO 10 OBJECTS` stores the query result into 10 objects ensuring that all data for a customer
+Continue with the preceding example that specifies `PARTITION BY (customerid) INTO 10 OBJECTS` stores the query result into ten objects, which ensures that all data for a customer
 is stored in the same partition. Although it is ensured that all data for a certain customer is stored in the same partition,
 it is not ensured that the data is physically sorted according to the specified column.
 
 <h4>Partition by number of rows</h4>
 
 By partitioning by number of rows you can specify the number of rows that go into a single partition. To specify the number of rows stored in each partition,
-use the `EVERY x ROWS` clause. In case the row length of the result object is not varying heavily, with the *partition every rows* clause you can also create *almost equally sized* result partitions.
+use the `EVERY x ROWS` clause. In case the row length of the result object is not varying heavily, with the *partition every rows* clause you can also create *almost equally-sized* result partitions.
 
 The use of the `PARTITIONED EVERY x ROWS` clause on a sorted query result ensures that partitions are created to have some rows that are sorted according to the query's `SORT BY` clause. This physical layout can be useful to create partitions that are processed by an application in a pagination manner, for example, browsing order data sorted by *order date* and *customer ID*.
 
@@ -278,9 +274,7 @@ The table name and optional schema are specified as part of the target URI.
 **Important**: If a table with the name that is indicated exists in the target database, that table is dropped before the query executes
 and all existing data is deleted.
 
-Use the `PARALLELISM x` clause to specify that multiple parallel database connections are to be opened to write out
-the result. Depending on the size of your result and the network connectivity of your target database service,
-this can reduce the query processing time significantly.
+Use the `PARALLELISM x` clause to specify that multiple parallel database connections are to be opened to write out the result. Depending on the size of your result and the network connectivity of your target database service, this clause can reduce the query processing time significantly.
 
 <div style="overflow-x : auto;">
 <map name="dbResultClauseImgMap">
@@ -294,9 +288,8 @@ this can reduce the query processing time significantly.
 
 <h3 id="accessSecrets">accessSecrets</h3>
 
-By default, either the credentials that are needed to access the target database are taken from the credentials object of a `CRN_URI`, or the IAM user
-submitting the statement is used to connect to the `DB2_TABLE_URI`.
-You can override this default by specifying either  a combination of `USER` and `PASSWORD` or an `APIKEY`. However, the password or API key is **not** included in the SQL statement as plain text. Instead, you must store it as a custom key in a {{site.data.keyword.keymanagementservicefull}} instance to which you have access.
+By default, either the credentials that are needed to access the target database are taken from the credentials object of a `CRN_URI`, or the IAM user who submits the statement is used to connect to the `DB2_TABLE_URI`.
+You can override this default by specifying either a combination of `USER` and `PASSWORD` or an `APIKEY`. However, the password or API key is **not** included in the SQL statement as plain text. Instead, you must store it as a custom key in a {{site.data.keyword.keymanagementservicefull}} instance to which you have access.
 For a description how to store and manage the secrets in {{site.data.keyword.keymanagementserviceshort}}, see [Setting up custom secrets in Key Protect](/docs/sql-query?topic=sql-query-kpsetup).
 
 <div style="overflow-x : auto;">
@@ -353,13 +346,13 @@ A *fullselect* is the core component of a *query*. It is the only mandatory gene
 The result set defined by a single fullselect can be combined with the result set of one or more other fullselects by using set operators.
 
 The following set operators are supported and each set operator derives a result set from two other result sets R1 and R2:
-* `INTERSECT`:  The result consists of all rows in **both** R1 and R2.
+* `INTERSECT`: The result consists of all rows in **both** R1 and R2.
 * `UNION`: The result consists of all rows in R1 and all rows in R2.
 * `EXCEPT`: The result consists of all rows that do not have a corresponding row in R2.
 * `MINUS`: The minus operator is a synonym for the except operator and is supported for compatibility with other SQL implementations.
 
 These set operators can be further refined by using the following modifiers:
-* `DISTINCT`: This modifier ensures that the overall result set does not contain any duplicates. This is the default modifier that applies if no modifier is present.
+* `DISTINCT`: This modifier ensures that the overall result set does not contain any duplicates. It is the default modifier that applies if no modifier is present.
 * `ALL`: All rows of a fullselect's result set are combined by using a set operator. Thus, the overall result set can contain duplicates.
 
 The following combinations of set operators and set modifiers are not supported:
@@ -370,25 +363,17 @@ The following combinations of set operators and set modifiers are not supported:
 The characteristics of a result set defined by a fullselect can be further defined by using the following clauses:
 * `ORDER BY`: Define an overall ordering of the result set based on the criteria that are defined by the list of `sortItem` clauses.
 The default order direction is ascending if not explicitly specified by a `sortItem` clause. The *order by* clause
-cannot be used with *cluster by*, *distribute by* or *sort by* clause.
+cannot be used with *cluster by*, *distribute by*, or *sort by* clause.
 When you use partitioned output, the `ORDER BY` clause gets ignored. Use the `sortClause` instead.
 * `DISTRIBUTE BY`: Distribute result set rows into new partitions based on the criteria that are defined by the list of `expression` clauses.
-Result set rows that have the same expression values are moved to the same partition. The *distribute by* clause cannot be
-used with *order by* or *cluster by* clause.
+Result set rows that have the same expression values are moved to the same partition. The *distribute by* clause cannot be used with *order by* or *cluster by* clause.
 * `SORT BY`: You can define an overall ordering on a partition base as defined by the list of `expression` clauses.
-The default order direction is ascending if not explicitly specified by an `expression` clause.  The *sort by* clause is used in conjunction
-with the *distribute by* clause.
-* `CLUSTER BY`: Distribute result set rows into new partitions based on the criteria that are defined by the list of `expression` clauses. Moreover, each
-partition is sorted in ascending order based on the criteria that are defined by the set of `expression` clauses. Thus, this clause represents a shortcut
-for *distribute by* clause combined with *sort by* in ascending order. You cannot use the *cluster by* attribute with the *order by*,
-*distribute by*, *sort by* clause.
-* `LIMIT`: Restrict the number of rows that are returned from the result set of the fullselect. The number of rows can be defined by an `expression` or by using
-the keyword `ALL` that causes all rows to be returned.
+The default order direction is ascending if not explicitly specified by an `expression` clause. The *sort by* clause is used along with the *distribute by* clause.
+* `CLUSTER BY`: Distribute result set rows into new partitions based on the criteria that are defined by the list of `expression` clauses. Moreover, each partition is sorted in ascending order based on the criteria that are defined by the set of `expression` clauses. Thus, this clause represents a shortcut for *distribute by* clause that is combined with *sort by* in ascending order. You cannot use the *cluster by* attribute with the *order by*, *distribute by*, *sort by* clause.
+* `LIMIT`: Restrict the number of rows that are returned from the result set of the fullselect. The number of rows can be defined by an `expression` or by using the keyword `ALL` that causes all rows to be returned.
 
-`DISTRIBUTE BY`, `SORT BY` and `CLUSTER BY` have an effect only during your SQL query execution and do not influence the query result
-written back to Cloud {{site.data.keyword.cos_short}}. Use these clauses only in execution of subqueries to optimize the outer
-query execution that works on the intermediate result sets produced by the sub queries. To define the persistent target of the overall query
-that is written back to Cloud {{site.data.keyword.cos_short}}, you need to use the dedicated [resultClause](#resultClause) instead.
+`DISTRIBUTE BY`, `SORT BY`, and `CLUSTER BY` have an effect only during your SQL query execution and do not influence the query result that is written back to Cloud {{site.data.keyword.cos_short}}. Use these clauses only in execution of subqueries to optimize the outer
+query execution that works on the intermediate result sets produced by the sub queries. To define the persistent target of the overall query that is written back to Cloud {{site.data.keyword.cos_short}}, you need to use the dedicated [resultClause](#resultClause) instead.
 
 <h3>Examples</h3>
 
@@ -528,7 +513,7 @@ A *simpleselect* is a component of a *fullselect*. Its syntax is defined by the 
 With a *simpleselect*, you can specify the following characteristics of a result set:
 * The list of *result columns* from *relations* or *lateral views* that are part of the final result set. The result column list can be further redefined by using the following modifier keywords:
     * `DISTINCT`: Eliminates all but one of each set of duplicate rows of the final result set.
-    * `ALL`: Retains all rows of the final result set, and does not eliminate redundant duplicates. This is the default.
+    * `ALL`: Retains all rows of the final result set, and does not eliminate redundant duplicates. It is the default.
 * The `FROM` clause defines the list of *relations* or *lateral views* that are combined to derive a result set.
 * The `WHERE` clause defines the way how *relations* and *lateral views* are filtered and **joined** to derive a result set.
 * In its simplest form, the `GROUP BY` clause defines how rows that qualify for the final result set are grouped based on *grouping expressions*. Each group is represented by a single row in the final result set.
@@ -616,7 +601,7 @@ Referring to the preceding example, adding a `WITH ROLLUP` modifier to the *grou
 a yearly basis, and a grand total as shown by the following example.
 
 ```sql
--- rollup sales data on quarter by year basis, a yearly basis and a grand total
+-- rollup sales data on quarter by year basis, a yearly basis, and a grand total
 SELECT
     sales.col1 AS year,
     sales.col2 AS quarter,
@@ -774,7 +759,7 @@ The semantics of the *sort item* components are as follows:
 
 <h3>More topics</h3>
 
-For more information about the clauses that are used in a *expression* clause, see the following topic:
+For more information about the clauses that are used in an *expression* clause, see the following topic:
 * [expression](#expression)
 
 <h3>Related references</h3>
@@ -854,7 +839,7 @@ Apart from the join type, the following two different types of joins exist:
 
 An external table specification represents an URI for an object that is stored on Cloud {{site.data.keyword.cos_short}} combined with a specification of the object type. Valid values for object type identifier are `AVRO`, `CSV`, `JSON`, `ORC`, or `PARQUET`.
 
-If the file format is CSV, the optional `FIELDS TERMINATED BY` clause allows you to specify a field separator other than the default `,` (comma). For example, a query for parsing a CSV with `|` (vertical bar) as the delimiter looks like the following:
+If the file format is CSV, with the optional `FIELDS TERMINATED BY` clause you can specify a field separator other than the default `,` (comma). The following example shows a query for parsing a CSV with `|` (vertical bar) as the delimiter:
 
 ```sql
 SELECT *
@@ -864,15 +849,12 @@ SELECT *
 ```
 All single Unicode characters are allowed as delimiters.
 
-By default, it is assumed that CSV input objects have a header line that specifies the names of the input columns.  If the objects don't have a header line, you must specify the option `NOHEADER` in the `STORED AS CSV` clause. In this case, the names _C0, _C1, ... are used for the input columns.
-For more information, see [COS URI](#COSURI).
+By default, it is assumed that CSV input objects have a header line that specifies the names of the input columns. If the objects don't have a header line, you must specify the option `NOHEADER` in the `STORED AS CSV` clause. In this case, the names _C0, _C1, ... are used for the input columns. For more information, see [COS URI](#COSURI).
 
 By default, if the format of the input data is JSON, each line must contain a separate, self-contained, and valid JSON object, also called newline-delimited JSON.
-However, if you specify the option `MULTILINE`, {{site.data.keyword.sqlquery_short}} can process JSON input data even if individual data records span multiple lines,
-such as when the data was formatted to make it easier to read. Specify this option only if you really need it because it limits input parallelization and can
-significantly reduce performance when you process large volumes of JSON data. If you need to frequently query large amounts of multiline JSON data, use {{site.data.keyword.sqlquery_short}} to transform the data into single -line JSON, or into a more performance optimized format, such as Parquet, before querying the transformed data.
+However, if you specify the option `MULTILINE`, {{site.data.keyword.sqlquery_short}} can process JSON input data even if individual data records span multiple lines, such as when the data was formatted to make it easier to read. Specify this option only if you really need it because it limits input parallelization and can significantly reduce performance when you process large volumes of JSON data. If you need to frequently query large amounts of multiline JSON data, use {{site.data.keyword.sqlquery_short}} to transform the data into single -line JSON, or into a more performance optimized format, such as Parquet, before querying the transformed data.
 
-If the file format is Parquet, the optional `MERGE SCHEMA` clause allows you to handle Parquet schema evolution by specifying to scan all qualifying Parquet objects for their schema, and to merge the final schema across all objects. By default, for Parquet input only the first Parquet object found is used to infer the schema, which guarantees minimal overhead for compiling the SQL. Thus, use this option if your Parquet input data does not have a homogeneous schema.
+If the file format is Parquet, with the optional `MERGE SCHEMA` clause you can handle Parquet schema evolution by specifying to scan all qualifying Parquet objects for their schema, and to merge the final schema across all objects. By default, for Parquet input only the first Parquet object that is found is used to infer the schema, which guarantees minimal overhead for compiling the SQL. Thus, use this option if your Parquet input data does not have a homogeneous schema.
 
 <div style="overflow-x : auto;">
 <map name="externalTableSpecImgMap">
@@ -911,7 +893,7 @@ for which to set the time series [TRS](/docs/sql-query?topic=sql-query-TRS). If 
 
 * `granularity`: Optionally specify a `granularity` string (a properly formatted ISO-8601 duration format) for which to set the time series reference system [TRS](/docs/sql-query?topic=sql-query-TRS). If `granularity` is not indicated, and `starttime` is indicated, the default `granularity` is 1 millisecond. However, if no `starttime` is indicated, a [TRS](/docs/sql-query?topic=sql-query-TRS) is not associated with the created time series.
 
-The following examples show you how to use  TIME_SERIES_FORMAT parameters for dynamic time series generation during the read process.
+The following examples show you how to use TIME_SERIES_FORMAT parameters for dynamic time series generation during the read process.
 
 Create a time series per location, set the time series TRS with default start time and 1 ms granularity, and store with it with the name "ts".
 
@@ -935,7 +917,7 @@ USING TIME_SERIES_FORMAT(key="location", timetick="timestamp", value="humidity",
 ```
 
 Create a time series per location with no TRS, store it with the name "ts".
-If no granularity or start time are provided, a TRS will not be associated with the time series and therefore with_trs will run into exception.
+If no granularity or start time is provided, a TRS is not associated with the time series and therefore with_trs runs into exception.
 
 ```
 SELECT
@@ -973,7 +955,7 @@ A table transformer is a function that is applied to the input data set before i
 
 You can wrap your external table definition optionally with the `FLATTEN` table transformation function.
 It preprocesses your input table before query compilation to a fully flat column schema.
-This can be useful when you have hierarchical input data as it is often found in JSON documents.
+This table transformation function can be useful when you have hierarchical input data as it is often found in JSON documents.
 By using `FLATTEN`, you do not need to dereference all nested columns explicitly in your SQL statement.
 
 For example, you can run a simple `SELECT * FROM FLATTEN(cos://us-geo/sql/iotmessages STORED AS JSON)` on a flattened JSON
@@ -985,14 +967,12 @@ You can optionally also combine `FLATTEN` with `CLEANCOLS`.
 You can wrap your external table definition optionally with the `CLEANCOLS` table transformation function.
 It preprocesses your input table before query compilation by renaming all columns that have characters that are NOT supported by certain target formats, such as Parquet.
 These characters are `,`, `;`, `,,,`, `=`, `(`, `)`, `{`, and `}`. They are replaced by the corresponding URL-encoded representation, for example, %20 for space (` `).
-This allows you to write results, for example, into Parquet, without the need to provide column by column alias names in your SQL
-when your input data has columns with these characters. A typical situation is the existence of space (` `) in input columns.
+This function allows you to write results, for example, into Parquet, without the need to provide column by column alias names in your SQL when your input data has columns with these characters. A typical situation is the existence of space (` `) in input columns.
 
 For example, you can use `SELECT * FROM CLEANCOLS(cos://us-geo/sql/iotmessages STORED AS JSON) INTO cos://us-geo/mybucket/myprefix STORED AS PARQUET` to produce a result set that can be stored as is into Parquet target format.
 
 If you wrap your external table definition with the `DESCRIBE` table transformer,
-the table does not show its actual content but the schema that is inferred from the objects in {{site.data.keyword.cos_full}} instead.
-This allows you to explore the schema before authoring your actual SQL statements against it.
+the table does not show its actual content but the schema that is inferred from the objects in {{site.data.keyword.cos_full}} instead. With this function you can explore the schema before you author your actual SQL statements against it.
 
 When you use the `DESCRIBE` table transformer in your SQL statement, the default output format is JSON instead of CSV.
 
@@ -1190,7 +1170,7 @@ A *values clause* is referenced by the following clauses:
 ### Lateral Views
 {: #chapterLateralViews}
 
-A lateral view is a component of a *simpleselect*. Lateral views allow to build  *virtual tables* at query execution time
+A lateral view is a component of a *simpleselect*. Lateral views allow you to build *virtual tables* at query execution time
 by using *table-generating functions*. Examples of table-generating functions are `explode()`, `posexplode()`, and `posexplode_outer()`.
 The explode()-style functions take an array or map as input and return a row for each element in the array. For more information, see [SQL functions](/docs/sql-query?topic=sql-query-sqlfunctions#sqlfunctions).
 
@@ -1604,9 +1584,9 @@ The general syntax of a table sample clause is described by the following syntax
 
 Three sampling types are supported:
 
-* `TABLESAMPLE <number> PERCENT` lets you sample a certain percentage of rows from the underlying table.
-* `TABLESAMPLE <expression> ROWS` lets you sample some rows from the underlying table.
-* `TABLESAMPLE BUCKET x OUT OF y` lets you bucketize the underlying data into `y` buckets and returns rows from bucket `x`. Buckets are numbered from `1`to `y`.
+* With `TABLESAMPLE <number> PERCENT` you can sample a certain percentage of rows from the underlying table.
+* With `TABLESAMPLE <expression> ROWS` you can sample some rows from the underlying table.
+* With `TABLESAMPLE BUCKET x OUT OF y` you can bucketize the underlying data into `y` buckets and returns rows from bucket `x`. Buckets are numbered from `1` to `y`.
 
 <h3>Examples</h3>
 
@@ -1711,7 +1691,7 @@ Working with window functions involves two steps:
 1. Choose a *window function* to answer the question of interest.
 2. Define a *window* the chosen window function is applied to.
 
-There are three types of window functions:
+The three types of window functions are:
 
 - **Ranking functions**, for example, `rank()`, `ntile()`, or `rowNumber()`
 - **Analytic functions**, for example, `cume_dist()`, `first_value()`, or `last_value()`
@@ -1720,7 +1700,7 @@ There are three types of window functions:
 For more information, see [SQL functions](/docs/sql-query?topic=sql-query-sqlfunctions#sqlfunctions).
 
 A window can be defined in two ways:
-* The `WINDOW` keyword lets you define an identifier for a window specification in a *fullselect* or *simpleselect*. This named window specification can then be referenced by the `OVER` keyword.
+* With the `WINDOW` keyword you can define an identifier for a window specification in a *fullselect* or *simpleselect*. This named window specification can then be referenced by the `OVER` keyword.
 * Unnamed window specifications can be defined inline following the keyword `OVER` in a *fullselect* or *simpleselect*.
 
 The syntax of a window specification is defined by the following syntax diagrams.
@@ -1787,7 +1767,7 @@ The syntax of a window specification is defined by the following syntax diagrams
 The window specification consists of the following clauses:
 * The `PARTITION BY` clause defines which rows belong to the same *window partition*. `DISTRIBUTE BY` can be used as a synonym for `PARTITION BY`.
 * The `ORDER BY` clause defines the ordering of rows within a window partition. `SORT BY` can be used as a synonym for `ORDER BY`.
-* There are two ways to define a *window size*:
+* The two ways to define a *window size* are:
     * `RANGE`: The window size is defined as a value range.
     * `ROW`: The window size is defined as the number of rows before and/or after the current row.
 * The following keywords can be used to define range boundaries:
@@ -1967,7 +1947,7 @@ The result of the example query is shown in the following table.
 
 <h4>Aggregation Function Example</h4>
 
-This example uses a table containing transaction information. The layout is as follows:
+This example uses a table that contains transaction information. The layout is as follows:
 * Column 1: transaction ID
 * Column 2: account number
 * Column 3: transaction amount
@@ -2028,7 +2008,7 @@ A *named window clause* is referenced by the following clauses:
 * [fullselect](#fullselect)
 * [simpleselect](#simpleselect)
 
-The keyword `OVER` lets you define an unnamed window specification in a [functionOrAggregate](#functionOrAggregate).
+With he keyword `OVER` you can define an unnamed window specification in a [functionOrAggregate](#functionOrAggregate).
 
 ## SQL expressions
 {: #chapterSqlExpressions}
@@ -2201,7 +2181,7 @@ A *value expression* is referenced by the following clauses:
 
 <h4 id="interval">interval</h4>
 
-An *interval clause* lets you define time duration constants that can be used in expressions to add or subtract time ranges from a timestamp value.
+With an *interval clause* you can define time duration constants that can be used in expressions to add or subtract time ranges from a timestamp value.
 
 <div style="overflow-x : auto;">
 <map name="intervalImgMap">
@@ -2251,7 +2231,7 @@ The result of the example query is shown in the following table.
 {: caption="Table 30. Query result for example 'add and subtract several time units from the current timestamp'" caption-side="top"}
 
 
-Since interval clauses can get quite long, especially if days, hours, minutes, and seconds are involved, it is possible to use an abbreviated syntax by specifying a format `STRING` and by using the `TO` keyword.
+Since interval clauses can get long, especially if days, hours, minutes, and seconds are involved, it is possible to use an abbreviated syntax by specifying a format `STRING` and by using the `TO` keyword.
 
 The format `STRING` can be used to specify the following time intervals:
 * `YEAR TO MONTH` interval by using a format string that complies with `signYEAR-MONTH` with the following:
@@ -2383,7 +2363,7 @@ For more information about the clauses that are used by a *primary expression*, 
 The `BETWEEN ... AND` predicate compares a value with a range of values. If `NOT` is specified, the result is reversed.
 
 The `IN` predicate compares a value or values with a collection of values. The range of values is either defined by a query or a list of expressions that are enclosed in parentheses.
-The query must identify a number of columns that is the same as the number of expressions that are specified to the left of the IN keyword.
+The query must identify a number of columns that are the same as the number of expressions that are specified to the left of the IN keyword.
 In addition, the number of elements in the list of expressions must be the same as the number of expressions that are specified to the left of the IN keyword.
 If `NOT` is specified, the result is reversed.
 
@@ -2398,8 +2378,7 @@ If the pattern expression is not found, the result is false. If the value of any
 If `NOT` is specified, the result is reversed.
 
 The regular expression pattern must be a Java™ regular expression as defined by Java class `java.util.regex.Pattern`.
-Meta characters that start with a `\` must be escaped for the regular expression to work, for example, use `\\d` instead of `\d`
-in a pattern string to represent a digit. For more information, such as supported meta characters and predefined character classes, see the latest Java documentation.
+Meta characters that start with a `\` must be escaped for the regular expression to work, for example, use `\\d` instead of `\d` in a pattern string to represent a digit. For more information, such as supported meta characters and predefined character classes, see the latest Java documentation.
 
 The `IS NULL` predicate tests for null values. The result of a NULL predicate cannot be unknown. If the value of the expression is null, the result is true. If the value is not null, the result is false. If `NOT` is specified, the result is reversed.
 
@@ -2903,7 +2882,7 @@ The result of the example query is shown in the following table.
 {: caption="Table 49. Query result for example 'simple case expression with ELSE clause'" caption-side="top"}
 
 
-There are two scalar functions, `NULLIF()` and `COALESCE()`, that are specialized to handle a subset of the functionality provided by `CASE`.
+The two scalar functions that are specialized to handle a subset of the functionality provided by `CASE` are `NULLIF()` and `COALESCE()`.
 
 | Expression | Equivalent Expression |
 | ---------- | --------------------- |
@@ -3095,7 +3074,7 @@ For more information on each function, see [Artifact creation functions](/docs/s
 
 The string function `TS_EXP_ID_TO_STRING()` converts an ID to a string and the `TS_EXP_CONCAT()` function concatenates the result of two string expressions.
 
-For more information on each function see [Artifact creation functions](/docs/sql-query?topic=sql-query-artifact).
+For more information on each function, see [Artifact creation functions](/docs/sql-query?topic=sql-query-artifact).
 
 <h4 id="stringConditionalExpression">stringConditionalExpression</h4>
 
@@ -3113,7 +3092,7 @@ For more information on each function see [Artifact creation functions](/docs/sq
 <img style="max-width: 1705px;" usemap="#stringConditionalExpressionImgMap" alt="syntax diagram for string conditional time series expression" src="./diagrams/stringConditionalExpression-bee36bc91976cded35722539179ba2f2.svg" />
 </div>
 
-There are three conditional expression functions for string values `TS_EXP_IF_THEN_ELSE()`, `TS_EXP_IF_THEN()`, and `TS_EXP_MATCH_CASE()`.
+The three conditional expression functions for string values are `TS_EXP_IF_THEN_ELSE()`, `TS_EXP_IF_THEN()`, and `TS_EXP_MATCH_CASE()`.
 
 For more information on each function, see [Artifact creation functions](/docs/sql-query?topic=sql-query-artifact).
 
@@ -3152,15 +3131,15 @@ The following types of operators can be used:
 
 | Operator | Operand types | Description |
 | :----: | ---- | ---- |
-| `A + B`   | All number types | Returns the result of adding A and B. The type of the result is the same as the type of the operand that is highest in the type hierarchy. For example, if A is of type FLOAT and B is of type INT, the result is of type FLOAT. |
-| `A - B`   | All number types | Returns the result of subtracting B from A. The type of the result is the same as the type of the operand that is highest in the type hierarchy. For example, if A is of type FLOAT and B is of type INT, the result is of type FLOAT. |
-| `A * B`   | All number types | Returns the result of multiplying A and B. The type of the result is the same as the type of the operand that is highest in the type hierarchy. For example, if A is of type FLOAT and B is of type INT, the result is of type FLOAT. If the operation causes an overflow, cast at least one of the operators to a type that is higher in the type hierarchy. |
-| `A / B`   | All number types | Returns the result of dividing A by B. The type of the result is DOUBLE. |
-| `A % B`   | All number types | Returns the reminder after dividing A by B.  For example, 13.7 % 3 returns 1.7. The type of the result is the same as the type of the operand that is highest in the type hierarchy. For example, if A is of type FLOAT and B is of type INT, the result is of type FLOAT. |
-| `A DIV B` | Integer types    | Returns the integer part of the result of dividing A by B. For example, 13.7 DIV 3 returns the integer 4. |
-| `A & B`   | All number types | Returns the result of bitwise AND of A and B. The type of the result is the same as the type of the operand that is highest in the type hierarchy. |
+| `A + B` | All number types | Returns the result of adding A and B. The type of the result is the same as the type of the operand that is highest in the type hierarchy. For example, if A is of type FLOAT and B is of type INT, the result is of type FLOAT. |
+| `A - B` | All number types | Returns the result of subtracting B from A. The type of the result is the same as the type of the operand that is highest in the type hierarchy. For example, if A is of type FLOAT and B is of type INT, the result is of type FLOAT. |
+| `A * B` | All number types | Returns the result of multiplying A and B. The type of the result is the same as the type of the operand that is highest in the type hierarchy. For example, if A is of type FLOAT and B is of type INT, the result is of type FLOAT. If the operation causes an overflow, cast at least one of the operators to a type that is higher in the type hierarchy. |
+| `A / B` | All number types | Returns the result of dividing A by B. The type of the result is DOUBLE. |
+| `A % B` | All number types | Returns the remainder after dividing A by B. For example, 13.7 % 3 returns 1.7. The type of the result is the same as the type of the operand that is highest in the type hierarchy. For example, if A is of type FLOAT and B is of type INT, the result is of type FLOAT. |
+| `A DIV B` | Integer types | Returns the integer part of the result of dividing A by B. For example, 13.7 DIV 3 returns the integer 4. |
+| `A & B` | All number types | Returns the result of bitwise AND of A and B. The type of the result is the same as the type of the operand that is highest in the type hierarchy. |
 | `A | B` | All number types | Returns the result of bitwise OR of A and B. The type of the result is the same as the type of the operand that is highest in the type hierarchy. |
-| `A ^ B`  | All number types | Returns the result of bitwise XOR of A and B. The type of the result is the same as the type of the operand that is highest in the type hierarchy. |
+| `A ^ B` | All number types | Returns the result of bitwise XOR of A and B. The type of the result is the same as the type of the operand that is highest in the type hierarchy. |
 {: caption="Table 52. Arithmetic operators" caption-side="top"}
 
 
@@ -3168,7 +3147,7 @@ The following types of operators can be used:
 
 | Operator | Operand types | Description |
 | :----: | ---- | ---- |
-| `A || B` |  All types | Returns the concatenation of A and B. If A or B is not a string, it is first converted into a string type. The result is a string. |
+| `A || B` | All types | Returns the concatenation of A and B. If A or B is not a string, it is first converted into a string type. The result is a string. |
 {: caption="Table 53. String operator" caption-side="top"}
 
 
@@ -3271,7 +3250,7 @@ Numeric data types are summarized in the following table.
 <h4>String Types</h4>
 
 Strings are represented as `STRING` data type. The type definitions `VARCHAR(n)` and `CHAR(n)` can be used as aliases for `STRING`.
-The syntax requires that you specify a maximum length for these, but no length restriction is enforced.
+The syntax requires that you specify a maximum length for these types, but no length restriction is enforced.
 
 <h4>Date and Time Types</h4>
 
@@ -3302,7 +3281,7 @@ The `BOOLEAN` type represents a domain with two values, `true` or `false`.
 
 Any numeric value that represents zero, for example, `0`, `0.0`, or `0.0E10`, can be cast to `false`.
 
-Numeric values representing a nonzero value, for example, 1, 1.0, 1.0E10, or 21474.83648 can be cast to `true`.
+Numeric values that represent a nonzero value, for example, 1, 1.0, 1.0E10, or 21474.83648 can be cast to `true`.
 
 The string value `'0'` can be cast to `false` and `'1'` can be cast to `true`. Any other string value is cast to `false`.
 
@@ -3397,7 +3376,7 @@ CREATE TABLE customers_partitioned (
 )
 USING CSV
 PARTITIONED BY (COUNTRY)
-location  cos://us-geo/sql/customers_partitioned.csv
+location cos://us-geo/sql/customers_partitioned.csv
 
 -- attach table partitions by scanning the location of the table
 ALTER TABLE customers_partitioned RECOVER PARTITIONS
@@ -3410,7 +3389,7 @@ An alternative way to create a table definition is to use the automatic schema d
 -- create a definition for the table shippers with automatic schema detection
 CREATE TABLE shippers
 USING parquet
-location  cos://us-geo/sql/shippers.parquet
+location cos://us-geo/sql/shippers.parquet
 ```
 {: codeblock}
 
@@ -3422,7 +3401,7 @@ Key | Value | Default | Description
 --- | --- | --- | ---
 HEADER | true or false | true | Use the HEADER option to specify whether your CSV object has a header included.
 DELIMITER | single (possibly escaped) character | `,` (comma) | Use the DELIMITER option to specify the used delimiter in your CSV objects. All single Unicode characters are allowed as delimiters.
-MULTILINE | true or false | false | Use the MULITLINE option to specify if the JSON object is single or multiline.
+MULTILINE | true or false | false | Use the MULITLINE option to specify whether the JSON object is single or multiline.
 
 ```sql
 -- Example of creating a table definition in the catalog for a CSV data without header line:
@@ -3538,7 +3517,7 @@ DROP VIEW customer_statistics
 
 Use alter table to modify the definition of the partitions or to automatically discover the available partitions.
 
-Use the `RECOVER PARTITIONS` option to automatically replace the table partition metadata with the structure that is detected from {{site.data.keyword.cos_short}} data by using the location prefix specified for the table.
+Use the `RECOVER PARTITIONS` option to automatically replace the table partition metadata with the structure that is detected from {{site.data.keyword.cos_short}} data by using the location prefix that is specified for the table.
 
 ```sql
 -- replace the table partitions by scanning the location of the table
@@ -3558,7 +3537,7 @@ ALTER TABLE customers_partitioned RECOVER PARTITIONS
 
 To add or remove partitions individually, use the `ADD PARTITION` or `DROP PARTITION` options.
 
-The `ADD PARTITION` option allows you to specify an explicit location for the new partition. This way, you can construct a table from object locations that do not share a common {{site.data.keyword.cos_short}} prefix, or are even located in separate buckets.
+With the `ADD PARTITION` option you can specify an explicit location for the new partition. This way, you can construct a table from object locations that do not share a common {{site.data.keyword.cos_short}} prefix, or are even located in separate buckets.
 If the partition location is not specified, it is inferred from the location of the table and the value(s) of the partitioning column(s). `ADD PARTITION` does not validate the specified or inferred location.
 
 
@@ -3616,7 +3595,7 @@ Return the schema (column names and data types) of a table or view definition. I
 
 ```sql
 -- returns detailed information about the customer table
-DESCRIBE TABLE  customers_partitioned
+DESCRIBE TABLE customers_partitioned
 ```
 {: codeblock}
 
@@ -3644,13 +3623,13 @@ SHOW TABLES
 
 <h4 id="showTblProperties">Show Table Properties</h4>
 
-*!<add comment lines here>  include-svg src="./svgfiles/showTblProperties.svg" target="./diagrams/showTblProperties.svg" alt="syntax diagram for show table properties" layout="@break@" <add comment lines here>*
+*!<add comment lines here> include-svg src="./svgfiles/showTblProperties.svg" target="./diagrams/showTblProperties.svg" alt="syntax diagram for show table properties" layout="@break@" <add comment lines here>*
 
 <h4 id="tableProperty">Table Property</h4>
 
-*!<add comment lines here>  include-svg src="./svgfiles/tableProperty.svg" target="./diagrams/tableProperty.svg" alt="syntax diagram for table properties" layout="@break@" <add comment lines here>*
+*!<add comment lines here> include-svg src="./svgfiles/tableProperty.svg" target="./diagrams/tableProperty.svg" alt="syntax diagram for table properties" layout="@break@" <add comment lines here>*
 
-*!<add comment lines here>  include-svg src="./svgfiles/tablePropertyKey.svg" target="./diagrams/tablePropertyKey.svg" alt="syntax diagram for table properties" layout="@break@" <add comment lines here>*
+*!<add comment lines here> include-svg src="./svgfiles/tablePropertyKey.svg" target="./diagrams/tablePropertyKey.svg" alt="syntax diagram for table properties" layout="@break@" <add comment lines here>*
 
 
 Return either all properties of a table definition or a specific property. You receive an error if the table does not exist.
@@ -3737,7 +3716,7 @@ ON cos://us-geo/sql/metergen STORED AS parquet
 {: codeblock}
 
 ```sql
--- create an index on the columns  customerID and city of the sample table CUSTOMERS_PARTITIONED
+-- create an index on the columns customerID and city of the sample table CUSTOMERS_PARTITIONED
 CREATE METAINDEX
 VALUELIST for city,
 BLOOMFILTER for customerID
@@ -3856,7 +3835,7 @@ SHOW METAINDEXES
 
 You must alter the {{site.data.keyword.cos_short}} location for all indexes only once to define the base location.
 If you change it later, {{site.data.keyword.sqlquery_short}} cannot find the index metadata anymore.
-Existing index metadata on previous location is not dropped, therefore you can always switch back to the old location when needed.
+Existing index metadata on previous location is not dropped. Therefore, you can always switch back to the old location when needed.
 
 ```sql
 -- set the default location for all indexes
@@ -3878,7 +3857,7 @@ ALTER METAINDEX SET LOCATION cos://us-south/<mybucket>/<mypath>/
 <img style="max-width: 886px;" usemap="#hiveMetaindexLocationCommandImgMap" alt="syntax diagram for alter table set location command" src="./diagrams/hiveMetaindexLocationCommand-99edd7ea7b7195288e2072e8b3257a01.svg" />
 </div>
 
-This command lets you define a location for this specified Hive table. If you change it later, {{site.data.keyword.sqlquery_short}} does not find the index metadata anymore. Existing index metadata on previous location is not dropped, therefore you can always switch back to the old location when needed.
+With this command you can define a location for this specified Hive table. If you change it later, {{site.data.keyword.sqlquery_short}} does not find the index metadata anymore. Existing index metadata on previous location is not dropped, therefore you can always switch back to the old location when needed.
 
 ```sql
 -- set the index location for the table CUSTOMERS_PARTITIONED
@@ -3899,8 +3878,7 @@ ALTER TABLE CUSTOMERS_PARTITIONED SET METAINDEX LOCATION cos://us-south/<mybucke
 <img style="max-width: 678px;" usemap="#hiveMetaindexDropLocationCommandImgMap" alt="syntax diagram for alter table drop location command" src="./diagrams/hiveMetaindexDropLocationCommand-ff5e159f235a538851a231ed5c54221a.svg" />
 </div>
 
-This command allows you to drop a location for the specified table. Use this command if the index metadata is to be fetched from the base location.
-The metadata for the index that is stored in {{site.data.keyword.cos_short}} is not dropped and must be cleaned up manually.
+With this command you can drop a location for the specified table. Use this command if the index metadata is to be fetched from the base location. The metadata for the index that is stored in {{site.data.keyword.cos_short}} is not dropped and must be cleaned up manually.
 
 ```sql
 -- set the index location for the table CUSTOMERS_PARTITIONED
@@ -3949,7 +3927,7 @@ The metaindexAssetHiveTable refers to a Hive table.
 
 A Cloud {{site.data.keyword.cos_short}} Uniform Resource Identifier (COS URI) is a string of characters that uniquely identifies an object on Cloud {{site.data.keyword.cos_short}}. By definition URIs are case-insensitive.
 
-The syntax of a COS URI is thoroughly described in section [Table unique resource identifier](https://cloud.ibm.com/docs/sql-query?topic=sql-query-overview#unique).
+The syntax of a Cloud {{site.data.keyword.cos_short}} URI is thoroughly described in section [Table unique resource identifier](https://cloud.ibm.com/docs/sql-query?topic=sql-query-overview#unique).
 
 <h3 id ="CRN_URI">CRN_URI</h3>
 
@@ -3967,7 +3945,7 @@ The syntax of a Db2 Table URI is thoroughly described in section [Table unique r
 
 <h3 id="identifier">Identifier</h3>
 
-An *identifier* is a name that uniquely identifies an entity. There are two types of identifiers, unquoted identifiers and back quoted identifiers.
+An *identifier* is a name that uniquely identifies an entity. The two types of identifiers are unquoted identifiers and back quoted identifiers.
 
 <h4>Unquoted identifier</h4>
 
@@ -3978,10 +3956,9 @@ An unquoted identifier is at least one character long. The following valid chara
 
 <h4>Back quoted identifier</h4>
 
-This is an identifier that is embraced by grave accent <code>\`</code> characters. A back quoted identifier can
-contain any character. That includes the grave accent character that must be escaped like this <code>\`\`</code>.
+It is an identifier that is embraced by grave accent <code>\`</code> characters. A back quoted identifier can contain any character. That includes the grave accent character that must be escaped like this <code>\`\`</code>.
 
-The following example shows how to add a column name thata contains a special character:
+The following example shows how to add a column name that contains a special character:
 
 ```sql
 SELECT col1 as `Lösung` FROM VALUES 1, 2 ,3
@@ -4009,7 +3986,7 @@ An unsigned integer is an *integer* number without sign or type suffix.
 <h4 id="INTEGER_VALUE">Integer Number</h4>
 
 An integer number is represented by a sequence of at least one digit, that is, `0` to `9`.
-The integer number can have a suffix denoting the type of integer number. There are three types of integer numbers:
+The integer number can have a suffix denoting the type of integer number. The three types of integer numbers are:
 * `Y`: tiny integer number
 * `S`: small integer number
 * `L`: large integer number
@@ -4023,7 +4000,7 @@ The following is a decimal number:
 * A decimal number, for example, `3.14`.
 * A decimal number followed by a positive or negative exponent, for example, `3.14E+3` represents `3140.00` or `3.14E-3` represents `0.00314`.
 
-The decimal number can have a suffix denoting the type of decimal number. There are two types of decimal numbers:
+The decimal number can have a suffix denoting the type of decimal number. The two types of decimal numbers are:
 * `D`: double decimal number
 * `BD`: large decimal number
 

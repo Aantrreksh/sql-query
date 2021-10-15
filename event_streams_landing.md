@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-09-22"
+lastupdated: "2021-10-15"
 
 keywords: SQL query, event streams, streaming, cloud object storage, Kafka
 
@@ -102,5 +102,8 @@ The following permissions are needed for creating a stream landing job:
 ## Limitations
 {: #limitations-streams-landing}
 
-With a stream landing job, you can process up to 1 MB event data per second. The final reached data throughput depends on parameters, such as topic partitions and size and format of the events. For one {{site.data.keyword.sqlquery_short}} instance, a maximum of five concurrent stream landing jobs are possible. The limit can be raised upon request by opening a support ticket. The {{site.data.keyword.messagehub}} feature is only available for instances that are created in the US-South region and in Frankfurt. 
+- With a stream landing job, you can process up to 1 MB event data per second. The final reached data throughput depends on parameters, such as topic partitions and size and format of the events. 
+- For one {{site.data.keyword.sqlquery_short}} instance, a maximum of five concurrent stream landing jobs are possible. The limit can be raised upon request by opening a support ticket. 
+- The {{site.data.keyword.messagehub}} feature is only available for instances that are created in the US-South region and in Frankfurt. 
+- Ensure that the data retention time on {{site.data.keyword.messagehub}}is set to at least one day, in order to avoid loss of data. If data gets lost, the streaming job will not stop or fail.
 
