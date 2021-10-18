@@ -54,11 +54,9 @@ toc:
       topics: 
       - sqlref/sql_reference.md
       - sqlref/sql_functions.md
-      - topicgroup:
+      - link:
           label: API reference
-          links: 
-          - link: 
-              href: https://cloud.ibm.com/apidocs/sql-query-v3
+          href: https://cloud.ibm.com/apidocs/sql-query-v3
       - sqlref/geospatial.md
       - topicgroup:
           label: Time series functions
