@@ -1,0 +1,84 @@
+toc:
+  properties:
+    subcollection: sql-query
+    category: databases
+    audience: service
+    href: /docs/sql-query?topic=sql-query-getting-started
+    console-page: /catalog/services/sql-query
+    product-page: https://www.ibm.com/cloud/sql-query
+    path: sql-query
+    label: SQL Query
+
+  entries: 
+  - navgroup: 
+      id: learn
+      topics:
+      - getting-started.md
+      - whatsnew.md
+      - hive_metastore.md
+      - index_management.md
+      - event_streams_landing.md
+      - topicgroup: 
+          label: Security and compliance
+          topics:
+          - security.md
+          - authentication.md
+          - secrets.md
+          - keyprotect.md
+
+  - navgroup: 
+      id: howto
+      topics:
+      - videos.md
+      - notebooks.md
+      - topicgroup: 
+          label: Guides
+          topics: 
+          - big_data.md
+          - setup.md
+          - data_lake.md
+          - api_notebook.md
+          - geospatial_analytics.md
+          - microservice.md
+          - db2.md
+          - streams_landing_guide.md
+        - disaster_recovery.md
+        - topicgroup: 
+          label: Enhancing security
+          topics: 
+          - deployment_model.md
+          - dependencies.md
+          
+  - navgroup:
+      id: reference
+      topics: 
+      - sqlref/sql_reference.md
+      - sqlref/sql_functions.md
+      - topicgroup:
+          label: API reference
+          links: 
+          - link: 
+              href: https://cloud.ibm.com/apidocs/sql-query-v3
+      - sqlref/geospatial.md
+      - topicgroup:
+          label: Time series functions
+          topics:
+          - sqlref/timeseries_intro.md
+          - sqlref/timeseries_trs.md
+          - sqlref/timeseries_datatypes.md
+          - sqlref/timeseries_develop.md
+          - sqlref/timeseries_common.md
+          - sqlref/timeseries_matching.md
+          - sqlref/timeseries_join.md
+          - sqlref/timeseries_functions.md
+          - sqlref/timeseries_functions_artifact.md
+          - sqlref/timeseries_functions_dataproc.md
+      - activity.md
+      - monitoring.md
+      - jdbc.md
+
+  - navgroup:
+      id: help
+      topics: 
+      - faq.md
+      
