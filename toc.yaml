@@ -1,7 +1,7 @@
 toc:
   properties:
     subcollection: sql-query
-    category: databases
+    category: analytics
     audience: service
     href: /docs/sql-query?topic=sql-query-getting-started
     console-page: /catalog/services/sql-query
