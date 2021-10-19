@@ -42,16 +42,16 @@ toc:
           - microservice.md
           - db2.md
           - streams_landing_guide.md
-        - disaster_recovery.md
-        - topicgroup: 
+      - disaster_recovery.md
+      - topicgroup:
           label: Enhancing security
-          topics: 
+          topics:
           - deployment_model.md
           - dependencies.md
           
   - navgroup:
       id: reference
-      topics: 
+      topics:
       - sqlref/sql_reference.md
       - sqlref/sql_functions.md
       - link:
