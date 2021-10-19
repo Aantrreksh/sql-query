@@ -1,0 +1,129 @@
+---
+toc:
+  properties:
+    subcollection: account
+    category: platform_services
+    audience: platform
+    href: /docs/account
+    console-page: /
+    product-page: https://ibm.com/cloud
+    path: account
+    label: Managing your account, resources, and access
+    allowlist-id: 13784182-7daf-44c8-b133-ce6fcd9e2e85
+    release-level: beta
+
+  entries:
+  - navgroup:
+      id: learn
+      topics:
+      - topicgroup:
+          label: Learning about accounts
+          topics:
+          - index.md
+          - account_overview.md
+          - /billing-usage/billing-usage-committed-use
+          - enterprise-video.md
+          - link:
+              label: Catalog Management
+              href: https://cloud.ibm.com/apidocs/resource-catalog/private-catalog
+          - link:
+              label: Catalog Management
+              href: https://cloud.ibm.com/apidocs/resource-catalog/private-catalog
+          - link:
+              label: Catalog Management
+              href: https://cloud.ibm.com/apidocs/resource-catalog/private-catalog
+          - link:
+              label: Catalog Management
+              href: https://cloud.ibm.com/apidocs/resource-catalog/private-catalog
+          - topicgroup:
+              label: Best practices
+              links:
+              - link:
+                  label: Catalog Management
+                  href: https://cloud.ibm.com/apidocs/resource-catalog/private-catalog
+              - link:
+                  label: Catalog Management
+                  href: https://cloud.ibm.com/apidocs/resource-catalog/private-catalog
+          links:
+          - link:
+              label: Catalog Management
+              href: https://{DomainName}/apidocs/resource-catalog/private-catalog
+          - link:
+              label: Catalog Management
+              href: https://cloud.ibm.com/apidocs/resource-catalog/private-catalog
+
+  - navgroup:
+      id: tutorial
+      topics:
+      - acct-getstart-tutorial.md
+      - enterprise-tutorial.md
+      - iam-quickstart.md
+      - tagging-resources-tutorial.md
+      - dash-tutorial.md
+      - network-rules-tutorial.md
+      - trustedprofiles-compute-tutorial.md
+      - trustedprofiles-fedusers-tutorial.md
+      - topicgroup:
+          label: Sharing software with users in your account
+          topics:
+          - catalog-vsi-tutorial.md
+          - catalog-operator-tutorial.md
+          - catalog-opbundle-tutorial.md
+          - catalog-terraform-template-tutorial.md
+          links:
+          - link:
+              label: Catalog Management
+              href: https://cloud.ibm.com/apidocs/resource-catalog/private-catalog
+          - link:
+              label: Catalog Management
+              href: https://cloud.ibm.com/apidocs/resource-catalog/private-catalog
+          - link:
+              label: Catalog Management
+              href: https://cloud.ibm.com/apidocs/resource-catalog/private-catalog
+          - link:
+              label: Catalog Management
+              href: https://cloud.ibm.com/apidocs/resource-catalog/private-catalog
+      links:
+      - link:
+          label: Catalog Management
+          href: https://cloud.ibm.com/apidocs/resource-catalog/private-catalog
+      - link:
+          label: Catalog Management
+          href: https://cloud.ibm.com/apidocs/resource-catalog/private-catalog
+
+  - navgroup:
+      id: tutorial
+      links:
+      - link:
+          label: Catalog Management
+          href: https://cloud.ibm.com/apidocs/resource-catalog/private-catalog
+      - link:
+          label: Catalog Management
+          href: https://cloud.ibm.com/apidocs/resource-catalog/private-catalog
+      topics:
+      - link:
+          label: Catalog Management
+          href: https://cloud.ibm.com/apidocs/resource-catalog/private-catalog
+      - link:
+          label: Catalog Management
+          href: https://cloud.ibm.com/apidocs/resource-catalog/private-catalog
+      - topicgroup:
+          label: Sharing software with users in your account
+          topics:
+          - catalog-vsi-tutorial.md
+          - catalog-operator-tutorial.md
+          - catalog-opbundle-tutorial.md
+          - catalog-terraform-template-tutorial.md
+          links:
+          - link:
+              label: Catalog Management
+              href: https://cloud.ibm.com/apidocs/resource-catalog/private-catalog
+          - link:
+              label: Catalog Management
+              href: https://cloud.ibm.com/apidocs/resource-catalog/private-catalog
+          - link:
+              label: Catalog Management
+              href: https://cloud.ibm.com/apidocs/resource-catalog/private-catalog
+          - link:
+              label: Catalog Management
+              href: https://cloud.ibm.com/apidocs/resource-catalog/private-catalog
