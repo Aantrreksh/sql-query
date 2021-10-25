@@ -15,6 +15,7 @@ toc:
       id: learn
       topics:
       - getting-started.md
+      - sql-query.md
       - whatsnew.md
       - hive_metastore.md
       - index_management.md
