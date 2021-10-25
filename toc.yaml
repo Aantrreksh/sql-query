@@ -8,6 +8,7 @@ toc:
     product-page: https://www.ibm.com/cloud/sql-query
     path: sql-query
     label: SQL Query
+    version: 2
 
   entries: 
   - navgroup: 
