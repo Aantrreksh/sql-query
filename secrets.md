@@ -23,7 +23,7 @@ subcollection: sql-query
 
 {{site.data.keyword.keymanagementservicefull}} is the service for storing and managing secrets in {{site.data.keyword.Bluemix_notm}}. It also allows you to upload custom secrets and manages them for you. {{site.data.keyword.keymanagementserviceshort}} ensures that only those users and services whom you explicitly granted permission are able to access and use secrets. {{site.data.keyword.sqlquery_short}} uses {{site.data.keyword.keymanagementserviceshort}} as its secure and trusted credential broker for custom access secrets to data resources as the following diagram shows.
 
-![Secure Credential Passing in SQL Query](accesssecrets.png)
+![Secure Credential Passing in SQL Query](accesssecrets.svg)
 
 Make sure that you provisioned or received access to an instance of {{site.data.keyword.keymanagementserviceshort}} in 
 {{site.data.keyword.Bluemix_notm}}. The following description uses the command-line interface to set up a new custom key. 
