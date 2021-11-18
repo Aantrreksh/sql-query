@@ -3230,11 +3230,17 @@ STRUCT<
 Some data formats, particularly CSV, do not support composite types. When your query result contains data with a composite type,
 use an [INTO clause](#intoClause) to specify an appropriate target format, like JSON.
 
-<h3 id="primitiveType">primitiveType</h3>
+<h3 id="primitiveType">Primitive Types Overview</h3>
 
-The following primitive types are supported in {{site.data.keyword.sqlquery_short}}:
+The following primitive data types are supported in {{site.data.keyword.sqlquery_short}}:
+- Numeric types
+- Strings
+- Date and Timestamp
+- Boolean
+- Binary
 
-<h4>Numeric Types</h4>
+
+<h3>Numeric Types</h3>
 
 Numeric data types are summarized in the following table.
 
@@ -3251,12 +3257,18 @@ Numeric data types are summarized in the following table.
 {: caption="Table 56. Numeric Data Types" caption-side="top"}
 
 
-<h4>String Types</h4>
+Numeric literals with fractional digits are parsed as `DECIMAL` by default, e.g. <code>123.45</code> is treated as `DECIMAL(5,2)` and <code>1.234e-3</code> is trated as `DECIMAL(6,6)` with value 0.001234, not as a floating point number. You can force specific data types by using a <code>CAST</code> expression or by adding one of the following type suffixes:
+- <code>123L</code> forces `BIGINT` data type
+- <code>123BD</code> forces `DECIMAL` data type
+- <code>123D</code> forces `DOUBLE` data type
+
+
+<h3>String Types</h3>
 
 Strings are represented as `STRING` data type. The type definitions `VARCHAR(n)` and `CHAR(n)` can be used as aliases for `STRING`.
 The syntax requires that you specify a maximum length for these types, but no length restriction is enforced.
 
-<h4>Date and Time Types</h4>
+<h3>Date and Timestamp Types</h3>
 
 String values with appropriate formats can be converted to a timestamp or date, by using data types `TIMESTAMP` or `DATE`.
 
@@ -3279,7 +3291,7 @@ The result of the example query is shown in the following table.
 {: caption="Table 57. Query result for example 'cast string values to TIMESTAMP and DATE types'" caption-side="top"}
 
 
-<h4>Boolean Type</h4>
+<h3>Boolean Type</h3>
 
 The `BOOLEAN` type represents a domain with two values, `true` or `false`.
 
@@ -3289,11 +3301,11 @@ Numeric values that represent a nonzero value, for example, 1, 1.0, 1.0E10, or 2
 
 The string value `'0'` can be cast to `false` and `'1'` can be cast to `true`. Any other string value is cast to `false`.
 
-<h4>Binary Type</h4>
+<h3>Binary Type</h3>
 
 A `BINARY` type represents an array of byte values. Thus, string values can be cast to type `BINARY`.
 
-<h4>Related references</h4>
+<h3>Related references</h3>
 
 A *dataType* is referenced by the following clauses:
 * [castExpression](#castExpression)
