@@ -1335,7 +1335,8 @@ dayofyear(date) - Returns the day of year of the date/timestamp.
 ## decimal
 {: #decimal}
 
-decimal(expr) - Casts the value <code>expr</code> to the target data type <code>decimal</code>.
+decimal(expr) - Casts the value <code>expr</code> to the target data type <code>DECIMAL(10,0)</code>, truncating the result if needed.
+Use <code>CAST(expr AS DECIMAL(p,f))</code> to specify precision and fractional digits explicitly.
 
 
 ## decode
@@ -2624,7 +2625,7 @@ percentile(col, percentage [, frequency]) - Returns the exact percentile value o
 <code>col</code> at the indicated percentage. The value of percentage must be between 0.0 and 1.0. The value of frequency must be a positive integral.
 
 percentile(col, array(percentage1 [, percentage2]...) [, frequency]) - Returns the exact
-percentile value array of numeric column <code>col</code> at the indicated percentage. Each value of the percentage array must be between 0.0 and 1.0. The value of frequency must be a 
+percentile value array of numeric column <code>col</code> at the indicated percentage. Each value of the percentage array must be between 0.0 and 1.0. The value of frequency must be a
 positive integral.
 
 
