@@ -18,6 +18,8 @@ subcollection: sql-query
   When you add new bullets at the top, prefix your commit message with "whatsnew: "
   to trigger an update of the UI build that will make users aware of the new information
 -->
+## November 2021
+-   ALTER TABLE .. ADD COLUMNS is now supported.
 
 ## July 2021
 -   A detailed [getting started tutorial](https://www.ibm.com/cloud/blog/stream-landing-from-event-streams-kafka-service-to-ibm-cloud-data-lake-on-object-storage) for stream landing with {{site.data.keyword.sqlquery_full}} is now available.
