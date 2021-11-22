@@ -3576,6 +3576,34 @@ ALTER TABLE customers_partitioned PARTITION (country = 'Spain') SET LOCATION cos
 
 Use the `EXISTS` option to avoid getting errors during `ADD` or `DROP`.
 
+### Alter Table Columns
+{: #chapterAlterTableColumns}
+
+<h4 id="alterTableColumns">alterTableColumns</h4>
+
+<div style="overflow-x : auto;">
+<map name="alterTableColumnsImgMap">
+	<area alt="section tableIdentifier" shape="rect" coords="210,20,350,42" href="#tableIdentifier" />
+	<area alt="section columnDefinition" shape="rect" coords="598,20,746,42" href="#columnDefinition" />
+</map>
+<img style="max-width: 854px;" usemap="#alterTableColumnsImgMap" alt="syntax diagram for a alter table columns command" src="./diagrams/alterTableColumns-4bce83a8f0d50faf064927d6a0a05b3b.svg" />
+</div>
+
+Use alter table to add new columns to the schema of a catalog table.
+
+Adding columns to the schema has no effect on the actual objects in {{site.data.keyword.cos_short}} for the table. If some or all of these objects do not contain a column, vaules for the corresponding rows are treated as NULL. You can add new new objects to the table location (for non-partitioned tables) or new partitions (for partitioned tables) that _do_ contain the new columns, allowing you to evolve the table schema.
+
+```sql
+-- create a partitioned sample table in PARQUET format
+CREATE TABLE customers_addcol USING PARQUET LOCATION cos://us-geo/sql/customers_partitioned.parquet
+-- add a new column that does not yet occur in existing partitions. new partitions can add data for that column
+ALTER TABLE customers_addcol ADD COLUMNS (priority INTEGER)
+```
+
+Do not use the `ADD COLUMNS` option with CSV tables: The CSV data format identifies columns by order, not by name, so any schema change will lead to a schema mismatch with existing data.
+
+Note: Alternatively, you can perform schema changes by dropping and re-creating catlog tables, this does not affect the stored data in {{site.data.keyword.cos_short}}. This allows you to re-execute the automatic schema detection when the underlying data has been extended with new objects containing additional columns. You can also use this method to remove columns from the schema that you do not want to appear in the catalog.
+
 <!-- HIDE START ### Analyze Table
 
 <h4 id="analyzeTable">Analyze Table</h4>
