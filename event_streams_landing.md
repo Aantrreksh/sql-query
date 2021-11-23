@@ -42,12 +42,6 @@ The difference from a batch query is that the FROM clause now points to a {{site
 The allowed format of the events is JSON. The EMIT specifies the Cloud {{site.data.keyword.cos_short}} bucket and the required format is Parquet. The last option to specify is a valid {{site.data.keyword.keymanagementserviceshort}} key that holds an API key with the permissions to read from {{site.data.keyword.messagehub}} and write to Cloud {{site.data.keyword.cos_short}}. 
 The API key is needed, as in theory, the job can run forever. 
 
-```
-SELECT * FROM crn:v1:bluemix:public:messagehub:us-south:a/2383fabbd90354d33c1abfdf3a9f35d5:4d03d962-bfa5-4dc6-8148-f2f411cb8987::/avrotopic STORED AS AVRO 
-OPTIMIZED EVENT SIZE 1000 BYTES 
-EMIT cos://us-south/mybucket/events STORED AS PARQUET 
-EXECUTE AS crn:v1:bluemix:public:kms:us-south:a/33e58e0da6e6926e09fd68480e66078e:5195f066-6340-4fa2-b189-6255db72c4f2:key:490c8133-5539-4601-9aa3-1d3a11cb9c44
-```
 
 ## Data on Cloud {{site.data.keyword.cos_short}}
 {: #data-on-cos}
