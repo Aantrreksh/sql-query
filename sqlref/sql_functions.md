@@ -679,8 +679,8 @@ atan2(expr1, expr2) - Returns the angle in radians between the positive x-axis o
 <pre><code> 0.0</code></pre>
 
 
-## avg#
-{: #avg#}
+## avg
+{: #avg}
 
 avg(expr) - Returns the mean that is calculated from values of a group.
 
@@ -1623,7 +1623,7 @@ from_unixtime(unix_time, format) - Returns <code>unix_time</code> in the specifi
 
 ## from_utc_timestamp
 {: #from_utc_timestamp}
-#
+
 from_utc_timestamp(timestamp, timezone) - Given a timestamp, such as '2017-07-14 02:40:00.0', this function interprets it as a time in Coordinated Universal Time (UTC), and renders that time as a timestamp in the indicated time zone. For example, 'GMT+1' would yield '2017-07-14 03:40:00.0'.
 
 **Example of an SQL function usage fragment:**
