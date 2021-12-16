@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  year: 2018, 2021
+  years: 2018, 2021
 lastupdated: "2021-03-05"
 
 keywords: data model, data, performance, cost, object storage

@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  year: 2021
+  years: 2021
 lastupdated: "2021-07-13"
 
 keywords: stream landing, kafka, sql query, cloud object storage, cos, data lake

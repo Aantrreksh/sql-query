@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  year: 2018, 2021
+  years: 2018, 2021
 lastupdated: "2021-09-27"
 
 keywords: SQL, query, object storage, bucket, sample, instance, analyze, CSV, JSON, ORC, Parquet

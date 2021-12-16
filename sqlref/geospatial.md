@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  year: 2018, 2019
+  years: 2018, 2019
 lastupdated: "2019-04-04"
 
 keywords: geospatial, function, spatial data
