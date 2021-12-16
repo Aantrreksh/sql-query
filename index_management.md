@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  year:  2020, 2021
+  years:  2020, 2021
 lastupdated: "2021-02-24"
 
 keywords: data skipping, performance, cost, data format, indexes, sample data, index management

@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  year: 2018, 2021
+  years: 2018, 2021
 lastupdated: "2021-02-26"
 
 keywords: analyze, data, sql query, cloud object storage, jupyter notebook, pixiedust

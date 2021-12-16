@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  year: 2018, 2021
+  years: 2018, 2021
 lastupdated: "2021-02-25"
 
 keywords: kubernetes, microservice, object storage, query

@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  year: 2018, 2021
+  years: 2018, 2021
 
 lastupdated: "2021-08-13"
 
@@ -18,6 +18,7 @@ subcollection: sql-query
   When you add new bullets at the top, prefix your commit message with "whatsnew: "
   to trigger an update of the UI build that will make users aware of the new information
 -->
+
 ## November 2021
 -   ALTER TABLE .. ADD COLUMNS is now supported.
 

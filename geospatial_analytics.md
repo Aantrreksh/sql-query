@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  year: 2018, 2020
+  years: 2018, 2020
 lastupdated: "2020-12-11"
 
 keywords: geospatial, analytics, analysis, SQL functions, calculation, index
