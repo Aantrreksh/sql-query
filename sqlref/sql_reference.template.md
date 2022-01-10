@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-10-15"
+  years: 2018, 2021, 2022
+lastupdated: "2022-01-10"
 
 ---
 
@@ -2677,7 +2677,7 @@ Numeric data types are summarized in the following table.
 | `DECIMAL` | precision of 38 digits | n/a | -10e37+1 | 10e37-1 |
 <!--table-caption title="Numeric Data Types"-->
 
-Numeric literals with fractional digits are parsed as `DECIMAL` by default, e.g. <code>123.45</code> is treated as `DECIMAL(5,2)` and <code>1.234e-3</code> is trated as `DECIMAL(6,6)` with value 0.001234, not as a floating point number. You can force specific data types by using a <code>CAST</code> expression or by adding one of the following type suffixes:
+Numeric literals with fractional digits are parsed as `DECIMAL` by default. For example, <code>123.45</code> is treated as `DECIMAL(5,2)`, and <code>1.234e-3</code> is treated as `DECIMAL(6,6)` with value 0.001234, and not as a floating point number. You can force specific data types with a <code>CAST</code> expression or by adding one of the following suffix types:
 - <code>123L</code> forces `BIGINT` data type
 - <code>123BD</code> forces `DECIMAL` data type
 - <code>123D</code> forces `DOUBLE` data type
@@ -2949,7 +2949,7 @@ Use the `EXISTS` option to avoid getting errors during `ADD` or `DROP`.
 
 Use alter table to add new columns to the schema of a catalog table.
 
-Adding columns to the schema has no effect on the actual objects in {{site.data.keyword.cos_short}} for the table. If some or all of these objects do not contain a column, vaules for the corresponding rows are treated as NULL. You can add new new objects to the table location (for non-partitioned tables) or new partitions (for partitioned tables) that _do_ contain the new columns, allowing you to evolve the table schema.
+Adding columns to the schema has no effect on the objects in {{site.data.keyword.cos_short}} for the table. If some or all of these objects do not contain a column, vaules for the corresponding rows are treated as NULL. You can add new objects to the table location (for non-partitioned tables) or new partitions (for partitioned tables) that contain the new columns, to evolve the table schema.
 
 ```sql
 -- create a partitioned sample table in PARQUET format
@@ -2958,9 +2958,9 @@ CREATE TABLE customers_addcol USING PARQUET LOCATION cos://us-geo/sql/customers_
 ALTER TABLE customers_addcol ADD COLUMNS (priority INTEGER)
 ```
 
-Do not use the `ADD COLUMNS` option with CSV tables: The CSV data format identifies columns by order, not by name, so any schema change will lead to a schema mismatch with existing data.
+Do not use the `ADD COLUMNS` option with CSV tables. The CSV data format identifies columns by order (not by name), so any schema change leads to a schema mismatch with existing data.
 
-Note: Alternatively, you can perform schema changes by dropping and re-creating catlog tables, this does not affect the stored data in {{site.data.keyword.cos_short}}. This allows you to re-execute the automatic schema detection when the underlying data has been extended with new objects containing additional columns. You can also use this method to remove columns from the schema that you do not want to appear in the catalog.
+Alternatively, you can perform schema changes by dropping and re-creating catlog tables. It does not affect the stored data in {{site.data.keyword.cos_short}}. This allows you to re-execute the automatic schema detection when the underlying data is extended with new objects containing additional columns. You can also use this method to remove columns from the schema that you do not want to appear in the catalog.
 
 <!-- HIDE START ### Analyze Table
 
@@ -3231,7 +3231,7 @@ The metaindexAssetLocation is a subset of the [externalTableSpec](#externalTable
 
 <!--include-svg src="./svgfiles/metaindexAssetLocation.svg" target="./diagrams/metaindexAssetLocation.svg" alt="syntax diagram for index asset location" layout="@break@" -->
 
-The metaindexAssetHiveTable refers to a Hive table.
+The `metaindexAssetHiveTable` refers to a Hive table.
 
 <!--include-svg src="./svgfiles/metaindexAssetHiveTable.svg" target="./diagrams/metaindexAssetHiveTable.svg" alt="syntax diagram for index asset Hive table" layout="@break@" -->
 
