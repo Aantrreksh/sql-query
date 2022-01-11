@@ -1,9 +1,9 @@
 ---
 
 copyright:
-  years: 2018, 2021
+  years: 2018, 2021, 2022
 
-lastupdated: "2021-08-13"
+lastupdated: "2022-01-11"
 
 
 keywords: what's new, support, release, beta
