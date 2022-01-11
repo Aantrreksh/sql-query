@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2018, 2021, 2022
+  years: 2018, 2022
 
 lastupdated: "2022-01-11"
 
