@@ -20,7 +20,6 @@ subcollection: sql-query
 
 
 # Data transport automation to Db2 on Cloud
-
 {: #db2}
 
 {{site.data.keyword.sqlquery_full}} supports automating the transport and transformation of data from {{site.data.keyword.cos_full}} 
