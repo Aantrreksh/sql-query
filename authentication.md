@@ -71,4 +71,4 @@ To ensure that the passing of sensitive data is secure, first store the API key 
 | CRN with Service Credentials          | No    | Yes          | Yes                    |
 | User and password through Key Protect CRN | No    | Yes          | Yes                    |
 | API key through Key Protect CRN           | No    | Enterprise   | Enterprise             |
-[Authentication methods]
+{: caption="Table 1. Authentication methods" caption-side="top"}
