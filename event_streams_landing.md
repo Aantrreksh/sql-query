@@ -38,10 +38,7 @@ EMIT cos://us-south/mybucket/events STORED AS PARQUET
 EXECUTE AS crn:v1:bluemix:public:kms:us-south:a/33e58e0da6e6926e09fd68480e66078e:5195f066-6340-4fa2-b189-6255db72c4f2:key:490c8133-5539-4601-9aa3-1d3a11cb9c44
 ```
 
-The difference from a batch query is that the FROM clause now points to a {{site.data.keyword.messagehub}} topic by using the CRN of an {{site.data.keyword.messagehub}} instance. 
-The allowed format of the events is JSON. The EMIT specifies the Cloud {{site.data.keyword.cos_short}} bucket and the required format is Parquet. The last option to specify is a valid {{site.data.keyword.keymanagementserviceshort}} key that holds an API key with the permissions to read from {{site.data.keyword.messagehub}} and write to Cloud {{site.data.keyword.cos_short}}. 
-The API key is needed, as in theory, the job can run forever. 
-
+The difference from a batch query is that the FROM clause now points to a {{site.data.keyword.messagehub}} topic by using the CRN of an {{site.data.keyword.messagehub}} instance. The allowed format of the events is JSON. The EMIT specifies the Cloud {{site.data.keyword.cos_short}} bucket and the required format is Parquet. The last option to specify is a valid {{site.data.keyword.keymanagementserviceshort}} key that holds an API key with the permissions to read from {{site.data.keyword.messagehub}} and write to Cloud {{site.data.keyword.cos_short}}. The API key is needed, as in theory, the job can run forever.
 
 ## Data on Cloud {{site.data.keyword.cos_short}}
 {: #data-on-cos}
@@ -57,9 +54,7 @@ The objects are written to Cloud {{site.data.keyword.cos_short}} in micro batche
 {: #streaming-job-details}
 
 The details of a streaming job show that the states differ from batch query processing. 
-*Stopping* is an extra state, which indicates that {{site.data.keyword.sqlquery_short}} is stopping a running job. 
-And instead of the *completed* state, a streaming job goes into the *stopped* state.
-The streaming states change from *queued* to *running* to *stopping* or *failed*.
+*Stopping* is an extra state, which indicates that {{site.data.keyword.sqlquery_short}} is stopping a running job. And instead of the *completed* state, a streaming job goes into the *stopped* state. The streaming states change from *queued* to *running* to *stopping* or *failed*.
 
 The job details show the following metrics (instead of *rows_returned*, *rows_read* and *bytes_read*):
 
@@ -85,7 +80,7 @@ Your total cost per hour, with the data stored for a month, would be approximate
 ## Permissions
 {: #permissions-event-streams}
 
-The following permissions are needed for creating a stream landing job: 
+The following permissions are needed for creating a stream landing job:
 
 - Permission to create service-to-service authentication.
 - Permission to write to {{site.data.keyword.keymanagementservicelong}} (to store the API key).
@@ -96,8 +91,7 @@ The following permissions are needed for creating a stream landing job:
 ## Limitations
 {: #limitations-streams-landing}
 
-- With a stream landing job, you can process up to 1 MB event data per second. The final reached data throughput depends on parameters, such as topic partitions and size and format of the events. 
-- For one {{site.data.keyword.sqlquery_short}} instance, a maximum of five concurrent stream landing jobs are possible. The limit can be raised upon request by opening a support ticket. 
-- The {{site.data.keyword.messagehub}} feature is only available for instances that are created in the US-South region and in Frankfurt. 
+- With a stream landing job, you can process up to 1 MB event data per second. The final reached data throughput depends on parameters, such as topic partitions and size and format of the events.
+- For one {{site.data.keyword.sqlquery_short}} instance, a maximum of five concurrent stream landing jobs are possible. The limit can be raised upon request by opening a support ticket.
+- The {{site.data.keyword.messagehub}} feature is only available for instances that are created in the US-South region and in Frankfurt.
 - Ensure that the data retention time on {{site.data.keyword.messagehub}}is set to at least one day, in order to avoid loss of data. If data gets lost, the streaming job will not stop or fail.
-

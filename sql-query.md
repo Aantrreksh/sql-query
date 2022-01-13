@@ -31,13 +31,11 @@ Each query result is written to a CSV, JSON, ORC, Parquet, or AVRO object in a C
 Use the {{site.data.keyword.sqlquery_short}} user interface (UI) to develop your queries and the
 [SQL Query REST API](#restapi) to automate them.
 
-
 <iframe width="640" height="390" title="IBM Cloud SQL Query: Provision the IBM Cloud Services"
 src="https://www.youtube.com/embed/_fMEyqRC__c?list=PLzpeuWUENMK2R9CqhF0eJDSxfPBi6JeXA"
 frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
 
 *Video 1. Provision the IBM Cloud Services.*
-
 
 ## Where your input data and query results are stored
 {: #stored}
@@ -53,19 +51,18 @@ Watch the following video to learn more about {{site.data.keyword.sqlquery_short
 
 *Video 2. Run queries from the console.*
 
-
 In SQL, the term *query* is just another way of saying *SELECT statement*. To run a query:
 
 1. In the SQL editor field of the {{site.data.keyword.sqlquery_short}} UI, enter a SELECT statement. In this statement:
     - After the FROM keyword, specify one or more [unique resource identifiers](#unique) (URIs). Each URI can be thought of as a table. It specifies one or more input objects; each input object can be thought of as a table partition. You must have at least 'Reader' access to the buckets that contain the input objects.
     - If the format of the input objects is CSV, and no special options are required, it is not necessary to specify a `STORED AS` clause. However, if the format is JSON, ORC, Parquet, or AVRO, after the `FROM` clause, specify STORED AS JSON, STORED AS ORC, STORED AS PARQUET, or STORED AS AVRO.
-    - If text formats, such as JSON and CSV, are compressed with either gzip or bzip2 and have the extensions *.gz and *.bz, they automatically get recognized as compressed files. However, do not use these kinds of compressed files due to performance reasons.
+    - If text formats, such as JSON and CSV, are compressed with either gzip or bzip2 and have the extensions `*.gz` and `*.bz`, they automatically get recognized as compressed files. However, do not use these kinds of compressed files due to performance reasons.
     - If the format of the input objects is CSV and a delimiter other than the default `,` (comma) is used, you must specify the delimiter by using the `FIELDS TERMINATED BY` option of the [`STORED AS`](/docs/sql-query?topic=sql-query-sql-reference#externalTableSpec) clause. All single Unicode characters are allowed as delimiters.
     - By default, it is assumed that CSV input objects have a header line that specifies the names of the input columns. If the objects don't have a header line, you must specify `NOHEADER` in the [`STORED AS`](/docs/sql-query?topic=sql-query-sql-reference#externalTableSpec) clause.
     - By default, it is assumed that JSON input objects consist of a single JSON record per line. If individual records span multiple lines, you must specify `MULTILINE` in the [`STORED AS`](/docs/sql-query?topic=sql-query-sql-reference#externalTableSpec) clause.
     - If required, you can use `JOIN` constructs to join data from several input URIs, even if those URIs point to different instances of Cloud {{site.data.keyword.cos_short}}.
     - Use the `INTO` clause of a [query](/docs/sql-query?topic=sql-query-sql-reference#chapterSQLQueryStatement) to specify the output [URI](#unique), that is, the location to which the result is to be written and the wanted result format.
-    
+
 2. The **Target location** field displays where the result is stored. An initial bucket in one of your {{site.data.keyword.cos_short}} instances is automatically created for you when you open the UI. It is then chosen as your default location, if your query does not specify an `INTO` clause. To ensure the automatic setup of an initial bucket, do the following steps in advance:
 
     - You must create an {{site.data.keyword.cos_short}} instance.
@@ -99,7 +96,7 @@ LIMIT 50
 {: #path}
 
 The following query writes an SQL result into an exact result path.
-Normally, SQL query always appends jobid=<jobid> to the provided target path to ensure a unique result location with each query execution. However, in the following sample query, this suffix is eliminated by adding JOBPREFIX NONE to the path in the INTO clause.
+Normally, SQL query always appends `jobid=<jobid>` to the provided target path to ensure a unique result location with each query execution. However, in the following sample query, this suffix is eliminated by adding JOBPREFIX NONE to the path in the INTO clause.
 Note: This action overwrites all objects that are currently stored in the provided result path.
 
 ```sql
@@ -151,18 +148,18 @@ The bucket name:
 
 **`<path>`**
 A more exact specification of the object or objects:
+
 - The specified path is interpreted in a similar way as listing file system contents with `ls`, interpreting slashes `/` in object names as a folder hierarchy.
 
-    - If the path is identical to the name of an existing (non-empty) object, it matches only that single object.
-    - If the path is a prefix of multiple objects at a slash `/` character, it matches all those objects that are not empty. For example, the path `mydir/test1` (or `mydir/test1/`) matches objects `mydir/test1/object1`, `mydir/test1/nested/object2`, but not `mydir/test100`.
-    - The usage of a * wildcard depends on how the object structure was created:
-	    - If the object structure was created as Hive-partitioned structure,
+  - If the path is identical to the name of an existing (non-empty) object, it matches only that single object.
+  - If the path is a prefix of multiple objects at a slash `/` character, it matches all those objects that are not empty. For example, the path `mydir/test1` (or `mydir/test1/`) matches objects `mydir/test1/object1`, `mydir/test1/nested/object2`, but not `mydir/test100`.
+  - The usage of a * wildcard depends on how the object structure was created:
+	  - If the object structure was created as Hive-partitioned structure,
 for example as SQL Query result output, and the result objects are starting with the prefix `part-`, wildcards are not supported.
 Using SQL constructs based on the Hive structure is always the preferred method to restrict the number of objects to be read during query processing.
-	    - If the object structure was created as Hive-partitioned structure,
+	  - If the object structure was created as Hive-partitioned structure,
 but by using arbitrary file names, the usage of wildcards is supported.
-The wildcard matches all objects with the indicated path prefix. For example, `mydir/test1*`, matches
-objects `mydir/test100`, and `mydir/test101/nested/object`.
+The wildcard matches all objects with the indicated path prefix. For example, `mydir/test1*`, matches objects `mydir/test100`, and `mydir/test101/nested/object`.
 
 - For an output URI, it is the prefix under which the [result objects](#result) are to be written.
 
@@ -252,15 +249,12 @@ If you want to run a query over the combined results of multiple previous querie
 
 Your Cloud {{site.data.keyword.cos_short}} instance has one of the supported endpoints. {{site.data.keyword.sqlquery_short}} supports all [public and private {{site.data.keyword.cos_short}} endpoints](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-endpoints). To save space, you can use the alias that is shown instead of the full endpoint name.
 
-Aliases to tethering endpoints (specific endpoints within cross region domains, for example, `dal-us-geo`) are considered legacy. They continue to work until further notice but are planned to be deprecated sometime in the future. To be prepared, update your applications to use the alias of the corresponding cross region endpoint 
-(for example, `us-geo`).
+Aliases to tethering endpoints (specific endpoints within cross region domains, for example, `dal-us-geo`) are considered legacy. They continue to work until further notice but are planned to be deprecated sometime in the future. To be prepared, update your applications to use the alias of the corresponding cross region endpoint (for example, `us-geo`).
 
-**Note:** {{site.data.keyword.sqlquery_short}} always uses the internal endpoint to interact with {{site.data.keyword.cos_short}},
-even if an external endpoint was specified in the query. The result location for a query always indicates the external endpoint name.
+**Note:** {{site.data.keyword.sqlquery_short}} always uses the internal endpoint to interact with {{site.data.keyword.cos_short}}, even if an external endpoint was specified in the query. The result location for a query always indicates the external endpoint name.
 When you interact with {{site.data.keyword.sqlquery_short}} programmatically through the API, you can use the internal endpoint name to read results instead of the external endpoint name that is returned by the API.
 
 The following tables list some examples of currently supported {{site.data.keyword.sqlquery_short}} endpoints:
-
 
 Cross region endpoint name | Alias
 --- | ---
@@ -351,8 +345,7 @@ Submit a catalog or index management statement | sql-query.api.managecatalog | `
 ## Behavior of scanned data
 {: #data-scanned}
 
-{{site.data.keyword.sqlquery_short}} reads as little data as possible based on your query. The amount of data that is scanned depends on the amount of data that {{site.data.keyword.sqlquery_short}} must read to run your query, and not on the actual size of your data. Several factors play a role when it comes to how much data needs to be accessed to run a query. First, data layout is important. Columnar formats, such as Parquet, lead to less data to be scanned, as {{site.data.keyword.sqlquery_short}} can selectively read ranges and single columns. Furthermore, the actual object layout determines how many objects need to be scanned. Read [How to lay out big data in IBM Cloud Object Storage for Spark SQL](https://www.ibm.com/cloud/blog/big-data-layout) for more details on how to lay out big data on Cloud {{site.data.keyword.cos_short}} to improve cost and performance of SQL queries. 
-Each successful query is charged with at least 10 MB.
+{{site.data.keyword.sqlquery_short}} reads as little data as possible based on your query. The amount of data that is scanned depends on the amount of data that {{site.data.keyword.sqlquery_short}} must read to run your query, and not on the actual size of your data. Several factors play a role when it comes to how much data needs to be accessed to run a query. First, data layout is important. Columnar formats, such as Parquet, lead to less data to be scanned, as {{site.data.keyword.sqlquery_short}} can selectively read ranges and single columns. Furthermore, the actual object layout determines how many objects need to be scanned. Read [How to lay out big data in IBM Cloud Object Storage for Spark SQL](https://www.ibm.com/cloud/blog/big-data-layout) for more details on how to lay out big data on Cloud {{site.data.keyword.cos_short}} to improve cost and performance of SQL queries. Each successful query is charged with at least 10 MB.
 
 ### Example
 {: #data-scanned-example}
@@ -374,8 +367,8 @@ You can also create timestamp values in a different time zone from a Coordinated
 
 - If a JSON, ORC, or Parquet object contains a nested or arrayed structure, a query with CSV output that uses a wildcard (for example, `SELECT * from cos://...`) returns an error such as "Invalid CSV data type used: `struct<nested JSON object>`."
 Use one of the following workarounds:
-    - For a nested structure, use the [`FLATTEN`](/docs/sql-query?topic=sql-query-sql-reference#tableTransformer) table transformation function. Alternatively, you can specify the fully nested column names instead of the wildcard, for example, `SELECT address.city, address.street, ... from cos://...`.
-    - For an array, use the Spark SQL explode() function, for example, `select explode(contact_names) from cos://...`.
+  - For a nested structure, use the [`FLATTEN`](/docs/sql-query?topic=sql-query-sql-reference#tableTransformer) table transformation function. Alternatively, you can specify the fully nested column names instead of the wildcard, for example, `SELECT address.city, address.street, ... from cos://...`.
+  - For an array, use the Spark SQL explode() function, for example, `select explode(contact_names) from cos://...`.
 
 - If you receive a corrupted result, verify that the source URI is correct and that the correct input format is specified, by using 'STORED AS' in the SQL statement.
 
@@ -385,5 +378,4 @@ Use one of the following workarounds:
 
   If you use {{site.data.keyword.sqlquery_short}} to generate CSV results from other data formats like Parquet that support newlines within values and these CSV results are queried again, newlines must explicitly be removed before you write the results. To do so, use the SQL function `regexp_replace`. For example, a Parquet object `data` has an attribute `multi_line` containing values that span multiple lines. To select a subset of rows based on a `condition` and store it on Cloud {{site.data.keyword.cos_short}} for further processing, a skeleton SQL statement looks like the following example:
 
-	`SELECT regexp_replace(multi_line, '[\\r\\n]', ' ') as multi_line FROM data STORED AS parquet WHERE condition`
-
+  `SELECT regexp_replace(multi_line, '[\\r\\n]', ' ') as multi_line FROM data STORED AS parquet WHERE condition`

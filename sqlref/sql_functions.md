@@ -15,7 +15,6 @@ subcollection: sql-query
 
 You can use any of the following functions in your query.
 
-
 ## !
 {: #!}
 
@@ -55,7 +54,6 @@ expr1 &amp; expr2 - Returns the result of bitwise AND of <code>expr1</code> and 
 **Result value:**
 
 <pre><code> 1</code></pre>
-
 
 ## *
 {: #*}
@@ -4002,7 +4000,6 @@ CASE WHEN expr1 THEN expr2 [WHEN expr3 THEN expr4]* [ELSE expr5] END - When <cod
 
 <pre><code> NULL</code></pre>
 
-
 ## window
 {: #window}
 
@@ -4047,7 +4044,6 @@ xpath_double(xml, xpath) - Returns a double value, the value zero if no match is
 
 <pre><code> 3.0</code></pre>
 
-
 ## xpath_float
 {: #xpath_float}
 
@@ -4060,7 +4056,6 @@ xpath_float(xml, xpath) - Returns a float value, the value zero if no match is f
 **Result value:**
 
 <pre><code> 3.0</code></pre>
-
 
 ## xpath_int
 {: #xpath_int}
@@ -4075,7 +4070,6 @@ xpath_int(xml, xpath) - Returns an integer value, or the value zero if no match 
 
 <pre><code> 3</code></pre>
 
-
 ## xpath_long
 {: #xpath_long}
 
@@ -4088,7 +4082,6 @@ xpath_long(xml, xpath) - Returns a long integer value, or the value zero if no m
 **Result value:**
 
 <pre><code> 3</code></pre>
-
 
 ## xpath_number
 {: #xpath_number}

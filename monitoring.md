@@ -25,7 +25,6 @@ subcollection: sql-query
 {{site.data.keyword.mon_full}} is a cloud-native, and container-intelligence management system that you can include as part of your {{site.data.keyword.cloud_notm}} architecture. Use it to gain operational visibility into the performance and health of your applications, services, and platforms. It offers administrators, DevOps teams, and developers full stack telemetry with advanced features to monitor and troubleshoot, define alerts, and design custom dashboards.
 {: shortdesc}
 
-
 ## Opting in to and enabling {{site.data.keyword.sqlquery_full}} metrics
 {: #opt_in_metrics}
 
@@ -40,7 +39,6 @@ Before you can start to use {{site.data.keyword.sqlquery_short}} metrics, you mu
    Dashboards are available only after metrics start to be recorded; this might take a few minutes to initialize.
    {: note}
 
-
 ## {{site.data.keyword.sqlquery_short}} metrics cost information
 {: #metric_costs}
 
@@ -48,12 +46,10 @@ Before you opt in to using {{site.data.keyword.mon_full}} metrics, be aware of t
 
 For more information, see [{{site.data.keyword.mon_full_notm}} pricing ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-pricing_plans).
 
-
 ## {{site.data.keyword.sqlquery_short}} metrics details
 {: #metric_details}
 
 The following tables describe the specific metrics that are provided by {{site.data.keyword.sqlquery_short}}:
-
 
 | Metric name |
 |-----------|
