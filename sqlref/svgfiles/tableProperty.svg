@@ -1,8 +1,9 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="railroad-diagram" width="521" height="202" viewBox="0 0 521 202">
-<defs><style type="text/css"><![CDATA[ svg.railroad-diagram {
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="railroad-diagram" width="521" height="202" viewBox="0 0 521 202" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <style type="text/css"><![CDATA[ svg.railroad-diagram {
   background-color: #ffffff;
 }
 svg.railroad-diagram path {
@@ -28,97 +29,106 @@ svg.railroad-diagram rect {
   stroke:  #5a6872;
   fill: #5aaafa;
 }
- ]]></style></defs>
-<g transform="translate(.5 .5)">
-<path d="M 20 41 v 20 m 10 -20 v 20 m -10 -10 h 20.5"></path>
-<g>
-<path d="M40 51h0"></path>
-<path d="M480 51h0"></path>
-<path d="M40 51h10"></path>
-<g>
-<path d="M50 51h0"></path>
-<path d="M198 51h0"></path>
-<rect x="50" y="40" width="148" height="22"></rect>
-<text x="124" y="55">tablePropertyKey</text>
-</g>
-<path d="M198 51h10"></path>
-<g>
-<path d="M208 51h0"></path>
-<path d="M480 51h0"></path>
-<path d="M208 51a10 10 0 0 0 10 -10v-9a10 10 0 0 1 10 -10"></path>
-<g>
-<path d="M228 22h232"></path>
-</g>
-<path d="M460 22a10 10 0 0 1 10 10v9a10 10 0 0 0 10 10"></path>
-<path d="M208 51h20"></path>
-<g>
-<path d="M228 51h0"></path>
-<path d="M460 51h0"></path>
-<g>
-<path d="M228 51h0"></path>
-<path d="M296 51h0"></path>
-<path d="M228 51a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"></path>
-<g>
-<path d="M248 31h28"></path>
-</g>
-<path d="M276 31a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"></path>
-<path d="M228 51h20"></path>
-<g>
-<path d="M248 51h0"></path>
-<path d="M276 51h0"></path>
-<rect x="248" y="40" width="28" height="22" rx="10" ry="10"></rect>
-<text x="262" y="55">=</text>
-</g>
-<path d="M276 51h20"></path>
-</g>
-<g>
-<path d="M296 51h0"></path>
-<path d="M460 51h0"></path>
-<path d="M296 51h20"></path>
-<g>
-<path d="M316 51h0"></path>
-<path d="M440 51h0"></path>
-<rect x="316" y="40" width="124" height="22"></rect>
-<text x="378" y="55">INTEGER&#95;VALUE</text>
-</g>
-<path d="M440 51h20"></path>
-<path d="M296 51a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"></path>
-<g>
-<path d="M316 81h0"></path>
-<path d="M440 81h0"></path>
-<rect x="316" y="70" width="124" height="22"></rect>
-<text x="378" y="85">DECIMAL&#95;VALUE</text>
-</g>
-<path d="M440 81a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"></path>
-<path d="M296 51a10 10 0 0 1 10 10v40a10 10 0 0 0 10 10"></path>
-<g>
-<path d="M316 111h28"></path>
-<path d="M412 111h28"></path>
-<rect x="344" y="100" width="68" height="22"></rect>
-<text x="378" y="115">STRING</text>
-</g>
-<path d="M440 111a10 10 0 0 0 10 -10v-40a10 10 0 0 1 10 -10"></path>
-<path d="M296 51a10 10 0 0 1 10 10v70a10 10 0 0 0 10 10"></path>
-<g>
-<path d="M316 141h36"></path>
-<path d="M404 141h36"></path>
-<rect x="352" y="130" width="52" height="22" rx="10" ry="10"></rect>
-<text x="378" y="145">TRUE</text>
-</g>
-<path d="M440 141a10 10 0 0 0 10 -10v-70a10 10 0 0 1 10 -10"></path>
-<path d="M296 51a10 10 0 0 1 10 10v100a10 10 0 0 0 10 10"></path>
-<g>
-<path d="M316 171h32"></path>
-<path d="M408 171h32"></path>
-<rect x="348" y="160" width="60" height="22" rx="10" ry="10"></rect>
-<text x="378" y="175">FALSE</text>
-</g>
-<path d="M440 171a10 10 0 0 0 10 -10v-100a10 10 0 0 1 10 -10"></path>
-</g>
-</g>
-<path d="M460 51h20"></path>
-</g>
-</g>
-<path d="M 480 51 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
-</g>
+ ]]></style>
+    </defs>
+    <g transform="translate(.5 .5)">
+        <path d="M 20 41 v 20 m 10 -20 v 20 m -10 -10 h 20.5"/>
+        <g>
+            <path d="M40 51h0"/>
+            <path d="M480 51h0"/>
+            <path d="M40 51h10"/>
+            <g>
+                <a xlink:href="#tablePropertyKey">
+                    <path d="M50 51h0"/>
+                    <path d="M198 51h0"/>
+                    <rect x="50" y="40" width="148" height="22"/>
+                    <text x="124" y="55">tablePropertyKey</text>
+                </a>
+            </g>
+            <path d="M198 51h10"/>
+            <g>
+                <path d="M208 51h0"/>
+                <path d="M480 51h0"/>
+                <path d="M208 51a10 10 0 0 0 10 -10v-9a10 10 0 0 1 10 -10"/>
+                <g>
+                    <path d="M228 22h232"/>
+                </g>
+                <path d="M460 22a10 10 0 0 1 10 10v9a10 10 0 0 0 10 10"/>
+                <path d="M208 51h20"/>
+                <g>
+                    <path d="M228 51h0"/>
+                    <path d="M460 51h0"/>
+                    <g>
+                        <path d="M228 51h0"/>
+                        <path d="M296 51h0"/>
+                        <path d="M228 51a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"/>
+                        <g>
+                            <path d="M248 31h28"/>
+                        </g>
+                        <path d="M276 31a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"/>
+                        <path d="M228 51h20"/>
+                        <g>
+                            <path d="M248 51h0"/>
+                            <path d="M276 51h0"/>
+                            <rect x="248" y="40" width="28" height="22" rx="10" ry="10"/>
+                            <text x="262" y="55">=</text>
+                        </g>
+                        <path d="M276 51h20"/>
+                    </g>
+                    <g>
+                        <path d="M296 51h0"/>
+                        <path d="M460 51h0"/>
+                        <path d="M296 51h20"/>
+                        <g>
+                            <a xlink:href="#INTEGER_VALUE">
+                                <path d="M316 51h0"/>
+                                <path d="M440 51h0"/>
+                                <rect x="316" y="40" width="124" height="22"/>
+                                <text x="378" y="55">INTEGER_VALUE</text>
+                            </a>
+                        </g>
+                        <path d="M440 51h20"/>
+                        <path d="M296 51a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"/>
+                        <g>
+                            <a xlink:href="#DECIMAL_VALUE">
+                                <path d="M316 81h0"/>
+                                <path d="M440 81h0"/>
+                                <rect x="316" y="70" width="124" height="22"/>
+                                <text x="378" y="85">DECIMAL_VALUE</text>
+                            </a>
+                        </g>
+                        <path d="M440 81a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"/>
+                        <path d="M296 51a10 10 0 0 1 10 10v40a10 10 0 0 0 10 10"/>
+                        <g>
+                            <a xlink:href="#STRING">
+                                <path d="M316 111h28"/>
+                                <path d="M412 111h28"/>
+                                <rect x="344" y="100" width="68" height="22"/>
+                                <text x="378" y="115">STRING</text>
+                            </a>
+                        </g>
+                        <path d="M440 111a10 10 0 0 0 10 -10v-40a10 10 0 0 1 10 -10"/>
+                        <path d="M296 51a10 10 0 0 1 10 10v70a10 10 0 0 0 10 10"/>
+                        <g>
+                            <path d="M316 141h36"/>
+                            <path d="M404 141h36"/>
+                            <rect x="352" y="130" width="52" height="22" rx="10" ry="10"/>
+                            <text x="378" y="145">TRUE</text>
+                        </g>
+                        <path d="M440 141a10 10 0 0 0 10 -10v-70a10 10 0 0 1 10 -10"/>
+                        <path d="M296 51a10 10 0 0 1 10 10v100a10 10 0 0 0 10 10"/>
+                        <g>
+                            <path d="M316 171h32"/>
+                            <path d="M408 171h32"/>
+                            <rect x="348" y="160" width="60" height="22" rx="10" ry="10"/>
+                            <text x="378" y="175">FALSE</text>
+                        </g>
+                        <path d="M440 171a10 10 0 0 0 10 -10v-100a10 10 0 0 1 10 -10"/>
+                    </g>
+                </g>
+                <path d="M460 51h20"/>
+            </g>
+        </g>
+        <path d="M 480 51 h 20 m -10 -10 v 20 m 10 -20 v 20"/>
+    </g>
 </svg>

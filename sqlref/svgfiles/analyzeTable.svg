@@ -1,8 +1,9 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="railroad-diagram" width="1197" height="132" viewBox="0 0 1197 132">
-<defs><style type="text/css"><![CDATA[ svg.railroad-diagram {
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="railroad-diagram" width="1197" height="132" viewBox="0 0 1197 132" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <style type="text/css"><![CDATA[ svg.railroad-diagram {
   background-color: #ffffff;
 }
 svg.railroad-diagram path {
@@ -28,149 +29,156 @@ svg.railroad-diagram rect {
   stroke:  #5a6872;
   fill: #5aaafa;
 }
- ]]></style></defs>
-<g transform="translate(.5 .5)">
-<path d="M 20 31 v 20 m 10 -20 v 20 m -10 -10 h 20.5"></path>
-<g>
-<path d="M40 41h0"></path>
-<path d="M1156 41h0"></path>
-<path d="M40 41h10"></path>
-<g>
-<path d="M50 41h0"></path>
-<path d="M126 41h0"></path>
-<rect x="50" y="30" width="76" height="22" rx="10" ry="10"></rect>
-<text x="88" y="45">ANALYZE</text>
-</g>
-<path d="M126 41h10"></path>
-<path d="M136 41h10"></path>
-<g>
-<path d="M146 41h0"></path>
-<path d="M206 41h0"></path>
-<rect x="146" y="30" width="60" height="22" rx="10" ry="10"></rect>
-<text x="176" y="45">TABLE</text>
-</g>
-<path d="M206 41h10"></path>
-<path d="M216 41h10"></path>
-<g>
-<path d="M226 41h0"></path>
-<path d="M366 41h0"></path>
-<rect x="226" y="30" width="140" height="22"></rect>
-<text x="296" y="45">tableIdentifier</text>
-</g>
-<path d="M366 41h10"></path>
-<g>
-<path d="M376 41h0"></path>
-<path d="M540 41h0"></path>
-<path d="M376 41a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"></path>
-<g>
-<path d="M396 21h124"></path>
-</g>
-<path d="M520 21a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"></path>
-<path d="M376 41h20"></path>
-<g>
-<path d="M396 41h0"></path>
-<path d="M520 41h0"></path>
-<rect x="396" y="30" width="124" height="22"></rect>
-<text x="458" y="45">partitionSpec</text>
-</g>
-<path d="M520 41h20"></path>
-</g>
-<path d="M540 41h10"></path>
-<g>
-<path d="M550 41h0"></path>
-<path d="M626 41h0"></path>
-<rect x="550" y="30" width="76" height="22" rx="10" ry="10"></rect>
-<text x="588" y="45">COMPUTE</text>
-</g>
-<path d="M626 41h10"></path>
-<path d="M636 41h10"></path>
-<g>
-<path d="M646 41h0"></path>
-<path d="M746 41h0"></path>
-<rect x="646" y="30" width="100" height="22" rx="10" ry="10"></rect>
-<text x="696" y="45">STATISTICS</text>
-</g>
-<path d="M746 41h10"></path>
-<g>
-<path d="M756 41h0"></path>
-<path d="M1156 41h0"></path>
-<path d="M756 41a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"></path>
-<g>
-<path d="M776 21h360"></path>
-</g>
-<path d="M1136 21a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"></path>
-<path d="M756 41h20"></path>
-<g>
-<path d="M776 41h0"></path>
-<path d="M1136 41h0"></path>
-<path d="M776 41h20"></path>
-<g>
-<path d="M796 41h126"></path>
-<path d="M990 41h126"></path>
-<rect x="922" y="30" width="68" height="22" rx="10" ry="10"></rect>
-<text x="956" y="45">NOSCAN</text>
-</g>
-<path d="M1116 41h20"></path>
-<path d="M776 41a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"></path>
-<g>
-<path d="M796 71h0"></path>
-<path d="M1116 71h0"></path>
-<path d="M796 71h10"></path>
-<g>
-<path d="M806 71h0"></path>
-<path d="M850 71h0"></path>
-<rect x="806" y="60" width="44" height="22" rx="10" ry="10"></rect>
-<text x="828" y="75">FOR</text>
-</g>
-<path d="M850 71h10"></path>
-<path d="M860 71h10"></path>
-<g>
-<path d="M870 71h0"></path>
-<path d="M946 71h0"></path>
-<rect x="870" y="60" width="76" height="22" rx="10" ry="10"></rect>
-<text x="908" y="75">COLUMNS</text>
-</g>
-<path d="M946 71h10"></path>
-<path d="M956 71h10"></path>
-<g>
-<path d="M966 71h0"></path>
-<path d="M1106 71h0"></path>
-<path d="M966 71h10"></path>
-<g>
-<path d="M976 71h0"></path>
-<path d="M1096 71h0"></path>
-<path d="M976 71h10"></path>
-<g>
-<path d="M986 71h0"></path>
-<path d="M1086 71h0"></path>
-<rect x="986" y="60" width="100" height="22"></rect>
-<text x="1036" y="75">identifier</text>
-</g>
-<path d="M1086 71h10"></path>
-</g>
-<path d="M1096 71h10"></path>
-<path d="M976 71a10 10 0 0 0 -10 10v10a10 10 0 0 0 10 10"></path>
-<g>
-<path d="M976 101h36"></path>
-<path d="M1060 101h36"></path>
-<path d="M1012 101h10"></path>
-<g>
-<path d="M1022 101h0"></path>
-<path d="M1050 101h0"></path>
-<rect x="1022" y="90" width="28" height="22" rx="10" ry="10"></rect>
-<text x="1036" y="105">,</text>
-</g>
-<path d="M1050 101h10"></path>
-</g>
-<path d="M1096 101a10 10 0 0 0 10 -10v-10a10 10 0 0 0 -10 -10"></path>
-</g>
-<path d="M1106 71h10"></path>
-</g>
-<path d="M1116 71a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"></path>
-</g>
-<path d="M1136 41h20"></path>
-</g>
-</g>
-<path d="M 1156 41 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
-</g>
+ ]]></style>
+    </defs>
+    <g transform="translate(.5 .5)">
+        <path d="M 20 31 v 20 m 10 -20 v 20 m -10 -10 h 20.5"/>
+        <g>
+            <path d="M40 41h0"/>
+            <path d="M1156 41h0"/>
+            <path d="M40 41h10"/>
+            <g>
+                <path d="M50 41h0"/>
+                <path d="M126 41h0"/>
+                <rect x="50" y="30" width="76" height="22" rx="10" ry="10"/>
+                <text x="88" y="45">ANALYZE</text>
+            </g>
+            <path d="M126 41h10"/>
+            <path d="M136 41h10"/>
+            <g>
+                <path d="M146 41h0"/>
+                <path d="M206 41h0"/>
+                <rect x="146" y="30" width="60" height="22" rx="10" ry="10"/>
+                <text x="176" y="45">TABLE</text>
+            </g>
+            <path d="M206 41h10"/>
+            <path d="M216 41h10"/>
+            <g>
+                <a xlink:href="#tableIdentifier">
+                    <path d="M226 41h0"/>
+                    <path d="M366 41h0"/>
+                    <rect x="226" y="30" width="140" height="22"/>
+                    <text x="296" y="45">tableIdentifier</text>
+                </a>
+            </g>
+            <path d="M366 41h10"/>
+            <g>
+                <path d="M376 41h0"/>
+                <path d="M540 41h0"/>
+                <path d="M376 41a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"/>
+                <g>
+                    <path d="M396 21h124"/>
+                </g>
+                <path d="M520 21a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"/>
+                <path d="M376 41h20"/>
+                <g>
+                    <a xlink:href="#partitionSpec">
+                        <path d="M396 41h0"/>
+                        <path d="M520 41h0"/>
+                        <rect x="396" y="30" width="124" height="22"/>
+                        <text x="458" y="45">partitionSpec</text>
+                    </a>
+                </g>
+                <path d="M520 41h20"/>
+            </g>
+            <path d="M540 41h10"/>
+            <g>
+                <path d="M550 41h0"/>
+                <path d="M626 41h0"/>
+                <rect x="550" y="30" width="76" height="22" rx="10" ry="10"/>
+                <text x="588" y="45">COMPUTE</text>
+            </g>
+            <path d="M626 41h10"/>
+            <path d="M636 41h10"/>
+            <g>
+                <path d="M646 41h0"/>
+                <path d="M746 41h0"/>
+                <rect x="646" y="30" width="100" height="22" rx="10" ry="10"/>
+                <text x="696" y="45">STATISTICS</text>
+            </g>
+            <path d="M746 41h10"/>
+            <g>
+                <path d="M756 41h0"/>
+                <path d="M1156 41h0"/>
+                <path d="M756 41a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"/>
+                <g>
+                    <path d="M776 21h360"/>
+                </g>
+                <path d="M1136 21a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"/>
+                <path d="M756 41h20"/>
+                <g>
+                    <path d="M776 41h0"/>
+                    <path d="M1136 41h0"/>
+                    <path d="M776 41h20"/>
+                    <g>
+                        <path d="M796 41h126"/>
+                        <path d="M990 41h126"/>
+                        <rect x="922" y="30" width="68" height="22" rx="10" ry="10"/>
+                        <text x="956" y="45">NOSCAN</text>
+                    </g>
+                    <path d="M1116 41h20"/>
+                    <path d="M776 41a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"/>
+                    <g>
+                        <path d="M796 71h0"/>
+                        <path d="M1116 71h0"/>
+                        <path d="M796 71h10"/>
+                        <g>
+                            <path d="M806 71h0"/>
+                            <path d="M850 71h0"/>
+                            <rect x="806" y="60" width="44" height="22" rx="10" ry="10"/>
+                            <text x="828" y="75">FOR</text>
+                        </g>
+                        <path d="M850 71h10"/>
+                        <path d="M860 71h10"/>
+                        <g>
+                            <path d="M870 71h0"/>
+                            <path d="M946 71h0"/>
+                            <rect x="870" y="60" width="76" height="22" rx="10" ry="10"/>
+                            <text x="908" y="75">COLUMNS</text>
+                        </g>
+                        <path d="M946 71h10"/>
+                        <path d="M956 71h10"/>
+                        <g>
+                            <path d="M966 71h0"/>
+                            <path d="M1106 71h0"/>
+                            <path d="M966 71h10"/>
+                            <g>
+                                <path d="M976 71h0"/>
+                                <path d="M1096 71h0"/>
+                                <path d="M976 71h10"/>
+                                <g>
+                                    <a xlink:href="#identifier">
+                                        <path d="M986 71h0"/>
+                                        <path d="M1086 71h0"/>
+                                        <rect x="986" y="60" width="100" height="22"/>
+                                        <text x="1036" y="75">identifier</text>
+                                    </a>
+                                </g>
+                                <path d="M1086 71h10"/>
+                            </g>
+                            <path d="M1096 71h10"/>
+                            <path d="M976 71a10 10 0 0 0 -10 10v10a10 10 0 0 0 10 10"/>
+                            <g>
+                                <path d="M976 101h36"/>
+                                <path d="M1060 101h36"/>
+                                <path d="M1012 101h10"/>
+                                <g>
+                                    <path d="M1022 101h0"/>
+                                    <path d="M1050 101h0"/>
+                                    <rect x="1022" y="90" width="28" height="22" rx="10" ry="10"/>
+                                    <text x="1036" y="105">,</text>
+                                </g>
+                                <path d="M1050 101h10"/>
+                            </g>
+                            <path d="M1096 101a10 10 0 0 0 10 -10v-10a10 10 0 0 0 -10 -10"/>
+                        </g>
+                        <path d="M1106 71h10"/>
+                    </g>
+                    <path d="M1116 71a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"/>
+                </g>
+                <path d="M1136 41h20"/>
+            </g>
+        </g>
+        <path d="M 1156 41 h 20 m -10 -10 v 20 m 10 -20 v 20"/>
+    </g>
 </svg>

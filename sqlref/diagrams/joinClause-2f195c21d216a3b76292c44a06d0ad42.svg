@@ -1,0 +1,185 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="railroad-diagram"  width="885" height="243" viewBox="0 0 885 243"  xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <style type="text/css"><![CDATA[ svg.railroad-diagram {
+  background-color: #ffffff;
+}
+svg.railroad-diagram path {
+  stroke-width: 2;
+  stroke: #5a6872;
+  fill: none;
+}
+svg.railroad-diagram text {
+  font-size: 14px;
+  font-family: 'ibm-plex-mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace;
+  color: #152935;
+  text-anchor: middle;
+  cursor: pointer;
+}
+svg.railroad-diagram text.label {
+  text-anchor: start;
+}
+svg.railroad-diagram text.comment {
+  font-size: 12px;
+}
+svg.railroad-diagram rect {
+  stroke-width: 2;
+  stroke:  #5a6872;
+  fill: #5aaafa;
+}
+ ]]></style>
+    </defs>
+    
+<g transform="translate(.5 .5)">
+        <path d="M 20 31 v 20 m 10 -20 v 20 m -10 -10 h 20.5"/>
+        <g>
+            <path d="M40 41h0"/>
+            <path d="M888 41h0"/>
+            <path d="M40 41h10"/>
+            <g>
+                <a xlink:href="#joinType">
+                    <path d="M50 41h0"/>
+                    <path d="M134 41h0"/>
+                    <rect x="50" y="30" width="84" height="22"/>
+<text x="123" y="49">joinType</text>
+                </a>
+            </g>
+            <path d="M134 41h10"/>
+            <path d="M144 41h10"/>
+            <g>
+                <path d="M154 41h0"/>
+                <path d="M206 41h0"/>
+                <rect x="154" y="30" width="52" height="22" rx="10" ry="10"/>
+<text x="211" y="49">JOIN</text>
+            </g>
+            <path d="M206 41h10"/>
+            <path d="M216 41h10"/>
+            <g>
+                <a xlink:href="#relationPrimary">
+                    <path d="M226 41h0"/>
+                    <path d="M366 41h0"/>
+                    <rect x="226" y="30" width="140" height="22"/>
+<text x="327" y="49">relationPrimary</text>
+                </a>
+            </g>
+            <path d="M366 41h10"/>
+            <path d="M376 41h10"/>
+            <g>
+                <path d="M386 41h0"/>
+                <path d="M462 41h0"/>
+                <rect x="386" y="30" width="76" height="22" rx="10" ry="10"/>
+<text x="455" y="49">@break@</text>
+            </g>
+            <path d="M462 41h10"/>
+            <g>
+                <path d="M472 41h0"/>
+                <path d="M888 41h0"/>
+                <path d="M472 41a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"/>
+                <g>
+                    <path d="M492 21h376"/>
+                </g>
+                <path d="M868 21a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"/>
+                <path d="M472 41h20"/>
+                <g>
+                    <path d="M492 41h0"/>
+                    <path d="M868 41h0"/>
+                    <path d="M492 41h20"/>
+                    <g>
+                        <path d="M512 41h52"/>
+                        <path d="M796 41h52"/>
+                        <path d="M564 41h10"/>
+                        <g>
+                            <path d="M574 41h0"/>
+                            <path d="M610 41h0"/>
+                            <rect x="574" y="30" width="36" height="22" rx="10" ry="10"/>
+<text x="623" y="49">ON</text>
+                        </g>
+                        <path d="M610 41h10"/>
+                        <path d="M620 41h10"/>
+                        <g>
+                            <a xlink:href="#booleanExpression">
+                                <path d="M630 41h0"/>
+                                <path d="M786 41h0"/>
+                                <rect x="630" y="30" width="156" height="22"/>
+<text x="739" y="49">booleanExpression</text>
+                            </a>
+                        </g>
+                        <path d="M786 41h10"/>
+                    </g>
+                    <path d="M848 41h20"/>
+                    <path d="M492 41a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"/>
+                    <g>
+                        <path d="M512 71h0"/>
+                        <path d="M848 71h0"/>
+                        <path d="M512 71h10"/>
+                        <g>
+                            <path d="M522 71h0"/>
+                            <path d="M582 71h0"/>
+                            <rect x="522" y="60" width="60" height="22" rx="10" ry="10"/>
+<text x="583" y="79">USING</text>
+                        </g>
+                        <path d="M582 71h10"/>
+                        <path d="M592 71h10"/>
+                        <g>
+                            <path d="M602 71h0"/>
+                            <path d="M630 71h0"/>
+                            <rect x="602" y="60" width="28" height="22" rx="10" ry="10"/>
+<text x="647" y="79">(</text>
+                        </g>
+                        <path d="M630 71h10"/>
+                        <path d="M640 71h10"/>
+                        <g>
+                            <path d="M650 71h0"/>
+                            <path d="M790 71h0"/>
+                            <path d="M650 71h10"/>
+                            <g>
+                                <path d="M660 71h0"/>
+                                <path d="M780 71h0"/>
+                                <path d="M660 71h10"/>
+                                <g>
+                                    <a xlink:href="#identifier">
+                                        <path d="M670 71h0"/>
+                                        <path d="M770 71h0"/>
+                                        <rect x="670" y="60" width="100" height="22"/>
+<text x="751" y="79">identifier</text>
+                                    </a>
+                                </g>
+                                <path d="M770 71h10"/>
+                            </g>
+                            <path d="M780 71h10"/>
+                            <path d="M660 71a10 10 0 0 0 -10 10v10a10 10 0 0 0 10 10"/>
+                            <g>
+                                <path d="M660 101h36"/>
+                                <path d="M744 101h36"/>
+                                <path d="M696 101h10"/>
+                                <g>
+                                    <path d="M706 101h0"/>
+                                    <path d="M734 101h0"/>
+                                    <rect x="706" y="90" width="28" height="22" rx="10" ry="10"/>
+<text x="751" y="109">,</text>
+                                </g>
+                                <path d="M734 101h10"/>
+                            </g>
+                            <path d="M780 101a10 10 0 0 0 10 -10v-10a10 10 0 0 0 -10 -10"/>
+                        </g>
+                        <path d="M790 71h10"/>
+                        <path d="M800 71h10"/>
+                        <g>
+                            <path d="M810 71h0"/>
+                            <path d="M838 71h0"/>
+                            <rect x="810" y="60" width="28" height="22" rx="10" ry="10"/>
+<text x="855" y="79">)</text>
+                        </g>
+                        <path d="M838 71h10"/>
+                    </g>
+                    <path d="M848 71a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"/>
+                </g>
+                <path d="M868 41h20"/>
+            </g>
+        </g>
+        <path d="M 888 41 h 20 m -10 -10 v 20 m 10 -20 v 20"/>
+    </g>
+</svg>

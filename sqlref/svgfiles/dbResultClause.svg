@@ -1,8 +1,9 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="railroad-diagram" width="1021" height="112" viewBox="0 0 1021 112">
-<defs><style type="text/css"><![CDATA[ svg.railroad-diagram {
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="railroad-diagram" width="1021" height="112" viewBox="0 0 1021 112" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <style type="text/css"><![CDATA[ svg.railroad-diagram {
   background-color: #ffffff;
 }
 svg.railroad-diagram path {
@@ -28,114 +29,123 @@ svg.railroad-diagram rect {
   stroke:  #5a6872;
   fill: #5aaafa;
 }
- ]]></style></defs>
-<g transform="translate(.5 .5)">
-<path d="M 20 41 v 20 m 10 -20 v 20 m -10 -10 h 20.5"></path>
-<g>
-<path d="M40 51h0"></path>
-<path d="M980 51h0"></path>
-<g>
-<path d="M40 51h0"></path>
-<path d="M204 51h0"></path>
-<path d="M40 51h20"></path>
-<g>
-<path d="M60 51h24"></path>
-<path d="M160 51h24"></path>
-<rect x="84" y="40" width="76" height="22"></rect>
-<text x="122" y="55">CRN&#95;URI</text>
-</g>
-<path d="M184 51h20"></path>
-<path d="M40 51a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"></path>
-<g>
-<path d="M60 81h0"></path>
-<path d="M184 81h0"></path>
-<rect x="60" y="70" width="124" height="22"></rect>
-<text x="122" y="85">DB2&#95;TABLE&#95;URI</text>
-</g>
-<path d="M184 81a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"></path>
-</g>
-<path d="M204 51h10"></path>
-<g>
-<path d="M214 51h0"></path>
-<path d="M290 51h0"></path>
-<rect x="214" y="40" width="76" height="22" rx="10" ry="10"></rect>
-<text x="252" y="55">@break@</text>
-</g>
-<path d="M290 51h10"></path>
-<g>
-<path d="M300 51h0"></path>
-<path d="M720 51h0"></path>
-<path d="M300 51a10 10 0 0 0 10 -10v-9a10 10 0 0 1 10 -10"></path>
-<g>
-<path d="M320 22h380"></path>
-</g>
-<path d="M700 22a10 10 0 0 1 10 10v9a10 10 0 0 0 10 10"></path>
-<path d="M300 51h20"></path>
-<g>
-<path d="M320 51h0"></path>
-<path d="M700 51h0"></path>
-<g>
-<path d="M320 51h0"></path>
-<path d="M412 51h0"></path>
-<path d="M320 51a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"></path>
-<g>
-<path d="M340 31h52"></path>
-</g>
-<path d="M392 31a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"></path>
-<path d="M320 51h20"></path>
-<g>
-<path d="M340 51h0"></path>
-<path d="M392 51h0"></path>
-<rect x="340" y="40" width="52" height="22" rx="10" ry="10"></rect>
-<text x="366" y="55">WITH</text>
-</g>
-<path d="M392 51h20"></path>
-</g>
-<path d="M412 51h10"></path>
-<g>
-<path d="M422 51h0"></path>
-<path d="M530 51h0"></path>
-<rect x="422" y="40" width="108" height="22" rx="10" ry="10"></rect>
-<text x="476" y="55">PARALLELISM</text>
-</g>
-<path d="M530 51h10"></path>
-<path d="M540 51h10"></path>
-<g>
-<path d="M550 51h0"></path>
-<path d="M690 51h0"></path>
-<rect x="550" y="40" width="140" height="22"></rect>
-<text x="620" y="55">unsignedInteger</text>
-</g>
-<path d="M690 51h10"></path>
-</g>
-<path d="M700 51h20"></path>
-</g>
-<path d="M720 51h10"></path>
-<g>
-<path d="M730 51h0"></path>
-<path d="M806 51h0"></path>
-<rect x="730" y="40" width="76" height="22" rx="10" ry="10"></rect>
-<text x="768" y="55">@break@</text>
-</g>
-<path d="M806 51h10"></path>
-<g>
-<path d="M816 51h0"></path>
-<path d="M980 51h0"></path>
-<path d="M816 51a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"></path>
-<g>
-<path d="M836 31h124"></path>
-</g>
-<path d="M960 31a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"></path>
-<path d="M816 51h20"></path>
-<g>
-<path d="M836 51h0"></path>
-<path d="M960 51h0"></path>
-<rect x="836" y="40" width="124" height="22"></rect>
-<text x="898" y="55">accessSecrets</text>
-</g>
-<path d="M960 51h20"></path>
-</g>
-</g>
-<path d="M 980 51 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
-</g>
+ ]]></style>
+    </defs>
+    <g transform="translate(.5 .5)">
+        <path d="M 20 41 v 20 m 10 -20 v 20 m -10 -10 h 20.5"/>
+        <g>
+            <path d="M40 51h0"/>
+            <path d="M980 51h0"/>
+            <g>
+                <path d="M40 51h0"/>
+                <path d="M204 51h0"/>
+                <path d="M40 51h20"/>
+                <g>
+                    <a xlink:href="#CRN_URI">
+                        <path d="M60 51h24"/>
+                        <path d="M160 51h24"/>
+                        <rect x="84" y="40" width="76" height="22"/>
+                        <text x="122" y="55">CRN_URI</text>
+                    </a>
+                </g>
+                <path d="M184 51h20"/>
+                <path d="M40 51a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"/>
+                <g>
+                    <a xlink:href="#DB2_TABLE_URI">
+                        <path d="M60 81h0"/>
+                        <path d="M184 81h0"/>
+                        <rect x="60" y="70" width="124" height="22"/>
+                        <text x="122" y="85">DB2_TABLE_URI</text>
+                    </a>
+                </g>
+                <path d="M184 81a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"/>
+            </g>
+            <path d="M204 51h10"/>
+            <g>
+                <path d="M214 51h0"/>
+                <path d="M290 51h0"/>
+                <rect x="214" y="40" width="76" height="22" rx="10" ry="10"/>
+                <text x="252" y="55">@break@</text>
+            </g>
+            <path d="M290 51h10"/>
+            <g>
+                <path d="M300 51h0"/>
+                <path d="M720 51h0"/>
+                <path d="M300 51a10 10 0 0 0 10 -10v-9a10 10 0 0 1 10 -10"/>
+                <g>
+                    <path d="M320 22h380"/>
+                </g>
+                <path d="M700 22a10 10 0 0 1 10 10v9a10 10 0 0 0 10 10"/>
+                <path d="M300 51h20"/>
+                <g>
+                    <path d="M320 51h0"/>
+                    <path d="M700 51h0"/>
+                    <g>
+                        <path d="M320 51h0"/>
+                        <path d="M412 51h0"/>
+                        <path d="M320 51a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"/>
+                        <g>
+                            <path d="M340 31h52"/>
+                        </g>
+                        <path d="M392 31a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"/>
+                        <path d="M320 51h20"/>
+                        <g>
+                            <path d="M340 51h0"/>
+                            <path d="M392 51h0"/>
+                            <rect x="340" y="40" width="52" height="22" rx="10" ry="10"/>
+                            <text x="366" y="55">WITH</text>
+                        </g>
+                        <path d="M392 51h20"/>
+                    </g>
+                    <path d="M412 51h10"/>
+                    <g>
+                        <path d="M422 51h0"/>
+                        <path d="M530 51h0"/>
+                        <rect x="422" y="40" width="108" height="22" rx="10" ry="10"/>
+                        <text x="476" y="55">PARALLELISM</text>
+                    </g>
+                    <path d="M530 51h10"/>
+                    <path d="M540 51h10"/>
+                    <g>
+                        <a xlink:href="#unsignedInteger">
+                            <path d="M550 51h0"/>
+                            <path d="M690 51h0"/>
+                            <rect x="550" y="40" width="140" height="22"/>
+                            <text x="620" y="55">unsignedInteger</text>
+                        </a>
+                    </g>
+                    <path d="M690 51h10"/>
+                </g>
+                <path d="M700 51h20"/>
+            </g>
+            <path d="M720 51h10"/>
+            <g>
+                <path d="M730 51h0"/>
+                <path d="M806 51h0"/>
+                <rect x="730" y="40" width="76" height="22" rx="10" ry="10"/>
+                <text x="768" y="55">@break@</text>
+            </g>
+            <path d="M806 51h10"/>
+            <g>
+                <path d="M816 51h0"/>
+                <path d="M980 51h0"/>
+                <path d="M816 51a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"/>
+                <g>
+                    <path d="M836 31h124"/>
+                </g>
+                <path d="M960 31a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"/>
+                <path d="M816 51h20"/>
+                <g>
+                    <a xlink:href="#accessSecrets">
+                        <path d="M836 51h0"/>
+                        <path d="M960 51h0"/>
+                        <rect x="836" y="40" width="124" height="22"/>
+                        <text x="898" y="55">accessSecrets</text>
+                    </a>
+                </g>
+                <path d="M960 51h20"/>
+            </g>
+        </g>
+        <path d="M 980 51 h 20 m -10 -10 v 20 m 10 -20 v 20"/>
+    </g>
 </svg>
