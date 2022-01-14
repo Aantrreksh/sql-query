@@ -18,7 +18,6 @@ subcollection: sql-query
 {:tip: .tip}
 {:note: .note}
 
-
 # Index management
 {: #index_management}
 
@@ -36,14 +35,12 @@ SQL queries benefit from an index by skipping over all objects whose metadata in
 ## Overview
 {: #overview_ds}
 
-For each of the columns in an object, summary metadata can include minimum and maximum values, a list or bloom filter of the appearing values, or other metadata that represents the data in that column. The summary metadata is then used during query evaluation to skip over objects that do not contain any relevant data. 
-All formats are supported, including Parquet, ORC, CSV, and JSON. Data skipping is used for performance optimization. Data skipping does not affect the content of query results.
-{{site.data.keyword.sqlquery_full}} currently supports metaindexes only. Metaindexes are indexes on a higher level, thus they index objects instead of rows.
+For each of the columns in an object, summary metadata can include minimum and maximum values, a list or bloom filter of the appearing values, or other metadata that represents the data in that column. The summary metadata is then used during query evaluation to skip over objects that do not contain any relevant data. All formats are supported, including Parquet, ORC, CSV, and JSON. Data skipping is used for performance optimization. Data skipping does not affect the content of query results. {{site.data.keyword.sqlquery_full}} currently supports metaindexes only. Metaindexes are indexes on a higher level, thus they index objects instead of rows.
 
 As {{site.data.keyword.sqlquery_short}} charges on a per-query basis based on the amount of data scanned, reducing the number of bytes scanned per query, reduces cost while it improves performance. For data skipping to work well and for good performance overall, use the [best practices for data layout](https://www.ibm.com/cloud/blog/big-data-layout), such as using the Parquet format and adopting Hive-style partitioning. Ideally, create tables by using the [Cloud Object Storage catalog](/docs/services/sql-query?topic=sql-query-hivemetastore).
 Data skipping complements these best practices and provides significant cost savings and performance benefits.
 
-To use this feature, you must create indexes on one or more columns of the data set. Start by indexing columns that you query most often in the `WHERE` clause. A full stop ("**.**") in any column name is not supported. 
+To use this feature, you must create indexes on one or more columns of the data set. Start by indexing columns that you query most often in the `WHERE` clause. A full stop ("**.**") in any column name is not supported.
 
 The following four index types are supported:
 
@@ -67,7 +64,7 @@ Indexes, or data skipping metadata, are stored in a location you specify. Metada
 The sample data set used in this documentation originates from the *meter_gen* [data generator](https://github.com/gridpocket/project-iostack/tree/master/meter_gen) that was developed by [GridPocket](https://www.gridpocket.com/en/) in the context of the [IOStack project](http://iostack.eu/).
 It generates electricity, water, and gas meter readings, along with their associated timestamps, geospatial locations, and additional information.
 The data set is in Parquet format, has 9 GB, and is publicly available to use with {{site.data.keyword.sqlquery_short}} at `cos:\\us-geo\sql\metergen`.
-The queries that are listed in the examples are also available in the UI under **Samples** > **Index management**. 
+The queries that are listed in the examples are also available in the UI under **Samples** > **Index management**.
 Examples for queries when you work on tables are available under **Samples** > **Index management on tables**.
 In the UI samples, under **Basic index creation**, you find a fast running index creation example that creates only MinMax indexes.
 **Advanced index creation** is an example for using all index types and it takes longer to finish.
@@ -91,8 +88,7 @@ The following command includes a path:
 {: #creating_ds_indexes}
 
 When you create a data skipping index on a data set, decide which columns to index, and choose an index type for each column.
-Your choices depend on your workload and data. In general, index those columns that are queried the most in the `WHERE` clause. The three supported index types are MinMax, 
-ValueList, and BloomFilter.
+Your choices depend on your workload and data. In general, index those columns that are queried the most in the `WHERE` clause. The three supported index types are MinMax, ValueList, and BloomFilter.
 
 The following example creates a data skipping index on the `metergen` data set that uses three index types:
 
@@ -153,7 +149,7 @@ The following list shows supported geospatial functions:
 {: #geospatial_minmax}
 
 You can use MinMax indexes on latitude and longitude columns for data skipping. 
-In the following example, the MinMax indexes on the `lat` and `lng` columns are used. The following query retrieves all of the points in 1 km around the point POINT(6.433881 43.422323). 
+In the following example, the MinMax indexes on the `lat` and `lng` columns are used. The following query retrieves all of the points in 1 km around the point POINT(6.433881 43.422323).
 
 ```
 SELECT * FROM cos://us-geo/sql/metergen STORED AS PARQUET WHERE
@@ -163,9 +159,7 @@ ST_Distance(ST_Point(lng,lat),ST_WKTToSQL('POINT(6.433881 43.422323)')) < 1000.0
 #### Geospatial data skipping with geospatial indexes
 {: #geospatial_ds_geospatial_indexes}
 
-Geospatial indexes on columns with geometry types can also be used for data skipping. For example, the following
-statement creates a geospatial index. 
-The hospitals data set is available as an {{site.data.keyword.sqlquery_short}} sample and contains a geometry type column called “location”. Geometry type columns can be created by using the Geospatial Toolkit.
+Geospatial indexes on columns with geometry types can also be used for data skipping. For example, the following statement creates a geospatial index. The hospitals data set is available as an {{site.data.keyword.sqlquery_short}} sample and contains a geometry type column called “location”. Geometry type columns can be created by using the Geospatial Toolkit.
 
 ```
 CREATE METAINDEX
@@ -184,10 +178,7 @@ WHERE ST_Intersects(ST_WKTToSQL(location), ST_Buffer(ST_WKTToSQL('POINT (-74.0 4
 ### Choosing data formats
 {: #choosing_data_formats}
 
-You can use data skipping with all of the formats that are supported by {{site.data.keyword.sqlquery_short}}, except for AVRO.
-It is best for data layout to use a column-based format, such as Parquet.
-To infer the schema for CSV and JSON, before running any queries, the entire data set must first be scanned.
-Scanning the entire data set is not necessary if you create tables by using the {{site.data.keyword.sqlquery_short}} [catalog](/docs/services/sql-query?topic=sql-query-hivemetastore). Unlike Parquet and ORC, CSV and JSON do not have built-in data skipping capabilities and can potentially benefit more from data skipping.
+You can use data skipping with all of the formats that are supported by {{site.data.keyword.sqlquery_short}}, except for AVRO. It is best for data layout to use a column-based format, such as Parquet. To infer the schema for CSV and JSON, before running any queries, the entire data set must first be scanned. Scanning the entire data set is not necessary if you create tables by using the {{site.data.keyword.sqlquery_short}} [catalog](/docs/services/sql-query?topic=sql-query-hivemetastore). Unlike Parquet and ORC, CSV and JSON do not have built-in data skipping capabilities and can potentially benefit more from data skipping.
 
 ### Refreshing data skipping indexes
 {: #refreshing_ds}
@@ -267,7 +258,6 @@ ALTER TABLE metergen DROP METAINDEX LOCATION
 
 The metadata for a partitioned table must be different from the metadata on the physical location (the location that was defined in the LOCATION clause of the CREATE TABLE query) because the table can contain partitions that are not located under the physical location. Therefore, depending on what data skipping metadata was generated for each case, you can get different results by using the table name than by using the Cloud {{site.data.keyword.cos_short}} URI. 
 
-
 ## Limitations
 {: #limitations_ds}
 
@@ -281,7 +271,7 @@ The metadata for a partitioned table must be different from the metadata on the 
 
   In some cases, Apache Spark automatically casts the literal to the right type.
   For example, the previous query works for all other numerical types, except for the byte type, as it requires casting, as well.
-  To benefit from data skipping in such cases, ensure that the literal has the same type as the column type, as in the following        example:
+  To benefit from data skipping in such cases, ensure that the literal has the same type as the column type, as in the following example:
 
   ```
   select * from table where shortType > cast(1 as short)

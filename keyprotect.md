@@ -17,7 +17,6 @@ subcollection: sql-query
 {:screen: .screen}
 {:tip: .tip}
 
-
 # Encrypting SQL queries with Key Protect
 {: #keyprotect}
 

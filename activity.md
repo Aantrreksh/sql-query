@@ -17,8 +17,6 @@ subcollection: sql-query
 {:screen: .screen}
 {:tip: .tip}
 
-
-
 # Activity Tracker events
 {: #activitytracker}
 
@@ -35,10 +33,10 @@ You can search activity tracker events with {{site.data.keyword.sqlquery_short}}
 
 The following table lists the actions that generate an event:
 
-Actions  |	Description
+Actions  |  Description
 --- | ---
 `sql-query.sql-job.create` |  An SQL query was submitted.
-`sql-query.sql-job.list` | 	List of jobs was retrieved.
+`sql-query.sql-job.list` |  List of jobs was retrieved.
 `sql-query.sql-job.get` |  Details of a job were retrieved.
 `sql-query.catalog-table.list` |  List of catalog tables was retrieved.
 `sql-query.catalog-table.get` |  Details of a catalog table were retrieved.

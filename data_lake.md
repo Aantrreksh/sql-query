@@ -17,8 +17,6 @@ subcollection: sql-query
 {:screen: .screen}
 {:tip: .tip}
 
-
-
 # Log analysis
 {: #loganalysis}
 

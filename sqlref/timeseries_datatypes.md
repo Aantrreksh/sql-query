@@ -21,7 +21,6 @@ subcollection: sql-query
 
 Time series functions operate on a wide variety of special data types that are designed especially for time series data.
 
-
 Data type | Description
 --- | ---
 DoubleTimeSeries  | Time series with univariate observations of type Double. See the following example: `[(1, 7.2), (3, 4.5), (5, 4.5), (5, 4.6), (5, 7.1), (7, 3.9), (9, 1.1)`
@@ -35,21 +34,16 @@ StringArraySegmentTimeSeries | StringArrayTimeSeries that is segmented. See the 
 
 *Table 1. Time series data types are binary data types that are especially designed to hold time series data. Alternatively, you can store time series data in any BinaryType data array, such as the ones offered by Parquet, Avro, ORC, or JSON. CSV does not offer a suitable BinaryType data array for storing time series data.*
 
-
 Placeholder | Description
 --- | ---
 TimeSeries | Represent any of the following data types: <ul><li>DoubleTimeSeries</li><li>DoubleArrayTimeSeries</li><li>DoubleSegmentTimeSeries</li><li>DoubleArraySegmentTimeSeries</li><li>StringTimeSeries</li><li>StringArrayTimeSeries</li><li>StringSegmentTimeSeries</li><li>StringArraySegmentTimeSeries</li></ul>
 SegmentTimeSeries | Represent any of the following data types: <ul><li>DoubleSegmentTimeSeries</li><li>DoubleArraySegmentTimeSeries</li><li>StringSegmentTimeSeries</li><li>StringArraySegmentTimeSeries</li></ul>
 ArrayTimeSeries | Represent any of the following data types: <ul><li>DoubleArrayTimeSeries</li><li>DoubleArraySegmentTimeSeries</li><li>StringArrayTimeSeries</li><li>StringArraySegmentTimeSeries</li></ul>
   
- *Table 2. Pseudo data types are not actual data types, but are placeholders that are used by the documentation to represent any of several time series data types.*
-
+*Table 2. Pseudo data types are not actual data types, but are placeholders that are used by the documentation to represent any of several time series data types.*
 
 Data type | Description
 --- | ---
 TRS | A [time reference system (TRS)](/docs/sql-query?topic=sql-query-TRS) defines the granularity of time series timeticks, and defines a start time that maps a particular time series timetick to a corresponding moment in time.
 
 *Table 3. Time reference system data type.*
-
-
-

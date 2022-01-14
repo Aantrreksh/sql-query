@@ -27,8 +27,7 @@ In general, customer data is not leaving the region or country, in which an inst
 ### Critical Dependencies
 {: #critical}
 
-The following dependencies of {{site.data.keyword.sqlquery_short}} are considered critical. 
-Any loss of connectivity or service of one of these dependencies results in a functional impact to the customer on {{site.data.keyword.sqlquery_short}}.
+The following dependencies of {{site.data.keyword.sqlquery_short}} are considered critical. Any loss of connectivity or service of one of these dependencies results in a functional impact to the customer on {{site.data.keyword.sqlquery_short}}.
 
 Service name | Description
 --- | ---

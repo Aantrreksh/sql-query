@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-01-10"
+  years: 2018, 2021
+lastupdated: "2021-10-15"
 
 ---
 
@@ -44,28 +44,34 @@ See the following examples for an outline of the general syntax of an SQL query 
 
 <h3 id="query">query</h3>
 
+<div style="overflow-x : auto;">
 <map name="queryImgMap">
 	<area alt="section namedQuery" shape="rect" coords="162,30,262,52" href="#namedQuery" />
 	<area alt="section fullselect" shape="rect" coords="51,134,151,156" href="#fullselect" />
 	<area alt="section intoClause" shape="rect" coords="181,134,281,156" href="#intoClause" />
 </map>
 <img style="max-width: 397px;" usemap="#queryImgMap" alt="syntax diagram for a query" src="./diagrams/query-b3304d447c1c6a648677c061d930028f.svg" />
+</div>
 
 <h3 id="namedQuery">namedQuery</h3>
 
+<div style="overflow-x : auto;">
 <map name="namedQueryImgMap">
 	<area alt="section identifier" shape="rect" coords="50,30,150,52" href="#identifier" />
 	<area alt="section query" shape="rect" coords="294,30,354,52" href="#query" />
 </map>
 <img style="max-width: 453px;" usemap="#namedQueryImgMap" alt="syntax diagram for a named query" src="./diagrams/namedQuery-beec800aa07e29e3b789bcbfabeefedd.svg" />
+</div>
 
 <h3 id="intoClause">intoClause</h3>
 
+<div style="overflow-x : auto;">
 <map name="intoClauseImgMap">
 	<area alt="section cosResultClause" shape="rect" coords="132,20,272,42" href="#cosResultClause" />
 	<area alt="section dbResultClause" shape="rect" coords="136,50,268,72" href="#dbResultClause" />
 </map>
 <img style="max-width: 333px;" usemap="#intoClauseImgMap" alt="syntax diagram for an INTO clause" src="./diagrams/intoClause-00b5a9276ebd0fbb555ad5830e34f698.svg" />
+</div>
 
 The query statement supports *common table expressions*. A common table expression permits defining a result table with a table name
 that can be specified as a table name in any FROM clause of the fullselect that follows.
@@ -177,23 +183,27 @@ A partition is an object on Cloud {{site.data.keyword.cos_short}} that is potent
 The presence of multiple partitions allows for parallel input/output (I/O) during query execution. If no *result partitioned clause* is specified,
 the query result is stored in a single partition on Cloud {{site.data.keyword.cos_short}}.
 
+<div style="overflow-x : auto;">
 <map name="cosResultClauseImgMap">
 	<area alt="section COSURI" shape="rect" coords="50,30,118,52" href="#COSURI" />
 	<area alt="section partitionedClause" shape="rect" coords="377,134,533,156" href="#partitionedClause" />
 	<area alt="section sortClause" shape="rect" coords="573,134,673,156" href="#sortClause" />
 </map>
 <img style="max-width: 723px;" usemap="#cosResultClauseImgMap" alt="syntax diagram for a COS result clause" src="./diagrams/cosResultClause-a33385733356a8d18144cf014a1b520d.svg" />
+</div>
 
 <h3 id="partitionedClause">partitionedClause</h3>
 
 You can use the result partitioned clause to control the layout of the SQL query result set being stored. The default behavior is to store the result into one single partition, that is a single object in Cloud {{site.data.keyword.cos_short}}.
 
+<div style="overflow-x : auto;">
 <map name="partitionedClauseImgMap">
 	<area alt="section identifier" shape="rect" coords="322,30,422,52" href="#identifier" />
 	<area alt="section unsignedInteger" shape="rect" coords="143,134,283,156" href="#unsignedInteger" />
 	<area alt="section unsignedInteger" shape="rect" coords="151,238,291,260" href="#unsignedInteger" />
 </map>
 <img style="max-width: 605px;" usemap="#partitionedClauseImgMap" alt="syntax diagram for a result partitioned clause" src="./diagrams/partitionedClause-2d65f9e4bfd89c3e1a225052b5ba45db.svg" />
+</div>
 
 <h3 id="sortClause">sortClause</h3>
 
@@ -203,10 +213,12 @@ which is often referred to as clustering the rows by the specified columns into 
 When specified without the PARTITIONED clause, it is equivalent to an ORDER BY clause specified at the top level of the SQL SELECT statement.
 If PARTITIONED INTO is specified, the ORDER BY clause is ignored.
 
+<div style="overflow-x : auto;">
 <map name="sortClauseImgMap">
 	<area alt="section expression" shape="rect" coords="246,30,346,52" href="#expression" />
 </map>
 <img style="max-width: 586px;" usemap="#sortClauseImgMap" alt="syntax diagram for a result partitioned column clause" src="./diagrams/sortClause-bb4b59647ebdc27743fd6b1a842ca951.svg" />
+</div>
 
 
 <h4>Partition by columns</h4>
@@ -267,6 +279,7 @@ and all existing data is deleted.
 
 Use the `PARALLELISM x` clause to specify that multiple parallel database connections are to be opened to write out the result. Depending on the size of your result and the network connectivity of your target database service, this clause can reduce the query processing time significantly.
 
+<div style="overflow-x : auto;">
 <map name="dbResultClauseImgMap">
 	<area alt="section CRN_URI" shape="rect" coords="84,40,160,62" href="#CRN_URI" />
 	<area alt="section DB2_TABLE_URI" shape="rect" coords="60,70,184,92" href="#DB2_TABLE_URI" />
@@ -274,6 +287,7 @@ Use the `PARALLELISM x` clause to specify that multiple parallel database connec
 	<area alt="section accessSecrets" shape="rect" coords="61,227,185,249" href="#accessSecrets" />
 </map>
 <img style="max-width: 546px;" usemap="#dbResultClauseImgMap" alt="syntax diagram for a Db2 result clause" src="./diagrams/dbResultClause-687859024ab59f595cc367d0e52ca2b1.svg" />
+</div>
 
 <h3 id="accessSecrets">accessSecrets</h3>
 
@@ -281,12 +295,14 @@ By default, either the credentials that are needed to access the target database
 You can override this default by specifying either a combination of `USER` and `PASSWORD` or an `APIKEY`. However, the password or API key is **not** included in the SQL statement as plain text. Instead, you must store it as a custom key in a {{site.data.keyword.keymanagementservicefull}} instance to which you have access.
 For a description how to store and manage the secrets in {{site.data.keyword.keymanagementserviceshort}}, see [Setting up custom secrets in Key Protect](/docs/sql-query?topic=sql-query-kpsetup).
 
+<div style="overflow-x : auto;">
 <map name="accessSecretsImgMap">
 	<area alt="section identifier" shape="rect" coords="142,20,242,42" href="#identifier" />
 	<area alt="section CRN_URI" shape="rect" coords="366,20,442,42" href="#CRN_URI" />
 	<area alt="section CRN_URI" shape="rect" coords="262,50,338,72" href="#CRN_URI" />
 </map>
 <img style="max-width: 502px;" usemap="#accessSecretsImgMap" alt="syntax diagram for a Db2 result clause" src="./diagrams/accessSecrets-dc576febfe03e74455aab57bda94dd85.svg" />
+</div>
 
 <h3>More topics</h3>
 
@@ -315,6 +331,7 @@ A *query* is referenced by the following clauses:
 
 A *fullselect* is the core component of a *query*. It is the only mandatory general component for a valid query statement. The other components outside of *fullselect* are optional. Its syntax is defined by the following syntax diagram.
 
+<div style="overflow-x : auto;">
 <map name="fullselectImgMap">
 	<area alt="section simpleselect" shape="rect" coords="150,30,266,52" href="#simpleselect" />
 	<area alt="section fullselect" shape="rect" coords="158,60,258,82" href="#fullselect" />
@@ -327,6 +344,7 @@ A *fullselect* is the core component of a *query*. It is the only mandatory gene
 	<area alt="section expression" shape="rect" coords="317,740,417,762" href="#expression" />
 </map>
 <img style="max-width: 502px;" usemap="#fullselectImgMap" alt="syntax diagram for a fullselect" src="./diagrams/fullselect-24b9b51a345d604fd94acbbba7c33819.svg" />
+</div>
 
 The result set defined by a single fullselect can be combined with the result set of one or more other fullselects by using set operators.
 
@@ -482,6 +500,7 @@ A *simpleselect* is a component of a *fullselect*. Its syntax is defined by the 
 
 <h3 id="simpleselect">simpleselect</h3>
 
+<div style="overflow-x : auto;">
 <map name="simpleselectImgMap">
 	<area alt="section resultColumn" shape="rect" coords="322,40,438,62" href="#resultColumn" />
 	<area alt="section relation" shape="rect" coords="163,153,247,175" href="#relation" />
@@ -492,6 +511,7 @@ A *simpleselect* is a component of a *fullselect*. Its syntax is defined by the 
 	<area alt="section namedWindows" shape="rect" coords="61,405,177,427" href="#namedWindows" />
 </map>
 <img style="max-width: 594px;" usemap="#simpleselectImgMap" alt="syntax diagram for a simpleselect" src="./diagrams/simpleselect-2613ee7ee78918ffb56cdbe104141633.svg" />
+</div>
 
 With a *simpleselect*, you can specify the following characteristics of a result set:
 * The list of *result columns* from *relations* or *lateral views* that are part of the final result set. The result column list can be further redefined by using the following modifier keywords:
@@ -504,11 +524,13 @@ With a *simpleselect*, you can specify the following characteristics of a result
 
 <h3 id="resultColumn">resultColumn</h3>
 
+<div style="overflow-x : auto;">
 <map name="resultColumnImgMap">
 	<area alt="section expression" shape="rect" coords="50,40,150,62" href="#expression" />
 	<area alt="section identifier" shape="rect" coords="266,40,366,62" href="#identifier" />
 </map>
 <img style="max-width: 437px;" usemap="#resultColumnImgMap" alt="syntax diagram for a result column" src="./diagrams/resultColumn-eabfb1483fd9cda4ae2aa513023f1073.svg" />
+</div>
 
 A *result column* can be any expression that can optionally be associated with an identifier, that is, a *new name*. By providing custom identifiers, you can control the column names that are used in the result data set written to Cloud {{site.data.keyword.cos_short}}.
 See the following examples for such expressions:
@@ -520,19 +542,23 @@ See the following examples for such expressions:
 
 <h4 id="groupByClause">groupByClause</h4>
 
+<div style="overflow-x : auto;">
 <map name="groupByClauseImgMap">
 	<area alt="section expression" shape="rect" coords="206,30,306,52" href="#expression" />
 	<area alt="section groupingSet" shape="rect" coords="335,194,443,216" href="#groupingSet" />
 </map>
 <img style="max-width: 591px;" usemap="#groupByClauseImgMap" alt="syntax diagram for a group by clause" src="./diagrams/groupByClause-e398def395cc739fa85e02e548d03c49.svg" />
+</div>
 
 <h4 id="groupingSet">groupingSet</h4>
 
+<div style="overflow-x : auto;">
 <map name="groupingSetImgMap">
 	<area alt="section expression" shape="rect" coords="158,30,258,52" href="#expression" />
 	<area alt="section expression" shape="rect" coords="158,90,258,112" href="#expression" />
 </map>
 <img style="max-width: 417px;" usemap="#groupingSetImgMap" alt="syntax diagram for a grouping set" src="./diagrams/groupingSet-6f3804376dd8746fc02fb382883a9dad.svg" />
+</div>
 
 More complex *group by* clauses use so called *grouping sets* to provide more insights into the set of rows grouped by a grouping expression.
 
@@ -719,10 +745,12 @@ A *simpleselect* is referenced by the following clause:
 
 <h3 id="sortItem">sortItem</h3>
 
+<div style="overflow-x : auto;">
 <map name="sortItemImgMap">
 	<area alt="section expression" shape="rect" coords="50,30,150,52" href="#expression" />
 </map>
 <img style="max-width: 553px;" usemap="#sortItemImgMap" alt="syntax diagram for a sort item" src="./diagrams/sortItem-fadbca33912f89cf5de1290288475982.svg" />
+</div>
 
 The semantics of the *sort item* components are as follows:
 * `expression`: The expression represents a *sort key*. The value of the sort key is used to order the rows of the result.
@@ -756,15 +784,18 @@ Multiple relations can be composed by using join operators. The syntax for joini
 
 <h3 id="relation">relation</h3>
 
+<div style="overflow-x : auto;">
 <map name="relationImgMap">
 	<area alt="section relationPrimary" shape="rect" coords="50,30,190,52" href="#relationPrimary" />
 	<area alt="section joinClause" shape="rect" coords="278,30,378,52" href="#joinClause" />
 	<area alt="section naturalJoinClause" shape="rect" coords="250,60,406,82" href="#naturalJoinClause" />
 </map>
 <img style="max-width: 497px;" usemap="#relationImgMap" alt="syntax diagram for a relation" src="./diagrams/relation-d53718ec9c1d30d0aa016608940561ec.svg" />
+</div>
 
 <h3 id="joinClause">joinClause</h3>
 
+<div style="overflow-x : auto;">
 <map name="joinClauseImgMap">
 	<area alt="section joinType" shape="rect" coords="50,30,134,52" href="#joinType" />
 	<area alt="section relationPrimary" shape="rect" coords="226,30,366,52" href="#relationPrimary" />
@@ -772,14 +803,17 @@ Multiple relations can be composed by using join operators. The syntax for joini
 	<area alt="section identifier" shape="rect" coords="239,134,339,156" href="#identifier" />
 </map>
 <img style="max-width: 487px;" usemap="#joinClauseImgMap" alt="syntax diagram for a join clause" src="./diagrams/joinClause-686362c384ce7f9fa2afebae4a2fdd8f.svg" />
+</div>
 
 <h3 id="naturalJoinClause">naturalJoinClause</h3>
 
+<div style="overflow-x : auto;">
 <map name="naturalJoinClauseImgMap">
 	<area alt="section joinType" shape="rect" coords="146,20,230,42" href="#joinType" />
 	<area alt="section relationPrimary" shape="rect" coords="322,20,462,42" href="#relationPrimary" />
 </map>
 <img style="max-width: 502px;" usemap="#naturalJoinClauseImgMap" alt="syntax diagram for a natural join clause" src="./diagrams/naturalJoinClause-52293263958998c6603465715bfe54cb.svg" />
+</div>
 
 Relations can be joined by using several types of joins that are described in detail in section [joinType](#joinType).
 
@@ -789,6 +823,7 @@ Apart from the join type, the following two different types of joins exist:
 
 <h3 id="relationPrimary">relationPrimary</h3>
 
+<div style="overflow-x : auto;">
 <map name="relationPrimaryImgMap">
 	<area alt="section externalTableSpec" shape="rect" coords="166,40,322,62" href="#externalTableSpec" />
 	<area alt="section identifier" shape="rect" coords="110,80,210,102" href="#identifier" />
@@ -801,6 +836,7 @@ Apart from the join type, the following two different types of joins exist:
 	<area alt="section tableValuedFunction" shape="rect" coords="330,200,502,222" href="#tableValuedFunction" />
 </map>
 <img style="max-width: 833px;" usemap="#relationPrimaryImgMap" alt="syntax diagram for a relation primary" src="./diagrams/relationPrimary-6549e29d79c44bd61ca940ade7c9ab8a.svg" />
+</div>
 
 <h3 id="externalTableSpec">externalTableSpec</h3>
 
@@ -823,22 +859,26 @@ However, if you specify the option `MULTILINE`, {{site.data.keyword.sqlquery_sho
 
 If the file format is Parquet, with the optional `MERGE SCHEMA` clause you can handle Parquet schema evolution by specifying to scan all qualifying Parquet objects for their schema, and to merge the final schema across all objects. By default, for Parquet input only the first Parquet object that is found is used to infer the schema, which guarantees minimal overhead for compiling the SQL. Thus, use this option if your Parquet input data does not have a homogeneous schema.
 
+<div style="overflow-x : auto;">
 <map name="externalTableSpecImgMap">
 	<area alt="section COSURI" shape="rect" coords="70,30,138,52" href="#COSURI" />
 	<area alt="section STRING" shape="rect" coords="750,70,818,92" href="#STRING" />
 	<area alt="section timeSeriesProperties" shape="rect" coords="1032,30,1212,52" href="#timeSeriesProperties" />
 </map>
 <img style="max-width: 1293px;" usemap="#externalTableSpecImgMap" alt="syntax diagram for an external table specification" src="./diagrams/externalTableSpec-81be188423329dcc1f06ab73d113e427.svg" />
+</div>
 
 <h3 id="timeSeriesProperties">timeSeriesProperties</h3>
 
 The TIME_SERIES_FORMAT option triggers a read transformation mechanism that uses a set of timeSeriesProperties to dynamically generate one or more native time series columns (defined by the IN clause) from the specified value and key columns of the input data.
 
+<div style="overflow-x : auto;">
 <map name="timeSeriesPropertiesImgMap">
 	<area alt="section timeSeriesOptions" shape="rect" coords="402,30,558,52" href="#timeSeriesOptions" />
 	<area alt="section identifier" shape="rect" coords="722,30,822,52" href="#identifier" />
 </map>
 <img style="max-width: 893px;" usemap="#timeSeriesPropertiesImgMap" alt="syntax diagram for time series properties" src="./diagrams/timeSeriesProperties-8668d32c9aba294a28c8d24539dd07e3.svg" />
+</div>
 
 The parameters `timetick` and `value` are the only parameters that are required to be specified.
 
@@ -901,6 +941,7 @@ FROM cos://us-geo/sql/temperature_humidity.csv
 USING TIME_SERIES_FORMAT(timetick="timestamp", value="humidity")
 ```
 
+<div style="overflow-x : auto;">
 <map name="timeSeriesOptionsImgMap">
 	<area alt="section STRING" shape="rect" coords="246,20,314,42" href="#STRING" />
 	<area alt="section STRING" shape="rect" coords="238,50,306,72" href="#STRING" />
@@ -909,6 +950,7 @@ USING TIME_SERIES_FORMAT(timetick="timestamp", value="humidity")
 	<area alt="section STRING" shape="rect" coords="222,140,290,162" href="#STRING" />
 </map>
 <img style="max-width: 385px;" usemap="#timeSeriesOptionsImgMap" alt="syntax diagram for time series options" src="./diagrams/timeSeriesOptions-dc1b48f025351fb614dca4b4530d98da.svg" />
+</div>
 
 <h3 id="tableTransformer">tableTransformer</h3>
 
@@ -940,20 +982,24 @@ When you use the `DESCRIBE` table transformer in your SQL statement, the default
 You can also wrap `DESCRIBE` around the other table transformers to explore the transformed table schema.
 However, you cannot wrap other table transformers around the `DESCRIBE` transformer.
 
+<div style="overflow-x : auto;">
 <map name="tableTransformerImgMap">
 	<area alt="section externalTableSpec" shape="rect" coords="230,20,386,42" href="#externalTableSpec" />
 </map>
 <img style="max-width: 485px;" usemap="#tableTransformerImgMap" alt="syntax diagram for an table transformer" src="./diagrams/tableTransformer-bab53b4a2c66ec618d64acfdd5b84a94.svg" />
+</div>
 
 <h3 id="tableValuedFunction">tableValuedFunction</h3>
 
 A table-valued function returns a relation, that is, a set of rows. An example of a table-valued function is `range()`. For more information, see [SQL functions](/docs/sql-query?topic=sql-query-sqlfunctions#sqlfunctions).
 
+<div style="overflow-x : auto;">
 <map name="tableValuedFunctionImgMap">
 	<area alt="section identifier" shape="rect" coords="50,30,150,52" href="#identifier" />
 	<area alt="section expression" shape="rect" coords="258,30,358,52" href="#expression" />
 </map>
 <img style="max-width: 497px;" usemap="#tableValuedFunctionImgMap" alt="syntax diagram for a table valued function" src="./diagrams/tableValuedFunction-01ad9b0e029df79a631fe79d936d6f3e.svg" />
+</div>
 
 <h3>More topics</h3>
 
@@ -980,11 +1026,13 @@ A *values clause* is a component of a *fullselect* or represents a *primary rela
 
 <h3 id="valuesClause">valuesClause</h3>
 
+<div style="overflow-x : auto;">
 <map name="valuesClauseImgMap">
 	<area alt="section expression" shape="rect" coords="158,40,258,62" href="#expression" />
 	<area alt="section identifier" shape="rect" coords="394,40,494,62" href="#identifier" />
 </map>
 <img style="max-width: 565px;" usemap="#valuesClauseImgMap" alt="syntax diagram for a values clause" src="./diagrams/valuesClause-6e4b32c045678d269bef4cd9c75c3579.svg" />
+</div>
 
 With a values clause, you can define a result set by specifying actual values for each column of a row by using expressions.
 
@@ -1133,6 +1181,7 @@ The explode()-style functions take an array or map as input and return a row for
 
 The syntax of a lateral view clause is described by the following syntax diagram.
 
+<div style="overflow-x : auto;">
 <map name="lateralViewImgMap">
 	<area alt="section qualifiedName" shape="rect" coords="318,40,442,62" href="#qualifiedName" />
 	<area alt="section expression" shape="rect" coords="139,123,239,145" href="#expression" />
@@ -1140,6 +1189,7 @@ The syntax of a lateral view clause is described by the following syntax diagram
 	<area alt="section identifier" shape="rect" coords="287,236,387,258" href="#identifier" />
 </map>
 <img style="max-width: 537px;" usemap="#lateralViewImgMap" alt="syntax diagram for a lateral view" src="./diagrams/lateralView-859e53027ccc644aa4f2487924f5054e.svg" />
+</div>
 
 The semantics of the entities in order of appearance in the syntax diagrams is as follows:
 * `OUTER`: Specifying this keyword ensures that the lateral view contains at least one row with *null* values in case the table-generating function does not return any rows.
@@ -1239,9 +1289,11 @@ The table is derived by applying one of the join operators to its operands.
 
 <h3 id="joinType">joinType</h3>
 
+<div style="overflow-x : auto;">
 <map name="joinTypeImgMap">
 </map>
 <img style="max-width: 301px;" usemap="#joinTypeImgMap" alt="syntax diagram for join types" src="./diagrams/joinType-89b032ae11c23c4a61b6fc4a8dab3087.svg" />
+</div>
 
 <h4>Inner join</h4>
 
@@ -1514,20 +1566,24 @@ The general syntax of a table sample clause is described by the following syntax
 
 <h3 id="sample">sample</h3>
 
+<div style="overflow-x : auto;">
 <map name="sampleImgMap">
 	<area alt="section unsignedNumber" shape="rect" coords="246,20,378,42" href="#unsignedNumber" />
 	<area alt="section expression" shape="rect" coords="264,60,364,82" href="#expression" />
 	<area alt="section bucketSampleClause" shape="rect" coords="278,90,442,112" href="#bucketSampleClause" />
 </map>
 <img style="max-width: 593px;" usemap="#sampleImgMap" alt="syntax diagram for a sample" src="./diagrams/sample-e92e783b9f1b4065daa9d32cc8b61ee3.svg" />
+</div>
 
 <h3 id="bucketSampleClause">bucketSampleClause</h3>
 
+<div style="overflow-x : auto;">
 <map name="bucketSampleClauseImgMap">
 	<area alt="section unsignedInteger" shape="rect" coords="138,20,278,42" href="#unsignedInteger" />
 	<area alt="section unsignedInteger" shape="rect" coords="418,20,558,42" href="#unsignedInteger" />
 </map>
 <img style="max-width: 598px;" usemap="#bucketSampleClauseImgMap" alt="syntax diagram for a bucket sample clause" src="./diagrams/bucketSampleClause-453a7c8c5c3dbf96d68b30e18628517f.svg" />
+</div>
 
 Three sampling types are supported:
 
@@ -1579,6 +1635,7 @@ The syntax for SQL function invocation is described by the following syntax diag
 
 <h3 id="functionOrAggregate">functionOrAggregate</h3>
 
+<div style="overflow-x : auto;">
 <map name="functionOrAggregateImgMap">
 	<area alt="section qualifiedName" shape="rect" coords="114,40,238,62" href="#qualifiedName" />
 	<area alt="section expression" shape="rect" coords="510,40,610,62" href="#expression" />
@@ -1605,6 +1662,7 @@ The syntax for SQL function invocation is described by the following syntax diag
 	<area alt="section valueExpression" shape="rect" coords="766,810,906,832" href="#valueExpression" />
 </map>
 <img style="max-width: 1045px;" usemap="#functionOrAggregateImgMap" alt="syntax diagram for a function or aggregate" src="./diagrams/functionOrAggregate-f148b3231a95e64c95409d82b3128bf4.svg" />
+</div>
 
 Most function invocations look like `function(argument1, ..., argumentN)` but functions like `TRIM()`, `POSITION()`, `FIRST()`, `LAST()`, `STRUCT()`, `EXTRACT()`, and `SUBSTRING()` support a different invocation style.
 
@@ -1652,21 +1710,26 @@ The syntax of a window specification is defined by the following syntax diagrams
 
 <h3 id="namedWindows">namedWindows</h3>
 
+<div style="overflow-x : auto;">
 <map name="namedWindowsImgMap">
 	<area alt="section namedWindow" shape="rect" coords="158,20,266,42" href="#namedWindow" />
 </map>
 <img style="max-width: 337px;" usemap="#namedWindowsImgMap" alt="syntax diagram for named windows" src="./diagrams/namedWindows-602ddf496e841097a96955ae6034e77b.svg" />
+</div>
 
 <h3 id="namedWindow">namedWindow</h3>
 
+<div style="overflow-x : auto;">
 <map name="namedWindowImgMap">
 	<area alt="section identifier" shape="rect" coords="50,20,150,42" href="#identifier" />
 	<area alt="section windowSpec" shape="rect" coords="226,20,326,42" href="#windowSpec" />
 </map>
 <img style="max-width: 377px;" usemap="#namedWindowImgMap" alt="syntax diagram for a named window" src="./diagrams/namedWindow-92e9fb6d6ab201a159d25d31709b0380.svg" />
+</div>
 
 <h3 id="windowSpec">windowSpec</h3>
 
+<div style="overflow-x : auto;">
 <map name="windowSpecImgMap">
 	<area alt="section identifier" shape="rect" coords="332,20,432,42" href="#identifier" />
 	<area alt="section windowClusterBy" shape="rect" coords="238,60,378,82" href="#windowClusterBy" />
@@ -1675,27 +1738,34 @@ The syntax of a window specification is defined by the following syntax diagrams
 	<area alt="section windowFrame" shape="rect" coords="528,60,636,82" href="#windowFrame" />
 </map>
 <img style="max-width: 765px;" usemap="#windowSpecImgMap" alt="syntax diagram for a window specification" src="./diagrams/windowSpec-f2f17273ee6fadc9f3bf4c5a3aa2cc6b.svg" />
+</div>
 
 <h3 id="windowClusterBy">windowClusterBy</h3>
 
+<div style="overflow-x : auto;">
 <map name="windowClusterByImgMap">
 	<area alt="section expression" shape="rect" coords="222,20,322,42" href="#expression" />
 </map>
 <img style="max-width: 393px;" usemap="#windowClusterByImgMap" alt="syntax diagram for a window cluster by clause" src="./diagrams/windowClusterBy-1a7b4bf96e333683c6abb6e73c63bee2.svg" />
+</div>
 
 <h3 id="windowPartitionBy">windowPartitionBy</h3>
 
+<div style="overflow-x : auto;">
 <map name="windowPartitionByImgMap">
 	<area alt="section expression" shape="rect" coords="266,20,366,42" href="#expression" />
 </map>
 <img style="max-width: 437px;" usemap="#windowPartitionByImgMap" alt="syntax diagram for a window partition by clause" src="./diagrams/windowPartitionBy-22832d9299a21cbc13c9a7360fc67c08.svg" />
+</div>
 
 <h3 id="windowOrderBy">windowOrderBy</h3>
 
+<div style="overflow-x : auto;">
 <map name="windowOrderByImgMap">
 	<area alt="section sortItem" shape="rect" coords="226,20,310,42" href="#sortItem" />
 </map>
 <img style="max-width: 381px;" usemap="#windowOrderByImgMap" alt="syntax diagram for a window order by clause" src="./diagrams/windowOrderBy-eee17a36c5033acad264662b5c351b75.svg" />
+</div>
 
 The window specification consists of the following clauses:
 * The `PARTITION BY` clause defines which rows belong to the same *window partition*. `DISTRIBUTE BY` can be used as a synonym for `PARTITION BY`.
@@ -1715,6 +1785,7 @@ The window specification consists of the following clauses:
 
 <h3 id="windowFrame">windowFrame</h3>
 
+<div style="overflow-x : auto;">
 <map name="windowFrameImgMap">
 	<area alt="section frameBound" shape="rect" coords="290,20,390,42" href="#frameBound" />
 	<area alt="section frameBound" shape="rect" coords="286,50,386,72" href="#frameBound" />
@@ -1724,13 +1795,16 @@ The window specification consists of the following clauses:
 	<area alt="section frameBound" shape="rect" coords="426,110,526,132" href="#frameBound" />
 </map>
 <img style="max-width: 601px;" usemap="#windowFrameImgMap" alt="syntax diagram for a window frame" src="./diagrams/windowFrame-6b48130717a43fe194f6a4db1592adfd.svg" />
+</div>
 
 <h3 id="frameBound">frameBound</h3>
 
+<div style="overflow-x : auto;">
 <map name="frameBoundImgMap">
 	<area alt="section expression" shape="rect" coords="70,110,170,132" href="#expression" />
 </map>
 <img style="max-width: 373px;" usemap="#frameBoundImgMap" alt="syntax diagram for a frame boundary" src="./diagrams/frameBound-7d464f987b051772079200f43fa3f5e5.svg" />
+</div>
 
 <h3>Examples</h3>
 
@@ -1948,10 +2022,12 @@ In the context of an SQL query statement, an *expression* is always a *Boolean e
 
 <h4 id="expression">expression</h4>
 
+<div style="overflow-x : auto;">
 <map name="expressionImgMap">
 	<area alt="section booleanExpression" shape="rect" coords="50,20,206,42" href="#booleanExpression" />
 </map>
 <img style="max-width: 257px;" usemap="#expressionImgMap" alt="syntax diagram for an expression" src="./diagrams/expression-22bea42930aa206578812065c2e506b1.svg" />
+</div>
 
 <h4>More topics</h4>
 
@@ -1986,6 +2062,7 @@ The syntax of a *Boolean expression* is defined by the following syntax diagrams
 
 <h4 id="booleanExpression">booleanExpression</h4>
 
+<div style="overflow-x : auto;">
 <map name="booleanExpressionImgMap">
 	<area alt="section booleanExpression" shape="rect" coords="222,20,378,42" href="#booleanExpression" />
 	<area alt="section valueExpression" shape="rect" coords="132,60,272,82" href="#valueExpression" />
@@ -1997,6 +2074,7 @@ The syntax of a *Boolean expression* is defined by the following syntax diagrams
 	<area alt="section query" shape="rect" coords="282,150,342,172" href="#query" />
 </map>
 <img style="max-width: 537px;" usemap="#booleanExpressionImgMap" alt="syntax diagram for a Boolean expression" src="./diagrams/booleanExpression-099e17d6bde853cd0057d730d39e4cf4.svg" />
+</div>
 
 A Boolean expression is one of the following:
 * A negation of a Boolean expression by using Boolean operator `NOT`.
@@ -2028,6 +2106,7 @@ A *Boolean expression* is referenced by the following clauses:
 
 <h4 id="valueExpression">valueExpression</h4>
 
+<div style="overflow-x : auto;">
 <map name="valueExpressionImgMap">
 	<area alt="section primaryExpression" shape="rect" coords="234,20,390,42" href="#primaryExpression" />
 	<area alt="section unaryOperator" shape="rect" coords="170,50,294,72" href="#unaryOperator" />
@@ -2040,6 +2119,7 @@ A *Boolean expression* is referenced by the following clauses:
 	<area alt="section valueExpression" shape="rect" coords="414,110,554,132" href="#valueExpression" />
 </map>
 <img style="max-width: 625px;" usemap="#valueExpressionImgMap" alt="syntax diagram for a value expression" src="./diagrams/valueExpression-0d25bc916da6b68282c6bd1a1a3625a4.svg" />
+</div>
 
 A *value expression* is one of the following:
 * A *primary expression*.
@@ -2068,6 +2148,7 @@ A *value expression* is referenced by the following clauses:
 
 <h4 id="primaryExpression">primaryExpression</h4>
 
+<div style="overflow-x : auto;">
 <map name="primaryExpressionImgMap">
 	<area alt="section caseExpression" shape="rect" coords="210,20,342,42" href="#caseExpression" />
 	<area alt="section castExpression" shape="rect" coords="210,50,342,72" href="#castExpression" />
@@ -2086,9 +2167,11 @@ A *value expression* is referenced by the following clauses:
 	<area alt="section timeSeriesExpression" shape="rect" coords="186,359,366,381" href="#timeSeriesExpression" />
 </map>
 <img style="max-width: 553px;" usemap="#primaryExpressionImgMap" alt="syntax diagram for a primary expression" src="./diagrams/primaryExpression-24c6165c7e80d8e573a91d8d0f827487.svg" />
+</div>
 
 <h4 id="constant">constant</h4>
 
+<div style="overflow-x : auto;">
 <map name="constantImgMap">
 	<area alt="section interval" shape="rect" coords="122,50,206,72" href="#interval" />
 	<area alt="section identifier" shape="rect" coords="70,80,170,102" href="#identifier" />
@@ -2097,23 +2180,28 @@ A *value expression* is referenced by the following clauses:
 	<area alt="section STRING" shape="rect" coords="130,200,198,222" href="#STRING" />
 </map>
 <img style="max-width: 329px;" usemap="#constantImgMap" alt="syntax diagram for a constant" src="./diagrams/constant-0b98aeacb055afadb12d07bc1ee48fbd.svg" />
+</div>
 
 <h4 id="interval">interval</h4>
 
 With an *interval clause* you can define time duration constants that can be used in expressions to add or subtract time ranges from a timestamp value.
 
+<div style="overflow-x : auto;">
 <map name="intervalImgMap">
 	<area alt="section unsignedNumber" shape="rect" coords="282,30,414,52" href="#unsignedNumber" />
 	<area alt="section timeUnitSpec" shape="rect" coords="434,30,550,52" href="#timeUnitSpec" />
 	<area alt="section STRING" shape="rect" coords="204,90,272,112" href="#STRING" />
 </map>
 <img style="max-width: 621px;" usemap="#intervalImgMap" alt="syntax diagram for an interval" src="./diagrams/interval-6be2657fb84cd221e00a327ef82964c0.svg" />
+</div>
 
 <h4 id="timeUnitSpec">timeUnitSpec</h4>
 
+<div style="overflow-x : auto;">
 <map name="timeUnitSpecImgMap">
 </map>
 <img style="max-width: 237px;" usemap="#timeUnitSpecImgMap" alt="syntax diagram for a time unit specification" src="./diagrams/timeUnitSpec-2e3a34db2fb2cc52e6d591a19d2b5657.svg" />
+</div>
 
 The following time units are valid:
 * Singular form: `SECOND`, `MINUTE`, `DAY`, `MONTH`, `YEAR`
@@ -2217,18 +2305,22 @@ The result of the example query is shown in the following table.
 
 <h4 id="columnReference">columnReference</h4>
 
+<div style="overflow-x : auto;">
 <map name="columnReferenceImgMap">
 	<area alt="section qualifiedName" shape="rect" coords="118,20,242,42" href="#qualifiedName" />
 	<area alt="section qualifiedName" shape="rect" coords="70,80,194,102" href="#qualifiedName" />
 </map>
 <img style="max-width: 361px;" usemap="#columnReferenceImgMap" alt="syntax diagram for a column reference" src="./diagrams/columnReference-a1480a1f248dba203d75404d52b98cd4.svg" />
+</div>
 
 <h4 id="qualifiedName">qualifiedName</h4>
 
+<div style="overflow-x : auto;">
 <map name="qualifiedNameImgMap">
 	<area alt="section identifier" shape="rect" coords="70,20,170,42" href="#identifier" />
 </map>
 <img style="max-width: 241px;" usemap="#qualifiedNameImgMap" alt="syntax diagram for a qualified name" src="./diagrams/qualifiedName-839c1e493742d349fd9a9091034d2479.svg" />
+</div>
 
 A *qualified name* is a sequence of identifiers that are separated by `.`.
 For example, a column name can be qualified by the name of the *relation* the column is defined in.
@@ -2259,6 +2351,7 @@ For more information about the clauses that are used by a *primary expression*, 
 
 <h4 id="predicate">predicate</h4>
 
+<div style="overflow-x : auto;">
 <map name="predicateImgMap">
 	<area alt="section valueExpression" shape="rect" coords="250,30,390,52" href="#valueExpression" />
 	<area alt="section valueExpression" shape="rect" coords="474,30,614,52" href="#valueExpression" />
@@ -2268,6 +2361,7 @@ For more information about the clauses that are used by a *primary expression*, 
 	<area alt="section valueExpression" shape="rect" coords="430,290,570,312" href="#valueExpression" />
 </map>
 <img style="max-width: 685px;" usemap="#predicateImgMap" alt="syntax diagram for a predicate" src="./diagrams/predicate-e67055d4dce61c2c7f2b8789b01e5b15.svg" />
+</div>
 
 The `BETWEEN ... AND` predicate compares a value with a range of values. If `NOT` is specified, the result is reversed.
 
@@ -2673,11 +2767,13 @@ If the specified data type is not supported, you receive an error.
 
 <h4 id="castExpression">castExpression</h4>
 
+<div style="overflow-x : auto;">
 <map name="castExpressionImgMap">
 	<area alt="section expression" shape="rect" coords="170,20,270,42" href="#expression" />
 	<area alt="section dataType" shape="rect" coords="346,20,430,42" href="#dataType" />
 </map>
 <img style="max-width: 529px;" usemap="#castExpressionImgMap" alt="syntax diagram for a cast expression" src="./diagrams/castExpression-c6b81951a7fd212d6e033d4f27dc8f5c.svg" />
+</div>
 
 In case an expression cannot be cast to the data type specified in the cast expression, the expression result is `null`.
 
@@ -2702,6 +2798,7 @@ The syntax of a case expression is described by the following syntax diagrams.
 
 <h4 id="caseExpression">caseExpression</h4>
 
+<div style="overflow-x : auto;">
 <map name="caseExpressionImgMap">
 	<area alt="section whenClause" shape="rect" coords="212,30,312,52" href="#whenClause" />
 	<area alt="section expression" shape="rect" coords="434,30,534,52" href="#expression" />
@@ -2710,6 +2807,7 @@ The syntax of a case expression is described by the following syntax diagrams.
 	<area alt="section expression" shape="rect" coords="494,79,594,101" href="#expression" />
 </map>
 <img style="max-width: 749px;" usemap="#caseExpressionImgMap" alt="syntax diagram for a case expression" src="./diagrams/caseExpression-41af3b4122e8678de8a38505fa0b2080.svg" />
+</div>
 
 The upper path in the syntax diagram represents a *searched when clause*, that is, the `WHEN` keyword follows directly after the `CASE` keyword.
 The lower path is a *simple when clause*, that is, an expression follows the `CASE` keyword.
@@ -2725,11 +2823,13 @@ A *result expression* is an expression that follows the `THEN` or `ELSE` keyword
 
 <h4 id="whenClause">whenClause</h4>
 
+<div style="overflow-x : auto;">
 <map name="whenClauseImgMap">
 	<area alt="section expression" shape="rect" coords="122,20,222,42" href="#expression" />
 	<area alt="section expression" shape="rect" coords="314,20,414,42" href="#expression" />
 </map>
 <img style="max-width: 465px;" usemap="#whenClauseImgMap" alt="syntax diagram for a when clause" src="./diagrams/whenClause-831a1be3e965ded782857033e838068a.svg" />
+</div>
 
 <h4>Examples</h4>
 
@@ -2813,6 +2913,7 @@ The syntax of a *time series expression* is described by the following syntax di
 
 <h4 id="timeSeriesExpression">timeSeriesExpression</h4>
 
+<div style="overflow-x : auto;">
 <map name="timeSeriesExpressionImgMap">
 	<area alt="section expression" shape="rect" coords="890,20,990,42" href="#expression" />
 	<area alt="section valueTimeSeriesExpression" shape="rect" coords="1058,20,1278,42" href="#valueTimeSeriesExpression" />
@@ -2841,6 +2942,7 @@ The syntax of a *time series expression* is described by the following syntax di
 	<area alt="section booleanTimeSeriesExpression" shape="rect" coords="1086,200,1322,222" href="#booleanTimeSeriesExpression" />
 </map>
 <img style="max-width: 2081px;" usemap="#timeSeriesExpressionImgMap" alt="syntax diagram for time series expression" src="./diagrams/timeSeriesExpression-ef9c8b42db18b04b331442cb6b30af65.svg" />
+</div>
 
 The syntax shows time series functions that require expressions, such as  `TS_MAP()`,  `TS_FILTER()`, `TS_SEGMENT_BY_ANCHOR()`, `TS_SEGMENT_BY_MARKER()`, `TS_SEGMENT_BY_DUAL_MARKER()`,
 `TS_FIND()`, and `TS_COUNT_ANCHOR()`.
@@ -2867,6 +2969,7 @@ A *time series expression* is referenced by the following clause:
 
 <h4 id="booleanTimeSeriesExpression">booleanTimeSeriesExpression</h4>
 
+<div style="overflow-x : auto;">
 <map name="booleanTimeSeriesExpressionImgMap">
 	<area alt="section booleanTimeSeriesExpression" shape="rect" coords="418,20,654,42" href="#booleanTimeSeriesExpression" />
 	<area alt="section booleanTimeSeriesExpression" shape="rect" coords="266,50,502,72" href="#booleanTimeSeriesExpression" />
@@ -2897,6 +3000,7 @@ A *time series expression* is referenced by the following clause:
 	<area alt="section stringTimeSeriesExpression" shape="rect" coords="582,410,810,432" href="#stringTimeSeriesExpression" />
 </map>
 <img style="max-width: 953px;" usemap="#booleanTimeSeriesExpressionImgMap" alt="syntax diagram for boolean time series expression" src="./diagrams/booleanTimeSeriesExpression-0df8933c2056566c67f00a3c9e5ba549.svg" />
+</div>
 
 The Boolean time series expression syntax shows the available Boolean expresssions, such as `TS_EXP_GT()`, which is also used in the previous example.
 
@@ -2904,16 +3008,19 @@ For more information on each function, see [Artifact creation functions](/docs/s
 
 <h4 id="valueTimeSeriesExpression">valueTimeSeriesExpression</h4>
 
+<div style="overflow-x : auto;">
 <map name="valueTimeSeriesExpressionImgMap">
 	<area alt="section doubleTimeSeriesExpression" shape="rect" coords="60,20,288,42" href="#doubleTimeSeriesExpression" />
 	<area alt="section stringTimeSeriesExpression" shape="rect" coords="60,50,288,72" href="#stringTimeSeriesExpression" />
 </map>
 <img style="max-width: 349px;" usemap="#valueTimeSeriesExpressionImgMap" alt="syntax diagram for value time series expression" src="./diagrams/valueTimeSeriesExpression-49a46ded8f7ed55545680a95e21fd35f.svg" />
+</div>
 
 Time series values for expressions can either be a `string` or a `double` datatype.
 
 <h4 id="doubleTimeSeriesExpression">doubleTimeSeriesExpression</h4>
 
+<div style="overflow-x : auto;">
 <map name="doubleTimeSeriesExpressionImgMap">
 	<area alt="section doubleTimeSeriesExpression" shape="rect" coords="406,20,634,42" href="#doubleTimeSeriesExpression" />
 	<area alt="section doubleTimeSeriesExpression" shape="rect" coords="406,50,634,72" href="#doubleTimeSeriesExpression" />
@@ -2948,6 +3055,7 @@ Time series values for expressions can either be a `string` or a `double` dataty
 	<area alt="section identityTimeSeriesExpression" shape="rect" coords="338,740,582,762" href="#identityTimeSeriesExpression" />
 </map>
 <img style="max-width: 921px;" usemap="#doubleTimeSeriesExpressionImgMap" alt="syntax diagram for double time series expression" src="./diagrams/doubleTimeSeriesExpression-e349f566af4812df93710d0974e4195a.svg" />
+</div>
 
 The functions shown in the double time series expressions, such as `TS_EXP_ABS()` and `TS_EXP_LENGTH()`, are able to consume again double time series expressions,
 `number`, or an identity time series expression.
@@ -2956,6 +3064,7 @@ For more information on each function, see [Artifact creation functions](/docs/s
 
 <h4 id="stringTimeSeriesExpression">stringTimeSeriesExpression</h4>
 
+<div style="overflow-x : auto;">
 <map name="stringTimeSeriesExpressionImgMap">
 	<area alt="section stringTimeSeriesExpression" shape="rect" coords="262,50,490,72" href="#stringTimeSeriesExpression" />
 	<area alt="section stringTimeSeriesExpression" shape="rect" coords="558,50,786,72" href="#stringTimeSeriesExpression" />
@@ -2964,6 +3073,7 @@ For more information on each function, see [Artifact creation functions](/docs/s
 	<area alt="section identityTimeSeriesExpression" shape="rect" coords="330,140,574,162" href="#identityTimeSeriesExpression" />
 </map>
 <img style="max-width: 905px;" usemap="#stringTimeSeriesExpressionImgMap" alt="syntax diagram for string time series expression" src="./diagrams/stringTimeSeriesExpression-48fc23f44c9addcaaa3c2258022e3a6f.svg" />
+</div>
 
 The string function `TS_EXP_ID_TO_STRING()` converts an ID to a string and the `TS_EXP_CONCAT()` function concatenates the result of two string expressions.
 
@@ -2971,6 +3081,7 @@ For more information on each function, see [Artifact creation functions](/docs/s
 
 <h4 id="stringConditionalExpression">stringConditionalExpression</h4>
 
+<div style="overflow-x : auto;">
 <map name="stringConditionalExpressionImgMap">
 	<area alt="section booleanTimeSeriesExpression" shape="rect" coords="534,20,770,42" href="#booleanTimeSeriesExpression" />
 	<area alt="section stringTimeSeriesExpression" shape="rect" coords="838,20,1066,42" href="#stringTimeSeriesExpression" />
@@ -2982,6 +3093,7 @@ For more information on each function, see [Artifact creation functions](/docs/s
 	<area alt="section stringTimeSeriesExpression" shape="rect" coords="1358,80,1586,102" href="#stringTimeSeriesExpression" />
 </map>
 <img style="max-width: 1705px;" usemap="#stringConditionalExpressionImgMap" alt="syntax diagram for string conditional time series expression" src="./diagrams/stringConditionalExpression-bee36bc91976cded35722539179ba2f2.svg" />
+</div>
 
 The three conditional expression functions for string values are `TS_EXP_IF_THEN_ELSE()`, `TS_EXP_IF_THEN()`, and `TS_EXP_MATCH_CASE()`.
 
@@ -2989,10 +3101,12 @@ For more information on each function, see [Artifact creation functions](/docs/s
 
 <h4 id="identityTimeSeriesExpression">identityTimeSeriesExpression</h4>
 
+<div style="overflow-x : auto;">
 <map name="identityTimeSeriesExpressionImgMap">
 	<area alt="section number" shape="rect" coords="278,50,346,72" href="#number" />
 </map>
 <img style="max-width: 465px;" usemap="#identityTimeSeriesExpressionImgMap" alt="syntax diagram for identity time series expression" src="./diagrams/identityTimeSeriesExpression-430f7c794f4edbee7b7a72fbd45eed2a.svg" />
+</div>
 
 The identity expression denotes current observation values in time series.
 
@@ -3075,6 +3189,7 @@ An *operator* is referenced by [valueExpression](#valueExpression).
 ## Data Types
 {: #dataType}
 
+<div style="overflow-x : auto;">
 <map name="dataTypeImgMap">
 	<area alt="section primitiveType" shape="rect" coords="286,20,410,42" href="#primitiveType" />
 	<area alt="section dataType" shape="rect" coords="346,50,430,72" href="#dataType" />
@@ -3084,6 +3199,7 @@ An *operator* is referenced by [valueExpression](#valueExpression).
 	<area alt="section dataType" shape="rect" coords="434,120,518,142" href="#dataType" />
 </map>
 <img style="max-width: 697px;" usemap="#dataTypeImgMap" alt="syntax diagram for a data type" src="./diagrams/dataType-d07e6a1e59b3b984d80f9f588301d975.svg" />
+</div>
 
 Data types can be either primitive types like numeric or string types, or they can be composite types that are built from other
 primitive or composite types. Composite types can have the following structure:
@@ -3140,7 +3256,7 @@ Numeric data types are summarized in the following table.
 {: caption="Table 56. Numeric Data Types" caption-side="top"}
 
 
-Numeric literals with fractional digits are parsed as `DECIMAL` by default. For example, <code>123.45</code> is treated as `DECIMAL(5,2)`, and <code>1.234e-3</code> is treated as `DECIMAL(6,6)` with value 0.001234, and not as a floating point number. You can force specific data types with a <code>CAST</code> expression or by adding one of the following suffix types:
+Numeric literals with fractional digits are parsed as `DECIMAL` by default, e.g. <code>123.45</code> is treated as `DECIMAL(5,2)` and <code>1.234e-3</code> is trated as `DECIMAL(6,6)` with value 0.001234, not as a floating point number. You can force specific data types by using a <code>CAST</code> expression or by adding one of the following type suffixes:
 - <code>123L</code> forces `BIGINT` data type
 - <code>123BD</code> forces `DECIMAL` data type
 - <code>123D</code> forces `DOUBLE` data type
@@ -3207,6 +3323,7 @@ For more information, see [catalog management](/docs/sql-query?topic=sql-query-h
 
 <h4 id="createTable">createTable</h4>
 
+<div style="overflow-x : auto;">
 <map name="createTableImgMap">
 	<area alt="section tableIdentifier" shape="rect" coords="51,104,191,126" href="#tableIdentifier" />
 	<area alt="section columnDefinition" shape="rect" coords="299,104,447,126" href="#columnDefinition" />
@@ -3215,15 +3332,18 @@ For more information, see [catalog management](/docs/sql-query?topic=sql-query-h
 	<area alt="section COSURI" shape="rect" coords="155,467,223,489" href="#COSURI" />
 </map>
 <img style="max-width: 738px;" usemap="#createTableImgMap" alt="syntax diagram for a create table command" src="./diagrams/createTable-0ac7414fa6f01507ffe90168c35d3a12.svg" />
+</div>
 
 <h4 id="columnDefinition">columnDefinition</h4>
 
+<div style="overflow-x : auto;">
 <map name="columnDefinitionImgMap">
 	<area alt="section identifier" shape="rect" coords="50,30,150,52" href="#identifier" />
 	<area alt="section dataType" shape="rect" coords="170,30,254,52" href="#dataType" />
 	<area alt="section STRING" shape="rect" coords="390,30,458,52" href="#STRING" />
 </map>
 <img style="max-width: 518px;" usemap="#columnDefinitionImgMap" alt="syntax diagram for column definition" src="./diagrams/columnDefinition-321ad8bb0c7cd98313f14a4484b2de1c.svg" />
+</div>
 
 Create a table definition in the catalog based on the objects in the specified {{site.data.keyword.cos_short}} location. The `LOCATION` option is mandatory.
 If a table or view with the same name exists in the same {{site.data.keyword.sqlquery_short}} instance, you receive an error, unless the `IF NOT EXISTS` clause is specified.
@@ -3314,10 +3434,12 @@ options(HEADER=false)
 
 <h4 id="dropTable">dropTable</h4>
 
+<div style="overflow-x : auto;">
 <map name="dropTableImgMap">
 	<area alt="section tableIdentifier" shape="rect" coords="386,30,526,52" href="#tableIdentifier" />
 </map>
 <img style="max-width: 566px;" usemap="#dropTableImgMap" alt="syntax diagram for a drop table command" src="./diagrams/dropTable-8b1eb4ecf09c740bf4289738838875e9.svg" />
+</div>
 
 Drop a table definition from the catalog. If the table does not exist, you receive an error, unless the `IF EXISTS` option is specified.
 
@@ -3334,20 +3456,24 @@ DROP TABLE customers
 
 <h4 id="createView">createView</h4>
 
+<div style="overflow-x : auto;">
 <map name="createViewImgMap">
 	<area alt="section tableIdentifier" shape="rect" coords="650,30,790,52" href="#tableIdentifier" />
 	<area alt="section STRING" shape="rect" coords="519,104,587,126" href="#STRING" />
 	<area alt="section query" shape="rect" coords="683,104,743,126" href="#query" />
 </map>
 <img style="max-width: 885px;" usemap="#createViewImgMap" alt="syntax diagram for a create view command" src="./diagrams/createView-2084f65a421b97965e0ae892e0a26a7b.svg" />
+</div>
 
 <h4 id="identifierComment">identifierComment</h4>
 
+<div style="overflow-x : auto;">
 <map name="identifierCommentImgMap">
 	<area alt="section identifier" shape="rect" coords="50,30,150,52" href="#identifier" />
 	<area alt="section STRING" shape="rect" coords="286,30,354,52" href="#STRING" />
 </map>
 <img style="max-width: 414px;" usemap="#identifierCommentImgMap" alt="syntax diagram for identifier comment definition" src="./diagrams/identifierComment-f638204f2e2324239f309aecc75598be.svg" />
+</div>
 
 Create a view definition in the catalog, based on existing table and view definitions.
 If a table or view with the same name exists in the same {{site.data.keyword.sqlquery_short}} instance, you receive an error, unless the `IF NOT EXISTS` clause is specified.
@@ -3370,10 +3496,12 @@ CREATE VIEW CUSTOMER_STATISTICS AS
 
 <h4 id="dropView">dropView</h4>
 
+<div style="overflow-x : auto;">
 <map name="dropViewImgMap">
 	<area alt="section tableIdentifier" shape="rect" coords="378,30,518,52" href="#tableIdentifier" />
 </map>
 <img style="max-width: 558px;" usemap="#dropViewImgMap" alt="syntax diagram for a drop view command" src="./diagrams/dropView-88ed4f9ce5bf736f1a9ffeb4a74baf68.svg" />
+</div>
 
 Drop a view definition from the catalog. If the view does not exist, you receive an error, unless the `IF EXISTS` option is specified.
 
@@ -3390,6 +3518,7 @@ DROP VIEW customer_statistics
 
 <h4 id="alterTablePartitions">alterTablePartitions</h4>
 
+<div style="overflow-x : auto;">
 <map name="alterTablePartitionsImgMap">
 	<area alt="section tableIdentifier" shape="rect" coords="210,20,350,42" href="#tableIdentifier" />
 	<area alt="section partitionSpec" shape="rect" coords="722,60,846,82" href="#partitionSpec" />
@@ -3399,6 +3528,7 @@ DROP VIEW customer_statistics
 	<area alt="section COSURI" shape="rect" coords="876,179,944,201" href="#COSURI" />
 </map>
 <img style="max-width: 1158px;" usemap="#alterTablePartitionsImgMap" alt="syntax diagram for a alter table partitions command" src="./diagrams/alterTablePartitions-6261c43db22d8b8bc38322d9f903b36b.svg" />
+</div>
 
 Use alter table to modify the definition of the partitions or to automatically discover the available partitions.
 
@@ -3412,11 +3542,13 @@ ALTER TABLE customers_partitioned RECOVER PARTITIONS
 
 <h4 id="partitionSpec">partitionSpecification</h4>
 
+<div style="overflow-x : auto;">
 <map name="partitionSpecImgMap">
 	<area alt="section identifier" shape="rect" coords="230,20,330,42" href="#identifier" />
 	<area alt="section constant" shape="rect" coords="398,20,482,42" href="#constant" />
 </map>
 <img style="max-width: 590px;" usemap="#partitionSpecImgMap" alt="syntax diagram for a partition's specification" src="./diagrams/partitionSpec-cf88c0bf643262481a5fbc523c5a6636.svg" />
+</div>
 
 To add or remove partitions individually, use the `ADD PARTITION` or `DROP PARTITION` options.
 
@@ -3448,15 +3580,17 @@ Use the `EXISTS` option to avoid getting errors during `ADD` or `DROP`.
 
 <h4 id="alterTableColumns">alterTableColumns</h4>
 
+<div style="overflow-x : auto;">
 <map name="alterTableColumnsImgMap">
 	<area alt="section tableIdentifier" shape="rect" coords="210,20,350,42" href="#tableIdentifier" />
 	<area alt="section columnDefinition" shape="rect" coords="598,20,746,42" href="#columnDefinition" />
 </map>
 <img style="max-width: 854px;" usemap="#alterTableColumnsImgMap" alt="syntax diagram for a alter table columns command" src="./diagrams/alterTableColumns-4bce83a8f0d50faf064927d6a0a05b3b.svg" />
+</div>
 
 Use alter table to add new columns to the schema of a catalog table.
 
-Adding columns to the schema has no effect on the objects in {{site.data.keyword.cos_short}} for the table. If some or all of these objects do not contain a column, vaules for the corresponding rows are treated as NULL. You can add new objects to the table location (for non-partitioned tables) or new partitions (for partitioned tables) that contain the new columns, to evolve the table schema.
+Adding columns to the schema has no effect on the actual objects in {{site.data.keyword.cos_short}} for the table. If some or all of these objects do not contain a column, vaules for the corresponding rows are treated as NULL. You can add new new objects to the table location (for non-partitioned tables) or new partitions (for partitioned tables) that _do_ contain the new columns, allowing you to evolve the table schema.
 
 ```sql
 -- create a partitioned sample table in PARQUET format
@@ -3465,9 +3599,9 @@ CREATE TABLE customers_addcol USING PARQUET LOCATION cos://us-geo/sql/customers_
 ALTER TABLE customers_addcol ADD COLUMNS (priority INTEGER)
 ```
 
-Do not use the `ADD COLUMNS` option with CSV tables. The CSV data format identifies columns by order (not by name), so any schema change leads to a schema mismatch with existing data.
+Do not use the `ADD COLUMNS` option with CSV tables: The CSV data format identifies columns by order, not by name, so any schema change will lead to a schema mismatch with existing data.
 
-Alternatively, you can perform schema changes by dropping and re-creating catlog tables. It does not affect the stored data in {{site.data.keyword.cos_short}}. This allows you to re-execute the automatic schema detection when the underlying data is extended with new objects containing additional columns. You can also use this method to remove columns from the schema that you do not want to appear in the catalog.
+Note: Alternatively, you can perform schema changes by dropping and re-creating catlog tables, this does not affect the stored data in {{site.data.keyword.cos_short}}. This allows you to re-execute the automatic schema detection when the underlying data has been extended with new objects containing additional columns. You can also use this method to remove columns from the schema that you do not want to appear in the catalog.
 
 <!-- HIDE START ### Analyze Table
 
@@ -3491,12 +3625,14 @@ The option `NOSCAN` only collects the sizes of the objects. HIDE END -->
 
 <h4 id="describeTable">describeTable</h4>
 
+<div style="overflow-x : auto;">
 <map name="describeTableImgMap">
 	<area alt="section tableIdentifier" shape="rect" coords="234,30,374,52" href="#tableIdentifier" />
 	<area alt="section partitionSpec" shape="rect" coords="404,30,528,52" href="#partitionSpec" />
 	<area alt="section identifier" shape="rect" coords="598,30,698,52" href="#identifier" />
 </map>
 <img style="max-width: 778px;" usemap="#describeTableImgMap" alt="syntax diagram for describe tables command" src="./diagrams/describeTable-f2c9c78b5d7cc181fb5d9a6b62248083.svg" />
+</div>
 
 Return the schema (column names and data types) of a table or view definition. If the table or view does not exist, you receive an error.
 
@@ -3511,10 +3647,12 @@ DESCRIBE TABLE customers_partitioned
 
 <h4 id="showTables">showTables</h4>
 
+<div style="overflow-x : auto;">
 <map name="showTablesImgMap">
 	<area alt="section STRING" shape="rect" coords="322,40,390,62" href="#STRING" />
 </map>
 <img style="max-width: 450px;" usemap="#showTablesImgMap" alt="syntax diagram for show tables command" src="./diagrams/showTables-8ece06742e7958194e44a9b019792742.svg" />
+</div>
 
 Returns the list of the defined tables and views in the catalog. The `LIKE` option allows to filter for a indicated pattern. Use `*` as wildcard character.
 
@@ -3550,11 +3688,13 @@ SHOW TBLPROPERTIES customer
 
 <h4 id="showPartitions">showPartitions</h4>
 
+<div style="overflow-x : auto;">
 <map name="showPartitionsImgMap">
 	<area alt="section tableIdentifier" shape="rect" coords="242,30,382,52" href="#tableIdentifier" />
 	<area alt="section partitionSpec" shape="rect" coords="412,30,536,52" href="#partitionSpec" />
 </map>
 <img style="max-width: 586px;" usemap="#showPartitionsImgMap" alt="syntax diagram for show partitions command" src="./diagrams/showPartitions-2b53d8b9381dea4fe6bfa67e234e5872.svg" />
+</div>
 
 List the defined partitions of a table when a table was created as partitioned. You can filter the returned partitions by using the *partitionSpec* option.
 
@@ -3577,16 +3717,19 @@ For more information, see [index management](/docs/sql-query?topic=sql-query-ind
 
 <h4 id="createIndex">createIndex</h4>
 
+<div style="overflow-x : auto;">
 <map name="metaindexCreateCommandImgMap">
 	<area alt="section metaindexIndextype" shape="rect" coords="270,20,434,42" href="#metaindexIndextype" />
 	<area alt="section metaindexAsset" shape="rect" coords="530,20,662,42" href="#metaindexAsset" />
 </map>
 <img style="max-width: 702px;" usemap="#metaindexCreateCommandImgMap" alt="syntax diagram for create index command" src="./diagrams/metaindexCreateCommand-147d224ef7be4ba82820b55ce0788827.svg" />
+</div>
 
 Create an index on the objects in the specified {{site.data.keyword.cos_short}} location or on the specified table. Define the required index type for each column that you want to calculate the summary metadata for. Create the index on columns that are used for predicates in the SQL statements.
 
 <h4 id="metaindexIndextype">metaindexIndextype</h4>
 
+<div style="overflow-x : auto;">
 <map name="metaindexIndextypeImgMap">
 	<area alt="section identifier" shape="rect" coords="322,20,422,42" href="#identifier" />
 	<area alt="section identifier" shape="rect" coords="338,50,438,72" href="#identifier" />
@@ -3596,6 +3739,7 @@ Create an index on the objects in the specified {{site.data.keyword.cos_short}} 
 	<area alt="section identifier" shape="rect" coords="342,140,442,162" href="#identifier" />
 </map>
 <img style="max-width: 582px;" usemap="#metaindexIndextypeImgMap" alt="syntax diagram for the different index types" src="./diagrams/metaindexIndextype-c56fb900aeb108e53a2fdba39d79548a.svg" />
+</div>
 
 * MINMAX: Stores minimum or maximum values for a column for all types, except for complex types.
 * VALUELIST: Stores the list of unique values for the column for all types if the distinct values in that column are low.
@@ -3643,10 +3787,12 @@ ALTER METAINDEX SET LOCATION cos://us-south/<mybucket>/<mypath>
 
 <h4 id="dropIndex">dropIndex</h4>
 
+<div style="overflow-x : auto;">
 <map name="metaindexDropCommandImgMap">
 	<area alt="section metaindexAsset" shape="rect" coords="290,20,422,42" href="#metaindexAsset" />
 </map>
 <img style="max-width: 462px;" usemap="#metaindexDropCommandImgMap" alt="syntax diagram for drop index command" src="./diagrams/metaindexDropCommand-7c9ceb0a8ebc8fc640d0e9bcd411bcde.svg" />
+</div>
 
 Drop an existing index based on the objects in the specified {{site.data.keyword.cos_short}} location or on the specified table. Use the following command when the index is no longer needed:
 
@@ -3661,10 +3807,12 @@ DROP METAINDEX ON cos://us-geo/sql/metergen STORED AS parquet
 
 <h4 id="refreshIndex">refreshIndex</h4>
 
+<div style="overflow-x : auto;">
 <map name="metaindexRefreshCommandImgMap">
 	<area alt="section metaindexAsset" shape="rect" coords="314,20,446,42" href="#metaindexAsset" />
 </map>
 <img style="max-width: 486px;" usemap="#metaindexRefreshCommandImgMap" alt="syntax diagram for refresh index command" src="./diagrams/metaindexRefreshCommand-fe7e1ada42e0cb1281cabe0090a22afb.svg" />
+</div>
 
 Refresh an existing index based on the objects in the specified {{site.data.keyword.cos_short}} location or on the specified table.
 Use the following command if the data changed and you need to update the index:
@@ -3680,11 +3828,13 @@ REFRESH METAINDEX ON cos://us-geo/sql/metergen STORED AS parquet
 
 <h4 id="describeIndex">describeIndex</h4>
 
+<div style="overflow-x : auto;">
 <map name="metaindexDescribeCommandImgMap">
 	<area alt="section metaindexAsset" shape="rect" coords="322,30,454,52" href="#metaindexAsset" />
 	<area alt="section intoClause" shape="rect" coords="484,30,584,52" href="#intoClause" />
 </map>
 <img style="max-width: 634px;" usemap="#metaindexDescribeCommandImgMap" alt="syntax diagram for describe index command" src="./diagrams/metaindexDescribeCommand-cd582a9aa24fa0b7102de9804db08535.svg" />
+</div>
 
 Describe an existing index based on the objects in the specified {{site.data.keyword.cos_short}} location or on the specified table.
 Use the following command to receive information of the index, such as index status, types that are used, location where it is stored, or number of objects processed.
@@ -3700,9 +3850,11 @@ DESCRIBE METAINDEX ON cos://us-geo/sql/metergen STORED AS parquet
 
 <h4 id="showIndexes">showIndexes</h4>
 
+<div style="overflow-x : auto;">
 <map name="metaindexShowCommandImgMap">
 </map>
 <img style="max-width: 270px;" usemap="#metaindexShowCommandImgMap" alt="syntax diagram for show indexes command" src="./diagrams/mmetaindexShowCommand-41c5db29aba1c9307b063c0e989c1065.svg" />
+</div>
 
 List all stored indexes in the base location. Tables with a different index location are not displayed in the list.
 
@@ -3717,10 +3869,12 @@ SHOW METAINDEXES
 
 <h4 id="alterIndex">alterIndex</h4>
 
+<div style="overflow-x : auto;">
 <map name="metaindexLocationCommandImgMap">
 	<area alt="section metaindexAssetLocation" shape="rect" coords="410,20,606,42" href="#metaindexAssetLocation" />
 </map>
 <img style="max-width: 646px;" usemap="#metaindexLocationCommandImgMap" alt="syntax diagram for alter index command" src="./diagrams/metaindexLocationCommand-1295f29f1fbaae8fd1b88e9d74185c92.svg" />
+</div>
 
 You must alter the {{site.data.keyword.cos_short}} location for all indexes only once to define the base location.
 If you change it later, {{site.data.keyword.sqlquery_short}} cannot find the index metadata anymore.
@@ -3738,11 +3892,13 @@ ALTER METAINDEX SET LOCATION cos://us-south/<mybucket>/<mypath>/
 
 <h4 id="alterTableSetLocation">alterTableSetLocation</h4>
 
+<div style="overflow-x : auto;">
 <map name="hiveMetaindexLocationCommandImgMap">
 	<area alt="section tableIdentifier" shape="rect" coords="210,20,350,42" href="#tableIdentifier" />
 	<area alt="section metaindexAssetLocation" shape="rect" coords="650,20,846,42" href="#metaindexAssetLocation" />
 </map>
 <img style="max-width: 886px;" usemap="#hiveMetaindexLocationCommandImgMap" alt="syntax diagram for alter table set location command" src="./diagrams/hiveMetaindexLocationCommand-99edd7ea7b7195288e2072e8b3257a01.svg" />
+</div>
 
 With this command you can define a location for this specified Hive table. If you change it later, {{site.data.keyword.sqlquery_short}} does not find the index metadata anymore. Existing index metadata on previous location is not dropped, therefore you can always switch back to the old location when needed.
 
@@ -3758,10 +3914,12 @@ ALTER TABLE CUSTOMERS_PARTITIONED SET METAINDEX LOCATION cos://us-south/<mybucke
 
 <h4 id="alterTableDropLocation">alterTableDropLocation</h4>
 
+<div style="overflow-x : auto;">
 <map name="hiveMetaindexDropLocationCommandImgMap">
 	<area alt="section tableIdentifier" shape="rect" coords="210,20,350,42" href="#tableIdentifier" />
 </map>
 <img style="max-width: 678px;" usemap="#hiveMetaindexDropLocationCommandImgMap" alt="syntax diagram for alter table drop location command" src="./diagrams/hiveMetaindexDropLocationCommand-ff5e159f235a538851a231ed5c54221a.svg" />
+</div>
 
 With this command you can drop a location for the specified table. Use this command if the index metadata is to be fetched from the base location. The metadata for the index that is stored in {{site.data.keyword.cos_short}} is not dropped and must be cleaned up manually.
 
@@ -3778,26 +3936,32 @@ ALTER TABLE CUSTOMERS_PARTITIONED DROP METAINDEX LOCATION
 
 The indexAsset is either based on a table or Cloud {{site.data.keyword.cos_short}} location.
 
+<div style="overflow-x : auto;">
 <map name="metaindexAssetImgMap">
 	<area alt="section metaindexAssetLocation" shape="rect" coords="64,20,260,42" href="#metaindexAssetLocation" />
 	<area alt="section metaindexAssetHiveTable" shape="rect" coords="60,50,264,72" href="#metaindexAssetHiveTable" />
 </map>
 <img style="max-width: 314px;" usemap="#metaindexAssetImgMap" alt="syntax diagram for index asset" src="./diagrams/metaindexAsset-5dbbbbeef95fbce16b534eb47ef1a0f2.svg" />
+</div>
 
 The metaindexAssetLocation is a subset of the [externalTableSpec](#externalTableSpec).
 
+<div style="overflow-x : auto;">
 <map name="metaindexAssetLocationImgMap">
 	<area alt="section COSURI" shape="rect" coords="50,30,118,52" href="#COSURI" />
 	<area alt="section STRING" shape="rect" coords="730,70,798,92" href="#STRING" />
 </map>
 <img style="max-width: 1022px;" usemap="#metaindexAssetLocationImgMap" alt="syntax diagram for index asset location" src="./diagrams/metaindexAssetLocation-91f78935bcb9608472d97c2a9b3f4cf5.svg" />
+</div>
 
-The `metaindexAssetHiveTable` refers to a Hive table.
+The metaindexAssetHiveTable refers to a Hive table.
 
+<div style="overflow-x : auto;">
 <map name="metaindexAssetHiveTableImgMap">
 	<area alt="section tableIdentifier" shape="rect" coords="130,20,270,42" href="#tableIdentifier" />
 </map>
 <img style="max-width: 310px;" usemap="#metaindexAssetHiveTableImgMap" alt="syntax diagram for index asset Hive table" src="./diagrams/metaindexAssetHiveTable-21d4d366f6f4f154c7554b882e18d787.svg" />
+</div>
 
 ## Miscellaneous Definitions
 {: #chapterMiscDefinitions}
