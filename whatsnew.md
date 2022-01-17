@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2022
 
-lastupdated: "2022-01-11"
+lastupdated: "2022-01-17"
 
 
 keywords: what's new, support, release, beta
@@ -21,7 +21,7 @@ subcollection: sql-query
 
 ## November 2021
 
-- ALTER TABLE .. ADD COLUMNS is now supported.
+- You can add columns to existing Catalog tables with the newly supported `ALTER TABLE ... ADD COLUMNS` statement.
 
 ## July 2021
 
