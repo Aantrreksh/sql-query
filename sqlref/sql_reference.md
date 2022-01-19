@@ -44,15 +44,15 @@ See the following examples for an outline of the general syntax of an SQL query 
 
 <h3 id="query">query</h3>
 
-<img alt="syntax diagram for a query" src="./diagrams/query-4970ec934b0108633d6e800c085c0ae1.svg" />
+<img alt="syntax diagram for a query" src="./diagrams/query-1df49967c276e77ff0d4b73a91dd42ca.svg" />
 
 <h3 id="namedQuery">namedQuery</h3>
 
-<img alt="syntax diagram for a named query" src="./diagrams/namedQuery-9fd6182b812ebce448320629edc0db1d.svg" />
+<img alt="syntax diagram for a named query" src="./diagrams/namedQuery-b81b384725c2d0e3f03893157888469b.svg" />
 
 <h3 id="intoClause">intoClause</h3>
 
-<img alt="syntax diagram for an INTO clause" src="./diagrams/intoClause-cec29fc075ff7c5b47404978894214fd.svg" />
+<img alt="syntax diagram for an INTO clause" src="./diagrams/intoClause-01b03ad3654c930baa13675a6603a2f3.svg" />
 
 The query statement supports *common table expressions*. A common table expression permits defining a result table with a table name
 that can be specified as a table name in any FROM clause of the fullselect that follows.
@@ -164,13 +164,13 @@ A partition is an object on Cloud {{site.data.keyword.cos_short}} that is potent
 The presence of multiple partitions allows for parallel input/output (I/O) during query execution. If no *result partitioned clause* is specified,
 the query result is stored in a single partition on Cloud {{site.data.keyword.cos_short}}.
 
-<img alt="syntax diagram for a COS result clause" src="./diagrams/cosResultClause-486bb97a49e218240b60e4e12b47f3b5.svg" />
+<img alt="syntax diagram for a COS result clause" src="./diagrams/cosResultClause-395335eaf3eeba1291717918561c2cc8.svg" />
 
 <h3 id="partitionedClause">partitionedClause</h3>
 
 You can use the result partitioned clause to control the layout of the SQL query result set being stored. The default behavior is to store the result into one single partition, that is a single object in Cloud {{site.data.keyword.cos_short}}.
 
-<img alt="syntax diagram for a result partitioned clause" src="./diagrams/partitionedClause-46a3084418fcb1f90d9fbdb186a78c11.svg" />
+<img alt="syntax diagram for a result partitioned clause" src="./diagrams/partitionedClause-cab70acf75357708161874f5d32ce214.svg" />
 
 <h3 id="sortClause">sortClause</h3>
 
@@ -180,7 +180,7 @@ which is often referred to as clustering the rows by the specified columns into 
 When specified without the PARTITIONED clause, it is equivalent to an ORDER BY clause specified at the top level of the SQL SELECT statement.
 If PARTITIONED INTO is specified, the ORDER BY clause is ignored.
 
-<img alt="syntax diagram for a result partitioned column clause" src="./diagrams/sortClause-feadd8634c3d79ffdd97179e9547c718.svg" />
+<img alt="syntax diagram for a result partitioned column clause" src="./diagrams/sortClause-558ed45b1620c480e9b2c6e5dc3ff202.svg" />
 
 
 <h4>Partition by columns</h4>
@@ -241,7 +241,7 @@ and all existing data is deleted.
 
 Use the `PARALLELISM x` clause to specify that multiple parallel database connections are to be opened to write out the result. Depending on the size of your result and the network connectivity of your target database service, this clause can reduce the query processing time significantly.
 
-<img alt="syntax diagram for a Db2 result clause" src="./diagrams/dbResultClause-11446725c7375e0bbcde2efdcfe8ab9c.svg" />
+<img alt="syntax diagram for a Db2 result clause" src="./diagrams/dbResultClause-4269dcbf22b33f929329a6215ccad25d.svg" />
 
 <h3 id="accessSecrets">accessSecrets</h3>
 
@@ -249,7 +249,7 @@ By default, either the credentials that are needed to access the target database
 You can override this default by specifying either a combination of `USER` and `PASSWORD` or an `APIKEY`. However, the password or API key is **not** included in the SQL statement as plain text. Instead, you must store it as a custom key in a {{site.data.keyword.keymanagementservicefull}} instance to which you have access.
 For a description how to store and manage the secrets in {{site.data.keyword.keymanagementserviceshort}}, see [Setting up custom secrets in Key Protect](/docs/sql-query?topic=sql-query-kpsetup).
 
-<img alt="syntax diagram for a Db2 result clause" src="./diagrams/accessSecrets-3114cc2d0bdcf3baf25a430fffb08aec.svg" />
+<img alt="syntax diagram for a Db2 result clause" src="./diagrams/accessSecrets-f87e1040cb67cbabaac89a58d93b9b18.svg" />
 
 <h3>More topics</h3>
 
@@ -278,7 +278,7 @@ A *query* is referenced by the following clauses:
 
 A *fullselect* is the core component of a *query*. It is the only mandatory general component for a valid query statement. The other components outside of *fullselect* are optional. Its syntax is defined by the following syntax diagram.
 
-<img alt="syntax diagram for a fullselect" src="./diagrams/fullselect-32397dff655e7d90d17496aae5dac916.svg" />
+<img alt="syntax diagram for a fullselect" src="./diagrams/fullselect-579aba8dad43e7b93227f73fc963cf88.svg" />
 
 The result set defined by a single fullselect can be combined with the result set of one or more other fullselects by using set operators.
 
@@ -434,7 +434,7 @@ A *simpleselect* is a component of a *fullselect*. Its syntax is defined by the 
 
 <h3 id="simpleselect">simpleselect</h3>
 
-<img alt="syntax diagram for a simpleselect" src="./diagrams/simpleselect-802ee232c158dac1cce0a606370ffaf1.svg" />
+<img alt="syntax diagram for a simpleselect" src="./diagrams/simpleselect-409ebaec37d939429c64b6f6dbb26bb4.svg" />
 
 With a *simpleselect*, you can specify the following characteristics of a result set:
 - The list of *result columns* from *relations* or *lateral views* that are part of the final result set. The result column list can be further redefined by using the following modifier keywords:
@@ -447,7 +447,7 @@ With a *simpleselect*, you can specify the following characteristics of a result
 
 <h3 id="resultColumn">resultColumn</h3>
 
-<img alt="syntax diagram for a result column" src="./diagrams/resultColumn-66483e3f2d1ec5e780334b4efb22ca94.svg" />
+<img alt="syntax diagram for a result column" src="./diagrams/resultColumn-e06898d35942a9edd3b9fc3658030db6.svg" />
 
 A *result column* can be any expression that can optionally be associated with an identifier, that is, a *new name*. By providing custom identifiers, you can control the column names that are used in the result data set written to Cloud {{site.data.keyword.cos_short}}.
 See the following examples for such expressions:
@@ -459,11 +459,11 @@ See the following examples for such expressions:
 
 <h4 id="groupByClause">groupByClause</h4>
 
-<img alt="syntax diagram for a group by clause" src="./diagrams/groupByClause-d18b143fbbd6386fe24ae3d8cec1e8cb.svg" />
+<img alt="syntax diagram for a group by clause" src="./diagrams/groupByClause-3bb1917f9fd67b1d2c4a119d920ea682.svg" />
 
 <h4 id="groupingSet">groupingSet</h4>
 
-<img alt="syntax diagram for a grouping set" src="./diagrams/groupingSet-1a51f538743687b4fed399b687033d4f.svg" />
+<img alt="syntax diagram for a grouping set" src="./diagrams/groupingSet-d53da6c4fa06d04ffe893ab2feadc478.svg" />
 
 More complex *group by* clauses use so called *grouping sets* to provide more insights into the set of rows grouped by a grouping expression.
 
@@ -650,7 +650,7 @@ A *simpleselect* is referenced by the following clause:
 
 <h3 id="sortItem">sortItem</h3>
 
-<img alt="syntax diagram for a sort item" src="./diagrams/sortItem-6309f43d91110ff601a1a323787f08ca.svg" />
+<img alt="syntax diagram for a sort item" src="./diagrams/sortItem-e993adece9ff28ce2169332f90a1a1c6.svg" />
 
 The semantics of the *sort item* components are as follows:
 - `expression`: The expression represents a *sort key*. The value of the sort key is used to order the rows of the result.
@@ -684,15 +684,15 @@ Multiple relations can be composed by using join operators. The syntax for joini
 
 <h3 id="relation">relation</h3>
 
-<img alt="syntax diagram for a relation" src="./diagrams/relation-cbb52ae80065e175cb90338ec404934b.svg" />
+<img alt="syntax diagram for a relation" src="./diagrams/relation-6736ba9e4ec6c24d8b79eb855e8b9ce0.svg" />
 
 <h3 id="joinClause">joinClause</h3>
 
-<img alt="syntax diagram for a join clause" src="./diagrams/joinClause-2f195c21d216a3b76292c44a06d0ad42.svg" />
+<img alt="syntax diagram for a join clause" src="./diagrams/joinClause-3208b516d2611fd52111857a040efe70.svg" />
 
 <h3 id="naturalJoinClause">naturalJoinClause</h3>
 
-<img alt="syntax diagram for a natural join clause" src="./diagrams/naturalJoinClause-56d81857dede1cfb22b01dcaeb0b9907.svg" />
+<img alt="syntax diagram for a natural join clause" src="./diagrams/naturalJoinClause-e60ed650b971c3cc9c6d2f6fceb13a06.svg" />
 
 Relations can be joined by using several types of joins that are described in detail in section [joinType](#joinType).
 
@@ -702,7 +702,7 @@ Apart from the join type, the following two different types of joins exist:
 
 <h3 id="relationPrimary">relationPrimary</h3>
 
-<img alt="syntax diagram for a relation primary" src="./diagrams/relationPrimary-ed2bbcca48acc024d120b9dfe143deac.svg" />
+<img alt="syntax diagram for a relation primary" src="./diagrams/relationPrimary-b848e07703b948b9d3cacea0b0937199.svg" />
 
 <h3 id="externalTableSpec">externalTableSpec</h3>
 
@@ -725,13 +725,13 @@ However, if you specify the option `MULTILINE`, {{site.data.keyword.sqlquery_sho
 
 If the file format is Parquet, with the optional `MERGE SCHEMA` clause you can handle Parquet schema evolution by specifying to scan all qualifying Parquet objects for their schema, and to merge the final schema across all objects. By default, for Parquet input only the first Parquet object that is found is used to infer the schema, which guarantees minimal overhead for compiling the SQL. Thus, use this option if your Parquet input data does not have a homogeneous schema.
 
-<img alt="syntax diagram for an external table specification" src="./diagrams/externalTableSpec-17dff95625336688efc8d0b44cdd486d.svg" />
+<img alt="syntax diagram for an external table specification" src="./diagrams/externalTableSpec-791d264700dea6fe6062df52989ebce5.svg" />
 
 <h3 id="timeSeriesProperties">timeSeriesProperties</h3>
 
 The TIME_SERIES_FORMAT option triggers a read transformation mechanism that uses a set of timeSeriesProperties to dynamically generate one or more native time series columns (defined by the IN clause) from the specified value and key columns of the input data.
 
-<img alt="syntax diagram for time series properties" src="./diagrams/timeSeriesProperties-01fa76333ed331782ca827f0ecd3dd69.svg" />
+<img alt="syntax diagram for time series properties" src="./diagrams/timeSeriesProperties-c7ed4df06cd5bacab16e5691bd2fdf90.svg" />
 
 The parameters `timetick` and `value` are the only parameters that are required to be specified.
 
@@ -794,7 +794,7 @@ FROM cos://us-geo/sql/temperature_humidity.csv
 USING TIME_SERIES_FORMAT(timetick="timestamp", value="humidity")
 ```
 
-<img alt="syntax diagram for time series options" src="./diagrams/timeSeriesOptions-b2ea8494a3d78801c0fc7068269011eb.svg" />
+<img alt="syntax diagram for time series options" src="./diagrams/timeSeriesOptions-ee7ac02f19c9094e60c9ea57e6ed0e0f.svg" />
 
 <h3 id="tableTransformer">tableTransformer</h3>
 
@@ -826,13 +826,13 @@ When you use the `DESCRIBE` table transformer in your SQL statement, the default
 You can also wrap `DESCRIBE` around the other table transformers to explore the transformed table schema.
 However, you cannot wrap other table transformers around the `DESCRIBE` transformer.
 
-<img alt="syntax diagram for an table transformer" src="./diagrams/tableTransformer-775333e8f86836614a8aee679abe5869.svg" />
+<img alt="syntax diagram for an table transformer" src="./diagrams/tableTransformer-7943d9fc7c34b1ed465240b7f02914c6.svg" />
 
 <h3 id="tableValuedFunction">tableValuedFunction</h3>
 
 A table-valued function returns a relation, that is, a set of rows. An example of a table-valued function is `range()`. For more information, see [SQL functions](/docs/sql-query?topic=sql-query-sqlfunctions#sqlfunctions).
 
-<img alt="syntax diagram for a table valued function" src="./diagrams/tableValuedFunction-fbd14e23fd4febc0c870c7ef18a10d1b.svg" />
+<img alt="syntax diagram for a table valued function" src="./diagrams/tableValuedFunction-523554acf3d597b3d265332c544c35c1.svg" />
 
 <h3>More topics</h3>
 
@@ -859,7 +859,7 @@ A *values clause* is a component of a *fullselect* or represents a *primary rela
 
 <h3 id="valuesClause">valuesClause</h3>
 
-<img alt="syntax diagram for a values clause" src="./diagrams/valuesClause-d0c0261db48a9534528f229afcb0bd86.svg" />
+<img alt="syntax diagram for a values clause" src="./diagrams/valuesClause-b3f4e8403d464935ed7796f6cf52e5f1.svg" />
 
 With a values clause, you can define a result set by specifying actual values for each column of a row by using expressions.
 
@@ -1008,7 +1008,7 @@ The explode()-style functions take an array or map as input and return a row for
 
 The syntax of a lateral view clause is described by the following syntax diagram.
 
-<img alt="syntax diagram for a lateral view" src="./diagrams/lateralView-0c1bfedc6ed4114bbcc7362f1f551b7e.svg" />
+<img alt="syntax diagram for a lateral view" src="./diagrams/lateralView-19162c844e59c24bf4090dfd33420bae.svg" />
 
 The semantics of the entities in order of appearance in the syntax diagrams is as follows:
 - `OUTER`: Specifying this keyword ensures that the lateral view contains at least one row with *null* values in case the table-generating function does not return any rows.
@@ -1108,7 +1108,7 @@ The table is derived by applying one of the join operators to its operands.
 
 <h3 id="joinType">joinType</h3>
 
-<img alt="syntax diagram for join types" src="./diagrams/joinType-88278f66771c8698bbcb67f4c576cb5c.svg" />
+<img alt="syntax diagram for join types" src="./diagrams/joinType-56de80f971606009532e9ddc08e5ca31.svg" />
 
 <h4>Inner join</h4>
 
@@ -1381,11 +1381,11 @@ The general syntax of a table sample clause is described by the following syntax
 
 <h3 id="sample">sample</h3>
 
-<img alt="syntax diagram for a sample" src="./diagrams/sample-7a65cd4a6bb640ddfb8e7f75e602fb8e.svg" />
+<img alt="syntax diagram for a sample" src="./diagrams/sample-ce3b92f2b3a3512572aef8450b6416e8.svg" />
 
 <h3 id="bucketSampleClause">bucketSampleClause</h3>
 
-<img alt="syntax diagram for a bucket sample clause" src="./diagrams/bucketSampleClause-4e2712be7a682d92902ed2177ff24657.svg" />
+<img alt="syntax diagram for a bucket sample clause" src="./diagrams/bucketSampleClause-e442e824a595fe5d28ec836892c0ffae.svg" />
 
 Three sampling types are supported:
 
@@ -1437,7 +1437,7 @@ The syntax for SQL function invocation is described by the following syntax diag
 
 <h3 id="functionOrAggregate">functionOrAggregate</h3>
 
-<img alt="syntax diagram for a function or aggregate" src="./diagrams/functionOrAggregate-f4c38eb943bbaa5f6c93422d6aafa267.svg" />
+<img alt="syntax diagram for a function or aggregate" src="./diagrams/functionOrAggregate-92a4886868a38e7fd5420e8107e3c1c0.svg" />
 
 Most function invocations look like `function(argument1, ..., argumentN)` but functions like `TRIM()`, `POSITION()`, `FIRST()`, `LAST()`, `STRUCT()`, `EXTRACT()`, and `SUBSTRING()` support a different invocation style.
 
@@ -1486,27 +1486,27 @@ The syntax of a window specification is defined by the following syntax diagrams
 
 <h3 id="namedWindows">namedWindows</h3>
 
-<img alt="syntax diagram for named windows" src="./diagrams/namedWindows-0d8a78d14c97568d884e58ab74b19dfb.svg" />
+<img alt="syntax diagram for named windows" src="./diagrams/namedWindows-7cf2a5f6ecbfd2e7b3edab7af757b585.svg" />
 
 <h3 id="namedWindow">namedWindow</h3>
 
-<img alt="syntax diagram for a named window" src="./diagrams/namedWindow-3e23a709df62b7538c3a7e1bdd759812.svg" />
+<img alt="syntax diagram for a named window" src="./diagrams/namedWindow-ceda5194b6bea5e1947737c57402ae02.svg" />
 
 <h3 id="windowSpec">windowSpec</h3>
 
-<img alt="syntax diagram for a window specification" src="./diagrams/windowSpec-4d9e6724cd9dcc1527419907d1787079.svg" />
+<img alt="syntax diagram for a window specification" src="./diagrams/windowSpec-23046ab1994b647aa9dbff502093bba0.svg" />
 
 <h3 id="windowClusterBy">windowClusterBy</h3>
 
-<img alt="syntax diagram for a window cluster by clause" src="./diagrams/windowClusterBy-fd5e95910124ee94d342c7bf4cf688da.svg" />
+<img alt="syntax diagram for a window cluster by clause" src="./diagrams/windowClusterBy-6242cf999edac72f6f6260ca1dd88023.svg" />
 
 <h3 id="windowPartitionBy">windowPartitionBy</h3>
 
-<img alt="syntax diagram for a window partition by clause" src="./diagrams/windowPartitionBy-b46bcdb226fd5213203c6ad06dcf27c3.svg" />
+<img alt="syntax diagram for a window partition by clause" src="./diagrams/windowPartitionBy-fcd1fae4b25997b6cec7126bf3fbd0e3.svg" />
 
 <h3 id="windowOrderBy">windowOrderBy</h3>
 
-<img alt="syntax diagram for a window order by clause" src="./diagrams/windowOrderBy-dbf85abda74fa418935bb4cef5cb4ca1.svg" />
+<img alt="syntax diagram for a window order by clause" src="./diagrams/windowOrderBy-4ed9b37a80e6f477ef5e3ee56a596e31.svg" />
 
 The window specification consists of the following clauses:
 - The `PARTITION BY` clause defines which rows belong to the same *window partition*. `DISTRIBUTE BY` can be used as a synonym for `PARTITION BY`.
@@ -1526,11 +1526,11 @@ The window specification consists of the following clauses:
 
 <h3 id="windowFrame">windowFrame</h3>
 
-<img alt="syntax diagram for a window frame" src="./diagrams/windowFrame-dcd1eee84d56515e38e3dce48947bd40.svg" />
+<img alt="syntax diagram for a window frame" src="./diagrams/windowFrame-75bf125a6efc06610d9e973d4cca539b.svg" />
 
 <h3 id="frameBound">frameBound</h3>
 
-<img alt="syntax diagram for a frame boundary" src="./diagrams/frameBound-46850e6c9b4271c2ec2a2ebcb24f337b.svg" />
+<img alt="syntax diagram for a frame boundary" src="./diagrams/frameBound-c840831584f659b395a0f502e1968c38.svg" />
 
 <h3>Examples</h3>
 
@@ -1748,7 +1748,7 @@ In the context of an SQL query statement, an *expression* is always a *Boolean e
 
 <h4 id="expression">expression</h4>
 
-<img alt="syntax diagram for an expression" src="./diagrams/expression-8c0efbe40fd634fd43d52e1d7332150f.svg" />
+<img alt="syntax diagram for an expression" src="./diagrams/expression-07b0ee12f783f862fc18c12318ed71bc.svg" />
 
 <h4>More topics</h4>
 
@@ -1783,7 +1783,7 @@ The syntax of a *Boolean expression* is defined by the following syntax diagrams
 
 <h4 id="booleanExpression">booleanExpression</h4>
 
-<img alt="syntax diagram for a Boolean expression" src="./diagrams/booleanExpression-fc134bc131558c88fadfe4eb4fb75260.svg" />
+<img alt="syntax diagram for a Boolean expression" src="./diagrams/booleanExpression-5a9b1f0caecb8f6442ae57a586cc2acb.svg" />
 
 A Boolean expression is one of the following:
 
@@ -1817,7 +1817,7 @@ A *Boolean expression* is referenced by the following clauses:
 
 <h4 id="valueExpression">valueExpression</h4>
 
-<img alt="syntax diagram for a value expression" src="./diagrams/valueExpression-bb2f08ca8547c045807666c3580c2fe3.svg" />
+<img alt="syntax diagram for a value expression" src="./diagrams/valueExpression-6bcf4939d9a481768f4a0b66b76893e3.svg" />
 
 A *value expression* is one of the following:
 
@@ -1849,21 +1849,21 @@ A *value expression* is referenced by the following clauses:
 
 <h4 id="primaryExpression">primaryExpression</h4>
 
-<img alt="syntax diagram for a primary expression" src="./diagrams/primaryExpression-585a0c50bdf8571ff4bc2717cfbbec3b.svg" />
+<img alt="syntax diagram for a primary expression" src="./diagrams/primaryExpression-426fe5e69a21ad9d69b6b9dd8ce7fa4e.svg" />
 
 <h4 id="constant">constant</h4>
 
-<img alt="syntax diagram for a constant" src="./diagrams/constant-201eb821c497d63bc1fe7854f6e31305.svg" />
+<img alt="syntax diagram for a constant" src="./diagrams/constant-46e54e4ff5ca108ecaed413e25ee5829.svg" />
 
 <h4 id="interval">interval</h4>
 
 With an *interval clause* you can define time duration constants that can be used in expressions to add or subtract time ranges from a timestamp value.
 
-<img alt="syntax diagram for an interval" src="./diagrams/interval-81ddb482995d29f29094b659946c44de.svg" />
+<img alt="syntax diagram for an interval" src="./diagrams/interval-0ec9eb667befe5d3ec826de5e53ec202.svg" />
 
 <h4 id="timeUnitSpec">timeUnitSpec</h4>
 
-<img alt="syntax diagram for a time unit specification" src="./diagrams/timeUnitSpec-7f83975e70740cbfb3ceffc7f2660677.svg" />
+<img alt="syntax diagram for a time unit specification" src="./diagrams/timeUnitSpec-f5e0cdd66c25ee1c041f727d0d72c679.svg" />
 
 The following time units are valid:
 - Singular form: `SECOND`, `MINUTE`, `DAY`, `MONTH`, `YEAR`
@@ -1967,11 +1967,11 @@ The result of the example query is shown in the following table.
 
 <h4 id="columnReference">columnReference</h4>
 
-<img alt="syntax diagram for a column reference" src="./diagrams/columnReference-47bbe4ec7ddbe9e1fe41ef4b484fbdeb.svg" />
+<img alt="syntax diagram for a column reference" src="./diagrams/columnReference-bdeabe3833fcc1e34e80295b35bcd2df.svg" />
 
 <h4 id="qualifiedName">qualifiedName</h4>
 
-<img alt="syntax diagram for a qualified name" src="./diagrams/qualifiedName-25383a9a9a97eab18741ddbd23e15b7f.svg" />
+<img alt="syntax diagram for a qualified name" src="./diagrams/qualifiedName-7c89cc9900e1e5c8b15b87e3c3030471.svg" />
 
 A *qualified name* is a sequence of identifiers that are separated by `.`.
 For example, a column name can be qualified by the name of the *relation* the column is defined in.
@@ -2004,7 +2004,7 @@ For more information about the clauses that are used by a *primary expression*, 
 
 <h4 id="predicate">predicate</h4>
 
-<img alt="syntax diagram for a predicate" src="./diagrams/predicate-c3e5e5ae684ef15a07bd0f0fb5ac4a53.svg" />
+<img alt="syntax diagram for a predicate" src="./diagrams/predicate-997dc5f47eae645adc0179160bfe4bed.svg" />
 
 The `BETWEEN ... AND` predicate compares a value with a range of values. If `NOT` is specified, the result is reversed.
 
@@ -2411,7 +2411,7 @@ If the specified data type is not supported, you receive an error.
 
 <h4 id="castExpression">castExpression</h4>
 
-<img alt="syntax diagram for a cast expression" src="./diagrams/castExpression-f7e076eb00ad30a293074717dfed54f7.svg" />
+<img alt="syntax diagram for a cast expression" src="./diagrams/castExpression-d2ca6a946932b650842fc19a9b032d0d.svg" />
 
 In case an expression cannot be cast to the data type specified in the cast expression, the expression result is `null`.
 
@@ -2438,7 +2438,7 @@ The syntax of a case expression is described by the following syntax diagrams.
 
 <h4 id="caseExpression">caseExpression</h4>
 
-<img alt="syntax diagram for a case expression" src="./diagrams/caseExpression-4cfe389375b45289837e90dc24d7ac59.svg" />
+<img alt="syntax diagram for a case expression" src="./diagrams/caseExpression-daa853ea84c1b47216f14e25efd94228.svg" />
 
 The upper path in the syntax diagram represents a *searched when clause*, that is, the `WHEN` keyword follows directly after the `CASE` keyword.
 The lower path is a *simple when clause*, that is, an expression follows the `CASE` keyword.
@@ -2454,7 +2454,7 @@ A *result expression* is an expression that follows the `THEN` or `ELSE` keyword
 
 <h4 id="whenClause">whenClause</h4>
 
-<img alt="syntax diagram for a when clause" src="./diagrams/whenClause-bc3fbf0662a4862783226bd83adc6e05.svg" />
+<img alt="syntax diagram for a when clause" src="./diagrams/whenClause-a5e1f6dcd3b6755e147ea89afca15c47.svg" />
 
 <h4>Examples</h4>
 
@@ -2540,7 +2540,7 @@ The syntax of a *time series expression* is described by the following syntax di
 
 <h4 id="timeSeriesExpression">timeSeriesExpression</h4>
 
-<img alt="syntax diagram for time series expression" src="./diagrams/timeSeriesExpression-9784845782b530c5ea96de1d6c3a41b5.svg" />
+<img alt="syntax diagram for time series expression" src="./diagrams/timeSeriesExpression-66df3748b37aecf2bb9a4bd5735d900d.svg" />
 
 The syntax shows time series functions that require expressions, such as  `TS_MAP()`,  `TS_FILTER()`, `TS_SEGMENT_BY_ANCHOR()`, `TS_SEGMENT_BY_MARKER()`, `TS_SEGMENT_BY_DUAL_MARKER()`,
 `TS_FIND()`, and `TS_COUNT_ANCHOR()`.
@@ -2568,7 +2568,7 @@ A *time series expression* is referenced by the following clause:
 
 <h4 id="booleanTimeSeriesExpression">booleanTimeSeriesExpression</h4>
 
-<img alt="syntax diagram for boolean time series expression" src="./diagrams/booleanTimeSeriesExpression-dd454a88043e1ba5bf6b6d7d2d6a9e31.svg" />
+<img alt="syntax diagram for boolean time series expression" src="./diagrams/booleanTimeSeriesExpression-788ac60bfe575dd1149a11ff46ac4d51.svg" />
 
 The Boolean time series expression syntax shows the available Boolean expresssions, such as `TS_EXP_GT()`, which is also used in the previous example.
 
@@ -2576,13 +2576,13 @@ For more information on each function, see [Artifact creation functions](/docs/s
 
 <h4 id="valueTimeSeriesExpression">valueTimeSeriesExpression</h4>
 
-<img alt="syntax diagram for value time series expression" src="./diagrams/valueTimeSeriesExpression-f079ea26fb0ab3a519580252820e8ef2.svg" />
+<img alt="syntax diagram for value time series expression" src="./diagrams/valueTimeSeriesExpression-13b808c525fa405fc66a3a073901986e.svg" />
 
 Time series values for expressions can either be a `string` or a `double` datatype.
 
 <h4 id="doubleTimeSeriesExpression">doubleTimeSeriesExpression</h4>
 
-<img alt="syntax diagram for double time series expression" src="./diagrams/doubleTimeSeriesExpression-bd0de1ef66fc42cb885647acdd54dfe7.svg" />
+<img alt="syntax diagram for double time series expression" src="./diagrams/doubleTimeSeriesExpression-0e8662e4b62a247f4a8ac499d3a850af.svg" />
 
 The functions shown in the double time series expressions, such as `TS_EXP_ABS()` and `TS_EXP_LENGTH()`, are able to consume again double time series expressions,
 `number`, or an identity time series expression.
@@ -2591,7 +2591,7 @@ For more information on each function, see [Artifact creation functions](/docs/s
 
 <h4 id="stringTimeSeriesExpression">stringTimeSeriesExpression</h4>
 
-<img alt="syntax diagram for string time series expression" src="./diagrams/stringTimeSeriesExpression-bdc26feed127a2fe048abaad8becda00.svg" />
+<img alt="syntax diagram for string time series expression" src="./diagrams/stringTimeSeriesExpression-6fcdc3a5ff925ab55113edfdfa7ce7af.svg" />
 
 The string function `TS_EXP_ID_TO_STRING()` converts an ID to a string and the `TS_EXP_CONCAT()` function concatenates the result of two string expressions.
 
@@ -2599,7 +2599,7 @@ For more information on each function, see [Artifact creation functions](/docs/s
 
 <h4 id="stringConditionalExpression">stringConditionalExpression</h4>
 
-<img alt="syntax diagram for string conditional time series expression" src="./diagrams/stringConditionalExpression-7a27319a7522b3f92fd49e941a45e098.svg" />
+<img alt="syntax diagram for string conditional time series expression" src="./diagrams/stringConditionalExpression-0c442b50f7a0be92b9089953d63a2239.svg" />
 
 The three conditional expression functions for string values are `TS_EXP_IF_THEN_ELSE()`, `TS_EXP_IF_THEN()`, and `TS_EXP_MATCH_CASE()`.
 
@@ -2607,7 +2607,7 @@ For more information on each function, see [Artifact creation functions](/docs/s
 
 <h4 id="identityTimeSeriesExpression">identityTimeSeriesExpression</h4>
 
-<img alt="syntax diagram for identity time series expression" src="./diagrams/identityTimeSeriesExpression-71052505f0ddba89bb9b95ae32316e26.svg" />
+<img alt="syntax diagram for identity time series expression" src="./diagrams/identityTimeSeriesExpression-c688dcb6568d236f93077edbfbe49a58.svg" />
 
 The identity expression denotes current observation values in time series.
 
@@ -2691,7 +2691,7 @@ An *operator* is referenced by [valueExpression](#valueExpression).
 ## Data Types
 {: #dataType}
 
-<img alt="syntax diagram for a data type" src="./diagrams/dataType-84f98bb3e5ed63d9d5cbb3e3858219cb.svg" />
+<img alt="syntax diagram for a data type" src="./diagrams/dataType-ed03e5eacc2eecd3a7439a6850e560c6.svg" />
 
 Data types can be either primitive types like numeric or string types, or they can be composite types that are built from other
 primitive or composite types. Composite types can have the following structure:
@@ -2815,11 +2815,11 @@ For more information, see [catalog management](/docs/sql-query?topic=sql-query-h
 
 <h4 id="createTable">createTable</h4>
 
-<img alt="syntax diagram for a create table command" src="./diagrams/createTable-82dad59d7dc4cbe0412a5cfd53d5ea3b.svg" />
+<img alt="syntax diagram for a create table command" src="./diagrams/createTable-f8671af4cf9fb36f74537ae344c7c1bf.svg" />
 
 <h4 id="columnDefinition">columnDefinition</h4>
 
-<img alt="syntax diagram for column definition" src="./diagrams/columnDefinition-8d0179607d7b22075461ddc34fc096a3.svg" />
+<img alt="syntax diagram for column definition" src="./diagrams/columnDefinition-0aa5972a73dc6c01bfae6dff8a8a9660.svg" />
 
 Create a table definition in the catalog based on the objects in the specified {{site.data.keyword.cos_short}} location. The `LOCATION` option is mandatory.
 If a table or view with the same name exists in the same {{site.data.keyword.sqlquery_short}} instance, you receive an error, unless the `IF NOT EXISTS` clause is specified.
@@ -2910,7 +2910,7 @@ options(HEADER=false)
 
 <h4 id="dropTable">dropTable</h4>
 
-<img alt="syntax diagram for a drop table command" src="./diagrams/dropTable-014c80479048a24e4f1be8f1f54fb594.svg" />
+<img alt="syntax diagram for a drop table command" src="./diagrams/dropTable-e82bb342ebb768faf23faf966940606a.svg" />
 
 Drop a table definition from the catalog. If the table does not exist, you receive an error, unless the `IF EXISTS` option is specified.
 
@@ -2927,11 +2927,11 @@ DROP TABLE customers
 
 <h4 id="createView">createView</h4>
 
-<img alt="syntax diagram for a create view command" src="./diagrams/createView-bf255a6bf7c0ac9875f1463e670ee878.svg" />
+<img alt="syntax diagram for a create view command" src="./diagrams/createView-f5ca3f7964d4783c228edc26ef4dfe04.svg" />
 
 <h4 id="identifierComment">identifierComment</h4>
 
-<img alt="syntax diagram for identifier comment definition" src="./diagrams/identifierComment-ea021ecffe3438f46cd4e53d18dd4332.svg" />
+<img alt="syntax diagram for identifier comment definition" src="./diagrams/identifierComment-87e05d0a54fe067f0262b67df022959b.svg" />
 
 Create a view definition in the catalog, based on existing table and view definitions.
 If a table or view with the same name exists in the same {{site.data.keyword.sqlquery_short}} instance, you receive an error, unless the `IF NOT EXISTS` clause is specified.
@@ -2954,7 +2954,7 @@ CREATE VIEW CUSTOMER_STATISTICS AS
 
 <h4 id="dropView">dropView</h4>
 
-<img alt="syntax diagram for a drop view command" src="./diagrams/dropView-dfb2ead93e0ce01cb1904f056c2b2c5e.svg" />
+<img alt="syntax diagram for a drop view command" src="./diagrams/dropView-ba10f331798b839bf6caf66744bd39a4.svg" />
 
 Drop a view definition from the catalog. If the view does not exist, you receive an error, unless the `IF EXISTS` option is specified.
 
@@ -2971,7 +2971,7 @@ DROP VIEW customer_statistics
 
 <h4 id="alterTablePartitions">alterTablePartitions</h4>
 
-<img alt="syntax diagram for a alter table partitions command" src="./diagrams/alterTablePartitions-63c8c27f515b2ad3320f0189e9f5d67c.svg" />
+<img alt="syntax diagram for a alter table partitions command" src="./diagrams/alterTablePartitions-1e617b0a7ca5a1eb1f3713dd3658fe31.svg" />
 
 Use alter table to modify the definition of the partitions or to automatically discover the available partitions.
 
@@ -2985,7 +2985,7 @@ ALTER TABLE customers_partitioned RECOVER PARTITIONS
 
 <h4 id="partitionSpec">partitionSpecification</h4>
 
-<img alt="syntax diagram for a partition's specification" src="./diagrams/partitionSpec-c9f289f2f0c2cae9261dced10bd2ecbd.svg" />
+<img alt="syntax diagram for a partition's specification" src="./diagrams/partitionSpec-5cba8c9e2f3ec874f581c4dc743ded78.svg" />
 
 To add or remove partitions individually, use the `ADD PARTITION` or `DROP PARTITION` options.
 
@@ -3017,7 +3017,7 @@ Use the `EXISTS` option to avoid getting errors during `ADD` or `DROP`.
 
 <h4 id="alterTableColumns">alterTableColumns</h4>
 
-<img alt="syntax diagram for a alter table columns command" src="./diagrams/alterTableColumns-508f1042838bd6ad4f820ef5773d1d16.svg" />
+<img alt="syntax diagram for a alter table columns command" src="./diagrams/alterTableColumns-37787aacfcddc550a55d09f953a236b6.svg" />
 
 Use alter table to add new columns to the schema of a catalog table.
 
@@ -3056,7 +3056,7 @@ The option `NOSCAN` only collects the sizes of the objects. HIDE END -->
 
 <h4 id="describeTable">describeTable</h4>
 
-<img alt="syntax diagram for describe tables command" src="./diagrams/describeTable-57dc2fc092cbf148a8bf5d6c4e4a9ff3.svg" />
+<img alt="syntax diagram for describe tables command" src="./diagrams/describeTable-338e76810253534f2a3554d8bc1e4ffd.svg" />
 
 Return the schema (column names and data types) of a table or view definition. If the table or view does not exist, you receive an error.
 
@@ -3071,7 +3071,7 @@ DESCRIBE TABLE customers_partitioned
 
 <h4 id="showTables">showTables</h4>
 
-<img alt="syntax diagram for show tables command" src="./diagrams/showTables-2e44a6703ddba16d588ed29d3e5538c5.svg" />
+<img alt="syntax diagram for show tables command" src="./diagrams/showTables-6808455ab6aa6676433956e4cc3d69c7.svg" />
 
 Returns the list of the defined tables and views in the catalog. The `LIKE` option allows to filter for a indicated pattern. Use `*` as wildcard character.
 
@@ -3107,7 +3107,7 @@ SHOW TBLPROPERTIES customer
 
 <h4 id="showPartitions">showPartitions</h4>
 
-<img alt="syntax diagram for show partitions command" src="./diagrams/showPartitions-fa1d0e191e6006e6ff540e6602f0cf08.svg" />
+<img alt="syntax diagram for show partitions command" src="./diagrams/showPartitions-ad1d91fa8f3aa1c3ebb12907684ecace.svg" />
 
 List the defined partitions of a table when a table was created as partitioned. You can filter the returned partitions by using the *partitionSpec*
 option.
@@ -3131,13 +3131,13 @@ For more information, see [index management](/docs/sql-query?topic=sql-query-ind
 
 <h4 id="createIndex">createIndex</h4>
 
-<img alt="syntax diagram for create index command" src="./diagrams/metaindexCreateCommand-7a04aa86c5057b6acb63e6a8e30d669e.svg" />
+<img alt="syntax diagram for create index command" src="./diagrams/metaindexCreateCommand-a2268f6f885ac91e905ef62ec319f670.svg" />
 
 Create an index on the objects in the specified {{site.data.keyword.cos_short}} location or on the specified table. Define the required index type for each column that you want to calculate the summary metadata for. Create the index on columns that are used for predicates in the SQL statements.
 
 <h4 id="metaindexIndextype">metaindexIndextype</h4>
 
-<img alt="syntax diagram for the different index types" src="./diagrams/metaindexIndextype-09ee44130fc8f23687cd775708e7377a.svg" />
+<img alt="syntax diagram for the different index types" src="./diagrams/metaindexIndextype-ebf0f0b8f1fbe392c0c2d9140d56f717.svg" />
 
 - MINMAX: Stores minimum or maximum values for a column for all types, except for complex types.
 - VALUELIST: Stores the list of unique values for the column for all types if the distinct values in that column are low.
@@ -3185,7 +3185,7 @@ ALTER METAINDEX SET LOCATION cos://us-south/<mybucket>/<mypath>
 
 <h4 id="dropIndex">dropIndex</h4>
 
-<img alt="syntax diagram for drop index command" src="./diagrams/metaindexDropCommand-666b701e8e4698265dc9d9d81428bcc1.svg" />
+<img alt="syntax diagram for drop index command" src="./diagrams/metaindexDropCommand-f5301b2c854d4fbafff5573c37f0b796.svg" />
 
 Drop an existing index based on the objects in the specified {{site.data.keyword.cos_short}} location or on the specified table. Use the following command when the index is no longer needed:
 
@@ -3200,7 +3200,7 @@ DROP METAINDEX ON cos://us-geo/sql/metergen STORED AS parquet
 
 <h4 id="refreshIndex">refreshIndex</h4>
 
-<img alt="syntax diagram for refresh index command" src="./diagrams/metaindexRefreshCommand-8379ffda3a5cf4791daf82cc7291fdd4.svg" />
+<img alt="syntax diagram for refresh index command" src="./diagrams/metaindexRefreshCommand-bb71e58695e1af192a2a3c48fb9ad563.svg" />
 
 Refresh an existing index based on the objects in the specified {{site.data.keyword.cos_short}} location or on the specified table.
 Use the following command if the data changed and you need to update the index:
@@ -3216,7 +3216,7 @@ REFRESH METAINDEX ON cos://us-geo/sql/metergen STORED AS parquet
 
 <h4 id="describeIndex">describeIndex</h4>
 
-<img alt="syntax diagram for describe index command" src="./diagrams/metaindexDescribeCommand-3888c3715911c92d10e65073cbd879d2.svg" />
+<img alt="syntax diagram for describe index command" src="./diagrams/metaindexDescribeCommand-a342c639ff79650a3e27d024f0a786e2.svg" />
 
 Describe an existing index based on the objects in the specified {{site.data.keyword.cos_short}} location or on the specified table.
 Use the following command to receive information of the index, such as index status, types that are used, location where it is stored, or number of objects processed.
@@ -3232,7 +3232,7 @@ DESCRIBE METAINDEX ON cos://us-geo/sql/metergen STORED AS parquet
 
 <h4 id="showIndexes">showIndexes</h4>
 
-<img alt="syntax diagram for show indexes command" src="./diagrams/mmetaindexShowCommand-8f2d15a48b3a815b53a1790809282cfa.svg" />
+<img alt="syntax diagram for show indexes command" src="./diagrams/mmetaindexShowCommand-6249402ab9a3941c9cd5a01612d98624.svg" />
 
 List all stored indexes in the base location. Tables with a different index location are not displayed in the list.
 
@@ -3247,7 +3247,7 @@ SHOW METAINDEXES
 
 <h4 id="alterIndex">alterIndex</h4>
 
-<img alt="syntax diagram for alter index command" src="./diagrams/metaindexLocationCommand-606f3cbfb799bb2360eecb28bfd50bbf.svg" />
+<img alt="syntax diagram for alter index command" src="./diagrams/metaindexLocationCommand-852dbf9b72e456ec38491788282aa986.svg" />
 
 You must alter the {{site.data.keyword.cos_short}} location for all indexes only once to define the base location.
 If you change it later, {{site.data.keyword.sqlquery_short}} cannot find the index metadata anymore.
@@ -3265,7 +3265,7 @@ ALTER METAINDEX SET LOCATION cos://us-south/<mybucket>/<mypath>/
 
 <h4 id="alterTableSetLocation">alterTableSetLocation</h4>
 
-<img alt="syntax diagram for alter table set location command" src="./diagrams/hiveMetaindexLocationCommand-1c494945d00560e33d07074e7cd50cf5.svg" />
+<img alt="syntax diagram for alter table set location command" src="./diagrams/hiveMetaindexLocationCommand-43e4c50a8e947b960574266c156bd68c.svg" />
 
 With this command you can define a location for this specified Hive table. If you change it later, {{site.data.keyword.sqlquery_short}} does not find the index metadata anymore. Existing index metadata on previous location is not dropped, therefore you can always switch back to the old location when needed.
 
@@ -3281,7 +3281,7 @@ ALTER TABLE CUSTOMERS_PARTITIONED SET METAINDEX LOCATION cos://us-south/<mybucke
 
 <h4 id="alterTableDropLocation">alterTableDropLocation</h4>
 
-<img alt="syntax diagram for alter table drop location command" src="./diagrams/hiveMetaindexDropLocationCommand-75d95417ccafaf475f15eb3f30f73152.svg" />
+<img alt="syntax diagram for alter table drop location command" src="./diagrams/hiveMetaindexDropLocationCommand-3a237ed28d53eea88871f31e4df58783.svg" />
 
 With this command you can drop a location for the specified table. Use this command if the index metadata is to be fetched from the base location. The metadata for the index that is stored in {{site.data.keyword.cos_short}} is not dropped and must be cleaned up manually.
 
@@ -3298,15 +3298,15 @@ ALTER TABLE CUSTOMERS_PARTITIONED DROP METAINDEX LOCATION
 
 The indexAsset is either based on a table or Cloud {{site.data.keyword.cos_short}} location.
 
-<img alt="syntax diagram for index asset" src="./diagrams/metaindexAsset-b0b8cc3a69729479a8b7cee99c32605e.svg" />
+<img alt="syntax diagram for index asset" src="./diagrams/metaindexAsset-54cfe957e46288ee8a10898c67645b6e.svg" />
 
 The metaindexAssetLocation is a subset of the [externalTableSpec](#externalTableSpec).
 
-<img alt="syntax diagram for index asset location" src="./diagrams/metaindexAssetLocation-bbfbc16023ea63724337f33bf87c1f73.svg" />
+<img alt="syntax diagram for index asset location" src="./diagrams/metaindexAssetLocation-c4bff0fab606d01361c8d9bbe3b1e937.svg" />
 
 The `metaindexAssetHiveTable` refers to a Hive table.
 
-<img alt="syntax diagram for index asset Hive table" src="./diagrams/metaindexAssetHiveTable-c0dca2fa24cbdbf2bdfa52fd0fca07ae.svg" />
+<img alt="syntax diagram for index asset Hive table" src="./diagrams/metaindexAssetHiveTable-9326159a68756fafe7a5c27ace9d3cb7.svg" />
 
 ## Miscellaneous Definitions
 {: #chapterMiscDefinitions}

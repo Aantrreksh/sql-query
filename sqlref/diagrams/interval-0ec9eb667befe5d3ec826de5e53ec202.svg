@@ -1,0 +1,202 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="railroad-diagram" width="621" height="162" viewBox="0 0 621 162" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <defs>
+        <style type="text/css"><![CDATA[ svg.railroad-diagram {
+  background-color: #ffffff;
+}
+svg.railroad-diagram path {
+  stroke-width: 2;
+  stroke: #5a6872;
+  fill: none;
+}
+svg.railroad-diagram text {
+  font-size: 14px;
+  font-family: 'ibm-plex-mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace;
+  color: #152935;
+  text-anchor: middle;
+  cursor: pointer;
+}
+svg.railroad-diagram text.label {
+  text-anchor: start;
+}
+svg.railroad-diagram text.comment {
+  font-size: 12px;
+}
+svg.railroad-diagram rect {
+  stroke-width: 2;
+  stroke:  #5a6872;
+  fill: #5aaafa;
+}
+ ]]></style>
+    </defs>
+    
+<g transform="translate(.5 .5)">
+<path d="M 20 31 v 20 m 10 -20 v 20 m -10 -10 h 20.5"/>
+<g>
+<path d="M40 41h0"/>
+<path d="M580 41h0"/>
+<path d="M40 41h20"/>
+<g>
+<path d="M60 41h0"/>
+<path d="M560 41h0"/>
+<path d="M60 41h10"/>
+<g>
+<path d="M70 41h0"/>
+<path d="M154 41h0"/>
+<rect x="70" y="30" width="84" height="22" rx="10" ry="10"/>
+<text x="112" y="45">INTERVAL</text>
+</g>
+<path d="M154 41h10"/>
+<g>
+<path d="M164 41h0"/>
+<path d="M424 41h0"/>
+<g>
+<path d="M164 41h0"/>
+<path d="M272 41h0"/>
+<path d="M164 41a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"/>
+<g>
+<path d="M184 21h68"/>
+</g>
+<path d="M252 21a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"/>
+<path d="M164 41h20"/>
+<g>
+<path d="M184 41h0"/>
+<path d="M252 41h0"/>
+<path d="M184 41h20"/>
+<g>
+<path d="M204 41h0"/>
+<path d="M232 41h0"/>
+<rect x="204" y="30" width="28" height="22" rx="10" ry="10"/>
+<text x="218" y="45">+</text>
+</g>
+<path d="M232 41h20"/>
+<path d="M184 41a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"/>
+<g>
+<path d="M204 71h0"/>
+<path d="M232 71h0"/>
+<rect x="204" y="60" width="28" height="22" rx="10" ry="10"/>
+<text x="218" y="75">-</text>
+</g>
+<path d="M232 71a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"/>
+</g>
+<path d="M252 41h20"/>
+</g>
+<path d="M272 41h10"/>
+<g>
+<a xlink:href="#unsignedNumber">
+<path d="M282 41h0"/>
+<path d="M414 41h0"/>
+<rect x="282" y="30" width="132" height="22"/>
+<text x="348" y="45">unsignedNumber</text>
+</a>
+</g>
+<path d="M414 41h10"/>
+</g>
+<path d="M424 41h10"/>
+<g>
+<a xlink:href="#timeUnitSpec">
+<path d="M434 41h0"/>
+<path d="M550 41h0"/>
+<rect x="434" y="30" width="116" height="22"/>
+<text x="492" y="45">timeUnitSpec</text>
+</a>
+</g>
+<path d="M550 41h10"/>
+</g>
+<path d="M560 41h20"/>
+<path d="M40 41a10 10 0 0 1 10 10v40a10 10 0 0 0 10 10"/>
+<g>
+<path d="M60 101h30"/>
+<path d="M530 101h30"/>
+<path d="M90 101h10"/>
+<g>
+<path d="M100 101h0"/>
+<path d="M184 101h0"/>
+<rect x="100" y="90" width="84" height="22" rx="10" ry="10"/>
+<text x="142" y="105">INTERVAL</text>
+</g>
+<path d="M184 101h10"/>
+<path d="M194 101h10"/>
+<g>
+<a xlink:href="#STRING">
+<path d="M204 101h0"/>
+<path d="M272 101h0"/>
+<rect x="204" y="90" width="68" height="22"/>
+<text x="238" y="105">STRING</text>
+</a>
+</g>
+<path d="M272 101h10"/>
+<g>
+<path d="M282 101h0"/>
+<path d="M530 101h0"/>
+<path d="M282 101h20"/>
+<g>
+<path d="M302 101h0"/>
+<path d="M510 101h0"/>
+<path d="M302 101h10"/>
+<g>
+<path d="M312 101h0"/>
+<path d="M364 101h0"/>
+<rect x="312" y="90" width="52" height="22" rx="10" ry="10"/>
+<text x="338" y="105">YEAR</text>
+</g>
+<path d="M364 101h10"/>
+<path d="M374 101h10"/>
+<g>
+<path d="M384 101h0"/>
+<path d="M420 101h0"/>
+<rect x="384" y="90" width="36" height="22" rx="10" ry="10"/>
+<text x="402" y="105">TO</text>
+</g>
+<path d="M420 101h10"/>
+<path d="M430 101h10"/>
+<g>
+<path d="M440 101h0"/>
+<path d="M500 101h0"/>
+<rect x="440" y="90" width="60" height="22" rx="10" ry="10"/>
+<text x="470" y="105">MONTH</text>
+</g>
+<path d="M500 101h10"/>
+</g>
+<path d="M510 101h20"/>
+<path d="M282 101a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"/>
+<g>
+<path d="M302 131h0"/>
+<path d="M510 131h0"/>
+<path d="M302 131h10"/>
+<g>
+<path d="M312 131h0"/>
+<path d="M356 131h0"/>
+<rect x="312" y="120" width="44" height="22" rx="10" ry="10"/>
+<text x="334" y="135">DAY</text>
+</g>
+<path d="M356 131h10"/>
+<path d="M366 131h10"/>
+<g>
+<path d="M376 131h0"/>
+<path d="M412 131h0"/>
+<rect x="376" y="120" width="36" height="22" rx="10" ry="10"/>
+<text x="394" y="135">TO</text>
+</g>
+<path d="M412 131h10"/>
+<path d="M422 131h10"/>
+<g>
+<path d="M432 131h0"/>
+<path d="M500 131h0"/>
+<rect x="432" y="120" width="68" height="22" rx="10" ry="10"/>
+<text x="466" y="135">SECOND</text>
+</g>
+<path d="M500 131h10"/>
+</g>
+<path d="M510 131a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"/>
+</g>
+</g>
+<path d="M560 101a10 10 0 0 0 10 -10v-40a10 10 0 0 1 10 -10"/>
+</g>
+<path d="M 580 41 h 20 m -10 -10 v 20 m 10 -20 v 20"/>
+</g>
+</svg>
