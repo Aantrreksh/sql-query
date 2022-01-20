@@ -52,7 +52,7 @@ See the following examples for an outline of the general syntax of an SQL query 
 
 <h3 id="intoClause">intoClause</h3>
 
-<object alt="syntax diagram for an INTO clause"  data="./diagrams/intoClause-e84474473add01cce468b232b2076167.svg" ></object>
+<object alt="syntax diagram for an INTO clause"  data="./diagrams/intoClause-869841cb376f39f2de7475d59b482cb6.svg" ></object>
 
 The query statement supports *common table expressions*. A common table expression permits defining a result table with a table name
 that can be specified as a table name in any FROM clause of the fullselect that follows.
@@ -1108,7 +1108,7 @@ The table is derived by applying one of the join operators to its operands.
 
 <h3 id="joinType">joinType</h3>
 
-<object alt="syntax diagram for join types"  data="./diagrams/joinType-13a8501f3df1b6e8e2f6ea5a5f174560.svg" ></object>
+<object alt="syntax diagram for join types"  data="./diagrams/joinType-d831aa64b0d398c230c213e97d480c47.svg" ></object>
 
 <h4>Inner join</h4>
 
@@ -1486,7 +1486,7 @@ The syntax of a window specification is defined by the following syntax diagrams
 
 <h3 id="namedWindows">namedWindows</h3>
 
-<object alt="syntax diagram for named windows"  data="./diagrams/namedWindows-f1a5ac6f5e67a494a624ecd9ff3ed8ed.svg" ></object>
+<object alt="syntax diagram for named windows"  data="./diagrams/namedWindows-6579b5f6374041c6006d62950b3861fd.svg" ></object>
 
 <h3 id="namedWindow">namedWindow</h3>
 
@@ -1748,7 +1748,7 @@ In the context of an SQL query statement, an *expression* is always a *Boolean e
 
 <h4 id="expression">expression</h4>
 
-<object alt="syntax diagram for an expression"  data="./diagrams/expression-10170289adf4b4866ce6b48f41dc791e.svg" ></object>
+<object alt="syntax diagram for an expression"  data="./diagrams/expression-34cff8827379c54d4a3caf46e0c7dc89.svg" ></object>
 
 <h4>More topics</h4>
 
@@ -1853,7 +1853,7 @@ A *value expression* is referenced by the following clauses:
 
 <h4 id="constant">constant</h4>
 
-<object alt="syntax diagram for a constant"  data="./diagrams/constant-ebd5181ef893b8f20ba4bf9d993aa8a0.svg" ></object>
+<object alt="syntax diagram for a constant"  data="./diagrams/constant-c96453c58d56d6d93016ff1a992c50b1.svg" ></object>
 
 <h4 id="interval">interval</h4>
 
@@ -1863,7 +1863,7 @@ With an *interval clause* you can define time duration constants that can be use
 
 <h4 id="timeUnitSpec">timeUnitSpec</h4>
 
-<object alt="syntax diagram for a time unit specification"  data="./diagrams/timeUnitSpec-5ef1408fb2a223e703a801a683542e3f.svg" ></object>
+<object alt="syntax diagram for a time unit specification"  data="./diagrams/timeUnitSpec-2ee9b0312a73d68871258bfa8c7ef068.svg" ></object>
 
 The following time units are valid:
 - Singular form: `SECOND`, `MINUTE`, `DAY`, `MONTH`, `YEAR`
@@ -1967,11 +1967,11 @@ The result of the example query is shown in the following table.
 
 <h4 id="columnReference">columnReference</h4>
 
-<object alt="syntax diagram for a column reference"  data="./diagrams/columnReference-e5b300bf4c1d22a51cf3ae097585823c.svg" ></object>
+<object alt="syntax diagram for a column reference"  data="./diagrams/columnReference-275ae4ce2e6ec31e634ae5bc22a0cecc.svg" ></object>
 
 <h4 id="qualifiedName">qualifiedName</h4>
 
-<object alt="syntax diagram for a qualified name"  data="./diagrams/qualifiedName-326686bdd0c08be256b89fb37db6bc4f.svg" ></object>
+<object alt="syntax diagram for a qualified name"  data="./diagrams/qualifiedName-ba659d9f3de55600723552da0f299e05.svg" ></object>
 
 A *qualified name* is a sequence of identifiers that are separated by `.`.
 For example, a column name can be qualified by the name of the *relation* the column is defined in.
@@ -2576,7 +2576,7 @@ For more information on each function, see [Artifact creation functions](/docs/s
 
 <h4 id="valueTimeSeriesExpression">valueTimeSeriesExpression</h4>
 
-<object alt="syntax diagram for value time series expression"  data="./diagrams/valueTimeSeriesExpression-5cc1ac0deb359231449abfc8e929cede.svg" ></object>
+<object alt="syntax diagram for value time series expression"  data="./diagrams/valueTimeSeriesExpression-42681a74d714768810b72dda0e7ee27b.svg" ></object>
 
 Time series values for expressions can either be a `string` or a `double` datatype.
 
@@ -3232,7 +3232,7 @@ DESCRIBE METAINDEX ON cos://us-geo/sql/metergen STORED AS parquet
 
 <h4 id="showIndexes">showIndexes</h4>
 
-<object alt="syntax diagram for show indexes command"  data="./diagrams/mmetaindexShowCommand-97859f1958389b7662fa1205fec0cf24.svg" ></object>
+<object alt="syntax diagram for show indexes command"  data="./diagrams/mmetaindexShowCommand-0ba23098b22a4ec97b7c632adb819466.svg" ></object>
 
 List all stored indexes in the base location. Tables with a different index location are not displayed in the list.
 
@@ -3298,7 +3298,7 @@ ALTER TABLE CUSTOMERS_PARTITIONED DROP METAINDEX LOCATION
 
 The indexAsset is either based on a table or Cloud {{site.data.keyword.cos_short}} location.
 
-<object alt="syntax diagram for index asset"  data="./diagrams/metaindexAsset-520178af0470768e405bb54e8bbc00ba.svg" ></object>
+<object alt="syntax diagram for index asset"  data="./diagrams/metaindexAsset-e3fa3808f8930e2def9a15d275daee4c.svg" ></object>
 
 The metaindexAssetLocation is a subset of the [externalTableSpec](#externalTableSpec).
 
@@ -3306,7 +3306,7 @@ The metaindexAssetLocation is a subset of the [externalTableSpec](#externalTable
 
 The `metaindexAssetHiveTable` refers to a Hive table.
 
-<object alt="syntax diagram for index asset Hive table"  data="./diagrams/metaindexAssetHiveTable-9566d63c32ef5bec32b9c7641f188fe3.svg" ></object>
+<object alt="syntax diagram for index asset Hive table"  data="./diagrams/metaindexAssetHiveTable-f9540a410f45a584084ca11c9a0190b6.svg" ></object>
 
 ## Miscellaneous Definitions
 {: #chapterMiscDefinitions}
