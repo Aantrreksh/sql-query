@@ -44,15 +44,15 @@ See the following examples for an outline of the general syntax of an SQL query 
 
 <h3 id="query">query</h3>
 
-<object alt="syntax diagram for a query" preserveAspectRatio="xMinYMin meet" data="./diagrams/query-83a457933eca7745e12cf4cc3a303e15.svg" ></object>
+<object alt="syntax diagram for a query"  data="./diagrams/query-73fe3374306d1ff4381dfc493d4199eb.svg" ></object>
 
 <h3 id="namedQuery">namedQuery</h3>
 
-<object alt="syntax diagram for a named query" preserveAspectRatio="xMinYMin meet" data="./diagrams/namedQuery-9412940bcf042e4fcc2c023130409df4.svg" ></object>
+<object alt="syntax diagram for a named query"  data="./diagrams/namedQuery-7b26c9f6d567df8cd83e5bb2e527556b.svg" ></object>
 
 <h3 id="intoClause">intoClause</h3>
 
-<object alt="syntax diagram for an INTO clause" preserveAspectRatio="xMinYMin meet" data="./diagrams/intoClause-874ade14bf3847646d6b256cad946b7e.svg" ></object>
+<object alt="syntax diagram for an INTO clause"  data="./diagrams/intoClause-e84474473add01cce468b232b2076167.svg" ></object>
 
 The query statement supports *common table expressions*. A common table expression permits defining a result table with a table name
 that can be specified as a table name in any FROM clause of the fullselect that follows.
@@ -164,13 +164,13 @@ A partition is an object on Cloud {{site.data.keyword.cos_short}} that is potent
 The presence of multiple partitions allows for parallel input/output (I/O) during query execution. If no *result partitioned clause* is specified,
 the query result is stored in a single partition on Cloud {{site.data.keyword.cos_short}}.
 
-<object alt="syntax diagram for a COS result clause" preserveAspectRatio="xMinYMin meet" data="./diagrams/cosResultClause-08d4b6821392264a75cbeb3376beec4a.svg" ></object>
+<object alt="syntax diagram for a COS result clause"  data="./diagrams/cosResultClause-9bea7f4c2deddeedc36ff3b148ab65ee.svg" ></object>
 
 <h3 id="partitionedClause">partitionedClause</h3>
 
 You can use the result partitioned clause to control the layout of the SQL query result set being stored. The default behavior is to store the result into one single partition, that is a single object in Cloud {{site.data.keyword.cos_short}}.
 
-<object alt="syntax diagram for a result partitioned clause" preserveAspectRatio="xMinYMin meet" data="./diagrams/partitionedClause-894dfc4d6eafb54dcd63270c83f2248f.svg" ></object>
+<object alt="syntax diagram for a result partitioned clause"  data="./diagrams/partitionedClause-14c6625aac17022857a71923dba3b8fd.svg" ></object>
 
 <h3 id="sortClause">sortClause</h3>
 
@@ -180,7 +180,7 @@ which is often referred to as clustering the rows by the specified columns into 
 When specified without the PARTITIONED clause, it is equivalent to an ORDER BY clause specified at the top level of the SQL SELECT statement.
 If PARTITIONED INTO is specified, the ORDER BY clause is ignored.
 
-<object alt="syntax diagram for a result partitioned column clause" preserveAspectRatio="xMinYMin meet" data="./diagrams/sortClause-1e7568d20e206ccd2c7340c5a931aad8.svg" ></object>
+<object alt="syntax diagram for a result partitioned column clause"  data="./diagrams/sortClause-e2e173eb4629c2900cda8513dbea4fd6.svg" ></object>
 
 
 <h4>Partition by columns</h4>
@@ -241,7 +241,7 @@ and all existing data is deleted.
 
 Use the `PARALLELISM x` clause to specify that multiple parallel database connections are to be opened to write out the result. Depending on the size of your result and the network connectivity of your target database service, this clause can reduce the query processing time significantly.
 
-<object alt="syntax diagram for a Db2 result clause" preserveAspectRatio="xMinYMin meet" data="./diagrams/dbResultClause-1200a4f878666449154f4300baf97692.svg" ></object>
+<object alt="syntax diagram for a Db2 result clause"  data="./diagrams/dbResultClause-b5a8751f8d30d63ace5ec06957952c65.svg" ></object>
 
 <h3 id="accessSecrets">accessSecrets</h3>
 
@@ -249,7 +249,7 @@ By default, either the credentials that are needed to access the target database
 You can override this default by specifying either a combination of `USER` and `PASSWORD` or an `APIKEY`. However, the password or API key is **not** included in the SQL statement as plain text. Instead, you must store it as a custom key in a {{site.data.keyword.keymanagementservicefull}} instance to which you have access.
 For a description how to store and manage the secrets in {{site.data.keyword.keymanagementserviceshort}}, see [Setting up custom secrets in Key Protect](/docs/sql-query?topic=sql-query-kpsetup).
 
-<object alt="syntax diagram for a Db2 result clause" preserveAspectRatio="xMinYMin meet" data="./diagrams/accessSecrets-22f9305bd733902a1ad51b17bc05c312.svg" ></object>
+<object alt="syntax diagram for a Db2 result clause"  data="./diagrams/accessSecrets-5e5b01829e4422b8102e18d6eccd87e3.svg" ></object>
 
 <h3>More topics</h3>
 
@@ -278,7 +278,7 @@ A *query* is referenced by the following clauses:
 
 A *fullselect* is the core component of a *query*. It is the only mandatory general component for a valid query statement. The other components outside of *fullselect* are optional. Its syntax is defined by the following syntax diagram.
 
-<object alt="syntax diagram for a fullselect" preserveAspectRatio="xMinYMin meet" data="./diagrams/fullselect-8373ed68fd21a30f2d711130d06c06bc.svg" ></object>
+<object alt="syntax diagram for a fullselect"  data="./diagrams/fullselect-6bc76065acb465e067cc53e401a2d345.svg" ></object>
 
 The result set defined by a single fullselect can be combined with the result set of one or more other fullselects by using set operators.
 
@@ -434,7 +434,7 @@ A *simpleselect* is a component of a *fullselect*. Its syntax is defined by the 
 
 <h3 id="simpleselect">simpleselect</h3>
 
-<object alt="syntax diagram for a simpleselect" preserveAspectRatio="xMinYMin meet" data="./diagrams/simpleselect-09cd7ec9e9ebf6847ac3d46805abff55.svg" ></object>
+<object alt="syntax diagram for a simpleselect"  data="./diagrams/simpleselect-63b89e52f8c321638bfea50bddc6e183.svg" ></object>
 
 With a *simpleselect*, you can specify the following characteristics of a result set:
 - The list of *result columns* from *relations* or *lateral views* that are part of the final result set. The result column list can be further redefined by using the following modifier keywords:
@@ -447,7 +447,7 @@ With a *simpleselect*, you can specify the following characteristics of a result
 
 <h3 id="resultColumn">resultColumn</h3>
 
-<object alt="syntax diagram for a result column" preserveAspectRatio="xMinYMin meet" data="./diagrams/resultColumn-9ccf38b871ecbae1b771a2037b0261d4.svg" ></object>
+<object alt="syntax diagram for a result column"  data="./diagrams/resultColumn-c1c38798c2df350f9e17762f95ea9df9.svg" ></object>
 
 A *result column* can be any expression that can optionally be associated with an identifier, that is, a *new name*. By providing custom identifiers, you can control the column names that are used in the result data set written to Cloud {{site.data.keyword.cos_short}}.
 See the following examples for such expressions:
@@ -459,11 +459,11 @@ See the following examples for such expressions:
 
 <h4 id="groupByClause">groupByClause</h4>
 
-<object alt="syntax diagram for a group by clause" preserveAspectRatio="xMinYMin meet" data="./diagrams/groupByClause-b802d04b1ead9b0bb0807272876e2f99.svg" ></object>
+<object alt="syntax diagram for a group by clause"  data="./diagrams/groupByClause-1fcb332ef4de726310f310103fda45d0.svg" ></object>
 
 <h4 id="groupingSet">groupingSet</h4>
 
-<object alt="syntax diagram for a grouping set" preserveAspectRatio="xMinYMin meet" data="./diagrams/groupingSet-f40ace388ea68747bae32bc81c9026fd.svg" ></object>
+<object alt="syntax diagram for a grouping set"  data="./diagrams/groupingSet-9fc88dfadc58db33ab1220ccfe8ed55b.svg" ></object>
 
 More complex *group by* clauses use so called *grouping sets* to provide more insights into the set of rows grouped by a grouping expression.
 
@@ -650,7 +650,7 @@ A *simpleselect* is referenced by the following clause:
 
 <h3 id="sortItem">sortItem</h3>
 
-<object alt="syntax diagram for a sort item" preserveAspectRatio="xMinYMin meet" data="./diagrams/sortItem-e394ec53da4e9de55431c48b367dc59d.svg" ></object>
+<object alt="syntax diagram for a sort item"  data="./diagrams/sortItem-c2d68091cd2d559c787829526bd218d5.svg" ></object>
 
 The semantics of the *sort item* components are as follows:
 - `expression`: The expression represents a *sort key*. The value of the sort key is used to order the rows of the result.
@@ -684,15 +684,15 @@ Multiple relations can be composed by using join operators. The syntax for joini
 
 <h3 id="relation">relation</h3>
 
-<object alt="syntax diagram for a relation" preserveAspectRatio="xMinYMin meet" data="./diagrams/relation-5313a56de72e19662ed812028970c703.svg" ></object>
+<object alt="syntax diagram for a relation"  data="./diagrams/relation-83bfb65315643662769960620e291ea2.svg" ></object>
 
 <h3 id="joinClause">joinClause</h3>
 
-<object alt="syntax diagram for a join clause" preserveAspectRatio="xMinYMin meet" data="./diagrams/joinClause-337d1c3542d9f6b1ad7a2bfd25f7f60f.svg" ></object>
+<object alt="syntax diagram for a join clause"  data="./diagrams/joinClause-20163128a98beb153e8f5a9cf7e2eafa.svg" ></object>
 
 <h3 id="naturalJoinClause">naturalJoinClause</h3>
 
-<object alt="syntax diagram for a natural join clause" preserveAspectRatio="xMinYMin meet" data="./diagrams/naturalJoinClause-9b69cd0b6dd4ea1be4390f8e51db12a5.svg" ></object>
+<object alt="syntax diagram for a natural join clause"  data="./diagrams/naturalJoinClause-d24fa373b815789db6323c5d9306a051.svg" ></object>
 
 Relations can be joined by using several types of joins that are described in detail in section [joinType](#joinType).
 
@@ -702,7 +702,7 @@ Apart from the join type, the following two different types of joins exist:
 
 <h3 id="relationPrimary">relationPrimary</h3>
 
-<object alt="syntax diagram for a relation primary" preserveAspectRatio="xMinYMin meet" data="./diagrams/relationPrimary-aa8d737a50712e0f98d26ee0fd7e3e01.svg" ></object>
+<object alt="syntax diagram for a relation primary"  data="./diagrams/relationPrimary-5b4f89fb33c1e8fc2ae659689123f193.svg" ></object>
 
 <h3 id="externalTableSpec">externalTableSpec</h3>
 
@@ -725,13 +725,13 @@ However, if you specify the option `MULTILINE`, {{site.data.keyword.sqlquery_sho
 
 If the file format is Parquet, with the optional `MERGE SCHEMA` clause you can handle Parquet schema evolution by specifying to scan all qualifying Parquet objects for their schema, and to merge the final schema across all objects. By default, for Parquet input only the first Parquet object that is found is used to infer the schema, which guarantees minimal overhead for compiling the SQL. Thus, use this option if your Parquet input data does not have a homogeneous schema.
 
-<object alt="syntax diagram for an external table specification" preserveAspectRatio="xMinYMin meet" data="./diagrams/externalTableSpec-722a54447625fa69be04a905327b0365.svg" ></object>
+<object alt="syntax diagram for an external table specification"  data="./diagrams/externalTableSpec-dc1612e2f755ba76224287e03ca4cc9e.svg" ></object>
 
 <h3 id="timeSeriesProperties">timeSeriesProperties</h3>
 
 The TIME_SERIES_FORMAT option triggers a read transformation mechanism that uses a set of timeSeriesProperties to dynamically generate one or more native time series columns (defined by the IN clause) from the specified value and key columns of the input data.
 
-<object alt="syntax diagram for time series properties" preserveAspectRatio="xMinYMin meet" data="./diagrams/timeSeriesProperties-ab5abeacb41e2dfc8dff7a7c36ecf931.svg" ></object>
+<object alt="syntax diagram for time series properties"  data="./diagrams/timeSeriesProperties-983132435a724057e1df729edae95345.svg" ></object>
 
 The parameters `timetick` and `value` are the only parameters that are required to be specified.
 
@@ -794,7 +794,7 @@ FROM cos://us-geo/sql/temperature_humidity.csv
 USING TIME_SERIES_FORMAT(timetick="timestamp", value="humidity")
 ```
 
-<object alt="syntax diagram for time series options" preserveAspectRatio="xMinYMin meet" data="./diagrams/timeSeriesOptions-fdc605f5ba92a87dfd18a9424a44540e.svg" ></object>
+<object alt="syntax diagram for time series options"  data="./diagrams/timeSeriesOptions-1fa111228d2c07bb49faf57c8af5d63a.svg" ></object>
 
 <h3 id="tableTransformer">tableTransformer</h3>
 
@@ -826,13 +826,13 @@ When you use the `DESCRIBE` table transformer in your SQL statement, the default
 You can also wrap `DESCRIBE` around the other table transformers to explore the transformed table schema.
 However, you cannot wrap other table transformers around the `DESCRIBE` transformer.
 
-<object alt="syntax diagram for an table transformer" preserveAspectRatio="xMinYMin meet" data="./diagrams/tableTransformer-4150b02e49552efc2e35f9f1a16d0f04.svg" ></object>
+<object alt="syntax diagram for an table transformer"  data="./diagrams/tableTransformer-39301de5340e81e8e00888678bc3b3fd.svg" ></object>
 
 <h3 id="tableValuedFunction">tableValuedFunction</h3>
 
 A table-valued function returns a relation, that is, a set of rows. An example of a table-valued function is `range()`. For more information, see [SQL functions](/docs/sql-query?topic=sql-query-sqlfunctions#sqlfunctions).
 
-<object alt="syntax diagram for a table valued function" preserveAspectRatio="xMinYMin meet" data="./diagrams/tableValuedFunction-938f823fe2f06d0f774f9babf0fe8064.svg" ></object>
+<object alt="syntax diagram for a table valued function"  data="./diagrams/tableValuedFunction-62dd44750f800544aa7a1bf0a933c560.svg" ></object>
 
 <h3>More topics</h3>
 
@@ -859,7 +859,7 @@ A *values clause* is a component of a *fullselect* or represents a *primary rela
 
 <h3 id="valuesClause">valuesClause</h3>
 
-<object alt="syntax diagram for a values clause" preserveAspectRatio="xMinYMin meet" data="./diagrams/valuesClause-f14a4491cc3793ed0e7edcfe8219007b.svg" ></object>
+<object alt="syntax diagram for a values clause"  data="./diagrams/valuesClause-c6629b9c793bc01d76d6391807bfea46.svg" ></object>
 
 With a values clause, you can define a result set by specifying actual values for each column of a row by using expressions.
 
@@ -1008,7 +1008,7 @@ The explode()-style functions take an array or map as input and return a row for
 
 The syntax of a lateral view clause is described by the following syntax diagram.
 
-<object alt="syntax diagram for a lateral view" preserveAspectRatio="xMinYMin meet" data="./diagrams/lateralView-62f3663b0d737c097af6c831e8beeb94.svg" ></object>
+<object alt="syntax diagram for a lateral view"  data="./diagrams/lateralView-c1b8fefaa73091460b0ce1d539180701.svg" ></object>
 
 The semantics of the entities in order of appearance in the syntax diagrams is as follows:
 - `OUTER`: Specifying this keyword ensures that the lateral view contains at least one row with *null* values in case the table-generating function does not return any rows.
@@ -1108,7 +1108,7 @@ The table is derived by applying one of the join operators to its operands.
 
 <h3 id="joinType">joinType</h3>
 
-<object alt="syntax diagram for join types" preserveAspectRatio="xMinYMin meet" data="./diagrams/joinType-56de80f971606009532e9ddc08e5ca31.svg" ></object>
+<object alt="syntax diagram for join types"  data="./diagrams/joinType-13a8501f3df1b6e8e2f6ea5a5f174560.svg" ></object>
 
 <h4>Inner join</h4>
 
@@ -1381,11 +1381,11 @@ The general syntax of a table sample clause is described by the following syntax
 
 <h3 id="sample">sample</h3>
 
-<object alt="syntax diagram for a sample" preserveAspectRatio="xMinYMin meet" data="./diagrams/sample-15bcd2e77c69b706bdff0240ca96b42d.svg" ></object>
+<object alt="syntax diagram for a sample"  data="./diagrams/sample-815bfa179c1b28da1014e6b311dbc5b0.svg" ></object>
 
 <h3 id="bucketSampleClause">bucketSampleClause</h3>
 
-<object alt="syntax diagram for a bucket sample clause" preserveAspectRatio="xMinYMin meet" data="./diagrams/bucketSampleClause-f070e51fea153122f2a38b0fa8cf525d.svg" ></object>
+<object alt="syntax diagram for a bucket sample clause"  data="./diagrams/bucketSampleClause-c61049b261c07dbaaf623dd69adbcfe9.svg" ></object>
 
 Three sampling types are supported:
 
@@ -1437,7 +1437,7 @@ The syntax for SQL function invocation is described by the following syntax diag
 
 <h3 id="functionOrAggregate">functionOrAggregate</h3>
 
-<object alt="syntax diagram for a function or aggregate" preserveAspectRatio="xMinYMin meet" data="./diagrams/functionOrAggregate-91893a1a5c60b09222f98b5034bd0cac.svg" ></object>
+<object alt="syntax diagram for a function or aggregate"  data="./diagrams/functionOrAggregate-509ddb572ad3e9316a0f7bd81383a154.svg" ></object>
 
 Most function invocations look like `function(argument1, ..., argumentN)` but functions like `TRIM()`, `POSITION()`, `FIRST()`, `LAST()`, `STRUCT()`, `EXTRACT()`, and `SUBSTRING()` support a different invocation style.
 
@@ -1486,27 +1486,27 @@ The syntax of a window specification is defined by the following syntax diagrams
 
 <h3 id="namedWindows">namedWindows</h3>
 
-<object alt="syntax diagram for named windows" preserveAspectRatio="xMinYMin meet" data="./diagrams/namedWindows-8c53c5a5e92019dd73aa5bf940a08a50.svg" ></object>
+<object alt="syntax diagram for named windows"  data="./diagrams/namedWindows-f1a5ac6f5e67a494a624ecd9ff3ed8ed.svg" ></object>
 
 <h3 id="namedWindow">namedWindow</h3>
 
-<object alt="syntax diagram for a named window" preserveAspectRatio="xMinYMin meet" data="./diagrams/namedWindow-b0c405d69c88ea536a38d7fe7c6cb8c0.svg" ></object>
+<object alt="syntax diagram for a named window"  data="./diagrams/namedWindow-25199e7386f5fb0bbba0fcf89a827be0.svg" ></object>
 
 <h3 id="windowSpec">windowSpec</h3>
 
-<object alt="syntax diagram for a window specification" preserveAspectRatio="xMinYMin meet" data="./diagrams/windowSpec-bb15e8120a0dd82d33eafe6f5881e5e6.svg" ></object>
+<object alt="syntax diagram for a window specification"  data="./diagrams/windowSpec-8ee27d29cf22cd5762f15e5e5a6b6c34.svg" ></object>
 
 <h3 id="windowClusterBy">windowClusterBy</h3>
 
-<object alt="syntax diagram for a window cluster by clause" preserveAspectRatio="xMinYMin meet" data="./diagrams/windowClusterBy-540fe1ae5cc3bd66190d72a98f276000.svg" ></object>
+<object alt="syntax diagram for a window cluster by clause"  data="./diagrams/windowClusterBy-90865dd45329c3d1a39e0116d32711c3.svg" ></object>
 
 <h3 id="windowPartitionBy">windowPartitionBy</h3>
 
-<object alt="syntax diagram for a window partition by clause" preserveAspectRatio="xMinYMin meet" data="./diagrams/windowPartitionBy-cb95b744fd3626202d226d149930b4ce.svg" ></object>
+<object alt="syntax diagram for a window partition by clause"  data="./diagrams/windowPartitionBy-81d31dc8b92bded8b39049ed54051cab.svg" ></object>
 
 <h3 id="windowOrderBy">windowOrderBy</h3>
 
-<object alt="syntax diagram for a window order by clause" preserveAspectRatio="xMinYMin meet" data="./diagrams/windowOrderBy-68399959d8960df630d3c201e24eef6f.svg" ></object>
+<object alt="syntax diagram for a window order by clause"  data="./diagrams/windowOrderBy-fa41df84d1c1462e7ee830f78482065f.svg" ></object>
 
 The window specification consists of the following clauses:
 - The `PARTITION BY` clause defines which rows belong to the same *window partition*. `DISTRIBUTE BY` can be used as a synonym for `PARTITION BY`.
@@ -1526,11 +1526,11 @@ The window specification consists of the following clauses:
 
 <h3 id="windowFrame">windowFrame</h3>
 
-<object alt="syntax diagram for a window frame" preserveAspectRatio="xMinYMin meet" data="./diagrams/windowFrame-d7fd4ab79a73b009d2c02363d25b768a.svg" ></object>
+<object alt="syntax diagram for a window frame"  data="./diagrams/windowFrame-329b15845c538437cf9fe41ecda488b6.svg" ></object>
 
 <h3 id="frameBound">frameBound</h3>
 
-<object alt="syntax diagram for a frame boundary" preserveAspectRatio="xMinYMin meet" data="./diagrams/frameBound-c8bd824532c63e2d55e2045ccd05980c.svg" ></object>
+<object alt="syntax diagram for a frame boundary"  data="./diagrams/frameBound-ab20a274155b9354a23b809c599e6ba3.svg" ></object>
 
 <h3>Examples</h3>
 
@@ -1748,7 +1748,7 @@ In the context of an SQL query statement, an *expression* is always a *Boolean e
 
 <h4 id="expression">expression</h4>
 
-<object alt="syntax diagram for an expression" preserveAspectRatio="xMinYMin meet" data="./diagrams/expression-0d6fc385a09bc7d378ddd0a6818c9b26.svg" ></object>
+<object alt="syntax diagram for an expression"  data="./diagrams/expression-10170289adf4b4866ce6b48f41dc791e.svg" ></object>
 
 <h4>More topics</h4>
 
@@ -1783,7 +1783,7 @@ The syntax of a *Boolean expression* is defined by the following syntax diagrams
 
 <h4 id="booleanExpression">booleanExpression</h4>
 
-<object alt="syntax diagram for a Boolean expression" preserveAspectRatio="xMinYMin meet" data="./diagrams/booleanExpression-d92e6c39c945b03b36f24151693bace8.svg" ></object>
+<object alt="syntax diagram for a Boolean expression"  data="./diagrams/booleanExpression-3f683be65e5f547191f83e354c37ff08.svg" ></object>
 
 A Boolean expression is one of the following:
 
@@ -1817,7 +1817,7 @@ A *Boolean expression* is referenced by the following clauses:
 
 <h4 id="valueExpression">valueExpression</h4>
 
-<object alt="syntax diagram for a value expression" preserveAspectRatio="xMinYMin meet" data="./diagrams/valueExpression-732beb8efa4db77d025fdccc77eab0eb.svg" ></object>
+<object alt="syntax diagram for a value expression"  data="./diagrams/valueExpression-b81615e00cc8f20c1bb892ef39e8bb32.svg" ></object>
 
 A *value expression* is one of the following:
 
@@ -1849,21 +1849,21 @@ A *value expression* is referenced by the following clauses:
 
 <h4 id="primaryExpression">primaryExpression</h4>
 
-<object alt="syntax diagram for a primary expression" preserveAspectRatio="xMinYMin meet" data="./diagrams/primaryExpression-522b63bd5ba616c21d3768e671354d14.svg" ></object>
+<object alt="syntax diagram for a primary expression"  data="./diagrams/primaryExpression-0ace44dd201ee64bd65ada83ad7fb6dc.svg" ></object>
 
 <h4 id="constant">constant</h4>
 
-<object alt="syntax diagram for a constant" preserveAspectRatio="xMinYMin meet" data="./diagrams/constant-5c816ea361ff97ad9f50a72a2b0f90d0.svg" ></object>
+<object alt="syntax diagram for a constant"  data="./diagrams/constant-ebd5181ef893b8f20ba4bf9d993aa8a0.svg" ></object>
 
 <h4 id="interval">interval</h4>
 
 With an *interval clause* you can define time duration constants that can be used in expressions to add or subtract time ranges from a timestamp value.
 
-<object alt="syntax diagram for an interval" preserveAspectRatio="xMinYMin meet" data="./diagrams/interval-01baade5c3e12b51a2bdb188a9afea5b.svg" ></object>
+<object alt="syntax diagram for an interval"  data="./diagrams/interval-2b5cb1068dcb349bc9657f3bba4a2c64.svg" ></object>
 
 <h4 id="timeUnitSpec">timeUnitSpec</h4>
 
-<object alt="syntax diagram for a time unit specification" preserveAspectRatio="xMinYMin meet" data="./diagrams/timeUnitSpec-f5e0cdd66c25ee1c041f727d0d72c679.svg" ></object>
+<object alt="syntax diagram for a time unit specification"  data="./diagrams/timeUnitSpec-5ef1408fb2a223e703a801a683542e3f.svg" ></object>
 
 The following time units are valid:
 - Singular form: `SECOND`, `MINUTE`, `DAY`, `MONTH`, `YEAR`
@@ -1967,11 +1967,11 @@ The result of the example query is shown in the following table.
 
 <h4 id="columnReference">columnReference</h4>
 
-<object alt="syntax diagram for a column reference" preserveAspectRatio="xMinYMin meet" data="./diagrams/columnReference-9cf94fa9de8e1205cf6e0e392e9b1ec4.svg" ></object>
+<object alt="syntax diagram for a column reference"  data="./diagrams/columnReference-e5b300bf4c1d22a51cf3ae097585823c.svg" ></object>
 
 <h4 id="qualifiedName">qualifiedName</h4>
 
-<object alt="syntax diagram for a qualified name" preserveAspectRatio="xMinYMin meet" data="./diagrams/qualifiedName-c5ab7b2b484c13ee887d679ddee80ecc.svg" ></object>
+<object alt="syntax diagram for a qualified name"  data="./diagrams/qualifiedName-326686bdd0c08be256b89fb37db6bc4f.svg" ></object>
 
 A *qualified name* is a sequence of identifiers that are separated by `.`.
 For example, a column name can be qualified by the name of the *relation* the column is defined in.
@@ -2004,7 +2004,7 @@ For more information about the clauses that are used by a *primary expression*, 
 
 <h4 id="predicate">predicate</h4>
 
-<object alt="syntax diagram for a predicate" preserveAspectRatio="xMinYMin meet" data="./diagrams/predicate-b5d41310646bf80ad4db54bd5fdfc92e.svg" ></object>
+<object alt="syntax diagram for a predicate"  data="./diagrams/predicate-692950e2eb8e2fe5cc8640da9956339a.svg" ></object>
 
 The `BETWEEN ... AND` predicate compares a value with a range of values. If `NOT` is specified, the result is reversed.
 
@@ -2411,7 +2411,7 @@ If the specified data type is not supported, you receive an error.
 
 <h4 id="castExpression">castExpression</h4>
 
-<object alt="syntax diagram for a cast expression" preserveAspectRatio="xMinYMin meet" data="./diagrams/castExpression-b0ccf9c2832274a5b8a5b6c359a2189a.svg" ></object>
+<object alt="syntax diagram for a cast expression"  data="./diagrams/castExpression-97e489abbfedb87dd1aeb4ab5da8fb01.svg" ></object>
 
 In case an expression cannot be cast to the data type specified in the cast expression, the expression result is `null`.
 
@@ -2438,7 +2438,7 @@ The syntax of a case expression is described by the following syntax diagrams.
 
 <h4 id="caseExpression">caseExpression</h4>
 
-<object alt="syntax diagram for a case expression" preserveAspectRatio="xMinYMin meet" data="./diagrams/caseExpression-4eb19d708b01ccf7d468e2e6727c2415.svg" ></object>
+<object alt="syntax diagram for a case expression"  data="./diagrams/caseExpression-8e16a74ffec5d0f81d22f50a054bfe62.svg" ></object>
 
 The upper path in the syntax diagram represents a *searched when clause*, that is, the `WHEN` keyword follows directly after the `CASE` keyword.
 The lower path is a *simple when clause*, that is, an expression follows the `CASE` keyword.
@@ -2454,7 +2454,7 @@ A *result expression* is an expression that follows the `THEN` or `ELSE` keyword
 
 <h4 id="whenClause">whenClause</h4>
 
-<object alt="syntax diagram for a when clause" preserveAspectRatio="xMinYMin meet" data="./diagrams/whenClause-38538aba6e71c0b61ac68e92bf031409.svg" ></object>
+<object alt="syntax diagram for a when clause"  data="./diagrams/whenClause-8728f6052edaa2e28ff821adef17b2e0.svg" ></object>
 
 <h4>Examples</h4>
 
@@ -2540,7 +2540,7 @@ The syntax of a *time series expression* is described by the following syntax di
 
 <h4 id="timeSeriesExpression">timeSeriesExpression</h4>
 
-<object alt="syntax diagram for time series expression" preserveAspectRatio="xMinYMin meet" data="./diagrams/timeSeriesExpression-93e8750a32edad88f6f23b07555f078b.svg" ></object>
+<object alt="syntax diagram for time series expression"  data="./diagrams/timeSeriesExpression-6c6c6631b12fff3c5f938b5a2fe649e8.svg" ></object>
 
 The syntax shows time series functions that require expressions, such as  `TS_MAP()`,  `TS_FILTER()`, `TS_SEGMENT_BY_ANCHOR()`, `TS_SEGMENT_BY_MARKER()`, `TS_SEGMENT_BY_DUAL_MARKER()`,
 `TS_FIND()`, and `TS_COUNT_ANCHOR()`.
@@ -2568,7 +2568,7 @@ A *time series expression* is referenced by the following clause:
 
 <h4 id="booleanTimeSeriesExpression">booleanTimeSeriesExpression</h4>
 
-<object alt="syntax diagram for boolean time series expression" preserveAspectRatio="xMinYMin meet" data="./diagrams/booleanTimeSeriesExpression-2f8286c0b1b8c00a9b2dd2c593ee5e14.svg" ></object>
+<object alt="syntax diagram for boolean time series expression"  data="./diagrams/booleanTimeSeriesExpression-5cf8ca64792a94b65d1a0f9981aebc07.svg" ></object>
 
 The Boolean time series expression syntax shows the available Boolean expresssions, such as `TS_EXP_GT()`, which is also used in the previous example.
 
@@ -2576,13 +2576,13 @@ For more information on each function, see [Artifact creation functions](/docs/s
 
 <h4 id="valueTimeSeriesExpression">valueTimeSeriesExpression</h4>
 
-<object alt="syntax diagram for value time series expression" preserveAspectRatio="xMinYMin meet" data="./diagrams/valueTimeSeriesExpression-dcf38db5c0a5941cfb2410a7b12b7dac.svg" ></object>
+<object alt="syntax diagram for value time series expression"  data="./diagrams/valueTimeSeriesExpression-5cc1ac0deb359231449abfc8e929cede.svg" ></object>
 
 Time series values for expressions can either be a `string` or a `double` datatype.
 
 <h4 id="doubleTimeSeriesExpression">doubleTimeSeriesExpression</h4>
 
-<object alt="syntax diagram for double time series expression" preserveAspectRatio="xMinYMin meet" data="./diagrams/doubleTimeSeriesExpression-44ae7014a03566c4ca228fbb654b7519.svg" ></object>
+<object alt="syntax diagram for double time series expression"  data="./diagrams/doubleTimeSeriesExpression-fc935a2a1752145c25d9946298f5ea80.svg" ></object>
 
 The functions shown in the double time series expressions, such as `TS_EXP_ABS()` and `TS_EXP_LENGTH()`, are able to consume again double time series expressions,
 `number`, or an identity time series expression.
@@ -2591,7 +2591,7 @@ For more information on each function, see [Artifact creation functions](/docs/s
 
 <h4 id="stringTimeSeriesExpression">stringTimeSeriesExpression</h4>
 
-<object alt="syntax diagram for string time series expression" preserveAspectRatio="xMinYMin meet" data="./diagrams/stringTimeSeriesExpression-1088c457f56adf78d364599329f81383.svg" ></object>
+<object alt="syntax diagram for string time series expression"  data="./diagrams/stringTimeSeriesExpression-35ad951fdd499fe34eb5f474831db056.svg" ></object>
 
 The string function `TS_EXP_ID_TO_STRING()` converts an ID to a string and the `TS_EXP_CONCAT()` function concatenates the result of two string expressions.
 
@@ -2599,7 +2599,7 @@ For more information on each function, see [Artifact creation functions](/docs/s
 
 <h4 id="stringConditionalExpression">stringConditionalExpression</h4>
 
-<object alt="syntax diagram for string conditional time series expression" preserveAspectRatio="xMinYMin meet" data="./diagrams/stringConditionalExpression-eb27152a889f3eb988d8d892cbfc8c24.svg" ></object>
+<object alt="syntax diagram for string conditional time series expression"  data="./diagrams/stringConditionalExpression-8bb61b6b83af5e9dfb551aa40d6db1c8.svg" ></object>
 
 The three conditional expression functions for string values are `TS_EXP_IF_THEN_ELSE()`, `TS_EXP_IF_THEN()`, and `TS_EXP_MATCH_CASE()`.
 
@@ -2607,7 +2607,7 @@ For more information on each function, see [Artifact creation functions](/docs/s
 
 <h4 id="identityTimeSeriesExpression">identityTimeSeriesExpression</h4>
 
-<object alt="syntax diagram for identity time series expression" preserveAspectRatio="xMinYMin meet" data="./diagrams/identityTimeSeriesExpression-8c067fc5966033606c08f3ae9c537210.svg" ></object>
+<object alt="syntax diagram for identity time series expression"  data="./diagrams/identityTimeSeriesExpression-d81ea48ea7c68ed25972a01514995685.svg" ></object>
 
 The identity expression denotes current observation values in time series.
 
@@ -2691,7 +2691,7 @@ An *operator* is referenced by [valueExpression](#valueExpression).
 ## Data Types
 {: #dataType}
 
-<object alt="syntax diagram for a data type" preserveAspectRatio="xMinYMin meet" data="./diagrams/dataType-8b69d781d4d1546668daff9969e4d005.svg" ></object>
+<object alt="syntax diagram for a data type"  data="./diagrams/dataType-84ea8f53064c8cc5776e3335059aa5e8.svg" ></object>
 
 Data types can be either primitive types like numeric or string types, or they can be composite types that are built from other
 primitive or composite types. Composite types can have the following structure:
@@ -2815,11 +2815,11 @@ For more information, see [catalog management](/docs/sql-query?topic=sql-query-h
 
 <h4 id="createTable">createTable</h4>
 
-<object alt="syntax diagram for a create table command" preserveAspectRatio="xMinYMin meet" data="./diagrams/createTable-5ad1f10f53e8a02bd826424f83056d00.svg" ></object>
+<object alt="syntax diagram for a create table command"  data="./diagrams/createTable-e5f1617df707d799207da0221da20b30.svg" ></object>
 
 <h4 id="columnDefinition">columnDefinition</h4>
 
-<object alt="syntax diagram for column definition" preserveAspectRatio="xMinYMin meet" data="./diagrams/columnDefinition-623f5d3aef38f018c93da0b7386e4819.svg" ></object>
+<object alt="syntax diagram for column definition"  data="./diagrams/columnDefinition-225b47f63c68fda5ad84d923d440b287.svg" ></object>
 
 Create a table definition in the catalog based on the objects in the specified {{site.data.keyword.cos_short}} location. The `LOCATION` option is mandatory.
 If a table or view with the same name exists in the same {{site.data.keyword.sqlquery_short}} instance, you receive an error, unless the `IF NOT EXISTS` clause is specified.
@@ -2910,7 +2910,7 @@ options(HEADER=false)
 
 <h4 id="dropTable">dropTable</h4>
 
-<object alt="syntax diagram for a drop table command" preserveAspectRatio="xMinYMin meet" data="./diagrams/dropTable-4ce16f7f7c644d556fef4a73c6a6e1a2.svg" ></object>
+<object alt="syntax diagram for a drop table command"  data="./diagrams/dropTable-d8128ad0300e105d8af5afba546a3cd6.svg" ></object>
 
 Drop a table definition from the catalog. If the table does not exist, you receive an error, unless the `IF EXISTS` option is specified.
 
@@ -2927,11 +2927,11 @@ DROP TABLE customers
 
 <h4 id="createView">createView</h4>
 
-<object alt="syntax diagram for a create view command" preserveAspectRatio="xMinYMin meet" data="./diagrams/createView-4f9fbc289737836cb5687c85dc53d5ed.svg" ></object>
+<object alt="syntax diagram for a create view command"  data="./diagrams/createView-ac808d46d7a7865cecc09eae2fc4117e.svg" ></object>
 
 <h4 id="identifierComment">identifierComment</h4>
 
-<object alt="syntax diagram for identifier comment definition" preserveAspectRatio="xMinYMin meet" data="./diagrams/identifierComment-8c9d4ec97c7f29025025f92e84506586.svg" ></object>
+<object alt="syntax diagram for identifier comment definition"  data="./diagrams/identifierComment-61db1d0aaf1ccef44f5eafab0e1c5465.svg" ></object>
 
 Create a view definition in the catalog, based on existing table and view definitions.
 If a table or view with the same name exists in the same {{site.data.keyword.sqlquery_short}} instance, you receive an error, unless the `IF NOT EXISTS` clause is specified.
@@ -2954,7 +2954,7 @@ CREATE VIEW CUSTOMER_STATISTICS AS
 
 <h4 id="dropView">dropView</h4>
 
-<object alt="syntax diagram for a drop view command" preserveAspectRatio="xMinYMin meet" data="./diagrams/dropView-16e0d9f85a954e66b2ff3ece7301e952.svg" ></object>
+<object alt="syntax diagram for a drop view command"  data="./diagrams/dropView-614af1afb63f66968282c0197db4eab9.svg" ></object>
 
 Drop a view definition from the catalog. If the view does not exist, you receive an error, unless the `IF EXISTS` option is specified.
 
@@ -2971,7 +2971,7 @@ DROP VIEW customer_statistics
 
 <h4 id="alterTablePartitions">alterTablePartitions</h4>
 
-<object alt="syntax diagram for a alter table partitions command" preserveAspectRatio="xMinYMin meet" data="./diagrams/alterTablePartitions-bf22ee462a4d60f2d7fb9a5d52b2f629.svg" ></object>
+<object alt="syntax diagram for a alter table partitions command"  data="./diagrams/alterTablePartitions-4e2eae0f397e1ab1426f23ddc2d054a7.svg" ></object>
 
 Use alter table to modify the definition of the partitions or to automatically discover the available partitions.
 
@@ -2985,7 +2985,7 @@ ALTER TABLE customers_partitioned RECOVER PARTITIONS
 
 <h4 id="partitionSpec">partitionSpecification</h4>
 
-<object alt="syntax diagram for a partition's specification" preserveAspectRatio="xMinYMin meet" data="./diagrams/partitionSpec-766fcccdb5af669824ca278711bebc54.svg" ></object>
+<object alt="syntax diagram for a partition's specification"  data="./diagrams/partitionSpec-ab0ea9c0574337bb813d0cd4219dd8b5.svg" ></object>
 
 To add or remove partitions individually, use the `ADD PARTITION` or `DROP PARTITION` options.
 
@@ -3017,7 +3017,7 @@ Use the `EXISTS` option to avoid getting errors during `ADD` or `DROP`.
 
 <h4 id="alterTableColumns">alterTableColumns</h4>
 
-<object alt="syntax diagram for a alter table columns command" preserveAspectRatio="xMinYMin meet" data="./diagrams/alterTableColumns-78f2ae2e540ac86a679fdf7f1d9c8b4d.svg" ></object>
+<object alt="syntax diagram for a alter table columns command"  data="./diagrams/alterTableColumns-36461e988fcfccb3ee3b54c7693bac4e.svg" ></object>
 
 Use alter table to add new columns to the schema of a catalog table.
 
@@ -3056,7 +3056,7 @@ The option `NOSCAN` only collects the sizes of the objects. HIDE END -->
 
 <h4 id="describeTable">describeTable</h4>
 
-<object alt="syntax diagram for describe tables command" preserveAspectRatio="xMinYMin meet" data="./diagrams/describeTable-38b96d9ca2b3bf33b118925eb6d8f372.svg" ></object>
+<object alt="syntax diagram for describe tables command"  data="./diagrams/describeTable-27e294231c17566a85a81381608201f6.svg" ></object>
 
 Return the schema (column names and data types) of a table or view definition. If the table or view does not exist, you receive an error.
 
@@ -3071,7 +3071,7 @@ DESCRIBE TABLE customers_partitioned
 
 <h4 id="showTables">showTables</h4>
 
-<object alt="syntax diagram for show tables command" preserveAspectRatio="xMinYMin meet" data="./diagrams/showTables-3d69c0e26712f8fb2e02b8cbac49fe9f.svg" ></object>
+<object alt="syntax diagram for show tables command"  data="./diagrams/showTables-d0cccd6390caa6dd5a889297d7214696.svg" ></object>
 
 Returns the list of the defined tables and views in the catalog. The `LIKE` option allows to filter for a indicated pattern. Use `*` as wildcard character.
 
@@ -3107,7 +3107,7 @@ SHOW TBLPROPERTIES customer
 
 <h4 id="showPartitions">showPartitions</h4>
 
-<object alt="syntax diagram for show partitions command" preserveAspectRatio="xMinYMin meet" data="./diagrams/showPartitions-7cd9a1ee90ccf95405dfe06764f0c6cf.svg" ></object>
+<object alt="syntax diagram for show partitions command"  data="./diagrams/showPartitions-c8aa7e1b0e6eb6b65b3433043fe0221d.svg" ></object>
 
 List the defined partitions of a table when a table was created as partitioned. You can filter the returned partitions by using the *partitionSpec*
 option.
@@ -3131,13 +3131,13 @@ For more information, see [index management](/docs/sql-query?topic=sql-query-ind
 
 <h4 id="createIndex">createIndex</h4>
 
-<object alt="syntax diagram for create index command" preserveAspectRatio="xMinYMin meet" data="./diagrams/metaindexCreateCommand-a927dbc8915ce6e950a058de989ee674.svg" ></object>
+<object alt="syntax diagram for create index command"  data="./diagrams/metaindexCreateCommand-17333711205910878b6a63cab38910c7.svg" ></object>
 
 Create an index on the objects in the specified {{site.data.keyword.cos_short}} location or on the specified table. Define the required index type for each column that you want to calculate the summary metadata for. Create the index on columns that are used for predicates in the SQL statements.
 
 <h4 id="metaindexIndextype">metaindexIndextype</h4>
 
-<object alt="syntax diagram for the different index types" preserveAspectRatio="xMinYMin meet" data="./diagrams/metaindexIndextype-9679ca7d1f0d8871e6cf5ce3dc199b30.svg" ></object>
+<object alt="syntax diagram for the different index types"  data="./diagrams/metaindexIndextype-a761c6b543fa671ca9138f6ce928ed2e.svg" ></object>
 
 - MINMAX: Stores minimum or maximum values for a column for all types, except for complex types.
 - VALUELIST: Stores the list of unique values for the column for all types if the distinct values in that column are low.
@@ -3185,7 +3185,7 @@ ALTER METAINDEX SET LOCATION cos://us-south/<mybucket>/<mypath>
 
 <h4 id="dropIndex">dropIndex</h4>
 
-<object alt="syntax diagram for drop index command" preserveAspectRatio="xMinYMin meet" data="./diagrams/metaindexDropCommand-e4071a36d8dbe4bfbf61eeffb8483431.svg" ></object>
+<object alt="syntax diagram for drop index command"  data="./diagrams/metaindexDropCommand-545b0499ebbd345c3d7fc9a628e9f5bd.svg" ></object>
 
 Drop an existing index based on the objects in the specified {{site.data.keyword.cos_short}} location or on the specified table. Use the following command when the index is no longer needed:
 
@@ -3200,7 +3200,7 @@ DROP METAINDEX ON cos://us-geo/sql/metergen STORED AS parquet
 
 <h4 id="refreshIndex">refreshIndex</h4>
 
-<object alt="syntax diagram for refresh index command" preserveAspectRatio="xMinYMin meet" data="./diagrams/metaindexRefreshCommand-fc118cabe046a61d031ac1edff3b02b2.svg" ></object>
+<object alt="syntax diagram for refresh index command"  data="./diagrams/metaindexRefreshCommand-be0641bd60660b4fd42b13f61dd7d718.svg" ></object>
 
 Refresh an existing index based on the objects in the specified {{site.data.keyword.cos_short}} location or on the specified table.
 Use the following command if the data changed and you need to update the index:
@@ -3216,7 +3216,7 @@ REFRESH METAINDEX ON cos://us-geo/sql/metergen STORED AS parquet
 
 <h4 id="describeIndex">describeIndex</h4>
 
-<object alt="syntax diagram for describe index command" preserveAspectRatio="xMinYMin meet" data="./diagrams/metaindexDescribeCommand-d1cf0f1ae1a561ea1e51546e1a9ea251.svg" ></object>
+<object alt="syntax diagram for describe index command"  data="./diagrams/metaindexDescribeCommand-5a424e94a042c00b1eef1f5c299b43dd.svg" ></object>
 
 Describe an existing index based on the objects in the specified {{site.data.keyword.cos_short}} location or on the specified table.
 Use the following command to receive information of the index, such as index status, types that are used, location where it is stored, or number of objects processed.
@@ -3232,7 +3232,7 @@ DESCRIBE METAINDEX ON cos://us-geo/sql/metergen STORED AS parquet
 
 <h4 id="showIndexes">showIndexes</h4>
 
-<object alt="syntax diagram for show indexes command" preserveAspectRatio="xMinYMin meet" data="./diagrams/mmetaindexShowCommand-65a04609de9142e22515c9261b30ef81.svg" ></object>
+<object alt="syntax diagram for show indexes command"  data="./diagrams/mmetaindexShowCommand-97859f1958389b7662fa1205fec0cf24.svg" ></object>
 
 List all stored indexes in the base location. Tables with a different index location are not displayed in the list.
 
@@ -3247,7 +3247,7 @@ SHOW METAINDEXES
 
 <h4 id="alterIndex">alterIndex</h4>
 
-<object alt="syntax diagram for alter index command" preserveAspectRatio="xMinYMin meet" data="./diagrams/metaindexLocationCommand-b93f5f9f3f8245bded105ee42c516d62.svg" ></object>
+<object alt="syntax diagram for alter index command"  data="./diagrams/metaindexLocationCommand-1a4965353c4d41bf1af70855e2ab11a2.svg" ></object>
 
 You must alter the {{site.data.keyword.cos_short}} location for all indexes only once to define the base location.
 If you change it later, {{site.data.keyword.sqlquery_short}} cannot find the index metadata anymore.
@@ -3265,7 +3265,7 @@ ALTER METAINDEX SET LOCATION cos://us-south/<mybucket>/<mypath>/
 
 <h4 id="alterTableSetLocation">alterTableSetLocation</h4>
 
-<object alt="syntax diagram for alter table set location command" preserveAspectRatio="xMinYMin meet" data="./diagrams/hiveMetaindexLocationCommand-f249a82b44a24e9786de1fd14c942d06.svg" ></object>
+<object alt="syntax diagram for alter table set location command"  data="./diagrams/hiveMetaindexLocationCommand-f9b008fd0b8484b83cb01d7fe62511ae.svg" ></object>
 
 With this command you can define a location for this specified Hive table. If you change it later, {{site.data.keyword.sqlquery_short}} does not find the index metadata anymore. Existing index metadata on previous location is not dropped, therefore you can always switch back to the old location when needed.
 
@@ -3281,7 +3281,7 @@ ALTER TABLE CUSTOMERS_PARTITIONED SET METAINDEX LOCATION cos://us-south/<mybucke
 
 <h4 id="alterTableDropLocation">alterTableDropLocation</h4>
 
-<object alt="syntax diagram for alter table drop location command" preserveAspectRatio="xMinYMin meet" data="./diagrams/hiveMetaindexDropLocationCommand-ad2042c2eb90eb968359c4036c172370.svg" ></object>
+<object alt="syntax diagram for alter table drop location command"  data="./diagrams/hiveMetaindexDropLocationCommand-08d214c4d83dd2a4748b90d1a98ff52b.svg" ></object>
 
 With this command you can drop a location for the specified table. Use this command if the index metadata is to be fetched from the base location. The metadata for the index that is stored in {{site.data.keyword.cos_short}} is not dropped and must be cleaned up manually.
 
@@ -3298,15 +3298,15 @@ ALTER TABLE CUSTOMERS_PARTITIONED DROP METAINDEX LOCATION
 
 The indexAsset is either based on a table or Cloud {{site.data.keyword.cos_short}} location.
 
-<object alt="syntax diagram for index asset" preserveAspectRatio="xMinYMin meet" data="./diagrams/metaindexAsset-a0a71e8b0a1947942972ef70661b5abd.svg" ></object>
+<object alt="syntax diagram for index asset"  data="./diagrams/metaindexAsset-520178af0470768e405bb54e8bbc00ba.svg" ></object>
 
 The metaindexAssetLocation is a subset of the [externalTableSpec](#externalTableSpec).
 
-<object alt="syntax diagram for index asset location" preserveAspectRatio="xMinYMin meet" data="./diagrams/metaindexAssetLocation-bf7af75394e7f32d590bfa313a165055.svg" ></object>
+<object alt="syntax diagram for index asset location"  data="./diagrams/metaindexAssetLocation-749903bbf7185319639a810f2aa6604d.svg" ></object>
 
 The `metaindexAssetHiveTable` refers to a Hive table.
 
-<object alt="syntax diagram for index asset Hive table" preserveAspectRatio="xMinYMin meet" data="./diagrams/metaindexAssetHiveTable-034de3c240fc3d97ce5a2456112d2928.svg" ></object>
+<object alt="syntax diagram for index asset Hive table"  data="./diagrams/metaindexAssetHiveTable-9566d63c32ef5bec32b9c7641f188fe3.svg" ></object>
 
 ## Miscellaneous Definitions
 {: #chapterMiscDefinitions}
