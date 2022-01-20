@@ -58,7 +58,7 @@ svg.railroad-diagram rect {
                 <path d="M870 31h10"/>
                 <path d="M880 31h10"/>
                 <g>
-                    <a xlink:href="#expression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#expression" target="_top">
                         <path d="M890 31h0"/>
                         <path d="M990 31h0"/>
                         <rect x="890" y="20" width="100" height="22"/>
@@ -76,7 +76,7 @@ svg.railroad-diagram rect {
                 <path d="M1038 31h10"/>
                 <path d="M1048 31h10"/>
                 <g>
-                    <a xlink:href="#valueTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#valueTimeSeriesExpression" target="_top">
                         <path d="M1058 31h0"/>
                         <path d="M1278 31h0"/>
                         <rect x="1058" y="20" width="220" height="22"/>
@@ -116,7 +116,7 @@ svg.railroad-diagram rect {
                 <path d="M854 61h10"/>
                 <path d="M864 61h10"/>
                 <g>
-                    <a xlink:href="#valueExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#valueExpression" target="_top">
                         <path d="M874 61h0"/>
                         <path d="M1014 61h0"/>
                         <rect x="874" y="50" width="140" height="22"/>
@@ -134,7 +134,7 @@ svg.railroad-diagram rect {
                 <path d="M1062 61h10"/>
                 <path d="M1072 61h10"/>
                 <g>
-                    <a xlink:href="#booleanTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanTimeSeriesExpression" target="_top">
                         <path d="M1082 61h0"/>
                         <path d="M1318 61h0"/>
                         <rect x="1082" y="50" width="236" height="22"/>
@@ -174,7 +174,7 @@ svg.railroad-diagram rect {
                 <path d="M750 91h10"/>
                 <path d="M760 91h10"/>
                 <g>
-                    <a xlink:href="#expression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#expression" target="_top">
                         <path d="M770 91h0"/>
                         <path d="M870 91h0"/>
                         <rect x="770" y="80" width="100" height="22"/>
@@ -192,7 +192,7 @@ svg.railroad-diagram rect {
                 <path d="M918 91h10"/>
                 <path d="M928 91h10"/>
                 <g>
-                    <a xlink:href="#booleanTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanTimeSeriesExpression" target="_top">
                         <path d="M938 91h0"/>
                         <path d="M1174 91h0"/>
                         <rect x="938" y="80" width="236" height="22"/>
@@ -210,7 +210,7 @@ svg.railroad-diagram rect {
                 <path d="M1222 91h10"/>
                 <path d="M1232 91h10"/>
                 <g>
-                    <a xlink:href="#expression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#expression" target="_top">
                         <path d="M1242 91h0"/>
                         <path d="M1342 91h0"/>
                         <rect x="1242" y="80" width="100" height="22"/>
@@ -228,7 +228,7 @@ svg.railroad-diagram rect {
                 <path d="M1390 91h10"/>
                 <path d="M1400 91h10"/>
                 <g>
-                    <a xlink:href="#expression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#expression" target="_top">
                         <path d="M1410 91h0"/>
                         <path d="M1510 91h0"/>
                         <rect x="1410" y="80" width="100" height="22"/>
@@ -268,7 +268,7 @@ svg.railroad-diagram rect {
                 <path d="M470 121h10"/>
                 <path d="M480 121h10"/>
                 <g>
-                    <a xlink:href="#expression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#expression" target="_top">
                         <path d="M490 121h0"/>
                         <path d="M590 121h0"/>
                         <rect x="490" y="110" width="100" height="22"/>
@@ -286,7 +286,7 @@ svg.railroad-diagram rect {
                 <path d="M638 121h10"/>
                 <path d="M648 121h10"/>
                 <g>
-                    <a xlink:href="#booleanTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanTimeSeriesExpression" target="_top">
                         <path d="M658 121h0"/>
                         <path d="M894 121h0"/>
                         <rect x="658" y="110" width="236" height="22"/>
@@ -304,7 +304,7 @@ svg.railroad-diagram rect {
                 <path d="M942 121h10"/>
                 <path d="M952 121h10"/>
                 <g>
-                    <a xlink:href="#booleanExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanExpression" target="_top">
                         <path d="M962 121h0"/>
                         <path d="M1118 121h0"/>
                         <rect x="962" y="110" width="156" height="22"/>
@@ -322,7 +322,7 @@ svg.railroad-diagram rect {
                 <path d="M1166 121h10"/>
                 <path d="M1176 121h10"/>
                 <g>
-                    <a xlink:href="#booleanExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanExpression" target="_top">
                         <path d="M1186 121h0"/>
                         <path d="M1342 121h0"/>
                         <rect x="1186" y="110" width="156" height="22"/>
@@ -340,7 +340,7 @@ svg.railroad-diagram rect {
                 <path d="M1390 121h10"/>
                 <path d="M1400 121h10"/>
                 <g>
-                    <a xlink:href="#booleanExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanExpression" target="_top">
                         <path d="M1410 121h0"/>
                         <path d="M1566 121h0"/>
                         <rect x="1410" y="110" width="156" height="22"/>
@@ -358,7 +358,7 @@ svg.railroad-diagram rect {
                 <path d="M1614 121h10"/>
                 <path d="M1624 121h10"/>
                 <g>
-                    <a xlink:href="#booleanExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanExpression" target="_top">
                         <path d="M1634 121h0"/>
                         <path d="M1790 121h0"/>
                         <rect x="1634" y="110" width="156" height="22"/>
@@ -398,7 +398,7 @@ svg.railroad-diagram rect {
                 <path d="M338 151h10"/>
                 <path d="M348 151h10"/>
                 <g>
-                    <a xlink:href="#expression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#expression" target="_top">
                         <path d="M358 151h0"/>
                         <path d="M458 151h0"/>
                         <rect x="358" y="140" width="100" height="22"/>
@@ -416,7 +416,7 @@ svg.railroad-diagram rect {
                 <path d="M506 151h10"/>
                 <path d="M516 151h10"/>
                 <g>
-                    <a xlink:href="#booleanTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanTimeSeriesExpression" target="_top">
                         <path d="M526 151h0"/>
                         <path d="M762 151h0"/>
                         <rect x="526" y="140" width="236" height="22"/>
@@ -434,7 +434,7 @@ svg.railroad-diagram rect {
                 <path d="M810 151h10"/>
                 <path d="M820 151h10"/>
                 <g>
-                    <a xlink:href="#booleanTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanTimeSeriesExpression" target="_top">
                         <path d="M830 151h0"/>
                         <path d="M1066 151h0"/>
                         <rect x="830" y="140" width="236" height="22"/>
@@ -452,7 +452,7 @@ svg.railroad-diagram rect {
                 <path d="M1114 151h10"/>
                 <path d="M1124 151h10"/>
                 <g>
-                    <a xlink:href="#booleanExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanExpression" target="_top">
                         <path d="M1134 151h0"/>
                         <path d="M1290 151h0"/>
                         <rect x="1134" y="140" width="156" height="22"/>
@@ -470,7 +470,7 @@ svg.railroad-diagram rect {
                 <path d="M1338 151h10"/>
                 <path d="M1348 151h10"/>
                 <g>
-                    <a xlink:href="#booleanExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanExpression" target="_top">
                         <path d="M1358 151h0"/>
                         <path d="M1514 151h0"/>
                         <rect x="1358" y="140" width="156" height="22"/>
@@ -488,7 +488,7 @@ svg.railroad-diagram rect {
                 <path d="M1562 151h10"/>
                 <path d="M1572 151h10"/>
                 <g>
-                    <a xlink:href="#booleanExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanExpression" target="_top">
                         <path d="M1582 151h0"/>
                         <path d="M1738 151h0"/>
                         <rect x="1582" y="140" width="156" height="22"/>
@@ -506,7 +506,7 @@ svg.railroad-diagram rect {
                 <path d="M1786 151h10"/>
                 <path d="M1796 151h10"/>
                 <g>
-                    <a xlink:href="#booleanExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanExpression" target="_top">
                         <path d="M1806 151h0"/>
                         <path d="M1962 151h0"/>
                         <rect x="1806" y="140" width="156" height="22"/>
@@ -546,7 +546,7 @@ svg.railroad-diagram rect {
                 <path d="M866 181h10"/>
                 <path d="M876 181h10"/>
                 <g>
-                    <a xlink:href="#expression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#expression" target="_top">
                         <path d="M886 181h0"/>
                         <path d="M986 181h0"/>
                         <rect x="886" y="170" width="100" height="22"/>
@@ -564,7 +564,7 @@ svg.railroad-diagram rect {
                 <path d="M1034 181h10"/>
                 <path d="M1044 181h10"/>
                 <g>
-                    <a xlink:href="#booleanTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanTimeSeriesExpression" target="_top">
                         <path d="M1054 181h0"/>
                         <path d="M1290 181h0"/>
                         <rect x="1054" y="170" width="236" height="22"/>
@@ -604,7 +604,7 @@ svg.railroad-diagram rect {
                 <path d="M898 211h10"/>
                 <path d="M908 211h10"/>
                 <g>
-                    <a xlink:href="#expression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#expression" target="_top">
                         <path d="M918 211h0"/>
                         <path d="M1018 211h0"/>
                         <rect x="918" y="200" width="100" height="22"/>
@@ -622,7 +622,7 @@ svg.railroad-diagram rect {
                 <path d="M1066 211h10"/>
                 <path d="M1076 211h10"/>
                 <g>
-                    <a xlink:href="#booleanTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanTimeSeriesExpression" target="_top">
                         <path d="M1086 211h0"/>
                         <path d="M1322 211h0"/>
                         <rect x="1086" y="200" width="236" height="22"/>

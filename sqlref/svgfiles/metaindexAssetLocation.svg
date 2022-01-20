@@ -38,7 +38,7 @@ svg.railroad-diagram rect {
             <path d="M992 41h0"/>
             <path d="M40 41h10"/>
             <g>
-                <a xlink:href="#COSURI">
+                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#COSURI" target="_top">
                     <path d="M50 41h0"/>
                     <path d="M118 41h0"/>
                     <rect x="50" y="30" width="68" height="22"/>
@@ -147,7 +147,7 @@ svg.railroad-diagram rect {
                                     <path d="M710 81h10"/>
                                     <path d="M720 81h10"/>
                                     <g>
-                                        <a xlink:href="#STRING">
+                                        <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#STRING" target="_top">
                                             <path d="M730 81h0"/>
                                             <path d="M798 81h0"/>
                                             <rect x="730" y="70" width="68" height="22"/>

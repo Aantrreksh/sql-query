@@ -38,7 +38,7 @@ svg.railroad-diagram rect {
             <path d="M236 31h0"/>
             <path d="M40 31h20"/>
             <g>
-                <a xlink:href="#showTables">
+                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#showTables" target="_top">
                     <path d="M60 31h28"/>
                     <path d="M188 31h28"/>
                     <rect x="88" y="20" width="100" height="22"/>
@@ -48,7 +48,7 @@ svg.railroad-diagram rect {
             <path d="M216 31h20"/>
             <path d="M40 31a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"/>
             <g>
-                <a xlink:href="#showPartitions">
+                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#showPartitions" target="_top">
                     <path d="M60 61h12"/>
                     <path d="M204 61h12"/>
                     <rect x="72" y="50" width="132" height="22"/>
@@ -58,7 +58,7 @@ svg.railroad-diagram rect {
             <path d="M216 61a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"/>
             <path d="M40 31a10 10 0 0 1 10 10v40a10 10 0 0 0 10 10"/>
             <g>
-                <a xlink:href="#showTblProperties">
+                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#showTblProperties" target="_top">
                     <path d="M60 91h0"/>
                     <path d="M216 91h0"/>
                     <rect x="60" y="80" width="156" height="22"/>
@@ -68,7 +68,7 @@ svg.railroad-diagram rect {
             <path d="M216 91a10 10 0 0 0 10 -10v-40a10 10 0 0 1 10 -10"/>
             <path d="M40 31a10 10 0 0 1 10 10v70a10 10 0 0 0 10 10"/>
             <g>
-                <a xlink:href="#describeTable">
+                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#describeTable" target="_top">
                     <path d="M60 121h16"/>
                     <path d="M200 121h16"/>
                     <rect x="76" y="110" width="124" height="22"/>

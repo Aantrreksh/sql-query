@@ -46,7 +46,7 @@ svg.railroad-diagram rect {
             <path d="M268 31h20"/>
             <path d="M40 31a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"/>
             <g>
-                <a xlink:href="#interval">
+                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#interval" target="_top">
                     <path d="M60 61h62"/>
                     <path d="M206 61h62"/>
                     <rect x="122" y="50" width="84" height="22"/>
@@ -60,7 +60,7 @@ svg.railroad-diagram rect {
                 <path d="M268 91h0"/>
                 <path d="M60 91h10"/>
                 <g>
-                    <a xlink:href="#identifier">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#identifier" target="_top">
                         <path d="M70 91h0"/>
                         <path d="M170 91h0"/>
                         <rect x="70" y="80" width="100" height="22"/>
@@ -70,7 +70,7 @@ svg.railroad-diagram rect {
                 <path d="M170 91h10"/>
                 <path d="M180 91h10"/>
                 <g>
-                    <a xlink:href="#STRING">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#STRING" target="_top">
                         <path d="M190 91h0"/>
                         <path d="M258 91h0"/>
                         <rect x="190" y="80" width="68" height="22"/>
@@ -82,7 +82,7 @@ svg.railroad-diagram rect {
             <path d="M268 91a10 10 0 0 0 10 -10v-40a10 10 0 0 1 10 -10"/>
             <path d="M40 31a10 10 0 0 1 10 10v70a10 10 0 0 0 10 10"/>
             <g>
-                <a xlink:href="#number">
+                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#number" target="_top">
                     <path d="M60 121h70"/>
                     <path d="M198 121h70"/>
                     <rect x="130" y="110" width="68" height="22"/>
@@ -112,7 +112,7 @@ svg.railroad-diagram rect {
                 <path d="M208 211h60"/>
                 <path d="M120 211h10"/>
                 <g>
-                    <a xlink:href="#STRING">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#STRING" target="_top">
                         <path d="M130 211h0"/>
                         <path d="M198 211h0"/>
                         <rect x="130" y="200" width="68" height="22"/>

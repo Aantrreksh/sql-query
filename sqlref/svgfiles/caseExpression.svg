@@ -54,7 +54,7 @@ svg.railroad-diagram rect {
                     <path d="M322 41h0"/>
                     <path d="M202 41h10"/>
                     <g>
-                        <a xlink:href="#whenClause">
+                        <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#whenClause" target="_top">
                             <path d="M212 41h0"/>
                             <path d="M312 41h0"/>
                             <rect x="212" y="30" width="100" height="22"/>
@@ -91,7 +91,7 @@ svg.railroad-diagram rect {
                         <path d="M414 41h10"/>
                         <path d="M424 41h10"/>
                         <g>
-                            <a xlink:href="#expression">
+                            <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#expression" target="_top">
                                 <path d="M434 41h0"/>
                                 <path d="M534 41h0"/>
                                 <rect x="434" y="30" width="100" height="22"/>
@@ -126,7 +126,7 @@ svg.railroad-diagram rect {
                 <path d="M122 90h10"/>
                 <path d="M132 90h10"/>
                 <g>
-                    <a xlink:href="#expression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#expression" target="_top">
                         <path d="M142 90h0"/>
                         <path d="M242 90h0"/>
                         <rect x="142" y="79" width="100" height="22"/>
@@ -140,7 +140,7 @@ svg.railroad-diagram rect {
                     <path d="M382 90h0"/>
                     <path d="M262 90h10"/>
                     <g>
-                        <a xlink:href="#whenClause">
+                        <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#whenClause" target="_top">
                             <path d="M272 90h0"/>
                             <path d="M372 90h0"/>
                             <rect x="272" y="79" width="100" height="22"/>
@@ -177,7 +177,7 @@ svg.railroad-diagram rect {
                         <path d="M474 90h10"/>
                         <path d="M484 90h10"/>
                         <g>
-                            <a xlink:href="#expression">
+                            <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#expression" target="_top">
                                 <path d="M494 90h0"/>
                                 <path d="M594 90h0"/>
                                 <rect x="494" y="79" width="100" height="22"/>

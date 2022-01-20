@@ -42,7 +42,7 @@ svg.railroad-diagram rect {
                 <path d="M1232 41h0"/>
                 <path d="M60 41h10"/>
                 <g>
-                    <a xlink:href="#COSURI">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#COSURI" target="_top">
                         <path d="M70 41h0"/>
                         <path d="M138 41h0"/>
                         <rect x="70" y="30" width="68" height="22"/>
@@ -151,7 +151,7 @@ svg.railroad-diagram rect {
                                         <path d="M730 81h10"/>
                                         <path d="M740 81h10"/>
                                         <g>
-                                            <a xlink:href="#STRING">
+                                            <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#STRING" target="_top">
                                                 <path d="M750 81h0"/>
                                                 <path d="M818 81h0"/>
                                                 <rect x="750" y="70" width="68" height="22"/>
@@ -295,7 +295,7 @@ svg.railroad-diagram rect {
                     <path d="M1212 21a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"/>
                     <path d="M1012 41h20"/>
                     <g>
-                        <a xlink:href="#timeSeriesProperties">
+                        <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#timeSeriesProperties" target="_top">
                             <path d="M1032 41h0"/>
                             <path d="M1212 41h0"/>
                             <rect x="1032" y="30" width="180" height="22"/>
@@ -308,7 +308,7 @@ svg.railroad-diagram rect {
             <path d="M1232 41h20"/>
             <path d="M40 41a10 10 0 0 1 10 10v250a10 10 0 0 0 10 10"/>
             <g>
-                <a xlink:href="#tableTransformer">
+                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#tableTransformer" target="_top">
                     <path d="M60 311h512"/>
                     <path d="M720 311h512"/>
                     <rect x="572" y="300" width="148" height="22"/>

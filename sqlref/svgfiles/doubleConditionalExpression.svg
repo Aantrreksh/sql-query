@@ -58,7 +58,7 @@ svg.railroad-diagram rect {
                 <path d="M514 31h10"/>
                 <path d="M524 31h10"/>
                 <g>
-                    <a xlink:href="#booleanTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanTimeSeriesExpression" target="_top">
                         <path d="M534 31h0"/>
                         <path d="M770 31h0"/>
                         <rect x="534" y="20" width="236" height="22"/>
@@ -76,7 +76,7 @@ svg.railroad-diagram rect {
                 <path d="M818 31h10"/>
                 <path d="M828 31h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M838 31h0"/>
                         <path d="M1066 31h0"/>
                         <rect x="838" y="20" width="228" height="22"/>
@@ -94,7 +94,7 @@ svg.railroad-diagram rect {
                 <path d="M1114 31h10"/>
                 <path d="M1124 31h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M1134 31h0"/>
                         <path d="M1362 31h0"/>
                         <rect x="1134" y="20" width="228" height="22"/>
@@ -134,7 +134,7 @@ svg.railroad-diagram rect {
                 <path d="M642 61h10"/>
                 <path d="M652 61h10"/>
                 <g>
-                    <a xlink:href="#booleanTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanTimeSeriesExpression" target="_top">
                         <path d="M662 61h0"/>
                         <path d="M898 61h0"/>
                         <rect x="662" y="50" width="236" height="22"/>
@@ -152,7 +152,7 @@ svg.railroad-diagram rect {
                 <path d="M946 61h10"/>
                 <path d="M956 61h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M966 61h0"/>
                         <path d="M1194 61h0"/>
                         <rect x="966" y="50" width="228" height="22"/>
@@ -232,7 +232,7 @@ svg.railroad-diagram rect {
                         <path d="M622 91h10"/>
                         <path d="M632 91h10"/>
                         <g>
-                            <a xlink:href="#booleanTimeSeriesExpression">
+                            <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanTimeSeriesExpression" target="_top">
                                 <path d="M642 91h0"/>
                                 <path d="M878 91h0"/>
                                 <rect x="642" y="80" width="236" height="22"/>
@@ -250,7 +250,7 @@ svg.railroad-diagram rect {
                         <path d="M926 91h10"/>
                         <path d="M936 91h10"/>
                         <g>
-                            <a xlink:href="#doubleTimeSeriesExpression">
+                            <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                                 <path d="M946 91h0"/>
                                 <path d="M1174 91h0"/>
                                 <rect x="946" y="80" width="228" height="22"/>
@@ -302,7 +302,7 @@ svg.railroad-diagram rect {
                 <path d="M1338 91h10"/>
                 <path d="M1348 91h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M1358 91h0"/>
                         <path d="M1586 91h0"/>
                         <rect x="1358" y="80" width="228" height="22"/>

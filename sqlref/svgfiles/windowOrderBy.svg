@@ -74,7 +74,7 @@ svg.railroad-diagram rect {
                     <path d="M320 31h0"/>
                     <path d="M216 31h10"/>
                     <g>
-                        <a xlink:href="#sortItem">
+                        <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#sortItem" target="_top">
                             <path d="M226 31h0"/>
                             <path d="M310 31h0"/>
                             <rect x="226" y="20" width="84" height="22"/>

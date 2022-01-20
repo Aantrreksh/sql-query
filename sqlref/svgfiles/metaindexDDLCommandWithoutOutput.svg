@@ -38,7 +38,7 @@ svg.railroad-diagram rect {
             <path d="M356 31h0"/>
             <path d="M40 31h20"/>
             <g>
-                <a xlink:href="#metaindexRefreshCommand">
+                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#metaindexRefreshCommand" target="_top">
                     <path d="M60 31h36"/>
                     <path d="M300 31h36"/>
                     <rect x="96" y="20" width="204" height="22"/>
@@ -48,7 +48,7 @@ svg.railroad-diagram rect {
             <path d="M336 31h20"/>
             <path d="M40 31a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"/>
             <g>
-                <a xlink:href="#metaindexCreateCommand">
+                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#metaindexCreateCommand" target="_top">
                     <path d="M60 61h40"/>
                     <path d="M296 61h40"/>
                     <rect x="100" y="50" width="196" height="22"/>
@@ -58,7 +58,7 @@ svg.railroad-diagram rect {
             <path d="M336 61a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"/>
             <path d="M40 31a10 10 0 0 1 10 10v40a10 10 0 0 0 10 10"/>
             <g>
-                <a xlink:href="#metaindexDropCommand">
+                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#metaindexDropCommand" target="_top">
                     <path d="M60 91h48"/>
                     <path d="M288 91h48"/>
                     <rect x="108" y="80" width="180" height="22"/>
@@ -68,7 +68,7 @@ svg.railroad-diagram rect {
             <path d="M336 91a10 10 0 0 0 10 -10v-40a10 10 0 0 1 10 -10"/>
             <path d="M40 31a10 10 0 0 1 10 10v70a10 10 0 0 0 10 10"/>
             <g>
-                <a xlink:href="#metaindexLocationCommand">
+                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#metaindexLocationCommand" target="_top">
                     <path d="M60 121h32"/>
                     <path d="M304 121h32"/>
                     <rect x="92" y="110" width="212" height="22"/>
@@ -78,7 +78,7 @@ svg.railroad-diagram rect {
             <path d="M336 121a10 10 0 0 0 10 -10v-70a10 10 0 0 1 10 -10"/>
             <path d="M40 31a10 10 0 0 1 10 10v100a10 10 0 0 0 10 10"/>
             <g>
-                <a xlink:href="#hiveMetaindexLocationCommand">
+                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#hiveMetaindexLocationCommand" target="_top">
                     <path d="M60 151h16"/>
                     <path d="M320 151h16"/>
                     <rect x="76" y="140" width="244" height="22"/>
@@ -88,7 +88,7 @@ svg.railroad-diagram rect {
             <path d="M336 151a10 10 0 0 0 10 -10v-100a10 10 0 0 1 10 -10"/>
             <path d="M40 31a10 10 0 0 1 10 10v130a10 10 0 0 0 10 10"/>
             <g>
-                <a xlink:href="#hiveMetaindexDropLocationCommand">
+                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#hiveMetaindexDropLocationCommand" target="_top">
                     <path d="M60 181h0"/>
                     <path d="M336 181h0"/>
                     <rect x="60" y="170" width="276" height="22"/>

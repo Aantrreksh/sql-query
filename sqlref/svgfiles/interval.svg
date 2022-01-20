@@ -84,7 +84,7 @@ svg.railroad-diagram rect {
                     </g>
                     <path d="M272 41h10"/>
                     <g>
-                        <a xlink:href="#unsignedNumber">
+                        <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#unsignedNumber" target="_top">
                             <path d="M282 41h0"/>
                             <path d="M414 41h0"/>
                             <rect x="282" y="30" width="132" height="22"/>
@@ -95,7 +95,7 @@ svg.railroad-diagram rect {
                 </g>
                 <path d="M424 41h10"/>
                 <g>
-                    <a xlink:href="#timeUnitSpec">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#timeUnitSpec" target="_top">
                         <path d="M434 41h0"/>
                         <path d="M550 41h0"/>
                         <rect x="434" y="30" width="116" height="22"/>
@@ -119,7 +119,7 @@ svg.railroad-diagram rect {
                 <path d="M184 101h10"/>
                 <path d="M194 101h10"/>
                 <g>
-                    <a xlink:href="#STRING">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#STRING" target="_top">
                         <path d="M204 101h0"/>
                         <path d="M272 101h0"/>
                         <rect x="204" y="90" width="68" height="22"/>

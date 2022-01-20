@@ -38,7 +38,7 @@ svg.railroad-diagram rect {
             <path d="M1128 41h0"/>
             <path d="M40 41h10"/>
             <g>
-                <a xlink:href="#COSURI">
+                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#COSURI" target="_top">
                     <path d="M50 41h0"/>
                     <path d="M118 41h0"/>
                     <rect x="50" y="30" width="68" height="22"/>
@@ -198,7 +198,7 @@ svg.railroad-diagram rect {
                 <path d="M968 21a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"/>
                 <path d="M792 41h20"/>
                 <g>
-                    <a xlink:href="#partitionedClause">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#partitionedClause" target="_top">
                         <path d="M812 41h0"/>
                         <path d="M968 41h0"/>
                         <rect x="812" y="30" width="156" height="22"/>
@@ -217,7 +217,7 @@ svg.railroad-diagram rect {
                 <path d="M1108 21a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"/>
                 <path d="M988 41h20"/>
                 <g>
-                    <a xlink:href="#sortClause">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#sortClause" target="_top">
                         <path d="M1008 41h0"/>
                         <path d="M1108 41h0"/>
                         <rect x="1008" y="30" width="100" height="22"/>

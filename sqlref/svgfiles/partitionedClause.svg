@@ -82,7 +82,7 @@ svg.railroad-diagram rect {
                             <path d="M432 41h0"/>
                             <path d="M312 41h10"/>
                             <g>
-                                <a xlink:href="#identifier">
+                                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#identifier" target="_top">
                                     <path d="M322 41h0"/>
                                     <path d="M422 41h0"/>
                                     <rect x="322" y="30" width="100" height="22"/>
@@ -149,7 +149,7 @@ svg.railroad-diagram rect {
                     <path d="M698 41h10"/>
                     <path d="M708 41h10"/>
                     <g>
-                        <a xlink:href="#unsignedInteger">
+                        <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#unsignedInteger" target="_top">
                             <path d="M718 41h0"/>
                             <path d="M858 41h0"/>
                             <rect x="718" y="30" width="140" height="22"/>
@@ -210,7 +210,7 @@ svg.railroad-diagram rect {
                     <path d="M1190 41h10"/>
                     <path d="M1200 41h10"/>
                     <g>
-                        <a xlink:href="#unsignedInteger">
+                        <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#unsignedInteger" target="_top">
                             <path d="M1210 41h0"/>
                             <path d="M1350 41h0"/>
                             <rect x="1210" y="30" width="140" height="22"/>

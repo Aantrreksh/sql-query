@@ -38,7 +38,7 @@ svg.railroad-diagram rect {
             <path d="M888 41h0"/>
             <path d="M40 41h10"/>
             <g>
-                <a xlink:href="#joinType">
+                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#joinType" target="_top">
                     <path d="M50 41h0"/>
                     <path d="M134 41h0"/>
                     <rect x="50" y="30" width="84" height="22"/>
@@ -56,7 +56,7 @@ svg.railroad-diagram rect {
             <path d="M206 41h10"/>
             <path d="M216 41h10"/>
             <g>
-                <a xlink:href="#relationPrimary">
+                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#relationPrimary" target="_top">
                     <path d="M226 41h0"/>
                     <path d="M366 41h0"/>
                     <rect x="226" y="30" width="140" height="22"/>
@@ -98,7 +98,7 @@ svg.railroad-diagram rect {
                         <path d="M610 41h10"/>
                         <path d="M620 41h10"/>
                         <g>
-                            <a xlink:href="#booleanExpression">
+                            <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanExpression" target="_top">
                                 <path d="M630 41h0"/>
                                 <path d="M786 41h0"/>
                                 <rect x="630" y="30" width="156" height="22"/>
@@ -138,7 +138,7 @@ svg.railroad-diagram rect {
                                 <path d="M780 71h0"/>
                                 <path d="M660 71h10"/>
                                 <g>
-                                    <a xlink:href="#identifier">
+                                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#identifier" target="_top">
                                         <path d="M670 71h0"/>
                                         <path d="M770 71h0"/>
                                         <rect x="670" y="60" width="100" height="22"/>

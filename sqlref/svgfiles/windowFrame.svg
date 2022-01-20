@@ -50,7 +50,7 @@ svg.railroad-diagram rect {
                 <path d="M270 31h10"/>
                 <path d="M280 31h10"/>
                 <g>
-                    <a xlink:href="#frameBound">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#frameBound" target="_top">
                         <path d="M290 31h0"/>
                         <path d="M390 31h0"/>
                         <rect x="290" y="20" width="100" height="22"/>
@@ -74,7 +74,7 @@ svg.railroad-diagram rect {
                 <path d="M266 61h10"/>
                 <path d="M276 61h10"/>
                 <g>
-                    <a xlink:href="#frameBound">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#frameBound" target="_top">
                         <path d="M286 61h0"/>
                         <path d="M386 61h0"/>
                         <rect x="286" y="50" width="100" height="22"/>
@@ -106,7 +106,7 @@ svg.railroad-diagram rect {
                 <path d="M226 91h10"/>
                 <path d="M236 91h10"/>
                 <g>
-                    <a xlink:href="#frameBound">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#frameBound" target="_top">
                         <path d="M246 91h0"/>
                         <path d="M346 91h0"/>
                         <rect x="246" y="80" width="100" height="22"/>
@@ -124,7 +124,7 @@ svg.railroad-diagram rect {
                 <path d="M410 91h10"/>
                 <path d="M420 91h10"/>
                 <g>
-                    <a xlink:href="#frameBound">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#frameBound" target="_top">
                         <path d="M430 91h0"/>
                         <path d="M530 91h0"/>
                         <rect x="430" y="80" width="100" height="22"/>
@@ -156,7 +156,7 @@ svg.railroad-diagram rect {
                 <path d="M222 121h10"/>
                 <path d="M232 121h10"/>
                 <g>
-                    <a xlink:href="#frameBound">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#frameBound" target="_top">
                         <path d="M242 121h0"/>
                         <path d="M342 121h0"/>
                         <rect x="242" y="110" width="100" height="22"/>
@@ -174,7 +174,7 @@ svg.railroad-diagram rect {
                 <path d="M406 121h10"/>
                 <path d="M416 121h10"/>
                 <g>
-                    <a xlink:href="#frameBound">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#frameBound" target="_top">
                         <path d="M426 121h0"/>
                         <path d="M526 121h0"/>
                         <rect x="426" y="110" width="100" height="22"/>

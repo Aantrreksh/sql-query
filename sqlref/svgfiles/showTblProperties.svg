@@ -54,7 +54,7 @@ svg.railroad-diagram rect {
             <path d="M246 41h10"/>
             <path d="M256 41h10"/>
             <g>
-                <a xlink:href="#tableIdentifier">
+                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#tableIdentifier" target="_top">
                     <path d="M266 41h0"/>
                     <path d="M406 41h0"/>
                     <rect x="266" y="30" width="140" height="22"/>
@@ -84,7 +84,7 @@ svg.railroad-diagram rect {
                     <path d="M474 41h10"/>
                     <path d="M484 41h10"/>
                     <g>
-                        <a xlink:href="#tablePropertyKey">
+                        <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#tablePropertyKey" target="_top">
                             <path d="M494 41h0"/>
                             <path d="M642 41h0"/>
                             <rect x="494" y="30" width="148" height="22"/>

@@ -58,7 +58,7 @@ svg.railroad-diagram rect {
                 <path d="M454 31h10"/>
                 <path d="M464 31h10"/>
                 <g>
-                    <a xlink:href="#deprecatedAnchorTimeSeriesExpressionParam">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#deprecatedAnchorTimeSeriesExpressionParam" target="_top">
                         <path d="M474 31h0"/>
                         <path d="M822 31h0"/>
                         <rect x="474" y="20" width="348" height="22"/>
@@ -98,7 +98,7 @@ svg.railroad-diagram rect {
                 <path d="M478 61h10"/>
                 <path d="M488 61h10"/>
                 <g>
-                    <a xlink:href="#deprecatedAnchorTimeSeriesExpressionParam">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#deprecatedAnchorTimeSeriesExpressionParam" target="_top">
                         <path d="M498 61h0"/>
                         <path d="M846 61h0"/>
                         <rect x="498" y="50" width="348" height="22"/>
@@ -138,7 +138,7 @@ svg.railroad-diagram rect {
                 <path d="M494 91h10"/>
                 <path d="M504 91h10"/>
                 <g>
-                    <a xlink:href="#deprecatedAnchorTimeSeriesExpressionParam">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#deprecatedAnchorTimeSeriesExpressionParam" target="_top">
                         <path d="M514 91h0"/>
                         <path d="M862 91h0"/>
                         <rect x="514" y="80" width="348" height="22"/>
@@ -178,7 +178,7 @@ svg.railroad-diagram rect {
                 <path d="M490 121h10"/>
                 <path d="M500 121h10"/>
                 <g>
-                    <a xlink:href="#deprecatedAnchorTimeSeriesExpressionParam">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#deprecatedAnchorTimeSeriesExpressionParam" target="_top">
                         <path d="M510 121h0"/>
                         <path d="M858 121h0"/>
                         <rect x="510" y="110" width="348" height="22"/>
@@ -218,7 +218,7 @@ svg.railroad-diagram rect {
                 <path d="M482 151h10"/>
                 <path d="M492 151h10"/>
                 <g>
-                    <a xlink:href="#deprecatedAnchorTimeSeriesExpressionParam">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#deprecatedAnchorTimeSeriesExpressionParam" target="_top">
                         <path d="M502 151h0"/>
                         <path d="M850 151h0"/>
                         <rect x="502" y="140" width="348" height="22"/>
@@ -258,7 +258,7 @@ svg.railroad-diagram rect {
                 <path d="M454 181h10"/>
                 <path d="M464 181h10"/>
                 <g>
-                    <a xlink:href="#deprecatedAnchorTimeSeriesExpressionParam">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#deprecatedAnchorTimeSeriesExpressionParam" target="_top">
                         <path d="M474 181h0"/>
                         <path d="M822 181h0"/>
                         <rect x="474" y="170" width="348" height="22"/>
@@ -298,7 +298,7 @@ svg.railroad-diagram rect {
                 <path d="M458 211h10"/>
                 <path d="M468 211h10"/>
                 <g>
-                    <a xlink:href="#deprecatedAnchorTimeSeriesExpressionParam">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#deprecatedAnchorTimeSeriesExpressionParam" target="_top">
                         <path d="M478 211h0"/>
                         <path d="M826 211h0"/>
                         <rect x="478" y="200" width="348" height="22"/>
@@ -338,7 +338,7 @@ svg.railroad-diagram rect {
                 <path d="M454 241h10"/>
                 <path d="M464 241h10"/>
                 <g>
-                    <a xlink:href="#deprecatedAnchorTimeSeriesExpressionParam">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#deprecatedAnchorTimeSeriesExpressionParam" target="_top">
                         <path d="M474 241h0"/>
                         <path d="M822 241h0"/>
                         <rect x="474" y="230" width="348" height="22"/>
@@ -378,7 +378,7 @@ svg.railroad-diagram rect {
                 <path d="M458 271h10"/>
                 <path d="M468 271h10"/>
                 <g>
-                    <a xlink:href="#deprecatedAnchorTimeSeriesExpressionParam">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#deprecatedAnchorTimeSeriesExpressionParam" target="_top">
                         <path d="M478 271h0"/>
                         <path d="M826 271h0"/>
                         <rect x="478" y="260" width="348" height="22"/>
@@ -418,7 +418,7 @@ svg.railroad-diagram rect {
                 <path d="M494 301h10"/>
                 <path d="M504 301h10"/>
                 <g>
-                    <a xlink:href="#deprecatedAnchorTimeSeriesExpressionParam">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#deprecatedAnchorTimeSeriesExpressionParam" target="_top">
                         <path d="M514 301h0"/>
                         <path d="M862 301h0"/>
                         <rect x="514" y="290" width="348" height="22"/>
@@ -458,7 +458,7 @@ svg.railroad-diagram rect {
                 <path d="M250 331h10"/>
                 <path d="M260 331h10"/>
                 <g>
-                    <a xlink:href="#deprecatedInnerAnchorTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#deprecatedInnerAnchorTimeSeriesExpression" target="_top">
                         <path d="M270 331h0"/>
                         <path d="M618 331h0"/>
                         <rect x="270" y="320" width="348" height="22"/>
@@ -476,7 +476,7 @@ svg.railroad-diagram rect {
                 <path d="M666 331h10"/>
                 <path d="M676 331h10"/>
                 <g>
-                    <a xlink:href="#deprecatedInnerAnchorTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#deprecatedInnerAnchorTimeSeriesExpression" target="_top">
                         <path d="M686 331h0"/>
                         <path d="M1034 331h0"/>
                         <rect x="686" y="320" width="348" height="22"/>
@@ -516,7 +516,7 @@ svg.railroad-diagram rect {
                 <path d="M246 361h10"/>
                 <path d="M256 361h10"/>
                 <g>
-                    <a xlink:href="#deprecatedInnerAnchorTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#deprecatedInnerAnchorTimeSeriesExpression" target="_top">
                         <path d="M266 361h0"/>
                         <path d="M614 361h0"/>
                         <rect x="266" y="350" width="348" height="22"/>
@@ -534,7 +534,7 @@ svg.railroad-diagram rect {
                 <path d="M662 361h10"/>
                 <path d="M672 361h10"/>
                 <g>
-                    <a xlink:href="#deprecatedInnerAnchorTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#deprecatedInnerAnchorTimeSeriesExpression" target="_top">
                         <path d="M682 361h0"/>
                         <path d="M1030 361h0"/>
                         <rect x="682" y="350" width="348" height="22"/>
@@ -574,7 +574,7 @@ svg.railroad-diagram rect {
                 <path d="M458 391h10"/>
                 <path d="M468 391h10"/>
                 <g>
-                    <a xlink:href="#deprecatedInnerAnchorTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#deprecatedInnerAnchorTimeSeriesExpression" target="_top">
                         <path d="M478 391h0"/>
                         <path d="M826 391h0"/>
                         <rect x="478" y="380" width="348" height="22"/>
@@ -614,7 +614,7 @@ svg.railroad-diagram rect {
                 <path d="M258 421h10"/>
                 <path d="M268 421h10"/>
                 <g>
-                    <a xlink:href="#deprecatedInnerAnchorTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#deprecatedInnerAnchorTimeSeriesExpression" target="_top">
                         <path d="M278 421h0"/>
                         <path d="M626 421h0"/>
                         <rect x="278" y="410" width="348" height="22"/>
@@ -632,7 +632,7 @@ svg.railroad-diagram rect {
                 <path d="M674 421h10"/>
                 <path d="M684 421h10"/>
                 <g>
-                    <a xlink:href="#deprecatedAnchorTimeSeriesExpressionParam">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#deprecatedAnchorTimeSeriesExpressionParam" target="_top">
                         <path d="M694 421h0"/>
                         <path d="M1042 421h0"/>
                         <rect x="694" y="410" width="348" height="22"/>

@@ -58,7 +58,7 @@ svg.railroad-diagram rect {
                 <path d="M386 31h10"/>
                 <path d="M396 31h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M406 31h0"/>
                         <path d="M634 31h0"/>
                         <rect x="406" y="20" width="228" height="22"/>
@@ -98,7 +98,7 @@ svg.railroad-diagram rect {
                 <path d="M386 61h10"/>
                 <path d="M396 61h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M406 61h0"/>
                         <path d="M634 61h0"/>
                         <rect x="406" y="50" width="228" height="22"/>
@@ -138,7 +138,7 @@ svg.railroad-diagram rect {
                 <path d="M386 91h10"/>
                 <path d="M396 91h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M406 91h0"/>
                         <path d="M634 91h0"/>
                         <rect x="406" y="80" width="228" height="22"/>
@@ -178,7 +178,7 @@ svg.railroad-diagram rect {
                 <path d="M394 121h10"/>
                 <path d="M404 121h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M414 121h0"/>
                         <path d="M642 121h0"/>
                         <rect x="414" y="110" width="228" height="22"/>
@@ -218,7 +218,7 @@ svg.railroad-diagram rect {
                 <path d="M390 151h10"/>
                 <path d="M400 151h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M410 151h0"/>
                         <path d="M638 151h0"/>
                         <rect x="410" y="140" width="228" height="22"/>
@@ -258,7 +258,7 @@ svg.railroad-diagram rect {
                 <path d="M386 181h10"/>
                 <path d="M396 181h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M406 181h0"/>
                         <path d="M634 181h0"/>
                         <rect x="406" y="170" width="228" height="22"/>
@@ -298,7 +298,7 @@ svg.railroad-diagram rect {
                 <path d="M386 211h10"/>
                 <path d="M396 211h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M406 211h0"/>
                         <path d="M634 211h0"/>
                         <rect x="406" y="200" width="228" height="22"/>
@@ -338,7 +338,7 @@ svg.railroad-diagram rect {
                 <path d="M386 241h10"/>
                 <path d="M396 241h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M406 241h0"/>
                         <path d="M634 241h0"/>
                         <rect x="406" y="230" width="228" height="22"/>
@@ -378,7 +378,7 @@ svg.railroad-diagram rect {
                 <path d="M390 271h10"/>
                 <path d="M400 271h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M410 271h0"/>
                         <path d="M638 271h0"/>
                         <rect x="410" y="260" width="228" height="22"/>
@@ -418,7 +418,7 @@ svg.railroad-diagram rect {
                 <path d="M390 301h10"/>
                 <path d="M400 301h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M410 301h0"/>
                         <path d="M638 301h0"/>
                         <rect x="410" y="290" width="228" height="22"/>
@@ -458,7 +458,7 @@ svg.railroad-diagram rect {
                 <path d="M390 331h10"/>
                 <path d="M400 331h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M410 331h0"/>
                         <path d="M638 331h0"/>
                         <rect x="410" y="320" width="228" height="22"/>
@@ -498,7 +498,7 @@ svg.railroad-diagram rect {
                 <path d="M390 361h10"/>
                 <path d="M400 361h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M410 361h0"/>
                         <path d="M638 361h0"/>
                         <rect x="410" y="350" width="228" height="22"/>
@@ -538,7 +538,7 @@ svg.railroad-diagram rect {
                 <path d="M390 391h10"/>
                 <path d="M400 391h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M410 391h0"/>
                         <path d="M638 391h0"/>
                         <rect x="410" y="380" width="228" height="22"/>
@@ -578,7 +578,7 @@ svg.railroad-diagram rect {
                 <path d="M390 421h10"/>
                 <path d="M400 421h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M410 421h0"/>
                         <path d="M638 421h0"/>
                         <rect x="410" y="410" width="228" height="22"/>
@@ -618,7 +618,7 @@ svg.railroad-diagram rect {
                 <path d="M398 451h10"/>
                 <path d="M408 451h10"/>
                 <g>
-                    <a xlink:href="#stringTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#stringTimeSeriesExpression" target="_top">
                         <path d="M418 451h0"/>
                         <path d="M646 451h0"/>
                         <rect x="418" y="440" width="228" height="22"/>
@@ -658,7 +658,7 @@ svg.railroad-diagram rect {
                 <path d="M238 481h10"/>
                 <path d="M248 481h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M258 481h0"/>
                         <path d="M486 481h0"/>
                         <rect x="258" y="470" width="228" height="22"/>
@@ -676,7 +676,7 @@ svg.railroad-diagram rect {
                 <path d="M534 481h10"/>
                 <path d="M544 481h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M554 481h0"/>
                         <path d="M782 481h0"/>
                         <rect x="554" y="470" width="228" height="22"/>
@@ -716,7 +716,7 @@ svg.railroad-diagram rect {
                 <path d="M258 511h10"/>
                 <path d="M268 511h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M278 511h0"/>
                         <path d="M506 511h0"/>
                         <rect x="278" y="500" width="228" height="22"/>
@@ -734,7 +734,7 @@ svg.railroad-diagram rect {
                 <path d="M554 511h10"/>
                 <path d="M564 511h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M574 511h0"/>
                         <path d="M802 511h0"/>
                         <rect x="574" y="500" width="228" height="22"/>
@@ -774,7 +774,7 @@ svg.railroad-diagram rect {
                 <path d="M250 541h10"/>
                 <path d="M260 541h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M270 541h0"/>
                         <path d="M498 541h0"/>
                         <rect x="270" y="530" width="228" height="22"/>
@@ -792,7 +792,7 @@ svg.railroad-diagram rect {
                 <path d="M546 541h10"/>
                 <path d="M556 541h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M566 541h0"/>
                         <path d="M794 541h0"/>
                         <rect x="566" y="530" width="228" height="22"/>
@@ -832,7 +832,7 @@ svg.railroad-diagram rect {
                 <path d="M258 571h10"/>
                 <path d="M268 571h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M278 571h0"/>
                         <path d="M506 571h0"/>
                         <rect x="278" y="560" width="228" height="22"/>
@@ -850,7 +850,7 @@ svg.railroad-diagram rect {
                 <path d="M554 571h10"/>
                 <path d="M564 571h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M574 571h0"/>
                         <path d="M802 571h0"/>
                         <rect x="574" y="560" width="228" height="22"/>
@@ -890,7 +890,7 @@ svg.railroad-diagram rect {
                 <path d="M238 601h10"/>
                 <path d="M248 601h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M258 601h0"/>
                         <path d="M486 601h0"/>
                         <rect x="258" y="590" width="228" height="22"/>
@@ -908,7 +908,7 @@ svg.railroad-diagram rect {
                 <path d="M534 601h10"/>
                 <path d="M544 601h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M554 601h0"/>
                         <path d="M782 601h0"/>
                         <rect x="554" y="590" width="228" height="22"/>
@@ -948,7 +948,7 @@ svg.railroad-diagram rect {
                 <path d="M238 631h10"/>
                 <path d="M248 631h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M258 631h0"/>
                         <path d="M486 631h0"/>
                         <rect x="258" y="620" width="228" height="22"/>
@@ -966,7 +966,7 @@ svg.railroad-diagram rect {
                 <path d="M534 631h10"/>
                 <path d="M544 631h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M554 631h0"/>
                         <path d="M782 631h0"/>
                         <rect x="554" y="620" width="228" height="22"/>
@@ -1006,7 +1006,7 @@ svg.railroad-diagram rect {
                 <path d="M246 661h10"/>
                 <path d="M256 661h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M266 661h0"/>
                         <path d="M494 661h0"/>
                         <rect x="266" y="650" width="228" height="22"/>
@@ -1024,7 +1024,7 @@ svg.railroad-diagram rect {
                 <path d="M542 661h10"/>
                 <path d="M552 661h10"/>
                 <g>
-                    <a xlink:href="#doubleTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleTimeSeriesExpression" target="_top">
                         <path d="M562 661h0"/>
                         <path d="M790 661h0"/>
                         <rect x="562" y="650" width="228" height="22"/>
@@ -1044,7 +1044,7 @@ svg.railroad-diagram rect {
             <path d="M860 661a10 10 0 0 0 10 -10v-610a10 10 0 0 1 10 -10"/>
             <path d="M40 31a10 10 0 0 1 10 10v640a10 10 0 0 0 10 10"/>
             <g>
-                <a xlink:href="#doubleConditionalExpression">
+                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#doubleConditionalExpression" target="_top">
                     <path d="M60 691h282"/>
                     <path d="M578 691h282"/>
                     <rect x="342" y="680" width="236" height="22"/>
@@ -1054,7 +1054,7 @@ svg.railroad-diagram rect {
             <path d="M860 691a10 10 0 0 0 10 -10v-640a10 10 0 0 1 10 -10"/>
             <path d="M40 31a10 10 0 0 1 10 10v670a10 10 0 0 0 10 10"/>
             <g>
-                <a xlink:href="#number">
+                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#number" target="_top">
                     <path d="M60 721h366"/>
                     <path d="M494 721h366"/>
                     <rect x="426" y="710" width="68" height="22"/>
@@ -1064,7 +1064,7 @@ svg.railroad-diagram rect {
             <path d="M860 721a10 10 0 0 0 10 -10v-670a10 10 0 0 1 10 -10"/>
             <path d="M40 31a10 10 0 0 1 10 10v700a10 10 0 0 0 10 10"/>
             <g>
-                <a xlink:href="#identityTimeSeriesExpression">
+                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#identityTimeSeriesExpression" target="_top">
                     <path d="M60 751h278"/>
                     <path d="M582 751h278"/>
                     <rect x="338" y="740" width="244" height="22"/>

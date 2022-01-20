@@ -54,7 +54,7 @@ svg.railroad-diagram rect {
                     <path d="M268 31h0"/>
                     <path d="M124 31h10"/>
                     <g>
-                        <a xlink:href="#hintStatement">
+                        <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#hintStatement" target="_top">
                             <path d="M134 31h0"/>
                             <path d="M258 31h0"/>
                             <rect x="134" y="20" width="124" height="22"/>

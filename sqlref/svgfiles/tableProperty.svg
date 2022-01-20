@@ -38,7 +38,7 @@ svg.railroad-diagram rect {
             <path d="M480 51h0"/>
             <path d="M40 51h10"/>
             <g>
-                <a xlink:href="#tablePropertyKey">
+                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#tablePropertyKey" target="_top">
                     <path d="M50 51h0"/>
                     <path d="M198 51h0"/>
                     <rect x="50" y="40" width="148" height="22"/>
@@ -80,7 +80,7 @@ svg.railroad-diagram rect {
                         <path d="M460 51h0"/>
                         <path d="M296 51h20"/>
                         <g>
-                            <a xlink:href="#INTEGER_VALUE">
+                            <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#INTEGER_VALUE" target="_top">
                                 <path d="M316 51h0"/>
                                 <path d="M440 51h0"/>
                                 <rect x="316" y="40" width="124" height="22"/>
@@ -90,7 +90,7 @@ svg.railroad-diagram rect {
                         <path d="M440 51h20"/>
                         <path d="M296 51a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"/>
                         <g>
-                            <a xlink:href="#DECIMAL_VALUE">
+                            <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#DECIMAL_VALUE" target="_top">
                                 <path d="M316 81h0"/>
                                 <path d="M440 81h0"/>
                                 <rect x="316" y="70" width="124" height="22"/>
@@ -100,7 +100,7 @@ svg.railroad-diagram rect {
                         <path d="M440 81a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"/>
                         <path d="M296 51a10 10 0 0 1 10 10v40a10 10 0 0 0 10 10"/>
                         <g>
-                            <a xlink:href="#STRING">
+                            <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#STRING" target="_top">
                                 <path d="M316 111h28"/>
                                 <path d="M412 111h28"/>
                                 <rect x="344" y="100" width="68" height="22"/>

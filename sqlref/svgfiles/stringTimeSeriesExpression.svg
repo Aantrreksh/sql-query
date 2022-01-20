@@ -88,7 +88,7 @@ svg.railroad-diagram rect {
                 <path d="M242 61h10"/>
                 <path d="M252 61h10"/>
                 <g>
-                    <a xlink:href="#stringTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#stringTimeSeriesExpression" target="_top">
                         <path d="M262 61h0"/>
                         <path d="M490 61h0"/>
                         <rect x="262" y="50" width="228" height="22"/>
@@ -106,7 +106,7 @@ svg.railroad-diagram rect {
                 <path d="M538 61h10"/>
                 <path d="M548 61h10"/>
                 <g>
-                    <a xlink:href="#stringTimeSeriesExpression">
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#stringTimeSeriesExpression" target="_top">
                         <path d="M558 61h0"/>
                         <path d="M786 61h0"/>
                         <rect x="558" y="50" width="228" height="22"/>
@@ -126,7 +126,7 @@ svg.railroad-diagram rect {
             <path d="M844 61a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"/>
             <path d="M40 31a10 10 0 0 1 10 10v40a10 10 0 0 0 10 10"/>
             <g>
-                <a xlink:href="#stringConditionalExpression">
+                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#stringConditionalExpression" target="_top">
                     <path d="M60 91h274"/>
                     <path d="M570 91h274"/>
                     <rect x="334" y="80" width="236" height="22"/>
@@ -136,7 +136,7 @@ svg.railroad-diagram rect {
             <path d="M844 91a10 10 0 0 0 10 -10v-40a10 10 0 0 1 10 -10"/>
             <path d="M40 31a10 10 0 0 1 10 10v70a10 10 0 0 0 10 10"/>
             <g>
-                <a xlink:href="#STRING">
+                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#STRING" target="_top">
                     <path d="M60 121h358"/>
                     <path d="M486 121h358"/>
                     <rect x="418" y="110" width="68" height="22"/>
@@ -146,7 +146,7 @@ svg.railroad-diagram rect {
             <path d="M844 121a10 10 0 0 0 10 -10v-70a10 10 0 0 1 10 -10"/>
             <path d="M40 31a10 10 0 0 1 10 10v100a10 10 0 0 0 10 10"/>
             <g>
-                <a xlink:href="#identityTimeSeriesExpression">
+                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#identityTimeSeriesExpression" target="_top">
                     <path d="M60 151h270"/>
                     <path d="M574 151h270"/>
                     <rect x="330" y="140" width="244" height="22"/>
