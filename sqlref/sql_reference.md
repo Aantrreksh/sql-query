@@ -44,7 +44,7 @@ See the following examples for an outline of the general syntax of an SQL query 
 
 <h3 id="query">query</h3>
 
-<img alt="syntax diagram for a query" src="./diagrams/query-1df49967c276e77ff0d4b73a91dd42ca.svg" />
+<img alt="syntax diagram for a query" src="./diagrams/query-a1b01b6f55dba598781e34113379344a.svg" />
 
 <h3 id="namedQuery">namedQuery</h3>
 
@@ -164,13 +164,13 @@ A partition is an object on Cloud {{site.data.keyword.cos_short}} that is potent
 The presence of multiple partitions allows for parallel input/output (I/O) during query execution. If no *result partitioned clause* is specified,
 the query result is stored in a single partition on Cloud {{site.data.keyword.cos_short}}.
 
-<img alt="syntax diagram for a COS result clause" src="./diagrams/cosResultClause-395335eaf3eeba1291717918561c2cc8.svg" />
+<img alt="syntax diagram for a COS result clause" src="./diagrams/cosResultClause-2ef9cb39bfb3944e09b8278dbafea719.svg" />
 
 <h3 id="partitionedClause">partitionedClause</h3>
 
 You can use the result partitioned clause to control the layout of the SQL query result set being stored. The default behavior is to store the result into one single partition, that is a single object in Cloud {{site.data.keyword.cos_short}}.
 
-<img alt="syntax diagram for a result partitioned clause" src="./diagrams/partitionedClause-cab70acf75357708161874f5d32ce214.svg" />
+<img alt="syntax diagram for a result partitioned clause" src="./diagrams/partitionedClause-6d1784b6276b8e7d321f1db07d92db8b.svg" />
 
 <h3 id="sortClause">sortClause</h3>
 
@@ -241,7 +241,7 @@ and all existing data is deleted.
 
 Use the `PARALLELISM x` clause to specify that multiple parallel database connections are to be opened to write out the result. Depending on the size of your result and the network connectivity of your target database service, this clause can reduce the query processing time significantly.
 
-<img alt="syntax diagram for a Db2 result clause" src="./diagrams/dbResultClause-4269dcbf22b33f929329a6215ccad25d.svg" />
+<img alt="syntax diagram for a Db2 result clause" src="./diagrams/dbResultClause-eb22d6fb88a192b2c45f5e0bddc37a61.svg" />
 
 <h3 id="accessSecrets">accessSecrets</h3>
 
@@ -278,7 +278,7 @@ A *query* is referenced by the following clauses:
 
 A *fullselect* is the core component of a *query*. It is the only mandatory general component for a valid query statement. The other components outside of *fullselect* are optional. Its syntax is defined by the following syntax diagram.
 
-<img alt="syntax diagram for a fullselect" src="./diagrams/fullselect-579aba8dad43e7b93227f73fc963cf88.svg" />
+<img alt="syntax diagram for a fullselect" src="./diagrams/fullselect-5721837cee4cb58e6553ad94b6ffb590.svg" />
 
 The result set defined by a single fullselect can be combined with the result set of one or more other fullselects by using set operators.
 
@@ -434,7 +434,7 @@ A *simpleselect* is a component of a *fullselect*. Its syntax is defined by the 
 
 <h3 id="simpleselect">simpleselect</h3>
 
-<img alt="syntax diagram for a simpleselect" src="./diagrams/simpleselect-409ebaec37d939429c64b6f6dbb26bb4.svg" />
+<img alt="syntax diagram for a simpleselect" src="./diagrams/simpleselect-5e2a4186da9563126e8bc99ff9acdc86.svg" />
 
 With a *simpleselect*, you can specify the following characteristics of a result set:
 - The list of *result columns* from *relations* or *lateral views* that are part of the final result set. The result column list can be further redefined by using the following modifier keywords:
@@ -459,7 +459,7 @@ See the following examples for such expressions:
 
 <h4 id="groupByClause">groupByClause</h4>
 
-<img alt="syntax diagram for a group by clause" src="./diagrams/groupByClause-3bb1917f9fd67b1d2c4a119d920ea682.svg" />
+<img alt="syntax diagram for a group by clause" src="./diagrams/groupByClause-135009c355d1e7781d55bf08e2891cfa.svg" />
 
 <h4 id="groupingSet">groupingSet</h4>
 
@@ -688,7 +688,7 @@ Multiple relations can be composed by using join operators. The syntax for joini
 
 <h3 id="joinClause">joinClause</h3>
 
-<img alt="syntax diagram for a join clause" src="./diagrams/joinClause-3208b516d2611fd52111857a040efe70.svg" />
+<img alt="syntax diagram for a join clause" src="./diagrams/joinClause-b0fcef54acce1a82671707278c1e9f7c.svg" />
 
 <h3 id="naturalJoinClause">naturalJoinClause</h3>
 
@@ -1008,7 +1008,7 @@ The explode()-style functions take an array or map as input and return a row for
 
 The syntax of a lateral view clause is described by the following syntax diagram.
 
-<img alt="syntax diagram for a lateral view" src="./diagrams/lateralView-19162c844e59c24bf4090dfd33420bae.svg" />
+<img alt="syntax diagram for a lateral view" src="./diagrams/lateralView-1b31c0b74a7884e75938bfb32fcd2116.svg" />
 
 The semantics of the entities in order of appearance in the syntax diagrams is as follows:
 - `OUTER`: Specifying this keyword ensures that the lateral view contains at least one row with *null* values in case the table-generating function does not return any rows.
@@ -2815,7 +2815,7 @@ For more information, see [catalog management](/docs/sql-query?topic=sql-query-h
 
 <h4 id="createTable">createTable</h4>
 
-<img alt="syntax diagram for a create table command" src="./diagrams/createTable-f8671af4cf9fb36f74537ae344c7c1bf.svg" />
+<img alt="syntax diagram for a create table command" src="./diagrams/createTable-6a0b1a82c0d79aaead40e74633af32f5.svg" />
 
 <h4 id="columnDefinition">columnDefinition</h4>
 
@@ -2927,7 +2927,7 @@ DROP TABLE customers
 
 <h4 id="createView">createView</h4>
 
-<img alt="syntax diagram for a create view command" src="./diagrams/createView-f5ca3f7964d4783c228edc26ef4dfe04.svg" />
+<img alt="syntax diagram for a create view command" src="./diagrams/createView-d8a88447c0e4837167d6fdcef48b4afc.svg" />
 
 <h4 id="identifierComment">identifierComment</h4>
 
