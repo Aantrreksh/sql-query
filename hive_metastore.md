@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  year:  2020, 2021
+  years:  2020, 2021
 lastupdated: "2021-08-24"
 
 keywords: hive, metastore, catalog, performance, create table, object storage
@@ -18,7 +18,6 @@ subcollection: sql-query
 {:tip: .tip}
 {:note: .note}
 
-
 # Catalog management
 {: #hivemetastore}
 
@@ -28,10 +27,10 @@ Each instance of {{site.data.keyword.sqlquery_full}} includes a database catalog
 {: #benefits}
 
 You can explore, change, or discover structured data on [Cloud Object Storage](/docs/services/cloud-object-storage/getting-started.html#getting-started-console) by {{site.data.keyword.sqlquery_short}} using SQL syntax. To query data on {{site.data.keyword.cos_short}} without a table in the catalog, you need to specify the data location (the corresponding {{site.data.keyword.cos_short}} URI) and the data format in your SELECT statement. During query execution, data and schema are dynamically discovered as part of the SQL compilation process. This process, called inference, derives column names, data types, the list of partitions, and individual objects on {{site.data.keyword.cos_short}} that together make up the table data.
- 
+
 Inferring all this information and doing it repetitively with every query imposes latency to your queries. The inference process can take up a significant amount of time, especially for text formats (for example, CSV and JSON), or when thousands of objects exist in different table partitions. In some cases, the inference process even accounts for the largest part of the overall query execution time. So, if you are either familiar with the schema, or want to repetitively use the data for queries, create a table in the catalog. Such a table improves  ance for repeated query executions.
 
-Another advantage of creating a table in the catalog is that the table name serves as an alias and is decoupled from the data location. This allows you to separate the tasks of data engineers and SQL authors. Data engineers deal with the data location and publish registered tables in the catalog by using descriptive table names. Hence, SQL authors are able to compose queries without having to know the exact location and format of data on {{site.data.keyword.cos_short}}. If the data location changes, only the table in the catalog must be updated, but the table name remains unchanged. Updates of the physical data structure are simplified and the robustness of SQL statements and applications is increased.
+Another advantage of creating a table in the catalog is that the table name serves as an alias and is decoupled from the data location. This allows you to separate the tasks of data engineers and SQL authors. Data engineers deal with the data location and publish registered tables in the catalog by using descriptive table names. Hence, SQL authors are able to compose queries without having to know the exact location and format of data on {{site.data.keyword.cos_short}}. If the data location changes, only the table in the catalog must be updated, but the table name remains unchanged. Updates of the physical data structure are simplified and the robustness of SQL statements and applications is increased.
 
 ## Usage
 {: #usage}

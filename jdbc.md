@@ -25,10 +25,9 @@ subcollection: sql-query
 ## Driver download
 {: #driver_download}
 
-Download the latest version: [`2.5.31`](https://us.sql-query.cloud.ibm.com/download/jdbc/ibmcloudsql-jdbc-2.5.31.jar)
+Download the latest version: [`2.5.45`](https://us.sql-query.cloud.ibm.com/download/jdbc/ibmcloudsql-jdbc-2.5.45.jar)
 
-Here you find the previous version for reference: [`2.5.20`](https://us.sql-query.cloud.ibm.com/download/jdbc/ibmcloudsql-jdbc-2.5.20.jar)
-
+Here you find the previous version for reference: [`2.5.44`](https://us.sql-query.cloud.ibm.com/download/jdbc/ibmcloudsql-jdbc-2.5.44.jar)
 
 ## JDBC driver class and URL format
 {: #jdbc_class}
@@ -85,8 +84,8 @@ The following limitations are implied by the use of {{site.data.keyword.sqlquery
 - Query results are returned through results in Cloud {{site.data.keyword.cos_short}}. A `SELECT *` query creates a full copy of the selected table (or Cloud {{site.data.keyword.cos_short}}) in the `targetcosurl` location.
 - Streaming of query results cannot start until the execution fully completed and results were written to Cloud {{site.data.keyword.cos_short}}.
 - {{site.data.keyword.sqlquery_short}} works on read-only data in Cloud {{site.data.keyword.cos_short}}, so the following functionality that is related to data updates is not supported:
-    - Transactions are not supported. `commit()` and `rollback()` are no-ops.
-    - Result sets that can be updated are not supported.
+  - Transactions are not supported. `commit()` and `rollback()` are no-ops.
+  - Result sets that can be updated are not supported.
 - SQL statements cannot be canceled.
 
 ## Driver-specific limitations

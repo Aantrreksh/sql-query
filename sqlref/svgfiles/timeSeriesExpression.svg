@@ -1,8 +1,9 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="railroad-diagram" width="2081" height="242" viewBox="0 0 2081 242">
-<defs><style type="text/css"><![CDATA[ svg.railroad-diagram {
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="railroad-diagram" width="2081" height="242" viewBox="0 0 2081 242" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMin meet">
+    <defs>
+        <style type="text/css"><![CDATA[ svg.railroad-diagram {
   background-color: #ffffff;
 }
 svg.railroad-diagram path {
@@ -28,567 +29,618 @@ svg.railroad-diagram rect {
   stroke:  #5a6872;
   fill: #5aaafa;
 }
- ]]></style></defs>
-<g transform="translate(.5 .5)">
-<path d="M 20 21 v 20 m 10 -20 v 20 m -10 -10 h 20.5"></path>
-<g>
-<path d="M40 31h0"></path>
-<path d="M2040 31h0"></path>
-<path d="M40 31h20"></path>
-<g>
-<path d="M60 31h684"></path>
-<path d="M1336 31h684"></path>
-<path d="M744 31h10"></path>
-<g>
-<path d="M754 31h0"></path>
-<path d="M822 31h0"></path>
-<rect x="754" y="20" width="68" height="22" rx="10" ry="10"></rect>
-<text x="788" y="35">TS&#95;MAP</text>
-</g>
-<path d="M822 31h10"></path>
-<path d="M832 31h10"></path>
-<g>
-<path d="M842 31h0"></path>
-<path d="M870 31h0"></path>
-<rect x="842" y="20" width="28" height="22" rx="10" ry="10"></rect>
-<text x="856" y="35">(</text>
-</g>
-<path d="M870 31h10"></path>
-<path d="M880 31h10"></path>
-<g>
-<path d="M890 31h0"></path>
-<path d="M990 31h0"></path>
-<rect x="890" y="20" width="100" height="22"></rect>
-<text x="940" y="35">expression</text>
-</g>
-<path d="M990 31h10"></path>
-<path d="M1000 31h10"></path>
-<g>
-<path d="M1010 31h0"></path>
-<path d="M1038 31h0"></path>
-<rect x="1010" y="20" width="28" height="22" rx="10" ry="10"></rect>
-<text x="1024" y="35">,</text>
-</g>
-<path d="M1038 31h10"></path>
-<path d="M1048 31h10"></path>
-<g>
-<path d="M1058 31h0"></path>
-<path d="M1278 31h0"></path>
-<rect x="1058" y="20" width="220" height="22"></rect>
-<text x="1168" y="35">valueTimeSeriesExpression</text>
-</g>
-<path d="M1278 31h10"></path>
-<path d="M1288 31h10"></path>
-<g>
-<path d="M1298 31h0"></path>
-<path d="M1326 31h0"></path>
-<rect x="1298" y="20" width="28" height="22" rx="10" ry="10"></rect>
-<text x="1312" y="35">)</text>
-</g>
-<path d="M1326 31h10"></path>
-</g>
-<path d="M2020 31h20"></path>
-<path d="M40 31a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"></path>
-<g>
-<path d="M60 61h644"></path>
-<path d="M1376 61h644"></path>
-<path d="M704 61h10"></path>
-<g>
-<path d="M714 61h0"></path>
-<path d="M806 61h0"></path>
-<rect x="714" y="50" width="92" height="22" rx="10" ry="10"></rect>
-<text x="760" y="65">TS&#95;FILTER</text>
-</g>
-<path d="M806 61h10"></path>
-<path d="M816 61h10"></path>
-<g>
-<path d="M826 61h0"></path>
-<path d="M854 61h0"></path>
-<rect x="826" y="50" width="28" height="22" rx="10" ry="10"></rect>
-<text x="840" y="65">(</text>
-</g>
-<path d="M854 61h10"></path>
-<path d="M864 61h10"></path>
-<g>
-<path d="M874 61h0"></path>
-<path d="M1014 61h0"></path>
-<rect x="874" y="50" width="140" height="22"></rect>
-<text x="944" y="65">valueExpression</text>
-</g>
-<path d="M1014 61h10"></path>
-<path d="M1024 61h10"></path>
-<g>
-<path d="M1034 61h0"></path>
-<path d="M1062 61h0"></path>
-<rect x="1034" y="50" width="28" height="22" rx="10" ry="10"></rect>
-<text x="1048" y="65">,</text>
-</g>
-<path d="M1062 61h10"></path>
-<path d="M1072 61h10"></path>
-<g>
-<path d="M1082 61h0"></path>
-<path d="M1318 61h0"></path>
-<rect x="1082" y="50" width="236" height="22"></rect>
-<text x="1200" y="65">booleanTimeSeriesExpression</text>
-</g>
-<path d="M1318 61h10"></path>
-<path d="M1328 61h10"></path>
-<g>
-<path d="M1338 61h0"></path>
-<path d="M1366 61h0"></path>
-<rect x="1338" y="50" width="28" height="22" rx="10" ry="10"></rect>
-<text x="1352" y="65">)</text>
-</g>
-<path d="M1366 61h10"></path>
-</g>
-<path d="M2020 61a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"></path>
-<path d="M40 31a10 10 0 0 1 10 10v40a10 10 0 0 0 10 10"></path>
-<g>
-<path d="M60 91h452"></path>
-<path d="M1568 91h452"></path>
-<path d="M512 91h10"></path>
-<g>
-<path d="M522 91h0"></path>
-<path d="M702 91h0"></path>
-<rect x="522" y="80" width="180" height="22" rx="10" ry="10"></rect>
-<text x="612" y="95">TS&#95;SEGMENT&#95;BY&#95;ANCHOR</text>
-</g>
-<path d="M702 91h10"></path>
-<path d="M712 91h10"></path>
-<g>
-<path d="M722 91h0"></path>
-<path d="M750 91h0"></path>
-<rect x="722" y="80" width="28" height="22" rx="10" ry="10"></rect>
-<text x="736" y="95">(</text>
-</g>
-<path d="M750 91h10"></path>
-<path d="M760 91h10"></path>
-<g>
-<path d="M770 91h0"></path>
-<path d="M870 91h0"></path>
-<rect x="770" y="80" width="100" height="22"></rect>
-<text x="820" y="95">expression</text>
-</g>
-<path d="M870 91h10"></path>
-<path d="M880 91h10"></path>
-<g>
-<path d="M890 91h0"></path>
-<path d="M918 91h0"></path>
-<rect x="890" y="80" width="28" height="22" rx="10" ry="10"></rect>
-<text x="904" y="95">,</text>
-</g>
-<path d="M918 91h10"></path>
-<path d="M928 91h10"></path>
-<g>
-<path d="M938 91h0"></path>
-<path d="M1174 91h0"></path>
-<rect x="938" y="80" width="236" height="22"></rect>
-<text x="1056" y="95">booleanTimeSeriesExpression</text>
-</g>
-<path d="M1174 91h10"></path>
-<path d="M1184 91h10"></path>
-<g>
-<path d="M1194 91h0"></path>
-<path d="M1222 91h0"></path>
-<rect x="1194" y="80" width="28" height="22" rx="10" ry="10"></rect>
-<text x="1208" y="95">,</text>
-</g>
-<path d="M1222 91h10"></path>
-<path d="M1232 91h10"></path>
-<g>
-<path d="M1242 91h0"></path>
-<path d="M1342 91h0"></path>
-<rect x="1242" y="80" width="100" height="22"></rect>
-<text x="1292" y="95">expression</text>
-</g>
-<path d="M1342 91h10"></path>
-<path d="M1352 91h10"></path>
-<g>
-<path d="M1362 91h0"></path>
-<path d="M1390 91h0"></path>
-<rect x="1362" y="80" width="28" height="22" rx="10" ry="10"></rect>
-<text x="1376" y="95">,</text>
-</g>
-<path d="M1390 91h10"></path>
-<path d="M1400 91h10"></path>
-<g>
-<path d="M1410 91h0"></path>
-<path d="M1510 91h0"></path>
-<rect x="1410" y="80" width="100" height="22"></rect>
-<text x="1460" y="95">expression</text>
-</g>
-<path d="M1510 91h10"></path>
-<path d="M1520 91h10"></path>
-<g>
-<path d="M1530 91h0"></path>
-<path d="M1558 91h0"></path>
-<rect x="1530" y="80" width="28" height="22" rx="10" ry="10"></rect>
-<text x="1544" y="95">)</text>
-</g>
-<path d="M1558 91h10"></path>
-</g>
-<path d="M2020 91a10 10 0 0 0 10 -10v-40a10 10 0 0 1 10 -10"></path>
-<path d="M40 31a10 10 0 0 1 10 10v70a10 10 0 0 0 10 10"></path>
-<g>
-<path d="M60 121h172"></path>
-<path d="M1848 121h172"></path>
-<path d="M232 121h10"></path>
-<g>
-<path d="M242 121h0"></path>
-<path d="M422 121h0"></path>
-<rect x="242" y="110" width="180" height="22" rx="10" ry="10"></rect>
-<text x="332" y="125">TS&#95;SEGMENT&#95;BY&#95;MARKER</text>
-</g>
-<path d="M422 121h10"></path>
-<path d="M432 121h10"></path>
-<g>
-<path d="M442 121h0"></path>
-<path d="M470 121h0"></path>
-<rect x="442" y="110" width="28" height="22" rx="10" ry="10"></rect>
-<text x="456" y="125">(</text>
-</g>
-<path d="M470 121h10"></path>
-<path d="M480 121h10"></path>
-<g>
-<path d="M490 121h0"></path>
-<path d="M590 121h0"></path>
-<rect x="490" y="110" width="100" height="22"></rect>
-<text x="540" y="125">expression</text>
-</g>
-<path d="M590 121h10"></path>
-<path d="M600 121h10"></path>
-<g>
-<path d="M610 121h0"></path>
-<path d="M638 121h0"></path>
-<rect x="610" y="110" width="28" height="22" rx="10" ry="10"></rect>
-<text x="624" y="125">,</text>
-</g>
-<path d="M638 121h10"></path>
-<path d="M648 121h10"></path>
-<g>
-<path d="M658 121h0"></path>
-<path d="M894 121h0"></path>
-<rect x="658" y="110" width="236" height="22"></rect>
-<text x="776" y="125">booleanTimeSeriesExpression</text>
-</g>
-<path d="M894 121h10"></path>
-<path d="M904 121h10"></path>
-<g>
-<path d="M914 121h0"></path>
-<path d="M942 121h0"></path>
-<rect x="914" y="110" width="28" height="22" rx="10" ry="10"></rect>
-<text x="928" y="125">,</text>
-</g>
-<path d="M942 121h10"></path>
-<path d="M952 121h10"></path>
-<g>
-<path d="M962 121h0"></path>
-<path d="M1118 121h0"></path>
-<rect x="962" y="110" width="156" height="22"></rect>
-<text x="1040" y="125">booleanExpression</text>
-</g>
-<path d="M1118 121h10"></path>
-<path d="M1128 121h10"></path>
-<g>
-<path d="M1138 121h0"></path>
-<path d="M1166 121h0"></path>
-<rect x="1138" y="110" width="28" height="22" rx="10" ry="10"></rect>
-<text x="1152" y="125">,</text>
-</g>
-<path d="M1166 121h10"></path>
-<path d="M1176 121h10"></path>
-<g>
-<path d="M1186 121h0"></path>
-<path d="M1342 121h0"></path>
-<rect x="1186" y="110" width="156" height="22"></rect>
-<text x="1264" y="125">booleanExpression</text>
-</g>
-<path d="M1342 121h10"></path>
-<path d="M1352 121h10"></path>
-<g>
-<path d="M1362 121h0"></path>
-<path d="M1390 121h0"></path>
-<rect x="1362" y="110" width="28" height="22" rx="10" ry="10"></rect>
-<text x="1376" y="125">,</text>
-</g>
-<path d="M1390 121h10"></path>
-<path d="M1400 121h10"></path>
-<g>
-<path d="M1410 121h0"></path>
-<path d="M1566 121h0"></path>
-<rect x="1410" y="110" width="156" height="22"></rect>
-<text x="1488" y="125">booleanExpression</text>
-</g>
-<path d="M1566 121h10"></path>
-<path d="M1576 121h10"></path>
-<g>
-<path d="M1586 121h0"></path>
-<path d="M1614 121h0"></path>
-<rect x="1586" y="110" width="28" height="22" rx="10" ry="10"></rect>
-<text x="1600" y="125">,</text>
-</g>
-<path d="M1614 121h10"></path>
-<path d="M1624 121h10"></path>
-<g>
-<path d="M1634 121h0"></path>
-<path d="M1790 121h0"></path>
-<rect x="1634" y="110" width="156" height="22"></rect>
-<text x="1712" y="125">booleanExpression</text>
-</g>
-<path d="M1790 121h10"></path>
-<path d="M1800 121h10"></path>
-<g>
-<path d="M1810 121h0"></path>
-<path d="M1838 121h0"></path>
-<rect x="1810" y="110" width="28" height="22" rx="10" ry="10"></rect>
-<text x="1824" y="125">)</text>
-</g>
-<path d="M1838 121h10"></path>
-</g>
-<path d="M2020 121a10 10 0 0 0 10 -10v-70a10 10 0 0 1 10 -10"></path>
-<path d="M40 31a10 10 0 0 1 10 10v100a10 10 0 0 0 10 10"></path>
-<g>
-<path d="M60 151h0"></path>
-<path d="M2020 151h0"></path>
-<path d="M60 151h10"></path>
-<g>
-<path d="M70 151h0"></path>
-<path d="M290 151h0"></path>
-<rect x="70" y="140" width="220" height="22" rx="10" ry="10"></rect>
-<text x="180" y="155">TS&#95;SEGMENT&#95;BY&#95;DUAL&#95;MARKER</text>
-</g>
-<path d="M290 151h10"></path>
-<path d="M300 151h10"></path>
-<g>
-<path d="M310 151h0"></path>
-<path d="M338 151h0"></path>
-<rect x="310" y="140" width="28" height="22" rx="10" ry="10"></rect>
-<text x="324" y="155">(</text>
-</g>
-<path d="M338 151h10"></path>
-<path d="M348 151h10"></path>
-<g>
-<path d="M358 151h0"></path>
-<path d="M458 151h0"></path>
-<rect x="358" y="140" width="100" height="22"></rect>
-<text x="408" y="155">expression</text>
-</g>
-<path d="M458 151h10"></path>
-<path d="M468 151h10"></path>
-<g>
-<path d="M478 151h0"></path>
-<path d="M506 151h0"></path>
-<rect x="478" y="140" width="28" height="22" rx="10" ry="10"></rect>
-<text x="492" y="155">,</text>
-</g>
-<path d="M506 151h10"></path>
-<path d="M516 151h10"></path>
-<g>
-<path d="M526 151h0"></path>
-<path d="M762 151h0"></path>
-<rect x="526" y="140" width="236" height="22"></rect>
-<text x="644" y="155">booleanTimeSeriesExpression</text>
-</g>
-<path d="M762 151h10"></path>
-<path d="M772 151h10"></path>
-<g>
-<path d="M782 151h0"></path>
-<path d="M810 151h0"></path>
-<rect x="782" y="140" width="28" height="22" rx="10" ry="10"></rect>
-<text x="796" y="155">,</text>
-</g>
-<path d="M810 151h10"></path>
-<path d="M820 151h10"></path>
-<g>
-<path d="M830 151h0"></path>
-<path d="M1066 151h0"></path>
-<rect x="830" y="140" width="236" height="22"></rect>
-<text x="948" y="155">booleanTimeSeriesExpression</text>
-</g>
-<path d="M1066 151h10"></path>
-<path d="M1076 151h10"></path>
-<g>
-<path d="M1086 151h0"></path>
-<path d="M1114 151h0"></path>
-<rect x="1086" y="140" width="28" height="22" rx="10" ry="10"></rect>
-<text x="1100" y="155">,</text>
-</g>
-<path d="M1114 151h10"></path>
-<path d="M1124 151h10"></path>
-<g>
-<path d="M1134 151h0"></path>
-<path d="M1290 151h0"></path>
-<rect x="1134" y="140" width="156" height="22"></rect>
-<text x="1212" y="155">booleanExpression</text>
-</g>
-<path d="M1290 151h10"></path>
-<path d="M1300 151h10"></path>
-<g>
-<path d="M1310 151h0"></path>
-<path d="M1338 151h0"></path>
-<rect x="1310" y="140" width="28" height="22" rx="10" ry="10"></rect>
-<text x="1324" y="155">,</text>
-</g>
-<path d="M1338 151h10"></path>
-<path d="M1348 151h10"></path>
-<g>
-<path d="M1358 151h0"></path>
-<path d="M1514 151h0"></path>
-<rect x="1358" y="140" width="156" height="22"></rect>
-<text x="1436" y="155">booleanExpression</text>
-</g>
-<path d="M1514 151h10"></path>
-<path d="M1524 151h10"></path>
-<g>
-<path d="M1534 151h0"></path>
-<path d="M1562 151h0"></path>
-<rect x="1534" y="140" width="28" height="22" rx="10" ry="10"></rect>
-<text x="1548" y="155">,</text>
-</g>
-<path d="M1562 151h10"></path>
-<path d="M1572 151h10"></path>
-<g>
-<path d="M1582 151h0"></path>
-<path d="M1738 151h0"></path>
-<rect x="1582" y="140" width="156" height="22"></rect>
-<text x="1660" y="155">booleanExpression</text>
-</g>
-<path d="M1738 151h10"></path>
-<path d="M1748 151h10"></path>
-<g>
-<path d="M1758 151h0"></path>
-<path d="M1786 151h0"></path>
-<rect x="1758" y="140" width="28" height="22" rx="10" ry="10"></rect>
-<text x="1772" y="155">,</text>
-</g>
-<path d="M1786 151h10"></path>
-<path d="M1796 151h10"></path>
-<g>
-<path d="M1806 151h0"></path>
-<path d="M1962 151h0"></path>
-<rect x="1806" y="140" width="156" height="22"></rect>
-<text x="1884" y="155">booleanExpression</text>
-</g>
-<path d="M1962 151h10"></path>
-<path d="M1972 151h10"></path>
-<g>
-<path d="M1982 151h0"></path>
-<path d="M2010 151h0"></path>
-<rect x="1982" y="140" width="28" height="22" rx="10" ry="10"></rect>
-<text x="1996" y="155">)</text>
-</g>
-<path d="M2010 151h10"></path>
-</g>
-<path d="M2020 151a10 10 0 0 0 10 -10v-100a10 10 0 0 1 10 -10"></path>
-<path d="M40 31a10 10 0 0 1 10 10v130a10 10 0 0 0 10 10"></path>
-<g>
-<path d="M60 181h672"></path>
-<path d="M1348 181h672"></path>
-<path d="M732 181h10"></path>
-<g>
-<path d="M742 181h0"></path>
-<path d="M818 181h0"></path>
-<rect x="742" y="170" width="76" height="22" rx="10" ry="10"></rect>
-<text x="780" y="185">TS&#95;FIND</text>
-</g>
-<path d="M818 181h10"></path>
-<path d="M828 181h10"></path>
-<g>
-<path d="M838 181h0"></path>
-<path d="M866 181h0"></path>
-<rect x="838" y="170" width="28" height="22" rx="10" ry="10"></rect>
-<text x="852" y="185">(</text>
-</g>
-<path d="M866 181h10"></path>
-<path d="M876 181h10"></path>
-<g>
-<path d="M886 181h0"></path>
-<path d="M986 181h0"></path>
-<rect x="886" y="170" width="100" height="22"></rect>
-<text x="936" y="185">expression</text>
-</g>
-<path d="M986 181h10"></path>
-<path d="M996 181h10"></path>
-<g>
-<path d="M1006 181h0"></path>
-<path d="M1034 181h0"></path>
-<rect x="1006" y="170" width="28" height="22" rx="10" ry="10"></rect>
-<text x="1020" y="185">,</text>
-</g>
-<path d="M1034 181h10"></path>
-<path d="M1044 181h10"></path>
-<g>
-<path d="M1054 181h0"></path>
-<path d="M1290 181h0"></path>
-<rect x="1054" y="170" width="236" height="22"></rect>
-<text x="1172" y="185">booleanTimeSeriesExpression</text>
-</g>
-<path d="M1290 181h10"></path>
-<path d="M1300 181h10"></path>
-<g>
-<path d="M1310 181h0"></path>
-<path d="M1338 181h0"></path>
-<rect x="1310" y="170" width="28" height="22" rx="10" ry="10"></rect>
-<text x="1324" y="185">)</text>
-</g>
-<path d="M1338 181h10"></path>
-</g>
-<path d="M2020 181a10 10 0 0 0 10 -10v-130a10 10 0 0 1 10 -10"></path>
-<path d="M40 31a10 10 0 0 1 10 10v160a10 10 0 0 0 10 10"></path>
-<g>
-<path d="M60 211h640"></path>
-<path d="M1380 211h640"></path>
-<path d="M700 211h10"></path>
-<g>
-<path d="M710 211h0"></path>
-<path d="M850 211h0"></path>
-<rect x="710" y="200" width="140" height="22" rx="10" ry="10"></rect>
-<text x="780" y="215">TS&#95;COUNT&#95;ANCHOR</text>
-</g>
-<path d="M850 211h10"></path>
-<path d="M860 211h10"></path>
-<g>
-<path d="M870 211h0"></path>
-<path d="M898 211h0"></path>
-<rect x="870" y="200" width="28" height="22" rx="10" ry="10"></rect>
-<text x="884" y="215">(</text>
-</g>
-<path d="M898 211h10"></path>
-<path d="M908 211h10"></path>
-<g>
-<path d="M918 211h0"></path>
-<path d="M1018 211h0"></path>
-<rect x="918" y="200" width="100" height="22"></rect>
-<text x="968" y="215">expression</text>
-</g>
-<path d="M1018 211h10"></path>
-<path d="M1028 211h10"></path>
-<g>
-<path d="M1038 211h0"></path>
-<path d="M1066 211h0"></path>
-<rect x="1038" y="200" width="28" height="22" rx="10" ry="10"></rect>
-<text x="1052" y="215">,</text>
-</g>
-<path d="M1066 211h10"></path>
-<path d="M1076 211h10"></path>
-<g>
-<path d="M1086 211h0"></path>
-<path d="M1322 211h0"></path>
-<rect x="1086" y="200" width="236" height="22"></rect>
-<text x="1204" y="215">booleanTimeSeriesExpression</text>
-</g>
-<path d="M1322 211h10"></path>
-<path d="M1332 211h10"></path>
-<g>
-<path d="M1342 211h0"></path>
-<path d="M1370 211h0"></path>
-<rect x="1342" y="200" width="28" height="22" rx="10" ry="10"></rect>
-<text x="1356" y="215">)</text>
-</g>
-<path d="M1370 211h10"></path>
-</g>
-<path d="M2020 211a10 10 0 0 0 10 -10v-160a10 10 0 0 1 10 -10"></path>
-</g>
-<path d="M 2040 31 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
-</g>
+ ]]></style>
+    </defs>
+    <g transform="translate(.5 .5)">
+        <path d="M 20 21 v 20 m 10 -20 v 20 m -10 -10 h 20.5"/>
+        <g>
+            <path d="M40 31h0"/>
+            <path d="M2040 31h0"/>
+            <path d="M40 31h20"/>
+            <g>
+                <path d="M60 31h684"/>
+                <path d="M1336 31h684"/>
+                <path d="M744 31h10"/>
+                <g>
+                    <path d="M754 31h0"/>
+                    <path d="M822 31h0"/>
+                    <rect x="754" y="20" width="68" height="22" rx="10" ry="10"/>
+                    <text x="788" y="35">TS_MAP</text>
+                </g>
+                <path d="M822 31h10"/>
+                <path d="M832 31h10"/>
+                <g>
+                    <path d="M842 31h0"/>
+                    <path d="M870 31h0"/>
+                    <rect x="842" y="20" width="28" height="22" rx="10" ry="10"/>
+                    <text x="856" y="35">(</text>
+                </g>
+                <path d="M870 31h10"/>
+                <path d="M880 31h10"/>
+                <g>
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#expression" target="_top">
+                        <path d="M890 31h0"/>
+                        <path d="M990 31h0"/>
+                        <rect x="890" y="20" width="100" height="22"/>
+                        <text x="940" y="35">expression</text>
+                    </a>
+                </g>
+                <path d="M990 31h10"/>
+                <path d="M1000 31h10"/>
+                <g>
+                    <path d="M1010 31h0"/>
+                    <path d="M1038 31h0"/>
+                    <rect x="1010" y="20" width="28" height="22" rx="10" ry="10"/>
+                    <text x="1024" y="35">,</text>
+                </g>
+                <path d="M1038 31h10"/>
+                <path d="M1048 31h10"/>
+                <g>
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#valueTimeSeriesExpression" target="_top">
+                        <path d="M1058 31h0"/>
+                        <path d="M1278 31h0"/>
+                        <rect x="1058" y="20" width="220" height="22"/>
+                        <text x="1168" y="35">valueTimeSeriesExpression</text>
+                    </a>
+                </g>
+                <path d="M1278 31h10"/>
+                <path d="M1288 31h10"/>
+                <g>
+                    <path d="M1298 31h0"/>
+                    <path d="M1326 31h0"/>
+                    <rect x="1298" y="20" width="28" height="22" rx="10" ry="10"/>
+                    <text x="1312" y="35">)</text>
+                </g>
+                <path d="M1326 31h10"/>
+            </g>
+            <path d="M2020 31h20"/>
+            <path d="M40 31a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"/>
+            <g>
+                <path d="M60 61h644"/>
+                <path d="M1376 61h644"/>
+                <path d="M704 61h10"/>
+                <g>
+                    <path d="M714 61h0"/>
+                    <path d="M806 61h0"/>
+                    <rect x="714" y="50" width="92" height="22" rx="10" ry="10"/>
+                    <text x="760" y="65">TS_FILTER</text>
+                </g>
+                <path d="M806 61h10"/>
+                <path d="M816 61h10"/>
+                <g>
+                    <path d="M826 61h0"/>
+                    <path d="M854 61h0"/>
+                    <rect x="826" y="50" width="28" height="22" rx="10" ry="10"/>
+                    <text x="840" y="65">(</text>
+                </g>
+                <path d="M854 61h10"/>
+                <path d="M864 61h10"/>
+                <g>
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#valueExpression" target="_top">
+                        <path d="M874 61h0"/>
+                        <path d="M1014 61h0"/>
+                        <rect x="874" y="50" width="140" height="22"/>
+                        <text x="944" y="65">valueExpression</text>
+                    </a>
+                </g>
+                <path d="M1014 61h10"/>
+                <path d="M1024 61h10"/>
+                <g>
+                    <path d="M1034 61h0"/>
+                    <path d="M1062 61h0"/>
+                    <rect x="1034" y="50" width="28" height="22" rx="10" ry="10"/>
+                    <text x="1048" y="65">,</text>
+                </g>
+                <path d="M1062 61h10"/>
+                <path d="M1072 61h10"/>
+                <g>
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanTimeSeriesExpression" target="_top">
+                        <path d="M1082 61h0"/>
+                        <path d="M1318 61h0"/>
+                        <rect x="1082" y="50" width="236" height="22"/>
+                        <text x="1200" y="65">booleanTimeSeriesExpression</text>
+                    </a>
+                </g>
+                <path d="M1318 61h10"/>
+                <path d="M1328 61h10"/>
+                <g>
+                    <path d="M1338 61h0"/>
+                    <path d="M1366 61h0"/>
+                    <rect x="1338" y="50" width="28" height="22" rx="10" ry="10"/>
+                    <text x="1352" y="65">)</text>
+                </g>
+                <path d="M1366 61h10"/>
+            </g>
+            <path d="M2020 61a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"/>
+            <path d="M40 31a10 10 0 0 1 10 10v40a10 10 0 0 0 10 10"/>
+            <g>
+                <path d="M60 91h452"/>
+                <path d="M1568 91h452"/>
+                <path d="M512 91h10"/>
+                <g>
+                    <path d="M522 91h0"/>
+                    <path d="M702 91h0"/>
+                    <rect x="522" y="80" width="180" height="22" rx="10" ry="10"/>
+                    <text x="612" y="95">TS_SEGMENT_BY_ANCHOR</text>
+                </g>
+                <path d="M702 91h10"/>
+                <path d="M712 91h10"/>
+                <g>
+                    <path d="M722 91h0"/>
+                    <path d="M750 91h0"/>
+                    <rect x="722" y="80" width="28" height="22" rx="10" ry="10"/>
+                    <text x="736" y="95">(</text>
+                </g>
+                <path d="M750 91h10"/>
+                <path d="M760 91h10"/>
+                <g>
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#expression" target="_top">
+                        <path d="M770 91h0"/>
+                        <path d="M870 91h0"/>
+                        <rect x="770" y="80" width="100" height="22"/>
+                        <text x="820" y="95">expression</text>
+                    </a>
+                </g>
+                <path d="M870 91h10"/>
+                <path d="M880 91h10"/>
+                <g>
+                    <path d="M890 91h0"/>
+                    <path d="M918 91h0"/>
+                    <rect x="890" y="80" width="28" height="22" rx="10" ry="10"/>
+                    <text x="904" y="95">,</text>
+                </g>
+                <path d="M918 91h10"/>
+                <path d="M928 91h10"/>
+                <g>
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanTimeSeriesExpression" target="_top">
+                        <path d="M938 91h0"/>
+                        <path d="M1174 91h0"/>
+                        <rect x="938" y="80" width="236" height="22"/>
+                        <text x="1056" y="95">booleanTimeSeriesExpression</text>
+                    </a>
+                </g>
+                <path d="M1174 91h10"/>
+                <path d="M1184 91h10"/>
+                <g>
+                    <path d="M1194 91h0"/>
+                    <path d="M1222 91h0"/>
+                    <rect x="1194" y="80" width="28" height="22" rx="10" ry="10"/>
+                    <text x="1208" y="95">,</text>
+                </g>
+                <path d="M1222 91h10"/>
+                <path d="M1232 91h10"/>
+                <g>
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#expression" target="_top">
+                        <path d="M1242 91h0"/>
+                        <path d="M1342 91h0"/>
+                        <rect x="1242" y="80" width="100" height="22"/>
+                        <text x="1292" y="95">expression</text>
+                    </a>
+                </g>
+                <path d="M1342 91h10"/>
+                <path d="M1352 91h10"/>
+                <g>
+                    <path d="M1362 91h0"/>
+                    <path d="M1390 91h0"/>
+                    <rect x="1362" y="80" width="28" height="22" rx="10" ry="10"/>
+                    <text x="1376" y="95">,</text>
+                </g>
+                <path d="M1390 91h10"/>
+                <path d="M1400 91h10"/>
+                <g>
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#expression" target="_top">
+                        <path d="M1410 91h0"/>
+                        <path d="M1510 91h0"/>
+                        <rect x="1410" y="80" width="100" height="22"/>
+                        <text x="1460" y="95">expression</text>
+                    </a>
+                </g>
+                <path d="M1510 91h10"/>
+                <path d="M1520 91h10"/>
+                <g>
+                    <path d="M1530 91h0"/>
+                    <path d="M1558 91h0"/>
+                    <rect x="1530" y="80" width="28" height="22" rx="10" ry="10"/>
+                    <text x="1544" y="95">)</text>
+                </g>
+                <path d="M1558 91h10"/>
+            </g>
+            <path d="M2020 91a10 10 0 0 0 10 -10v-40a10 10 0 0 1 10 -10"/>
+            <path d="M40 31a10 10 0 0 1 10 10v70a10 10 0 0 0 10 10"/>
+            <g>
+                <path d="M60 121h172"/>
+                <path d="M1848 121h172"/>
+                <path d="M232 121h10"/>
+                <g>
+                    <path d="M242 121h0"/>
+                    <path d="M422 121h0"/>
+                    <rect x="242" y="110" width="180" height="22" rx="10" ry="10"/>
+                    <text x="332" y="125">TS_SEGMENT_BY_MARKER</text>
+                </g>
+                <path d="M422 121h10"/>
+                <path d="M432 121h10"/>
+                <g>
+                    <path d="M442 121h0"/>
+                    <path d="M470 121h0"/>
+                    <rect x="442" y="110" width="28" height="22" rx="10" ry="10"/>
+                    <text x="456" y="125">(</text>
+                </g>
+                <path d="M470 121h10"/>
+                <path d="M480 121h10"/>
+                <g>
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#expression" target="_top">
+                        <path d="M490 121h0"/>
+                        <path d="M590 121h0"/>
+                        <rect x="490" y="110" width="100" height="22"/>
+                        <text x="540" y="125">expression</text>
+                    </a>
+                </g>
+                <path d="M590 121h10"/>
+                <path d="M600 121h10"/>
+                <g>
+                    <path d="M610 121h0"/>
+                    <path d="M638 121h0"/>
+                    <rect x="610" y="110" width="28" height="22" rx="10" ry="10"/>
+                    <text x="624" y="125">,</text>
+                </g>
+                <path d="M638 121h10"/>
+                <path d="M648 121h10"/>
+                <g>
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanTimeSeriesExpression" target="_top">
+                        <path d="M658 121h0"/>
+                        <path d="M894 121h0"/>
+                        <rect x="658" y="110" width="236" height="22"/>
+                        <text x="776" y="125">booleanTimeSeriesExpression</text>
+                    </a>
+                </g>
+                <path d="M894 121h10"/>
+                <path d="M904 121h10"/>
+                <g>
+                    <path d="M914 121h0"/>
+                    <path d="M942 121h0"/>
+                    <rect x="914" y="110" width="28" height="22" rx="10" ry="10"/>
+                    <text x="928" y="125">,</text>
+                </g>
+                <path d="M942 121h10"/>
+                <path d="M952 121h10"/>
+                <g>
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanExpression" target="_top">
+                        <path d="M962 121h0"/>
+                        <path d="M1118 121h0"/>
+                        <rect x="962" y="110" width="156" height="22"/>
+                        <text x="1040" y="125">booleanExpression</text>
+                    </a>
+                </g>
+                <path d="M1118 121h10"/>
+                <path d="M1128 121h10"/>
+                <g>
+                    <path d="M1138 121h0"/>
+                    <path d="M1166 121h0"/>
+                    <rect x="1138" y="110" width="28" height="22" rx="10" ry="10"/>
+                    <text x="1152" y="125">,</text>
+                </g>
+                <path d="M1166 121h10"/>
+                <path d="M1176 121h10"/>
+                <g>
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanExpression" target="_top">
+                        <path d="M1186 121h0"/>
+                        <path d="M1342 121h0"/>
+                        <rect x="1186" y="110" width="156" height="22"/>
+                        <text x="1264" y="125">booleanExpression</text>
+                    </a>
+                </g>
+                <path d="M1342 121h10"/>
+                <path d="M1352 121h10"/>
+                <g>
+                    <path d="M1362 121h0"/>
+                    <path d="M1390 121h0"/>
+                    <rect x="1362" y="110" width="28" height="22" rx="10" ry="10"/>
+                    <text x="1376" y="125">,</text>
+                </g>
+                <path d="M1390 121h10"/>
+                <path d="M1400 121h10"/>
+                <g>
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanExpression" target="_top">
+                        <path d="M1410 121h0"/>
+                        <path d="M1566 121h0"/>
+                        <rect x="1410" y="110" width="156" height="22"/>
+                        <text x="1488" y="125">booleanExpression</text>
+                    </a>
+                </g>
+                <path d="M1566 121h10"/>
+                <path d="M1576 121h10"/>
+                <g>
+                    <path d="M1586 121h0"/>
+                    <path d="M1614 121h0"/>
+                    <rect x="1586" y="110" width="28" height="22" rx="10" ry="10"/>
+                    <text x="1600" y="125">,</text>
+                </g>
+                <path d="M1614 121h10"/>
+                <path d="M1624 121h10"/>
+                <g>
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanExpression" target="_top">
+                        <path d="M1634 121h0"/>
+                        <path d="M1790 121h0"/>
+                        <rect x="1634" y="110" width="156" height="22"/>
+                        <text x="1712" y="125">booleanExpression</text>
+                    </a>
+                </g>
+                <path d="M1790 121h10"/>
+                <path d="M1800 121h10"/>
+                <g>
+                    <path d="M1810 121h0"/>
+                    <path d="M1838 121h0"/>
+                    <rect x="1810" y="110" width="28" height="22" rx="10" ry="10"/>
+                    <text x="1824" y="125">)</text>
+                </g>
+                <path d="M1838 121h10"/>
+            </g>
+            <path d="M2020 121a10 10 0 0 0 10 -10v-70a10 10 0 0 1 10 -10"/>
+            <path d="M40 31a10 10 0 0 1 10 10v100a10 10 0 0 0 10 10"/>
+            <g>
+                <path d="M60 151h0"/>
+                <path d="M2020 151h0"/>
+                <path d="M60 151h10"/>
+                <g>
+                    <path d="M70 151h0"/>
+                    <path d="M290 151h0"/>
+                    <rect x="70" y="140" width="220" height="22" rx="10" ry="10"/>
+                    <text x="180" y="155">TS_SEGMENT_BY_DUAL_MARKER</text>
+                </g>
+                <path d="M290 151h10"/>
+                <path d="M300 151h10"/>
+                <g>
+                    <path d="M310 151h0"/>
+                    <path d="M338 151h0"/>
+                    <rect x="310" y="140" width="28" height="22" rx="10" ry="10"/>
+                    <text x="324" y="155">(</text>
+                </g>
+                <path d="M338 151h10"/>
+                <path d="M348 151h10"/>
+                <g>
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#expression" target="_top">
+                        <path d="M358 151h0"/>
+                        <path d="M458 151h0"/>
+                        <rect x="358" y="140" width="100" height="22"/>
+                        <text x="408" y="155">expression</text>
+                    </a>
+                </g>
+                <path d="M458 151h10"/>
+                <path d="M468 151h10"/>
+                <g>
+                    <path d="M478 151h0"/>
+                    <path d="M506 151h0"/>
+                    <rect x="478" y="140" width="28" height="22" rx="10" ry="10"/>
+                    <text x="492" y="155">,</text>
+                </g>
+                <path d="M506 151h10"/>
+                <path d="M516 151h10"/>
+                <g>
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanTimeSeriesExpression" target="_top">
+                        <path d="M526 151h0"/>
+                        <path d="M762 151h0"/>
+                        <rect x="526" y="140" width="236" height="22"/>
+                        <text x="644" y="155">booleanTimeSeriesExpression</text>
+                    </a>
+                </g>
+                <path d="M762 151h10"/>
+                <path d="M772 151h10"/>
+                <g>
+                    <path d="M782 151h0"/>
+                    <path d="M810 151h0"/>
+                    <rect x="782" y="140" width="28" height="22" rx="10" ry="10"/>
+                    <text x="796" y="155">,</text>
+                </g>
+                <path d="M810 151h10"/>
+                <path d="M820 151h10"/>
+                <g>
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanTimeSeriesExpression" target="_top">
+                        <path d="M830 151h0"/>
+                        <path d="M1066 151h0"/>
+                        <rect x="830" y="140" width="236" height="22"/>
+                        <text x="948" y="155">booleanTimeSeriesExpression</text>
+                    </a>
+                </g>
+                <path d="M1066 151h10"/>
+                <path d="M1076 151h10"/>
+                <g>
+                    <path d="M1086 151h0"/>
+                    <path d="M1114 151h0"/>
+                    <rect x="1086" y="140" width="28" height="22" rx="10" ry="10"/>
+                    <text x="1100" y="155">,</text>
+                </g>
+                <path d="M1114 151h10"/>
+                <path d="M1124 151h10"/>
+                <g>
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanExpression" target="_top">
+                        <path d="M1134 151h0"/>
+                        <path d="M1290 151h0"/>
+                        <rect x="1134" y="140" width="156" height="22"/>
+                        <text x="1212" y="155">booleanExpression</text>
+                    </a>
+                </g>
+                <path d="M1290 151h10"/>
+                <path d="M1300 151h10"/>
+                <g>
+                    <path d="M1310 151h0"/>
+                    <path d="M1338 151h0"/>
+                    <rect x="1310" y="140" width="28" height="22" rx="10" ry="10"/>
+                    <text x="1324" y="155">,</text>
+                </g>
+                <path d="M1338 151h10"/>
+                <path d="M1348 151h10"/>
+                <g>
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanExpression" target="_top">
+                        <path d="M1358 151h0"/>
+                        <path d="M1514 151h0"/>
+                        <rect x="1358" y="140" width="156" height="22"/>
+                        <text x="1436" y="155">booleanExpression</text>
+                    </a>
+                </g>
+                <path d="M1514 151h10"/>
+                <path d="M1524 151h10"/>
+                <g>
+                    <path d="M1534 151h0"/>
+                    <path d="M1562 151h0"/>
+                    <rect x="1534" y="140" width="28" height="22" rx="10" ry="10"/>
+                    <text x="1548" y="155">,</text>
+                </g>
+                <path d="M1562 151h10"/>
+                <path d="M1572 151h10"/>
+                <g>
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanExpression" target="_top">
+                        <path d="M1582 151h0"/>
+                        <path d="M1738 151h0"/>
+                        <rect x="1582" y="140" width="156" height="22"/>
+                        <text x="1660" y="155">booleanExpression</text>
+                    </a>
+                </g>
+                <path d="M1738 151h10"/>
+                <path d="M1748 151h10"/>
+                <g>
+                    <path d="M1758 151h0"/>
+                    <path d="M1786 151h0"/>
+                    <rect x="1758" y="140" width="28" height="22" rx="10" ry="10"/>
+                    <text x="1772" y="155">,</text>
+                </g>
+                <path d="M1786 151h10"/>
+                <path d="M1796 151h10"/>
+                <g>
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanExpression" target="_top">
+                        <path d="M1806 151h0"/>
+                        <path d="M1962 151h0"/>
+                        <rect x="1806" y="140" width="156" height="22"/>
+                        <text x="1884" y="155">booleanExpression</text>
+                    </a>
+                </g>
+                <path d="M1962 151h10"/>
+                <path d="M1972 151h10"/>
+                <g>
+                    <path d="M1982 151h0"/>
+                    <path d="M2010 151h0"/>
+                    <rect x="1982" y="140" width="28" height="22" rx="10" ry="10"/>
+                    <text x="1996" y="155">)</text>
+                </g>
+                <path d="M2010 151h10"/>
+            </g>
+            <path d="M2020 151a10 10 0 0 0 10 -10v-100a10 10 0 0 1 10 -10"/>
+            <path d="M40 31a10 10 0 0 1 10 10v130a10 10 0 0 0 10 10"/>
+            <g>
+                <path d="M60 181h672"/>
+                <path d="M1348 181h672"/>
+                <path d="M732 181h10"/>
+                <g>
+                    <path d="M742 181h0"/>
+                    <path d="M818 181h0"/>
+                    <rect x="742" y="170" width="76" height="22" rx="10" ry="10"/>
+                    <text x="780" y="185">TS_FIND</text>
+                </g>
+                <path d="M818 181h10"/>
+                <path d="M828 181h10"/>
+                <g>
+                    <path d="M838 181h0"/>
+                    <path d="M866 181h0"/>
+                    <rect x="838" y="170" width="28" height="22" rx="10" ry="10"/>
+                    <text x="852" y="185">(</text>
+                </g>
+                <path d="M866 181h10"/>
+                <path d="M876 181h10"/>
+                <g>
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#expression" target="_top">
+                        <path d="M886 181h0"/>
+                        <path d="M986 181h0"/>
+                        <rect x="886" y="170" width="100" height="22"/>
+                        <text x="936" y="185">expression</text>
+                    </a>
+                </g>
+                <path d="M986 181h10"/>
+                <path d="M996 181h10"/>
+                <g>
+                    <path d="M1006 181h0"/>
+                    <path d="M1034 181h0"/>
+                    <rect x="1006" y="170" width="28" height="22" rx="10" ry="10"/>
+                    <text x="1020" y="185">,</text>
+                </g>
+                <path d="M1034 181h10"/>
+                <path d="M1044 181h10"/>
+                <g>
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanTimeSeriesExpression" target="_top">
+                        <path d="M1054 181h0"/>
+                        <path d="M1290 181h0"/>
+                        <rect x="1054" y="170" width="236" height="22"/>
+                        <text x="1172" y="185">booleanTimeSeriesExpression</text>
+                    </a>
+                </g>
+                <path d="M1290 181h10"/>
+                <path d="M1300 181h10"/>
+                <g>
+                    <path d="M1310 181h0"/>
+                    <path d="M1338 181h0"/>
+                    <rect x="1310" y="170" width="28" height="22" rx="10" ry="10"/>
+                    <text x="1324" y="185">)</text>
+                </g>
+                <path d="M1338 181h10"/>
+            </g>
+            <path d="M2020 181a10 10 0 0 0 10 -10v-130a10 10 0 0 1 10 -10"/>
+            <path d="M40 31a10 10 0 0 1 10 10v160a10 10 0 0 0 10 10"/>
+            <g>
+                <path d="M60 211h640"/>
+                <path d="M1380 211h640"/>
+                <path d="M700 211h10"/>
+                <g>
+                    <path d="M710 211h0"/>
+                    <path d="M850 211h0"/>
+                    <rect x="710" y="200" width="140" height="22" rx="10" ry="10"/>
+                    <text x="780" y="215">TS_COUNT_ANCHOR</text>
+                </g>
+                <path d="M850 211h10"/>
+                <path d="M860 211h10"/>
+                <g>
+                    <path d="M870 211h0"/>
+                    <path d="M898 211h0"/>
+                    <rect x="870" y="200" width="28" height="22" rx="10" ry="10"/>
+                    <text x="884" y="215">(</text>
+                </g>
+                <path d="M898 211h10"/>
+                <path d="M908 211h10"/>
+                <g>
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#expression" target="_top">
+                        <path d="M918 211h0"/>
+                        <path d="M1018 211h0"/>
+                        <rect x="918" y="200" width="100" height="22"/>
+                        <text x="968" y="215">expression</text>
+                    </a>
+                </g>
+                <path d="M1018 211h10"/>
+                <path d="M1028 211h10"/>
+                <g>
+                    <path d="M1038 211h0"/>
+                    <path d="M1066 211h0"/>
+                    <rect x="1038" y="200" width="28" height="22" rx="10" ry="10"/>
+                    <text x="1052" y="215">,</text>
+                </g>
+                <path d="M1066 211h10"/>
+                <path d="M1076 211h10"/>
+                <g>
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanTimeSeriesExpression" target="_top">
+                        <path d="M1086 211h0"/>
+                        <path d="M1322 211h0"/>
+                        <rect x="1086" y="200" width="236" height="22"/>
+                        <text x="1204" y="215">booleanTimeSeriesExpression</text>
+                    </a>
+                </g>
+                <path d="M1322 211h10"/>
+                <path d="M1332 211h10"/>
+                <g>
+                    <path d="M1342 211h0"/>
+                    <path d="M1370 211h0"/>
+                    <rect x="1342" y="200" width="28" height="22" rx="10" ry="10"/>
+                    <text x="1356" y="215">)</text>
+                </g>
+                <path d="M1370 211h10"/>
+            </g>
+            <path d="M2020 211a10 10 0 0 0 10 -10v-160a10 10 0 0 1 10 -10"/>
+        </g>
+        <path d="M 2040 31 h 20 m -10 -10 v 20 m 10 -20 v 20"/>
+    </g>
 </svg>

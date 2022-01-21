@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  year: 2018, 2021
+  years: 2018, 2021
 lastupdated: "2021-02-25"
 
 keywords: encryption, key protect, query, key management system
@@ -16,7 +16,6 @@ subcollection: sql-query
 {:pre: .pre}
 {:screen: .screen}
 {:tip: .tip}
-
 
 # Encrypting SQL queries with Key Protect
 {: #keyprotect}

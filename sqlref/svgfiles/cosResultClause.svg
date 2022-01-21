@@ -1,8 +1,9 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="railroad-diagram" width="1169" height="252" viewBox="0 0 1169 252">
-<defs><style type="text/css"><![CDATA[ svg.railroad-diagram {
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="railroad-diagram" width="1169" height="252" viewBox="0 0 1169 252" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMin meet">
+    <defs>
+        <style type="text/css"><![CDATA[ svg.railroad-diagram {
   background-color: #ffffff;
 }
 svg.railroad-diagram path {
@@ -28,197 +29,204 @@ svg.railroad-diagram rect {
   stroke:  #5a6872;
   fill: #5aaafa;
 }
- ]]></style></defs>
-<g transform="translate(.5 .5)">
-<path d="M 20 31 v 20 m 10 -20 v 20 m -10 -10 h 20.5"></path>
-<g>
-<path d="M40 41h0"></path>
-<path d="M1128 41h0"></path>
-<path d="M40 41h10"></path>
-<g>
-<path d="M50 41h0"></path>
-<path d="M118 41h0"></path>
-<rect x="50" y="30" width="68" height="22"></rect>
-<text x="84" y="45">COSURI</text>
-</g>
-<path d="M118 41h10"></path>
-<g>
-<path d="M128 41h0"></path>
-<path d="M380 41h0"></path>
-<path d="M128 41a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"></path>
-<g>
-<path d="M148 21h212"></path>
-</g>
-<path d="M360 21a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"></path>
-<path d="M128 41h20"></path>
-<g>
-<path d="M148 41h0"></path>
-<path d="M360 41h0"></path>
-<path d="M148 41h10"></path>
-<g>
-<path d="M158 41h0"></path>
-<path d="M250 41h0"></path>
-<rect x="158" y="30" width="92" height="22" rx="10" ry="10"></rect>
-<text x="204" y="45">JOBPREFIX</text>
-</g>
-<path d="M250 41h10"></path>
-<g>
-<path d="M260 41h0"></path>
-<path d="M360 41h0"></path>
-<path d="M260 41h20"></path>
-<g>
-<path d="M280 41h0"></path>
-<path d="M340 41h0"></path>
-<rect x="280" y="30" width="60" height="22" rx="10" ry="10"></rect>
-<text x="310" y="45">JOBID</text>
-</g>
-<path d="M340 41h20"></path>
-<path d="M260 41a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"></path>
-<g>
-<path d="M280 71h4"></path>
-<path d="M336 71h4"></path>
-<rect x="284" y="60" width="52" height="22" rx="10" ry="10"></rect>
-<text x="310" y="75">NONE</text>
-</g>
-<path d="M340 71a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"></path>
-</g>
-</g>
-<path d="M360 41h20"></path>
-</g>
-<path d="M380 41h10"></path>
-<g>
-<path d="M390 41h0"></path>
-<path d="M466 41h0"></path>
-<rect x="390" y="30" width="76" height="22" rx="10" ry="10"></rect>
-<text x="428" y="45">@break@</text>
-</g>
-<path d="M466 41h10"></path>
-<g>
-<path d="M476 41h0"></path>
-<path d="M792 41h0"></path>
-<path d="M476 41a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"></path>
-<g>
-<path d="M496 21h276"></path>
-</g>
-<path d="M772 21a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"></path>
-<path d="M476 41h20"></path>
-<g>
-<path d="M496 41h0"></path>
-<path d="M772 41h0"></path>
-<path d="M496 41h10"></path>
-<g>
-<path d="M506 41h0"></path>
-<path d="M574 41h0"></path>
-<rect x="506" y="30" width="68" height="22" rx="10" ry="10"></rect>
-<text x="540" y="45">STORED</text>
-</g>
-<path d="M574 41h10"></path>
-<path d="M584 41h10"></path>
-<g>
-<path d="M594 41h0"></path>
-<path d="M630 41h0"></path>
-<rect x="594" y="30" width="36" height="22" rx="10" ry="10"></rect>
-<text x="612" y="45">AS</text>
-</g>
-<path d="M630 41h10"></path>
-<g>
-<path d="M640 41h0"></path>
-<path d="M772 41h0"></path>
-<path d="M640 41h20"></path>
-<g>
-<path d="M660 41h20"></path>
-<path d="M732 41h20"></path>
-<rect x="680" y="30" width="52" height="22" rx="10" ry="10"></rect>
-<text x="706" y="45">AVRO</text>
-</g>
-<path d="M752 41h20"></path>
-<path d="M640 41a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"></path>
-<g>
-<path d="M660 71h24"></path>
-<path d="M728 71h24"></path>
-<rect x="684" y="60" width="44" height="22" rx="10" ry="10"></rect>
-<text x="706" y="75">CSV</text>
-</g>
-<path d="M752 71a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"></path>
-<path d="M640 41a10 10 0 0 1 10 10v40a10 10 0 0 0 10 10"></path>
-<g>
-<path d="M660 101h20"></path>
-<path d="M732 101h20"></path>
-<rect x="680" y="90" width="52" height="22" rx="10" ry="10"></rect>
-<text x="706" y="105">JSON</text>
-</g>
-<path d="M752 101a10 10 0 0 0 10 -10v-40a10 10 0 0 1 10 -10"></path>
-<path d="M640 41a10 10 0 0 1 10 10v70a10 10 0 0 0 10 10"></path>
-<g>
-<path d="M660 131h24"></path>
-<path d="M728 131h24"></path>
-<rect x="684" y="120" width="44" height="22" rx="10" ry="10"></rect>
-<text x="706" y="135">ORC</text>
-</g>
-<path d="M752 131a10 10 0 0 0 10 -10v-70a10 10 0 0 1 10 -10"></path>
-<path d="M640 41a10 10 0 0 1 10 10v100a10 10 0 0 0 10 10"></path>
-<g>
-<path d="M660 161h8"></path>
-<path d="M744 161h8"></path>
-<rect x="668" y="150" width="76" height="22" rx="10" ry="10"></rect>
-<text x="706" y="165">PARQUET</text>
-</g>
-<path d="M752 161a10 10 0 0 0 10 -10v-100a10 10 0 0 1 10 -10"></path>
-<path d="M640 41a10 10 0 0 1 10 10v130a10 10 0 0 0 10 10"></path>
-<g>
-<path d="M660 191h8"></path>
-<path d="M744 191h8"></path>
-<rect x="668" y="180" width="76" height="22" rx="10" ry="10"></rect>
-<text x="706" y="195">GEOJSON</text>
-</g>
-<path d="M752 191a10 10 0 0 0 10 -10v-130a10 10 0 0 1 10 -10"></path>
-<path d="M640 41a10 10 0 0 1 10 10v160a10 10 0 0 0 10 10"></path>
-<g>
-<path d="M660 221h0"></path>
-<path d="M752 221h0"></path>
-<rect x="660" y="210" width="92" height="22" rx="10" ry="10"></rect>
-<text x="706" y="225">SHAPEFILE</text>
-</g>
-<path d="M752 221a10 10 0 0 0 10 -10v-160a10 10 0 0 1 10 -10"></path>
-</g>
-</g>
-<path d="M772 41h20"></path>
-</g>
-<g>
-<path d="M792 41h0"></path>
-<path d="M988 41h0"></path>
-<path d="M792 41a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"></path>
-<g>
-<path d="M812 21h156"></path>
-</g>
-<path d="M968 21a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"></path>
-<path d="M792 41h20"></path>
-<g>
-<path d="M812 41h0"></path>
-<path d="M968 41h0"></path>
-<rect x="812" y="30" width="156" height="22"></rect>
-<text x="890" y="45">partitionedClause</text>
-</g>
-<path d="M968 41h20"></path>
-</g>
-<g>
-<path d="M988 41h0"></path>
-<path d="M1128 41h0"></path>
-<path d="M988 41a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"></path>
-<g>
-<path d="M1008 21h100"></path>
-</g>
-<path d="M1108 21a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"></path>
-<path d="M988 41h20"></path>
-<g>
-<path d="M1008 41h0"></path>
-<path d="M1108 41h0"></path>
-<rect x="1008" y="30" width="100" height="22"></rect>
-<text x="1058" y="45">sortClause</text>
-</g>
-<path d="M1108 41h20"></path>
-</g>
-</g>
-<path d="M 1128 41 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
-</g>
+ ]]></style>
+    </defs>
+    <g transform="translate(.5 .5)">
+        <path d="M 20 31 v 20 m 10 -20 v 20 m -10 -10 h 20.5"/>
+        <g>
+            <path d="M40 41h0"/>
+            <path d="M1128 41h0"/>
+            <path d="M40 41h10"/>
+            <g>
+                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#COSURI" target="_top">
+                    <path d="M50 41h0"/>
+                    <path d="M118 41h0"/>
+                    <rect x="50" y="30" width="68" height="22"/>
+                    <text x="84" y="45">COSURI</text>
+                </a>
+            </g>
+            <path d="M118 41h10"/>
+            <g>
+                <path d="M128 41h0"/>
+                <path d="M380 41h0"/>
+                <path d="M128 41a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"/>
+                <g>
+                    <path d="M148 21h212"/>
+                </g>
+                <path d="M360 21a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"/>
+                <path d="M128 41h20"/>
+                <g>
+                    <path d="M148 41h0"/>
+                    <path d="M360 41h0"/>
+                    <path d="M148 41h10"/>
+                    <g>
+                        <path d="M158 41h0"/>
+                        <path d="M250 41h0"/>
+                        <rect x="158" y="30" width="92" height="22" rx="10" ry="10"/>
+                        <text x="204" y="45">JOBPREFIX</text>
+                    </g>
+                    <path d="M250 41h10"/>
+                    <g>
+                        <path d="M260 41h0"/>
+                        <path d="M360 41h0"/>
+                        <path d="M260 41h20"/>
+                        <g>
+                            <path d="M280 41h0"/>
+                            <path d="M340 41h0"/>
+                            <rect x="280" y="30" width="60" height="22" rx="10" ry="10"/>
+                            <text x="310" y="45">JOBID</text>
+                        </g>
+                        <path d="M340 41h20"/>
+                        <path d="M260 41a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"/>
+                        <g>
+                            <path d="M280 71h4"/>
+                            <path d="M336 71h4"/>
+                            <rect x="284" y="60" width="52" height="22" rx="10" ry="10"/>
+                            <text x="310" y="75">NONE</text>
+                        </g>
+                        <path d="M340 71a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"/>
+                    </g>
+                </g>
+                <path d="M360 41h20"/>
+            </g>
+            <path d="M380 41h10"/>
+            <g>
+                <path d="M390 41h0"/>
+                <path d="M466 41h0"/>
+                <rect x="390" y="30" width="76" height="22" rx="10" ry="10"/>
+                <text x="428" y="45">@break@</text>
+            </g>
+            <path d="M466 41h10"/>
+            <g>
+                <path d="M476 41h0"/>
+                <path d="M792 41h0"/>
+                <path d="M476 41a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"/>
+                <g>
+                    <path d="M496 21h276"/>
+                </g>
+                <path d="M772 21a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"/>
+                <path d="M476 41h20"/>
+                <g>
+                    <path d="M496 41h0"/>
+                    <path d="M772 41h0"/>
+                    <path d="M496 41h10"/>
+                    <g>
+                        <path d="M506 41h0"/>
+                        <path d="M574 41h0"/>
+                        <rect x="506" y="30" width="68" height="22" rx="10" ry="10"/>
+                        <text x="540" y="45">STORED</text>
+                    </g>
+                    <path d="M574 41h10"/>
+                    <path d="M584 41h10"/>
+                    <g>
+                        <path d="M594 41h0"/>
+                        <path d="M630 41h0"/>
+                        <rect x="594" y="30" width="36" height="22" rx="10" ry="10"/>
+                        <text x="612" y="45">AS</text>
+                    </g>
+                    <path d="M630 41h10"/>
+                    <g>
+                        <path d="M640 41h0"/>
+                        <path d="M772 41h0"/>
+                        <path d="M640 41h20"/>
+                        <g>
+                            <path d="M660 41h20"/>
+                            <path d="M732 41h20"/>
+                            <rect x="680" y="30" width="52" height="22" rx="10" ry="10"/>
+                            <text x="706" y="45">AVRO</text>
+                        </g>
+                        <path d="M752 41h20"/>
+                        <path d="M640 41a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"/>
+                        <g>
+                            <path d="M660 71h24"/>
+                            <path d="M728 71h24"/>
+                            <rect x="684" y="60" width="44" height="22" rx="10" ry="10"/>
+                            <text x="706" y="75">CSV</text>
+                        </g>
+                        <path d="M752 71a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"/>
+                        <path d="M640 41a10 10 0 0 1 10 10v40a10 10 0 0 0 10 10"/>
+                        <g>
+                            <path d="M660 101h20"/>
+                            <path d="M732 101h20"/>
+                            <rect x="680" y="90" width="52" height="22" rx="10" ry="10"/>
+                            <text x="706" y="105">JSON</text>
+                        </g>
+                        <path d="M752 101a10 10 0 0 0 10 -10v-40a10 10 0 0 1 10 -10"/>
+                        <path d="M640 41a10 10 0 0 1 10 10v70a10 10 0 0 0 10 10"/>
+                        <g>
+                            <path d="M660 131h24"/>
+                            <path d="M728 131h24"/>
+                            <rect x="684" y="120" width="44" height="22" rx="10" ry="10"/>
+                            <text x="706" y="135">ORC</text>
+                        </g>
+                        <path d="M752 131a10 10 0 0 0 10 -10v-70a10 10 0 0 1 10 -10"/>
+                        <path d="M640 41a10 10 0 0 1 10 10v100a10 10 0 0 0 10 10"/>
+                        <g>
+                            <path d="M660 161h8"/>
+                            <path d="M744 161h8"/>
+                            <rect x="668" y="150" width="76" height="22" rx="10" ry="10"/>
+                            <text x="706" y="165">PARQUET</text>
+                        </g>
+                        <path d="M752 161a10 10 0 0 0 10 -10v-100a10 10 0 0 1 10 -10"/>
+                        <path d="M640 41a10 10 0 0 1 10 10v130a10 10 0 0 0 10 10"/>
+                        <g>
+                            <path d="M660 191h8"/>
+                            <path d="M744 191h8"/>
+                            <rect x="668" y="180" width="76" height="22" rx="10" ry="10"/>
+                            <text x="706" y="195">GEOJSON</text>
+                        </g>
+                        <path d="M752 191a10 10 0 0 0 10 -10v-130a10 10 0 0 1 10 -10"/>
+                        <path d="M640 41a10 10 0 0 1 10 10v160a10 10 0 0 0 10 10"/>
+                        <g>
+                            <path d="M660 221h0"/>
+                            <path d="M752 221h0"/>
+                            <rect x="660" y="210" width="92" height="22" rx="10" ry="10"/>
+                            <text x="706" y="225">SHAPEFILE</text>
+                        </g>
+                        <path d="M752 221a10 10 0 0 0 10 -10v-160a10 10 0 0 1 10 -10"/>
+                    </g>
+                </g>
+                <path d="M772 41h20"/>
+            </g>
+            <g>
+                <path d="M792 41h0"/>
+                <path d="M988 41h0"/>
+                <path d="M792 41a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"/>
+                <g>
+                    <path d="M812 21h156"/>
+                </g>
+                <path d="M968 21a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"/>
+                <path d="M792 41h20"/>
+                <g>
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#partitionedClause" target="_top">
+                        <path d="M812 41h0"/>
+                        <path d="M968 41h0"/>
+                        <rect x="812" y="30" width="156" height="22"/>
+                        <text x="890" y="45">partitionedClause</text>
+                    </a>
+                </g>
+                <path d="M968 41h20"/>
+            </g>
+            <g>
+                <path d="M988 41h0"/>
+                <path d="M1128 41h0"/>
+                <path d="M988 41a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"/>
+                <g>
+                    <path d="M1008 21h100"/>
+                </g>
+                <path d="M1108 21a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"/>
+                <path d="M988 41h20"/>
+                <g>
+                    <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#sortClause" target="_top">
+                        <path d="M1008 41h0"/>
+                        <path d="M1108 41h0"/>
+                        <rect x="1008" y="30" width="100" height="22"/>
+                        <text x="1058" y="45">sortClause</text>
+                    </a>
+                </g>
+                <path d="M1108 41h20"/>
+            </g>
+        </g>
+        <path d="M 1128 41 h 20 m -10 -10 v 20 m 10 -20 v 20"/>
+    </g>
 </svg>

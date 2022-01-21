@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  year: 2018, 2021
+  years: 2018, 2021
 lastupdated: "2021-03-05"
 
 keywords: security, gdpr, hipaa, compliance, personal data, personal information, privacy policy, cloud notice, terms of use
@@ -20,13 +20,10 @@ subcollection: sql-query
 # Security and compliance
 {: #security}
 
-
 ## General Data Protection Regulation (GDPR)
 {: #gdpr}
 
-If you have an account with {{site.data.keyword.cloud}}, your personal data is held by {{site.data.keyword.cloud_notm}}. 
-The [IBM Data Processing Addendum (IBM DPA)](https://www.ibm.com/support/customer/csol/terms/?cat=dpa) applies to the processing 
-of clients' personal data by IBM on behalf of the client to provide IBM standard services.
+If you have an account with {{site.data.keyword.cloud}}, your personal data is held by {{site.data.keyword.cloud_notm}}. The [IBM Data Processing Addendum (IBM DPA)](https://www.ibm.com/support/customer/csol/terms/?cat=dpa) applies to the processing of clients' personal data by IBM on behalf of the client to provide IBM standard services.
 
 {{site.data.keyword.sqlquery_full}} processes limited client Personal Information (PI) in the course of running the service and optimizing the user experience.
 
@@ -43,5 +40,3 @@ of clients' personal data by IBM on behalf of the client to provide IBM standard
 {: #iso}
 
 {{site.data.keyword.sqlquery_notm}} is ISO 27001/27017/27018 and ISO 27701 certified. The certificates and the certified cloud products listing can be found in the [IBM Trust Center](https://www.ibm.com/trust) in section [IBM Cloud Compliance Programs - Global](https://www.ibm.com/cloud/compliance/global).
-
-

@@ -47,7 +47,6 @@ INTO <your target location> STORED AS PARQUET
 
 The output object (timeseries.parquet) contains a table with a single column named ts that contains the output value.
 
-
 The data type of column ts in the following table is DoubleTimeSeries.
 
 | Ts                                                                    |
@@ -203,7 +202,7 @@ Following, see the result of the example query:
 
 `[(0, -1.0), (2, NaN), (4, 2.0), (6, 3.5), (8, 7.1)]`  
 
-**Note:**  
+**Note:**
 
 The timestamp of the first generated observation is calculated by the formula TRUNCATE(first_timestamp/period)*x*period, so the first timestamp in the output time series is not necessarily the same as the first timestamp in the input time series. In this example, TRUNCATE(1/2)*x*2=0. Due to the difference in periodicity of the input and output time series, some of the observations in the input time series do not appear in the output. However, the values of any skipped observations are used during interpolation.  
 
@@ -219,4 +218,3 @@ INTO <your target location> STORED AS PARQUET
 Following, see the result of the example query:  
 
 `[(0, -1.0), (3, 2.0), (6, 3.5)]`
-

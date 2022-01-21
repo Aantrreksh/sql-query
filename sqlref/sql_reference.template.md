@@ -1,9 +1,8 @@
-
 ---
 
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-10-15"
+  years: 2018, 2022
+lastupdated: "2022-01-10"
 
 ---
 
@@ -49,11 +48,11 @@ See the following examples for an outline of the general syntax of an SQL query 
 
 <h3 id="namedQuery">namedQuery</h3>
 
-<!--include-svg src="./svgfiles/namedQuery.svg" target="./diagrams/namedQuery.svg" alt="syntax diagram for a named query" layout="" -->
+<!--include-svg src="./svgfiles/namedQuery.svg" target="./diagrams/namedQuery.svg" alt="syntax diagram for a named query" layout="@break@" -->
 
 <h3 id="intoClause">intoClause</h3>
 
-<!--include-svg src="./svgfiles/intoClause.svg" target="./diagrams/intoClause.svg" alt="syntax diagram for an INTO clause" layout="" -->
+<!--include-svg src="./svgfiles/intoClause.svg" target="./diagrams/intoClause.svg" alt="syntax diagram for an INTO clause" layout="@break@" -->
 
 The query statement supports *common table expressions*. A common table expression permits defining a result table with a table name
 that can be specified as a table name in any FROM clause of the fullselect that follows.
@@ -147,9 +146,9 @@ The storage location is specified by a `COSURI`.
 Valid query result object formats are: `AVRO`, `CSV`, `JSON`, `ORC`, and `PARQUET`. Object type names are not case-sensitive.
 
 Being able to explicitly specify the location and the type of the result object enables a user to take the following actions:
-* Read *raw* data stored in one format, for example, CSV.
-* Cleanse the data by using SQL constructs.
-* Store the cleansed data in a format that offers benefits regarding query performance and storage consumption on Cloud {{site.data.keyword.cos_short}}, for example, a column-based object format, such as Parquet.
+- Read *raw* data stored in one format, for example, CSV.
+- Cleanse the data by using SQL constructs.
+- Store the cleansed data in a format that offers benefits regarding query performance and storage consumption on Cloud {{site.data.keyword.cos_short}}, for example, a column-based object format, such as Parquet.
 
 Moreover, a user can explicitly define the way a query result is stored physically on Cloud {{site.data.keyword.cos_short}} by using the *result partitioned clause*.
 
@@ -230,9 +229,9 @@ Currently, {{site.data.keyword.Db2_on_Cloud_long}} is the only supported target 
 
 Storing query results in a database creates a new table with the columns that are determined by the query result. When you write to Db2,
 the following type-mapping rules apply:
-* String types are mapped to VARCHAR(32000) columns.
-* Struct types are not mapped and must be flattened first. See the `FLATTEN` [table transformation function](#tableTransformer).
-* Arrays, time series, and spatial data types are not mapped and must be converted with appropriate SQL functions.
+- String types are mapped to VARCHAR(32000) columns.
+- Struct types are not mapped and must be flattened first. See the `FLATTEN` [table transformation function](#tableTransformer).
+- Arrays, time series, and spatial data types are not mapped and must be converted with appropriate SQL functions.
 
 The table name and optional schema are specified as part of the target URI.
 **Important**: If a table with the name that is indicated exists in the target database, that table is dropped before the query executes
@@ -253,21 +252,21 @@ For a description how to store and manage the secrets in {{site.data.keyword.key
 <h3>More topics</h3>
 
 For more information about clauses that are used in a *query*, see the following topics:
-* [COSURI](#COSURI)
-* [CRN_URI](#CRN_URI)
-* [DB2_TABLE_URI](#DB2_TABLE_URI)
-* [fullselect](#fullselect)
-* [identifier](#identifier)
-* [namedQuery](#namedQuery)
-* [query](#query)
+- [COSURI](#COSURI)
+- [CRN_URI](#CRN_URI)
+- [DB2_TABLE_URI](#DB2_TABLE_URI)
+- [fullselect](#fullselect)
+- [identifier](#identifier)
+- [namedQuery](#namedQuery)
+- [query](#query)
 
 <h3>Related references</h3>
 
 A *query* is referenced by the following clauses:
-* [booleanExpression](#booleanExpression)
-* [namedQuery](#namedQuery)
-* [predicate](#predicate)
-* [primaryExpression](#primaryExpression)
+- [booleanExpression](#booleanExpression)
+- [namedQuery](#namedQuery)
+- [predicate](#predicate)
+- [primaryExpression](#primaryExpression)
 
 
 ### Fullselect Clause
@@ -282,31 +281,31 @@ A *fullselect* is the core component of a *query*. It is the only mandatory gene
 The result set defined by a single fullselect can be combined with the result set of one or more other fullselects by using set operators.
 
 The following set operators are supported and each set operator derives a result set from two other result sets R1 and R2:
-* `INTERSECT`: The result consists of all rows in **both** R1 and R2.
-* `UNION`: The result consists of all rows in R1 and all rows in R2.
-* `EXCEPT`: The result consists of all rows that do not have a corresponding row in R2.
-* `MINUS`: The minus operator is a synonym for the except operator and is supported for compatibility with other SQL implementations.
+- `INTERSECT`: The result consists of all rows in **both** R1 and R2.
+- `UNION`: The result consists of all rows in R1 and all rows in R2.
+- `EXCEPT`: The result consists of all rows that do not have a corresponding row in R2.
+- `MINUS`: The minus operator is a synonym for the except operator and is supported for compatibility with other SQL implementations.
 
 These set operators can be further refined by using the following modifiers:
-* `DISTINCT`: This modifier ensures that the overall result set does not contain any duplicates. It is the default modifier that applies if no modifier is present.
-* `ALL`: All rows of a fullselect's result set are combined by using a set operator. Thus, the overall result set can contain duplicates.
+- `DISTINCT`: This modifier ensures that the overall result set does not contain any duplicates. It is the default modifier that applies if no modifier is present.
+- `ALL`: All rows of a fullselect's result set are combined by using a set operator. Thus, the overall result set can contain duplicates.
 
 The following combinations of set operators and set modifiers are not supported:
-* `INTERSECT ALL`
-* `EXCEPT ALL`
-* `MINUS ALL`
+- `INTERSECT ALL`
+- `EXCEPT ALL`
+- `MINUS ALL`
 
 The characteristics of a result set defined by a fullselect can be further defined by using the following clauses:
-* `ORDER BY`: Define an overall ordering of the result set based on the criteria that are defined by the list of `sortItem` clauses.
+- `ORDER BY`: Define an overall ordering of the result set based on the criteria that are defined by the list of `sortItem` clauses.
 The default order direction is ascending if not explicitly specified by a `sortItem` clause. The *order by* clause
 cannot be used with *cluster by*, *distribute by*, or *sort by* clause.
 When you use partitioned output, the `ORDER BY` clause gets ignored. Use the `sortClause` instead.
-* `DISTRIBUTE BY`: Distribute result set rows into new partitions based on the criteria that are defined by the list of `expression` clauses.
+- `DISTRIBUTE BY`: Distribute result set rows into new partitions based on the criteria that are defined by the list of `expression` clauses.
 Result set rows that have the same expression values are moved to the same partition. The *distribute by* clause cannot be used with *order by* or *cluster by* clause.
-* `SORT BY`: You can define an overall ordering on a partition base as defined by the list of `expression` clauses.
+- `SORT BY`: You can define an overall ordering on a partition base as defined by the list of `expression` clauses.
 The default order direction is ascending if not explicitly specified by an `expression` clause. The *sort by* clause is used along with the *distribute by* clause.
-* `CLUSTER BY`: Distribute result set rows into new partitions based on the criteria that are defined by the list of `expression` clauses. Moreover, each partition is sorted in ascending order based on the criteria that are defined by the set of `expression` clauses. Thus, this clause represents a shortcut for *distribute by* clause that is combined with *sort by* in ascending order. You cannot use the *cluster by* attribute with the *order by*, *distribute by*, *sort by* clause.
-* `LIMIT`: Restrict the number of rows that are returned from the result set of the fullselect. The number of rows can be defined by an `expression` or by using the keyword `ALL` that causes all rows to be returned.
+- `CLUSTER BY`: Distribute result set rows into new partitions based on the criteria that are defined by the list of `expression` clauses. Moreover, each partition is sorted in ascending order based on the criteria that are defined by the set of `expression` clauses. Thus, this clause represents a shortcut for *distribute by* clause that is combined with *sort by* in ascending order. You cannot use the *cluster by* attribute with the *order by*, *distribute by*, *sort by* clause.
+- `LIMIT`: Restrict the number of rows that are returned from the result set of the fullselect. The number of rows can be defined by an `expression` or by using the keyword `ALL` that causes all rows to be returned.
 
 `DISTRIBUTE BY`, `SORT BY`, and `CLUSTER BY` have an effect only during your SQL query execution and do not influence the query result that is written back to Cloud {{site.data.keyword.cos_short}}. Use these clauses only in execution of subqueries to optimize the outer
 query execution that works on the intermediate result sets produced by the sub queries. To define the persistent target of the overall query that is written back to Cloud {{site.data.keyword.cos_short}}, you need to use the dedicated [resultClause](#resultClause) instead.
@@ -408,19 +407,19 @@ The result of the example queries is shown in the following table.
 <h3>More topics</h3>
 
 For more information about the clauses that are used in a *fullselect*, see the following topics:
-* [expression](#expression)
-* [fullselect](#fullselect)
-* [namedWindows](#namedWindows)
-* [simpleselect](#simpleselect)
-* [sortItem](#sortItem)
-* [valuesClause](#valuesClause)
+- [expression](#expression)
+- [fullselect](#fullselect)
+- [namedWindows](#namedWindows)
+- [simpleselect](#simpleselect)
+- [sortItem](#sortItem)
+- [valuesClause](#valuesClause)
 
 <h3>Related references</h3>
 
-A *fullselect* is referenced by the following clauses:
-* [fullselect](#fullselect)
-* [query](#query)
-* [relationPrimary](#relationPrimary)
+A *fullselect- is referenced by the following clauses:
+- [fullselect](#fullselect)
+- [query](#query)
+- [relationPrimary](#relationPrimary)
 
 ### Simpleselect Clause
 {: #chapterSimpleSelectClause}
@@ -432,23 +431,23 @@ A *simpleselect* is a component of a *fullselect*. Its syntax is defined by the 
 <!--include-svg src="./svgfiles/simpleselect.svg" target="./diagrams/simpleselect.svg" alt="syntax diagram for a simpleselect" layout="@break@"-->
 
 With a *simpleselect*, you can specify the following characteristics of a result set:
-* The list of *result columns* from *relations* or *lateral views* that are part of the final result set. The result column list can be further redefined by using the following modifier keywords:
-    * `DISTINCT`: Eliminates all but one of each set of duplicate rows of the final result set.
-    * `ALL`: Retains all rows of the final result set, and does not eliminate redundant duplicates. It is the default.
-* The `FROM` clause defines the list of *relations* or *lateral views* that are combined to derive a result set.
-* The `WHERE` clause defines the way how *relations* and *lateral views* are filtered and **joined** to derive a result set.
-* In its simplest form, the `GROUP BY` clause defines how rows that qualify for the final result set are grouped based on *grouping expressions*. Each group is represented by a single row in the final result set.
-* The `HAVING` clause is used with the *group by clause* to filter out groups from the final result set.
+- The list of *result columns* from *relations* or *lateral views* that are part of the final result set. The result column list can be further redefined by using the following modifier keywords:
+    - `DISTINCT`: Eliminates all but one of each set of duplicate rows of the final result set.
+    - `ALL`: Retains all rows of the final result set, and does not eliminate redundant duplicates. It is the default.
+- The `FROM` clause defines the list of *relations* or *lateral views* that are combined to derive a result set.
+- The `WHERE` clause defines the way how *relations* and *lateral views* are filtered and **joined** to derive a result set.
+- In its simplest form, the `GROUP BY` clause defines how rows that qualify for the final result set are grouped based on *grouping expressions*. Each group is represented by a single row in the final result set.
+- The `HAVING` clause is used with the *group by clause* to filter out groups from the final result set.
 
 <h3 id="resultColumn">resultColumn</h3>
 
-<!--include-svg src="./svgfiles/resultColumn.svg" target="./diagrams/resultColumn.svg" alt="syntax diagram for a result column" layout="" -->
+<!--include-svg src="./svgfiles/resultColumn.svg" target="./diagrams/resultColumn.svg" alt="syntax diagram for a result column" layout="@break@" -->
 
 A *result column* can be any expression that can optionally be associated with an identifier, that is, a *new name*. By providing custom identifiers, you can control the column names that are used in the result data set written to Cloud {{site.data.keyword.cos_short}}.
 See the following examples for such expressions:
-* A column name from one of the relations.
-* An expression that uses column names from one or multiple relations.
-* Arithmetic expressions that perform calculations.
+- A column name from one of the relations.
+- An expression that uses column names from one or multiple relations.
+- Arithmetic expressions that perform calculations.
 
 <h3>Group By Clause</h3>
 
@@ -458,7 +457,7 @@ See the following examples for such expressions:
 
 <h4 id="groupingSet">groupingSet</h4>
 
-<!--include-svg src="./svgfiles/groupingSet.svg" target="./diagrams/groupingSet.svg" alt="syntax diagram for a grouping set" layout="" -->
+<!--include-svg src="./svgfiles/groupingSet.svg" target="./diagrams/groupingSet.svg" alt="syntax diagram for a grouping set" layout="@break@" -->
 
 More complex *group by* clauses use so called *grouping sets* to provide more insights into the set of rows grouped by a grouping expression.
 
@@ -620,19 +619,19 @@ The result of the example query is shown in the following table.
 <h3>More topics</h3>
 
 For more information about the clauses that are used in a *simpleselect*, see the following topics:
-* [booleanExpression](#booleanExpression)
-* [expression](#expression)
-* [identifier](#identifier)
-* [lateralView](#lateralView)
-* [namedWindows](#namedWindows)
-* [relation](#relation)
-* [resultColumn](#resultColumn)
+- [booleanExpression](#booleanExpression)
+- [expression](#expression)
+- [identifier](#identifier)
+- [lateralView](#lateralView)
+- [namedWindows](#namedWindows)
+- [relation](#relation)
+- [resultColumn](#resultColumn)
 
 <h3>Related references</h3>
 
 A *simpleselect* is referenced by the following clause:
 
-* [fullselect](#fullselect)
+- [fullselect](#fullselect)
 
 ### Sort Item Clause
 {: #chapterSortItemClause}
@@ -641,26 +640,26 @@ A *simpleselect* is referenced by the following clause:
 
 <h3 id="sortItem">sortItem</h3>
 
-<!--include-svg src="./svgfiles/sortItem.svg" target="./diagrams/sortItem.svg" alt="syntax diagram for a sort item" layout="" -->
+<!--include-svg src="./svgfiles/sortItem.svg" target="./diagrams/sortItem.svg" alt="syntax diagram for a sort item" layout="@break@" -->
 
 The semantics of the *sort item* components are as follows:
-* `expression`: The expression represents a *sort key*. The value of the sort key is used to order the rows of the result.
-* `ASC`: Uses the values of the sort key in ascending order. ASC is the default.
-* `DESC`: Uses the values of the sort key in descending order.
-* `NULLS`:
-    * `FIRST`: Specifies that `NULL` values appear first in the order.
-    * `LAST`: Specifies that `NULL` values appear last in the order.
+- `expression`: The expression represents a *sort key*. The value of the sort key is used to order the rows of the result.
+- `ASC`: Uses the values of the sort key in ascending order. ASC is the default.
+- `DESC`: Uses the values of the sort key in descending order.
+- `NULLS`:
+    - `FIRST`: Specifies that `NULL` values appear first in the order.
+    - `LAST`: Specifies that `NULL` values appear last in the order.
 
 <h3>More topics</h3>
 
 For more information about the clauses that are used in an *expression* clause, see the following topic:
-* [expression](#expression)
+- [expression](#expression)
 
 <h3>Related references</h3>
 
 A *sort item clause* is referenced by the following clauses:
-* [fullselect](#fullselect)
-* [windowSpec](#windowSpec)
+- [fullselect](#fullselect)
+- [windowSpec](#windowSpec)
 
 ## Relations
 {: #chapterRelations}
@@ -675,7 +674,7 @@ Multiple relations can be composed by using join operators. The syntax for joini
 
 <h3 id="relation">relation</h3>
 
-<!--include-svg src="./svgfiles/relation.svg" target="./diagrams/relation.svg" alt="syntax diagram for a relation" layout="" -->
+<!--include-svg src="./svgfiles/relation.svg" target="./diagrams/relation.svg" alt="syntax diagram for a relation" layout="@break@" -->
 
 <h3 id="joinClause">joinClause</h3>
 
@@ -688,12 +687,12 @@ Multiple relations can be composed by using join operators. The syntax for joini
 Relations can be joined by using several types of joins that are described in detail in section [joinType](#joinType).
 
 Apart from the join type, the following two different types of joins exist:
-* Joins that specify a *join condition* by using a `booleanExpression` or a `USING clause`.
-* `NATURAL` joins that make an implicit guess on which columns to use for joining relations. Use natural joins carefully.
+- Joins that specify a *join condition* by using a `booleanExpression` or a `USING clause`.
+- `NATURAL` joins that make an implicit guess on which columns to use for joining relations. Use natural joins carefully.
 
 <h3 id="relationPrimary">relationPrimary</h3>
 
-<!--include-svg src="./svgfiles/relationPrimary.svg" target="./diagrams/relationPrimary.svg" alt="syntax diagram for a relation primary" layout="" -->
+<!--include-svg src="./svgfiles/relationPrimary.svg" target="./diagrams/relationPrimary.svg" alt="syntax diagram for a relation primary" layout="@break@" -->
 
 <h3 id="externalTableSpec">externalTableSpec</h3>
 
@@ -716,29 +715,29 @@ However, if you specify the option `MULTILINE`, {{site.data.keyword.sqlquery_sho
 
 If the file format is Parquet, with the optional `MERGE SCHEMA` clause you can handle Parquet schema evolution by specifying to scan all qualifying Parquet objects for their schema, and to merge the final schema across all objects. By default, for Parquet input only the first Parquet object that is found is used to infer the schema, which guarantees minimal overhead for compiling the SQL. Thus, use this option if your Parquet input data does not have a homogeneous schema.
 
-<!--include-svg src="./svgfiles/externalTableSpec.svg" target="./diagrams/externalTableSpec.svg" alt="syntax diagram for an external table specification" layout="" -->
+<!--include-svg src="./svgfiles/externalTableSpec.svg" target="./diagrams/externalTableSpec.svg" alt="syntax diagram for an external table specification" layout="@break@" -->
 
 <h3 id="timeSeriesProperties">timeSeriesProperties</h3>
 
 The TIME_SERIES_FORMAT option triggers a read transformation mechanism that uses a set of timeSeriesProperties to dynamically generate one or more native time series columns (defined by the IN clause) from the specified value and key columns of the input data.
 
-<!--include-svg src="./svgfiles/timeSeriesProperties.svg" target="./diagrams/timeSeriesProperties.svg" alt="syntax diagram for time series properties" layout="" -->
+<!--include-svg src="./svgfiles/timeSeriesProperties.svg" target="./diagrams/timeSeriesProperties.svg" alt="syntax diagram for time series properties" layout="@break@" -->
 
 The parameters `timetick` and `value` are the only parameters that are required to be specified.
 
 Following you see the descriptions of each parameter and how they affect the time series:
 
-* `timetick`: The column that contains the timestamp or `timetick`. Ultimately, the resulting time series is sorted by this column.
+- `timetick`: The column that contains the timestamp or `timetick`. Ultimately, the resulting time series is sorted by this column.
 If two rows contain the same `timetick`, it is uncertain which `timetick` comes first in the time series.
 
-* `value`: The column that contains the value.
+- `value`: The column that contains the value.
 
-* `key`: Optionally specify a `key` column that you can use to group each time series by. If a `key` is indicated, you can assume that *n* time series are created, where *n* is the set of all keys in the `key` column. If no `key` column is specified, a single time series is created from the indicated data set.
+- `key`: Optionally specify a `key` column that you can use to group each time series by. If a `key` is indicated, you can assume that *n* time series are created, where *n* is the set of all keys in the `key` column. If no `key` column is specified, a single time series is created from the indicated data set.
 
-* `starttime`: Optionally specify a `starttime` string (any properly formatted [`DateTime`](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html))
+- `starttime`: Optionally specify a `starttime` string (any properly formatted [`DateTime`](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html))
 for which to set the time series [TRS](/docs/sql-query?topic=sql-query-TRS). If `starttime` is not indicated, and `granularity` is indicated, the `starttime` defaults to 1 January 1970 12am (midnight) GMT. However, if no `granularity` is indicated, a [TRS](/docs/sql-query?topic=sql-query-TRS) is not associated with the created time series.
 
-* `granularity`: Optionally specify a `granularity` string (a properly formatted ISO-8601 duration format) for which to set the time series reference system [TRS](/docs/sql-query?topic=sql-query-TRS). If `granularity` is not indicated, and `starttime` is indicated, the default `granularity` is 1 millisecond. However, if no `starttime` is indicated, a [TRS](/docs/sql-query?topic=sql-query-TRS) is not associated with the created time series.
+- `granularity`: Optionally specify a `granularity` string (a properly formatted ISO-8601 duration format) for which to set the time series reference system [TRS](/docs/sql-query?topic=sql-query-TRS). If `granularity` is not indicated, and `starttime` is indicated, the default `granularity` is 1 millisecond. However, if no `starttime` is indicated, a [TRS](/docs/sql-query?topic=sql-query-TRS) is not associated with the created time series.
 
 The following examples show you how to use TIME_SERIES_FORMAT parameters for dynamic time series generation during the read process.
 
@@ -785,7 +784,7 @@ FROM cos://us-geo/sql/temperature_humidity.csv
 USING TIME_SERIES_FORMAT(timetick="timestamp", value="humidity")
 ```
 
-<!--include-svg src="./svgfiles/timeSeriesOptions.svg" target="./diagrams/timeSeriesOptions.svg" alt="syntax diagram for time series options" layout="" -->
+<!--include-svg src="./svgfiles/timeSeriesOptions.svg" target="./diagrams/timeSeriesOptions.svg" alt="syntax diagram for time series options" layout="@break@" -->
 
 <h3 id="tableTransformer">tableTransformer</h3>
 
@@ -817,31 +816,31 @@ When you use the `DESCRIBE` table transformer in your SQL statement, the default
 You can also wrap `DESCRIBE` around the other table transformers to explore the transformed table schema.
 However, you cannot wrap other table transformers around the `DESCRIBE` transformer.
 
-<!--include-svg src="./svgfiles/tableTransformer.svg" target="./diagrams/tableTransformer.svg" alt="syntax diagram for an table transformer" layout="" -->
+<!--include-svg src="./svgfiles/tableTransformer.svg" target="./diagrams/tableTransformer.svg" alt="syntax diagram for an table transformer" layout="@break@" -->
 
 <h3 id="tableValuedFunction">tableValuedFunction</h3>
 
 A table-valued function returns a relation, that is, a set of rows. An example of a table-valued function is `range()`. For more information, see [SQL functions](/docs/sql-query?topic=sql-query-sqlfunctions#sqlfunctions).
 
-<!--include-svg src="./svgfiles/tableValuedFunction.svg" target="./diagrams/tableValuedFunction.svg" alt="syntax diagram for a table valued function" layout="" -->
+<!--include-svg src="./svgfiles/tableValuedFunction.svg" target="./diagrams/tableValuedFunction.svg" alt="syntax diagram for a table valued function" layout="@break@" -->
 
 <h3>More topics</h3>
 
 For more information about the clauses that are used in *relation* clauses, see the following topics:
-* [booleanExpression](#booleanExpression)
-* [COSURI](#COSURI)
-* [expression](#expression)
-* [fullselect](#fullselect)
-* [identifier](#identifier)
-* [joinType](#joinType)
-* [sample](#sample)
-* [valuesClause](#valuesClause)
+- [booleanExpression](#booleanExpression)
+- [COSURI](#COSURI)
+- [expression](#expression)
+- [fullselect](#fullselect)
+- [identifier](#identifier)
+- [joinType](#joinType)
+- [sample](#sample)
+- [valuesClause](#valuesClause)
 
 <h3>Related references</h3>
 
 A *relation* is referenced by the following clause:
 
-* [simpleselect](#simpleselect)
+- [simpleselect](#simpleselect)
 
 ### Values Clause
 {: #chapterValuesClause}
@@ -850,7 +849,7 @@ A *values clause* is a component of a *fullselect* or represents a *primary rela
 
 <h3 id="valuesClause">valuesClause</h3>
 
-<!--include-svg src="./svgfiles/valuesClause.svg" target="./diagrams/valuesClause.svg" alt="syntax diagram for a values clause" layout="" -->
+<!--include-svg src="./svgfiles/valuesClause.svg" target="./diagrams/valuesClause.svg" alt="syntax diagram for a values clause" layout="@break@" -->
 
 With a values clause, you can define a result set by specifying actual values for each column of a row by using expressions.
 
@@ -974,14 +973,14 @@ The result of the example query is shown in the following table.
 
 <h3>More topics</h3>
 For more information about the clauses that are used in a *values clause*, see the following topics:
-* [expression](#expression)
-* [identifier](#identifier)
+- [expression](#expression)
+- [identifier](#identifier)
 
 <h3>Related references</h3>
 
 A *values clause* is referenced by the following clauses:
-* [fullselect](#fullselect)
-* [relationPrimary](#relationPrimary)
+- [fullselect](#fullselect)
+- [relationPrimary](#relationPrimary)
 
 ### Lateral Views
 {: #chapterLateralViews}
@@ -997,11 +996,11 @@ The syntax of a lateral view clause is described by the following syntax diagram
 <!--include-svg src="./svgfiles/lateralView.svg" target="./diagrams/lateralView.svg" alt="syntax diagram for a lateral view" layout="@break@" -->
 
 The semantics of the entities in order of appearance in the syntax diagrams is as follows:
-* `OUTER`: Specifying this keyword ensures that the lateral view contains at least one row with *null* values in case the table-generating function does not return any rows.
-* `qualifiedName`: Name of a table-generating function.
-* `expression`: An expression that resolves to an array.
-* `identifier`: Lateral view name, that is, the name of the new virtual table.
-* `identifier`: Lateral view column names.
+- `OUTER`: Specifying this keyword ensures that the lateral view contains at least one row with *null* values in case the table-generating function does not return any rows.
+- `qualifiedName`: Name of a table-generating function.
+- `expression`: An expression that resolves to an array.
+- `identifier`: Lateral view name, that is, the name of the new virtual table.
+- `identifier`: Lateral view column names.
 
 <h3>Examples</h3>
 
@@ -1068,13 +1067,13 @@ The result of the example query is shown in the following table.
 <h3>More topics</h3>
 
 For more information about the clauses that are used in a *lateral view* clause, see the following topics:
-* [expression](#expression)
-* [identifier](#identifier)
-* [qualifiedName](#qualifiedName)
+- [expression](#expression)
+- [identifier](#identifier)
+- [qualifiedName](#qualifiedName)
 
 Note:
-* A *simpleselect* can contain multiple lateral view clauses that are evaluated in order of appearance.
-* Within a lateral view clause, you can refer to columns defined in any (virtual) table on the left of the current lateral view clause.
+- A *simpleselect* can contain multiple lateral view clauses that are evaluated in order of appearance.
+- Within a lateral view clause, you can refer to columns defined in any (virtual) table on the left of the current lateral view clause.
 
 <h3>Related references</h3>
 
@@ -1092,7 +1091,7 @@ The table is derived by applying one of the join operators to its operands.
 
 <h3 id="joinType">joinType</h3>
 
-<!--include-svg src="./svgfiles/joinType.svg" target="./diagrams/joinType.svg" alt="syntax diagram for join types" layout="" -->
+<!--include-svg src="./svgfiles/joinType.svg" target="./diagrams/joinType.svg" alt="syntax diagram for join types" layout="@break@" -->
 
 <h4>Inner join</h4>
 
@@ -1357,7 +1356,7 @@ The general syntax of a table sample clause is described by the following syntax
 
 <h3 id="sample">sample</h3>
 
-<!--include-svg src="./svgfiles/sample.svg" target="./diagrams/sample.svg" alt="syntax diagram for a sample" layout="" -->
+<!--include-svg src="./svgfiles/sample.svg" target="./diagrams/sample.svg" alt="syntax diagram for a sample" layout="@break@" -->
 
 <h3 id="bucketSampleClause">bucketSampleClause</h3>
 
@@ -1365,9 +1364,9 @@ The general syntax of a table sample clause is described by the following syntax
 
 Three sampling types are supported:
 
-* With `TABLESAMPLE <number> PERCENT` you can sample a certain percentage of rows from the underlying table.
-* With `TABLESAMPLE <expression> ROWS` you can sample some rows from the underlying table.
-* With `TABLESAMPLE BUCKET x OUT OF y` you can bucketize the underlying data into `y` buckets and returns rows from bucket `x`. Buckets are numbered from `1` to `y`.
+- With `TABLESAMPLE <number> PERCENT` you can sample a certain percentage of rows from the underlying table.
+- With `TABLESAMPLE <expression> ROWS` you can sample some rows from the underlying table.
+- With `TABLESAMPLE BUCKET x OUT OF y` you can bucketize the underlying data into `y` buckets and returns rows from bucket `x`. Buckets are numbered from `1` to `y`.
 
 <h3>Examples</h3>
 
@@ -1395,16 +1394,16 @@ SELECT * FROM cos://us-geo/sql/employees.parquet STORED AS PARQUET TABLESAMPLE (
 <h3>More topics</h3>
 
 For more information about the clauses that are used in a *table sample clause*, see the following topics:
-* [expression](#expression)
-* [identifier](#identifier)
-* [qualifiedName](#qualifiedName)
-* [unsignedInteger](#unsignedInteger)
-* [unsignedNumber](#unsignedNumber)
+- [expression](#expression)
+- [identifier](#identifier)
+- [qualifiedName](#qualifiedName)
+- [unsignedInteger](#unsignedInteger)
+- [unsignedNumber](#unsignedNumber)
 
 <h3>Related references</h3>
 
 A *table sample clause* is referenced by the following clause:
-* [relationPrimary](#relationPrimary)
+- [relationPrimary](#relationPrimary)
 
 ## SQL functions
 {: #chapterSqlFunctions}
@@ -1413,7 +1412,7 @@ The syntax for SQL function invocation is described by the following syntax diag
 
 <h3 id="functionOrAggregate">functionOrAggregate</h3>
 
-<!--include-svg src="./svgfiles/functionOrAggregate.svg" target="./diagrams/functionOrAggregate.svg" alt="syntax diagram for a function or aggregate" layout="" -->
+<!--include-svg src="./svgfiles/functionOrAggregate.svg" target="./diagrams/functionOrAggregate.svg" alt="syntax diagram for a function or aggregate" layout="@break@" -->
 
 Most function invocations look like `function(argument1, ..., argumentN)` but functions like `TRIM()`, `POSITION()`, `FIRST()`, `LAST()`, `STRUCT()`, `EXTRACT()`, and `SUBSTRING()` support a different invocation style.
 
@@ -1422,16 +1421,16 @@ Refer to section [SQL functions](/docs/sql-query?topic=sql-query-sqlfunctions#sq
 <h3>More topics</h3>
 
 For more information about the clauses that are used in a *function or aggregate* clause, see the following topics:
-* [expression](#expression)
-* [qualifiedName](#qualifiedName)
-* [resultColumn](#resultColumn)
-* [valueExpression](#valueExpression)
-* [windowSpec](#windowSpec)
+- [expression](#expression)
+- [qualifiedName](#qualifiedName)
+- [resultColumn](#resultColumn)
+- [valueExpression](#valueExpression)
+- [windowSpec](#windowSpec)
 
 <h3>Related references</h3>
 
 A *function or aggregate clause* is referenced by the following clause:
-* [primaryExpression](#primaryExpression)
+- [primaryExpression](#primaryExpression)
 
 ### Window functions
 {: #chapterWindowFunctions}
@@ -1454,58 +1453,59 @@ The three types of window functions are:
 For more information, see [SQL functions](/docs/sql-query?topic=sql-query-sqlfunctions#sqlfunctions).
 
 A window can be defined in two ways:
-* With the `WINDOW` keyword you can define an identifier for a window specification in a *fullselect* or *simpleselect*. This named window specification can then be referenced by the `OVER` keyword.
-* Unnamed window specifications can be defined inline following the keyword `OVER` in a *fullselect* or *simpleselect*.
+
+- With the `WINDOW` keyword you can define an identifier for a window specification in a *fullselect* or *simpleselect*. This named window specification can then be referenced by the `OVER` keyword.
+- Unnamed window specifications can be defined inline following the keyword `OVER` in a *fullselect* or *simpleselect*.
 
 The syntax of a window specification is defined by the following syntax diagrams.
 
 <h3 id="namedWindows">namedWindows</h3>
 
-<!--include-svg src="./svgfiles/namedWindows.svg" target="./diagrams/namedWindows.svg" alt="syntax diagram for named windows" layout="" -->
+<!--include-svg src="./svgfiles/namedWindows.svg" target="./diagrams/namedWindows.svg" alt="syntax diagram for named windows" layout="@break@" -->
 
 <h3 id="namedWindow">namedWindow</h3>
 
-<!--include-svg src="./svgfiles/namedWindow.svg" target="./diagrams/namedWindow.svg" alt="syntax diagram for a named window" layout="" -->
+<!--include-svg src="./svgfiles/namedWindow.svg" target="./diagrams/namedWindow.svg" alt="syntax diagram for a named window" layout="@break@" -->
 
 <h3 id="windowSpec">windowSpec</h3>
 
-<!--include-svg src="./svgfiles/windowSpec.svg" target="./diagrams/windowSpec.svg" alt="syntax diagram for a window specification" layout="" -->
+<!--include-svg src="./svgfiles/windowSpec.svg" target="./diagrams/windowSpec.svg" alt="syntax diagram for a window specification" layout="@break@" -->
 
 <h3 id="windowClusterBy">windowClusterBy</h3>
 
-<!--include-svg src="./svgfiles/windowClusterBy.svg" target="./diagrams/windowClusterBy.svg" alt="syntax diagram for a window cluster by clause" layout="" -->
+<!--include-svg src="./svgfiles/windowClusterBy.svg" target="./diagrams/windowClusterBy.svg" alt="syntax diagram for a window cluster by clause" layout="@break@" -->
 
 <h3 id="windowPartitionBy">windowPartitionBy</h3>
 
-<!--include-svg src="./svgfiles/windowPartitionBy.svg" target="./diagrams/windowPartitionBy.svg" alt="syntax diagram for a window partition by clause" layout="" -->
+<!--include-svg src="./svgfiles/windowPartitionBy.svg" target="./diagrams/windowPartitionBy.svg" alt="syntax diagram for a window partition by clause" layout="@break@" -->
 
 <h3 id="windowOrderBy">windowOrderBy</h3>
 
-<!--include-svg src="./svgfiles/windowOrderBy.svg" target="./diagrams/windowOrderBy.svg" alt="syntax diagram for a window order by clause" layout="" -->
+<!--include-svg src="./svgfiles/windowOrderBy.svg" target="./diagrams/windowOrderBy.svg" alt="syntax diagram for a window order by clause" layout="@break@" -->
 
 The window specification consists of the following clauses:
-* The `PARTITION BY` clause defines which rows belong to the same *window partition*. `DISTRIBUTE BY` can be used as a synonym for `PARTITION BY`.
-* The `ORDER BY` clause defines the ordering of rows within a window partition. `SORT BY` can be used as a synonym for `ORDER BY`.
-* The two ways to define a *window size* are:
-    * `RANGE`: The window size is defined as a value range.
-    * `ROW`: The window size is defined as the number of rows before and/or after the current row.
-* The following keywords can be used to define range boundaries:
-    * `CURRENT ROW`: Specifies to use the current row as a bound.
-    * `UNBOUNDED`: Specifies to use negative or positive infinity as a lower or upper bound.
-    * Depending on the context `PRECEDING` specifies:
-        * `RANGE`: The lower bound of the value range.
-        * `ROWS`: The number of rows before the current row.
-    * Depending on the context `FOLLOWING` specifies:
-        * `RANGE`: The upper bound of the value range.
-        * `ROWS`: The number of rows after the current row.
+- The `PARTITION BY` clause defines which rows belong to the same *window partition*. `DISTRIBUTE BY` can be used as a synonym for `PARTITION BY`.
+- The `ORDER BY` clause defines the ordering of rows within a window partition. `SORT BY` can be used as a synonym for `ORDER BY`.
+- The two ways to define a *window size* are:
+    - `RANGE`: The window size is defined as a value range.
+    - `ROW`: The window size is defined as the number of rows before and/or after the current row.
+- The following keywords can be used to define range boundaries:
+    - `CURRENT ROW`: Specifies to use the current row as a bound.
+    - `UNBOUNDED`: Specifies to use negative or positive infinity as a lower or upper bound.
+    - Depending on the context `PRECEDING` specifies:
+        - `RANGE`: The lower bound of the value range.
+        - `ROWS`: The number of rows before the current row.
+    - Depending on the context `FOLLOWING` specifies:
+        - `RANGE`: The upper bound of the value range.
+        - `ROWS`: The number of rows after the current row.
 
 <h3 id="windowFrame">windowFrame</h3>
 
-<!--include-svg src="./svgfiles/windowFrame.svg" target="./diagrams/windowFrame.svg" alt="syntax diagram for a window frame" layout="" -->
+<!--include-svg src="./svgfiles/windowFrame.svg" target="./diagrams/windowFrame.svg" alt="syntax diagram for a window frame" layout="@break@" -->
 
 <h3 id="frameBound">frameBound</h3>
 
-<!--include-svg src="./svgfiles/frameBound.svg" target="./diagrams/frameBound.svg" alt="syntax diagram for a frame boundary" layout="" -->
+<!--include-svg src="./svgfiles/frameBound.svg" target="./diagrams/frameBound.svg" alt="syntax diagram for a frame boundary" layout="@break@" -->
 
 <h3>Examples</h3>
 
@@ -1514,9 +1514,9 @@ The following window function examples use *values clauses* to define result set
 <h4>Ranking Function Example</h4>
 
 This example uses a table that contains information about employee social media activity (posts):
-* Column 1: employee ID
-* Column 2: department ID
-* Column 3: number of social media posts
+- Column 1: employee ID
+- Column 2: department ID
+- Column 3: number of social media posts
 
 The example shows how to retrieve the ID of the two most active employees in each department.
 
@@ -1601,9 +1601,9 @@ The result of the example query is shown in the following table.
 <h4>Analytic Function Example</h4>
 
 This example uses a table that contains transaction information. The layout is as follows:
-* Column 1: transaction ID
-* Column 2: account number
-* Column 3: transaction amount
+- Column 1: transaction ID
+- Column 2: account number
+- Column 3: transaction amount
 
 The example shows how to create a cumulative distribution of transaction amounts by using the analytic function `CUME_DIST()`.
 The `CUME_DIST()` function returns the percentage of rows that have a value less than or equal to the current row’s value.
@@ -1649,9 +1649,9 @@ The result of the example query is shown in the following table.
 <h4>Aggregation Function Example</h4>
 
 This example uses a table that contains transaction information. The layout is as follows:
-* Column 1: transaction ID
-* Column 2: account number
-* Column 3: transaction amount
+- Column 1: transaction ID
+- Column 2: account number
+- Column 3: transaction amount
 
 The example shows how to retrieve the *total balance* of each account at the time of each transaction.
 
@@ -1698,15 +1698,15 @@ The result of the example query is shown in the following table.
 
 <h3>More topics</h3>
 For more information about the clauses that are used by a *window function*, see the following topics:
-* [expression](#expression)
-* [identifier](#identifier)
-* [sortItem](#sortItem)
+- [expression](#expression)
+- [identifier](#identifier)
+- [sortItem](#sortItem)
 
 <h3>Related references</h3>
 
 A *named window clause* is referenced by the following clauses:
-* [fullselect](#fullselect)
-* [simpleselect](#simpleselect)
+- [fullselect](#fullselect)
+- [simpleselect](#simpleselect)
 
 With he keyword `OVER` you can define an unnamed window specification in a [functionOrAggregate](#functionOrAggregate).
 
@@ -1719,7 +1719,7 @@ In the context of an SQL query statement, an *expression* is always a *Boolean e
 
 <h4 id="expression">expression</h4>
 
-<!--include-svg src="./svgfiles/expression.svg" target="./diagrams/expression.svg" alt="syntax diagram for an expression" layout="" -->
+<!--include-svg src="./svgfiles/expression.svg" target="./diagrams/expression.svg" alt="syntax diagram for an expression" layout="@break@" -->
 
 <h4>More topics</h4>
 
@@ -1729,23 +1729,23 @@ For more information, see [booleanExpression](#booleanExpression).
 
 An *expression* is referenced by the following clauses:
 
-* [caseExpression](#caseExpression)
-* [castExpression](#castExpression)
-* [frameBound](#frameBound)
-* [fullselect](#fullselect)
-* [functionOrAggregate](#functionOrAggregate)
-* [groupByClause](#groupByClause)
-* [groupingSet](#groupingSet)
-* [lateralView](#lateralView)
-* [predicate](#predicate)
-* [primaryExpression](#primaryExpression)
-* [resultColumn](#resultColumn)
-* [sample](#sample)
-* [sortItem](#sortItem)
-* [tableValuedFunction](#tableValuedFunction)
-* [valuesClause](#valuesClause)
-* [whenClause](#whenClause)
-* [windowSpec](#windowSpec)
+- [caseExpression](#caseExpression)
+- [castExpression](#castExpression)
+- [frameBound](#frameBound)
+- [fullselect](#fullselect)
+- [functionOrAggregate](#functionOrAggregate)
+- [groupByClause](#groupByClause)
+- [groupingSet](#groupingSet)
+- [lateralView](#lateralView)
+- [predicate](#predicate)
+- [primaryExpression](#primaryExpression)
+- [resultColumn](#resultColumn)
+- [sample](#sample)
+- [sortItem](#sortItem)
+- [tableValuedFunction](#tableValuedFunction)
+- [valuesClause](#valuesClause)
+- [whenClause](#whenClause)
+- [windowSpec](#windowSpec)
 
 ### Boolean expressions
 {: #chapterBooleanExpressions}
@@ -1754,30 +1754,32 @@ The syntax of a *Boolean expression* is defined by the following syntax diagrams
 
 <h4 id="booleanExpression">booleanExpression</h4>
 
-<!--include-svg src="./svgfiles/booleanExpression.svg" target="./diagrams/booleanExpression.svg" alt="syntax diagram for a Boolean expression" layout="" -->
+<!--include-svg src="./svgfiles/booleanExpression.svg" target="./diagrams/booleanExpression.svg" alt="syntax diagram for a Boolean expression" layout="@break@" -->
 
 A Boolean expression is one of the following:
-* A negation of a Boolean expression by using Boolean operator `NOT`.
-* A conjunction of Boolean expressions by using Boolean operator `AND`.
-* A disjunction of Boolean expressions by using Boolean operator `OR`.
-* An `EXIST` predicate.
-* A *value expression* optionally followed by a *predicate*.
+
+- A negation of a Boolean expression by using Boolean operator `NOT`.
+- A conjunction of Boolean expressions by using Boolean operator `AND`.
+- A disjunction of Boolean expressions by using Boolean operator `OR`.
+- An `EXIST` predicate.
+- A *value expression* optionally followed by a *predicate*.
 
 Refer to [booleanOperator](#booleanOperator) for details about Boolean operators `NOT`, `AND`, and `OR`.
 
 The `EXISTS` predicate tests for the existence of certain rows. The `query` can specify any number of columns, and the following applies:
-* The result is true only if the number of rows that is specified by the fullselect is not zero.
-* The result is false only if the number of rows that is specified is zero.
-* The result cannot be unknown.
+
+- The result is true only if the number of rows that is specified by the fullselect is not zero.
+- The result is false only if the number of rows that is specified is zero.
+- The result cannot be unknown.
 
 <h4>Related references</h4>
 
 A *Boolean expression* is referenced by the following clauses:
 
-* [booleanExpression](#booleanExpression)
-* [expression](#expression)
-* [relation](#relation)
-* [simpleselect](#simpleselect)
+- [booleanExpression](#booleanExpression)
+- [expression](#expression)
+- [relation](#relation)
+- [simpleselect](#simpleselect)
 
 
 ### Value expressions
@@ -1786,28 +1788,31 @@ A *Boolean expression* is referenced by the following clauses:
 
 <h4 id="valueExpression">valueExpression</h4>
 
-<!--include-svg src="./svgfiles/valueExpression.svg" target="./diagrams/valueExpression.svg" alt="syntax diagram for a value expression" layout="" -->
+<!--include-svg src="./svgfiles/valueExpression.svg" target="./diagrams/valueExpression.svg" alt="syntax diagram for a value expression" layout="@break@" -->
 
 A *value expression* is one of the following:
-* A *primary expression*.
-* The result of applying an unary operator to a value expression.
-* The result of performing an arithmetic operation with two value expressions.
-* The result of performing a comparison operation between two value expressions.
+
+- A *primary expression*.
+- The result of applying an unary operator to a value expression.
+- The result of performing an arithmetic operation with two value expressions.
+- The result of performing a comparison operation between two value expressions.
 
 <h4>More topics</h4>
 
 For more information about the clauses that are used by a *value expression*, see the following topics:
-* [arithmeticOperator](#arithmeticOperator)
-* [comparisonOperator](#comparisonOperator)
-* [primaryExpression](#primaryExpression)
-* [unaryOperator](#unaryOperator)
+
+- [arithmeticOperator](#arithmeticOperator)
+- [comparisonOperator](#comparisonOperator)
+- [primaryExpression](#primaryExpression)
+- [unaryOperator](#unaryOperator)
 
 <h4>Related references</h4>
 
 A *value expression* is referenced by the following clauses:
-* [booleanExpression](#booleanExpression)
-* [functionOrAggregate](#functionOrAggregate)
-* [predicate](#predicate)
+
+- [booleanExpression](#booleanExpression)
+- [functionOrAggregate](#functionOrAggregate)
+- [predicate](#predicate)
 
 
 ### Primary expressions
@@ -1815,25 +1820,25 @@ A *value expression* is referenced by the following clauses:
 
 <h4 id="primaryExpression">primaryExpression</h4>
 
-<!--include-svg src="./svgfiles/primaryExpression.svg" target="./diagrams/primaryExpression.svg" alt="syntax diagram for a primary expression" layout="" -->
+<!--include-svg src="./svgfiles/primaryExpression.svg" target="./diagrams/primaryExpression.svg" alt="syntax diagram for a primary expression" layout="@break@" -->
 
 <h4 id="constant">constant</h4>
 
-<!--include-svg src="./svgfiles/constant.svg" target="./diagrams/constant.svg" alt="syntax diagram for a constant" layout="" -->
+<!--include-svg src="./svgfiles/constant.svg" target="./diagrams/constant.svg" alt="syntax diagram for a constant" layout="@break@" -->
 
 <h4 id="interval">interval</h4>
 
 With an *interval clause* you can define time duration constants that can be used in expressions to add or subtract time ranges from a timestamp value.
 
-<!--include-svg src="./svgfiles/interval.svg" target="./diagrams/interval.svg" alt="syntax diagram for an interval"  layout="" -->
+<!--include-svg src="./svgfiles/interval.svg" target="./diagrams/interval.svg" alt="syntax diagram for an interval"  layout="@break@" -->
 
 <h4 id="timeUnitSpec">timeUnitSpec</h4>
 
-<!--include-svg src="./svgfiles/timeUnitSpec.svg" target="./diagrams/timeUnitSpec.svg" alt="syntax diagram for a time unit specification"  layout="" -->
+<!--include-svg src="./svgfiles/timeUnitSpec.svg" target="./diagrams/timeUnitSpec.svg" alt="syntax diagram for a time unit specification"  layout="@break@" -->
 
 The following time units are valid:
-* Singular form: `SECOND`, `MINUTE`, `DAY`, `MONTH`, `YEAR`
-* Plural form: `SECONDS`, `MINUTES`, `DAYS`, `MONTHS`, `YEARS`
+- Singular form: `SECOND`, `MINUTE`, `DAY`, `MONTH`, `YEAR`
+- Plural form: `SECONDS`, `MINUTES`, `DAYS`, `MONTHS`, `YEARS`
 
 Both singular and plural forms can be used interchangeably.
 
@@ -1864,16 +1869,16 @@ The result of the example query is shown in the following table.
 Since interval clauses can get long, especially if days, hours, minutes, and seconds are involved, it is possible to use an abbreviated syntax by specifying a format `STRING` and by using the `TO` keyword.
 
 The format `STRING` can be used to specify the following time intervals:
-* `YEAR TO MONTH` interval by using a format string that complies with `signYEAR-MONTH` with the following:
-    * `sign`: optional `+` or `-` sign
-    * `YEAR`: number of years
-    * `MONTH`: number of months
-* `DAY TO SECOND` interval by using a format string that complies with `signDAY HOUR:MINUTE:SECOND` with the following:
-    * `sign`: optional `+` or `-` sign
-    * `DAY`: number of days
-    * `HOUR`: number of hours
-    * `MINUTE`: number of minutes
-    * `SECOND`: number of seconds
+- `YEAR TO MONTH` interval by using a format string that complies with `signYEAR-MONTH` with the following:
+    - `sign`: optional `+` or `-` sign
+    - `YEAR`: number of years
+    - `MONTH`: number of months
+- `DAY TO SECOND` interval by using a format string that complies with `signDAY HOUR:MINUTE:SECOND` with the following:
+    - `sign`: optional `+` or `-` sign
+    - `DAY`: number of days
+    - `HOUR`: number of hours
+    - `MINUTE`: number of minutes
+    - `SECOND`: number of seconds
 
 When you specify a time interval by using the keyword `TO`, only the singular form of a time unit `identifier` is supported.
 
@@ -1929,42 +1934,44 @@ The result of the example query is shown in the following table.
 
 <h4 id="columnReference">columnReference</h4>
 
-<!--include-svg src="./svgfiles/columnReference.svg" target="./diagrams/columnReference.svg" alt="syntax diagram for a column reference" layout="" -->
+<!--include-svg src="./svgfiles/columnReference.svg" target="./diagrams/columnReference.svg" alt="syntax diagram for a column reference" layout="@break@" -->
 
 <h4 id="qualifiedName">qualifiedName</h4>
 
-<!--include-svg src="./svgfiles/qualifiedName.svg" target="./diagrams/qualifiedName.svg" alt="syntax diagram for a qualified name" layout="" -->
+<!--include-svg src="./svgfiles/qualifiedName.svg" target="./diagrams/qualifiedName.svg" alt="syntax diagram for a qualified name" layout="@break@" -->
 
 A *qualified name* is a sequence of identifiers that are separated by `.`.
 For example, a column name can be qualified by the name of the *relation* the column is defined in.
 
 *Qualified names* are available in the following context:
-* [functionOrAggregate](#functionOrAggregate)
-* [lateralView](#lateralView)
-* [sample](#sample)
+
+- [functionOrAggregate](#functionOrAggregate)
+- [lateralView](#lateralView)
+- [sample](#sample)
 
 <h4>Related references</h4>
 
 For more information about the clauses that are used by a *primary expression*, see the following topics:
-* [caseExpression](#caseExpression)
-* [castExpression](#castExpression)
-* [constant](#constant)
-* [columnReference](#columnReference)
-* [expression](#expression)
-* [functionOrAggregate](#functionOrAggregate)
-* [identifier](#identifier)
-* [number](#number)
-* [query](#query)
-* [STRING](#STRING)
-* [valueExpression](#valueExpression)
-* [timeSeriesExpression](#timeSeriesExpression)
+
+- [caseExpression](#caseExpression)
+- [castExpression](#castExpression)
+- [constant](#constant)
+- [columnReference](#columnReference)
+- [expression](#expression)
+- [functionOrAggregate](#functionOrAggregate)
+- [identifier](#identifier)
+- [number](#number)
+- [query](#query)
+- [STRING](#STRING)
+- [valueExpression](#valueExpression)
+- [timeSeriesExpression](#timeSeriesExpression)
 
 ### Predicates
 {: #chapterPredicates}
 
 <h4 id="predicate">predicate</h4>
 
-<!--include-svg src="./svgfiles/predicate.svg" target="./diagrams/predicate.svg" alt="syntax diagram for a predicate" layout="" -->
+<!--include-svg src="./svgfiles/predicate.svg" target="./diagrams/predicate.svg" alt="syntax diagram for a predicate" layout="@break@" -->
 
 The `BETWEEN ... AND` predicate compares a value with a range of values. If `NOT` is specified, the result is reversed.
 
@@ -1974,9 +1981,10 @@ In addition, the number of elements in the list of expressions must be the same 
 If `NOT` is specified, the result is reversed.
 
 The `LIKE` predicate searches for strings that have a certain pattern. The pattern is specified by a string in which certain characters have a special meaning.
-* The underscore character `_` represents any single character.
-* The percent sign `%` represents a string of zero or more characters.
-* Any other character represents itself. Thus trailing blanks in a pattern are part of the pattern.
+
+- The underscore character `_` represents any single character.
+- The percent sign `%` represents a string of zero or more characters.
+- Any other character represents itself. Thus trailing blanks in a pattern are part of the pattern.
 If `NOT` is specified, the result is reversed.
 
 The `RLIKE` predicate searches for a regular expression pattern in a string. If the pattern expression is found, the result is true.
@@ -2356,21 +2364,23 @@ If the specified data type is not supported, you receive an error.
 
 <h4 id="castExpression">castExpression</h4>
 
-<!--include-svg src="./svgfiles/castExpression.svg" target="./diagrams/castExpression.svg" alt="syntax diagram for a cast expression" layout="" -->
+<!--include-svg src="./svgfiles/castExpression.svg" target="./diagrams/castExpression.svg" alt="syntax diagram for a cast expression" layout="@break@" -->
 
 In case an expression cannot be cast to the data type specified in the cast expression, the expression result is `null`.
 
 <h4>More topics</h4>
 
 For more information about the clauses that are used by a *cast expression*, see the following topics:
-* [dataType](#dataType)
-* [expression](#expression)
-* [identifier](#identifier)
+
+- [dataType](#dataType)
+- [expression](#expression)
+- [identifier](#identifier)
 
 <h4>Related references</h4>
 
 A *cast expression* is referenced by the following clause:
-* [primaryExpression](#primaryExpression)
+
+- [primaryExpression](#primaryExpression)
 
 ### Case expressions
 {: #chapterCaseExpressions}
@@ -2381,7 +2391,7 @@ The syntax of a case expression is described by the following syntax diagrams.
 
 <h4 id="caseExpression">caseExpression</h4>
 
-<!--include-svg src="./svgfiles/caseExpression.svg" target="./diagrams/caseExpression.svg" alt="syntax diagram for a case expression" layout="" -->
+<!--include-svg src="./svgfiles/caseExpression.svg" target="./diagrams/caseExpression.svg" alt="syntax diagram for a case expression" layout="@break@" -->
 
 The upper path in the syntax diagram represents a *searched when clause*, that is, the `WHEN` keyword follows directly after the `CASE` keyword.
 The lower path is a *simple when clause*, that is, an expression follows the `CASE` keyword.
@@ -2397,7 +2407,7 @@ A *result expression* is an expression that follows the `THEN` or `ELSE` keyword
 
 <h4 id="whenClause">whenClause</h4>
 
-<!--include-svg src="./svgfiles/whenClause.svg" target="./diagrams/whenClause.svg" alt="syntax diagram for a when clause" layout="" -->
+<!--include-svg src="./svgfiles/whenClause.svg" target="./diagrams/whenClause.svg" alt="syntax diagram for a when clause" layout="@break@" -->
 
 <h4>Examples</h4>
 
@@ -2463,12 +2473,14 @@ The two scalar functions that are specialized to handle a subset of the function
 For more information, see [SQL functions](/docs/sql-query?topic=sql-query-sqlfunctions#sqlfunctions).
 
 For more information about the clauses that are used by a *case expression*, see the following topic:
-* [expression](#expression)
+
+- [expression](#expression)
 
 <h4>Related references</h4>
 
 A *case expression* is referenced by the following clause:
-* [primaryExpression](#primaryExpression)
+
+- [primaryExpression](#primaryExpression)
 
 
 ### Time series expressions
@@ -2478,7 +2490,7 @@ The syntax of a *time series expression* is described by the following syntax di
 
 <h4 id="timeSeriesExpression">timeSeriesExpression</h4>
 
-<!--include-svg src="./svgfiles/timeSeriesExpression.svg" target="./diagrams/timeSeriesExpression.svg" alt="syntax diagram for time series expression" layout="" -->
+<!--include-svg src="./svgfiles/timeSeriesExpression.svg" target="./diagrams/timeSeriesExpression.svg" alt="syntax diagram for time series expression" layout="@break@" -->
 
 The syntax shows time series functions that require expressions, such as  `TS_MAP()`,  `TS_FILTER()`, `TS_SEGMENT_BY_ANCHOR()`, `TS_SEGMENT_BY_MARKER()`, `TS_SEGMENT_BY_DUAL_MARKER()`,
 `TS_FIND()`, and `TS_COUNT_ANCHOR()`.
@@ -2501,11 +2513,12 @@ SELECT location, TS_EXPLODE(above_40_ts) AS (timestamp, humidity) FROM only_40_o
 {: codeblock}
 
 A *time series expression* is referenced by the following clause:
-* [primaryExpression](#primaryExpression)
+
+- [primaryExpression](#primaryExpression)
 
 <h4 id="booleanTimeSeriesExpression">booleanTimeSeriesExpression</h4>
 
-<!--include-svg src="./svgfiles/booleanTimeSeriesExpression.svg" target="./diagrams/booleanTimeSeriesExpression.svg" alt="syntax diagram for boolean time series expression" layout="" -->
+<!--include-svg src="./svgfiles/booleanTimeSeriesExpression.svg" target="./diagrams/booleanTimeSeriesExpression.svg" alt="syntax diagram for boolean time series expression" layout="@break@" -->
 
 The Boolean time series expression syntax shows the available Boolean expresssions, such as `TS_EXP_GT()`, which is also used in the previous example.
 
@@ -2513,13 +2526,13 @@ For more information on each function, see [Artifact creation functions](/docs/s
 
 <h4 id="valueTimeSeriesExpression">valueTimeSeriesExpression</h4>
 
-<!--include-svg src="./svgfiles/valueTimeSeriesExpression.svg" target="./diagrams/valueTimeSeriesExpression.svg" alt="syntax diagram for value time series expression" layout="" -->
+<!--include-svg src="./svgfiles/valueTimeSeriesExpression.svg" target="./diagrams/valueTimeSeriesExpression.svg" alt="syntax diagram for value time series expression" layout="@break@" -->
 
 Time series values for expressions can either be a `string` or a `double` datatype.
 
 <h4 id="doubleTimeSeriesExpression">doubleTimeSeriesExpression</h4>
 
-<!--include-svg src="./svgfiles/doubleTimeSeriesExpression.svg" target="./diagrams/doubleTimeSeriesExpression.svg" alt="syntax diagram for double time series expression" layout="" -->
+<!--include-svg src="./svgfiles/doubleTimeSeriesExpression.svg" target="./diagrams/doubleTimeSeriesExpression.svg" alt="syntax diagram for double time series expression" layout="@break@" -->
 
 The functions shown in the double time series expressions, such as `TS_EXP_ABS()` and `TS_EXP_LENGTH()`, are able to consume again double time series expressions,
 `number`, or an identity time series expression.
@@ -2528,7 +2541,7 @@ For more information on each function, see [Artifact creation functions](/docs/s
 
 <h4 id="stringTimeSeriesExpression">stringTimeSeriesExpression</h4>
 
-<!--include-svg src="./svgfiles/stringTimeSeriesExpression.svg" target="./diagrams/stringTimeSeriesExpression.svg" alt="syntax diagram for string time series expression" layout="" -->
+<!--include-svg src="./svgfiles/stringTimeSeriesExpression.svg" target="./diagrams/stringTimeSeriesExpression.svg" alt="syntax diagram for string time series expression" layout="@break@" -->
 
 The string function `TS_EXP_ID_TO_STRING()` converts an ID to a string and the `TS_EXP_CONCAT()` function concatenates the result of two string expressions.
 
@@ -2536,7 +2549,7 @@ For more information on each function, see [Artifact creation functions](/docs/s
 
 <h4 id="stringConditionalExpression">stringConditionalExpression</h4>
 
-<!--include-svg src="./svgfiles/stringConditionalExpression.svg" target="./diagrams/stringConditionalExpression.svg" alt="syntax diagram for string conditional time series expression" layout="" -->
+<!--include-svg src="./svgfiles/stringConditionalExpression.svg" target="./diagrams/stringConditionalExpression.svg" alt="syntax diagram for string conditional time series expression" layout="@break@" -->
 
 The three conditional expression functions for string values are `TS_EXP_IF_THEN_ELSE()`, `TS_EXP_IF_THEN()`, and `TS_EXP_MATCH_CASE()`.
 
@@ -2544,7 +2557,7 @@ For more information on each function, see [Artifact creation functions](/docs/s
 
 <h4 id="identityTimeSeriesExpression">identityTimeSeriesExpression</h4>
 
-<!--include-svg src="./svgfiles/identityTimeSeriesExpression.svg" target="./diagrams/identityTimeSeriesExpression.svg" alt="syntax diagram for identity time series expression" layout="" -->
+<!--include-svg src="./svgfiles/identityTimeSeriesExpression.svg" target="./diagrams/identityTimeSeriesExpression.svg" alt="syntax diagram for identity time series expression" layout="@break@" -->
 
 The identity expression denotes current observation values in time series.
 
@@ -2552,11 +2565,12 @@ The identity expression denotes current observation values in time series.
 {: #chapterOperator}
 
 The following types of operators can be used:
-* [Unary](#unaryOperator)
-* [Arithmetic](#arithmeticOperator)
-* [String](#stringOperator)
-* [Comparison](#comparisonOperator)
-* [Boolean](#booleanOperator)
+
+- [Unary](#unaryOperator)
+- [Arithmetic](#arithmeticOperator)
+- [String](#stringOperator)
+- [Comparison](#comparisonOperator)
+- [Boolean](#booleanOperator)
 
 <h3 id="unaryOperator">Unary operators</h3>
 
@@ -2622,14 +2636,14 @@ An *operator* is referenced by [valueExpression](#valueExpression).
 ## Data Types
 {: #dataType}
 
-<!--include-svg src="./svgfiles/dataType.svg" target="./diagrams/dataType.svg" alt="syntax diagram for a data type" layout="" -->
+<!--include-svg src="./svgfiles/dataType.svg" target="./diagrams/dataType.svg" alt="syntax diagram for a data type" layout="@break@" -->
 
 Data types can be either primitive types like numeric or string types, or they can be composite types that are built from other
 primitive or composite types. Composite types can have the following structure:
 
-* *Struct* types describe types that are built from a fixed number of named fields. Each field can have its own type.
-* *Array* types describe a sequence of elements that can have an arbitrary length, but must all have the same type.
-* *Map* types describe a mapping from keys to values.
+- *Struct* types describe types that are built from a fixed number of named fields. Each field can have its own type.
+- *Array* types describe a sequence of elements that can have an arbitrary length, but must all have the same type.
+- *Map* types describe a mapping from keys to values.
 
 Composite types can be nested, as in the following example:
 ```sql
@@ -2652,11 +2666,17 @@ STRUCT<
 Some data formats, particularly CSV, do not support composite types. When your query result contains data with a composite type,
 use an [INTO clause](#intoClause) to specify an appropriate target format, like JSON.
 
-<h3 id="primitiveType">primitiveType</h3>
+<h3 id="primitiveType">Primitive Types Overview</h3>
 
-The following primitive types are supported in {{site.data.keyword.sqlquery_short}}:
+The following primitive data types are supported in {{site.data.keyword.sqlquery_short}}:
+- Numeric types
+- Strings
+- Date and Timestamp
+- Boolean
+- Binary
 
-<h4>Numeric Types</h4>
+
+<h3>Numeric Types</h3>
 
 Numeric data types are summarized in the following table.
 
@@ -2672,12 +2692,18 @@ Numeric data types are summarized in the following table.
 | `DECIMAL` | precision of 38 digits | n/a | -10e37+1 | 10e37-1 |
 <!--table-caption title="Numeric Data Types"-->
 
-<h4>String Types</h4>
+Numeric literals with fractional digits are parsed as `DECIMAL` by default. For example, <code>123.45</code> is treated as `DECIMAL(5,2)`, and <code>1.234e-3</code> is treated as `DECIMAL(6,6)` with value 0.001234, and not as a floating point number. You can force specific data types with a <code>CAST</code> expression or by adding one of the following suffix types:
+- <code>123L</code> forces `BIGINT` data type
+- <code>123BD</code> forces `DECIMAL` data type
+- <code>123D</code> forces `DOUBLE` data type
+
+
+<h3>String Types</h3>
 
 Strings are represented as `STRING` data type. The type definitions `VARCHAR(n)` and `CHAR(n)` can be used as aliases for `STRING`.
 The syntax requires that you specify a maximum length for these types, but no length restriction is enforced.
 
-<h4>Date and Time Types</h4>
+<h3>Date and Timestamp Types</h3>
 
 String values with appropriate formats can be converted to a timestamp or date, by using data types `TIMESTAMP` or `DATE`.
 
@@ -2699,7 +2725,7 @@ The result of the example query is shown in the following table.
 |2018-10-31 23:55:00.0                 |2018-02-28                      |null                    |
 <!--table-caption title="Query result for example 'cast string values to TIMESTAMP and DATE types'"-->
 
-<h4>Boolean Type</h4>
+<h3>Boolean Type</h3>
 
 The `BOOLEAN` type represents a domain with two values, `true` or `false`.
 
@@ -2709,15 +2735,15 @@ Numeric values that represent a nonzero value, for example, 1, 1.0, 1.0E10, or 2
 
 The string value `'0'` can be cast to `false` and `'1'` can be cast to `true`. Any other string value is cast to `false`.
 
-<h4>Binary Type</h4>
+<h3>Binary Type</h3>
 
 A `BINARY` type represents an array of byte values. Thus, string values can be cast to type `BINARY`.
 
-<h4>Related references</h4>
+<h3>Related references</h3>
 
 A *dataType* is referenced by the following clauses:
-* [castExpression](#castExpression)
-* [createTable](#createTable)
+- [castExpression](#castExpression)
+- [createTable](#createTable)
 
 
 ## Catalog management
@@ -2929,6 +2955,28 @@ ALTER TABLE customers_partitioned PARTITION (country = 'Spain') SET LOCATION cos
 
 Use the `EXISTS` option to avoid getting errors during `ADD` or `DROP`.
 
+### Alter Table Columns
+{: #chapterAlterTableColumns}
+
+<h4 id="alterTableColumns">alterTableColumns</h4>
+
+<!--include-svg src="./svgfiles/alterTableColumns.svg" target="./diagrams/alterTableColumns.svg" alt="syntax diagram for a alter table columns command" layout="@break@" -->
+
+Use alter table to add new columns to the schema of a catalog table.
+
+Adding columns to the schema has no effect on the objects in {{site.data.keyword.cos_short}} for the table. If some or all of these objects do not contain a column, vaules for the corresponding rows are treated as NULL. You can add new objects to the table location (for non-partitioned tables) or new partitions (for partitioned tables) that contain the new columns, to evolve the table schema.
+
+```sql
+-- create a partitioned sample table in PARQUET format
+CREATE TABLE customers_addcol USING PARQUET LOCATION cos://us-geo/sql/customers_partitioned.parquet
+-- add a new column that does not yet occur in existing partitions. new partitions can add data for that column
+ALTER TABLE customers_addcol ADD COLUMNS (priority INTEGER)
+```
+
+Do not use the `ADD COLUMNS` option with CSV tables. The CSV data format identifies columns by order (not by name), so any schema change leads to a schema mismatch with existing data.
+
+Alternatively, you can perform schema changes by dropping and re-creating catlog tables. It does not affect the stored data in {{site.data.keyword.cos_short}}. This allows you to re-execute the automatic schema detection when the underlying data is extended with new objects containing additional columns. You can also use this method to remove columns from the schema that you do not want to appear in the catalog.
+
 <!-- HIDE START ### Analyze Table
 
 <h4 id="analyzeTable">Analyze Table</h4>
@@ -3004,7 +3052,8 @@ SHOW TBLPROPERTIES customer
 
 <!--include-svg src="./svgfiles/showPartitions.svg" target="./diagrams/showPartitions.svg" alt="syntax diagram for show partitions command" layout="@break@" -->
 
-List the defined partitions of a table when a table was created as partitioned. You can filter the returned partitions by using the *partitionSpec* option.
+List the defined partitions of a table when a table was created as partitioned. You can filter the returned partitions by using the *partitionSpec*
+option.
 
 
 ```sql
@@ -3033,10 +3082,10 @@ Create an index on the objects in the specified {{site.data.keyword.cos_short}} 
 
 <!--include-svg src="./svgfiles/metaindexIndextype.svg" target="./diagrams/metaindexIndextype.svg" alt="syntax diagram for the different index types" layout="@break@" -->
 
-* MINMAX: Stores minimum or maximum values for a column for all types, except for complex types.
-* VALUELIST: Stores the list of unique values for the column for all types if the distinct values in that column are low.
-* BLOOMFILTER: Uses bloom filter technique for byte, string, long, integer, or short types if the distinct values in that column are high.
-* GEOSPATIAL: Stores a geospatial bounding box for geometry types.
+- MINMAX: Stores minimum or maximum values for a column for all types, except for complex types.
+- VALUELIST: Stores the list of unique values for the column for all types if the distinct values in that column are low.
+- BLOOMFILTER: Uses bloom filter technique for byte, string, long, integer, or short types if the distinct values in that column are high.
+- GEOSPATIAL: Stores a geospatial bounding box for geometry types.
 
 ```sql
 -- create an index on the columns temp, lat, lng, vid and city of the metergen sample table
@@ -3198,7 +3247,7 @@ The metaindexAssetLocation is a subset of the [externalTableSpec](#externalTable
 
 <!--include-svg src="./svgfiles/metaindexAssetLocation.svg" target="./diagrams/metaindexAssetLocation.svg" alt="syntax diagram for index asset location" layout="@break@" -->
 
-The metaindexAssetHiveTable refers to a Hive table.
+The `metaindexAssetHiveTable` refers to a Hive table.
 
 <!--include-svg src="./svgfiles/metaindexAssetHiveTable.svg" target="./diagrams/metaindexAssetHiveTable.svg" alt="syntax diagram for index asset Hive table" layout="@break@" -->
 
@@ -3232,9 +3281,10 @@ An *identifier* is a name that uniquely identifies an entity. The two types of i
 <h4>Unquoted identifier</h4>
 
 An unquoted identifier is at least one character long. The following valid characters can be used:
-* Digits `0-9`
-* Letters `a-z`, `A-Z`
-* Underscore `_`
+
+- Digits `0-9`
+- Letters `a-z`, `A-Z`
+- Underscore `_`
 
 <h4>Back quoted identifier</h4>
 
@@ -3249,9 +3299,10 @@ SELECT col1 as `Lösung` FROM VALUES 1, 2 ,3
 <h3 id="tableIdentifier">Table Identifier</h3>
 
 A *table identifier* uniquely identifies a table or view in the catalog of the {{site.data.keyword.sqlquery_short}} instance. The following valid characters can be used:
-* Digits `0-9`
-* Letters `a-z`, `A-Z`
-* Underscore `_`
+
+- Digits `0-9`
+- Letters `a-z`, `A-Z`
+- Underscore `_`
 
 <h3 id="number">Number</h3>
 
@@ -3269,22 +3320,25 @@ An unsigned integer is an *integer* number without sign or type suffix.
 
 An integer number is represented by a sequence of at least one digit, that is, `0` to `9`.
 The integer number can have a suffix denoting the type of integer number. The three types of integer numbers are:
-* `Y`: tiny integer number
-* `S`: small integer number
-* `L`: large integer number
+
+- `Y`: tiny integer number
+- `S`: small integer number
+- `L`: large integer number
 
 For more information about data types, see [dataType](#dataType).
 
 <h4 id="DECIMAL_VALUE">Decimal Number</h4>
 
 The following is a decimal number:
-* A sequence of at least one digit followed by a positive or negative exponent, for example, `10E2` represents integer `1000` and `1E-1` represents 0.1.
-* A decimal number, for example, `3.14`.
-* A decimal number followed by a positive or negative exponent, for example, `3.14E+3` represents `3140.00` or `3.14E-3` represents `0.00314`.
+
+- A sequence of at least one digit followed by a positive or negative exponent, for example, `10E2` represents integer `1000` and `1E-1` represents 0.1.
+- A decimal number, for example, `3.14`.
+- A decimal number followed by a positive or negative exponent, for example, `3.14E+3` represents `3140.00` or `3.14E-3` represents `0.00314`.
 
 The decimal number can have a suffix denoting the type of decimal number. The two types of decimal numbers are:
-* `D`: double decimal number
-* `BD`: large decimal number
+
+- `D`: double decimal number
+- `BD`: large decimal number
 
 For more information about data types, see [dataType](#dataType).
 

@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  year: 2018, 2021
+  years: 2018, 2021
 lastupdated: "2021-10-07"
 
 keywords: SQL, functions
@@ -14,7 +14,6 @@ subcollection: sql-query
 {: #sqlfunctions}
 
 You can use any of the following functions in your query.
-
 
 ## !
 {: #!}
@@ -55,7 +54,6 @@ expr1 &amp; expr2 - Returns the result of bitwise AND of <code>expr1</code> and 
 **Result value:**
 
 <pre><code> 1</code></pre>
-
 
 ## *
 {: #*}
@@ -679,8 +677,8 @@ atan2(expr1, expr2) - Returns the angle in radians between the positive x-axis o
 <pre><code> 0.0</code></pre>
 
 
-## avg#
-{: #avg#}
+## avg
+{: #avg}
 
 avg(expr) - Returns the mean that is calculated from values of a group.
 
@@ -1335,7 +1333,8 @@ dayofyear(date) - Returns the day of year of the date/timestamp.
 ## decimal
 {: #decimal}
 
-decimal(expr) - Casts the value <code>expr</code> to the target data type <code>decimal</code>.
+decimal(expr) - Casts the value <code>expr</code> to the target data type <code>DECIMAL(10,0)</code>, truncating the result if needed.
+Use <code>CAST(expr AS DECIMAL(p,f))</code> to specify precision and fractional digits explicitly.
 
 
 ## decode
@@ -1622,7 +1621,7 @@ from_unixtime(unix_time, format) - Returns <code>unix_time</code> in the specifi
 
 ## from_utc_timestamp
 {: #from_utc_timestamp}
-#
+
 from_utc_timestamp(timestamp, timezone) - Given a timestamp, such as '2017-07-14 02:40:00.0', this function interprets it as a time in Coordinated Universal Time (UTC), and renders that time as a timestamp in the indicated time zone. For example, 'GMT+1' would yield '2017-07-14 03:40:00.0'.
 
 **Example of an SQL function usage fragment:**
@@ -2624,7 +2623,7 @@ percentile(col, percentage [, frequency]) - Returns the exact percentile value o
 <code>col</code> at the indicated percentage. The value of percentage must be between 0.0 and 1.0. The value of frequency must be a positive integral.
 
 percentile(col, array(percentage1 [, percentage2]...) [, frequency]) - Returns the exact
-percentile value array of numeric column <code>col</code> at the indicated percentage. Each value of the percentage array must be between 0.0 and 1.0. The value of frequency must be a 
+percentile value array of numeric column <code>col</code> at the indicated percentage. Each value of the percentage array must be between 0.0 and 1.0. The value of frequency must be a
 positive integral.
 
 
@@ -4001,7 +4000,6 @@ CASE WHEN expr1 THEN expr2 [WHEN expr3 THEN expr4]* [ELSE expr5] END - When <cod
 
 <pre><code> NULL</code></pre>
 
-
 ## window
 {: #window}
 
@@ -4046,7 +4044,6 @@ xpath_double(xml, xpath) - Returns a double value, the value zero if no match is
 
 <pre><code> 3.0</code></pre>
 
-
 ## xpath_float
 {: #xpath_float}
 
@@ -4059,7 +4056,6 @@ xpath_float(xml, xpath) - Returns a float value, the value zero if no match is f
 **Result value:**
 
 <pre><code> 3.0</code></pre>
-
 
 ## xpath_int
 {: #xpath_int}
@@ -4074,7 +4070,6 @@ xpath_int(xml, xpath) - Returns an integer value, or the value zero if no match 
 
 <pre><code> 3</code></pre>
 
-
 ## xpath_long
 {: #xpath_long}
 
@@ -4087,7 +4082,6 @@ xpath_long(xml, xpath) - Returns a long integer value, or the value zero if no m
 **Result value:**
 
 <pre><code> 3</code></pre>
-
 
 ## xpath_number
 {: #xpath_number}

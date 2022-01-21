@@ -1,8 +1,9 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="railroad-diagram" width="1377" height="112" viewBox="0 0 1377 112">
-<defs><style type="text/css"><![CDATA[ svg.railroad-diagram {
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="railroad-diagram" width="1377" height="112" viewBox="0 0 1377 112" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMin meet">
+    <defs>
+        <style type="text/css"><![CDATA[ svg.railroad-diagram {
   background-color: #ffffff;
 }
 svg.railroad-diagram path {
@@ -28,209 +29,218 @@ svg.railroad-diagram rect {
   stroke:  #5a6872;
   fill: #5aaafa;
 }
- ]]></style></defs>
-<g transform="translate(.5 .5)">
-<path d="M 20 41 v 20 m 10 -20 v 20 m -10 -10 h 20.5"></path>
-<g>
-<path d="M40 51h0"></path>
-<path d="M1336 51h0"></path>
-<path d="M40 51h10"></path>
-<g>
-<path d="M50 51h0"></path>
-<path d="M126 51h0"></path>
-<rect x="50" y="40" width="76" height="22" rx="10" ry="10"></rect>
-<text x="88" y="55">LATERAL</text>
-</g>
-<path d="M126 51h10"></path>
-<path d="M136 51h10"></path>
-<g>
-<path d="M146 51h0"></path>
-<path d="M198 51h0"></path>
-<rect x="146" y="40" width="52" height="22" rx="10" ry="10"></rect>
-<text x="172" y="55">VIEW</text>
-</g>
-<path d="M198 51h10"></path>
-<g>
-<path d="M208 51h0"></path>
-<path d="M308 51h0"></path>
-<path d="M208 51a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"></path>
-<g>
-<path d="M228 31h60"></path>
-</g>
-<path d="M288 31a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"></path>
-<path d="M208 51h20"></path>
-<g>
-<path d="M228 51h0"></path>
-<path d="M288 51h0"></path>
-<rect x="228" y="40" width="60" height="22" rx="10" ry="10"></rect>
-<text x="258" y="55">OUTER</text>
-</g>
-<path d="M288 51h20"></path>
-</g>
-<path d="M308 51h10"></path>
-<g>
-<path d="M318 51h0"></path>
-<path d="M442 51h0"></path>
-<rect x="318" y="40" width="124" height="22"></rect>
-<text x="380" y="55">qualifiedName</text>
-</g>
-<path d="M442 51h10"></path>
-<path d="M452 51h10"></path>
-<g>
-<path d="M462 51h0"></path>
-<path d="M538 51h0"></path>
-<rect x="462" y="40" width="76" height="22" rx="10" ry="10"></rect>
-<text x="500" y="55">@break@</text>
-</g>
-<path d="M538 51h10"></path>
-<path d="M548 51h10"></path>
-<g>
-<path d="M558 51h0"></path>
-<path d="M586 51h0"></path>
-<rect x="558" y="40" width="28" height="22" rx="10" ry="10"></rect>
-<text x="572" y="55">(</text>
-</g>
-<path d="M586 51h10"></path>
-<g>
-<path d="M596 51h0"></path>
-<path d="M796 51h0"></path>
-<path d="M596 51a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"></path>
-<g>
-<path d="M616 31h160"></path>
-</g>
-<path d="M776 31a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"></path>
-<path d="M596 51h20"></path>
-<g>
-<path d="M616 51h0"></path>
-<path d="M776 51h0"></path>
-<path d="M616 51h10"></path>
-<g>
-<path d="M626 51h0"></path>
-<path d="M766 51h0"></path>
-<path d="M626 51h10"></path>
-<g>
-<path d="M636 51h0"></path>
-<path d="M756 51h0"></path>
-<path d="M636 51h10"></path>
-<g>
-<path d="M646 51h0"></path>
-<path d="M746 51h0"></path>
-<rect x="646" y="40" width="100" height="22"></rect>
-<text x="696" y="55">expression</text>
-</g>
-<path d="M746 51h10"></path>
-</g>
-<path d="M756 51h10"></path>
-<path d="M636 51a10 10 0 0 0 -10 10v10a10 10 0 0 0 10 10"></path>
-<g>
-<path d="M636 81h36"></path>
-<path d="M720 81h36"></path>
-<path d="M672 81h10"></path>
-<g>
-<path d="M682 81h0"></path>
-<path d="M710 81h0"></path>
-<rect x="682" y="70" width="28" height="22" rx="10" ry="10"></rect>
-<text x="696" y="85">,</text>
-</g>
-<path d="M710 81h10"></path>
-</g>
-<path d="M756 81a10 10 0 0 0 10 -10v-10a10 10 0 0 0 -10 -10"></path>
-</g>
-<path d="M766 51h10"></path>
-</g>
-<path d="M776 51h20"></path>
-</g>
-<path d="M796 51h10"></path>
-<g>
-<path d="M806 51h0"></path>
-<path d="M834 51h0"></path>
-<rect x="806" y="40" width="28" height="22" rx="10" ry="10"></rect>
-<text x="820" y="55">)</text>
-</g>
-<path d="M834 51h10"></path>
-<path d="M844 51h10"></path>
-<g>
-<path d="M854 51h0"></path>
-<path d="M930 51h0"></path>
-<rect x="854" y="40" width="76" height="22" rx="10" ry="10"></rect>
-<text x="892" y="55">@break@</text>
-</g>
-<path d="M930 51h10"></path>
-<path d="M940 51h10"></path>
-<g>
-<path d="M950 51h0"></path>
-<path d="M1050 51h0"></path>
-<rect x="950" y="40" width="100" height="22"></rect>
-<text x="1000" y="55">identifier</text>
-</g>
-<path d="M1050 51h10"></path>
-<g>
-<path d="M1060 51h0"></path>
-<path d="M1336 51h0"></path>
-<path d="M1060 51a10 10 0 0 0 10 -10v-9a10 10 0 0 1 10 -10"></path>
-<g>
-<path d="M1080 22h236"></path>
-</g>
-<path d="M1316 22a10 10 0 0 1 10 10v9a10 10 0 0 0 10 10"></path>
-<path d="M1060 51h20"></path>
-<g>
-<path d="M1080 51h0"></path>
-<path d="M1316 51h0"></path>
-<g>
-<path d="M1080 51h0"></path>
-<path d="M1156 51h0"></path>
-<path d="M1080 51a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"></path>
-<g>
-<path d="M1100 31h36"></path>
-</g>
-<path d="M1136 31a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"></path>
-<path d="M1080 51h20"></path>
-<g>
-<path d="M1100 51h0"></path>
-<path d="M1136 51h0"></path>
-<rect x="1100" y="40" width="36" height="22" rx="10" ry="10"></rect>
-<text x="1118" y="55">AS</text>
-</g>
-<path d="M1136 51h20"></path>
-</g>
-<path d="M1156 51h10"></path>
-<g>
-<path d="M1166 51h0"></path>
-<path d="M1306 51h0"></path>
-<path d="M1166 51h10"></path>
-<g>
-<path d="M1176 51h0"></path>
-<path d="M1296 51h0"></path>
-<path d="M1176 51h10"></path>
-<g>
-<path d="M1186 51h0"></path>
-<path d="M1286 51h0"></path>
-<rect x="1186" y="40" width="100" height="22"></rect>
-<text x="1236" y="55">identifier</text>
-</g>
-<path d="M1286 51h10"></path>
-</g>
-<path d="M1296 51h10"></path>
-<path d="M1176 51a10 10 0 0 0 -10 10v10a10 10 0 0 0 10 10"></path>
-<g>
-<path d="M1176 81h36"></path>
-<path d="M1260 81h36"></path>
-<path d="M1212 81h10"></path>
-<g>
-<path d="M1222 81h0"></path>
-<path d="M1250 81h0"></path>
-<rect x="1222" y="70" width="28" height="22" rx="10" ry="10"></rect>
-<text x="1236" y="85">,</text>
-</g>
-<path d="M1250 81h10"></path>
-</g>
-<path d="M1296 81a10 10 0 0 0 10 -10v-10a10 10 0 0 0 -10 -10"></path>
-</g>
-<path d="M1306 51h10"></path>
-</g>
-<path d="M1316 51h20"></path>
-</g>
-</g>
-<path d="M 1336 51 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
-</g>
+ ]]></style>
+    </defs>
+    <g transform="translate(.5 .5)">
+        <path d="M 20 41 v 20 m 10 -20 v 20 m -10 -10 h 20.5"/>
+        <g>
+            <path d="M40 51h0"/>
+            <path d="M1336 51h0"/>
+            <path d="M40 51h10"/>
+            <g>
+                <path d="M50 51h0"/>
+                <path d="M126 51h0"/>
+                <rect x="50" y="40" width="76" height="22" rx="10" ry="10"/>
+                <text x="88" y="55">LATERAL</text>
+            </g>
+            <path d="M126 51h10"/>
+            <path d="M136 51h10"/>
+            <g>
+                <path d="M146 51h0"/>
+                <path d="M198 51h0"/>
+                <rect x="146" y="40" width="52" height="22" rx="10" ry="10"/>
+                <text x="172" y="55">VIEW</text>
+            </g>
+            <path d="M198 51h10"/>
+            <g>
+                <path d="M208 51h0"/>
+                <path d="M308 51h0"/>
+                <path d="M208 51a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"/>
+                <g>
+                    <path d="M228 31h60"/>
+                </g>
+                <path d="M288 31a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"/>
+                <path d="M208 51h20"/>
+                <g>
+                    <path d="M228 51h0"/>
+                    <path d="M288 51h0"/>
+                    <rect x="228" y="40" width="60" height="22" rx="10" ry="10"/>
+                    <text x="258" y="55">OUTER</text>
+                </g>
+                <path d="M288 51h20"/>
+            </g>
+            <path d="M308 51h10"/>
+            <g>
+                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#qualifiedName" target="_top">
+                    <path d="M318 51h0"/>
+                    <path d="M442 51h0"/>
+                    <rect x="318" y="40" width="124" height="22"/>
+                    <text x="380" y="55">qualifiedName</text>
+                </a>
+            </g>
+            <path d="M442 51h10"/>
+            <path d="M452 51h10"/>
+            <g>
+                <path d="M462 51h0"/>
+                <path d="M538 51h0"/>
+                <rect x="462" y="40" width="76" height="22" rx="10" ry="10"/>
+                <text x="500" y="55">@break@</text>
+            </g>
+            <path d="M538 51h10"/>
+            <path d="M548 51h10"/>
+            <g>
+                <path d="M558 51h0"/>
+                <path d="M586 51h0"/>
+                <rect x="558" y="40" width="28" height="22" rx="10" ry="10"/>
+                <text x="572" y="55">(</text>
+            </g>
+            <path d="M586 51h10"/>
+            <g>
+                <path d="M596 51h0"/>
+                <path d="M796 51h0"/>
+                <path d="M596 51a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"/>
+                <g>
+                    <path d="M616 31h160"/>
+                </g>
+                <path d="M776 31a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"/>
+                <path d="M596 51h20"/>
+                <g>
+                    <path d="M616 51h0"/>
+                    <path d="M776 51h0"/>
+                    <path d="M616 51h10"/>
+                    <g>
+                        <path d="M626 51h0"/>
+                        <path d="M766 51h0"/>
+                        <path d="M626 51h10"/>
+                        <g>
+                            <path d="M636 51h0"/>
+                            <path d="M756 51h0"/>
+                            <path d="M636 51h10"/>
+                            <g>
+                                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#expression" target="_top">
+                                    <path d="M646 51h0"/>
+                                    <path d="M746 51h0"/>
+                                    <rect x="646" y="40" width="100" height="22"/>
+                                    <text x="696" y="55">expression</text>
+                                </a>
+                            </g>
+                            <path d="M746 51h10"/>
+                        </g>
+                        <path d="M756 51h10"/>
+                        <path d="M636 51a10 10 0 0 0 -10 10v10a10 10 0 0 0 10 10"/>
+                        <g>
+                            <path d="M636 81h36"/>
+                            <path d="M720 81h36"/>
+                            <path d="M672 81h10"/>
+                            <g>
+                                <path d="M682 81h0"/>
+                                <path d="M710 81h0"/>
+                                <rect x="682" y="70" width="28" height="22" rx="10" ry="10"/>
+                                <text x="696" y="85">,</text>
+                            </g>
+                            <path d="M710 81h10"/>
+                        </g>
+                        <path d="M756 81a10 10 0 0 0 10 -10v-10a10 10 0 0 0 -10 -10"/>
+                    </g>
+                    <path d="M766 51h10"/>
+                </g>
+                <path d="M776 51h20"/>
+            </g>
+            <path d="M796 51h10"/>
+            <g>
+                <path d="M806 51h0"/>
+                <path d="M834 51h0"/>
+                <rect x="806" y="40" width="28" height="22" rx="10" ry="10"/>
+                <text x="820" y="55">)</text>
+            </g>
+            <path d="M834 51h10"/>
+            <path d="M844 51h10"/>
+            <g>
+                <path d="M854 51h0"/>
+                <path d="M930 51h0"/>
+                <rect x="854" y="40" width="76" height="22" rx="10" ry="10"/>
+                <text x="892" y="55">@break@</text>
+            </g>
+            <path d="M930 51h10"/>
+            <path d="M940 51h10"/>
+            <g>
+                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#identifier" target="_top">
+                    <path d="M950 51h0"/>
+                    <path d="M1050 51h0"/>
+                    <rect x="950" y="40" width="100" height="22"/>
+                    <text x="1000" y="55">identifier</text>
+                </a>
+            </g>
+            <path d="M1050 51h10"/>
+            <g>
+                <path d="M1060 51h0"/>
+                <path d="M1336 51h0"/>
+                <path d="M1060 51a10 10 0 0 0 10 -10v-9a10 10 0 0 1 10 -10"/>
+                <g>
+                    <path d="M1080 22h236"/>
+                </g>
+                <path d="M1316 22a10 10 0 0 1 10 10v9a10 10 0 0 0 10 10"/>
+                <path d="M1060 51h20"/>
+                <g>
+                    <path d="M1080 51h0"/>
+                    <path d="M1316 51h0"/>
+                    <g>
+                        <path d="M1080 51h0"/>
+                        <path d="M1156 51h0"/>
+                        <path d="M1080 51a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"/>
+                        <g>
+                            <path d="M1100 31h36"/>
+                        </g>
+                        <path d="M1136 31a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"/>
+                        <path d="M1080 51h20"/>
+                        <g>
+                            <path d="M1100 51h0"/>
+                            <path d="M1136 51h0"/>
+                            <rect x="1100" y="40" width="36" height="22" rx="10" ry="10"/>
+                            <text x="1118" y="55">AS</text>
+                        </g>
+                        <path d="M1136 51h20"/>
+                    </g>
+                    <path d="M1156 51h10"/>
+                    <g>
+                        <path d="M1166 51h0"/>
+                        <path d="M1306 51h0"/>
+                        <path d="M1166 51h10"/>
+                        <g>
+                            <path d="M1176 51h0"/>
+                            <path d="M1296 51h0"/>
+                            <path d="M1176 51h10"/>
+                            <g>
+                                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#identifier" target="_top">
+                                    <path d="M1186 51h0"/>
+                                    <path d="M1286 51h0"/>
+                                    <rect x="1186" y="40" width="100" height="22"/>
+                                    <text x="1236" y="55">identifier</text>
+                                </a>
+                            </g>
+                            <path d="M1286 51h10"/>
+                        </g>
+                        <path d="M1296 51h10"/>
+                        <path d="M1176 51a10 10 0 0 0 -10 10v10a10 10 0 0 0 10 10"/>
+                        <g>
+                            <path d="M1176 81h36"/>
+                            <path d="M1260 81h36"/>
+                            <path d="M1212 81h10"/>
+                            <g>
+                                <path d="M1222 81h0"/>
+                                <path d="M1250 81h0"/>
+                                <rect x="1222" y="70" width="28" height="22" rx="10" ry="10"/>
+                                <text x="1236" y="85">,</text>
+                            </g>
+                            <path d="M1250 81h10"/>
+                        </g>
+                        <path d="M1296 81a10 10 0 0 0 10 -10v-10a10 10 0 0 0 -10 -10"/>
+                    </g>
+                    <path d="M1306 51h10"/>
+                </g>
+                <path d="M1316 51h20"/>
+            </g>
+        </g>
+        <path d="M 1336 51 h 20 m -10 -10 v 20 m 10 -20 v 20"/>
+    </g>
 </svg>

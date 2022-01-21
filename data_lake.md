@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  year: 2018, 2021
+  years: 2018, 2021
 lastupdated: "2021-02-23"
 
 keywords: aspera, data lake, object storage, csv
@@ -16,8 +16,6 @@ subcollection: sql-query
 {:pre: .pre}
 {:screen: .screen}
 {:tip: .tip}
-
-
 
 # Log analysis
 {: #loganalysis}
