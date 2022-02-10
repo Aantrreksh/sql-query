@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-09-27"
+  years: 2020, 2022
+lastupdated: "2022-02-10"
 
 keywords: jdbc
 
@@ -38,7 +38,7 @@ The JDBC URL needs to include the CRN of an {{site.data.keyword.sqlquery_full}} 
 
 `jdbc:ibmcloudsql:{instance-crn}[?{key1}={value1}&{key2}={value2}...]`
 
-The CRN can be obtained from the service dashboard in the IBM Cloud console. The following example shows a JDBC URL:
+The CRN can be obtained from the service dashboard in the {{site.data.keyword.cloud}} console. The following example shows a JDBC URL:
 
 `jdbc:ibmcloudsql:crn:v1:bluemix:public:sql-query:eu-de:a/290ec9931c0737248f3dc2aa57187d14%3AAf86d20c4-7646-441e-ad4b-182c57008471::?targetcosurl=cos://us-geo/sample-result-bucket/results/`
 
@@ -46,7 +46,7 @@ You can also easily obtain the JDBC URL from the {{site.data.keyword.sqlquery_sh
 
 Connection properties (except for the CRN) can be specified as part of the URL, separated by `&`, or through the Java connection properties object. The following properties are supported:
 
-- `password` (required): IBM Cloud API key for running the queries. The property name must start with a lowercase letter.
+- `password` (required): {{site.data.keyword.cloud_notm}} API key for running the queries. The property name must start with a lowercase letter.
 - `user` (optional): A username is not required and is ignored if given. It must start with a lowercase letter.
 - `targetcosurl` (optional, but usually needed): Cloud {{site.data.keyword.cos_short}} URI in SQL query style, where the results are stored. If this property is not specified, you cannot run queries that return a JDBC result set. The JDBC connection can still be used to retrieve database metadata and run DDL and [ETL-type statements](#etl-type-statements). It must start with a lowercase letter.
 - `loggerFile` (optional, default none): file to write driver logs to.
@@ -72,7 +72,7 @@ The driver does not implement full JDBC-compliant functionality, but only the pa
 
 The SQL syntax itself is the full syntax that is supported by {{site.data.keyword.sqlquery_short}} except for the `INTO` clause. An `INTO` clause is implicitly added by the driver based on the Cloud {{site.data.keyword.cos_short}} location that is given with the `targetcosurl` connection property.
 
-Results in the `targetcosurl` location are never deleted by the driver. You can use [expiration rules](/docs/cloud-object-storage?topic=cloud-object-storage-expiry) to clean up your results on the IBM Cloud automatically.
+Results in the `targetcosurl` location are never deleted by the driver. You can use [expiration rules](/docs/cloud-object-storage?topic=cloud-object-storage-expiry) to clean up your results on the {{site.data.keyword.cloud_notm}} automatically.
 
 ## Basic limitations
 {: #basic_limitations}
@@ -181,6 +181,11 @@ As Tableau does not support complex data types, such as `struct`, if a table con
 - You can set the `filterType` option to `view`. This option effectively hides all tables and reveals views only to Tableau. To set the option with the JDBC URL, use the following URL:
 
     `jdbc:ibmcloudsql:{CRN of your {{site.data.keyword.sqlquery_short}} service instance}?targetcosurl={COS location for results}&filterType=view`
+    
+## Using the driver with Cognos Analytics
+{: #using_cognos}
+
+See the [Cognos Analytics Dynamic Query](/docs/en/cognos-analytics/11.2.0?topic=administration-support-cloud-sql-query) documentation to learn how to create a data server connection to {{site.data.keyword.sqlquery_short}} via the {{site.data.keyword.sqlquery_short}} JDBC driver. 
 
 ## ODBC connectivity that uses the JDBC driver with Progress Data Direct HDP
 {: #odbc_connectivity}
