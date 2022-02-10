@@ -185,7 +185,7 @@ As Tableau does not support complex data types, such as `struct`, if a table con
 ## Using the driver with Cognos Analytics
 {: #using_cognos}
 
-See the [Cognos Analytics Dynamic Query](/docs/en/cognos-analytics/11.2.0?topic=administration-support-cloud-sql-query) documentation to learn how to create a data server connection to {{site.data.keyword.sqlquery_short}} via the {{site.data.keyword.sqlquery_short}} JDBC driver. 
+See the [Cognos Analytics Dynamic Query](https://www.ibm.com/docs/en/cognos-analytics/11.2.0?topic=administration-support-cloud-sql-query) documentation to learn how to create a data server connection to {{site.data.keyword.sqlquery_short}} via the {{site.data.keyword.sqlquery_short}} JDBC driver. 
 
 ## ODBC connectivity that uses the JDBC driver with Progress Data Direct HDP
 {: #odbc_connectivity}
