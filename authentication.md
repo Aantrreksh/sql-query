@@ -61,4 +61,4 @@ As an alternative to providing user and password combinations, in {{site.data.ke
 | CRN with Service Credentials          | No    | Yes          | Yes                    |
 | User and password through Key Protect CRN | No    | Yes          | Yes                    |
 | API key through Key Protect CRN           | No    | Enterprise   | Enterprise             |
-{: caption="Supported authentication methods" caption-side="bottom"}
+{: caption="Table 1. "Supported authentication methods" caption-side="bottom"}"Supported authentication methods" caption-side="bottom"}
