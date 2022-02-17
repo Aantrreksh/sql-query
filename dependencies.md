@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-15"
+lastupdated: "2022-02-17"
 
 keywords: SQL query, dependencies, cloud
 
@@ -52,6 +52,7 @@ Service name | Description
 IBM Db2 on Cloud | Used to store SQL results in user-provided instances. To learn more, see [Db2 on Cloud](https://cloud.ibm.com/docs/Db2onCloud).
 IBM Key Protect for IBM Cloud | The user-provided instances provide keys for envelope encryption of customer data in the job status database (IBM Cloudant) and passwords or apikeys for access to customer Db2. To learn more, see [IBM Key Protect for IBM Cloud](https://cloud.ibm.com/docs/key-protect).
 IBM Cloud Activity Tracker with LogDNA | IBM Cloud SQL Query integrates with IBM Cloud Activity Tracker with LogDNA to forward location audit events to the IBM Cloud Activity Tracker with LogDNA service instance that is set up and owned by you. To learn more, see [IBM Cloud Activity Tracker with LogDNA](https://cloud.ibm.com/docs/Activity-Tracker-with-LogDNA).
+IBM Event Streams for IBM Cloud | The user provided instance contains the data that is streamed from a topic to a bucket of your choice. To learn more, see [Stream landing](/docs/sql-query?topic=sql-query-event-streams-landing).
 {: caption="Table 2. "Dependencies to IBM service instances" caption-side="bottom"}
 
 ### Other dependencies 
