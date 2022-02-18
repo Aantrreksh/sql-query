@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-06-15"
+  years: 2018, 2022
+lastupdated: "2022-02-15"
 
 keywords: security, authentication, access, iam, sso, service credential
 
@@ -61,3 +61,4 @@ As an alternative to providing user and password combinations, in {{site.data.ke
 | CRN with Service Credentials          | No    | Yes          | Yes                    |
 | User and password through Key Protect CRN | No    | Yes          | Yes                    |
 | API key through Key Protect CRN           | No    | Enterprise   | Enterprise             |
+{: caption="Table 1. "Supported authentication methods" caption-side="bottom"}"Supported authentication methods" caption-side="bottom"}

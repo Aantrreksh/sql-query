@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-09-21"
+  years: 2020, 2022
+lastupdated: "2022-02-17"
 
 keywords: SQL query, dependencies, cloud
 
@@ -41,6 +41,7 @@ IBM Cloud Kubernetes services | Provides the infrastructure to run the microserv
 IBM Cloud Messages for RabbitMQ | Queues used for internal communication between microservices. To learn more, see [IBM Cloud Messages For RabbitMQ](https://cloud.ibm.com/docs/messages-for-rabbitmq).
 {{site.data.keyword.cos_short}} | The service instance that is owned by the service contains out of the box sample data sets, backups of Cloudant data and IAE bootstrap config. To learn more, see [IBM Cloud Object Storage](https://cloud.ibm.com/docs/cloud-object-storage).
 IBM Cloud Resource Controller and IBM Cloud catalog | Used to load required information about your service instance and offering plan. To learn more, see [IBM Cloud Resource Controller API](https://cloud.ibm.com/apidocs/resource-controller/resource-controller).
+{: caption="Table 1. "Critical dependencies" caption-side="bottom"}
 
 ### Dependencies to IBM service instances owned and managed by you
 {: #dependencies_service_instances}
@@ -51,6 +52,8 @@ Service name | Description
 IBM Db2 on Cloud | Used to store SQL results in user-provided instances. To learn more, see [Db2 on Cloud](https://cloud.ibm.com/docs/Db2onCloud).
 IBM Key Protect for IBM Cloud | The user-provided instances provide keys for envelope encryption of customer data in the job status database (IBM Cloudant) and passwords or apikeys for access to customer Db2. To learn more, see [IBM Key Protect for IBM Cloud](https://cloud.ibm.com/docs/key-protect).
 IBM Cloud Activity Tracker with LogDNA | IBM Cloud SQL Query integrates with IBM Cloud Activity Tracker with LogDNA to forward location audit events to the IBM Cloud Activity Tracker with LogDNA service instance that is set up and owned by you. To learn more, see [IBM Cloud Activity Tracker with LogDNA](https://cloud.ibm.com/docs/Activity-Tracker-with-LogDNA).
+IBM Event Streams for IBM Cloud | The user provided instance contains the data that is streamed from a topic to a bucket of your choice. To learn more, see [Stream landing](/docs/sql-query?topic=sql-query-event-streams-landing).
+{: caption="Table 2. "Dependencies to IBM service instances" caption-side="bottom"}
 
 ### Other dependencies 
 {: #other_dependencies}
@@ -58,6 +61,7 @@ IBM Cloud Activity Tracker with LogDNA | IBM Cloud SQL Query integrates with IBM
 Service name | Description
 --- | ---
 IBM Cloud Databases for Redis | Used as UI session store and for caching of Cloudant data. To learn more, see [IBM Cloud Databases for Redis](https://cloud.ibm.com/docs/databases-for-redis).
+{: caption="Table 3. "Other dependencies" caption-side="bottom"}
 
 ## Dependencies to third-party services
 {: #third_party_dependencies}
@@ -66,3 +70,4 @@ Service name | Description
 --- | ---
 Amplitude, Segment | Amplitude and Segment are used to monitor user behavior in the IBM Cloud console, such as page hits or click-through paths. This information is used for IBM-internal marketing and data analytics purposes.
 ServiceNow, Slack | Those Services are used for problem determination and alerting.
+{: caption="Table 4. "Dependencies to third-party services" caption-side="bottom"}
