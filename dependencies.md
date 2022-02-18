@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-17"
+lastupdated: "2022-02-18"
 
 keywords: SQL query, dependencies, cloud
 
@@ -38,7 +38,7 @@ Business Support Services for IBM Cloud (BSS) | Used to access information about
 {{site.data.keyword.iamlong}} (IAM) | To authenticate requests to the service and authorize user actions, {{site.data.keyword.sqlquery_short}} implements platform and service access roles in Identity and Access Management. To learn more, see [{{site.data.keyword.iamshort}}](https://cloud.ibm.com/docs/account?topic=account-iamoverview).
 {{site.data.keyword.cis_full}} (CIS) | Used to manage our external network connectivity, our `ibm.com` domains and distributed proxies with TLS termination to support DDoS, WAF and Caching for HTTPs endpoints. To learn more, see [{{site.data.keyword.cis_full_notm}}](https://cloud.ibm.com/docs/cis).
 {{site.data.keyword.containerlong}} | Provides the infrastructure to run the microservices of {{site.data.keyword.sqlquery_short}}. To learn more, see [{{site.data.keyword.containerlong_notm}}](https://cloud.ibm.com/docs/containers).
-{{site.data.keyword.messages-for-rabbitmq_full}} | Queues used for internal communication between microservices. To learn more, see [{{site.data.keyword.messages-for-rabbitmq_full}}](https://cloud.ibm.com/docs/messages-for-rabbitmq).
+{{site.data.keyword.messages-for-rabbitmq_full}} | Queues used for internal communication between microservices. To learn more, see [{{site.data.keyword.messages-for-rabbitmq}}](https://cloud.ibm.com/docs/messages-for-rabbitmq).
 {{site.data.keyword.cos_full_notm}} | The service instance that is owned by the service contains out of the box sample data sets, backups of Cloudant data and IAE bootstrap config. To learn more, see [{{site.data.keyword.cos_full_notm}}](https://cloud.ibm.com/docs/cloud-object-storage).
 IBM Cloud Resource Controller and IBM Cloud Catalog | Used to load required information about your service instance and offering plan. To learn more, see [IBM Cloud Resource Controller API](https://cloud.ibm.com/apidocs/resource-controller/resource-controller).
 {: caption="Table 1. "Critical dependencies" caption-side="bottom"}
