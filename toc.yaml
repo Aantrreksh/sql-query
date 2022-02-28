@@ -48,6 +48,8 @@ toc:
       - topicgroup:
           label: Enhancing security
           topics:
+          - topic: data-security.md
+            navtitle: Securing your data
           - deployment_model.md
           - dependencies.md
           
