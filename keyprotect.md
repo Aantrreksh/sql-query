@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-02-25"
+  years: 2018, 2022
+lastupdated: "2022-02-28"
 
 keywords: encryption, key protect, query, key management system
 
@@ -23,6 +23,21 @@ subcollection: sql-query
 By default, {{site.data.keyword.sqlquery_full}} uses server-managed encryption at rest for all job information that is recorded about your stored queries. If you are processing sensitive data in your queries that is governed by special regulations, you can additionally use customer-managed keys to encrypt the SQL query texts and error messages that are stored in the job information.
 
 {{site.data.keyword.keymanagementservicefull}} is a centralized key management system (KMS) for generating, managing, and destroying encryption keys that are used by {{site.data.keyword.cloud}} services. You can associate a key that is managed in {{site.data.keyword.keymanagementservicelong_notm}} with an SQL query instance to encrypt your queries. Customer key encryption can be configured only when you are creating the SQL query instance, and that configuration cannot be changed later. However, you can always create a new SQL query instance with a different configuration and use that for future queries. Encryption is only available for instances based on the {{site.data.keyword.sqlquery_short}} Standard plan.
+
+## About customer-managed keys
+{: #about-encryption}
+
+{{site.data.keyword.sqlquery_short}} uses [envelope encryption](#x9860393){: term} to implement customer-managed keys. Envelope encryption describes encrypting one encryption key with another encryption key. The key used to encrypt the actual data is known as a [data encryption key (DEK)](#x4791827){: term}. The DEK itself is never stored but is wrapped by a second key that is known as the key encryption key (KEK) to create a wrapped DEK. To decrypt data, the wrapped DEK is unwrapped to get the DEK. This process is possible only by accessing the KEK, which in this case is your root key that is stored in {{site.data.keyword.keymanagementserviceshort}}.
+
+You own the KEK, which you create as a root key in the {{site.data.keyword.keymanagementserviceshort}} service. The {{site.data.keyword.sqlquery_short}} service never sees the root (KEK) key. Its storage, management, and use to wrap and unwrap the DEK is performed entirely within the key management service. If you disable or delete the key, the data can no longer be decrypted.
+
+{{site.data.keyword.keymanagementserviceshort}} keys are secured by FIPS 140-2 Level 3 certified cloud-based [hardware security modules (HSMs)](#x6704988){: term}. For more information, see [Bringing your encryption keys to the cloud](/docs/key-protect?topic=key-protect-importing-keys).
+
+## Working with customer-managed keys for {{site.data.keyword.sqlquery_short}}
+{: #working-with-keys}
+
+You can use {{site.data.keyword.cloudaccesstraillong}} to audit the lifecycle events of your keys, such as creating a key, deleting a key, rotating a key, and more. For more information, see [{{site.data.keyword.cloudaccesstraillong_notm}} events for {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-at-events).
+{: tip}
 
 ## Setting up Key Protect encryption
 {: #encryption}
