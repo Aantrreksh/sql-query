@@ -33,7 +33,7 @@ You own the KEK, which you create as a root key in the {{site.data.keyword.keyma
 
 {{site.data.keyword.keymanagementserviceshort}} keys are secured by FIPS 140-2 Level 3 certified cloud-based [hardware security modules (HSMs)](#x6704988){: term}. For more information, see [Bringing your encryption keys to the cloud](/docs/key-protect?topic=key-protect-importing-keys).
 
-## Working with customer-managed keys for {{site.data.keyword.sqlquery_short}}
+## Working with customer-managed keys
 {: #working-with-keys}
 
 You can use {{site.data.keyword.cloudaccesstraillong}} to audit the lifecycle events of your keys, such as creating a key, deleting a key, rotating a key, and more. For more information, see [{{site.data.keyword.cloudaccesstraillong_notm}} events for {{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-at-events).
@@ -69,5 +69,8 @@ So, if you are processing sensitive data, make sure that your query results are 
 storing the actual data.
 
 If you use {{site.data.keyword.keymanagementserviceshort}} to encrypt your queries, IBM staff cannot view the encrypted query texts and error messages. Therefore, provide this data explicitly to IBM service in a support case, so you can make sure that no sensitive information is exposed.
+
+## Deleting a key or an instance
+{: #deleting_key}
 
 Deleting a key or the containing {{site.data.keyword.keymanagementserviceshort}} instance from the system will shred its contents and any data still encrypted with that key. When it is removed, it cannot be undone or reversed. An {{site.data.keyword.sqlquery_short}} instance that is associated with a deleted key cannot be used for any further queries. You need to create a new {{site.data.keyword.sqlquery_short}} instance for future queries.
