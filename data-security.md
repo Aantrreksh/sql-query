@@ -25,7 +25,7 @@ To ensure that you can securely manage your data when you use {{site.data.keywor
 ## How your data is stored and encrypted in {{site.data.keyword.sqlquery_short}}
 {: #data-storage} 
 
-All data that is stored in {{site.data.keyword.sqlquery_short}} has by default server-managed encryption. You can also chose to encrypt with BYOK using {{site.data.keyword.keymanagementservicefull}}. SQL query text and error messages can be encrypted by associating a {{site.data.keyword.keymanagementservicefull}} during instance creation. Table metadata is encrypted with a service-managed key.
+All data that is stored in {{site.data.keyword.sqlquery_short}} has by default service-managed encryption. You can also chose to encrypt with BYOK using {{site.data.keyword.keymanagementservicefull}}. SQL query text and error messages can be encrypted by associating a {{site.data.keyword.keymanagementservicefull}} during instance creation. Table metadata is encrypted with a service-managed key.
 
 ## Protecting your sensitive data in {{site.data.keyword.sqlquery_short}}
 {: #data-encryption}
