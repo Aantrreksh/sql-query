@@ -4,9 +4,7 @@ copyright:
   years: 2022
 lastupdated: "2022-02-28"
 
-keywords: data encryption in SQL Query, data storage for SQL Query, bring your own keys for SQL Query, BYOK for SQL Query, key management for SQL Query, 
-key encryption for SQL Query, personal data in SQL Query, data deletion for SQL Query, data in SQL Query, data security in SQL Query, 
-KYOK for SQL Query
+keywords: data encryption in SQL Query, data storage for SQL Query, bring your own keys for SQL Query, BYOK for SQL Query, key management for SQL Query, key encryption for SQL Query, personal data in SQL Query, data deletion for SQL Query, data in SQL Query, data security in SQL Query, KYOK for SQL Query
 
 subcollection: sql-query
 
@@ -19,7 +17,7 @@ subcollection: sql-query
 {:pre: .pre}
 
 # Securing your data in {{site.data.keyword.sqlquery_short}}
-{: #mng-data}
+{: #securing-data}
 
 To ensure that you can securely manage your data when you use {{site.data.keyword.sqlquery_full}}, it is important to know exactly [what data is stored and encrypted](/docs/sql-query?topic=sql-query-keyprotect#considerations) and how you can delete any stored data. Depending on your security requirements, you can encrypt data with customer-managed keys by integrating with {{site.data.keyword.cloud_notm}} key management services such as {{site.data.keyword.keymanagementserviceshort}}, which supports the bring your own key (BYOK) method.
 {: shortdesc}
