@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="500px" height="325px" viewBox="0 0 500 325" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Overview</title>
+    <g id="Overview" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="#FFFFFF" x="0" y="0" width="500" height="325"></rect>
+        <path d="M35.1631345,79 L50.6745287,63.4231376 L65.8643291,79 L59,79 L59,260 L42,260 L42,79 L35.1631345,79 Z" id="Combined-Shape" fill="#4E73BE"></path>
+        <path d="M431.163134,79 L446.674529,63.4231376 L461.864329,79 L455,79 L455,260 L438,260 L438,79 L431.163134,79 Z" id="Combined-Shape-Copy-3" fill="#4E73BE"></path>
+        <path d="M247.163134,208 L262.674529,192.423138 L277.864329,208 L271,208 L271,260 L254,260 L254,208 L247.163134,208 Z" id="Combined-Shape-Copy-4" fill="#4E73BE"></path>
+        <path d="M118.163134,208 L133.674529,192.423138 L148.864329,208 L142,208 L142,260 L125,260 L125,208 L118.163134,208 Z" id="Combined-Shape-Copy-5" fill="#4E73BE" transform="translate(133.513732, 226.211569) rotate(180.000000) translate(-133.513732, -226.211569) "></path>
+        <path d="M370.163134,208 L385.674529,192.423138 L400.864329,208 L394,208 L394,260 L377,260 L377,208 L370.163134,208 Z" id="Combined-Shape-Copy-6" fill="#4E73BE" transform="translate(385.513732, 226.211569) rotate(180.000000) translate(-385.513732, -226.211569) "></path>
+        <path d="M269.163134,81 L284.674529,65.4231376 L299.864329,81 L293,81 L293,139 L276,139 L276,81 L269.163134,81 Z" id="Combined-Shape-Copy-7" fill="#4E73BE" transform="translate(284.513732, 102.211569) rotate(180.000000) translate(-284.513732, -102.211569) "></path>
+        <rect id="Rectangle" fill="#B29443" x="25" y="12" width="450" height="53" rx="10"></rect>
+        <rect id="Rectangle-Copy-11" fill="#455430" x="110" y="139" width="307" height="53" rx="10"></rect>
+        <rect id="Rectangle-Copy-13" fill="#455430" x="25" y="260" width="130" height="53" rx="10"></rect>
+        <rect id="Rectangle-Copy-12" fill="#455430" x="163" y="260" width="312" height="53" rx="10"></rect>
+        <text id="Application" font-family="IBMPlexSans, IBM Plex Sans" font-size="21" font-weight="normal" fill="#000000">
+            <tspan x="196.5655" y="47">Application</tspan>
+        </text>
+        <text id="Db2-on-Cloud" font-family="IBMPlexSans, IBM Plex Sans" font-size="21" font-weight="normal" fill="#FFFFFF">
+            <tspan x="55.7425" y="280">Db2 on </tspan>
+            <tspan x="62.1895" y="308">Cloud</tspan>
+        </text>
+        <text id="IBM" font-family="IBMPlexSans, IBM Plex Sans" font-size="21" font-weight="normal" fill="#FFFFFF">
+            <tspan x="192" y="176">IBM</tspan>
+        </text>
+        <text id="Query" font-family="IBMPlexSans, IBM Plex Sans" font-size="21" font-weight="normal" fill="#FFFFFF">
+            <tspan x="288" y="176">Query</tspan>
+        </text>
+        <text id="Consume" font-family="IBMPlexSans, IBM Plex Sans" font-size="14" font-weight="normal" fill="#000000">
+            <tspan x="66" y="107">Consume</tspan>
+        </text>
+        <text id="SQL" font-family="IBMPlexSans, IBM Plex Sans" font-size="14" font-weight="normal" fill="#000000">
+            <tspan x="300" y="89">SQL</tspan>
+        </text>
+        <text id="Write" font-family="IBMPlexSans, IBM Plex Sans" font-size="14" font-weight="normal" fill="#000000">
+            <tspan x="148" y="216">Write</tspan>
+        </text>
+        <text id="Read" font-family="IBMPlexSans, IBM Plex Sans" font-size="14" font-weight="normal" fill="#000000">
+            <tspan x="278" y="246">Read</tspan>
+        </text>
+        <text id="Write-Copy" font-family="IBMPlexSans, IBM Plex Sans" font-size="14" font-weight="normal" fill="#000000">
+            <tspan x="337.288" y="216">Write</tspan>
+        </text>
+        <text id="Consume" font-family="IBMPlexSans, IBM Plex Sans" font-size="14" font-weight="normal" fill="#000000">
+            <tspan x="371.836" y="112">Consume</tspan>
+        </text>
+        <polygon id="Rectangle" fill="#6AA7F6" transform="translate(203.260198, 275.686975) rotate(30.000000) translate(-203.260198, -275.686975) " points="198.349641 273.674203 210.760198 273.336147 208.577053 277.861218 195.760198 278.037803"></polygon>
+        <polygon id="Rectangle" fill="#9FD741" points="177.228036 290.678242 195 299.390574 195 305.20045 177 296"></polygon>
+        <polygon id="Rectangle" fill="#22323D" points="177.209573 277.893693 181.614451 280.15652 181.614451 291.893693 177.209573 289.354048"></polygon>
+        <polygon id="Rectangle-Copy-16" fill="#6AA7F6" points="206.523964 279.746396 210.549285 277.627967 210.549285 296.347088 206.523964 298.363673"></polygon>
+        <polygon id="Rectangle" fill="#22323D" transform="translate(188.069449, 274.463051) rotate(-26.000000) translate(-188.069449, -274.463051) " points="176.632444 272.847453 196.104804 272.095988 199.506454 275.913919 179.733111 276.830115"></polygon>
+        <polygon id="Rectangle-Copy-14" fill="#9FD741" transform="translate(199.966599, 299.222707) rotate(-26.000000) translate(-199.966599, -299.222707) " points="194.73268 296.667109 207.822108 296.403246 205.202759 301.773707 192.111089 302.042167"></polygon>
+        <polygon id="Rectangle-Copy-15" fill="#9BD140" transform="translate(200.031840, 289.092155) rotate(-26.000000) translate(-200.031840, -289.092155) " points="195.997166 284.226569 209.086594 283.665051 203.980127 294.13486 190.977086 294.519258"></polygon>
+        <polygon id="Rectangle-Copy-17" fill="#24343D" transform="translate(188.081053, 289.116157) scale(1, -1) rotate(-26.000000) translate(-188.081053, -289.116157) " points="184.070777 284.250571 197.081053 283.689054 192.005465 294.158863 179.081053 294.543261"></polygon>
+        <polygon id="Rectangle" fill="#69A7F4" transform="translate(194.253926, 280.152587) rotate(45.000000) translate(-194.253926, -280.152587) " points="190.689574 276.133628 200.834814 273.441059 198.24126 283.685315 187.673037 286.864115"></polygon>
+        <text id="*" font-family="Arial-BoldMT, Arial" font-size="18" font-weight="bold" fill="#FFFFFF">
+            <tspan x="278.497559" y="178">*</tspan>
+        </text>
+        <path d="M250.383562,181 L242.328767,181 L242.328767,180.949794 C238.763751,180.532122 236,177.559521 236,173.954545 C236,171.048151 237.796401,168.552792 240.360802,167.475945 C240.335252,167.429116 240.310642,167.381273 240.286858,167.332456 C240.029255,166.803721 239.219013,168.568867 239.304765,167.668863 C239.326255,167.443308 239.924932,167.06985 239.920147,166.663815 C239.914849,166.214341 239.710181,165.326287 239.710181,163.527273 C239.710181,160.103107 242.388567,157.327273 245.883848,157.327273 C246.301552,157.327273 247.629283,156.879265 248.158412,156.88593 L248.267956,156.71257 C250.75645,152.986827 255.30356,150 260.164384,150 C264.737002,150 269.1009,152.619261 271.325296,156.179124 C271.562898,156.559376 271.765577,156.94319 271.937747,157.333136 C275.309039,157.46912 278,160.190336 278,163.527273 M282.503341,172 C282.909764,172.128249 283.751026,172.870222 283.943312,174.200339 C284.554699,178.429537 280.114851,182 275.732763,182 L274,182" id="Shape" stroke="#FFFFFF" stroke-width="1.5"></path>
+        <text id="SQL" font-family="IBMPlexSansCond-Medium, IBM Plex Sans Condensed" font-size="22" font-style="condensed" font-weight="400" fill="#FFFFFF">
+            <tspan x="242.427" y="176">SQL</tspan>
+        </text>
+        <text id="IBM-Cloud-Object-Sto" font-family="IBMPlexSans, IBM Plex Sans" font-size="21" font-weight="normal" fill="#FFFFFF">
+            <tspan x="221.8575" y="295">IBM Cloud Object Storage</tspan>
+        </text>
+    </g>
+</svg>
