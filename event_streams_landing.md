@@ -32,7 +32,7 @@ You can also configure a stream landing job directly as a SQL Query statement, w
 
 For event consumption, {{site.data.keyword.sqlquery_short}} reads data from an {{site.data.keyword.messagehub}} topic with a simple SQL statement, such as the following example:
 
-```
+```sql
 SELECT * FROM crn:v1:bluemix:public:messagehub:us-south:a/2383fabbd90354d33c1abfdf3a9f35d5:4d03d962-bfa5-4dc6-8148-f2f411cb8987::/jsontopic STORED AS JSON 
 EMIT cos://us-south/mybucket/events STORED AS PARQUET 
 EXECUTE AS crn:v1:bluemix:public:kms:us-south:a/33e58e0da6e6926e09fd68480e66078e:5195f066-6340-4fa2-b189-6255db72c4f2:key:490c8133-5539-4601-9aa3-1d3a11cb9c44
@@ -85,8 +85,8 @@ The following permissions are needed for creating a stream landing job:
 - Permission to create service-to-service authentication.
 - Permission to write to {{site.data.keyword.keymanagementservicelong}} (to store the API key).
 - Permission to create service IDs and API keys. The service ID needs to have following permissions:
-  - Writer role for the Cloud {{site.data.keyword.cos_short}} bucket.
-  - Reader access role for the cluster, topic, and group resources within the {{site.data.keyword.messagehub}} service instance.
+    - Writer role for the Cloud {{site.data.keyword.cos_short}} bucket.
+    - Reader access role for the cluster, topic, and group resources within the {{site.data.keyword.messagehub}} service instance.
 
 ## Limitations
 {: #limitations-streams-landing}
