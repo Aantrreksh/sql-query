@@ -119,7 +119,7 @@ You can manage a table in the catalog that references data that is organized in 
 
 Following is an example list of object names on {{site.data.keyword.cos_short}} that is partitioned on the `country` column while following the Hive-style partition naming convention:
 
-```
+```sql
 customers_partitioned.csv/country=Germany/cust-1.csv
 customers_partitioned.csv/country=Germany/cust-2.csv
 customers_partitioned.csv/country=Spain/cust-1.csv
