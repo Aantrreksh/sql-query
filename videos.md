@@ -15,9 +15,9 @@ subcollection: sql-query
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:video: .video}
 
 # Video tutorials
-
 {: #video}
 
 The following videos help you to get provisioned and use {{site.data.keyword.sqlquery_full}}. The videos show you how to run queries, use the REST API, and how to connect to {{site.data.keyword.cos_full}} through the command line.
