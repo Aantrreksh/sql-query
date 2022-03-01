@@ -23,6 +23,7 @@ subcollection: sql-query
 {{site.data.keyword.keymanagementservicefull}} is the service for storing and managing secrets in {{site.data.keyword.Bluemix_notm}}. It also allows you to upload custom secrets and manages them for you. {{site.data.keyword.keymanagementserviceshort}} ensures that only those users and services whom you explicitly granted permission are able to access and use secrets. {{site.data.keyword.sqlquery_short}} uses {{site.data.keyword.keymanagementserviceshort}} as its secure and trusted credential broker for custom access secrets to data resources as the following diagram shows.
 
 ![Secure Credential Passing in SQL Query](accesssecrets.svg)
+![Secure Credential Passing in SQL Query.](images/accesssecrets.svg "Secure Credential Passing in SQL Query"){: caption="Figure 1. Secure Credential Passing in SQL Query" caption-side="bottom"}
 
 Make sure that you provisioned or received access to an instance of {{site.data.keyword.keymanagementserviceshort}} in {{site.data.keyword.Bluemix_notm}}. The following description uses the command-line interface to set up a new custom key. Alternatively, you can also use the {{site.data.keyword.Bluemix_notm}} console.
 
@@ -38,7 +39,7 @@ You can verify the correct setup and function of your IBM Cloud CLI by downloadi
 
 You cannot use the CLI or web console to review actual key content after it is uploaded. However, you can use the [REST API](https://cloud.ibm.com/apidocs/key-protect#retrieve-a-key-by-id) directly to review existing custom key content by issuing the following command:
 
-```
+```sql
 curl -X GET "https://us-south.kms.cloud.ibm.com/api/v2/keys/<key id>" \
   -H "accept: application/vnd.ibm.collection+json" \
   -H "authorization: <Bearer token>" \
