@@ -18,6 +18,7 @@ subcollection: sql-query
 {:note: .note}
 {:deprecated: .deprecated}
 {:important: .important}
+{:external: .external target="_blank"}
 
 # Monitoring
 {: #metrics}
@@ -30,7 +31,7 @@ subcollection: sql-query
 
 Before you can start to use {{site.data.keyword.sqlquery_short}} metrics, you must first opt in and then enable platform metrics by completing the following steps:
 
-1. Enable platform metrics for {{site.data.keyword.sqlquery_short}}. For more information, see [Enabling platform metrics ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-platform_metrics_enabling){: new_window}. The owner of the account has full access to the metrics data. For more information about managing access for other users, see [Getting started tutorial for {{site.data.keyword.mon_full}} ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-getting-started){: new_window}.
+1. Enable platform metrics for {{site.data.keyword.sqlquery_short}}. For more information, see [Enabling platform metrics](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-platform_metrics_enabling){: external}. The owner of the account has full access to the metrics data. For more information about managing access for other users, see [Getting started tutorial for {{site.data.keyword.mon_full}}](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-getting-started){: external}.
 
 2. To navigate from the {{site.data.keyword.sqlquery_short}} instance page to the {{site.data.keyword.mon_full_notm}} dashboard, click the three vertical dots in the upper right corner of the instance page (**Service instance options**) and select **Monitoring**.
 
@@ -112,10 +113,10 @@ The following table shows the number of submitted {{site.data.keyword.sqlquery_s
 {: caption="Table 5. Number of jobs in progress metric metadata." caption-side="top"}
 
 ## Attributes for segmentation
-{: attributes}
+{: #attributes}
 
 ### Global attributes
-{: global-attributes}
+{: #global-attributes}
 
 The following attributes are available for segmenting all of the listed metrics:
 
@@ -126,9 +127,10 @@ The following attributes are available for segmenting all of the listed metrics:
 | `Resource group` | `ibm_resource_group_name` | The resource group where the service instance was created. |
 | `Scope` | `ibm_scope` | The scope is the account, organization, or space GUID associated with this metric. |
 | `Service name` | `ibm_service_name` | Name of the service that generates this metric. |
+{: caption="Table 6. Global attributes." caption-side="top"}
 
 ### More attributes
-{: more-attributes}
+{: #more-attributes}
 
 The following attributes are available for segmenting one or more attributes as described in the preceding reference. See the individual metrics for segmentation options.
 
@@ -136,7 +138,9 @@ The following attributes are available for segmenting one or more attributes as 
 |-----------|----------------|-----------------------|
 | `Service instance` | `ibm_service_instance` | The service instance segment identifies the instance that the metric is associated with. |
 | `Service instance name` | `ibm_service_instance_name` | The service instance name provides the user-provided name of the service instance that isn't necessarily a unique value, depending on the name provided by the user. |
+{: caption="Table 5. More attributes." caption-side="top"}
 
 ## Next Steps
+{: #monitoring-next}
 
 You can manage the data that the Monitoring instance collects for you. From management to setting alerts, you can [get started ![External link icon](../../icons/launch-glyph.svg "External link icon")](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-getting-started) monitoring your data quickly and efficiently.
