@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-23"
+lastupdated: "2021-03-01"
 
 keywords: SQL query, security, enhancing security, deployment model
 
@@ -25,4 +25,4 @@ Tenant isolation models | Tenant domain isolation | Endpoint isolation | Compute
 --- | --- | --- | --- | --- | ---
 Shared data plane | Service account | Public endpoint | Shared physical hosts | Shared physical storage devices, shared access endpoint | Service virtual network
 
-![image](deployment_model_a.svg)
+![Deployment model.](images/deployment_model_a.svg "Deployment model"){: caption="Figure 1. Deployment model" caption-side="bottom"}
