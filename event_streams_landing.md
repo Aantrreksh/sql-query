@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-10-15"
+  years: 2021, 2022
+lastupdated: "2022-03-01"
 
 keywords: SQL query, event streams, streaming, cloud object storage, Kafka
 
@@ -21,7 +21,7 @@ subcollection: sql-query
 
 With stream landing, you can now stream your data in real-time from a topic to a bucket of your choice. {{site.data.keyword.sqlquery_full}} connects to {{site.data.keyword.messagehub_full}} and copies the data to Cloud {{site.data.keyword.cos_full}} in Parquet format. This capability enables efficient analytics on the new objects created.
 
-![Kafka Event Streams landing](streams_landing_new.svg)
+![Stream landing.](images/streams_landing_new.svg "Stream landing"){: caption="Figure 1. Stream landing" caption-side="bottom"}
 
 You can enable a stream landing job on the {{site.data.keyword.messagehub}} UI by selecting the required resources, such as Cloud {{site.data.keyword.cos_short}} bucket, {{site.data.keyword.keymanagementservicelong}} instance, and the {{site.data.keyword.sqlquery_short}} instance by using a tailored wizard. If you want to stop the streaming job, you need to switch to the {{site.data.keyword.messagehub}} UI. For more information on configuring stream landing in {{site.data.keyword.messagehub}}, see [Streaming to Cloud Object Storage by using SQL Query](/docs/EventStreams?topic=EventStreams-streaming_cos_sql).
 
