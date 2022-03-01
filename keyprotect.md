@@ -44,8 +44,7 @@ You can use {{site.data.keyword.cloudaccesstraillong}} to audit the lifecycle ev
 
 1. Provision [Key Protect](/docs/services/key-protect?topic=key-protect-about) on your {{site.data.keyword.cloud_notm}} account.
 2. Go to to your instance of {{site.data.keyword.keymanagementserviceshort}} and generate or enter a [root key](/docs/services/key-protect?topic=key-protect-getting-started-tutorial).
-3. Create a new Standard plan instance of {{site.data.keyword.sqlquery_short}} and select the {{site.data.keyword.keymanagementserviceshort}} key for encrypting your queries.
-For performance reasons, create both the {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.sqlquery_short}} instances in the same {{site.data.keyword.cloud_notm}} region.
+3. Create a new Standard plan instance of {{site.data.keyword.sqlquery_short}} and select the {{site.data.keyword.keymanagementserviceshort}} key for encrypting your queries. For performance reasons, create both the {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.sqlquery_short}} instances in the same {{site.data.keyword.cloud_notm}} region.
 4. Give the new {{site.data.keyword.sqlquery_short}} instance [access](/docs/account?topic=account-serviceauth) to your {{site.data.keyword.keymanagementserviceshort}} key.
 
     - Open your {{site.data.keyword.cloud_notm}} dashboard.
