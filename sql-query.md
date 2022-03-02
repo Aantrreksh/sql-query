@@ -28,7 +28,7 @@ subcollection: sql-query
 ![SQL Query Overview.](images/overview.svg "SQL Query Overview"){: caption="Figure 1. SQL Query Overview" caption-side="bottom"}
 
 Input data is read from CSV, JSON, ORC, Parquet, or AVRO objects located in one or more {{site.data.keyword.cos_full}} instances.
-Each query result is written to a CSV, JSON, ORC, Parquet, or AVRO object in a Cloud {{site.data.keyword.cos_short}} instance of your choice.
+Each query result is written to a CSV, JSON, ORC, Parquet, or AVRO object in a Cloud {{site.data.keyword.cos_short}} or Db2 instance of your choice.
 Use the {{site.data.keyword.sqlquery_short}} user interface (UI) to develop your queries and the
 [SQL Query REST API](#restapi) to automate them.
 
