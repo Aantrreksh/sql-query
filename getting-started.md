@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-09-27"
+  years: 2018, 2022
+lastupdated: "2022-03-02"
 
 keywords: SQL, query, object storage, bucket, sample, instance, analyze, CSV, JSON, ORC, Parquet
 
@@ -29,11 +29,8 @@ In this {{site.data.keyword.sqlquery_full}} tutorial, we set you up to begin que
 Before you can run SQL queries, you need to have one or more Cloud {{site.data.keyword.cos_short}} buckets to hold the data to be analyzed and to hold the query results. Cloud {{site.data.keyword.cos_short}} offers several plans, including a Lite plan at no cost.
 To create a Cloud {{site.data.keyword.cos_short}} instance, do the following steps.
 
-1. Go to the [**IBM Cloud catalog > Storage > Object Storage**](https://cloud.ibm.com/catalog/infrastructure/cloud-object-storage) page.
-2. Select one of the plans and create the service.
-    If you want to find your Cloud {{site.data.keyword.cos_short}} instance later, go to your
-    [**IBM Cloud Dashboard > Services**](https://cloud.ibm.com/dashboard/apps).
-    (If you do not see it in the list, select the resource group "All Resources".)
+1. Go to the [**IBM Cloud catalog > Storage > Object Storage**](https://cloud.ibm.com/objectstorage/create) page.
+2. Select one of the plans and create the service. If you want to find your Cloud {{site.data.keyword.cos_short}} instance later, go to your [**IBM Cloud resource list > Storage**](https://cloud.ibm.com/dashboard/apps).
 
 You can now manage and browse the buckets and data the instance contains.
 Click [here](/docs/services/cloud-object-storage/getting-started.html#getting-started-console)
@@ -42,8 +39,7 @@ for more information about how to use Cloud {{site.data.keyword.cos_short}}.
 ## Create your {{site.data.keyword.sqlquery_short}} service instance
 {: #sql_query}
 
-1. Go to the [**IBM Cloud catalog**](https://cloud.ibm.com/catalog) and search for **SQL 
-    Query**.
+1. Go to the [**IBM Cloud catalog**](https://cloud.ibm.com/catalog) and search for **SQL Query**.
 2. Click **SQL Query** to open the catalog details page.
 3. Select the Lite plan and click **Create** to create an instance of the service.
 4. Click **Launch SQL Query UI** on the Dashboard page to open the {{site.data.keyword.sqlquery_short}} Console.
@@ -61,11 +57,11 @@ for more information about how to use Cloud {{site.data.keyword.cos_short}}.
 ## Next steps
 {: #next_steps}
 
-To analyze your own data (CSV, JSON, ORC, or Parquet), upload it to a Cloud {{site.data.keyword.cos_short}} instance and run SQL queries as described [here](/docs/services/sql-query?topic=sql-query-overview#running).
+To analyze your own data (CSV, JSON, ORC, or Parquet), upload it to a Cloud {{site.data.keyword.cos_short}} instance and [run SQL queries](/docs/services/sql-query?topic=sql-query-overview#running).
 
 For more advanced capabilities, check out the following video tutorials.
 
-- [How to run basic queries](http://ibm.biz/csq-run-queries)
+- [IBM Cloud SQL Query introduction](http://ibm.biz/csq-run-queries)
 - [How to connect to IBM Cloud Object Storage through the Command Line](http://ibm.biz/csq-aws-sli)
-- [How to use the SQL Query REST API](http://ibm.biz/csq-use-api)
+- [How to use the SQL Query REST API](https://video.ibm.com/playlist/633112/video/127739961)
 - [How to operationalize SQL code and call it from an application](http://ibm.biz/csq-e2e)
