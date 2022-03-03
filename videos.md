@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-02-21"
+lastupdated: "2022-03-03"
 
 keywords: SQL query, tutorial, video, provision, run query, introduction, REST API, command line, object storage
 
@@ -62,7 +62,7 @@ frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; pict
 
 *Video 5. Connect to IBM Cloud Object Storage through the command line*.
 
-The following video in this series shows you how to run {{site.data.keyword.sqlquery_full}} with the REST API.
+The following video in this series shows you how to run {{site.data.keyword.sqlquery_full}} end-to-end with the REST API.
 
 <iframe width="640" height="390" title="End-to-End Use Case for Using the API"
 src="https://www.youtube.com/embed/yX-8_jTiAuo?list=PLzpeuWUENMK2R9CqhF0eJDSxfPBi6JeXA"
