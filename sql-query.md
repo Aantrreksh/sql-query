@@ -32,10 +32,6 @@ Each query result is written to a CSV, JSON, ORC, Parquet, or AVRO object in a C
 Use the {{site.data.keyword.sqlquery_short}} user interface (UI) to develop your queries and the
 [SQL Query REST API](#restapi) to automate them.
 
-<iframe width="640" height="390" title="IBM Cloud SQL Query: Provision the IBM Cloud Services"
-src="https://www.youtube.com/embed/_fMEyqRC__c?list=PLzpeuWUENMK2R9CqhF0eJDSxfPBi6JeXA"
-frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
-
 ![IBM Cloud SQL Query: Provision the IBM Cloud Services](https://www.youtube.com/embed/_fMEyqRC__c?list=PLzpeuWUENMK2R9CqhF0eJDSxfPBi6JeXA){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 *Video 1. Provision the IBM Cloud Services.*
@@ -50,7 +46,7 @@ Before you can use the {{site.data.keyword.sqlquery_short}} service to run SQL q
 
 Watch the following video to learn more about {{site.data.keyword.sqlquery_short}} and how you can get started to run a basic query.
 
-<iframe width="640" height="390" title="IBM Cloud SQL Query: Run Queries from the Console"  src="https://www.youtube.com/embed/PZAaWSzwo7s?list=PLzpeuWUENMK2R9CqhF0eJDSxfPBi6JeXA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+![IBM Cloud SQL Query: Run Queries from the Console](https://www.youtube.com/embed/PZAaWSzwo7s?list=PLzpeuWUENMK2R9CqhF0eJDSxfPBi6JeXA){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 *Video 2. Run queries from the console.*
 
@@ -153,8 +149,8 @@ A more exact specification of the object or objects:
     - If the path is identical to the name of an existing (non-empty) object, it matches only that single object.
     - If the path is a prefix of multiple objects at a slash `/` character, it matches all those objects that are not empty. For example, the path `mydir/test1` (or `mydir/test1/`) matches objects `mydir/test1/object1`, `mydir/test1/nested/object2`, but not `mydir/test100`.
     - The usage of a * wildcard depends on how the object structure was created:
-        - If the object structure was created as Hive-partitioned structure, for example as SQL Query result output, and the result objects are starting with the prefix `part-`, wildcards are not supported. Using SQL constructs based on the Hive structure is always the preferred method to restrict the number of objects to be read during query processing.
-	      - If the object structure was created as Hive-partitioned structure, but by using arbitrary file names, the usage of wildcards is supported. The wildcard matches all objects with the indicated path prefix. For example, `mydir/test1*`, matches objects `mydir/test100`, and `mydir/test101/nested/object`.
+          - If the object structure was created as Hive-partitioned structure, for example as SQL Query result output, and the result objects are starting with the prefix `part-`, wildcards are not supported. Using SQL constructs based on the Hive structure is always the preferred method to restrict the number of objects to be read during query processing.
+	   - If the object structure was created as Hive-partitioned structure, but by using arbitrary file names, the usage of wildcards is supported. The wildcard matches all objects with the indicated path prefix. For example, `mydir/test1*`, matches objects `mydir/test100`, and `mydir/test101/nested/object`.
 
 - For an output URI, it is the prefix under which the [result objects](#result) are to be written.
 
@@ -224,7 +220,6 @@ By default, the following three objects are written to Cloud {{site.data.keyword
 1. `<target>/jobid=<job_id>`
 2. `<target>/jobid=<job_id>/_SUCCESS`
 3. `<target>/jobid=<job_id>/<part-number>`
-
 
 Only the last object contains the result set, the other two objects are empty and don't contain any data. It is important not to delete any of the objects if you want to use the result set for subsequent queries. By default, the object names include the job ID. For example, if you specify `mydir/out` or `mydir/out/` as the target directory, the result objects are written under `mydir/out/jobid=<job_id>`. So, when a query is run multiple times, the result set is not overwritten. You can change this behavior with the [`JOBPREFIX`](/docs/sql-query?topic=sql-query-sql-reference#cosResultClause) option of the `INTO` clause.
 
