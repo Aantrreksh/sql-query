@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021
-lastupdated: "2021-10-15"
+  years: 2021, 2022
+lastupdated: "2022-03-07"
 
 keywords: SQL query, event streams, streaming, cloud object storage, Kafka
 
@@ -15,30 +15,34 @@ subcollection: sql-query
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:note: .note}
 
 # Stream landing
 {: #event-streams-landing}
 
-With stream landing, you can now stream your data in real-time from a topic to a bucket of your choice. {{site.data.keyword.sqlquery_full}} connects to {{site.data.keyword.messagehub_full}} and copies the data to Cloud {{site.data.keyword.cos_full}} in Parquet format. This capability enables efficient analytics on the new objects created.
+With stream landing, you can stream your data in real-time from a topic to a bucket of your choice. {{site.data.keyword.sqlquery_full}} connects to {{site.data.keyword.messagehub_full}} and copies the data to Cloud {{site.data.keyword.cos_full}} in Parquet format. This capability enables efficient analytics on the new objects created.
 
-![Kafka Event Streams landing](streams_landing_new.svg)
+![Stream landing.](images/streams_landing_new.svg "Stream landing"){: caption="Figure 1. Stream landing" caption-side="bottom"}
 
-You can enable a stream landing job on the {{site.data.keyword.messagehub}} UI by selecting the required resources, such as Cloud {{site.data.keyword.cos_short}} bucket, {{site.data.keyword.keymanagementservicelong}} instance, and the {{site.data.keyword.sqlquery_short}} instance by using a tailored wizard. If you want to stop the streaming job, you need to switch to the {{site.data.keyword.messagehub}} UI. For more information on configuring stream landing in {{site.data.keyword.messagehub}}, see [Streaming to Cloud Object Storage by using SQL Query](/docs/EventStreams?topic=EventStreams-streaming_cos_sql).
+You can enable a stream landing job on the {{site.data.keyword.messagehub}} UI by selecting the required resources, such as Cloud {{site.data.keyword.cos_short}} bucket, {{site.data.keyword.keymanagementservicelong}} instance, and the {{site.data.keyword.sqlquery_short}} instance by using a tailored wizard. If you want to stop the streaming job, switch to the {{site.data.keyword.messagehub}} UI. For more information on configuring stream landing in {{site.data.keyword.messagehub}}, see [Streaming to Cloud Object Storage by using SQL Query](/docs/EventStreams?topic=EventStreams-streaming_cos_sql).
 
 ## Using {{site.data.keyword.sqlquery_short}}
 {: #using-event-streams}
 
-You can also configure a stream landing job directly as a SQL Query statement, without using the {{site.data.keyword.messagehub}} UI.
+You can also configure a stream landing job directly as an SQL query statement, without using the {{site.data.keyword.messagehub}} UI.
 
 For event consumption, {{site.data.keyword.sqlquery_short}} reads data from an {{site.data.keyword.messagehub}} topic with a simple SQL statement, such as the following example:
 
-```
+```sql
 SELECT * FROM crn:v1:bluemix:public:messagehub:us-south:a/2383fabbd90354d33c1abfdf3a9f35d5:4d03d962-bfa5-4dc6-8148-f2f411cb8987::/jsontopic STORED AS JSON 
 EMIT cos://us-south/mybucket/events STORED AS PARQUET 
 EXECUTE AS crn:v1:bluemix:public:kms:us-south:a/33e58e0da6e6926e09fd68480e66078e:5195f066-6340-4fa2-b189-6255db72c4f2:key:490c8133-5539-4601-9aa3-1d3a11cb9c44
 ```
 
-The difference from a batch query is that the FROM clause now points to a {{site.data.keyword.messagehub}} topic by using the CRN of an {{site.data.keyword.messagehub}} instance. The allowed format of the events is JSON. The EMIT specifies the Cloud {{site.data.keyword.cos_short}} bucket and the required format is Parquet. The last option to specify is a valid {{site.data.keyword.keymanagementserviceshort}} key that holds an API key with the permissions to read from {{site.data.keyword.messagehub}} and write to Cloud {{site.data.keyword.cos_short}}. The API key is needed, as in theory, the job can run forever.
+The difference from a batch query is that the `FROM` clause points to a {{site.data.keyword.messagehub}} topic by using the CRN of an {{site.data.keyword.messagehub}} instance. The allowed format of the events is JSON. The `EMIT` specifies the Cloud {{site.data.keyword.cos_short}} bucket and the required format is Parquet. The last option to specify is a valid {{site.data.keyword.keymanagementserviceshort}} key that holds an API key with the permissions to read from {{site.data.keyword.messagehub}} and write to Cloud {{site.data.keyword.cos_short}}. The API key is needed, as in theory, the job can run forever.
+
+{{site.data.keyword.sqlquery_short}} uses private endpoints when available, which is only the case in Enterprise plans. Public endpoints are only used if private endpoints are not available or enabled.
+{: note}
 
 ## Data on Cloud {{site.data.keyword.cos_short}}
 {: #data-on-cos}
@@ -53,8 +57,7 @@ The objects are written to Cloud {{site.data.keyword.cos_short}} in micro batche
 ## Streaming job details
 {: #streaming-job-details}
 
-The details of a streaming job show that the states differ from batch query processing. 
-*Stopping* is an extra state, which indicates that {{site.data.keyword.sqlquery_short}} is stopping a running job. And instead of the *completed* state, a streaming job goes into the *stopped* state. The streaming states change from *queued* to *running* to *stopping* or *failed*.
+The details of a streaming job show that the states differ from batch query processing. *Stopping* is an extra state that indicates that {{site.data.keyword.sqlquery_short}} is stopping a running job. And instead of the *completed* state, a streaming job goes into the *stopped* state. The streaming states change from *queued* to *running* to *stopping* or *failed*.
 
 The job details show the following metrics (instead of *rows_returned*, *rows_read* and *bytes_read*):
 
@@ -70,12 +73,12 @@ To keep the example simple, assume to persist 1 MB per second of data in Cloud {
 Feature | Price
 --- | ---
 {{site.data.keyword.messagehub}} topic with one partition | $0.014 USD per partition hour
-{{site.data.keyword.messagehub}} outbound bandwidth charge | $0.028 for 3.6 GB data transmitted per hour
+{{site.data.keyword.messagehub}} outbound bandwidth charge | $0.28 for 3.6 GB data transmitted per hour
 {{site.data.keyword.sqlquery_short}} stream landing job | $0.11 per hour
 Cloud {{site.data.keyword.cos_short}} Class A requests for writing data | ~$0.02 per hour
 Cloud {{site.data.keyword.cos_short}} | $0.05 per month for each 3.6 GB by using the smart storage tier class
 
-Your total cost per hour, with the data stored for a month, would be approximately: $0.222. This is only an example, evaluate your own planned usage with the IBM Cloud cost calculator.
+Your total cost per hour, with the data stored for a month, would be approximately: $0.474. This is only an example, evaluate your own planned usage with the IBM Cloud cost calculator.
 
 ## Permissions
 {: #permissions-event-streams}
@@ -85,8 +88,8 @@ The following permissions are needed for creating a stream landing job:
 - Permission to create service-to-service authentication.
 - Permission to write to {{site.data.keyword.keymanagementservicelong}} (to store the API key).
 - Permission to create service IDs and API keys. The service ID needs to have following permissions:
-  - Writer role for the Cloud {{site.data.keyword.cos_short}} bucket.
-  - Reader access role for the cluster, topic, and group resources within the {{site.data.keyword.messagehub}} service instance.
+    - Writer role for the Cloud {{site.data.keyword.cos_short}} bucket.
+    - Reader access role for the cluster, topic, and group resources within the {{site.data.keyword.messagehub}} service instance.
 
 ## Limitations
 {: #limitations-streams-landing}

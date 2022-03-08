@@ -35,7 +35,7 @@ When you use time-series queries, in general, the more time series that exist, t
 
 The following example query creates one time series per key, and partitions the data based on the key. Anytime a query is run against "ts", it is run in parallel across time series.
 
-```
+```sql
 select 
 	key, 
 	ts
@@ -47,7 +47,7 @@ The issue arises if "ts" is large and thus does not fit in the memory of one mac
 
 First, add a date or any granularity of time to your key (to generate a smaller time series).
 
-```
+```sql
 select
 	concat(cast(to_date(time_tick) as str), "-", key) as date_and_key
 	time_tick,
@@ -58,7 +58,7 @@ into table2
 
 Second, create your time series with the new `date_and_key` key.
 
-```
+```sql
 select
 	date_and_key,
 	ts
@@ -75,8 +75,7 @@ The most common cause for exhausting allocated resources or out of memory errors
 
 - Prepare your data first. Transform input formats, such as .csv or .json to a compressed format, such as Parquet.
 - Write results into [partitioned result sets](/docs/sql-query?topic=sql-query-sql-reference#partitionedClause). It is recommended to start with a double digit partition value. An optimal single object size is about 128 MB. For more information, see [the following blog on big data layout](https://www.ibm.com/cloud/blog/big-data-layout).
-- Use Parquet as the output format (STORED AS clause) instead of .csv or .json. Avoid working with `Gzip` objects.
-Depending on how a join clause is written, it can cause memory-intensive operations. Avoid to use functions in the join clause, such as trim. It is better to cleanse the data first with a preparation step and then to use the cleansed data in the join operation, without needing the functions.
+- Use Parquet as the output format (STORED AS clause) instead of .csv or .json. Avoid working with `Gzip` objects. Depending on how a join clause is written, it can cause memory-intensive operations. Avoid to use functions in the join clause, such as trim. It is better to cleanse the data first with a preparation step and then to use the cleansed data in the join operation, without needing the functions.
 - If you already follow the previous recommendations and still get the out of memory errors, try breaking down complex statements into multiple SQL statements.
 - When you use time series functions, look at the following [FAQ](https://cloud.ibm.com/docs/sql-query?topic=sql-query-faq).
 

@@ -22,9 +22,7 @@ subcollection: sql-query
 {: #index_management}
 
 Index management, also referred to as data skipping, can significantly boost performance and reduce cost of SQL queries by skipping over irrelevant data.
-Data skipping indexes apply to structured data sets in {{site.data.keyword.cos_full}} and store summary metadata for each object in the data set.
-The indexes are stored in Cloud {{site.data.keyword.cos_short}} in a user-provided bucket, similarly to the data.
-SQL queries benefit from an index by skipping over all objects whose metadata indicates that they are not relevant to the indicated query.
+Data skipping indexes apply to structured data sets in {{site.data.keyword.cos_full}} and store summary metadata for each object in the data set. The indexes are stored in Cloud {{site.data.keyword.cos_short}} in a user-provided bucket, similarly to the data. SQL queries benefit from an index by skipping over all objects whose metadata indicates that they are not relevant to the indicated query.
 
 ## Benefits
 {: #benefits_ds}
@@ -92,7 +90,7 @@ Your choices depend on your workload and data. In general, index those columns t
 
 The following example creates a data skipping index on the `metergen` data set that uses three index types:
 
-```
+```sql
 CREATE METAINDEX
 MINMAX FOR temp,
 MINMAX FOR lat,
@@ -113,7 +111,7 @@ It is possible to share indexes across {{site.data.keyword.sqlquery_short}} acco
 
 To retrieve data skipping index statistics and metadata, use the `DESCRIBE` operation, as in the following example:
 
-```
+```sql
 DESCRIBE METAINDEX
 ON cos://us-geo/sql/metergen STORED AS parquet
 ```
@@ -151,7 +149,7 @@ The following list shows supported geospatial functions:
 You can use MinMax indexes on latitude and longitude columns for data skipping. 
 In the following example, the MinMax indexes on the `lat` and `lng` columns are used. The following query retrieves all of the points in 1 km around the point POINT(6.433881 43.422323).
 
-```
+```sql
 SELECT * FROM cos://us-geo/sql/metergen STORED AS PARQUET WHERE
 ST_Distance(ST_Point(lng,lat),ST_WKTToSQL('POINT(6.433881 43.422323)')) < 1000.0
 ```
@@ -161,7 +159,7 @@ ST_Distance(ST_Point(lng,lat),ST_WKTToSQL('POINT(6.433881 43.422323)')) < 1000.0
 
 Geospatial indexes on columns with geometry types can also be used for data skipping. For example, the following statement creates a geospatial index. The hospitals data set is available as an {{site.data.keyword.sqlquery_short}} sample and contains a geometry type column called “location”. Geometry type columns can be created by using the Geospatial Toolkit.
 
-```
+```sql
 CREATE METAINDEX
 GEOSPATIAL FOR location
 ON cos://us-geo/sql/hospitals_geometry.parquet STORED AS parquet
@@ -169,7 +167,7 @@ ON cos://us-geo/sql/hospitals_geometry.parquet STORED AS parquet
 
 The following example query that uses this index returns the names of those hospitals that are within a radius of 46800 meters of a specified coordinate.
 
-```
+```sql
 SELECT name
 FROM cos://us-geo/sql/hospitals_geometry.parquet STORED AS PARQUET
 WHERE ST_Intersects(ST_WKTToSQL(location), ST_Buffer(ST_WKTToSQL('POINT (-74.0 42.0)'), 46800.0))
@@ -185,16 +183,17 @@ You can use data skipping with all of the formats that are supported by {{site.d
 
 If data is added to a data set, or if modifications are made to a data set after the creation of a data skipping index, the new or changed data is not skipped during queries. When the amount of new data becomes significant, refresh the index incrementally, as follows:
 
-```
+```sql
 REFRESH METAINDEX
 ON cos://us-geo/sql/metergen STORED AS parquet
 ```
 
 ### Showing data skipping indexes
+{: #showing_ds_indexes}
 
 To retrieve existing data skipping indexes under the currently configured metadata base location, use the SHOW operation, as in the following example:
 
-```
+```sql
 SHOW METAINDEXES
 ```
 
@@ -206,7 +205,7 @@ The result includes the currently set metadata base location and a list of index
 
 To delete a data skipping index, use the following query:
 
-```
+```sql
 DROP METAINDEX
 ON cos://us-geo/sql/metergen STORED AS parquet
 
@@ -223,7 +222,7 @@ For non-partitioned tables, indexing must be done by using the [Cloud {{site.dat
 
 For [partitioned tables](/docs/sql-query?topic=sql-query-hivemetastore#partitioned), indexes that are created in the Cloud {{site.data.keyword.cos_short}} URI are not used when you access a table by name. Instead, all preceding command and query examples must be rewritten by replacing the Cloud {{site.data.keyword.cos_short}} URI with the table name, by using the ON TABLE clause. For example, for the preceding CREATE INDEX statement, to index a table named `metergen` use the following syntax:
 
-```
+```sql
 CREATE METAINDEX
 MINMAX FOR temp,
 MINMAX FOR lat,
@@ -237,7 +236,7 @@ Refer to the [SQL reference](/docs/services/sql-query?topic=sql-query-sql-refere
 
 For partitioned tables, by default, the metadata is saved under the base location you defined. However, if you want to set a custom location for the metadata, use the following command:
 
-```
+```sql
 ALTER TABLE metergen SET METAINDEX LOCATION <target-location>
 ```
 
@@ -249,7 +248,7 @@ If this parameter does not exist, a fallback to the base location is in place. A
 
 To remove the parameter from the table, use the following command:
 
-```
+```sql
 ALTER TABLE metergen DROP METAINDEX LOCATION
 ```
 
@@ -263,19 +262,17 @@ The metadata for a partitioned table must be different from the metadata on the 
 
 - Data skipping sometimes does not work if type *casting* is used in the `WHERE` clause. For example, given a MinMax index on a column    with a short data type, the following query does not benefit from data skipping:
 
-  ```
-  select * from table where shortType > 1
-  ```
+    ```sql
+    select * from table where shortType > 1
+    ```
 
-  Apache Spark evaluates the query as `(cast(shortType#3 as int) > 1)` because the constant 1 is of type *integer*.
+    Apache Spark evaluates the query as `(cast(shortType#3 as int) > 1)` because the constant 1 is of type *integer*.
 
-  In some cases, Apache Spark automatically casts the literal to the right type.
-  For example, the previous query works for all other numerical types, except for the byte type, as it requires casting, as well.
-  To benefit from data skipping in such cases, ensure that the literal has the same type as the column type, as in the following example:
+    In some cases, Apache Spark automatically casts the literal to the right type. For example, the previous query works for all other numerical types, except for the byte type, as it requires casting, as well. To benefit from data skipping in such cases, ensure that the literal has the same type as the column type, as in the following example:
 
-  ```
-  select * from table where shortType > cast(1 as short)
-  ```
+    ```sql
+    select * from table where shortType > cast(1 as short)
+    ```
   
 - Concurrent `CREATE`/`REFRESH` operations are not supported.
 - Indexing nested geospatial field is not supported.

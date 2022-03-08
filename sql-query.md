@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-08-26"
+  years: 2018, 2022
+lastupdated: "2022-03-03"
 
 keywords: SQL query, analyze, data, CVS, JSON, ORC, Parquet, Avro, object storage, SELECT, cloud instance, URI, endpoint, api, user roles
 
@@ -15,6 +15,7 @@ subcollection: sql-query
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:video: .video}
 
 # Overview
 {: #overview}
@@ -24,16 +25,14 @@ subcollection: sql-query
 
 **Note:** You can use {{site.data.keyword.sqlquery_short}} to create SELECT statements only; actions such as CREATE, DELETE, INSERT, and UPDATE are not possible.
 
-![SQL Query Overview](overview.svg)
+![SQL Query Overview.](images/overview.svg "SQL Query Overview"){: caption="Figure 1. SQL Query Overview" caption-side="bottom"}
 
 Input data is read from CSV, JSON, ORC, Parquet, or AVRO objects located in one or more {{site.data.keyword.cos_full}} instances.
-Each query result is written to a CSV, JSON, ORC, Parquet, or AVRO object in a Cloud {{site.data.keyword.cos_short}} instance of your choice.
+Each query result is written to a CSV, JSON, ORC, Parquet, or AVRO object in a Cloud {{site.data.keyword.cos_short}} or Db2 instance of your choice.
 Use the {{site.data.keyword.sqlquery_short}} user interface (UI) to develop your queries and the
 [SQL Query REST API](#restapi) to automate them.
 
-<iframe width="640" height="390" title="IBM Cloud SQL Query: Provision the IBM Cloud Services"
-src="https://www.youtube.com/embed/_fMEyqRC__c?list=PLzpeuWUENMK2R9CqhF0eJDSxfPBi6JeXA"
-frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+![IBM Cloud SQL Query: Provision the IBM Cloud Services](https://www.youtube.com/embed/_fMEyqRC__c?list=PLzpeuWUENMK2R9CqhF0eJDSxfPBi6JeXA){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 *Video 1. Provision the IBM Cloud Services.*
 
@@ -47,13 +46,13 @@ Before you can use the {{site.data.keyword.sqlquery_short}} service to run SQL q
 
 Watch the following video to learn more about {{site.data.keyword.sqlquery_short}} and how you can get started to run a basic query.
 
-<iframe width="640" height="390" title="IBM Cloud SQL Query: Run Queries from the Console"  src="https://www.youtube.com/embed/PZAaWSzwo7s?list=PLzpeuWUENMK2R9CqhF0eJDSxfPBi6JeXA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+![IBM Cloud SQL Query: Run Queries from the Console](https://www.youtube.com/embed/PZAaWSzwo7s?list=PLzpeuWUENMK2R9CqhF0eJDSxfPBi6JeXA){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 *Video 2. Run queries from the console.*
 
 In SQL, the term *query* is just another way of saying *SELECT statement*. To run a query:
 
-1. In the SQL editor field of the {{site.data.keyword.sqlquery_short}} UI, enter a SELECT statement. In this statement:
+1. In the SQL editor field of the {{site.data.keyword.sqlquery_short}} UI, enter a SELECT statement.
     - After the FROM keyword, specify one or more [unique resource identifiers](#unique) (URIs). Each URI can be thought of as a table. It specifies one or more input objects; each input object can be thought of as a table partition. You must have at least 'Reader' access to the buckets that contain the input objects.
     - If the format of the input objects is CSV, and no special options are required, it is not necessary to specify a `STORED AS` clause. However, if the format is JSON, ORC, Parquet, or AVRO, after the `FROM` clause, specify STORED AS JSON, STORED AS ORC, STORED AS PARQUET, or STORED AS AVRO.
     - If text formats, such as JSON and CSV, are compressed with either gzip or bzip2 and have the extensions `*.gz` and `*.bz`, they automatically get recognized as compressed files. However, do not use these kinds of compressed files due to performance reasons.
@@ -95,9 +94,7 @@ LIMIT 50
 #### Example of an exact target path specification
 {: #path}
 
-The following query writes an SQL result into an exact result path.
-Normally, SQL query always appends `jobid=<jobid>` to the provided target path to ensure a unique result location with each query execution. However, in the following sample query, this suffix is eliminated by adding JOBPREFIX NONE to the path in the INTO clause.
-Note: This action overwrites all objects that are currently stored in the provided result path.
+The following query writes an SQL result into an exact result path. Normally, SQL query always appends `jobid=<jobid>` to the provided target path to ensure a unique result location with each query execution. However, in the following sample query, this suffix is eliminated by adding JOBPREFIX NONE to the path in the INTO clause. Note: This action overwrites all objects that are currently stored in the provided result path.
 
 ```sql
 SELECT *
@@ -123,9 +120,7 @@ ORDER BY e1.city , e1.firstname
 ## Table unique resource identifier
 {: #unique}
 
-Different types of table unique resource identifiers exist, depending on the type of target service used.
-You can either specify Cloud {{site.data.keyword.cos_short}} locations or database locations.
-The latter is only supported for target locations of an SQL query, and only for {{site.data.keyword.Db2_on_Cloud_long}} and {{site.data.keyword.dashdblong}} database services.
+Different types of table unique resource identifiers exist, depending on the type of target service used. You can either specify Cloud {{site.data.keyword.cos_short}} locations or database locations. The latter is only supported for target locations of an SQL query, and only for {{site.data.keyword.Db2_on_Cloud_long}} and {{site.data.keyword.dashdblong}} database services.
 
 ### Cloud Object Storage locations
 {: #cos-location}
@@ -151,15 +146,11 @@ A more exact specification of the object or objects:
 
 - The specified path is interpreted in a similar way as listing file system contents with `ls`, interpreting slashes `/` in object names as a folder hierarchy.
 
-  - If the path is identical to the name of an existing (non-empty) object, it matches only that single object.
-  - If the path is a prefix of multiple objects at a slash `/` character, it matches all those objects that are not empty. For example, the path `mydir/test1` (or `mydir/test1/`) matches objects `mydir/test1/object1`, `mydir/test1/nested/object2`, but not `mydir/test100`.
-  - The usage of a * wildcard depends on how the object structure was created:
-	  - If the object structure was created as Hive-partitioned structure,
-for example as SQL Query result output, and the result objects are starting with the prefix `part-`, wildcards are not supported.
-Using SQL constructs based on the Hive structure is always the preferred method to restrict the number of objects to be read during query processing.
-	  - If the object structure was created as Hive-partitioned structure,
-but by using arbitrary file names, the usage of wildcards is supported.
-The wildcard matches all objects with the indicated path prefix. For example, `mydir/test1*`, matches objects `mydir/test100`, and `mydir/test101/nested/object`.
+    - If the path is identical to the name of an existing (non-empty) object, it matches only that single object.
+    - If the path is a prefix of multiple objects at a slash `/` character, it matches all those objects that are not empty. For example, the path `mydir/test1` (or `mydir/test1/`) matches objects `mydir/test1/object1`, `mydir/test1/nested/object2`, but not `mydir/test100`.
+    - The usage of a * wildcard depends on how the object structure was created:
+          - If the object structure was created as Hive-partitioned structure, for example as SQL Query result output, and the result objects are starting with the prefix `part-`, wildcards are not supported. Using SQL constructs based on the Hive structure is always the preferred method to restrict the number of objects to be read during query processing.
+	   - If the object structure was created as Hive-partitioned structure, but by using arbitrary file names, the usage of wildcards is supported. The wildcard matches all objects with the indicated path prefix. For example, `mydir/test1*`, matches objects `mydir/test100`, and `mydir/test101/nested/object`.
 
 - For an output URI, it is the prefix under which the [result objects](#result) are to be written.
 
@@ -176,9 +167,7 @@ Matching columns must have compatible data types across all objects where they a
 ### Database locations
 {: #db-location}
 
-Two ways to specify database locations exist, CRN URIs, and Db2 table URIs. Which one you choose
-depends on the target database plan and the access you have to that database.
-The number of parallel Db2 connections affects performance. The more parallel connections there are, the better the performance gets, depending on the allowed connections to Db2 and the current free resources of {{site.data.keyword.sqlquery_short}}. Check how many connections your [Db2 plan](https://cloud.ibm.com/catalog/services/db2) allows.
+Two ways to specify database locations exist, CRN URIs, and Db2 table URIs. Which one you choose depends on the target database plan and the access you have to that database. The number of parallel Db2 connections affects performance. The more parallel connections there are, the better the performance gets, depending on the allowed connections to Db2 and the current free resources of {{site.data.keyword.sqlquery_short}}. Check how many connections your [Db2 plan](https://cloud.ibm.com/catalog/services/db2) allows.
 
 #### CRN URI location
 {: #crn-uri}
@@ -195,9 +184,7 @@ The CRN table has the form:
 
 You retrieve the **`<db service crn>`** by opening the resource list in the {{site.data.keyword.Bluemix_notm}} dashboard. Scroll down to the database service instance and click in any of the columns other than the first column. An overlay panel to the right opens where you find a field that is labeled `CRN:` with the value and an option to copy it to your clipboard.
 
-The **`<table name>`** part specifies the table that is created in your database. It has the format **`<schemaname>.<tablename>`**.
-If you omit the **`<schemaname>`** part, the table is created in the schema of the `"username"` in the credentials of your database service instance &ndash; for a Db2 Lite plan, it is the only schema that you have access to.
-The table name is case-preserving, so use uppercase to match database defaults.
+The **`<table name>`** part specifies the table that is created in your database. It has the format **`<schemaname>.<tablename>`**. If you omit the **`<schemaname>`** part, the table is created in the schema of the `"username"` in the credentials of your database service instance &ndash; for a Db2 Lite plan, it is the only schema that you have access to. The table name is case-preserving, so use uppercase to match database defaults.
 
 An example for a CRN table is: `crn:v1:bluemix:public:dashdb-for-transactions:us-south:s/c3882b7e-00c4-4e7c-a63b-cded1c298f25:23eb50c5-723d-41e0-b7d8-603feaa79ccc:cf-service-instance:/RWS46052.QUERY_RESULT`
 
@@ -206,7 +193,7 @@ An example for a CRN table is: `crn:v1:bluemix:public:dashdb-for-transactions:us
 
 If the SQL user cannot access the service credentials for the {{site.data.keyword.Db2_on_Cloud_short}} instance (because the user does not have access to the account that contains the database instance, or is not granted Operator privilege on the instance), the user can specify the database location by using a URI with the Db2 database hostname.
 
-By default the access to this database is performed with the IAM identity of the user who submitted the query. This default requires that the database is enabled for IAM authentication. Also, before you use this option, make sure that the IBMid of the user was added as a database user. For more information, see section "Console User Experience" in the "User management" documentation of the [IMB Knowledge Center](https://www.ibm.com/support/knowledgecenter/en/SS6NHC/com.ibm.swg.im.dashdb.security.doc/doc/iam.html). This option is not available for Db2 Lite plans because they don't support IAM authentication in the database.
+By default the access to this database is performed with the IAM identity of the user who submitted the query. This default requires that the database is enabled for IAM authentication. Also, before you use this option, make sure that the IBMid of the user was added as a database user. For more information, see [Console user experience](https://www.ibm.com/support/knowledgecenter/en/SS6NHC/com.ibm.swg.im.dashdb.security.doc/doc/iam.html) in the *Identity and access management (IAM) on IBM Cloud* documentation. This option is not available for Db2 Lite plans because they don't support IAM authentication in the database.
 
 If you cannot or do not want to use the default mechanism of IAM user authentication, you can instead specify a custom user and password or a custom API key. To do so, store the password or key into {{site.data.keyword.keymanagementservicefull}} and specify an [access secret clause](/docs/sql-query?topic=sql-query-sql-reference#accessSecrets) in your query. For more information, see the [security documentation](/docs/sql-query?topic=sql-query-authentication#accessauthentication). With this option, you can connect to *any* Db2 database that is accessible from the IBM public cloud network.
 
@@ -234,7 +221,6 @@ By default, the following three objects are written to Cloud {{site.data.keyword
 2. `<target>/jobid=<job_id>/_SUCCESS`
 3. `<target>/jobid=<job_id>/<part-number>`
 
-
 Only the last object contains the result set, the other two objects are empty and don't contain any data. It is important not to delete any of the objects if you want to use the result set for subsequent queries. By default, the object names include the job ID. For example, if you specify `mydir/out` or `mydir/out/` as the target directory, the result objects are written under `mydir/out/jobid=<job_id>`. So, when a query is run multiple times, the result set is not overwritten. You can change this behavior with the [`JOBPREFIX`](/docs/sql-query?topic=sql-query-sql-reference#cosResultClause) option of the `INTO` clause.
 
 You can use the result set from one query as input data for further SQL queries.
@@ -251,8 +237,7 @@ Your Cloud {{site.data.keyword.cos_short}} instance has one of the supported end
 
 Aliases to tethering endpoints (specific endpoints within cross region domains, for example, `dal-us-geo`) are considered legacy. They continue to work until further notice but are planned to be deprecated sometime in the future. To be prepared, update your applications to use the alias of the corresponding cross region endpoint (for example, `us-geo`).
 
-**Note:** {{site.data.keyword.sqlquery_short}} always uses the internal endpoint to interact with {{site.data.keyword.cos_short}}, even if an external endpoint was specified in the query. The result location for a query always indicates the external endpoint name.
-When you interact with {{site.data.keyword.sqlquery_short}} programmatically through the API, you can use the internal endpoint name to read results instead of the external endpoint name that is returned by the API.
+**Note:** {{site.data.keyword.sqlquery_short}} always uses the internal endpoint to interact with {{site.data.keyword.cos_short}}, even if an external endpoint was specified in the query. The result location for a query always indicates the external endpoint name. When you interact with {{site.data.keyword.sqlquery_short}} programmatically through the API, you can use the internal endpoint name to read results instead of the external endpoint name that is returned by the API.
 
 The following tables list some examples of currently supported {{site.data.keyword.sqlquery_short}} endpoints:
 
@@ -315,9 +300,7 @@ You can use the [SQL Query service REST API](https://cloud.ibm.com/apidocs/sql-q
 For a Python application, you can also use the [ibmcloudsql package](https://pypi.org/project/ibmcloudsql/).
 Use IBM Watson Studio to run queries with {{site.data.keyword.sqlquery_short}} and visualize the query results with one of the various widget libraries available in [Watson Studio](https://cloud.ibm.com/catalog/services/data-science-experience).
 
-Using the ibmcloudsql library, you can also interact with {{site.data.keyword.sqlquery_short}} directly from Watson Studio notebooks.
-You can start by [Using IBM Cloud SQL Query notebook](https://dataplatform.cloud.ibm.com/exchange/public/entry/view/4a9bb1c816fb1e0f31fec5d580e4e14d)
-in the [IBM Cloud Pak for Data Gallery](https://dataplatform.cloud.ibm.com/gallery?context=cpdaas&query=sql).
+Using the ibmcloudsql library, you can also interact with {{site.data.keyword.sqlquery_short}} directly from Watson Studio notebooks. You can start by [Using IBM Cloud SQL Query notebook](https://dataplatform.cloud.ibm.com/exchange/public/entry/view/4a9bb1c816fb1e0f31fec5d580e4e14d) in the [IBM Cloud Pak for Data Gallery](https://dataplatform.cloud.ibm.com/gallery?context=cpdaas&query=sql).
 
 ### Cloud functions
 {: #cloud}
@@ -327,8 +310,7 @@ in the [IBM Cloud Pak for Data Gallery](https://dataplatform.cloud.ibm.com/galle
 ### Geospatial functions
 {: #geospatial-functions}
 
-The [Geospatial Toolkit](https://www.ibm.com/support/knowledgecenter/en/SSCJDQ/com.ibm.swg.im.dashdb.analytics.doc/doc/geo_intro.html) provides a set of [geospatial functions](https://www.ibm.com/support/knowledgecenter/en/SSCJDQ/com.ibm.swg.im.dashdb.analytics.doc/doc/geo_functions.html) that you can use to efficiently process and index spatial data.
-These functions are integrated into the {{site.data.keyword.sqlquery_short}} service and ready for immediate use. The {{site.data.keyword.sqlquery_short}} service also provides several sample queries that illustrate how to use these functions.
+The [Geospatial Toolkit](https://www.ibm.com/support/knowledgecenter/en/SSCJDQ/com.ibm.swg.im.dashdb.analytics.doc/doc/geo_intro.html) provides a set of [geospatial functions](https://www.ibm.com/support/knowledgecenter/en/SSCJDQ/com.ibm.swg.im.dashdb.analytics.doc/doc/geo_functions.html) that you can use to efficiently process and index spatial data. These functions are integrated into the {{site.data.keyword.sqlquery_short}} service and ready for immediate use. The {{site.data.keyword.sqlquery_short}} service also provides several sample queries that illustrate how to use these functions.
 
 ## Required user roles
 {: #user-roles}
@@ -350,8 +332,7 @@ Submit a catalog or index management statement | sql-query.api.managecatalog | `
 ### Example
 {: #data-scanned-example}
 
-Assume you have 1 PB of data that is stored on Cloud {{site.data.keyword.cos_short}} that is laid out as described in the [blog post](https://www.ibm.com/cloud/blog/big-data-layout) and is optimized for the queries you want to run.
-If you run a single query, the most expensive query possible is `SELECT * FROM`, as reading 1 PB of data is required. Any other query is much cheaper and faster. For example, a 1 PB data set consists of audit events for users of a system (user A performed action B in system X at time T) and the data is laid out in a way that it is partitioned by time (one file per day and system). So to answer a query like `SELECT DISTINCT user FROM WHERE System='X' AND Day >= (TODAY - 30)`, {{site.data.keyword.sqlquery_short}} must access all objects for system X that contain data for the last 30 days. The sum of the size of these objects is the maximum estimate of data that is scanned that you would be charged for. But as {{site.data.keyword.sqlquery_short}} accesses only one field, and data is stored as Parquet, it is much less. Calculating the precise price of the query is not possible in advance because much of it depends on the data itself. Parquet, for example, stores compressed columns, so if the column can be compressed effectively, even less data needs to be read. You also find some further details in the blog post [SQL Query releases serverless transformation and partitioning of data in open formats](https://www.ibm.com/cloud/blog/announcements/sql-query-releases-serverless-transformation-and-partitioning-of-data-in-open-formats) about {{site.data.keyword.sqlquery_short}} ETL capabilities and how they affect scanned data.
+Assume you have 1 PB of data that is stored on Cloud {{site.data.keyword.cos_short}} that is laid out as described in the [blog post](https://www.ibm.com/cloud/blog/big-data-layout) and is optimized for the queries you want to run. If you run a single query, the most expensive query possible is `SELECT * FROM`, as reading 1 PB of data is required. Any other query is much cheaper and faster. For example, a 1 PB data set consists of audit events for users of a system (user A performed action B in system X at time T) and the data is laid out in a way that it is partitioned by time (one file per day and system). So to answer a query like `SELECT DISTINCT user FROM WHERE System='X' AND Day >= (TODAY - 30)`, {{site.data.keyword.sqlquery_short}} must access all objects for system X that contain data for the last 30 days. The sum of the size of these objects is the maximum estimate of data that is scanned that you would be charged for. But as {{site.data.keyword.sqlquery_short}} accesses only one field, and data is stored as Parquet, it is much less. Calculating the precise price of the query is not possible in advance because much of it depends on the data itself. Parquet, for example, stores compressed columns, so if the column can be compressed effectively, even less data needs to be read. You also find some further details in the blog post [SQL Query releases serverless transformation and partitioning of data in open formats](https://www.ibm.com/cloud/blog/announcements/sql-query-releases-serverless-transformation-and-partitioning-of-data-in-open-formats) about {{site.data.keyword.sqlquery_short}} ETL capabilities and how they affect scanned data.
 
 ## Timestamps
 {: #timestamps}
@@ -365,10 +346,9 @@ You can also create timestamp values in a different time zone from a Coordinated
 ## Limitations
 {: #limitations}
 
-- If a JSON, ORC, or Parquet object contains a nested or arrayed structure, a query with CSV output that uses a wildcard (for example, `SELECT * from cos://...`) returns an error such as "Invalid CSV data type used: `struct<nested JSON object>`."
-Use one of the following workarounds:
-  - For a nested structure, use the [`FLATTEN`](/docs/sql-query?topic=sql-query-sql-reference#tableTransformer) table transformation function. Alternatively, you can specify the fully nested column names instead of the wildcard, for example, `SELECT address.city, address.street, ... from cos://...`.
-  - For an array, use the Spark SQL explode() function, for example, `select explode(contact_names) from cos://...`.
+- If a JSON, ORC, or Parquet object contains a nested or arrayed structure, a query with CSV output that uses a wildcard (for example, `SELECT * from cos://...`) returns an error such as "Invalid CSV data type used: `struct<nested JSON object>`." Use one of the following workarounds:
+    - For a nested structure, use the [`FLATTEN`](/docs/sql-query?topic=sql-query-sql-reference#tableTransformer) table transformation function. Alternatively, you can specify the fully nested column names instead of the wildcard, for example, `SELECT address.city, address.street, ... from cos://...`.
+    - For an array, use the Spark SQL explode() function, for example, `select explode(contact_names) from cos://...`.
 
 - If you receive a corrupted result, verify that the source URI is correct and that the correct input format is specified, by using 'STORED AS' in the SQL statement.
 
@@ -376,6 +356,6 @@ Use one of the following workarounds:
 
 - To process CSV input with {{site.data.keyword.sqlquery_short}}, each row must be contained within one line. Multi-line values are not supported.
 
-  If you use {{site.data.keyword.sqlquery_short}} to generate CSV results from other data formats like Parquet that support newlines within values and these CSV results are queried again, newlines must explicitly be removed before you write the results. To do so, use the SQL function `regexp_replace`. For example, a Parquet object `data` has an attribute `multi_line` containing values that span multiple lines. To select a subset of rows based on a `condition` and store it on Cloud {{site.data.keyword.cos_short}} for further processing, a skeleton SQL statement looks like the following example:
+    If you use {{site.data.keyword.sqlquery_short}} to generate CSV results from other data formats like Parquet that support newlines within values and these CSV results are queried again, newlines must explicitly be removed before you write the results. To do so, use the SQL function `regexp_replace`. For example, a Parquet object `data` has an attribute `multi_line` containing values that span multiple lines. To select a subset of rows based on a `condition` and store it on Cloud {{site.data.keyword.cos_short}} for further processing, a skeleton SQL statement looks like the following example:
 
-  `SELECT regexp_replace(multi_line, '[\\r\\n]', ' ') as multi_line FROM data STORED AS parquet WHERE condition`
+    `SELECT regexp_replace(multi_line, '[\\r\\n]', ' ') as multi_line FROM data STORED AS parquet WHERE condition`

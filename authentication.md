@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-02-15"
+lastupdated: "2022-03-03"
 
 keywords: security, authentication, access, iam, sso, service credential
 
@@ -27,7 +27,7 @@ The {{site.data.keyword.sqlquery_full}} service is tightly integrated with {{sit
 
 The {{site.data.keyword.sqlquery_short}} UI supports [IAM sessions](/docs/account?topic=account-iam-work-sessions). If you limit the duration of active sessions, the authentication of the UI will stop after the session expires, so you cannot submit new queries or retrieve result data until you reload the page and re-authenticate. Result data that is already cached in the browser remains visible. If you terminate an active IAM session before it expires, the {{site.data.keyword.sqlquery_short}} UI still remains authenticated for the leftover lifetime of the current access token, which can be up to 20 minutes.
 
-Queries submitted from the UI can run at maximum for one hour or the remaining session lifetime, whichever is shorter. Queries submitted via the API can always run for one hour maximum if you retrieve the API token using the method described in the SQL Query API documentation.
+Queries submitted from the UI can run at maximum for one hour or the remaining session lifetime, whichever is shorter. Queries submitted via the API can always run for one hour maximum if you retrieve the API token using the method described in the [{{site.data.keyword.sqlquery_short}} API documentation](https://cloud.ibm.com/apidocs/sql-query-v3).
 
 ## Authenticating access to data resources in SQL Query
 {: #accessauthentication}
@@ -45,12 +45,12 @@ You can use the unique CRN of a service instance in {{site.data.keyword.Bluemix_
 #### Custom user ID and password for each data resource
 {: #userpassword}
 
-You can use the USER and PASSWORD keywords in the corresponding FROM or INTO clauses to securely pass user ID and password for each resource location. To ensure that the passing of sensitive data is secure, store the password as a custom standard key in an instance of {{site.data.keyword.keymanagementserviceshort}} to which you have access and then use the CRN of this custom standard key instead of the plain text password. For more information, see [Setting up custom secrets in Key Protect](#kpsetup) about how to store the password securely.
+You can use the USER and PASSWORD keywords in the corresponding FROM or INTO clauses to securely pass user ID and password for each resource location. To ensure that the passing of sensitive data is secure, store the password as a custom standard key in an instance of {{site.data.keyword.keymanagementserviceshort}} to which you have access and then use the CRN of this custom standard key instead of the plain text password. For more information, see [Setting up custom secrets in Key Protect](/docs/sql-query?topic=sql-query-kpsetup) about how to store the password securely.
 
 #### Custom API key for each data resource
 {: #apikey}
 
-As an alternative to providing user and password combinations, in {{site.data.keyword.Bluemix_notm}} you can also securely pass API keys for each resource location. Using the `APIKEY` keyword inside the according `FROM` or `INTO` clauses, you can pass in this information. To ensure that the passing of sensitive data is secure, first store the API key as a custom standard key in a {{site.data.keyword.keymanagementserviceshort}} service instance to which you have access, and then use the CRN of this custom standard key instead of the plain text password. For more information, see [Setting up custom secrets in Key Protect](#kpsetup) on how to store the API key securely.
+As an alternative to providing user and password combinations, in {{site.data.keyword.Bluemix_notm}} you can also securely pass API keys for each resource location. Using the `APIKEY` keyword inside the according `FROM` or `INTO` clauses, you can pass in this information. To ensure that the passing of sensitive data is secure, first store the API key as a custom standard key in a {{site.data.keyword.keymanagementserviceshort}} service instance to which you have access, and then use the CRN of this custom standard key instead of the plain text password. For more information, see [Setting up custom secrets in Key Protect](/docs/sql-query?topic=sql-query-kpsetup) on how to store the API key securely.
 
 ### Currently supported authentication methods per data resource for {{site.data.keyword.sqlquery_short}}
 {: #supportedauthentication}

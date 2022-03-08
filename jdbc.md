@@ -51,12 +51,12 @@ Connection properties (except for the CRN) can be specified as part of the URL, 
 - `targetcosurl` (optional, but usually needed): Cloud {{site.data.keyword.cos_short}} URI in SQL query style, where the results are stored. If this property is not specified, you cannot run queries that return a JDBC result set. The JDBC connection can still be used to retrieve database metadata and run DDL and [ETL-type statements](#etl-type-statements). It must start with a lowercase letter.
 - `loggerFile` (optional, default none): file to write driver logs to.
 - `loggerLevel` (optional, default set by Java SE Development Kit): `java.util.logging` level for the driver. Java SE Development Kit default is usually `INFO`.
-  - `DEBUG/FINER` or `TRACE/FINEST` are the most useful values.
+    - `DEBUG/FINER` or `TRACE/FINEST` are the most useful values.
 - `filterType` (optional, default none):
-  - Only tables are returned if `filterType` value is set to `table`.
-  - Only views are returned if `filterType` value is set to `view`.
+    - Only tables are returned if `filterType` value is set to `table`.
+    - Only views are returned if `filterType` value is set to `view`.
 - `appendInto` (optional, default *true*):
-  - If it is set to false, no `INTO` clause is appended, and results are not available through the driver. It is used with [ETL-type statements](#etl-type-statements), where the INTO options are provided as part of the statement.
+    - If it is set to false, no `INTO` clause is appended, and results are not available through the driver. It is used with [ETL-type statements](#etl-type-statements), where the INTO options are provided as part of the statement.
 
 ## Driver functionality
 {: #driver_functionality}
@@ -84,8 +84,8 @@ The following limitations are implied by the use of {{site.data.keyword.sqlquery
 - Query results are returned through results in Cloud {{site.data.keyword.cos_short}}. A `SELECT *` query creates a full copy of the selected table (or Cloud {{site.data.keyword.cos_short}}) in the `targetcosurl` location.
 - Streaming of query results cannot start until the execution fully completed and results were written to Cloud {{site.data.keyword.cos_short}}.
 - {{site.data.keyword.sqlquery_short}} works on read-only data in Cloud {{site.data.keyword.cos_short}}, so the following functionality that is related to data updates is not supported:
-  - Transactions are not supported. `commit()` and `rollback()` are no-ops.
-  - Result sets that can be updated are not supported.
+    - Transactions are not supported. `commit()` and `rollback()` are no-ops.
+    - Result sets that can be updated are not supported.
 - SQL statements cannot be canceled.
 
 ## Driver-specific limitations
@@ -105,7 +105,7 @@ See the following technical limitations of the driver:
 
 You can use the JDBC driver to execute transform-type statements on your data in Cloud {{site.data.keyword.cos_short}}, where you do not want to retrieve the data in the JDBC client itself. See the following example of such a statement:
 
-```
+```sql
 SELECT ...
 FROM cos://source1 JOIN cos://source2 ON ... JOIN ...
 INTO cos://target STORED AS ... PARTITIONED BY ...
@@ -142,7 +142,7 @@ The following steps describe how to make Tableau Desktop for Windows work with t
     - For **Mac**: `~/Library/Tableau/Drivers/ibmcloudsql-jdbc-<version>.jar`
 3. Create a Tableau Datasource Customization file (*.tdc) with the following content:
 
-    ```
+    ```sql
     <connection-customization class='genericjdbc' enabled='true' version='2020.2'>
     <vendor name='genericjdbc' />
         <driver name='ibmcloudsql' />
@@ -174,7 +174,6 @@ The following steps describe how to make Tableau Desktop for Windows work with t
    - Password: `{your IBM Cloud API Key}`
 7. Click **Sign in**.
 
-
 As Tableau does not support complex data types, such as `struct`, if a table contains one or more columns with complex data type, perform the following actions:
 
 - Create a flattened view on the table.
@@ -196,6 +195,6 @@ If you use such business intelligence tools, you need another way to connect to 
 
 An easy way to set up ODBC connectivity to {{site.data.keyword.sqlquery_short}} is to use the [Progress DataDirect Hybrid Data Pipeline](https://www.progress.com/cloud-and-hybrid-data-integration) product.
 
-![Progress DataDirect Hybrid Data Pipeline](ODBCIBMSQLQuery.svg)
+![ODBC connectivity to SQL Query.](images/ODBCIBMSQLQuery.svg "ODBC connectivity to SQL Query"){: caption="Figure 1. ODBC connectivity to SQL Query" caption-side="bottom"}
 
 A [step-by-step tutorial](https://www.ibm.com/cloud/blog/odbc-connectivity-to-ibm-cloud-sql-query) explains how easily {{site.data.keyword.sqlquery_short}} and Hybrid Data Pipeline (HDP) can complement one another to achieve this task.
