@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-01-10"
+lastupdated: "2022-03-09"
 
 ---
 
@@ -13,59 +13,55 @@ lastupdated: "2022-01-10"
 {:pre: .pre}
 
 # SQL reference
+{: #sql-reference}
 
 ## Introduction
 {: #chapterIntroduction}
 
 With {{site.data.keyword.sqlquery_full}}, you can analyze and transform open data with SQL. It supports the various types of SELECT statements from the ANSI SQL standard.
 
-The SELECT statement (or query statement) is used to read object data from {{site.data.keyword.cos_full}} (COS),
-process the data, and store it back on Cloud {{site.data.keyword.cos_short}} eventually.
+The SELECT statement (or query statement) is used to read object data from {{site.data.keyword.cos_full}} (COS), process the data, and store it back on Cloud {{site.data.keyword.cos_short}} eventually.
 
-You can use {{site.data.keyword.sqlquery_short}} as a data transformation service, as it always writes the results of a query to a specified location in either {{site.data.keyword.cos_short}} or Db2 tables.
-{{site.data.keyword.sqlquery_short}} provides extended SQL syntax inside a special INTO clause to control how the result data is stored physically. This extended SQL syntax includes control over data location, format, layout, and partitioning.
+You can use {{site.data.keyword.sqlquery_short}} as a data transformation service, as it always writes the results of a query to a specified location in either {{site.data.keyword.cos_short}} or Db2 tables. {{site.data.keyword.sqlquery_short}} provides extended SQL syntax inside a special INTO clause to control how the result data is stored physically. This extended SQL syntax includes control over data location, format, layout, and partitioning.
 
-A query statement can be submitted through {{site.data.keyword.sqlquery_short}}'s web UI or programmatically,
-either by using the service's REST API, or by using the Python or Node.JS SDK. You can also use {{site.data.keyword.DSX_full}}
-and the Python SDK to use {{site.data.keyword.sqlquery_short}} interactively with Jupyter Notebooks. In addition, you can submit SQL queries that use {{site.data.keyword.openwhisk}}.
+A query statement can be submitted through {{site.data.keyword.sqlquery_short}}'s web UI or programmatically, either by using the service's REST API, or by using the Python or Node.JS SDK. You can also use {{site.data.keyword.DSX_full}} and the Python SDK to use {{site.data.keyword.sqlquery_short}} interactively with Jupyter Notebooks. In addition, you can submit SQL queries that use {{site.data.keyword.openwhisk}}.
 
 In addition to the ad hoc usage of data in {{site.data.keyword.cos_full}}, you can also register and manage your data in a catalog as tables, consisting of columns and partitions.
 
 Several benefits to cataloging your data exist:
-
 - It simplifies SQL SELECT statements because the SQL author does not need not know and specify exactly where and how the data is stored.
 - The SQL execution can skip the inference of schema and partitioning because this information is available in the metastore. Thus, cataloging improves your query performance, especially for text-based data formats, such as CSV and JSON, where the schema inference requires a full scan of the data before the actual query execution.
-<!-- Hide - With the *ANALYZE TABLE* command, you can gather statistics about your data, which is then used by the SQL compiler to do a cost-based optimization of the query plan, which can result in significantly improved query performance for queries on larger data volumes. -->
 
 ## Select
 {: #chapterSQLQueryStatement}
 
 See the following examples for an outline of the general syntax of an SQL query statement that uses the `query` clause and the `namedQuery` clause.
 
-<h3 id="query">query</h3>
+### query
+{: #query}
 
 <!--include-svg src="./svgfiles/query.svg" target="./diagrams/query.svg" alt="syntax diagram for a query" layout="@break@" -->
 
-<h3 id="namedQuery">namedQuery</h3>
+### namedQuery
+{: #namedQuery}
 
 <!--include-svg src="./svgfiles/namedQuery.svg" target="./diagrams/namedQuery.svg" alt="syntax diagram for a named query" layout="@break@" -->
 
-<h3 id="intoClause">intoClause</h3>
+### intoClause
+{: #intoClause}
 
 <!--include-svg src="./svgfiles/intoClause.svg" target="./diagrams/intoClause.svg" alt="syntax diagram for an INTO clause" layout="@break@" -->
 
-The query statement supports *common table expressions*. A common table expression permits defining a result table with a table name
-that can be specified as a table name in any FROM clause of the fullselect that follows.
+The query statement supports *common table expressions*. A common table expression permits defining a result table with a table name that can be specified as a table name in any FROM clause of the fullselect that follows.
 
-Common table expressions are defined by using the reserved keyword `WITH` followed by one or more *named queries*.
-Each common table expression that is specified can also be referenced by name in the FROM clause of subsequent common table expressions.
+Common table expressions are defined by using the reserved keyword `WITH` followed by one or more *named queries*. Each common table expression that is specified can also be referenced by name in the FROM clause of subsequent common table expressions.
 
-Creating a common table expression avoids the overhead of creating and dropping an intermediate result object on
-Cloud {{site.data.keyword.cos_short}} that is needed only for a certain query.
+Creating a common table expression avoids the overhead of creating and dropping an intermediate result object on Cloud {{site.data.keyword.cos_short}} that is needed only for a certain query.
 
 Moreover, a common table expression is beneficial when the same result table must be shared in a fullselect.
 
-<h3>Examples</h3>
+### Examples
+{: #examples}
 
 The common table expression examples use values clauses to define tables inline. For more information about the values clause, see [valuesClause](#valuesClause).
 
@@ -93,8 +89,7 @@ The result of the example queries is shown in the following table.
 |DEPTNO|
 |------|
 |2     |
-
-<!--table-caption title="Query result for example 'find the department with the highest total pay'"-->
+{: caption="Table 1. Query result for example: find the department with the highest total pay" caption-side="bottom"}
 
 ```sql
 -- list products with a price above the average price
@@ -126,22 +121,19 @@ FROM products WHERE price > (SELECT * FROM avg_product_price)
 | 10        | 200   |  97.5     | 102.5      |
 | 11        | 300   |  97.5     | 202.5      |
 | 12        | 400   |  97.5     | 302.5      |
-<!--table-caption title="Query result for example 'list products with a price above the average price'"-->
+{: caption="Table 2. Query result for example: list products with a price above the average price"}
 
-<h3 id="cosResultClause">cosResultClause</h3>
+### cosResultClause
+{: #cosResultClause}
 
 You can use the Cloud {{site.data.keyword.cos_short}} result clause to apply detailed control over the location, format, and layout of the SQL query result set being stored on Cloud {{site.data.keyword.cos_short}}.
 
-The default is `JOBPREFIX JOBID`, which means that `jobid=` is always appended to the target prefix.
-You can optionally specify `JOBID NONE`, which skips the appending of `jobid=`. The results are then written exactly to the requested path. However, if that path contains existing objects (for example, from a previous query execution with the same target path), all existing objects get removed when the new result objects are written.
+The default is `JOBPREFIX JOBID`, which means that `jobid=` is always appended to the target prefix. You can optionally specify `JOBID NONE`, which skips the appending of `jobid=`. The results are then written exactly to the requested path. However, if that path contains existing objects (for example, from a previous query execution with the same target path), all existing objects get removed when the new result objects are written.
 
-A query cannot run if `JOBPREFIX NONE` is specified and the target overlaps with at least one of the input URIs.
-The reason is that data cannot be overwritten by a query that is reading that same data.
-For example, `SELECT * FROM cos://us-geo/mybucket/myprefix/mysubprefix INTO cos://us-geo/mybucket/myprefix JOBPREFIX NONE`
+A query cannot run if `JOBPREFIX NONE` is specified and the target overlaps with at least one of the input URIs. The reason is that data cannot be overwritten by a query that is reading that same data. For example, `SELECT * FROM cos://us-geo/mybucket/myprefix/mysubprefix INTO cos://us-geo/mybucket/myprefix JOBPREFIX NONE`
  returns an error when you try to submit it.
 
-In the *COS result clause*, you can explicitly specify the storage location and type of a query result on Cloud {{site.data.keyword.cos_short}}.
-The storage location is specified by a `COSURI`.
+In the *COS result clause*, you can explicitly specify the storage location and type of a query result on Cloud {{site.data.keyword.cos_short}}. The storage location is specified by a `COSURI`.
 
 Valid query result object formats are: `AVRO`, `CSV`, `JSON`, `ORC`, and `PARQUET`. Object type names are not case-sensitive.
 
@@ -153,55 +145,45 @@ Being able to explicitly specify the location and the type of the result object 
 Moreover, a user can explicitly define the way a query result is stored physically on Cloud {{site.data.keyword.cos_short}} by using the *result partitioned clause*.
 
 As shown in the syntax diagrams, three main use cases exist to define the physical layout of a query's result on Cloud {{site.data.keyword.cos_short}}:
-
 - Partition by columns, that is so-called Hive-style partitioning.
 - Partition into buckets or objects (both terms can be used synonymously), that is, generate the query result into objects, with or without specifying columns.
 - Partition by number of rows.
 
 A partition is an object on Cloud {{site.data.keyword.cos_short}} that is potentially a part of an aggregated object.
-The presence of multiple partitions allows for parallel input/output (I/O) during query execution. If no *result partitioned clause* is specified,
-the query result is stored in a single partition on Cloud {{site.data.keyword.cos_short}}.
+The presence of multiple partitions allows for parallel input/output (I/O) during query execution. If no *result partitioned clause* is specified, the query result is stored in a single partition on Cloud {{site.data.keyword.cos_short}}.
 
 <!--include-svg src="./svgfiles/cosResultClause.svg" target="./diagrams/cosResultClause.svg" alt="syntax diagram for a COS result clause" layout="@break@" -->
 
-<h3 id="partitionedClause">partitionedClause</h3>
+### partitionedClause
+{: #partitionedClause}
 
 You can use the result partitioned clause to control the layout of the SQL query result set being stored. The default behavior is to store the result into one single partition, that is a single object in Cloud {{site.data.keyword.cos_short}}.
 
 <!--include-svg src="./svgfiles/partitionedClause.svg" target="./diagrams/partitionedClause.svg" alt="syntax diagram for a result partitioned clause" layout="@break@" -->
 
-<h3 id="sortClause">sortClause</h3>
+### sortClause
+{: #sortClause}
 
-This clause can be used to sort in many ways. When specified in combination with PARTITIONED BY, it sorts the rows within each partition
-by the sort order that is specified in the SORT BY clause. When specified in combination with PARTITIONED INTO, the same is done,
-which is often referred to as clustering the rows by the specified columns into the fixed number of partitions specified by PARTITIONED INTO.
-When specified without the PARTITIONED clause, it is equivalent to an ORDER BY clause specified at the top level of the SQL SELECT statement.
-If PARTITIONED INTO is specified, the ORDER BY clause is ignored.
+This clause can be used to sort in many ways. When specified in combination with PARTITIONED BY, it sorts the rows within each partition by the sort order that is specified in the SORT BY clause. When specified in combination with PARTITIONED INTO, the same is done, which is often referred to as clustering the rows by the specified columns into the fixed number of partitions specified by PARTITIONED INTO. When specified without the PARTITIONED clause, it is equivalent to an ORDER BY clause specified at the top level of the SQL SELECT statement. If PARTITIONED INTO is specified, the ORDER BY clause is ignored.
 
 <!--include-svg src="./svgfiles/sortClause.svg" target="./diagrams/sortClause.svg" alt="syntax diagram for a result partitioned column clause" layout="@break@" -->
 
+#### Partition by columns
+{: #partition-by-columns}
 
-<h4>Partition by columns</h4>
+When you use the `PARTITIONED BY (column-list)` clause without specifying `INTO x BUCKETS/OBJECTS`, you can store the query result by using Hive-style partitioning, that is, to create partitions that contain only rows that have certain values for one or more columns. Choose this physical layout if the stored object is further analyzed by using SQL queries that specify predicates on the partition columns.
 
-When you use the `PARTITIONED BY (column-list)` clause without specifying `INTO x BUCKETS/OBJECTS`, you can store the query result
-by using Hive-style partitioning, that is, to create partitions that contain only rows that have certain values for one or more columns.
-Choose this physical layout if the stored object is further analyzed by using SQL queries that specify predicates on the partition columns.
-
-For example, a result object that contains worldwide order data has a column `country` to represent the country that the order is initiated from.
-Partitioning the result object by the column `PARTITIONED BY (country)`, would create a result object with a partition for each country present in the query result.
+For example, a result object that contains worldwide order data has a column `country` to represent the country that the order is initiated from. Partitioning the result object by the column `PARTITIONED BY (country)`, would create a result object with a partition for each country present in the query result.
 
 When the result object is stored this way on Cloud {{site.data.keyword.cos_short}}, each SQL query that contains a predicate, such as `country = 'USA'` or `country in ('MALTA', 'ITALY', 'VATICAN CITY')`, benefits from this physical layout. The reason is that during SQL query execution partitions must be read only if they contain data for the countries of interest. This layout tremendously cuts down the I/O traffic of the SQL query.
 
 Some additional remarks on Hive-style partitioning:
-
 - Hive-style partitions have an eye-catching naming scheme because the column names that are used for partitioning are part of the partition object prefix, for example, `/order/COUNTRY=USA/part-m-00000.snappy.parquet`.
-- Hive-style partitions do not contain any values for partition columns since their values are *stored* in the object prefix of the partition.
-Thus, if you copy a HIVE-style partition and rename the object prefix by removing the partition column values, you lose data.
-- Hive-style partitions have a tendency for data skewing. For example, the partition that represents order data from Malta is likely much smaller
-than the partition that represents order data from the US. You can partition the query result into separate objects if you want to have *equally-sized* partitions.
+- Hive-style partitions do not contain any values for partition columns since their values are *stored* in the object prefix of the partition. Thus, if you copy a HIVE-style partition and rename the object prefix by removing the partition column values, you lose data.
+- Hive-style partitions have a tendency for data skewing. For example, the partition that represents order data from Malta is likely much smaller than the partition that represents order data from the US. You can partition the query result into separate objects if you want to have *equally-sized* partitions.
 
-
-<h4>Partition by columns into objects</h4>
+#### Partition by columns into objects
+{: #partition-by-columns-into-objects}
 
 By partitioning a query result into objects, you can specify the exact number of *equally-sized* result partitions. With this partitioning, you can experimentally fine-tune the number of objects to meet certain criteria for partition size. To specify the number of partitions, use the `PARTITIONED INTO x BUCKETS/OBJECTS` clause.
 
@@ -209,47 +191,42 @@ For example, knowing the size of the query result, it is possible to calculate t
 
 The `INTO x BUCKETS/OBJECTS` clause can be combined with the `BY (column-list)` clause to create some partitions that support data affinity regarding specified partition columns.
 
-Continue with the preceding example that specifies `PARTITION BY (customerid) INTO 10 OBJECTS` stores the query result into ten objects, which ensures that all data for a customer
-is stored in the same partition. Although it is ensured that all data for a certain customer is stored in the same partition,
-it is not ensured that the data is physically sorted according to the specified column.
+Continue with the preceding example that specifies `PARTITION BY (customerid) INTO 10 OBJECTS` stores the query result into ten objects, which ensures that all data for a customer is stored in the same partition. Although it is ensured that all data for a certain customer is stored in the same partition, it is not ensured that the data is physically sorted according to the specified column.
 
-<h4>Partition by number of rows</h4>
+#### Partition by number of rows
+{: #partition-by-number-of-rows}
 
-By partitioning by number of rows you can specify the number of rows that go into a single partition. To specify the number of rows stored in each partition,
-use the `EVERY x ROWS` clause. In case the row length of the result object is not varying heavily, with the *partition every rows* clause you can also create *almost equally-sized* result partitions.
+By partitioning by number of rows you can specify the number of rows that go into a single partition. To specify the number of rows stored in each partition, use the `EVERY x ROWS` clause. In case the row length of the result object is not varying heavily, with the *partition every rows* clause you can also create *almost equally-sized* result partitions.
 
 The use of the `PARTITIONED EVERY x ROWS` clause on a sorted query result ensures that partitions are created to have some rows that are sorted according to the query's `SORT BY` clause. This physical layout can be useful to create partitions that are processed by an application in a pagination manner, for example, browsing order data sorted by *order date* and *customer ID*.
 
 The use of `PARTITIONED EVERY x ROWS` clause causes data to be written single-threaded to Cloud {{site.data.keyword.cos_short}}, which means that no parallel I/O is performed to write query results to Cloud {{site.data.keyword.cos_short}}.
 
-<h3 id="dbResultClause">dbResultClause</h3>
+### dbResultClause
+{: #dbResultClause}
 
-You can use the Db result clause to specify that you want query results to be stored as a relational database table in {{site.data.keyword.Bluemix_notm}}.
-Currently, {{site.data.keyword.Db2_on_Cloud_long}} is the only supported target database.
+You can use the Db result clause to specify that you want query results to be stored as a relational database table in {{site.data.keyword.Bluemix_notm}}. Currently, {{site.data.keyword.Db2_on_Cloud_long}} is the only supported target database.
 
-Storing query results in a database creates a new table with the columns that are determined by the query result. When you write to Db2,
-the following type-mapping rules apply:
+Storing query results in a database creates a new table with the columns that are determined by the query result. When you write to Db2, the following type-mapping rules apply:
 - String types are mapped to VARCHAR(32000) columns.
 - Struct types are not mapped and must be flattened first. See the `FLATTEN` [table transformation function](#tableTransformer).
 - Arrays, time series, and spatial data types are not mapped and must be converted with appropriate SQL functions.
 
-The table name and optional schema are specified as part of the target URI.
-**Important**: If a table with the name that is indicated exists in the target database, that table is dropped before the query executes
-and all existing data is deleted.
+The table name and optional schema are specified as part of the target URI. **Important**: If a table with the name that is indicated exists in the target database, that table is dropped before the query executes and all existing data is deleted.
 
 Use the `PARALLELISM x` clause to specify that multiple parallel database connections are to be opened to write out the result. Depending on the size of your result and the network connectivity of your target database service, this clause can reduce the query processing time significantly.
 
 <!--include-svg src="./svgfiles/dbResultClause.svg" target="./diagrams/dbResultClause.svg" alt="syntax diagram for a Db2 result clause" layout="@break@" -->
 
-<h3 id="accessSecrets">accessSecrets</h3>
+### accessSecrets
+{: #accessSecrets}
 
-By default, either the credentials that are needed to access the target database are taken from the credentials object of a `CRN_URI`, or the IAM user who submits the statement is used to connect to the `DB2_TABLE_URI`.
-You can override this default by specifying either a combination of `USER` and `PASSWORD` or an `APIKEY`. However, the password or API key is **not** included in the SQL statement as plain text. Instead, you must store it as a custom key in a {{site.data.keyword.keymanagementservicefull}} instance to which you have access.
-For a description how to store and manage the secrets in {{site.data.keyword.keymanagementserviceshort}}, see [Setting up custom secrets in Key Protect](/docs/sql-query?topic=sql-query-kpsetup).
+By default, either the credentials that are needed to access the target database are taken from the credentials object of a `CRN_URI`, or the IAM user who submits the statement is used to connect to the `DB2_TABLE_URI`. You can override this default by specifying either a combination of `USER` and `PASSWORD` or an `APIKEY`. However, the password or API key is **not** included in the SQL statement as plain text. Instead, you must store it as a custom key in a {{site.data.keyword.keymanagementservicefull}} instance to which you have access. For a description how to store and manage the secrets in {{site.data.keyword.keymanagementserviceshort}}, see [Setting up custom secrets in Key Protect](/docs/sql-query?topic=sql-query-kpsetup).
 
 <!--include-svg src="./svgfiles/accessSecrets.svg" target="./diagrams/accessSecrets.svg" alt="syntax diagram for a Db2 result clause" layout="@break@" -->
 
-<h3>More topics</h3>
+### More topics
+{: #more-topics}
 
 For more information about clauses that are used in a *query*, see the following topics:
 - [COSURI](#COSURI)
@@ -260,7 +237,8 @@ For more information about clauses that are used in a *query*, see the following
 - [namedQuery](#namedQuery)
 - [query](#query)
 
-<h3>Related references</h3>
+### Related references
+{: #related-references}
 
 A *query* is referenced by the following clauses:
 - [booleanExpression](#booleanExpression)
@@ -268,11 +246,11 @@ A *query* is referenced by the following clauses:
 - [predicate](#predicate)
 - [primaryExpression](#primaryExpression)
 
-
 ### Fullselect Clause
 {: #chapterFullSelectClause}
 
-<h3 id="fullselect">fullselect</h3>
+### fullselect
+{: #fullselect}
 
 A *fullselect* is the core component of a *query*. It is the only mandatory general component for a valid query statement. The other components outside of *fullselect* are optional. Its syntax is defined by the following syntax diagram.
 
@@ -296,21 +274,16 @@ The following combinations of set operators and set modifiers are not supported:
 - `MINUS ALL`
 
 The characteristics of a result set defined by a fullselect can be further defined by using the following clauses:
-- `ORDER BY`: Define an overall ordering of the result set based on the criteria that are defined by the list of `sortItem` clauses.
-The default order direction is ascending if not explicitly specified by a `sortItem` clause. The *order by* clause
-cannot be used with *cluster by*, *distribute by*, or *sort by* clause.
-When you use partitioned output, the `ORDER BY` clause gets ignored. Use the `sortClause` instead.
-- `DISTRIBUTE BY`: Distribute result set rows into new partitions based on the criteria that are defined by the list of `expression` clauses.
-Result set rows that have the same expression values are moved to the same partition. The *distribute by* clause cannot be used with *order by* or *cluster by* clause.
-- `SORT BY`: You can define an overall ordering on a partition base as defined by the list of `expression` clauses.
-The default order direction is ascending if not explicitly specified by an `expression` clause. The *sort by* clause is used along with the *distribute by* clause.
+- `ORDER BY`: Define an overall ordering of the result set based on the criteria that are defined by the list of `sortItem` clauses. The default order direction is ascending if not explicitly specified by a `sortItem` clause. The *order by* clause cannot be used with *cluster by*, *distribute by*, or *sort by* clause. When you use partitioned output, the `ORDER BY` clause gets ignored. Use the `sortClause` instead.
+- `DISTRIBUTE BY`: Distribute result set rows into new partitions based on the criteria that are defined by the list of `expression` clauses. Result set rows that have the same expression values are moved to the same partition. The *distribute by* clause cannot be used with *order by* or *cluster by* clause.
+- `SORT BY`: You can define an overall ordering on a partition base as defined by the list of `expression` clauses. The default order direction is ascending if not explicitly specified by an `expression` clause. The *sort by* clause is used along with the *distribute by* clause.
 - `CLUSTER BY`: Distribute result set rows into new partitions based on the criteria that are defined by the list of `expression` clauses. Moreover, each partition is sorted in ascending order based on the criteria that are defined by the set of `expression` clauses. Thus, this clause represents a shortcut for *distribute by* clause that is combined with *sort by* in ascending order. You cannot use the *cluster by* attribute with the *order by*, *distribute by*, *sort by* clause.
 - `LIMIT`: Restrict the number of rows that are returned from the result set of the fullselect. The number of rows can be defined by an `expression` or by using the keyword `ALL` that causes all rows to be returned.
 
-`DISTRIBUTE BY`, `SORT BY`, and `CLUSTER BY` have an effect only during your SQL query execution and do not influence the query result that is written back to Cloud {{site.data.keyword.cos_short}}. Use these clauses only in execution of subqueries to optimize the outer
-query execution that works on the intermediate result sets produced by the sub queries. To define the persistent target of the overall query that is written back to Cloud {{site.data.keyword.cos_short}}, you need to use the dedicated [resultClause](#resultClause) instead.
+`DISTRIBUTE BY`, `SORT BY`, and `CLUSTER BY` have an effect only during your SQL query execution and do not influence the query result that is written back to Cloud {{site.data.keyword.cos_short}}. Use these clauses only in execution of subqueries to optimize the outer query execution that works on the intermediate result sets produced by the sub queries. To define the persistent target of the overall query that is written back to Cloud {{site.data.keyword.cos_short}}, you need to use the dedicated [resultClause](#resultClause) instead.
 
-<h3>Examples</h3>
+### Examples
+{: #examples}
 
 The set operator examples use values clauses to define result sets for the set operations. For more information about the values clause, see [valuesClause](#valuesClause).
 
@@ -333,7 +306,7 @@ The result of the example queries is shown in the following table.
 |1     |
 |3     |
 |2     |
-<!--table-caption title="Query result for example 'set union eliminating duplicate rows'"-->
+{: caption="Table 3. Query result for example: set union eliminating duplicate rows" caption-side="bottom"}
 
 ```sql
 -- set union with duplicate rows
@@ -351,7 +324,7 @@ The result of the example query is shown in the following table.
 |1   |
 |2   |
 |3   |
-<!--table-caption title="Query result for example 'set union with duplicate rows'"-->
+{: caption="Table 4. Query result for example: set union with duplicate rows" caption-side="bottom"}
 
 ```sql
 -- intersecting set eliminating duplicate rows
@@ -371,7 +344,7 @@ The result of the example queries is shown in the following table.
 |----|
 |3   |
 |2   |
-<!--table-caption title="Query result for example 'intersecting set eliminating duplicate rows'"-->
+{: caption="Table 5. Query result for example: intersecting set eliminating duplicate rows" caption-side="bottom"}
 
 ```sql
 -- Difference quantity eliminating duplicate rows
@@ -402,9 +375,10 @@ The result of the example queries is shown in the following table.
 |COL1|
 |----|
 |1   |
-<!--table-caption title="Query result for example 'difference quantity eliminating duplicate rows'"-->
+{: caption="Table 6. Query result for example: difference quantity eliminating duplicate rows" caption-side="bottom"}
 
-<h3>More topics</h3>
+### More topics
+{: #more-topics}
 
 For more information about the clauses that are used in a *fullselect*, see the following topics:
 - [expression](#expression)
@@ -414,7 +388,8 @@ For more information about the clauses that are used in a *fullselect*, see the 
 - [sortItem](#sortItem)
 - [valuesClause](#valuesClause)
 
-<h3>Related references</h3>
+### Related references
+{: #more-topics}
 
 A *fullselect- is referenced by the following clauses:
 - [fullselect](#fullselect)
@@ -426,7 +401,8 @@ A *fullselect- is referenced by the following clauses:
 
 A *simpleselect* is a component of a *fullselect*. Its syntax is defined by the following syntax diagram.
 
-<h3 id="simpleselect">simpleselect</h3>
+### simpleselect
+{: #simpleselect}
 
 <!--include-svg src="./svgfiles/simpleselect.svg" target="./diagrams/simpleselect.svg" alt="syntax diagram for a simpleselect" layout="@break@"-->
 
@@ -439,7 +415,8 @@ With a *simpleselect*, you can specify the following characteristics of a result
 - In its simplest form, the `GROUP BY` clause defines how rows that qualify for the final result set are grouped based on *grouping expressions*. Each group is represented by a single row in the final result set.
 - The `HAVING` clause is used with the *group by clause* to filter out groups from the final result set.
 
-<h3 id="resultColumn">resultColumn</h3>
+### resultColumn
+{: #resultColumn}
 
 <!--include-svg src="./svgfiles/resultColumn.svg" target="./diagrams/resultColumn.svg" alt="syntax diagram for a result column" layout="@break@" -->
 
@@ -449,13 +426,16 @@ See the following examples for such expressions:
 - An expression that uses column names from one or multiple relations.
 - Arithmetic expressions that perform calculations.
 
-<h3>Group By Clause</h3>
+### Group by clause
+{: #group-by-clause}
 
-<h4 id="groupByClause">groupByClause</h4>
+#### groupByClause
+{: #groupByClause}
 
 <!--include-svg src="./svgfiles/groupByClause.svg" target="./diagrams/groupByClause.svg" alt="syntax diagram for a group by clause" layout="@break@" -->
 
-<h4 id="groupingSet">groupingSet</h4>
+#### groupingSet
+{: #groupingSet}
 
 <!--include-svg src="./svgfiles/groupingSet.svg" target="./diagrams/groupingSet.svg" alt="syntax diagram for a grouping set" layout="@break@" -->
 
@@ -484,7 +464,6 @@ ORDER BY year, quarter
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |YEAR|QUARTER|AMOUNT|
@@ -493,13 +472,11 @@ The result of the example query is shown in the following table.
 |2017|2      |500   |
 |2018|1      |400   |
 |2018|2      |400   |
-<!--table-caption title="Query result for example 'grouping sales data per year and quarter'"-->
+{: caption="Table 7. Query result for example: grouping sales data per year and quarter" caption-side="bottom"}
 
-A ROLLUP grouping is an extension to the *group by clause* that produces a result set containing subtotal rows in addition to the *regular* grouped rows.
-A `GROUP BY COL1, COL2 WITH ROLLUP` generates the following grouping sets: **(COL1, COL2)**, **(COL1)**, **()**. The **N** grouping expressions of the ROLLUP convert to **N+1** grouping sets.
+A ROLLUP grouping is an extension to the *group by clause* that produces a result set containing subtotal rows in addition to the *regular* grouped rows. A `GROUP BY COL1, COL2 WITH ROLLUP` generates the following grouping sets: **(COL1, COL2)**, **(COL1)**, **()**. The **N** grouping expressions of the ROLLUP convert to **N+1** grouping sets.
 
-Referring to the preceding example, adding a `WITH ROLLUP` modifier to the *group by* clause computes *rollup* sales data on quarter by year basis,
-a yearly basis, and a grand total as shown by the following example.
+Referring to the preceding example, adding a `WITH ROLLUP` modifier to the *group by* clause computes *rollup* sales data on quarter by year basis, a yearly basis, and a grand total as shown by the following example.
 
 ```sql
 -- rollup sales data on quarter by year basis, a yearly basis, and a grand total
@@ -521,7 +498,6 @@ ORDER BY year, quarter
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |YEAR|QUARTER|AMOUNT|
@@ -533,11 +509,9 @@ The result of the example query is shown in the following table.
 |2018|null   |800   |
 |2018|1      |400   |
 |2018|2      |400   |
-<!--table-caption title="Query result for example 'rollup sales data on quarter by year basis, a yearly basis and a grand total'"-->
+{: caption="Table 8. Query result for example: rollup sales data on quarter by year basis, a yearly basis and a grand total" caption-side="bottom"}
 
-A CUBE grouping is an extension to the *group by* clause that produces a result set that contains all the rows of a ROLLUP aggregation and
-in addition, grouping sets that do not represent a subtotal or grand total. A `GROUPY BY COL1, COL2 WITH CUBE` generates the following grouping sets:
-**(COL1, COL2)**, **(COL1)**, **(COL2)**, **()**. The **N** elements of a CUBE convert to **2\*\*N** (2 to the power N) grouping sets.
+A CUBE grouping is an extension to the *group by* clause that produces a result set that contains all the rows of a ROLLUP aggregation and in addition, grouping sets that do not represent a subtotal or grand total. A `GROUPY BY COL1, COL2 WITH CUBE` generates the following grouping sets: **(COL1, COL2)**, **(COL1)**, **(COL2)**, **()**. The **N** elements of a CUBE convert to **2\*\*N** (2 to the power N) grouping sets.
 
 Referring to the preceding example, adding a `WITH CUBE` modifier to the *group by* clause computes *rollup* sales data on a quarter by year basis, a yearly basis,
 a quarterly year-independent basis and a grand total as shown by the following example.
@@ -563,7 +537,6 @@ ORDER BY year, quarter
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |YEAR|QUARTER|AMOUNT|
@@ -577,7 +550,7 @@ The result of the example query is shown in the following table.
 |2018|null   |800   |
 |2018|1      |400   |
 |2018|2      |400   |
-<!--table-caption title="Query result for example 'rollup sales data on a quarter by year basis, a yearly basis, a quarterly year-independent basis and a grand total'"-->
+{: caption="Table 9. Query result for example: rollup sales data on a quarter by year basis, a yearly basis, a quarterly year-independent basis and a grand total" caption-side="bottom"}
 
 With a GROUPING SETS grouping, an extension to the *group by* clause, you can explicitly specify the grouping sets of interest. In other words, the ROLLUP and the CUBE groupings are shortcuts for common grouping set use cases.
 
@@ -603,7 +576,6 @@ ORDER BY year, quarter
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |YEAR|QUARTER|AMOUNT|
@@ -614,7 +586,7 @@ The result of the example query is shown in the following table.
 |2018|null   |800   |
 |2018|1      |400   |
 |2018|2      |400   |
-<!--table-caption title="Query result for example 'rollup sales data on a quarter by year basis and a yearly basis only'"-->
+{: caption="Table 10. Query result for example: rollup sales data on a quarter by year basis and a yearly basis only" caption-side="bottom"}
 
 <h3>More topics</h3>
 
@@ -743,7 +715,7 @@ The following examples show you how to use TIME_SERIES_FORMAT parameters for dyn
 
 Create a time series per location, set the time series TRS with default start time and 1 ms granularity, and store with it with the name "ts".
 
-```
+```sql
 SELECT
 	location,
 	ts
@@ -754,7 +726,7 @@ USING TIME_SERIES_FORMAT(key="location", timetick="timestamp", value="humidity",
 Create a time series per location, set the time series TRS with start time "2011-12-03T10:15:30" and default granularity (1 ms), and store it
 with the name "ts".
 
-```
+```sql
 SELECT
 	location,
 	ts
@@ -765,7 +737,7 @@ USING TIME_SERIES_FORMAT(key="location", timetick="timestamp", value="humidity",
 Create a time series per location with no TRS, store it with the name "ts".
 If no granularity or start time is provided, a TRS is not associated with the time series and therefore with_trs runs into exception.
 
-```
+```sql
 SELECT
 	location,
 	ts
@@ -776,7 +748,7 @@ USING TIME_SERIES_FORMAT(key="location", timetick="timestamp", value="humidity")
 Create a single time series, store it with the default name "time_series".
 Without specifying a key, it is not possible to create multiple time series.
 
-```
+```sql
 SELECT
 	location,
 	time_series
@@ -869,7 +841,6 @@ SELECT * FROM VALUES 1, 2 , 3
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |COL1|
@@ -877,7 +848,7 @@ The result of the example query is shown in the following table.
 |1   |
 |2   |
 |3   |
-<!--table-caption title="Query result for example 'single column result set with 3 rows'"-->
+{: caption="Table 11. Query result for example: single column result set with 3 rows" caption-side="bottom"}
 
 ```sql
 -- single column result set with 3 rows specifying parentheses for row expressions
@@ -893,7 +864,7 @@ The result of the example query is shown in the following table.
 |1   |
 |2   |
 |3   |
-<!--table-caption title="Query result for example 'single column result set with 3 rows specifying parentheses for row expressions'"-->
+{: caption="Table 12. Query result for example: single column result set with 3 rows specifying parentheses for row expressions" caption-side="bottom"}
 
 ```sql
 --- joining two multi column result sets by using their identifier
@@ -916,7 +887,6 @@ WHERE emp.col1 = mission.col1
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |ID |NAME  |MISSIONS|
@@ -925,7 +895,7 @@ The result of the example query is shown in the following table.
 |2  |Kirk  |2000    |
 |3  |McCoy |3000    |
 |4  |Scotty|4000    |
-<!--table-caption title="Query result for example 'joining two multi column result sets by using their identifier'"-->
+{: caption="Table 13. Query result for example: joining two multi column result sets by using their identifier" caption-side="bottom"}
 
 ### Values Statement
 {: #chapterValuesStatement}
@@ -941,7 +911,6 @@ VALUES 1, 2, 3
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |COL1|
@@ -949,7 +918,7 @@ The result of the example query is shown in the following table.
 |1   |
 |2   |
 |3   |
-<!--table-caption title="Query result for example 'values statement with single column result set with 3 rows'"-->
+{: caption="Table 14. Query result for example: values statement with single column result set with 3 rows" caption-side="bottom"}
 
 ```sql
 --- values statement with multi column result set
@@ -969,7 +938,7 @@ The result of the example query is shown in the following table.
 |2   |Kirk  |
 |3   |McCoy |
 |4   |Scotty|
-<!--table-caption title="Query result for example 'values statement with multi column result set'"-->
+{: caption="Table 15. Query result for example: values statement with multi column result set" caption-side="bottom"}
 
 <h3>More topics</h3>
 For more information about the clauses that are used in a *values clause*, see the following topics:
@@ -1019,7 +988,6 @@ LATERAL VIEW EXPLODE(master_child.col2) child_table AS child_id
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |MASTER_ID|CHILD_ID|
@@ -1030,7 +998,7 @@ The result of the example query is shown in the following table.
 |2        |4       |
 |2        |5       |
 |2        |6       |
-<!--table-caption title="Query result for example 'deal with a 1-n relation'"-->
+{: caption="Table 16. Query result for example: deal with a 1-n relation" caption-side="bottom"}
 
 ```sql
 -- deal with an n-m relation
@@ -1062,7 +1030,7 @@ The result of the example query is shown in the following table.
 |40       |4       |
 |40       |5       |
 |40       |6       |
-<!--table-caption title="Query result for example 'deal with an n-m relation'"-->
+{: caption="Table 17. Query result for example: deal with an n-m relation" caption-side="bottom"}
 
 <h3>More topics</h3>
 
