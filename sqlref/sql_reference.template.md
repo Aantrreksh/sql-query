@@ -1080,7 +1080,6 @@ FROM
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |L_COL1|L_COL2|R_COL1|R_COL2|
@@ -1088,7 +1087,7 @@ The result of the example query is shown in the following table.
 |0     |10    |0     |10    |
 |2     |12    |2     |12    |
 |4     |14    |4     |14    |
-<!--table-caption title="Query result for example 'inner join query'"-->
+{: caption="Table 18. Query result for example" caption-side="bottom"}
 
 <h4>Outer join</h4>
 
@@ -1110,7 +1109,6 @@ ON left_table.col1 = right_table.col1
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |L_COL1|L_COL2|R_COL1|R_COL2|
@@ -1121,7 +1119,7 @@ The result of the example query is shown in the following table.
 |3     |13    |null  |null  |
 |4     |14    |4     |14    |
 |5     |14    |null  |null  |
-<!--table-caption title="Query result for example 'left outer join query'"-->
+{: caption="Table 19. Query result for example: left outer join query" caption-side="bottom"}
 
 A `RIGHT OUTER` or `RIGHT` join includes the rows from the right table that were missing from the inner join.
 
@@ -1140,7 +1138,6 @@ FROM
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |L_COL1|L_COL2|R_COL1|R_COL2|
@@ -1149,7 +1146,7 @@ The result of the example query is shown in the following table.
 |2     |12    |2     |12    |
 |4     |14    |4     |14    |
 |null  |null  |6     |16    |
-<!--table-caption title="Query result for example 'right outer join query'"-->
+{: caption="Table 20. Query result for example: right outer join query" caption-side="bottom"}
 
 A `FULL OUTER` or `FULL` join includes the rows from both tables that were missing from the inner join.
 
@@ -1168,7 +1165,6 @@ FROM
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |L_COL1|L_COL2|R_COL1|R_COL2|
@@ -1180,7 +1176,7 @@ The result of the example query is shown in the following table.
 |4     |14    |4     |14    |
 |2     |12    |2     |12    |
 |0     |10    |0     |10    |
-<!--table-caption title="Query result for example 'full outer join query'"-->
+{: caption="Table 21. Query result for example: full outer join query" caption-side="bottom"}
 
 <h4>Cross join</h4>
 
@@ -1201,7 +1197,6 @@ FROM
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |L_COL1|L_COL2|R_COL1|R_COL2|
@@ -1209,7 +1204,7 @@ The result of the example query is shown in the following table.
 |0     |10    |0     |10    |
 |2     |12    |2     |12    |
 |4     |14    |4     |14    |
-<!--table-caption title="Query result for example 'cross join that specifies a join condition'"-->
+{: caption="Table 22. Query result for example: cross join that specifies a join condition" caption-side="bottom"}
 
 ```sql
 -- cross join that specifies no join condition
@@ -1223,7 +1218,6 @@ FROM
     CROSS JOIN VALUES (0, 10), (2, 12), (4, 14), (6, 16) AS right_table
 ```
 {: codeblock}
-
 
 The result of the example query is shown in the following table.
 
@@ -1253,7 +1247,7 @@ The result of the example query is shown in the following table.
 |5     |14    |2     |12    |
 |5     |14    |4     |14    |
 |5     |14    |6     |16    |
-<!--table-caption title="Query result for example 'cross join that specifies no join condition'"-->
+{: caption="Table 23. Query result for example 'cross join that specifies no join condition" caption-side="bottom"}
 
 <h4>Anti join</h4>
 
@@ -1273,7 +1267,6 @@ FROM
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |L_COL1|L_COL2|
@@ -1281,7 +1274,7 @@ The result of the example query is shown in the following table.
 |1     |11    |
 |3     |13    |
 |5     |14    |
-<!--table-caption title="Query result for example 'left anti join query'"-->
+{: caption="Table 24. Query result for example: left anti join query" caption-side="bottom"}
 
 <h4>Left semi join</h4>
 
@@ -1307,7 +1300,7 @@ The result of the example query is shown in the following table.
 |0     |10    |
 |2     |12    |
 |4     |14    |
-<!--table-caption title="Query result for example 'left semi join query'"-->
+{: caption="Table 25. Query result for example: left semi join query" caption-side="bottom"}
 
 <h3>Related references</h3>
 
@@ -1526,7 +1519,7 @@ The result of the example query is shown in the following table.
 |5     |3      |300  |2   |
 |9     |2      |1000 |1   |
 |4     |2      |300  |2   |
-<!--table-caption title="Query result for example 'derive posts ranking by using a named window specification'"-->
+{: caption="Table 26. Query result for example: derive posts ranking by using a named window specification" caption-side="bottom"}
 
 ```sql
 -- derive posts ranking by using an inline window specification
@@ -1564,7 +1557,7 @@ The result of the example query is shown in the following table.
 |5     |3      |300  |2   |
 |9     |2      |1000 |1   |
 |4     |2      |300  |2   |
-<!--table-caption title="Query result for example 'derive posts ranking by using an inline window specification'"-->
+{: caption="Table 27. Query result for example: derive posts ranking by using an inline window specification" caption-side="bottom"}
 
 <h4>Analytic Function Example</h4>
 
@@ -1612,7 +1605,7 @@ The result of the example query is shown in the following table.
 |-200      |0.5555555555555556|
 |1000      |0.8888888888888888|
 |2000      |1.0               |
-<!--table-caption title="Query result for example 'cumulative distribution of transaction amounts'"-->
+{: caption="Table 28. Query result for example: cumulative distribution of transaction amounts" caption-side="bottom"}
 
 <h4>Aggregation Function Example</h4>
 
@@ -1648,7 +1641,6 @@ WINDOW current_balance AS (
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |TXN_ID|ACCOUNT|TXN_AMOUNT|BALANCE|
@@ -1662,7 +1654,7 @@ The result of the example query is shown in the following table.
 |6     |4711   |-300      |1000   |
 |7     |4711   |100       |1100   |
 |9     |4711   |-400      |700    |
-<!--table-caption title="Query result for example 'total balance of each account at the time of each transaction'"-->
+{: caption="Table 29. Query result for example: total balance of each account at the time of each transaction" caption-side="bottom"}
 
 <h3>More topics</h3>
 For more information about the clauses that are used by a *window function*, see the following topics:
@@ -1749,10 +1741,8 @@ A *Boolean expression* is referenced by the following clauses:
 - [relation](#relation)
 - [simpleselect](#simpleselect)
 
-
 ### Value expressions
 {: #chapterValueExpressions}
-
 
 <h4 id="valueExpression">valueExpression</h4>
 
@@ -1781,7 +1771,6 @@ A *value expression* is referenced by the following clauses:
 - [booleanExpression](#booleanExpression)
 - [functionOrAggregate](#functionOrAggregate)
 - [predicate](#predicate)
-
 
 ### Primary expressions
 {: #chapterPrimaryExpressions}
@@ -1826,13 +1815,12 @@ FROM VALUES ("dummy")
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |PAST_TIMESTAMP         |
 |-----------------------|
 |2016-11-13 20:23:43.621|
-<!--table-caption title="Query result for example 'add and subtract several time units from the current timestamp'"-->
+{: caption="Table 30. Query result for example: add and subtract several time units from the current timestamp" caption-side="bottom"}
 
 Since interval clauses can get long, especially if days, hours, minutes, and seconds are involved, it is possible to use an abbreviated syntax by specifying a format `STRING` and by using the `TO` keyword.
 
@@ -1856,7 +1844,7 @@ The following table shows equivalent interval clauses:
 | ------------------- | ---------------------- |
 | INTERVAL 1 DAY - INTERVAL 2 HOURS - INTERVAL 3 MINUTES - INTERVAL 4 SECONDS | INTERVAL '1 2:3:4.100' DAY TO SECOND |
 | INTERVAL 1 YEAR - INTERVAL 2 MONTH | INTERVAL '1-2' YEAR TO MONTH |
-<!--table-caption title="Equivalent INTERVAL Clauses"-->
+{: caption="Table 31. Equivalent INTERVAL Clauses" caption-side="bottom"}
 
 The following example demonstrates equivalent interval expressions when you deal with `YEAR` and `MONTH` time units.
 
@@ -1877,7 +1865,7 @@ The result of the example query is shown in the following table.
 | LONG_VERSION            | SHORT_VERSION           |
 |-------------------------|-------------------------|
 | 2017-08-16 10:38:07.304 | 2017-08-16 10:38:07.304 |
-<!--table-caption title="Query result for example 'equivalent interval expressions with YEAR and MONTH time units'"-->
+{: caption="Table 32. Query result for example: equivalent interval expressions with YEAR and MONTH time units" caption-side="bottom"}
 
 The following example demonstrates equivalent interval expressions, when you deal with `DAY`, `HOUR`, `MINUTE`, and `SECOND` time units.
 
@@ -1898,7 +1886,7 @@ The result of the example query is shown in the following table.
 | LONG_VERSION           | SHORT_VERSION           |
 |------------------------|-------------------------|
 | 2018-10-15 08:33:00.84 | 2018-10-15 08:33:00.84  |
-<!--table-caption title="Query result for example 'equivalent interval expressions when you deal with DAY, HOUR, MINUTE and SECOND time units'"-->
+{: caption="Table 33. Query result for example: equivalent interval expressions when you deal with DAY, HOUR, MINUTE and SECOND time units" caption-side="bottom"}
 
 <h4 id="columnReference">columnReference</h4>
 
@@ -1971,7 +1959,7 @@ The `IS DISTINCT FROM` predicate compares two expressions and evaluates to TRUE 
 | Both inputs are non-null. | Evaluates to TRUE if the inputs are not identical and FALSE if they are. Equivalent to the <> operator. | Evaluates to FALSE if the inputs are not identical and TRUE if they are. Equivalent to the = operator. |
 | One input is null. | Evaluates to TRUE. | Evaluates to FALSE. |
 | Both inputs are null. | Evaluates to FALSE. | Evaluates to TRUE. |
-<!--table-caption title="NULL Values and DISTINCT Predicate Value"-->
+{: caption="Table 34. NULL Values and DISTINCT Predicate Value" caption-side="bottom"}
 
 The following DISTINCT predicates are logically equivalent to the corresponding search conditions:
 
@@ -1979,7 +1967,7 @@ The following DISTINCT predicates are logically equivalent to the corresponding 
 | ------------------ | ---------------- |
 | value 1 IS NOT DISTINCT FROM value2 | (value1 IS NOT NULL AND value2 IS NOT NULL AND value1 = value 2) OR (value1 IS NULL AND value2 IS NULL) |
 | value 1 IS DISTINCT FROM value2 | NOT (value1 IS NOT DISTINCT FROM value2)|
-<!--table-caption title="DISTINCT Predicate and Search Condition"-->
+{: caption="Table 35. DISTINCT predicate and search condition" caption-side="bottom"}
 
 <h4>Examples</h4>
 
@@ -2002,7 +1990,6 @@ SELECT * FROM (
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |A   |B   |
@@ -2011,7 +1998,7 @@ The result of the example query is shown in the following table.
 |null|2   |
 |1   |null|
 |2   |null|
-<!--table-caption title="Query result for example 'select all rows with distinct values in column A and B'"-->
+{: caption="Table 36. Query result for example: select all rows with distinct values in column A and B" caption-side="bottom"}
 
 ```sql
 -- all rows that have no distinct values in column A and B
@@ -2030,14 +2017,13 @@ SELECT * FROM (
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |A   |B   |
 |----|----|
 |2   |2   |
 |null|null|
-<!--table-caption title="Query result for example 'all rows that have no distinct values in column A and B'"-->
+{: caption="Table 37. Query result for example: all rows that have no distinct values in column A and B" caption-side="bottom"}
 
 <h5><code>BETWEEN ... AND ...</code> Examples</h5>
 
@@ -2068,7 +2054,7 @@ The result of the example query is shown in the following table.
 |5     |5000  |
 |6     |6000  |
 |8     |8000  |
-<!--table-caption title="Query result for example 'all employees with a salary between 4000 and 8000'"-->
+{: caption="Table 38. Query result for example: all employees with a salary between 4000 and 8000" caption-side="bottom"}
 
 ```sql
 -- all employees with a salary not between 4000 and 8000
@@ -2089,7 +2075,6 @@ WHERE emp.col2 NOT BETWEEN 4000 AND 8000
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |EMP_ID|SALARY|
@@ -2098,7 +2083,7 @@ The result of the example query is shown in the following table.
 |2     |2000  |
 |3     |3000  |
 |9     |9000  |
-<!--table-caption title="Query result for example 'all employees with a salary between 4000 and 8000'"-->
+{: caption="Table 39. Query result for example 'all employees with a salary between 4000 and 8000" caption-side="bottom"}
 
 <h5><code>IN</code> Examples</h5>
 
@@ -2130,7 +2115,7 @@ The result of the example query is shown in the following table.
 |5     |D02     |
 |7     |D01     |
 |9     |D01     |
-<!--table-caption title="Query result for example 'all employees working in department D01 or D02'"-->
+{: caption="Table 40. Query result for example: all employees working in department D01 or D02" caption-side="bottom"}
 
 ```sql
 -- all employees that are managing a department
@@ -2166,7 +2151,7 @@ The result of the example query is shown in the following table.
 |2     |C01     |
 |4     |D01     |
 |5     |D02     |
-<!--table-caption title="Query result for example 'all employees that are managing a department'"-->
+{: caption="Table 41. Query result for example 'all employees that are managing a department" caption-side="bottom"}
 
 <h5><code>LIKE</code> Examples</h5>
 
@@ -2197,7 +2182,7 @@ The result of the example query is shown in the following table.
 |3     |C02     |
 |6     |C01     |
 |8     |C03     |
-<!--table-caption title="Query result for example 'all employees that work in a department that starts with letter C'"-->
+{: caption="Table 42. Query result for example 'all employees that work in a department that starts with letter C" caption-side="bottom"}
 
 ```sql
 -- all department names that do not start with letter C
@@ -2223,7 +2208,7 @@ The result of the example query is shown in the following table.
 |--------|
 |D01     |
 |D02     |
-<!--table-caption title="Query result for example 'all department names that do not start with letter C'"-->
+{: caption="Table 43. Query result for example: all department names that do not start with letter C" caption-side="bottom"}
 
 <h5><code>RLIKE</code> Examples</h5>
 
@@ -2248,8 +2233,7 @@ The result of the example query is shown in the following table.
 |1   |xyz abc       |
 |2   |abcabcabc     |
 |3   |abc xyzxyz abc|
-<!--table-caption title="Query result for example 'all rows that contain in col2 a value ending with bc'"-->
-
+{: caption="Table 44. Query result for example: all rows that contain in col2 a value ending with bc" caption-side="bottom"}
 
 ```sql
 -- all rows that contain in col2 a sequence of 3 'abc' string occurrences
@@ -2262,15 +2246,15 @@ FROM VALUES
     (4, '123 456 789') AS data
 WHERE data.col2 RLIKE '(abc){3}'
 ```
-{: codeblock}
 
+{: codeblock}
 
 The result of the example query is shown in the following table.
 
 |COL1|COL2     |
 |----|---------|
 |2   |abcabcabc|
-<!--table-caption title="Query result for example 'all rows that contain in col2 a sequence of 3 abc string occurrences'"-->
+{: caption="Table 45. Query result for example 'all rows that contain in col2 a sequence of 3 abc string occurrences" caption-side="bottom"}
 
 ```sql
 -- all rows that contain in col2 a sequence of integer values (3 digits) separated by blank or tab
@@ -2290,7 +2274,7 @@ The result of the example query is shown in the following table.
 |COL1|COL2       |
 |----|-----------|
 |4   |123 456 789|
-<!--table-caption title="Query result for example 'all rows that contain in col2 a sequence of integer values (3 digits) separated by blank or tab'"-->
+{: caption="Table 46. Query result for example: all rows that contain in col2 a sequence of integer values (3 digits) separated by blank or tab" caption-side="bottom"}
 
 <h5><code>IS NULL</code> Examples</h5>
 
@@ -2313,13 +2297,12 @@ WHERE emp.col2 IS NULL
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |EMP_ID|SALARY|
 |------|------|
 |7     |null  |
-<!--table-caption title="Query result for example 'all employees with missing salary information'"-->
+{: caption="Table 47. Query result for example: all employees with missing salary information" caption-side="bottom"}
 
 ### CAST Expression
 {: #chapterCastExpression}
@@ -2364,12 +2347,9 @@ The syntax of a case expression is described by the following syntax diagrams.
 The upper path in the syntax diagram represents a *searched when clause*, that is, the `WHEN` keyword follows directly after the `CASE` keyword.
 The lower path is a *simple when clause*, that is, an expression follows the `CASE` keyword.
 
-In general, the value of the case expression is the value of the *result expression*, following the first (leftmost) case that evaluates to true.
-If no case evaluates to true and the ELSE keyword is present, the result is the value of the ELSE case result expression.
-If no case evaluates to true and the ELSE keyword is not present, the result is NULL. When a case evaluates to unknown (because of NULLs), the case is not true and hence is treated the same way as a case that evaluates to false.
+In general, the value of the case expression is the value of the *result expression*, following the first (leftmost) case that evaluates to true. If no case evaluates to true and the ELSE keyword is present, the result is the value of the ELSE case result expression. If no case evaluates to true and the ELSE keyword is not present, the result is NULL. When a case evaluates to unknown (because of NULLs), the case is not true and hence is treated the same way as a case that evaluates to false.
 
-When you use the *simple when clause*, the value of the expression before the first WHEN keyword is tested for equality with the value of the expression that follows the WHEN keyword.
-Therefore, the data type of the expression before the first WHEN keyword must be comparable to the data types of each expression that follows the WHEN keywords.
+When you use the *simple when clause*, the value of the expression before the first WHEN keyword is tested for equality with the value of the expression that follows the WHEN keyword. Therefore, the data type of the expression before the first WHEN keyword must be comparable to the data types of each expression that follows the WHEN keywords.
 
 A *result expression* is an expression that follows the `THEN` or `ELSE` keywords.
 
@@ -2401,7 +2381,7 @@ The result of the example query is shown in the following table.
 |2     |Development   |
 |3     |null          |
 |4     |null          |
-<!--table-caption title="Query result for example 'simple case expression with no ELSE clause'"-->
+{: caption="Table 48. Query result for example: simple case expression with no ELSE clause" caption-side="bottom"}
 
 ```sql
 -- simple case expression with ELSE clause
@@ -2417,7 +2397,6 @@ FROM VALUES (0, 'A'), (1, 'B'), (2, 'C'), (3, 'D'), (4, 'E') AS dep
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |DEP_ID|DEP_NAME      |
@@ -2427,7 +2406,7 @@ The result of the example query is shown in the following table.
 |2     |Development   |
 |3     |UNKOWN        |
 |4     |UNKOWN        |
-<!--table-caption title="Query result for example 'simple case expression with ELSE clause'"-->
+{: caption="Table 49. Query result for example: simple case expression with ELSE clause" caption-side="bottom"}
 
 The two scalar functions that are specialized to handle a subset of the functionality provided by `CASE` are `NULLIF()` and `COALESCE()`.
 
@@ -2449,7 +2428,6 @@ For more information about the clauses that are used by a *case expression*, see
 A *case expression* is referenced by the following clause:
 
 - [primaryExpression](#primaryExpression)
-
 
 ### Time series expressions
 {: #chapterTimeSeriesExpressions}
@@ -2547,7 +2525,7 @@ The following types of operators can be used:
 | `-A` | All number types | Unary negative operator. The type of the result is the same as the type of A. |
 | `+A` | All number types | Unary positive operator. The type of the result is the same as the type of A. |
 | `~A` | All number types | Bitwise NOT operator. The type of the result is the same as the type of A. |
-<!--table-caption title="Unary operators"-->
+{: caption="Table 50. Unary operators" caption-side="bottom"}
 
 <h3 id="arithmeticOperator">Arithmetic operators</h3>
 
@@ -2562,14 +2540,14 @@ The following types of operators can be used:
 | `A & B` | All number types | Returns the result of bitwise AND of A and B. The type of the result is the same as the type of the operand that is highest in the type hierarchy. |
 | `A | B` | All number types | Returns the result of bitwise OR of A and B. The type of the result is the same as the type of the operand that is highest in the type hierarchy. |
 | `A ^ B` | All number types | Returns the result of bitwise XOR of A and B. The type of the result is the same as the type of the operand that is highest in the type hierarchy. |
-<!--table-caption title="Arithmetic operators"-->
+{: caption="Table 51. Arithmetic operators" caption-side="bottom"}
 
 <h3 id="stringOperator">String operator</h3>
 
 | Operator | Operand types | Description |
 | :----: | ---- | ---- |
 | `A || B` | All types | Returns the concatenation of A and B. If A or B is not a string, it is first converted into a string type. The result is a string. |
-<!--table-caption title="String operator"-->
+{: caption="Table 52. String operator" caption-side="bottom"}
 
 <h3 id="comparisonOperator">Comparison operators</h3>
 
@@ -2586,7 +2564,7 @@ The following types of operators can be used:
 | `A >= B` |All primitive types | Returns NULL if A or B is NULL, TRUE if A is greater than or equal to B, FALSE otherwise. |
 | `A !< B` | All primitive types| Returns NULL if A or B is NULL, TRUE if A is not less than B, FALSE otherwise.|
 | `A <=> B` | All primitive types| Returns the same result as the equal (=) operator if both A and B are not NULL, TRUE if both A and B are NULL, FALSE if A or B (but not both) is NULL.|
-<!--table-caption title="Comparison operators"-->
+{: caption="Table 53. Comparison operators" caption-side="bottom"}
 
 <h3 id="booleanOperator">Boolean operators</h3>
 
@@ -2595,7 +2573,7 @@ The following types of operators can be used:
 | `NOT A` | Boolean expressions | TRUE if A is FALSE, FALSE otherwise. |
 | `A AND B` | Boolean expressions | TRUE if A and B are both TRUE, FALSE otherwise. |
 | `A OR B` | Boolean expressions | FALSE if A and B are both FALSE, TRUE otherwise. |
-<!--table-caption title="Boolean operators"-->
+{: caption="Table 54. Boolean operators" caption-side="bottom"}
 
 <h3>Related references</h3>
 
@@ -2643,7 +2621,6 @@ The following primitive data types are supported in {{site.data.keyword.sqlquery
 - Boolean
 - Binary
 
-
 <h3>Numeric Types</h3>
 
 Numeric data types are summarized in the following table.
@@ -2658,13 +2635,12 @@ Numeric data types are summarized in the following table.
 | `FLOAT` | single precision floating point number | 4 | n/a | n/a |
 | `DOUBLE` | double precision floating point number | 8 | n/a | n/a |
 | `DECIMAL` | precision of 38 digits | n/a | -10e37+1 | 10e37-1 |
-<!--table-caption title="Numeric Data Types"-->
+{: caption="Table 55. Numeric data types" caption-side="bottom"}
 
 Numeric literals with fractional digits are parsed as `DECIMAL` by default. For example, <code>123.45</code> is treated as `DECIMAL(5,2)`, and <code>1.234e-3</code> is treated as `DECIMAL(6,6)` with value 0.001234, and not as a floating point number. You can force specific data types with a <code>CAST</code> expression or by adding one of the following suffix types:
 - <code>123L</code> forces `BIGINT` data type
 - <code>123BD</code> forces `DECIMAL` data type
 - <code>123D</code> forces `DOUBLE` data type
-
 
 <h3>String Types</h3>
 
@@ -2685,13 +2661,12 @@ FROM VALUES ('dummy')
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |CAST(2018-10-31 23:55:00 AS TIMESTAMP)|CAST(2018-2-28 23:55:00 AS DATE)|CAST(HELLO AS TIMESTAMP)|
 |--------------------------------------|--------------------------------|------------------------|
 |2018-10-31 23:55:00.0                 |2018-02-28                      |null                    |
-<!--table-caption title="Query result for example 'cast string values to TIMESTAMP and DATE types'"-->
+{: caption="Table 55. Query result for example 'cast string values to TIMESTAMP and DATE types" caption-side="bottom"}
 
 <h3>Boolean Type</h3>
 
@@ -2712,7 +2687,6 @@ A `BINARY` type represents an array of byte values. Thus, string values can be c
 A *dataType* is referenced by the following clauses:
 - [castExpression](#castExpression)
 - [createTable](#createTable)
-
 
 ## Catalog management
 {: #chapterHiveCatalog}
@@ -2804,6 +2778,7 @@ Key | Value | Default | Description
 HEADER | true or false | true | Use the HEADER option to specify whether your CSV object has a header included.
 DELIMITER | single (possibly escaped) character | `,` (comma) | Use the DELIMITER option to specify the used delimiter in your CSV objects. All single Unicode characters are allowed as delimiters.
 MULTILINE | true or false | false | Use the MULITLINE option to specify whether the JSON object is single or multiline.
+{: caption="Table 56. tableProperty option" caption-side="bottom"}
 
 ```sql
 -- Example of creating a table definition in the catalog for a CSV data without header line:
@@ -2903,7 +2878,6 @@ To add or remove partitions individually, use the `ADD PARTITION` or `DROP PARTI
 With the `ADD PARTITION` option you can specify an explicit location for the new partition. This way, you can construct a table from object locations that do not share a common {{site.data.keyword.cos_short}} prefix, or are even located in separate buckets.
 If the partition location is not specified, it is inferred from the location of the table and the value(s) of the partitioning column(s). `ADD PARTITION` does not validate the specified or inferred location.
 
-
 ```sql
 -- alter the table partitions by adding a partition
 ALTER TABLE customers_partitioned ADD IF NOT EXISTS PARTITION ( COUNTRY = 'Spain') LOCATION cos://us-geo/sql/customers_partitioned.csv/COUNTRY=Spain
@@ -2913,7 +2887,6 @@ ALTER TABLE customers_partitioned DROP IF EXISTS PARTITION ( COUNTRY = 'Nowhere'
 {: codeblock}
 
 The `SET LOCATION` option can be used to change the location of an existing partition.
-
 
 ```sql
 -- modify the location of an existing partition
@@ -3022,7 +2995,6 @@ SHOW TBLPROPERTIES customer
 
 List the defined partitions of a table when a table was created as partitioned. You can filter the returned partitions by using the *partitionSpec*
 option.
-
 
 ```sql
 -- returns all partitions for the table customers_partitioned
@@ -3185,7 +3157,6 @@ With this command you can define a location for this specified Hive table. If yo
 ALTER TABLE CUSTOMERS_PARTITIONED SET METAINDEX LOCATION cos://us-south/<mybucket>/<mypath>
 ```
 {: codeblock}
-
 
 ### Alter Table Drop Location
 {: #chapterAlterTableDropLocation}
