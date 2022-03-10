@@ -226,8 +226,8 @@ By default, either the credentials that are needed to access the target database
 
 <!--include-svg src="./svgfiles/accessSecrets.svg" target="./diagrams/accessSecrets.svg" alt="syntax diagram for a Db2 result clause" layout="@break@" -->
 
-### More topics
-{: #more-topics}
+### More topics - query
+{: #more-topics-query}
 
 For more information about clauses that are used in a *query*, see the following topics:
 - [COSURI](#COSURI)
@@ -238,8 +238,8 @@ For more information about clauses that are used in a *query*, see the following
 - [namedQuery](#namedQuery)
 - [query](#query)
 
-### Related references
-{: #related-references}
+### Related references - query
+{: #related-references-query}
 
 A *query* is referenced by the following clauses:
 - [booleanExpression](#booleanExpression)
@@ -378,8 +378,8 @@ The result of the example queries is shown in the following table.
 |1   |
 {: caption="Table 6. Query result for example: difference quantity eliminating duplicate rows" caption-side="bottom"}
 
-### More topics
-{: #more-topics}
+### More topics - fullselect
+{: #more-topics-fullselect}
 
 For more information about the clauses that are used in a *fullselect*, see the following topics:
 - [expression](#expression)
@@ -389,10 +389,10 @@ For more information about the clauses that are used in a *fullselect*, see the 
 - [sortItem](#sortItem)
 - [valuesClause](#valuesClause)
 
-### Related references
-{: #more-topics}
+### Related references - fullselect
+{: #more-topics-fullselect}
 
-A *fullselect- is referenced by the following clauses:
+A *fullselect* is referenced by the following clauses:
 - [fullselect](#fullselect)
 - [query](#query)
 - [relationPrimary](#relationPrimary)
@@ -589,7 +589,8 @@ The result of the example query is shown in the following table.
 |2018|2      |400   |
 {: caption="Table 10. Query result for example: rollup sales data on a quarter by year basis and a yearly basis only" caption-side="bottom"}
 
-<h3>More topics</h3>
+### More topics - simpleselect
+{: #more-topics-simpleselect}
 
 For more information about the clauses that are used in a *simpleselect*, see the following topics:
 - [booleanExpression](#booleanExpression)
@@ -600,7 +601,8 @@ For more information about the clauses that are used in a *simpleselect*, see th
 - [relation](#relation)
 - [resultColumn](#resultColumn)
 
-<h3>Related references</h3>
+### Related references - simpleselect
+{: #related-references-simpleselect}
 
 A *simpleselect* is referenced by the following clause:
 
@@ -624,12 +626,14 @@ The semantics of the *sort item* components are as follows:
     - `FIRST`: Specifies that `NULL` values appear first in the order.
     - `LAST`: Specifies that `NULL` values appear last in the order.
 
-<h3>More topics</h3>
+### More topics - expression clause
+{: #more-topics-expression} 
 
 For more information about the clauses that are used in an *expression* clause, see the following topic:
 - [expression](#expression)
 
-<h3>Related references</h3>
+### Related references - sort item clause
+{: #related-references-sort-item} 
 
 A *sort item clause* is referenced by the following clauses:
 - [fullselect](#fullselect)
@@ -792,7 +796,8 @@ A table-valued function returns a relation, that is, a set of rows. An example o
 
 <!--include-svg src="./svgfiles/tableValuedFunction.svg" target="./diagrams/tableValuedFunction.svg" alt="syntax diagram for a table valued function" layout="@break@" -->
 
-<h3>More topics</h3>
+### More topics - relation clause
+{: #more-topics-relation}
 
 For more information about the clauses that are used in *relation* clauses, see the following topics:
 
@@ -805,7 +810,8 @@ For more information about the clauses that are used in *relation* clauses, see 
 - [sample](#sample)
 - [valuesClause](#valuesClause)
 
-<h3>Related references</h3>
+### Related references - Clauses in a relation clause
+{: #related-references-relation}
 
 A *relation* is referenced by the following clause:
 
@@ -936,13 +942,15 @@ The result of the example query is shown in the following table.
 |4   |Scotty|
 {: caption="Table 15. Query result for example: values statement with multi column result set" caption-side="bottom"}
 
-<h3>More topics</h3>
+### More topics - values clause
+{: #more-topics-values}
 
 For more information about the clauses that are used in a *values clause*, see the following topics:
 - [expression](#expression)
 - [identifier](#identifier)
 
-<h3>Related references</h3>
+### Related references - values clause
+{: #related-references-values}
 
 A *values clause* is referenced by the following clauses:
 - [fullselect](#fullselect)
@@ -1030,7 +1038,8 @@ The result of the example query is shown in the following table.
 |40       |6       |
 {: caption="Table 17. Query result for example: deal with an n-m relation" caption-side="bottom"}
 
-<h3>More topics</h3>
+### More topics - lateral view
+{: #more-topics-lateral}
 
 For more information about the clauses that are used in a *lateral view* clause, see the following topics:
 
@@ -1042,7 +1051,8 @@ Note:
 - A *simpleselect* can contain multiple lateral view clauses that are evaluated in order of appearance.
 - Within a lateral view clause, you can refer to columns defined in any (virtual) table on the left of the current lateral view clause.
 
-<h3>Related references</h3>
+### Related references - lateral view
+{: #related-references-lateral}
 
 A *lateral view* clause is referenced by a [simpleselect](#simpleselect).
 
@@ -1356,7 +1366,8 @@ SELECT * FROM cos://us-geo/sql/employees.parquet STORED AS PARQUET TABLESAMPLE (
 ```
 {: codeblock}
 
-<h3>More topics</h3>
+### More topics - table sample clause
+{: #more-topics-table-sample}
 
 For more information about the clauses that are used in a *table sample clause*, see the following topics:
 - [expression](#expression)
@@ -1365,7 +1376,8 @@ For more information about the clauses that are used in a *table sample clause*,
 - [unsignedInteger](#unsignedInteger)
 - [unsignedNumber](#unsignedNumber)
 
-<h3>Related references</h3>
+### Related references - table sample clause
+{: #related-references-table-sample}
 
 A *table sample clause* is referenced by the following clause:
 - [relationPrimary](#relationPrimary)
@@ -1384,7 +1396,8 @@ Most function invocations look like `function(argument1, ..., argumentN)` but fu
 
 Refer to section [SQL functions](/docs/sql-query?topic=sql-query-sqlfunctions#sqlfunctions) for details about supported functions.
 
-<h3>More topics</h3>
+### More topics - function or aggregate clause
+{: #more-topics-function-aggregate}
 
 For more information about the clauses that are used in a *function or aggregate* clause, see the following topics:
 - [expression](#expression)
@@ -1393,7 +1406,8 @@ For more information about the clauses that are used in a *function or aggregate
 - [valueExpression](#valueExpression)
 - [windowSpec](#windowSpec)
 
-<h3>Related references</h3>
+### Related references - function or aggregate clause
+{: #related-references-function-aggregate}
 
 A *function or aggregate clause* is referenced by the following clause:
 - [primaryExpression](#primaryExpression)
@@ -1671,14 +1685,16 @@ The result of the example query is shown in the following table.
 |9     |4711   |-400      |700    |
 {: caption="Table 29. Query result for example: total balance of each account at the time of each transaction" caption-side="bottom"}
 
-<h3>More topics</h3>
+### More topics - window function
+{: #more-topics-window-function}
 
 For more information about the clauses that are used by a *window function*, see the following topics:
 - [expression](#expression)
 - [identifier](#identifier)
 - [sortItem](#sortItem)
 
-<h3>Related references</h3>
+### Related references - named window clause
+{: #related-references-window-function}
 
 A *named window clause* is referenced by the following clauses:
 - [fullselect](#fullselect)
@@ -1699,11 +1715,13 @@ In the context of an SQL query statement, an *expression* is always a *Boolean e
 
 <!--include-svg src="./svgfiles/expression.svg" target="./diagrams/expression.svg" alt="syntax diagram for an expression" layout="@break@" -->
 
-<h4>More topics</h4>
+#### More topics - boolean expression
+{: #more-topics-boolean}
 
 For more information, see [booleanExpression](#booleanExpression).
 
-<h4>Related references</h4>
+#### Related references - expression
+{: #related-references-expression}
 
 An *expression* is referenced by the following clauses:
 
@@ -1775,7 +1793,8 @@ A *value expression* is one of the following:
 - The result of performing an arithmetic operation with two value expressions.
 - The result of performing a comparison operation between two value expressions.
 
-<h4>More topics</h4>
+#### More topics - value expression
+{: #more-topics-value-expression}
 
 For more information about the clauses that are used by a *value expression*, see the following topics:
 
@@ -1784,7 +1803,8 @@ For more information about the clauses that are used by a *value expression*, se
 - [primaryExpression](#primaryExpression)
 - [unaryOperator](#unaryOperator)
 
-<h4>Related references</h4>
+#### Related references - value expression
+{: #related-references-value-expression}
 
 A *value expression* is referenced by the following clauses:
 
@@ -2347,7 +2367,8 @@ If the specified data type is not supported, you receive an error.
 
 In case an expression cannot be cast to the data type specified in the cast expression, the expression result is `null`.
 
-<h4>More topics</h4>
+#### More topics - cast expression
+{: #more-topics-cast-expression}
 
 For more information about the clauses that are used by a *cast expression*, see the following topics:
 
@@ -2355,7 +2376,8 @@ For more information about the clauses that are used by a *cast expression*, see
 - [expression](#expression)
 - [identifier](#identifier)
 
-<h4>Related references</h4>
+#### Related references - cast expression
+{: #related-references-cast-expression}
 
 A *cast expression* is referenced by the following clause:
 
