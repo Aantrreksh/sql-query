@@ -2047,7 +2047,8 @@ The result of the example query is shown in the following table.
 |null|null|
 {: caption="Table 37. Query result for example: all rows that have no distinct values in column A and B" caption-side="bottom"}
 
-<h5><code>BETWEEN ... AND ...</code> Examples</h5>
+##### `BETWEEN ... AND ...` Examples
+{: #between-and-examples}
 
 ```sql
 -- all employees with a salary between 4000 and 8000
@@ -2107,7 +2108,8 @@ The result of the example query is shown in the following table.
 |9     |9000  |
 {: caption="Table 39. Query result for example 'all employees with a salary between 4000 and 8000" caption-side="bottom"}
 
-<h5><code>IN</code> Examples</h5>
+##### `IN` Examples
+{: #in-examples}
 
 ```sql
 -- all employees working in department D01 or D02
@@ -2175,7 +2177,8 @@ The result of the example query is shown in the following table.
 |5     |D02     |
 {: caption="Table 41. Query result for example 'all employees that are managing a department" caption-side="bottom"}
 
-<h5><code>LIKE</code> Examples</h5>
+##### `LIKE` Examples
+{: #like-examples}
 
 ```sql
 -- all employees that work in a department that starts with letter C
@@ -2675,10 +2678,10 @@ Numeric data types are summarized in the following table.
 | `DECIMAL` | precision of 38 digits | n/a | -10e37+1 | 10e37-1 |
 {: caption="Table 55. Numeric data types" caption-side="bottom"}
 
-Numeric literals with fractional digits are parsed as `DECIMAL` by default. For example, <code>123.45</code> is treated as `DECIMAL(5,2)`, and <code>1.234e-3</code> is treated as `DECIMAL(6,6)` with value 0.001234, and not as a floating point number. You can force specific data types with a <code>CAST</code> expression or by adding one of the following suffix types:
-- <code>123L</code> forces `BIGINT` data type
-- <code>123BD</code> forces `DECIMAL` data type
-- <code>123D</code> forces `DOUBLE` data type
+Numeric literals with fractional digits are parsed as `DECIMAL` by default. For example, `123.45` is treated as `DECIMAL(5,2)`, and `1.234e-3` is treated as `DECIMAL(6,6)` with value 0.001234, and not as a floating point number. You can force specific data types with a `CAST` expression or by adding one of the following suffix types:
+- `123L` forces `BIGINT` data type
+- `123BD` forces `DECIMAL` data type
+- `123D` forces `DOUBLE` data type
 
 ### String Types
 {: #string-types}
@@ -3240,7 +3243,7 @@ An unquoted identifier is at least one character long. The following valid chara
 #### Back quoted identifier
 {: #back-quoted-identifier}
 
-It is an identifier that is embraced by grave accent <code>\`</code> characters. A back quoted identifier can contain any character. That includes the grave accent character that must be escaped like this <code>\`\`</code>.
+It is an identifier that is embraced by grave accent `\`` characters. A back quoted identifier can contain any character. That includes the grave accent character that must be escaped like this `\`\``.
 
 The following example shows how to add a column name that contains a special character:
 
@@ -3305,4 +3308,4 @@ For more information about data types, see [dataType](#dataType).
 
 A *string* is a sequence of arbitrary characters that includes escaped characters, for example,
 `\t`, either enclosed in single quotation marks `'`, or double quotation marks, `"`.
-To include any quotation mark characters in the string, they must be escaped as <code>\\\\\`</code> or `\\"`.
+To include any quotation mark characters in the string, they must be escaped as `\\\\\`` or `\\"`.
