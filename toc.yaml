@@ -1,6 +1,7 @@
 toc:
   properties:
     subcollection: sql-query
+    service-name: sql-query
     category: analytics
     audience: service
     href: /docs/sql-query?topic=sql-query-getting-started
