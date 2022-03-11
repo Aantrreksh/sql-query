@@ -3330,6 +3330,6 @@ For more information about data types, see [dataType](#dataType).
 {: #string}
 
 A *string* is a sequence of arbitrary characters that includes escaped characters, for example,
-`\t`, either enclosed in single quotation marks `'`, or double quotation marks, `"`.
-To include any quotation mark characters in the string, they must be escaped as `\\\\\`` or `\\"`.
+`\t`, either enclosed in single quotation marks `'`, or double quotation marks `"`.
+To include any quotation mark characters in the string, they must be escaped as `\\'` or `\\"`.
 
