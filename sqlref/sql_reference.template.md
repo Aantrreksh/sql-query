@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-03-10"
+lastupdated: "2022-03-11"
 
 ---
 
@@ -283,8 +283,8 @@ The characteristics of a result set defined by a fullselect can be further defin
 
 `DISTRIBUTE BY`, `SORT BY`, and `CLUSTER BY` have an effect only during your SQL query execution and do not influence the query result that is written back to Cloud {{site.data.keyword.cos_short}}. Use these clauses only in execution of subqueries to optimize the outer query execution that works on the intermediate result sets produced by the sub queries. To define the persistent target of the overall query that is written back to Cloud {{site.data.keyword.cos_short}}, you need to use the dedicated [resultClause](#resultClause) instead.
 
-### Examples
-{: #examples}
+### Examples - values clause
+{: #examples-values-clause}
 
 The set operator examples use values clauses to define result sets for the set operations. For more information about the values clause, see [valuesClause](#valuesClause).
 
