@@ -3265,7 +3265,7 @@ An unquoted identifier is at least one character long. The following valid chara
 #### Back quoted identifier
 {: #back-quoted-identifier}
 
-It is an identifier that is embraced by grave accent `` ` `` characters. A back quoted identifier can contain any character. That includes the grave accent character that must be escaped like this ``\` ``.
+It is an identifier that is embraced by grave accent `` ` `` characters. A back quoted identifier can contain any character. That includes the grave accent character that must be escaped like this ` `` `.
 
 The following example shows how to add a column name that contains a special character:
 
