@@ -41,3 +41,4 @@ Actions  |  Description
 `sql-query.catalog-table.list` |  List of catalog tables was retrieved.
 `sql-query.catalog-table.get` |  Details of a catalog table were retrieved.
 `sql-query.sql-job.disable` |  An SQL query streaming job was stopped.
+`sql-query.catalog-table-partitions.list`| List of partitions of a table was retrieved.
