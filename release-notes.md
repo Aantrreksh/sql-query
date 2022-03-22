@@ -210,10 +210,17 @@ This Guide includes examples that can be copied and directly pasted into the web
 - Set of SQL optimizer and ANSI SQL and Hive SQL compliance enhancements that are introduced with Apache Spark 2.3.
 
 ## June 2018
+{: #subcollection-june2018}
+{: release-note}
 
-- Support for ORC data (STORED AS ORC).
-- Support for geospatial SQL functions for calculations, aggregations, and joins on location data.
-- Release of [ibmcloudsql Node.js client SDK](https://www.npmjs.com/package/ibmcloudsql).
+ORC
+:   Support for ORC data (STORED AS ORC).
+
+Geospatial functions
+:   Support for geospatial SQL functions for calculations, aggregations, and joins on location data.
+
+ibmcloudsql Node.js client SDK
+:   Release of [ibmcloudsql Node.js client SDK](https://www.npmjs.com/package/ibmcloudsql).
 
 ## April 2018
 {: #subcollection-april2018}
