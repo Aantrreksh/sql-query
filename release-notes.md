@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-03-22"
+lastupdated: "2022-03-23"
 
 keywords: sql query release notes
 
@@ -114,100 +114,170 @@ Usage of legacy SoftLayer endpoints discontinued
 You can view completed and failed jobs, the number of bytes processed, and the jobs in progress. A default {{site.data.keyword.sqlquery_short}} dashboard exists, and you can define custom dashboards and alerts.
 
 ## May 2020
+{: #subcollection-may2020}
+{: release-note}
 
-- {{site.data.keyword.sqlquery_short}} supports index management, also referred to as data skipping. Index management can significantly boost performance and reduce cost of your SQL queries by skipping over irrelevant data.
-- Service access role **Manager** is required to run catalog management or index management commands.
-- {{site.data.keyword.sqlquery_short}} database catalog support is extended to support [views](/docs/sql-query?topic=sql-query-sql-reference#chapterCreateView).
-- {{site.data.keyword.sqlquery_short}} catalog management is out of the Beta stage and can be used with the Standard plan.
+Index management
+:   {{site.data.keyword.sqlquery_short}} supports index management, also referred to as data skipping. Index management can significantly boost performance and reduce cost of your SQL queries by skipping over irrelevant data.
+:   Service access role **Manager** is required to run catalog management or index management commands.
+
+Catalog management
+:   {{site.data.keyword.sqlquery_short}} database catalog support is extended to support [views](/docs/sql-query?topic=sql-query-sql-reference#chapterCreateView).
+:   {{site.data.keyword.sqlquery_short}} catalog management is out of the Beta stage and can be used with the Standard plan.
 
 ## April 2020
+{: #subcollection-april2020}
+{: release-note}
 
-- {{site.data.keyword.sqlquery_short}} support for [database catalog](/docs/services/sql-query?topic=sql-query-hivemetastore) is generally available with full production support.
+Database catalog
+:   {{site.data.keyword.sqlquery_short}} support for [database catalog](/docs/services/sql-query?topic=sql-query-hivemetastore) is generally available with full production support.
 
 ## March 2020
+{: #subcollection-march2020}
+{: release-note}
 
-- {{site.data.keyword.sqlquery_short}} has a [database catalog](/docs/services/sql-query?topic=sql-query-hivemetastore). It is based on Hive Metastore and significantly speeds up query execution and decouples data management from SQL users and applications.
+Database catalog
+:   {{site.data.keyword.sqlquery_short}} has a [database catalog](/docs/services/sql-query?topic=sql-query-hivemetastore). It is based on Hive Metastore and significantly speeds up query execution and decouples data management from SQL users and applications.
 
 ## January 2020
+{: #subcollection-january2020}
+{: release-note}
 
-- {{site.data.keyword.sqlquery_short}} fully supports all current public and private {{site.data.keyword.cos_full}} endpoints (ending with `appdomain.cloud`, for example, `s3.us.cloud-object-storage.appdomain.cloud`) and all new single data center endpoints (for example, `sng01`).
+Support for all endpoints
+:   {{site.data.keyword.sqlquery_short}} fully supports all current public and private {{site.data.keyword.cos_full}} endpoints (ending with `appdomain.cloud`, for example, `s3.us.cloud-object-storage.appdomain.cloud`) and all new single data center endpoints (for example, `sng01`).
 
 ## December 2019
+{: #subcollection-december2020}
+{: release-note}
 
-- You can use [{{site.data.keyword.keymanagementserviceshort}}](https://cloud.ibm.com/catalog/services/key-protect) as a secure credential broker to pass credentials to data resources referenced by your queries, thus ensuring safe handling of your secrets. For more information, see the [authentication documentation](/docs/sql-query?topic=sql-query-authentication).
+{{site.data.keyword.keymanagementserviceshort}}
+:   You can use [{{site.data.keyword.keymanagementserviceshort}}](https://cloud.ibm.com/catalog/services/key-protect) as a secure credential broker to pass credentials to data resources referenced by your queries, thus ensuring safe handling of your secrets. For more information, see the [authentication documentation](/docs/sql-query?topic=sql-query-authentication).
 
 ## November 2019
+{: #subcollection-november2019}
+{: release-note}
 
-- You can specify a [`MULTILINE`](/docs/sql-query?topic=sql-query-sql-reference#externalTableSpec) option for JSON input data if individual JSON records are stored across multiple lines.
+`MULTILINE` option
+:   You can specify a [`MULTILINE`](/docs/sql-query?topic=sql-query-sql-reference#externalTableSpec) option for JSON input data if individual JSON records are stored across multiple lines.
 
 ## October 2019
+{: #subcollection-october2019}
+{: release-note}
 
-- The new open source [cos-upload](https://github.com/IBM-Cloud/data-lake/tree/master/upload/cos-upload) script can be used to efficiently upload large volumes of data to {{site.data.keyword.cos_full_notm}} buckets with Aspera by merely providing an IAM API Key.
-- {{site.data.keyword.sqlquery_short}} JSON parser is processing and extracting all JSON keys in lowercase, so it can work correctly on LogDNA data.
-- Storing new objects in {{site.data.keyword.cos_full_notm}} can trigger {{site.data.keyword.sqlquery_short}} executions. It is enabled by the {{site.data.keyword.cos_full_notm}} [event provider](https://www.ibm.com/cloud/blog/announcements/cloud-object-storage-event-provider-enables-hello-serverless-and-more) for {{site.data.keyword.openwhisk}}. By combining it with the SQL [{{site.data.keyword.openwhisk_short}}](https://hub.docker.com/r/ibmfunctions/sqlquery/), you can automatically run SQL-based post processing for new objects.
-- {{site.data.keyword.sqlquery_short}} has query hints for SQL queries that have potential for faster execution by using certain features of {{site.data.keyword.sqlquery_short}}. These hints are flagged with a light bulb icon in the job list and the specific hint is available inside the Details pane.
+New open source script for uploading large volumes
+:   The new open source [cos-upload](https://github.com/IBM-Cloud/data-lake/tree/master/upload/cos-upload) script can be used to efficiently upload large volumes of data to {{site.data.keyword.cos_full_notm}} buckets with Aspera by merely providing an IAM API Key.
+
+JSON parser
+:   {{site.data.keyword.sqlquery_short}} JSON parser is processing and extracting all JSON keys in lowercase, so it can work correctly on LogDNA data.
+
+Run automatic SQL-based post processing
+:   Storing new objects in {{site.data.keyword.cos_full_notm}} can trigger {{site.data.keyword.sqlquery_short}} executions. It is enabled by the {{site.data.keyword.cos_full_notm}} [event provider](https://www.ibm.com/cloud/blog/announcements/cloud-object-storage-event-provider-enables-hello-serverless-and-more) for {{site.data.keyword.openwhisk}}. By combining it with the SQL [{{site.data.keyword.openwhisk_short}}](https://hub.docker.com/r/ibmfunctions/sqlquery/), you can automatically run SQL-based post processing for new objects.
+
+Query hints
+:   {{site.data.keyword.sqlquery_short}} has query hints for SQL queries that have potential for faster execution by using certain features of {{site.data.keyword.sqlquery_short}}. These hints are flagged with a light bulb icon in the job list and the specific hint is available inside the Details pane.
 
 ## September 2019
+{: #subcollection-september2019}
+{: release-note}
 
-- Support for ETL to {{site.data.keyword.Db2_on_Cloud_long}}: You can specify [Db2 target tables](/docs/sql-query?topic=sql-query-overview#unique) in your SQL queries to process data from {{site.data.keyword.cos_full_notm}} and save the {{site.data.keyword.sqlquery_short}} result into {{site.data.keyword.Db2_on_Cloud_short}}.
+Support for ETL to {{site.data.keyword.Db2_on_Cloud_long}}
+:   You can specify [Db2 target tables](/docs/sql-query?topic=sql-query-overview#unique) in your SQL queries to process data from {{site.data.keyword.cos_full_notm}} and save the {{site.data.keyword.sqlquery_short}} result into {{site.data.keyword.Db2_on_Cloud_short}}.
 
 ## August 2019
+{: #subcollection-august2019}
+{: release-note}
 
-- Support for the [`DESCRIBE`](/docs/sql-query?topic=sql-query-sql-reference#tableTransformer) table transformation function that enables easier exploration of the schema of data on  by returning the schema definition instead of data as the table content. Check out the new Starter Query sample in the UI.
+Support for `DESCRIBE` table transformation function
+:   Support for the [`DESCRIBE`](/docs/sql-query?topic=sql-query-sql-reference#tableTransformer) table transformation function that enables easier exploration of the schema of data by returning the schema definition instead of data as the table content. Check out the new Starter Query sample in the UI.
 
 ## July 2019
+{: #subcollection-july2019}
+{: release-note}
 
-- JSON preview:
-    You can directly preview query results in JSON format in the SQL console. Add `INTO <COS URI> STORED AS JSON` to your SQL statement to produce JSON output and preview it in the web console.
-- Support for Parquet schema evolution through the [`MERGE SCHEMA`](/docs/sql-query?topic=sql-query-sql-reference#externalTableSpec) sub clause for `STORED AS PARQUET` input data. Check out the new samples in the UI.
-- Support for [`CLEANCOLS`](/docs/sql-query?topic=sql-query-sql-reference#tableTransformer) table transformation function that generically cleanses all input column names from characters that are not supported by the Parquet target format. Check out the new Samples.
-- Support for [`FLATTEN`](/docs/sql-query?topic=sql-query-sql-reference#tableTransformer) table transformation function that generically flattens all nested input columns into a flat hierarchy, allowing to easily work with, for example, JSON input data and write the results out to flat CSV files. Check out the new samples in the UI.
+JSON preview
+:   You can directly preview query results in JSON format in the SQL console. Add `INTO <COS URI> STORED AS JSON` to your SQL statement to produce JSON output and preview it in the web console.
+
+Support for Parquet schema evolution
+:   Support for Parquet schema evolution through the [`MERGE SCHEMA`](/docs/sql-query?topic=sql-query-sql-reference#externalTableSpec) sub clause for `STORED AS PARQUET` input data. Check out the new samples in the UI.
+
+New table transformation functions
+:   Support for [`CLEANCOLS`](/docs/sql-query?topic=sql-query-sql-reference#tableTransformer) table transformation function that generically cleanses all input column names from characters that are not supported by the Parquet target format. Check out the new Samples.
+:   Support for [`FLATTEN`](/docs/sql-query?topic=sql-query-sql-reference#tableTransformer) table transformation function that generically flattens all nested input columns into a flat hierarchy, allowing to easily work with, for example, JSON input data and write the results out to flat CSV files. Check out the new samples in the UI.
 
 ## June 2019
+{: #subcollection-june2019}
+{: release-note}
 
-- {{site.data.keyword.sqlquery_short}} is available in Frankfurt, Germany. When you provision new instances, you can select whether it is being provisioned in Dallas or in Frankfurt.
-- Support for [time series SQL functions](/docs/services/sql-query?topic=sql-query-ts_intro) to process time series data, for example, to identify trends and to predict future values based on these trends.
+{{site.data.keyword.sqlquery_short}} now available in Frankfurt
+:   {{site.data.keyword.sqlquery_short}} is available in Frankfurt, Germany. When you provision new instances, you can select whether it is being provisioned in Dallas or in Frankfurt.
+
+Support for time series SQL functions
+:   Support for [time series SQL functions](/docs/services/sql-query?topic=sql-query-ts_intro) to process time series data, for example, to identify trends and to predict future values based on these trends.
 
 ## May 2019
+{: #subcollection-may2019}
+{: release-note}
 
-- Updates to the [SQL reference](/docs/services/sql-query?topic=sql-query-sql-reference):
-  - [`JOBPREFIX JOBID/NONE`](/docs/sql-query?topic=sql-query-sql-reference#cosResultClause), you can specify whether you want the job ID to be appended to the target prefix, or not.
-  - The [`SORT BY`](/docs/sql-query?topic=sql-query-sql-reference#sortClause) clause for SQL targets is new. You can use it to sort SQL result sets in many ways before writing the results to {{site.data.keyword.cos_full_notm}}. It can be used in combination with [`PARTITIONED BY`](/docs/sql-query?topic=sql-query-sql-reference#partitionedClause), [`PARTITIONED INTO`](/docs/sql-query?topic=sql-query-sql-reference#partitionedClause) (to cluster the results), or without the PARTITIONED clause.
-  - [`PARTITIONED INTO BUCKETS`](/docs/sql-query?topic=sql-query-sql-reference#partitionedClause) and [`PARTITIONED INTO OBJECTS`](/docs/sql-query?topic=sql-query-sql-reference#partitionedClause) are both supported, thus you can use them synonymously.
+Updates to the [SQL reference](/docs/services/sql-query?topic=sql-query-sql-reference)
+:   [`JOBPREFIX JOBID/NONE`](/docs/sql-query?topic=sql-query-sql-reference#cosResultClause), you can specify whether you want the job ID to be appended to the target prefix, or not.
+:   The [`SORT BY`](/docs/sql-query?topic=sql-query-sql-reference#sortClause) clause for SQL targets is new. You can use it to sort SQL result sets in many ways before writing the results to {{site.data.keyword.cos_full_notm}}. It can be used in combination with [`PARTITIONED BY`](/docs/sql-query?topic=sql-query-sql-reference#partitionedClause), [`PARTITIONED INTO`](/docs/sql-query?topic=sql-query-sql-reference#partitionedClause) (to cluster the results), or without the PARTITIONED clause.
+:   [`PARTITIONED INTO BUCKETS`](/docs/sql-query?topic=sql-query-sql-reference#partitionedClause) and [`PARTITIONED INTO OBJECTS`](/docs/sql-query?topic=sql-query-sql-reference#partitionedClause) are both supported, thus you can use them synonymously.
 
 ## April 2019
+{: #subcollection-april2019}
+{: release-note}
 
-- Support for encrypting SQL queries with {{site.data.keyword.keymanagementservicefull}}. {{site.data.keyword.keymanagementservicelong_notm}} is a centralized key management system (KMS) for generating, managing, and destroying encryption keys used by {{site.data.keyword.Bluemix}} services.
-If you are processing sensitive data in your queries, you can use customer-managed keys to encrypt SQL query texts and error messages that are stored in the job information.
-- {{site.data.keyword.sqlquery_notm}} with {{site.data.keyword.keymanagementservicelong_notm}} for managing encryption keys meets the required IBM controls that are commensurate with the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Security and Privacy Rule requirements.
+Support for encryption with {{site.data.keyword.keymanagementservicefull}}
+:   Support for encrypting SQL queries with {{site.data.keyword.keymanagementservicelong_notm}}. {{site.data.keyword.keymanagementservicelong_notm}} is a centralized key management system (KMS) for generating, managing, and destroying encryption keys used by {{site.data.keyword.Bluemix}} services. If you are processing sensitive data in your queries, you can use customer-managed keys to encrypt SQL query texts and error messages that are stored in the job information.
+:   {{site.data.keyword.sqlquery_notm}} with {{site.data.keyword.keymanagementservicelong_notm}} for managing encryption keys meets the required IBM controls that are commensurate with the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Security and Privacy Rule requirements.
 
 ## February 2019
+{: #subcollection-february2019}
+{: release-note}
 
-- Beta support for JDBC driver of {{site.data.keyword.sqlquery_short}}. Request to participate by sending an email to Joshua.Mintz@ibm.com.
-- Beta support for data skipping indexes. You can create custom indexes on any column for minimum and maximum values, list of values,
-and geospatial bounding box for any object queried. This significantly reduces I/O and query cost and lower the query execution time.
-Request to participate by sending an email to Joshua.Mintz@ibm.com.
-- Beta support for SQL-native time series in {{site.data.keyword.sqlquery_short}}. This includes functions for time series segmentation, prediction, alignment, temporal joins, and subsequence mining. Request to participate by sending an email to  Joshua.Mintz@ibm.com.
+Beta support for JDBC driver
+:   Beta support for JDBC driver of {{site.data.keyword.sqlquery_short}}. Request to participate by sending an email to Joshua.Mintz@ibm.com.
+
+Beta support for data skipping
+:   Beta support for data skipping indexes. You can create custom indexes on any column for minimum and maximum values, list of values, and geospatial bounding box for any object queried. This significantly reduces I/O and query cost and lower the query execution time.
+
+Beta support for time series
+:   Beta support for SQL-native time series in {{site.data.keyword.sqlquery_short}}. This includes functions for time series segmentation, prediction, alignment, temporal joins, and subsequence mining. Request to participate by sending an email to  Joshua.Mintz@ibm.com.
 
 ## December 2018
+{: #subcollection-december2018}
+{: release-note}
 
-- Release of a complete SQL Reference Guide, an SQL introduction for Cloud SQL/Spark SQL.
-This Guide includes examples that can be copied and directly pasted into the web UI to be run.
+New SQl reference guide
+:   Release of a complete SQL Reference Guide, an SQL introduction for Cloud SQL/Spark SQL. [This guide](/docs/sql-query?topic=sql-query-sql-reference) includes examples that can be copied and directly pasted into the web UI to be run.
 
 ## November 2018
+{: #subcollection-november2018}
+{: release-note}
 
-- Support for controlling the layout of SQL results. Including support for creating hive-style partitioning and paginated result data.
--   Support for extensions in [Python SDK](https://pypi.org/project/ibmcloudsql) for result data partitioning, pagination, and exporting SQL job history to {{site.data.keyword.cos_full_notm}}.
+Support for hive-style partitioning
+:   Support for controlling the layout of SQL results. Including support for creating hive-style partitioning and paginated result data.
+
+Support for Python SDK extensions
+:   Support for extensions in [Python SDK](https://pypi.org/project/ibmcloudsql) for result data partitioning, pagination, and exporting SQL job history to {{site.data.keyword.cos_full_notm}}.
 
 ## October 2018
+{: #subcollection-october2018}
+{: release-note}
 
-- Support for SELECT INTO to control the format the SQL result is written in.
+Control your result's format
+:   Support for SELECT INTO to control the format the SQL result is written in.
 
 ## August 2018
+{: #subcollection-august2018}
+{: release-note}
 
-- {{site.data.keyword.sqlquery_notm}} is generally available. Its open beta phase ended.
-- Support for [new built-in SQL functions](https://issues.apache.org/jira/browse/SPARK-20746) released with Apache Spark 2.3.
-- Set of SQL optimizer and ANSI SQL and Hive SQL compliance enhancements that are introduced with Apache Spark 2.3.
+General availability
+:   {{site.data.keyword.sqlquery_notm}} is generally available. Its open beta phase ended.
+
+New built-in functions
+:   Support for [new built-in SQL functions](https://issues.apache.org/jira/browse/SPARK-20746) released with Apache Spark 2.3.
+:   Set of SQL optimizer and ANSI SQL and Hive SQL compliance enhancements that are introduced with Apache Spark 2.3.
 
 ## June 2018
 {: #subcollection-june2018}
