@@ -90,10 +90,11 @@ Usage of legacy SoftLayer endpoints discontinued
 {: #subcollection-september2020}
 {: release-note}
 
-- You can use our JDBC driver to connect {{site.data.keyword.sqlquery_short}} to business intelligence tools and other applications. To download and configure the driver, see the [JDBC documentation](/docs/sql-query?topic=sql-query-jdbc).
-- {{site.data.keyword.sqlquery_short}} supports monitoring metrics for submitted jobs by using
-[{{site.data.keyword.mon_full}}](https://cloud.ibm.com/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-getting-started).
-You can view completed and failed jobs, the number of bytes processed, and the jobs in progress. A default {{site.data.keyword.sqlquery_short}} dashboard exists, and you can define custom dashboards and alerts.
+Use JDBC to connect to business intelligence tools
+:   You can use our JDBC driver to connect {{site.data.keyword.sqlquery_short}} to business intelligence tools and other applications. To download and configure the driver, see the [JDBC documentation](/docs/sql-query?topic=sql-query-jdbc).
+
+Monitoring with Sysdig
+:   {{site.data.keyword.sqlquery_short}} supports monitoring metrics for submitted jobs by using [{{site.data.keyword.mon_full}}](https://cloud.ibm.com/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-getting-started). You can view completed and failed jobs, the number of bytes processed, and the jobs in progress. A default {{site.data.keyword.sqlquery_short}} dashboard exists, and you can define custom dashboards and alerts.
 
 ## May 2020
 {: #subcollection-may2020}
@@ -279,5 +280,5 @@ ibmcloudsql Node.js client SDK
 {: release-note}
 
 Introducing {{site.data.keyword.sqlquery_notm}}
-- [{{site.data.keyword.sqlquery_notm}} release beta](https://www.ibm.com/cloud/blog/analyzing-data-with-ibm-cloud-sql-query?mhsrc=ibmsearch_a&mhq=ibm%20sql%20query).
+:   [{{site.data.keyword.sqlquery_notm}} release beta](https://www.ibm.com/cloud/blog/analyzing-data-with-ibm-cloud-sql-query?mhsrc=ibmsearch_a&mhq=ibm%20sql%20query).
 
