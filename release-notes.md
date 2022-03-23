@@ -12,29 +12,11 @@ content-type: release-note
 
 ---
 
-<!-- keywords values above are place holders. Actual values should be pulled from the release notes entries. -->
-
-{{site.data.keyword.attribute-definition-list}}
-
-<!-- You must add the release-note content type in your attribute definitions AND to each release note H2. 
-This will ensure that the release note entry is pulled into the notifications library. -->
-
 # Release notes for {{site.data.keyword.sqlquery_short}}
 {: #sql-query-relnotes}
 
 Use these release notes to learn about the latest {{site.data.keyword.sqlquery_full}} that are grouped by date. Release notes are available for a minimum of three years.
 {: shortdesc}
-
-## What should I include in my release note entries?
-{: #release-notes-content-include}
-{: release-note}
-
-Use a definition list to highlight each item covered in the release. Each entry should summarize the release details. 
-You want to make sure you are not re-documenting information that is already available in documentation because then you'd have to maintain it in two places. 
-If a more detailed explanation for the change exists out in a documentation page, then link out to the doc. For guidance on coding definition lists, 
-[Definition lists](https://test.cloud.ibm.com/docs/writing?topic=writing-lists#definition-lists).
-
-For detailed guidance on what to include on this page, see [Release notes guidance](https://test.cloud.ibm.com/docs/writing?topic=writing-releasenotes). 
 
 ## November 2021
 {: #sql-query-november2021}
