@@ -17,6 +17,7 @@ toc:
       topics:
       - getting-started.md
       - sql-query.md
+      - whatsnew.md
       - topic: release-notes.md
         navtitle: Release notes
       - hive_metastore.md
