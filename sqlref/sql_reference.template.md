@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-01-10"
+lastupdated: "2022-03-11"
 
 ---
 
@@ -11,61 +11,58 @@ lastupdated: "2022-01-10"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:note: .note}
 
 # SQL reference
+{: #sql-reference}
 
 ## Introduction
 {: #chapterIntroduction}
 
 With {{site.data.keyword.sqlquery_full}}, you can analyze and transform open data with SQL. It supports the various types of SELECT statements from the ANSI SQL standard.
 
-The SELECT statement (or query statement) is used to read object data from {{site.data.keyword.cos_full}} (COS),
-process the data, and store it back on Cloud {{site.data.keyword.cos_short}} eventually.
+The SELECT statement (or query statement) is used to read object data from {{site.data.keyword.cos_full}} (COS), process the data, and store it back on Cloud {{site.data.keyword.cos_short}} eventually.
 
-You can use {{site.data.keyword.sqlquery_short}} as a data transformation service, as it always writes the results of a query to a specified location in either {{site.data.keyword.cos_short}} or Db2 tables.
-{{site.data.keyword.sqlquery_short}} provides extended SQL syntax inside a special INTO clause to control how the result data is stored physically. This extended SQL syntax includes control over data location, format, layout, and partitioning.
+You can use {{site.data.keyword.sqlquery_short}} as a data transformation service, as it always writes the results of a query to a specified location in either {{site.data.keyword.cos_short}} or Db2 tables. {{site.data.keyword.sqlquery_short}} provides extended SQL syntax inside a special INTO clause to control how the result data is stored physically. This extended SQL syntax includes control over data location, format, layout, and partitioning.
 
-A query statement can be submitted through {{site.data.keyword.sqlquery_short}}'s web UI or programmatically,
-either by using the service's REST API, or by using the Python or Node.JS SDK. You can also use {{site.data.keyword.DSX_full}}
-and the Python SDK to use {{site.data.keyword.sqlquery_short}} interactively with Jupyter Notebooks. In addition, you can submit SQL queries that use {{site.data.keyword.openwhisk}}.
+A query statement can be submitted through {{site.data.keyword.sqlquery_short}}'s web UI or programmatically, either by using the service's REST API, or by using the Python or Node.JS SDK. You can also use {{site.data.keyword.DSX_full}} and the Python SDK to use {{site.data.keyword.sqlquery_short}} interactively with Jupyter Notebooks. In addition, you can submit SQL queries that use {{site.data.keyword.openwhisk}}.
 
 In addition to the ad hoc usage of data in {{site.data.keyword.cos_full}}, you can also register and manage your data in a catalog as tables, consisting of columns and partitions.
 
 Several benefits to cataloging your data exist:
-
 - It simplifies SQL SELECT statements because the SQL author does not need not know and specify exactly where and how the data is stored.
 - The SQL execution can skip the inference of schema and partitioning because this information is available in the metastore. Thus, cataloging improves your query performance, especially for text-based data formats, such as CSV and JSON, where the schema inference requires a full scan of the data before the actual query execution.
-<!-- Hide - With the *ANALYZE TABLE* command, you can gather statistics about your data, which is then used by the SQL compiler to do a cost-based optimization of the query plan, which can result in significantly improved query performance for queries on larger data volumes. -->
 
 ## Select
 {: #chapterSQLQueryStatement}
 
 See the following examples for an outline of the general syntax of an SQL query statement that uses the `query` clause and the `namedQuery` clause.
 
-<h3 id="query">query</h3>
+### query
+{: #query}
 
 <!--include-svg src="./svgfiles/query.svg" target="./diagrams/query.svg" alt="syntax diagram for a query" layout="@break@" -->
 
-<h3 id="namedQuery">namedQuery</h3>
+### namedQuery
+{: #namedQuery}
 
 <!--include-svg src="./svgfiles/namedQuery.svg" target="./diagrams/namedQuery.svg" alt="syntax diagram for a named query" layout="@break@" -->
 
-<h3 id="intoClause">intoClause</h3>
+### intoClause
+{: #intoClause}
 
 <!--include-svg src="./svgfiles/intoClause.svg" target="./diagrams/intoClause.svg" alt="syntax diagram for an INTO clause" layout="@break@" -->
 
-The query statement supports *common table expressions*. A common table expression permits defining a result table with a table name
-that can be specified as a table name in any FROM clause of the fullselect that follows.
+The query statement supports *common table expressions*. A common table expression permits defining a result table with a table name that can be specified as a table name in any FROM clause of the fullselect that follows.
 
-Common table expressions are defined by using the reserved keyword `WITH` followed by one or more *named queries*.
-Each common table expression that is specified can also be referenced by name in the FROM clause of subsequent common table expressions.
+Common table expressions are defined by using the reserved keyword `WITH` followed by one or more *named queries*. Each common table expression that is specified can also be referenced by name in the FROM clause of subsequent common table expressions.
 
-Creating a common table expression avoids the overhead of creating and dropping an intermediate result object on
-Cloud {{site.data.keyword.cos_short}} that is needed only for a certain query.
+Creating a common table expression avoids the overhead of creating and dropping an intermediate result object on Cloud {{site.data.keyword.cos_short}} that is needed only for a certain query.
 
 Moreover, a common table expression is beneficial when the same result table must be shared in a fullselect.
 
-<h3>Examples</h3>
+### Examples
+{: #examples}
 
 The common table expression examples use values clauses to define tables inline. For more information about the values clause, see [valuesClause](#valuesClause).
 
@@ -93,8 +90,7 @@ The result of the example queries is shown in the following table.
 |DEPTNO|
 |------|
 |2     |
-
-<!--table-caption title="Query result for example 'find the department with the highest total pay'"-->
+{: caption="Table 1. Query result for example: find the department with the highest total pay" caption-side="bottom"}
 
 ```sql
 -- list products with a price above the average price
@@ -126,22 +122,19 @@ FROM products WHERE price > (SELECT * FROM avg_product_price)
 | 10        | 200   |  97.5     | 102.5      |
 | 11        | 300   |  97.5     | 202.5      |
 | 12        | 400   |  97.5     | 302.5      |
-<!--table-caption title="Query result for example 'list products with a price above the average price'"-->
+{: caption="Table 2. Query result for example: list products with a price above the average price"}
 
-<h3 id="cosResultClause">cosResultClause</h3>
+### cosResultClause
+{: #cosResultClause}
 
 You can use the Cloud {{site.data.keyword.cos_short}} result clause to apply detailed control over the location, format, and layout of the SQL query result set being stored on Cloud {{site.data.keyword.cos_short}}.
 
-The default is `JOBPREFIX JOBID`, which means that `jobid=` is always appended to the target prefix.
-You can optionally specify `JOBID NONE`, which skips the appending of `jobid=`. The results are then written exactly to the requested path. However, if that path contains existing objects (for example, from a previous query execution with the same target path), all existing objects get removed when the new result objects are written.
+The default is `JOBPREFIX JOBID`, which means that `jobid=` is always appended to the target prefix. You can optionally specify `JOBID NONE`, which skips the appending of `jobid=`. The results are then written exactly to the requested path. However, if that path contains existing objects (for example, from a previous query execution with the same target path), all existing objects get removed when the new result objects are written.
 
-A query cannot run if `JOBPREFIX NONE` is specified and the target overlaps with at least one of the input URIs.
-The reason is that data cannot be overwritten by a query that is reading that same data.
-For example, `SELECT * FROM cos://us-geo/mybucket/myprefix/mysubprefix INTO cos://us-geo/mybucket/myprefix JOBPREFIX NONE`
+A query cannot run if `JOBPREFIX NONE` is specified and the target overlaps with at least one of the input URIs. The reason is that data cannot be overwritten by a query that is reading that same data. For example, `SELECT * FROM cos://us-geo/mybucket/myprefix/mysubprefix INTO cos://us-geo/mybucket/myprefix JOBPREFIX NONE`
  returns an error when you try to submit it.
 
-In the *COS result clause*, you can explicitly specify the storage location and type of a query result on Cloud {{site.data.keyword.cos_short}}.
-The storage location is specified by a `COSURI`.
+In the *COS result clause*, you can explicitly specify the storage location and type of a query result on Cloud {{site.data.keyword.cos_short}}. The storage location is specified by a `COSURI`.
 
 Valid query result object formats are: `AVRO`, `CSV`, `JSON`, `ORC`, and `PARQUET`. Object type names are not case-sensitive.
 
@@ -153,55 +146,45 @@ Being able to explicitly specify the location and the type of the result object 
 Moreover, a user can explicitly define the way a query result is stored physically on Cloud {{site.data.keyword.cos_short}} by using the *result partitioned clause*.
 
 As shown in the syntax diagrams, three main use cases exist to define the physical layout of a query's result on Cloud {{site.data.keyword.cos_short}}:
-
 - Partition by columns, that is so-called Hive-style partitioning.
 - Partition into buckets or objects (both terms can be used synonymously), that is, generate the query result into objects, with or without specifying columns.
 - Partition by number of rows.
 
 A partition is an object on Cloud {{site.data.keyword.cos_short}} that is potentially a part of an aggregated object.
-The presence of multiple partitions allows for parallel input/output (I/O) during query execution. If no *result partitioned clause* is specified,
-the query result is stored in a single partition on Cloud {{site.data.keyword.cos_short}}.
+The presence of multiple partitions allows for parallel input/output (I/O) during query execution. If no *result partitioned clause* is specified, the query result is stored in a single partition on Cloud {{site.data.keyword.cos_short}}.
 
 <!--include-svg src="./svgfiles/cosResultClause.svg" target="./diagrams/cosResultClause.svg" alt="syntax diagram for a COS result clause" layout="@break@" -->
 
-<h3 id="partitionedClause">partitionedClause</h3>
+### partitionedClause
+{: #partitionedClause}
 
 You can use the result partitioned clause to control the layout of the SQL query result set being stored. The default behavior is to store the result into one single partition, that is a single object in Cloud {{site.data.keyword.cos_short}}.
 
 <!--include-svg src="./svgfiles/partitionedClause.svg" target="./diagrams/partitionedClause.svg" alt="syntax diagram for a result partitioned clause" layout="@break@" -->
 
-<h3 id="sortClause">sortClause</h3>
+### sortClause
+{: #sortClause}
 
-This clause can be used to sort in many ways. When specified in combination with PARTITIONED BY, it sorts the rows within each partition
-by the sort order that is specified in the SORT BY clause. When specified in combination with PARTITIONED INTO, the same is done,
-which is often referred to as clustering the rows by the specified columns into the fixed number of partitions specified by PARTITIONED INTO.
-When specified without the PARTITIONED clause, it is equivalent to an ORDER BY clause specified at the top level of the SQL SELECT statement.
-If PARTITIONED INTO is specified, the ORDER BY clause is ignored.
+This clause can be used to sort in many ways. When specified in combination with PARTITIONED BY, it sorts the rows within each partition by the sort order that is specified in the SORT BY clause. When specified in combination with PARTITIONED INTO, the same is done, which is often referred to as clustering the rows by the specified columns into the fixed number of partitions specified by PARTITIONED INTO. When specified without the PARTITIONED clause, it is equivalent to an ORDER BY clause specified at the top level of the SQL SELECT statement. If PARTITIONED INTO is specified, the ORDER BY clause is ignored.
 
 <!--include-svg src="./svgfiles/sortClause.svg" target="./diagrams/sortClause.svg" alt="syntax diagram for a result partitioned column clause" layout="@break@" -->
 
+#### Partition by columns
+{: #partition-by-columns}
 
-<h4>Partition by columns</h4>
+When you use the `PARTITIONED BY (column-list)` clause without specifying `INTO x BUCKETS/OBJECTS`, you can store the query result by using Hive-style partitioning, that is, to create partitions that contain only rows that have certain values for one or more columns. Choose this physical layout if the stored object is further analyzed by using SQL queries that specify predicates on the partition columns.
 
-When you use the `PARTITIONED BY (column-list)` clause without specifying `INTO x BUCKETS/OBJECTS`, you can store the query result
-by using Hive-style partitioning, that is, to create partitions that contain only rows that have certain values for one or more columns.
-Choose this physical layout if the stored object is further analyzed by using SQL queries that specify predicates on the partition columns.
-
-For example, a result object that contains worldwide order data has a column `country` to represent the country that the order is initiated from.
-Partitioning the result object by the column `PARTITIONED BY (country)`, would create a result object with a partition for each country present in the query result.
+For example, a result object that contains worldwide order data has a column `country` to represent the country that the order is initiated from. Partitioning the result object by the column `PARTITIONED BY (country)`, would create a result object with a partition for each country present in the query result.
 
 When the result object is stored this way on Cloud {{site.data.keyword.cos_short}}, each SQL query that contains a predicate, such as `country = 'USA'` or `country in ('MALTA', 'ITALY', 'VATICAN CITY')`, benefits from this physical layout. The reason is that during SQL query execution partitions must be read only if they contain data for the countries of interest. This layout tremendously cuts down the I/O traffic of the SQL query.
 
 Some additional remarks on Hive-style partitioning:
-
 - Hive-style partitions have an eye-catching naming scheme because the column names that are used for partitioning are part of the partition object prefix, for example, `/order/COUNTRY=USA/part-m-00000.snappy.parquet`.
-- Hive-style partitions do not contain any values for partition columns since their values are *stored* in the object prefix of the partition.
-Thus, if you copy a HIVE-style partition and rename the object prefix by removing the partition column values, you lose data.
-- Hive-style partitions have a tendency for data skewing. For example, the partition that represents order data from Malta is likely much smaller
-than the partition that represents order data from the US. You can partition the query result into separate objects if you want to have *equally-sized* partitions.
+- Hive-style partitions do not contain any values for partition columns since their values are *stored* in the object prefix of the partition. Thus, if you copy a HIVE-style partition and rename the object prefix by removing the partition column values, you lose data.
+- Hive-style partitions have a tendency for data skewing. For example, the partition that represents order data from Malta is likely much smaller than the partition that represents order data from the US. You can partition the query result into separate objects if you want to have *equally-sized* partitions.
 
-
-<h4>Partition by columns into objects</h4>
+#### Partition by columns into objects
+{: #partition-by-columns-into-objects}
 
 By partitioning a query result into objects, you can specify the exact number of *equally-sized* result partitions. With this partitioning, you can experimentally fine-tune the number of objects to meet certain criteria for partition size. To specify the number of partitions, use the `PARTITIONED INTO x BUCKETS/OBJECTS` clause.
 
@@ -209,47 +192,42 @@ For example, knowing the size of the query result, it is possible to calculate t
 
 The `INTO x BUCKETS/OBJECTS` clause can be combined with the `BY (column-list)` clause to create some partitions that support data affinity regarding specified partition columns.
 
-Continue with the preceding example that specifies `PARTITION BY (customerid) INTO 10 OBJECTS` stores the query result into ten objects, which ensures that all data for a customer
-is stored in the same partition. Although it is ensured that all data for a certain customer is stored in the same partition,
-it is not ensured that the data is physically sorted according to the specified column.
+Continue with the preceding example that specifies `PARTITION BY (customerid) INTO 10 OBJECTS` stores the query result into ten objects, which ensures that all data for a customer is stored in the same partition. Although it is ensured that all data for a certain customer is stored in the same partition, it is not ensured that the data is physically sorted according to the specified column.
 
-<h4>Partition by number of rows</h4>
+#### Partition by number of rows
+{: #partition-by-number-of-rows}
 
-By partitioning by number of rows you can specify the number of rows that go into a single partition. To specify the number of rows stored in each partition,
-use the `EVERY x ROWS` clause. In case the row length of the result object is not varying heavily, with the *partition every rows* clause you can also create *almost equally-sized* result partitions.
+By partitioning by number of rows you can specify the number of rows that go into a single partition. To specify the number of rows stored in each partition, use the `EVERY x ROWS` clause. In case the row length of the result object is not varying heavily, with the *partition every rows* clause you can also create *almost equally-sized* result partitions.
 
 The use of the `PARTITIONED EVERY x ROWS` clause on a sorted query result ensures that partitions are created to have some rows that are sorted according to the query's `SORT BY` clause. This physical layout can be useful to create partitions that are processed by an application in a pagination manner, for example, browsing order data sorted by *order date* and *customer ID*.
 
 The use of `PARTITIONED EVERY x ROWS` clause causes data to be written single-threaded to Cloud {{site.data.keyword.cos_short}}, which means that no parallel I/O is performed to write query results to Cloud {{site.data.keyword.cos_short}}.
 
-<h3 id="dbResultClause">dbResultClause</h3>
+### dbResultClause
+{: #dbResultClause}
 
-You can use the Db result clause to specify that you want query results to be stored as a relational database table in {{site.data.keyword.Bluemix_notm}}.
-Currently, {{site.data.keyword.Db2_on_Cloud_long}} is the only supported target database.
+You can use the Db result clause to specify that you want query results to be stored as a relational database table in {{site.data.keyword.Bluemix_notm}}. Currently, {{site.data.keyword.Db2_on_Cloud_long}} is the only supported target database.
 
-Storing query results in a database creates a new table with the columns that are determined by the query result. When you write to Db2,
-the following type-mapping rules apply:
+Storing query results in a database creates a new table with the columns that are determined by the query result. When you write to Db2, the following type-mapping rules apply:
 - String types are mapped to VARCHAR(32000) columns.
 - Struct types are not mapped and must be flattened first. See the `FLATTEN` [table transformation function](#tableTransformer).
 - Arrays, time series, and spatial data types are not mapped and must be converted with appropriate SQL functions.
 
-The table name and optional schema are specified as part of the target URI.
-**Important**: If a table with the name that is indicated exists in the target database, that table is dropped before the query executes
-and all existing data is deleted.
+The table name and optional schema are specified as part of the target URI. **Important**: If a table with the name that is indicated exists in the target database, that table is dropped before the query executes and all existing data is deleted.
 
 Use the `PARALLELISM x` clause to specify that multiple parallel database connections are to be opened to write out the result. Depending on the size of your result and the network connectivity of your target database service, this clause can reduce the query processing time significantly.
 
 <!--include-svg src="./svgfiles/dbResultClause.svg" target="./diagrams/dbResultClause.svg" alt="syntax diagram for a Db2 result clause" layout="@break@" -->
 
-<h3 id="accessSecrets">accessSecrets</h3>
+### accessSecrets
+{: #accessSecrets}
 
-By default, either the credentials that are needed to access the target database are taken from the credentials object of a `CRN_URI`, or the IAM user who submits the statement is used to connect to the `DB2_TABLE_URI`.
-You can override this default by specifying either a combination of `USER` and `PASSWORD` or an `APIKEY`. However, the password or API key is **not** included in the SQL statement as plain text. Instead, you must store it as a custom key in a {{site.data.keyword.keymanagementservicefull}} instance to which you have access.
-For a description how to store and manage the secrets in {{site.data.keyword.keymanagementserviceshort}}, see [Setting up custom secrets in Key Protect](/docs/sql-query?topic=sql-query-kpsetup).
+By default, either the credentials that are needed to access the target database are taken from the credentials object of a `CRN_URI`, or the IAM user who submits the statement is used to connect to the `DB2_TABLE_URI`. You can override this default by specifying either a combination of `USER` and `PASSWORD` or an `APIKEY`. However, the password or API key is **not** included in the SQL statement as plain text. Instead, you must store it as a custom key in a {{site.data.keyword.keymanagementservicefull}} instance to which you have access. For a description how to store and manage the secrets in {{site.data.keyword.keymanagementserviceshort}}, see [Setting up custom secrets in Key Protect](/docs/sql-query?topic=sql-query-kpsetup).
 
 <!--include-svg src="./svgfiles/accessSecrets.svg" target="./diagrams/accessSecrets.svg" alt="syntax diagram for a Db2 result clause" layout="@break@" -->
 
-<h3>More topics</h3>
+### More topics - query
+{: #more-topics-query}
 
 For more information about clauses that are used in a *query*, see the following topics:
 - [COSURI](#COSURI)
@@ -260,7 +238,8 @@ For more information about clauses that are used in a *query*, see the following
 - [namedQuery](#namedQuery)
 - [query](#query)
 
-<h3>Related references</h3>
+### Related references - query
+{: #related-references-query}
 
 A *query* is referenced by the following clauses:
 - [booleanExpression](#booleanExpression)
@@ -268,11 +247,11 @@ A *query* is referenced by the following clauses:
 - [predicate](#predicate)
 - [primaryExpression](#primaryExpression)
 
-
 ### Fullselect Clause
 {: #chapterFullSelectClause}
 
-<h3 id="fullselect">fullselect</h3>
+### fullselect
+{: #fullselect}
 
 A *fullselect* is the core component of a *query*. It is the only mandatory general component for a valid query statement. The other components outside of *fullselect* are optional. Its syntax is defined by the following syntax diagram.
 
@@ -296,21 +275,16 @@ The following combinations of set operators and set modifiers are not supported:
 - `MINUS ALL`
 
 The characteristics of a result set defined by a fullselect can be further defined by using the following clauses:
-- `ORDER BY`: Define an overall ordering of the result set based on the criteria that are defined by the list of `sortItem` clauses.
-The default order direction is ascending if not explicitly specified by a `sortItem` clause. The *order by* clause
-cannot be used with *cluster by*, *distribute by*, or *sort by* clause.
-When you use partitioned output, the `ORDER BY` clause gets ignored. Use the `sortClause` instead.
-- `DISTRIBUTE BY`: Distribute result set rows into new partitions based on the criteria that are defined by the list of `expression` clauses.
-Result set rows that have the same expression values are moved to the same partition. The *distribute by* clause cannot be used with *order by* or *cluster by* clause.
-- `SORT BY`: You can define an overall ordering on a partition base as defined by the list of `expression` clauses.
-The default order direction is ascending if not explicitly specified by an `expression` clause. The *sort by* clause is used along with the *distribute by* clause.
+- `ORDER BY`: Define an overall ordering of the result set based on the criteria that are defined by the list of `sortItem` clauses. The default order direction is ascending if not explicitly specified by a `sortItem` clause. The *order by* clause cannot be used with *cluster by*, *distribute by*, or *sort by* clause. When you use partitioned output, the `ORDER BY` clause gets ignored. Use the `sortClause` instead.
+- `DISTRIBUTE BY`: Distribute result set rows into new partitions based on the criteria that are defined by the list of `expression` clauses. Result set rows that have the same expression values are moved to the same partition. The *distribute by* clause cannot be used with *order by* or *cluster by* clause.
+- `SORT BY`: You can define an overall ordering on a partition base as defined by the list of `expression` clauses. The default order direction is ascending if not explicitly specified by an `expression` clause. The *sort by* clause is used along with the *distribute by* clause.
 - `CLUSTER BY`: Distribute result set rows into new partitions based on the criteria that are defined by the list of `expression` clauses. Moreover, each partition is sorted in ascending order based on the criteria that are defined by the set of `expression` clauses. Thus, this clause represents a shortcut for *distribute by* clause that is combined with *sort by* in ascending order. You cannot use the *cluster by* attribute with the *order by*, *distribute by*, *sort by* clause.
 - `LIMIT`: Restrict the number of rows that are returned from the result set of the fullselect. The number of rows can be defined by an `expression` or by using the keyword `ALL` that causes all rows to be returned.
 
-`DISTRIBUTE BY`, `SORT BY`, and `CLUSTER BY` have an effect only during your SQL query execution and do not influence the query result that is written back to Cloud {{site.data.keyword.cos_short}}. Use these clauses only in execution of subqueries to optimize the outer
-query execution that works on the intermediate result sets produced by the sub queries. To define the persistent target of the overall query that is written back to Cloud {{site.data.keyword.cos_short}}, you need to use the dedicated [resultClause](#resultClause) instead.
+`DISTRIBUTE BY`, `SORT BY`, and `CLUSTER BY` have an effect only during your SQL query execution and do not influence the query result that is written back to Cloud {{site.data.keyword.cos_short}}. Use these clauses only in execution of subqueries to optimize the outer query execution that works on the intermediate result sets produced by the sub queries. To define the persistent target of the overall query that is written back to Cloud {{site.data.keyword.cos_short}}, you need to use the dedicated [resultClause](#resultClause) instead.
 
-<h3>Examples</h3>
+### Examples - values clause
+{: #examples-values-clause}
 
 The set operator examples use values clauses to define result sets for the set operations. For more information about the values clause, see [valuesClause](#valuesClause).
 
@@ -333,7 +307,7 @@ The result of the example queries is shown in the following table.
 |1     |
 |3     |
 |2     |
-<!--table-caption title="Query result for example 'set union eliminating duplicate rows'"-->
+{: caption="Table 3. Query result for example: set union eliminating duplicate rows" caption-side="bottom"}
 
 ```sql
 -- set union with duplicate rows
@@ -351,7 +325,7 @@ The result of the example query is shown in the following table.
 |1   |
 |2   |
 |3   |
-<!--table-caption title="Query result for example 'set union with duplicate rows'"-->
+{: caption="Table 4. Query result for example: set union with duplicate rows" caption-side="bottom"}
 
 ```sql
 -- intersecting set eliminating duplicate rows
@@ -371,7 +345,7 @@ The result of the example queries is shown in the following table.
 |----|
 |3   |
 |2   |
-<!--table-caption title="Query result for example 'intersecting set eliminating duplicate rows'"-->
+{: caption="Table 5. Query result for example: intersecting set eliminating duplicate rows" caption-side="bottom"}
 
 ```sql
 -- Difference quantity eliminating duplicate rows
@@ -402,9 +376,10 @@ The result of the example queries is shown in the following table.
 |COL1|
 |----|
 |1   |
-<!--table-caption title="Query result for example 'difference quantity eliminating duplicate rows'"-->
+{: caption="Table 6. Query result for example: difference quantity eliminating duplicate rows" caption-side="bottom"}
 
-<h3>More topics</h3>
+### More topics - fullselect
+{: #more-topics-fullselect}
 
 For more information about the clauses that are used in a *fullselect*, see the following topics:
 - [expression](#expression)
@@ -414,9 +389,10 @@ For more information about the clauses that are used in a *fullselect*, see the 
 - [sortItem](#sortItem)
 - [valuesClause](#valuesClause)
 
-<h3>Related references</h3>
+### Related references - fullselect
+{: #more-topics-fullselect}
 
-A *fullselect- is referenced by the following clauses:
+A *fullselect* is referenced by the following clauses:
 - [fullselect](#fullselect)
 - [query](#query)
 - [relationPrimary](#relationPrimary)
@@ -426,7 +402,8 @@ A *fullselect- is referenced by the following clauses:
 
 A *simpleselect* is a component of a *fullselect*. Its syntax is defined by the following syntax diagram.
 
-<h3 id="simpleselect">simpleselect</h3>
+### simpleselect
+{: #simpleselect}
 
 <!--include-svg src="./svgfiles/simpleselect.svg" target="./diagrams/simpleselect.svg" alt="syntax diagram for a simpleselect" layout="@break@"-->
 
@@ -439,7 +416,8 @@ With a *simpleselect*, you can specify the following characteristics of a result
 - In its simplest form, the `GROUP BY` clause defines how rows that qualify for the final result set are grouped based on *grouping expressions*. Each group is represented by a single row in the final result set.
 - The `HAVING` clause is used with the *group by clause* to filter out groups from the final result set.
 
-<h3 id="resultColumn">resultColumn</h3>
+### resultColumn
+{: #resultColumn}
 
 <!--include-svg src="./svgfiles/resultColumn.svg" target="./diagrams/resultColumn.svg" alt="syntax diagram for a result column" layout="@break@" -->
 
@@ -449,13 +427,16 @@ See the following examples for such expressions:
 - An expression that uses column names from one or multiple relations.
 - Arithmetic expressions that perform calculations.
 
-<h3>Group By Clause</h3>
+### Group by clause
+{: #group-by-clause}
 
-<h4 id="groupByClause">groupByClause</h4>
+#### groupByClause
+{: #groupByClause}
 
 <!--include-svg src="./svgfiles/groupByClause.svg" target="./diagrams/groupByClause.svg" alt="syntax diagram for a group by clause" layout="@break@" -->
 
-<h4 id="groupingSet">groupingSet</h4>
+#### groupingSet
+{: #groupingSet}
 
 <!--include-svg src="./svgfiles/groupingSet.svg" target="./diagrams/groupingSet.svg" alt="syntax diagram for a grouping set" layout="@break@" -->
 
@@ -484,7 +465,6 @@ ORDER BY year, quarter
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |YEAR|QUARTER|AMOUNT|
@@ -493,13 +473,11 @@ The result of the example query is shown in the following table.
 |2017|2      |500   |
 |2018|1      |400   |
 |2018|2      |400   |
-<!--table-caption title="Query result for example 'grouping sales data per year and quarter'"-->
+{: caption="Table 7. Query result for example: grouping sales data per year and quarter" caption-side="bottom"}
 
-A ROLLUP grouping is an extension to the *group by clause* that produces a result set containing subtotal rows in addition to the *regular* grouped rows.
-A `GROUP BY COL1, COL2 WITH ROLLUP` generates the following grouping sets: **(COL1, COL2)**, **(COL1)**, **()**. The **N** grouping expressions of the ROLLUP convert to **N+1** grouping sets.
+A ROLLUP grouping is an extension to the *group by clause* that produces a result set containing subtotal rows in addition to the *regular* grouped rows. A `GROUP BY COL1, COL2 WITH ROLLUP` generates the following grouping sets: **(COL1, COL2)**, **(COL1)**, **()**. The **N** grouping expressions of the ROLLUP convert to **N+1** grouping sets.
 
-Referring to the preceding example, adding a `WITH ROLLUP` modifier to the *group by* clause computes *rollup* sales data on quarter by year basis,
-a yearly basis, and a grand total as shown by the following example.
+Referring to the preceding example, adding a `WITH ROLLUP` modifier to the *group by* clause computes *rollup* sales data on quarter by year basis, a yearly basis, and a grand total as shown by the following example.
 
 ```sql
 -- rollup sales data on quarter by year basis, a yearly basis, and a grand total
@@ -521,7 +499,6 @@ ORDER BY year, quarter
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |YEAR|QUARTER|AMOUNT|
@@ -533,11 +510,9 @@ The result of the example query is shown in the following table.
 |2018|null   |800   |
 |2018|1      |400   |
 |2018|2      |400   |
-<!--table-caption title="Query result for example 'rollup sales data on quarter by year basis, a yearly basis and a grand total'"-->
+{: caption="Table 8. Query result for example: rollup sales data on quarter by year basis, a yearly basis and a grand total" caption-side="bottom"}
 
-A CUBE grouping is an extension to the *group by* clause that produces a result set that contains all the rows of a ROLLUP aggregation and
-in addition, grouping sets that do not represent a subtotal or grand total. A `GROUPY BY COL1, COL2 WITH CUBE` generates the following grouping sets:
-**(COL1, COL2)**, **(COL1)**, **(COL2)**, **()**. The **N** elements of a CUBE convert to **2\*\*N** (2 to the power N) grouping sets.
+A CUBE grouping is an extension to the *group by* clause that produces a result set that contains all the rows of a ROLLUP aggregation and in addition, grouping sets that do not represent a subtotal or grand total. A `GROUPY BY COL1, COL2 WITH CUBE` generates the following grouping sets: **(COL1, COL2)**, **(COL1)**, **(COL2)**, **()**. The **N** elements of a CUBE convert to **2\*\*N** (2 to the power N) grouping sets.
 
 Referring to the preceding example, adding a `WITH CUBE` modifier to the *group by* clause computes *rollup* sales data on a quarter by year basis, a yearly basis,
 a quarterly year-independent basis and a grand total as shown by the following example.
@@ -563,7 +538,6 @@ ORDER BY year, quarter
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |YEAR|QUARTER|AMOUNT|
@@ -577,7 +551,7 @@ The result of the example query is shown in the following table.
 |2018|null   |800   |
 |2018|1      |400   |
 |2018|2      |400   |
-<!--table-caption title="Query result for example 'rollup sales data on a quarter by year basis, a yearly basis, a quarterly year-independent basis and a grand total'"-->
+{: caption="Table 9. Query result for example: rollup sales data on a quarter by year basis, a yearly basis, a quarterly year-independent basis and a grand total" caption-side="bottom"}
 
 With a GROUPING SETS grouping, an extension to the *group by* clause, you can explicitly specify the grouping sets of interest. In other words, the ROLLUP and the CUBE groupings are shortcuts for common grouping set use cases.
 
@@ -603,7 +577,6 @@ ORDER BY year, quarter
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |YEAR|QUARTER|AMOUNT|
@@ -614,9 +587,10 @@ The result of the example query is shown in the following table.
 |2018|null   |800   |
 |2018|1      |400   |
 |2018|2      |400   |
-<!--table-caption title="Query result for example 'rollup sales data on a quarter by year basis and a yearly basis only'"-->
+{: caption="Table 10. Query result for example: rollup sales data on a quarter by year basis and a yearly basis only" caption-side="bottom"}
 
-<h3>More topics</h3>
+### More topics - simpleselect
+{: #more-topics-simpleselect}
 
 For more information about the clauses that are used in a *simpleselect*, see the following topics:
 - [booleanExpression](#booleanExpression)
@@ -627,7 +601,8 @@ For more information about the clauses that are used in a *simpleselect*, see th
 - [relation](#relation)
 - [resultColumn](#resultColumn)
 
-<h3>Related references</h3>
+### Related references - simpleselect
+{: #related-references-simpleselect}
 
 A *simpleselect* is referenced by the following clause:
 
@@ -638,7 +613,8 @@ A *simpleselect* is referenced by the following clause:
 
 *Sort items* are a component of a *fullselect* or a *window specification*.
 
-<h3 id="sortItem">sortItem</h3>
+### sortItem
+{: #sortItem}
 
 <!--include-svg src="./svgfiles/sortItem.svg" target="./diagrams/sortItem.svg" alt="syntax diagram for a sort item" layout="@break@" -->
 
@@ -650,12 +626,14 @@ The semantics of the *sort item* components are as follows:
     - `FIRST`: Specifies that `NULL` values appear first in the order.
     - `LAST`: Specifies that `NULL` values appear last in the order.
 
-<h3>More topics</h3>
+### More topics - expression clause
+{: #more-topics-expression} 
 
 For more information about the clauses that are used in an *expression* clause, see the following topic:
 - [expression](#expression)
 
-<h3>Related references</h3>
+### Related references - sort item clause
+{: #related-references-sort-item} 
 
 A *sort item clause* is referenced by the following clauses:
 - [fullselect](#fullselect)
@@ -672,15 +650,18 @@ Specifying the physical data stored on Cloud {{site.data.keyword.cos_short}} as 
 
 Multiple relations can be composed by using join operators. The syntax for joining relations is defined by the following syntax diagrams.
 
-<h3 id="relation">relation</h3>
+### relation
+{: #relation}
 
 <!--include-svg src="./svgfiles/relation.svg" target="./diagrams/relation.svg" alt="syntax diagram for a relation" layout="@break@" -->
 
-<h3 id="joinClause">joinClause</h3>
+### joinClause
+{: #joinClause}
 
 <!--include-svg src="./svgfiles/joinClause.svg" target="./diagrams/joinClause.svg" alt="syntax diagram for a join clause" layout="@break@" -->
 
-<h3 id="naturalJoinClause">naturalJoinClause</h3>
+### naturalJoinClause
+{: #naturalJoinClause}
 
 <!--include-svg src="./svgfiles/naturalJoinClause.svg" target="./diagrams/naturalJoinClause.svg" alt="syntax diagram for a natural join clause" layout="@break@" -->
 
@@ -690,11 +671,13 @@ Apart from the join type, the following two different types of joins exist:
 - Joins that specify a *join condition* by using a `booleanExpression` or a `USING clause`.
 - `NATURAL` joins that make an implicit guess on which columns to use for joining relations. Use natural joins carefully.
 
-<h3 id="relationPrimary">relationPrimary</h3>
+### relationPrimary
+{: #relationPrimary}
 
 <!--include-svg src="./svgfiles/relationPrimary.svg" target="./diagrams/relationPrimary.svg" alt="syntax diagram for a relation primary" layout="@break@" -->
 
-<h3 id="externalTableSpec">externalTableSpec</h3>
+### externalTableSpec
+{: #externalTableSpec}
 
 An external table specification represents an URI for an object that is stored on Cloud {{site.data.keyword.cos_short}} combined with a specification of the object type. Valid values for object type identifier are `AVRO`, `CSV`, `JSON`, `ORC`, or `PARQUET`.
 
@@ -710,14 +693,14 @@ All single Unicode characters are allowed as delimiters.
 
 By default, it is assumed that CSV input objects have a header line that specifies the names of the input columns. If the objects don't have a header line, you must specify the option `NOHEADER` in the `STORED AS CSV` clause. In this case, the names _C0, _C1, ... are used for the input columns. For more information, see [COS URI](#COSURI).
 
-By default, if the format of the input data is JSON, each line must contain a separate, self-contained, and valid JSON object, also called newline-delimited JSON.
-However, if you specify the option `MULTILINE`, {{site.data.keyword.sqlquery_short}} can process JSON input data even if individual data records span multiple lines, such as when the data was formatted to make it easier to read. Specify this option only if you really need it because it limits input parallelization and can significantly reduce performance when you process large volumes of JSON data. If you need to frequently query large amounts of multiline JSON data, use {{site.data.keyword.sqlquery_short}} to transform the data into single -line JSON, or into a more performance optimized format, such as Parquet, before querying the transformed data.
+By default, if the format of the input data is JSON, each line must contain a separate, self-contained, and valid JSON object, also called newline-delimited JSON. However, if you specify the option `MULTILINE`, {{site.data.keyword.sqlquery_short}} can process JSON input data even if individual data records span multiple lines, such as when the data was formatted to make it easier to read. Specify this option only if you really need it because it limits input parallelization and can significantly reduce performance when you process large volumes of JSON data. If you need to frequently query large amounts of multiline JSON data, use {{site.data.keyword.sqlquery_short}} to transform the data into single -line JSON, or into a more performance optimized format, such as Parquet, before querying the transformed data.
 
 If the file format is Parquet, with the optional `MERGE SCHEMA` clause you can handle Parquet schema evolution by specifying to scan all qualifying Parquet objects for their schema, and to merge the final schema across all objects. By default, for Parquet input only the first Parquet object that is found is used to infer the schema, which guarantees minimal overhead for compiling the SQL. Thus, use this option if your Parquet input data does not have a homogeneous schema.
 
 <!--include-svg src="./svgfiles/externalTableSpec.svg" target="./diagrams/externalTableSpec.svg" alt="syntax diagram for an external table specification" layout="@break@" -->
 
-<h3 id="timeSeriesProperties">timeSeriesProperties</h3>
+### timeSeriesProperties
+{: #timeSeriesProperties}
 
 The TIME_SERIES_FORMAT option triggers a read transformation mechanism that uses a set of timeSeriesProperties to dynamically generate one or more native time series columns (defined by the IN clause) from the specified value and key columns of the input data.
 
@@ -727,15 +710,13 @@ The parameters `timetick` and `value` are the only parameters that are required 
 
 Following you see the descriptions of each parameter and how they affect the time series:
 
-- `timetick`: The column that contains the timestamp or `timetick`. Ultimately, the resulting time series is sorted by this column.
-If two rows contain the same `timetick`, it is uncertain which `timetick` comes first in the time series.
+- `timetick`: The column that contains the timestamp or `timetick`. Ultimately, the resulting time series is sorted by this column. If two rows contain the same `timetick`, it is uncertain which `timetick` comes first in the time series.
 
 - `value`: The column that contains the value.
 
 - `key`: Optionally specify a `key` column that you can use to group each time series by. If a `key` is indicated, you can assume that *n* time series are created, where *n* is the set of all keys in the `key` column. If no `key` column is specified, a single time series is created from the indicated data set.
 
-- `starttime`: Optionally specify a `starttime` string (any properly formatted [`DateTime`](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html))
-for which to set the time series [TRS](/docs/sql-query?topic=sql-query-TRS). If `starttime` is not indicated, and `granularity` is indicated, the `starttime` defaults to 1 January 1970 12am (midnight) GMT. However, if no `granularity` is indicated, a [TRS](/docs/sql-query?topic=sql-query-TRS) is not associated with the created time series.
+- `starttime`: Optionally specify a `starttime` string (any properly formatted [`DateTime`](https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html)) for which to set the time series [TRS](/docs/sql-query?topic=sql-query-TRS). If `starttime` is not indicated, and `granularity` is indicated, the `starttime` defaults to 1 January 1970 12am (midnight) GMT. However, if no `granularity` is indicated, a [TRS](/docs/sql-query?topic=sql-query-TRS) is not associated with the created time series.
 
 - `granularity`: Optionally specify a `granularity` string (a properly formatted ISO-8601 duration format) for which to set the time series reference system [TRS](/docs/sql-query?topic=sql-query-TRS). If `granularity` is not indicated, and `starttime` is indicated, the default `granularity` is 1 millisecond. However, if no `starttime` is indicated, a [TRS](/docs/sql-query?topic=sql-query-TRS) is not associated with the created time series.
 
@@ -743,7 +724,7 @@ The following examples show you how to use TIME_SERIES_FORMAT parameters for dyn
 
 Create a time series per location, set the time series TRS with default start time and 1 ms granularity, and store with it with the name "ts".
 
-```
+```sql
 SELECT
 	location,
 	ts
@@ -751,10 +732,9 @@ FROM cos://us-geo/sql/temperature_humidity.csv
 USING TIME_SERIES_FORMAT(key="location", timetick="timestamp", value="humidity", granularity="PT0.001S") in ts
 ```
 
-Create a time series per location, set the time series TRS with start time "2011-12-03T10:15:30" and default granularity (1 ms), and store it
-with the name "ts".
+Create a time series per location, set the time series TRS with start time "2011-12-03T10:15:30" and default granularity (1 ms), and store it with the name "ts".
 
-```
+```sql
 SELECT
 	location,
 	ts
@@ -762,10 +742,9 @@ FROM cos://us-geo/sql/temperature_humidity.csv
 USING TIME_SERIES_FORMAT(key="location", timetick="timestamp", value="humidity", starttime="2011-12-03T10:15:30") in ts
 ```
 
-Create a time series per location with no TRS, store it with the name "ts".
-If no granularity or start time is provided, a TRS is not associated with the time series and therefore with_trs runs into exception.
+Create a time series per location with no TRS, store it with the name "ts". If no granularity or start time is provided, a TRS is not associated with the time series and therefore with_trs runs into exception.
 
-```
+```sql
 SELECT
 	location,
 	ts
@@ -773,10 +752,9 @@ FROM cos://us-geo/sql/temperature_humidity.csv
 USING TIME_SERIES_FORMAT(key="location", timetick="timestamp", value="humidity") in ts
 ```
 
-Create a single time series, store it with the default name "time_series".
-Without specifying a key, it is not possible to create multiple time series.
+Create a single time series, store it with the default name "time_series". Without specifying a key, it is not possible to create multiple time series.
 
-```
+```sql
 SELECT
 	location,
 	time_series
@@ -786,14 +764,12 @@ USING TIME_SERIES_FORMAT(timetick="timestamp", value="humidity")
 
 <!--include-svg src="./svgfiles/timeSeriesOptions.svg" target="./diagrams/timeSeriesOptions.svg" alt="syntax diagram for time series options" layout="@break@" -->
 
-<h3 id="tableTransformer">tableTransformer</h3>
+### tableTransformer
+{: #tableTransformer}
 
 A table transformer is a function that is applied to the input data set before it is sent to the actual SQL query compilation and execution.
 
-You can wrap your external table definition optionally with the `FLATTEN` table transformation function.
-It preprocesses your input table before query compilation to a fully flat column schema.
-This table transformation function can be useful when you have hierarchical input data as it is often found in JSON documents.
-By using `FLATTEN`, you do not need to dereference all nested columns explicitly in your SQL statement.
+You can wrap your external table definition optionally with the `FLATTEN` table transformation function. It preprocesses your input table before query compilation to a fully flat column schema. This table transformation function can be useful when you have hierarchical input data as it is often found in JSON documents. By using `FLATTEN`, you do not need to dereference all nested columns explicitly in your SQL statement.
 
 For example, you can run a simple `SELECT * FROM FLATTEN(cos://us-geo/sql/iotmessages STORED AS JSON)` on a flattened JSON
 input and use CSV output to easily browse a sample of your JSON input data.
@@ -801,32 +777,30 @@ input and use CSV output to easily browse a sample of your JSON input data.
 The `FLATTEN` table transformation function creates a flat list of columns by concatenating all nested column names with _.
 You can optionally also combine `FLATTEN` with `CLEANCOLS`.
 
-You can wrap your external table definition optionally with the `CLEANCOLS` table transformation function.
-It preprocesses your input table before query compilation by renaming all columns that have characters that are NOT supported by certain target formats, such as Parquet.
-These characters are `,`, `;`, `,,,`, `=`, `(`, `)`, `{`, and `}`. They are replaced by the corresponding URL-encoded representation, for example, %20 for space (` `).
-This function allows you to write results, for example, into Parquet, without the need to provide column by column alias names in your SQL when your input data has columns with these characters. A typical situation is the existence of space (` `) in input columns.
+You can wrap your external table definition optionally with the `CLEANCOLS` table transformation function. It preprocesses your input table before query compilation by renaming all columns that have characters that are NOT supported by certain target formats, such as Parquet. These characters are `,`, `;`, `,,,`, `=`, `(`, `)`, `{`, and `}`. They are replaced by the corresponding URL-encoded representation, for example, %20 for space (` `). This function allows you to write results, for example, into Parquet, without the need to provide column by column alias names in your SQL when your input data has columns with these characters. A typical situation is the existence of space (` `) in input columns.
 
 For example, you can use `SELECT * FROM CLEANCOLS(cos://us-geo/sql/iotmessages STORED AS JSON) INTO cos://us-geo/mybucket/myprefix STORED AS PARQUET` to produce a result set that can be stored as is into Parquet target format.
 
-If you wrap your external table definition with the `DESCRIBE` table transformer,
-the table does not show its actual content but the schema that is inferred from the objects in {{site.data.keyword.cos_full}} instead. With this function you can explore the schema before you author your actual SQL statements against it.
+If you wrap your external table definition with the `DESCRIBE` table transformer, the table does not show its actual content but the schema that is inferred from the objects in {{site.data.keyword.cos_full}} instead. With this function you can explore the schema before you author your actual SQL statements against it.
 
 When you use the `DESCRIBE` table transformer in your SQL statement, the default output format is JSON instead of CSV.
 
-You can also wrap `DESCRIBE` around the other table transformers to explore the transformed table schema.
-However, you cannot wrap other table transformers around the `DESCRIBE` transformer.
+You can also wrap `DESCRIBE` around the other table transformers to explore the transformed table schema. However, you cannot wrap other table transformers around the `DESCRIBE` transformer.
 
 <!--include-svg src="./svgfiles/tableTransformer.svg" target="./diagrams/tableTransformer.svg" alt="syntax diagram for an table transformer" layout="@break@" -->
 
-<h3 id="tableValuedFunction">tableValuedFunction</h3>
+### tableValuedFunction
+{: #tableValuedFunction}
 
 A table-valued function returns a relation, that is, a set of rows. An example of a table-valued function is `range()`. For more information, see [SQL functions](/docs/sql-query?topic=sql-query-sqlfunctions#sqlfunctions).
 
 <!--include-svg src="./svgfiles/tableValuedFunction.svg" target="./diagrams/tableValuedFunction.svg" alt="syntax diagram for a table valued function" layout="@break@" -->
 
-<h3>More topics</h3>
+### More topics - relation clause
+{: #more-topics-relation}
 
 For more information about the clauses that are used in *relation* clauses, see the following topics:
+
 - [booleanExpression](#booleanExpression)
 - [COSURI](#COSURI)
 - [expression](#expression)
@@ -836,7 +810,8 @@ For more information about the clauses that are used in *relation* clauses, see 
 - [sample](#sample)
 - [valuesClause](#valuesClause)
 
-<h3>Related references</h3>
+### Related references - Clauses in a relation clause
+{: #related-references-relation}
 
 A *relation* is referenced by the following clause:
 
@@ -847,7 +822,8 @@ A *relation* is referenced by the following clause:
 
 A *values clause* is a component of a *fullselect* or represents a *primary relation*. Its syntax is defined by the following syntax diagram.
 
-<h3 id="valuesClause">valuesClause</h3>
+### valuesClause
+{: #valuesClause}
 
 <!--include-svg src="./svgfiles/valuesClause.svg" target="./diagrams/valuesClause.svg" alt="syntax diagram for a values clause" layout="@break@" -->
 
@@ -869,7 +845,6 @@ SELECT * FROM VALUES 1, 2 , 3
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |COL1|
@@ -877,7 +852,7 @@ The result of the example query is shown in the following table.
 |1   |
 |2   |
 |3   |
-<!--table-caption title="Query result for example 'single column result set with 3 rows'"-->
+{: caption="Table 11. Query result for example: single column result set with 3 rows" caption-side="bottom"}
 
 ```sql
 -- single column result set with 3 rows specifying parentheses for row expressions
@@ -885,7 +860,6 @@ SELECT * FROM VALUES (1), (2) , (3)
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |COL1|
@@ -893,7 +867,7 @@ The result of the example query is shown in the following table.
 |1   |
 |2   |
 |3   |
-<!--table-caption title="Query result for example 'single column result set with 3 rows specifying parentheses for row expressions'"-->
+{: caption="Table 12. Query result for example: single column result set with 3 rows specifying parentheses for row expressions" caption-side="bottom"}
 
 ```sql
 --- joining two multi column result sets by using their identifier
@@ -916,7 +890,6 @@ WHERE emp.col1 = mission.col1
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |ID |NAME  |MISSIONS|
@@ -925,13 +898,12 @@ The result of the example query is shown in the following table.
 |2  |Kirk  |2000    |
 |3  |McCoy |3000    |
 |4  |Scotty|4000    |
-<!--table-caption title="Query result for example 'joining two multi column result sets by using their identifier'"-->
+{: caption="Table 13. Query result for example: joining two multi column result sets by using their identifier" caption-side="bottom"}
 
 ### Values Statement
 {: #chapterValuesStatement}
 
-A *values statement* is a statement on its own. It can be used instead of a *fullselect* if your statement
-references only a single value and does not contain any join with other relations or values clauses.
+A *values statement* is a statement on its own. It can be used instead of a *fullselect* if your statement references only a single value and does not contain any join with other relations or values clauses.
 
 <h3>Examples</h3>
 
@@ -941,7 +913,6 @@ VALUES 1, 2, 3
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |COL1|
@@ -949,7 +920,7 @@ The result of the example query is shown in the following table.
 |1   |
 |2   |
 |3   |
-<!--table-caption title="Query result for example 'values statement with single column result set with 3 rows'"-->
+{: caption="Table 14. Query result for example: values statement with single column result set with 3 rows" caption-side="bottom"}
 
 ```sql
 --- values statement with multi column result set
@@ -969,14 +940,17 @@ The result of the example query is shown in the following table.
 |2   |Kirk  |
 |3   |McCoy |
 |4   |Scotty|
-<!--table-caption title="Query result for example 'values statement with multi column result set'"-->
+{: caption="Table 15. Query result for example: values statement with multi column result set" caption-side="bottom"}
 
-<h3>More topics</h3>
+### More topics - values clause
+{: #more-topics-values}
+
 For more information about the clauses that are used in a *values clause*, see the following topics:
 - [expression](#expression)
 - [identifier](#identifier)
 
-<h3>Related references</h3>
+### Related references - values clause
+{: #related-references-values}
 
 A *values clause* is referenced by the following clauses:
 - [fullselect](#fullselect)
@@ -986,16 +960,17 @@ A *values clause* is referenced by the following clauses:
 {: #chapterLateralViews}
 
 A lateral view is a component of a *simpleselect*. Lateral views allow you to build *virtual tables* at query execution time
-by using *table-generating functions*. Examples of table-generating functions are `explode()`, `posexplode()`, and `posexplode_outer()`.
-The explode()-style functions take an array or map as input and return a row for each element in the array. For more information, see [SQL functions](/docs/sql-query?topic=sql-query-sqlfunctions#sqlfunctions).
+by using *table-generating functions*. Examples of table-generating functions are `explode()`, `posexplode()`, and `posexplode_outer()`. The explode()-style functions take an array or map as input and return a row for each element in the array. For more information, see [SQL functions](/docs/sql-query?topic=sql-query-sqlfunctions#sqlfunctions).
 
-<h3 id="lateralView">lateralView</h3>
+### lateralView
+{: #lateralView}
 
 The syntax of a lateral view clause is described by the following syntax diagram.
 
 <!--include-svg src="./svgfiles/lateralView.svg" target="./diagrams/lateralView.svg" alt="syntax diagram for a lateral view" layout="@break@" -->
 
 The semantics of the entities in order of appearance in the syntax diagrams is as follows:
+
 - `OUTER`: Specifying this keyword ensures that the lateral view contains at least one row with *null* values in case the table-generating function does not return any rows.
 - `qualifiedName`: Name of a table-generating function.
 - `expression`: An expression that resolves to an array.
@@ -1019,7 +994,6 @@ LATERAL VIEW EXPLODE(master_child.col2) child_table AS child_id
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |MASTER_ID|CHILD_ID|
@@ -1030,7 +1004,7 @@ The result of the example query is shown in the following table.
 |2        |4       |
 |2        |5       |
 |2        |6       |
-<!--table-caption title="Query result for example 'deal with a 1-n relation'"-->
+{: caption="Table 16. Query result for example: deal with a 1-n relation" caption-side="bottom"}
 
 ```sql
 -- deal with an n-m relation
@@ -1062,11 +1036,13 @@ The result of the example query is shown in the following table.
 |40       |4       |
 |40       |5       |
 |40       |6       |
-<!--table-caption title="Query result for example 'deal with an n-m relation'"-->
+{: caption="Table 17. Query result for example: deal with an n-m relation" caption-side="bottom"}
 
-<h3>More topics</h3>
+### More topics - lateral view
+{: #more-topics-lateral}
 
 For more information about the clauses that are used in a *lateral view* clause, see the following topics:
+
 - [expression](#expression)
 - [identifier](#identifier)
 - [qualifiedName](#qualifiedName)
@@ -1075,7 +1051,8 @@ Note:
 - A *simpleselect* can contain multiple lateral view clauses that are evaluated in order of appearance.
 - Within a lateral view clause, you can refer to columns defined in any (virtual) table on the left of the current lateral view clause.
 
-<h3>Related references</h3>
+### Related references - lateral view
+{: #related-references-lateral}
 
 A *lateral view* clause is referenced by a [simpleselect](#simpleselect).
 
@@ -1086,14 +1063,15 @@ SELECT statements can retrieve and join column values from two or more tables in
 
 The main characteristic of a join is, typically, matching column values in rows of each table that participates in the join. The result of a join associates rows from one table with rows from another table. Depending on the type of join operation, some rows might be formed that contain column values in one table that do not match column values in another table.
 
-A joined table specifies an intermediate result table that is the result of either an `INNER` join, an `OUTER` join, a `CROSS` join, or an `ANTI` join.
-The table is derived by applying one of the join operators to its operands.
+A joined table specifies an intermediate result table that is the result of either an `INNER` join, an `OUTER` join, a `CROSS` join, or an `ANTI` join. The table is derived by applying one of the join operators to its operands.
 
-<h3 id="joinType">joinType</h3>
+### joinType
+{: #joinType}
 
 <!--include-svg src="./svgfiles/joinType.svg" target="./diagrams/joinType.svg" alt="syntax diagram for join types" layout="@break@" -->
 
-<h4>Inner join</h4>
+#### Inner join
+{: #inner-join}
 
 An `INNER` join combines each row of the left table with each row of the right table, keeping only the rows in which the join condition is true.
 
@@ -1112,7 +1090,6 @@ FROM
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |L_COL1|L_COL2|R_COL1|R_COL2|
@@ -1120,9 +1097,10 @@ The result of the example query is shown in the following table.
 |0     |10    |0     |10    |
 |2     |12    |2     |12    |
 |4     |14    |4     |14    |
-<!--table-caption title="Query result for example 'inner join query'"-->
+{: caption="Table 18. Query result for example" caption-side="bottom"}
 
-<h4>Outer join</h4>
+#### Outer join
+{: #outer-join}
 
 An `OUTER` join includes the rows that are produced by the inner join, plus the missing rows, depending on the type of outer join.
 
@@ -1142,7 +1120,6 @@ ON left_table.col1 = right_table.col1
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |L_COL1|L_COL2|R_COL1|R_COL2|
@@ -1153,7 +1130,7 @@ The result of the example query is shown in the following table.
 |3     |13    |null  |null  |
 |4     |14    |4     |14    |
 |5     |14    |null  |null  |
-<!--table-caption title="Query result for example 'left outer join query'"-->
+{: caption="Table 19. Query result for example: left outer join query" caption-side="bottom"}
 
 A `RIGHT OUTER` or `RIGHT` join includes the rows from the right table that were missing from the inner join.
 
@@ -1172,7 +1149,6 @@ FROM
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |L_COL1|L_COL2|R_COL1|R_COL2|
@@ -1181,7 +1157,7 @@ The result of the example query is shown in the following table.
 |2     |12    |2     |12    |
 |4     |14    |4     |14    |
 |null  |null  |6     |16    |
-<!--table-caption title="Query result for example 'right outer join query'"-->
+{: caption="Table 20. Query result for example: right outer join query" caption-side="bottom"}
 
 A `FULL OUTER` or `FULL` join includes the rows from both tables that were missing from the inner join.
 
@@ -1200,7 +1176,6 @@ FROM
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |L_COL1|L_COL2|R_COL1|R_COL2|
@@ -1212,9 +1187,10 @@ The result of the example query is shown in the following table.
 |4     |14    |4     |14    |
 |2     |12    |2     |12    |
 |0     |10    |0     |10    |
-<!--table-caption title="Query result for example 'full outer join query'"-->
+{: caption="Table 21. Query result for example: full outer join query" caption-side="bottom"}
 
-<h4>Cross join</h4>
+#### Cross join
+{: cross-join}
 
 A `CROSS` join creates a Cartesian product of the tables that are involved in the join operation, if a CROSS join that specifies a join condition behaves like an inner join.
 
@@ -1233,7 +1209,6 @@ FROM
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |L_COL1|L_COL2|R_COL1|R_COL2|
@@ -1241,7 +1216,7 @@ The result of the example query is shown in the following table.
 |0     |10    |0     |10    |
 |2     |12    |2     |12    |
 |4     |14    |4     |14    |
-<!--table-caption title="Query result for example 'cross join that specifies a join condition'"-->
+{: caption="Table 22. Query result for example: cross join that specifies a join condition" caption-side="bottom"}
 
 ```sql
 -- cross join that specifies no join condition
@@ -1255,7 +1230,6 @@ FROM
     CROSS JOIN VALUES (0, 10), (2, 12), (4, 14), (6, 16) AS right_table
 ```
 {: codeblock}
-
 
 The result of the example query is shown in the following table.
 
@@ -1285,9 +1259,10 @@ The result of the example query is shown in the following table.
 |5     |14    |2     |12    |
 |5     |14    |4     |14    |
 |5     |14    |6     |16    |
-<!--table-caption title="Query result for example 'cross join that specifies no join condition'"-->
+{: caption="Table 23. Query result for example 'cross join that specifies no join condition" caption-side="bottom"}
 
-<h4>Anti join</h4>
+#### Anti join
+{: #anti-join}
 
 A `LEFT ANTI` or `ANTI` join returns only rows from the left table that do not have a matching row in the right table.
 Columns from the right table cannot be included in the column list of the select statement.
@@ -1305,7 +1280,6 @@ FROM
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |L_COL1|L_COL2|
@@ -1313,9 +1287,10 @@ The result of the example query is shown in the following table.
 |1     |11    |
 |3     |13    |
 |5     |14    |
-<!--table-caption title="Query result for example 'left anti join query'"-->
+{: caption="Table 24. Query result for example: left anti join query" caption-side="bottom"}
 
-<h4>Left semi join</h4>
+#### Left semi join
+{: left-semi-join}
 
 A `LEFT SEMI` join acts like an inner join but does not include the columns of the right table.
 
@@ -1339,7 +1314,7 @@ The result of the example query is shown in the following table.
 |0     |10    |
 |2     |12    |
 |4     |14    |
-<!--table-caption title="Query result for example 'left semi join query'"-->
+{: caption="Table 25. Query result for example: left semi join query" caption-side="bottom"}
 
 <h3>Related references</h3>
 
@@ -1348,17 +1323,17 @@ The *join types* are specified in a [relation](#relation).
 ### Sampling table data
 {: #chapterSamplingTableData}
 
-Any table that is object stored on Cloud {{site.data.keyword.cos_short}}, used in a *from clause*, can be associated with a *table sample clause*.
-The table sample clause defines how to retrieve a subset of rows from the underlying table (object stored on Cloud {{site.data.keyword.cos_short}}).
-Thus, you can write queries for samples of the data, for example, for interactive data exploration and data mining.
+Any table that is object stored on Cloud {{site.data.keyword.cos_short}}, used in a *from clause*, can be associated with a *table sample clause*. The table sample clause defines how to retrieve a subset of rows from the underlying table (object stored on Cloud {{site.data.keyword.cos_short}}). Thus, you can write queries for samples of the data, for example, for interactive data exploration and data mining.
 
 The general syntax of a table sample clause is described by the following syntax diagram.
 
-<h3 id="sample">sample</h3>
+### sample
+{: sample}
 
 <!--include-svg src="./svgfiles/sample.svg" target="./diagrams/sample.svg" alt="syntax diagram for a sample" layout="@break@" -->
 
-<h3 id="bucketSampleClause">bucketSampleClause</h3>
+### bucketSampleClause
+{: bucketSampleClause}
 
 <!--include-svg src="./svgfiles/bucketSampleClause.svg" target="./diagrams/bucketSampleClause.svg" alt="syntax diagram for a bucket sample clause" layout="@break@" -->
 
@@ -1391,7 +1366,8 @@ SELECT * FROM cos://us-geo/sql/employees.parquet STORED AS PARQUET TABLESAMPLE (
 ```
 {: codeblock}
 
-<h3>More topics</h3>
+### More topics - table sample clause
+{: #more-topics-table-sample}
 
 For more information about the clauses that are used in a *table sample clause*, see the following topics:
 - [expression](#expression)
@@ -1400,7 +1376,8 @@ For more information about the clauses that are used in a *table sample clause*,
 - [unsignedInteger](#unsignedInteger)
 - [unsignedNumber](#unsignedNumber)
 
-<h3>Related references</h3>
+### Related references - table sample clause
+{: #related-references-table-sample}
 
 A *table sample clause* is referenced by the following clause:
 - [relationPrimary](#relationPrimary)
@@ -1410,7 +1387,8 @@ A *table sample clause* is referenced by the following clause:
 
 The syntax for SQL function invocation is described by the following syntax diagram.
 
-<h3 id="functionOrAggregate">functionOrAggregate</h3>
+### functionOrAggregate
+{: #functionOrAggregate}
 
 <!--include-svg src="./svgfiles/functionOrAggregate.svg" target="./diagrams/functionOrAggregate.svg" alt="syntax diagram for a function or aggregate" layout="@break@" -->
 
@@ -1418,7 +1396,8 @@ Most function invocations look like `function(argument1, ..., argumentN)` but fu
 
 Refer to section [SQL functions](/docs/sql-query?topic=sql-query-sqlfunctions#sqlfunctions) for details about supported functions.
 
-<h3>More topics</h3>
+### More topics - function or aggregate clause
+{: #more-topics-function-aggregate}
 
 For more information about the clauses that are used in a *function or aggregate* clause, see the following topics:
 - [expression](#expression)
@@ -1427,7 +1406,8 @@ For more information about the clauses that are used in a *function or aggregate
 - [valueExpression](#valueExpression)
 - [windowSpec](#windowSpec)
 
-<h3>Related references</h3>
+### Related references - function or aggregate clause
+{: #related-references-function-aggregate}
 
 A *function or aggregate clause* is referenced by the following clause:
 - [primaryExpression](#primaryExpression)
@@ -1435,8 +1415,7 @@ A *function or aggregate clause* is referenced by the following clause:
 ### Window functions
 {: #chapterWindowFunctions}
 
-Classic SQL **aggregation functions** like `SUM()`, `MAX()`, or `MIN()` process a group of rows to derive a single value. **Window functions** take this one step further by allowing to process a group of rows and derive a single value for each row in the group.
-Note the difference to **scalar functions** that return a single value for each row. Scalar functions derive a single value from a single row and not a group of rows.
+Classic SQL **aggregation functions** like `SUM()`, `MAX()`, or `MIN()` process a group of rows to derive a single value. **Window functions** take this one step further by allowing to process a group of rows and derive a single value for each row in the group. Note the difference to **scalar functions** that return a single value for each row. Scalar functions derive a single value from a single row and not a group of rows.
 
 With window functions, it is possible to calculate things like *moving averages* or *cumulative sums*.
 
@@ -1459,27 +1438,33 @@ A window can be defined in two ways:
 
 The syntax of a window specification is defined by the following syntax diagrams.
 
-<h3 id="namedWindows">namedWindows</h3>
+### namedWindows
+{: #namedWindows}
 
 <!--include-svg src="./svgfiles/namedWindows.svg" target="./diagrams/namedWindows.svg" alt="syntax diagram for named windows" layout="@break@" -->
 
-<h3 id="namedWindow">namedWindow</h3>
+### namedWindow
+{: #namedWindow}
 
 <!--include-svg src="./svgfiles/namedWindow.svg" target="./diagrams/namedWindow.svg" alt="syntax diagram for a named window" layout="@break@" -->
 
-<h3 id="windowSpec">windowSpec</h3>
+### windowSpec
+{: #windowSpec}
 
 <!--include-svg src="./svgfiles/windowSpec.svg" target="./diagrams/windowSpec.svg" alt="syntax diagram for a window specification" layout="@break@" -->
 
-<h3 id="windowClusterBy">windowClusterBy</h3>
+### windowClusterBy
+{: #windowClusterBy}
 
 <!--include-svg src="./svgfiles/windowClusterBy.svg" target="./diagrams/windowClusterBy.svg" alt="syntax diagram for a window cluster by clause" layout="@break@" -->
 
-<h3 id="windowPartitionBy">windowPartitionBy</h3>
+### windowPartitionBy
+{: #windowPartitionBy}
 
 <!--include-svg src="./svgfiles/windowPartitionBy.svg" target="./diagrams/windowPartitionBy.svg" alt="syntax diagram for a window partition by clause" layout="@break@" -->
 
-<h3 id="windowOrderBy">windowOrderBy</h3>
+### windowOrderBy
+{: #windowOrderBy}
 
 <!--include-svg src="./svgfiles/windowOrderBy.svg" target="./diagrams/windowOrderBy.svg" alt="syntax diagram for a window order by clause" layout="@break@" -->
 
@@ -1499,11 +1484,13 @@ The window specification consists of the following clauses:
         - `RANGE`: The upper bound of the value range.
         - `ROWS`: The number of rows after the current row.
 
-<h3 id="windowFrame">windowFrame</h3>
+### windowFrame
+{: #windowFrame}
 
 <!--include-svg src="./svgfiles/windowFrame.svg" target="./diagrams/windowFrame.svg" alt="syntax diagram for a window frame" layout="@break@" -->
 
-<h3 id="frameBound">frameBound</h3>
+### frameBound
+{: #frameBound}
 
 <!--include-svg src="./svgfiles/frameBound.svg" target="./diagrams/frameBound.svg" alt="syntax diagram for a frame boundary" layout="@break@" -->
 
@@ -1511,7 +1498,8 @@ The window specification consists of the following clauses:
 
 The following window function examples use *values clauses* to define result sets for group by operations. For more information about the values clause, see [valuesClause](#valuesClause).
 
-<h4>Ranking Function Example</h4>
+#### Ranking Function Example
+{: #ranking-functions-example}
 
 This example uses a table that contains information about employee social media activity (posts):
 - Column 1: employee ID
@@ -1558,7 +1546,7 @@ The result of the example query is shown in the following table.
 |5     |3      |300  |2   |
 |9     |2      |1000 |1   |
 |4     |2      |300  |2   |
-<!--table-caption title="Query result for example 'derive posts ranking by using a named window specification'"-->
+{: caption="Table 26. Query result for example: derive posts ranking by using a named window specification" caption-side="bottom"}
 
 ```sql
 -- derive posts ranking by using an inline window specification
@@ -1596,9 +1584,10 @@ The result of the example query is shown in the following table.
 |5     |3      |300  |2   |
 |9     |2      |1000 |1   |
 |4     |2      |300  |2   |
-<!--table-caption title="Query result for example 'derive posts ranking by using an inline window specification'"-->
+{: caption="Table 27. Query result for example: derive posts ranking by using an inline window specification" caption-side="bottom"}
 
-<h4>Analytic Function Example</h4>
+#### Analytic Function Example
+{: #analytic-function-example}
 
 This example uses a table that contains transaction information. The layout is as follows:
 - Column 1: transaction ID
@@ -1644,9 +1633,10 @@ The result of the example query is shown in the following table.
 |-200      |0.5555555555555556|
 |1000      |0.8888888888888888|
 |2000      |1.0               |
-<!--table-caption title="Query result for example 'cumulative distribution of transaction amounts'"-->
+{: caption="Table 28. Query result for example: cumulative distribution of transaction amounts" caption-side="bottom"}
 
-<h4>Aggregation Function Example</h4>
+#### Aggregation Function Example
+{: #aggregation-function-example}
 
 This example uses a table that contains transaction information. The layout is as follows:
 - Column 1: transaction ID
@@ -1680,7 +1670,6 @@ WINDOW current_balance AS (
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |TXN_ID|ACCOUNT|TXN_AMOUNT|BALANCE|
@@ -1694,15 +1683,18 @@ The result of the example query is shown in the following table.
 |6     |4711   |-300      |1000   |
 |7     |4711   |100       |1100   |
 |9     |4711   |-400      |700    |
-<!--table-caption title="Query result for example 'total balance of each account at the time of each transaction'"-->
+{: caption="Table 29. Query result for example: total balance of each account at the time of each transaction" caption-side="bottom"}
 
-<h3>More topics</h3>
+### More topics - window function
+{: #more-topics-window-function}
+
 For more information about the clauses that are used by a *window function*, see the following topics:
 - [expression](#expression)
 - [identifier](#identifier)
 - [sortItem](#sortItem)
 
-<h3>Related references</h3>
+### Related references - named window clause
+{: #related-references-window-function}
 
 A *named window clause* is referenced by the following clauses:
 - [fullselect](#fullselect)
@@ -1713,19 +1705,23 @@ With he keyword `OVER` you can define an unnamed window specification in a [func
 ## SQL expressions
 {: #chapterSqlExpressions}
 
-<h3>Expressions</h3>
+### Expressions
+{: #expressions}
 
 In the context of an SQL query statement, an *expression* is always a *Boolean expression*.
 
-<h4 id="expression">expression</h4>
+#### expression
+{: #expression}
 
 <!--include-svg src="./svgfiles/expression.svg" target="./diagrams/expression.svg" alt="syntax diagram for an expression" layout="@break@" -->
 
-<h4>More topics</h4>
+#### More topics - boolean expression
+{: #more-topics-boolean}
 
 For more information, see [booleanExpression](#booleanExpression).
 
-<h4>Related references</h4>
+#### Related references - expression
+{: #related-references-expression}
 
 An *expression* is referenced by the following clauses:
 
@@ -1752,7 +1748,8 @@ An *expression* is referenced by the following clauses:
 
 The syntax of a *Boolean expression* is defined by the following syntax diagrams.
 
-<h4 id="booleanExpression">booleanExpression</h4>
+#### booleanExpression
+{: #booleanExpression}
 
 <!--include-svg src="./svgfiles/booleanExpression.svg" target="./diagrams/booleanExpression.svg" alt="syntax diagram for a Boolean expression" layout="@break@" -->
 
@@ -1781,12 +1778,11 @@ A *Boolean expression* is referenced by the following clauses:
 - [relation](#relation)
 - [simpleselect](#simpleselect)
 
-
 ### Value expressions
 {: #chapterValueExpressions}
 
-
-<h4 id="valueExpression">valueExpression</h4>
+#### valueExpression
+{: #valueExpression}
 
 <!--include-svg src="./svgfiles/valueExpression.svg" target="./diagrams/valueExpression.svg" alt="syntax diagram for a value expression" layout="@break@" -->
 
@@ -1797,7 +1793,8 @@ A *value expression* is one of the following:
 - The result of performing an arithmetic operation with two value expressions.
 - The result of performing a comparison operation between two value expressions.
 
-<h4>More topics</h4>
+#### More topics - value expression
+{: #more-topics-value-expression}
 
 For more information about the clauses that are used by a *value expression*, see the following topics:
 
@@ -1806,7 +1803,8 @@ For more information about the clauses that are used by a *value expression*, se
 - [primaryExpression](#primaryExpression)
 - [unaryOperator](#unaryOperator)
 
-<h4>Related references</h4>
+#### Related references - value expression
+{: #related-references-value-expression}
 
 A *value expression* is referenced by the following clauses:
 
@@ -1814,25 +1812,28 @@ A *value expression* is referenced by the following clauses:
 - [functionOrAggregate](#functionOrAggregate)
 - [predicate](#predicate)
 
-
 ### Primary expressions
 {: #chapterPrimaryExpressions}
 
-<h4 id="primaryExpression">primaryExpression</h4>
+#### primaryExpression
+{: #primaryExpression}
 
 <!--include-svg src="./svgfiles/primaryExpression.svg" target="./diagrams/primaryExpression.svg" alt="syntax diagram for a primary expression" layout="@break@" -->
 
-<h4 id="constant">constant</h4>
+#### constant
+{: #constant}
 
 <!--include-svg src="./svgfiles/constant.svg" target="./diagrams/constant.svg" alt="syntax diagram for a constant" layout="@break@" -->
 
-<h4 id="interval">interval</h4>
+#### interval
+{: #interval}
 
 With an *interval clause* you can define time duration constants that can be used in expressions to add or subtract time ranges from a timestamp value.
 
 <!--include-svg src="./svgfiles/interval.svg" target="./diagrams/interval.svg" alt="syntax diagram for an interval"  layout="@break@" -->
 
-<h4 id="timeUnitSpec">timeUnitSpec</h4>
+#### timeUnitSpec
+{: #timeUnitSpec}
 
 <!--include-svg src="./svgfiles/timeUnitSpec.svg" target="./diagrams/timeUnitSpec.svg" alt="syntax diagram for a time unit specification"  layout="@break@" -->
 
@@ -1858,13 +1859,12 @@ FROM VALUES ("dummy")
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |PAST_TIMESTAMP         |
 |-----------------------|
 |2016-11-13 20:23:43.621|
-<!--table-caption title="Query result for example 'add and subtract several time units from the current timestamp'"-->
+{: caption="Table 30. Query result for example: add and subtract several time units from the current timestamp" caption-side="bottom"}
 
 Since interval clauses can get long, especially if days, hours, minutes, and seconds are involved, it is possible to use an abbreviated syntax by specifying a format `STRING` and by using the `TO` keyword.
 
@@ -1888,7 +1888,7 @@ The following table shows equivalent interval clauses:
 | ------------------- | ---------------------- |
 | INTERVAL 1 DAY - INTERVAL 2 HOURS - INTERVAL 3 MINUTES - INTERVAL 4 SECONDS | INTERVAL '1 2:3:4.100' DAY TO SECOND |
 | INTERVAL 1 YEAR - INTERVAL 2 MONTH | INTERVAL '1-2' YEAR TO MONTH |
-<!--table-caption title="Equivalent INTERVAL Clauses"-->
+{: caption="Table 31. Equivalent INTERVAL Clauses" caption-side="bottom"}
 
 The following example demonstrates equivalent interval expressions when you deal with `YEAR` and `MONTH` time units.
 
@@ -1909,7 +1909,7 @@ The result of the example query is shown in the following table.
 | LONG_VERSION            | SHORT_VERSION           |
 |-------------------------|-------------------------|
 | 2017-08-16 10:38:07.304 | 2017-08-16 10:38:07.304 |
-<!--table-caption title="Query result for example 'equivalent interval expressions with YEAR and MONTH time units'"-->
+{: caption="Table 32. Query result for example: equivalent interval expressions with YEAR and MONTH time units" caption-side="bottom"}
 
 The following example demonstrates equivalent interval expressions, when you deal with `DAY`, `HOUR`, `MINUTE`, and `SECOND` time units.
 
@@ -1930,13 +1930,15 @@ The result of the example query is shown in the following table.
 | LONG_VERSION           | SHORT_VERSION           |
 |------------------------|-------------------------|
 | 2018-10-15 08:33:00.84 | 2018-10-15 08:33:00.84  |
-<!--table-caption title="Query result for example 'equivalent interval expressions when you deal with DAY, HOUR, MINUTE and SECOND time units'"-->
+{: caption="Table 33. Query result for example: equivalent interval expressions when you deal with DAY, HOUR, MINUTE and SECOND time units" caption-side="bottom"}
 
-<h4 id="columnReference">columnReference</h4>
+#### columnReference
+{: #columnReference}
 
 <!--include-svg src="./svgfiles/columnReference.svg" target="./diagrams/columnReference.svg" alt="syntax diagram for a column reference" layout="@break@" -->
 
-<h4 id="qualifiedName">qualifiedName</h4>
+#### qualifiedName
+{: #qualifiedName}
 
 <!--include-svg src="./svgfiles/qualifiedName.svg" target="./diagrams/qualifiedName.svg" alt="syntax diagram for a qualified name" layout="@break@" -->
 
@@ -1969,27 +1971,22 @@ For more information about the clauses that are used by a *primary expression*, 
 ### Predicates
 {: #chapterPredicates}
 
-<h4 id="predicate">predicate</h4>
+#### predicate
+{: #predicate}
 
 <!--include-svg src="./svgfiles/predicate.svg" target="./diagrams/predicate.svg" alt="syntax diagram for a predicate" layout="@break@" -->
 
 The `BETWEEN ... AND` predicate compares a value with a range of values. If `NOT` is specified, the result is reversed.
 
-The `IN` predicate compares a value or values with a collection of values. The range of values is either defined by a query or a list of expressions that are enclosed in parentheses.
-The query must identify a number of columns that are the same as the number of expressions that are specified to the left of the IN keyword.
-In addition, the number of elements in the list of expressions must be the same as the number of expressions that are specified to the left of the IN keyword.
-If `NOT` is specified, the result is reversed.
+The `IN` predicate compares a value or values with a collection of values. The range of values is either defined by a query or a list of expressions that are enclosed in parentheses. The query must identify a number of columns that are the same as the number of expressions that are specified to the left of the IN keyword. In addition, the number of elements in the list of expressions must be the same as the number of expressions that are specified to the left of the IN keyword. If `NOT` is specified, the result is reversed.
 
 The `LIKE` predicate searches for strings that have a certain pattern. The pattern is specified by a string in which certain characters have a special meaning.
 
 - The underscore character `_` represents any single character.
 - The percent sign `%` represents a string of zero or more characters.
-- Any other character represents itself. Thus trailing blanks in a pattern are part of the pattern.
-If `NOT` is specified, the result is reversed.
+- Any other character represents itself. Thus trailing blanks in a pattern are part of the pattern. If `NOT` is specified, the result is reversed.
 
-The `RLIKE` predicate searches for a regular expression pattern in a string. If the pattern expression is found, the result is true.
-If the pattern expression is not found, the result is false. If the value of any of the arguments is null, the result of the RLIKE predicate is unknown.
-If `NOT` is specified, the result is reversed.
+The `RLIKE` predicate searches for a regular expression pattern in a string. If the pattern expression is found, the result is true. If the pattern expression is not found, the result is false. If the value of any of the arguments is null, the result of the RLIKE predicate is unknown. If `NOT` is specified, the result is reversed.
 
 The regular expression pattern must be a Java™ regular expression as defined by Java class `java.util.regex.Pattern`.
 Meta characters that start with a `\` must be escaped for the regular expression to work, for example, use `\\d` instead of `\d` in a pattern string to represent a digit. For more information, such as supported meta characters and predefined character classes, see the latest Java documentation.
@@ -2003,7 +2000,7 @@ The `IS DISTINCT FROM` predicate compares two expressions and evaluates to TRUE 
 | Both inputs are non-null. | Evaluates to TRUE if the inputs are not identical and FALSE if they are. Equivalent to the <> operator. | Evaluates to FALSE if the inputs are not identical and TRUE if they are. Equivalent to the = operator. |
 | One input is null. | Evaluates to TRUE. | Evaluates to FALSE. |
 | Both inputs are null. | Evaluates to FALSE. | Evaluates to TRUE. |
-<!--table-caption title="NULL Values and DISTINCT Predicate Value"-->
+{: caption="Table 34. NULL Values and DISTINCT Predicate Value" caption-side="bottom"}
 
 The following DISTINCT predicates are logically equivalent to the corresponding search conditions:
 
@@ -2011,11 +2008,12 @@ The following DISTINCT predicates are logically equivalent to the corresponding 
 | ------------------ | ---------------- |
 | value 1 IS NOT DISTINCT FROM value2 | (value1 IS NOT NULL AND value2 IS NOT NULL AND value1 = value 2) OR (value1 IS NULL AND value2 IS NULL) |
 | value 1 IS DISTINCT FROM value2 | NOT (value1 IS NOT DISTINCT FROM value2)|
-<!--table-caption title="DISTINCT Predicate and Search Condition"-->
+{: caption="Table 35. DISTINCT predicate and search condition" caption-side="bottom"}
 
 <h4>Examples</h4>
 
-<h5><code>IS DISTINCT FROM</code> Examples</h5>
+##### `IS DISTINCT FROM` Examples
+{: #is-distinct-from-examples}
 
 ```sql
 -- select all rows with distinct values in column A and B
@@ -2034,7 +2032,6 @@ SELECT * FROM (
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |A   |B   |
@@ -2043,7 +2040,7 @@ The result of the example query is shown in the following table.
 |null|2   |
 |1   |null|
 |2   |null|
-<!--table-caption title="Query result for example 'select all rows with distinct values in column A and B'"-->
+{: caption="Table 36. Query result for example: select all rows with distinct values in column A and B" caption-side="bottom"}
 
 ```sql
 -- all rows that have no distinct values in column A and B
@@ -2062,16 +2059,16 @@ SELECT * FROM (
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |A   |B   |
 |----|----|
 |2   |2   |
 |null|null|
-<!--table-caption title="Query result for example 'all rows that have no distinct values in column A and B'"-->
+{: caption="Table 37. Query result for example: all rows that have no distinct values in column A and B" caption-side="bottom"}
 
-<h5><code>BETWEEN ... AND ...</code> Examples</h5>
+##### `BETWEEN ... AND ...` Examples
+{: #between-and-examples}
 
 ```sql
 -- all employees with a salary between 4000 and 8000
@@ -2100,7 +2097,7 @@ The result of the example query is shown in the following table.
 |5     |5000  |
 |6     |6000  |
 |8     |8000  |
-<!--table-caption title="Query result for example 'all employees with a salary between 4000 and 8000'"-->
+{: caption="Table 38. Query result for example: all employees with a salary between 4000 and 8000" caption-side="bottom"}
 
 ```sql
 -- all employees with a salary not between 4000 and 8000
@@ -2121,7 +2118,6 @@ WHERE emp.col2 NOT BETWEEN 4000 AND 8000
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |EMP_ID|SALARY|
@@ -2130,9 +2126,10 @@ The result of the example query is shown in the following table.
 |2     |2000  |
 |3     |3000  |
 |9     |9000  |
-<!--table-caption title="Query result for example 'all employees with a salary between 4000 and 8000'"-->
+{: caption="Table 39. Query result for example 'all employees with a salary between 4000 and 8000" caption-side="bottom"}
 
-<h5><code>IN</code> Examples</h5>
+##### `IN` Examples
+{: #in-examples}
 
 ```sql
 -- all employees working in department D01 or D02
@@ -2162,7 +2159,7 @@ The result of the example query is shown in the following table.
 |5     |D02     |
 |7     |D01     |
 |9     |D01     |
-<!--table-caption title="Query result for example 'all employees working in department D01 or D02'"-->
+{: caption="Table 40. Query result for example: all employees working in department D01 or D02" caption-side="bottom"}
 
 ```sql
 -- all employees that are managing a department
@@ -2198,9 +2195,10 @@ The result of the example query is shown in the following table.
 |2     |C01     |
 |4     |D01     |
 |5     |D02     |
-<!--table-caption title="Query result for example 'all employees that are managing a department'"-->
+{: caption="Table 41. Query result for example 'all employees that are managing a department" caption-side="bottom"}
 
-<h5><code>LIKE</code> Examples</h5>
+##### `LIKE` Examples
+{: #like-examples}
 
 ```sql
 -- all employees that work in a department that starts with letter C
@@ -2229,7 +2227,7 @@ The result of the example query is shown in the following table.
 |3     |C02     |
 |6     |C01     |
 |8     |C03     |
-<!--table-caption title="Query result for example 'all employees that work in a department that starts with letter C'"-->
+{: caption="Table 42. Query result for example 'all employees that work in a department that starts with letter C" caption-side="bottom"}
 
 ```sql
 -- all department names that do not start with letter C
@@ -2255,9 +2253,10 @@ The result of the example query is shown in the following table.
 |--------|
 |D01     |
 |D02     |
-<!--table-caption title="Query result for example 'all department names that do not start with letter C'"-->
+{: caption="Table 43. Query result for example: all department names that do not start with letter C" caption-side="bottom"}
 
-<h5><code>RLIKE</code> Examples</h5>
+##### `RLIKE` Examples
+{: #rlike-examples}
 
 ```sql
 -- all rows that contain in col2 a value ending with 'bc'
@@ -2280,8 +2279,7 @@ The result of the example query is shown in the following table.
 |1   |xyz abc       |
 |2   |abcabcabc     |
 |3   |abc xyzxyz abc|
-<!--table-caption title="Query result for example 'all rows that contain in col2 a value ending with bc'"-->
-
+{: caption="Table 44. Query result for example: all rows that contain in col2 a value ending with bc" caption-side="bottom"}
 
 ```sql
 -- all rows that contain in col2 a sequence of 3 'abc' string occurrences
@@ -2294,15 +2292,15 @@ FROM VALUES
     (4, '123 456 789') AS data
 WHERE data.col2 RLIKE '(abc){3}'
 ```
-{: codeblock}
 
+{: codeblock}
 
 The result of the example query is shown in the following table.
 
 |COL1|COL2     |
 |----|---------|
 |2   |abcabcabc|
-<!--table-caption title="Query result for example 'all rows that contain in col2 a sequence of 3 abc string occurrences'"-->
+{: caption="Table 45. Query result for example 'all rows that contain in col2 a sequence of 3 abc string occurrences" caption-side="bottom"}
 
 ```sql
 -- all rows that contain in col2 a sequence of integer values (3 digits) separated by blank or tab
@@ -2322,9 +2320,10 @@ The result of the example query is shown in the following table.
 |COL1|COL2       |
 |----|-----------|
 |4   |123 456 789|
-<!--table-caption title="Query result for example 'all rows that contain in col2 a sequence of integer values (3 digits) separated by blank or tab'"-->
+{: caption="Table 46. Query result for example: all rows that contain in col2 a sequence of integer values (3 digits) separated by blank or tab" caption-side="bottom"}
 
-<h5><code>IS NULL</code> Examples</h5>
+##### `IS NULL` Examples</h5>
+{: #is-null-examples}
 
 ```sql
 --- all employees with missing salary information
@@ -2345,13 +2344,12 @@ WHERE emp.col2 IS NULL
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |EMP_ID|SALARY|
 |------|------|
 |7     |null  |
-<!--table-caption title="Query result for example 'all employees with missing salary information'"-->
+{: caption="Table 47. Query result for example: all employees with missing salary information" caption-side="bottom"}
 
 ### CAST Expression
 {: #chapterCastExpression}
@@ -2362,13 +2360,15 @@ The cast specification returns the cast operand (the first operand) cast to the 
 
 If the specified data type is not supported, you receive an error.
 
-<h4 id="castExpression">castExpression</h4>
+#### castExpression
+{: #castExpression}
 
 <!--include-svg src="./svgfiles/castExpression.svg" target="./diagrams/castExpression.svg" alt="syntax diagram for a cast expression" layout="@break@" -->
 
 In case an expression cannot be cast to the data type specified in the cast expression, the expression result is `null`.
 
-<h4>More topics</h4>
+#### More topics - cast expression
+{: #more-topics-cast-expression}
 
 For more information about the clauses that are used by a *cast expression*, see the following topics:
 
@@ -2376,7 +2376,8 @@ For more information about the clauses that are used by a *cast expression*, see
 - [expression](#expression)
 - [identifier](#identifier)
 
-<h4>Related references</h4>
+#### Related references - cast expression
+{: #related-references-cast-expression}
 
 A *cast expression* is referenced by the following clause:
 
@@ -2389,23 +2390,21 @@ A case expression allows an expression to be selected based on the evaluation of
 
 The syntax of a case expression is described by the following syntax diagrams.
 
-<h4 id="caseExpression">caseExpression</h4>
+#### caseExpression
+{: #caseExpression}
 
 <!--include-svg src="./svgfiles/caseExpression.svg" target="./diagrams/caseExpression.svg" alt="syntax diagram for a case expression" layout="@break@" -->
 
-The upper path in the syntax diagram represents a *searched when clause*, that is, the `WHEN` keyword follows directly after the `CASE` keyword.
-The lower path is a *simple when clause*, that is, an expression follows the `CASE` keyword.
+The upper path in the syntax diagram represents a *searched when clause*, that is, the `WHEN` keyword follows directly after the `CASE` keyword. The lower path is a *simple when clause*, that is, an expression follows the `CASE` keyword.
 
-In general, the value of the case expression is the value of the *result expression*, following the first (leftmost) case that evaluates to true.
-If no case evaluates to true and the ELSE keyword is present, the result is the value of the ELSE case result expression.
-If no case evaluates to true and the ELSE keyword is not present, the result is NULL. When a case evaluates to unknown (because of NULLs), the case is not true and hence is treated the same way as a case that evaluates to false.
+In general, the value of the case expression is the value of the *result expression*, following the first (leftmost) case that evaluates to true. If no case evaluates to true and the ELSE keyword is present, the result is the value of the ELSE case result expression. If no case evaluates to true and the ELSE keyword is not present, the result is NULL. When a case evaluates to unknown (because of NULLs), the case is not true and hence is treated the same way as a case that evaluates to false.
 
-When you use the *simple when clause*, the value of the expression before the first WHEN keyword is tested for equality with the value of the expression that follows the WHEN keyword.
-Therefore, the data type of the expression before the first WHEN keyword must be comparable to the data types of each expression that follows the WHEN keywords.
+When you use the *simple when clause*, the value of the expression before the first WHEN keyword is tested for equality with the value of the expression that follows the WHEN keyword. Therefore, the data type of the expression before the first WHEN keyword must be comparable to the data types of each expression that follows the WHEN keywords.
 
 A *result expression* is an expression that follows the `THEN` or `ELSE` keywords.
 
-<h4 id="whenClause">whenClause</h4>
+#### whenClause
+{: #whenClause}
 
 <!--include-svg src="./svgfiles/whenClause.svg" target="./diagrams/whenClause.svg" alt="syntax diagram for a when clause" layout="@break@" -->
 
@@ -2433,7 +2432,7 @@ The result of the example query is shown in the following table.
 |2     |Development   |
 |3     |null          |
 |4     |null          |
-<!--table-caption title="Query result for example 'simple case expression with no ELSE clause'"-->
+{: caption="Table 48. Query result for example: simple case expression with no ELSE clause" caption-side="bottom"}
 
 ```sql
 -- simple case expression with ELSE clause
@@ -2449,7 +2448,6 @@ FROM VALUES (0, 'A'), (1, 'B'), (2, 'C'), (3, 'D'), (4, 'E') AS dep
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |DEP_ID|DEP_NAME      |
@@ -2459,7 +2457,7 @@ The result of the example query is shown in the following table.
 |2     |Development   |
 |3     |UNKOWN        |
 |4     |UNKOWN        |
-<!--table-caption title="Query result for example 'simple case expression with ELSE clause'"-->
+{: caption="Table 49. Query result for example: simple case expression with ELSE clause" caption-side="bottom"}
 
 The two scalar functions that are specialized to handle a subset of the functionality provided by `CASE` are `NULLIF()` and `COALESCE()`.
 
@@ -2482,18 +2480,17 @@ A *case expression* is referenced by the following clause:
 
 - [primaryExpression](#primaryExpression)
 
-
 ### Time series expressions
 {: #chapterTimeSeriesExpressions}
 
 The syntax of a *time series expression* is described by the following syntax diagrams.
 
-<h4 id="timeSeriesExpression">timeSeriesExpression</h4>
+#### timeSeriesExpression
+{: timeSeriesExpression}
 
 <!--include-svg src="./svgfiles/timeSeriesExpression.svg" target="./diagrams/timeSeriesExpression.svg" alt="syntax diagram for time series expression" layout="@break@" -->
 
-The syntax shows time series functions that require expressions, such as  `TS_MAP()`,  `TS_FILTER()`, `TS_SEGMENT_BY_ANCHOR()`, `TS_SEGMENT_BY_MARKER()`, `TS_SEGMENT_BY_DUAL_MARKER()`,
-`TS_FIND()`, and `TS_COUNT_ANCHOR()`.
+The syntax shows time series functions that require expressions, such as  `TS_MAP()`,  `TS_FILTER()`, `TS_SEGMENT_BY_ANCHOR()`, `TS_SEGMENT_BY_MARKER()`, `TS_SEGMENT_BY_DUAL_MARKER()`, `TS_FIND()`, and `TS_COUNT_ANCHOR()`.
 
 For more information on each function, see [Data processing functions](/docs/sql-query?topic=sql-query-data_processing_functions).
 
@@ -2516,7 +2513,8 @@ A *time series expression* is referenced by the following clause:
 
 - [primaryExpression](#primaryExpression)
 
-<h4 id="booleanTimeSeriesExpression">booleanTimeSeriesExpression</h4>
+#### booleanTimeSeriesExpression
+{: #booleanTimeSeriesExpression}
 
 <!--include-svg src="./svgfiles/booleanTimeSeriesExpression.svg" target="./diagrams/booleanTimeSeriesExpression.svg" alt="syntax diagram for boolean time series expression" layout="@break@" -->
 
@@ -2524,22 +2522,24 @@ The Boolean time series expression syntax shows the available Boolean expresssio
 
 For more information on each function, see [Artifact creation functions](/docs/sql-query?topic=sql-query-artifact).
 
-<h4 id="valueTimeSeriesExpression">valueTimeSeriesExpression</h4>
+#### valueTimeSeriesExpression
+{: #valueTimeSeriesExpression}
 
 <!--include-svg src="./svgfiles/valueTimeSeriesExpression.svg" target="./diagrams/valueTimeSeriesExpression.svg" alt="syntax diagram for value time series expression" layout="@break@" -->
 
 Time series values for expressions can either be a `string` or a `double` datatype.
 
-<h4 id="doubleTimeSeriesExpression">doubleTimeSeriesExpression</h4>
+#### doubleTimeSeriesExpression
+{: #doubleTimeSeriesExpression}
 
 <!--include-svg src="./svgfiles/doubleTimeSeriesExpression.svg" target="./diagrams/doubleTimeSeriesExpression.svg" alt="syntax diagram for double time series expression" layout="@break@" -->
 
-The functions shown in the double time series expressions, such as `TS_EXP_ABS()` and `TS_EXP_LENGTH()`, are able to consume again double time series expressions,
-`number`, or an identity time series expression.
+The functions shown in the double time series expressions, such as `TS_EXP_ABS()` and `TS_EXP_LENGTH()`, are able to consume again double time series expressions, `number`, or an identity time series expression.
 
 For more information on each function, see [Artifact creation functions](/docs/sql-query?topic=sql-query-artifact).
 
-<h4 id="stringTimeSeriesExpression">stringTimeSeriesExpression</h4>
+#### stringTimeSeriesExpression
+{: #stringTimeSeriesExpression}
 
 <!--include-svg src="./svgfiles/stringTimeSeriesExpression.svg" target="./diagrams/stringTimeSeriesExpression.svg" alt="syntax diagram for string time series expression" layout="@break@" -->
 
@@ -2547,7 +2547,8 @@ The string function `TS_EXP_ID_TO_STRING()` converts an ID to a string and the `
 
 For more information on each function, see [Artifact creation functions](/docs/sql-query?topic=sql-query-artifact).
 
-<h4 id="stringConditionalExpression">stringConditionalExpression</h4>
+#### stringConditionalExpression
+{: #stringConditionalExpression}
 
 <!--include-svg src="./svgfiles/stringConditionalExpression.svg" target="./diagrams/stringConditionalExpression.svg" alt="syntax diagram for string conditional time series expression" layout="@break@" -->
 
@@ -2555,7 +2556,8 @@ The three conditional expression functions for string values are `TS_EXP_IF_THEN
 
 For more information on each function, see [Artifact creation functions](/docs/sql-query?topic=sql-query-artifact).
 
-<h4 id="identityTimeSeriesExpression">identityTimeSeriesExpression</h4>
+#### identityTimeSeriesExpression
+{: #identityTimeSeriesExpression}
 
 <!--include-svg src="./svgfiles/identityTimeSeriesExpression.svg" target="./diagrams/identityTimeSeriesExpression.svg" alt="syntax diagram for identity time series expression" layout="@break@" -->
 
@@ -2572,16 +2574,18 @@ The following types of operators can be used:
 - [Comparison](#comparisonOperator)
 - [Boolean](#booleanOperator)
 
-<h3 id="unaryOperator">Unary operators</h3>
+### Unary operators
+{: #unary-operators}
 
 | Operator | Operand types | Description |
 | :----: | ---- | ---- |
 | `-A` | All number types | Unary negative operator. The type of the result is the same as the type of A. |
 | `+A` | All number types | Unary positive operator. The type of the result is the same as the type of A. |
 | `~A` | All number types | Bitwise NOT operator. The type of the result is the same as the type of A. |
-<!--table-caption title="Unary operators"-->
+{: caption="Table 50. Unary operators" caption-side="bottom"}
 
-<h3 id="arithmeticOperator">Arithmetic operators</h3>
+### Arithmetic operators
+{: #arithmetic-operators}
 
 | Operator | Operand types | Description |
 | :----: | ---- | ---- |
@@ -2594,16 +2598,18 @@ The following types of operators can be used:
 | `A & B` | All number types | Returns the result of bitwise AND of A and B. The type of the result is the same as the type of the operand that is highest in the type hierarchy. |
 | `A | B` | All number types | Returns the result of bitwise OR of A and B. The type of the result is the same as the type of the operand that is highest in the type hierarchy. |
 | `A ^ B` | All number types | Returns the result of bitwise XOR of A and B. The type of the result is the same as the type of the operand that is highest in the type hierarchy. |
-<!--table-caption title="Arithmetic operators"-->
+{: caption="Table 51. Arithmetic operators" caption-side="bottom"}
 
-<h3 id="stringOperator">String operator</h3>
+### String operator
+{: #string-operator}
 
 | Operator | Operand types | Description |
 | :----: | ---- | ---- |
 | `A || B` | All types | Returns the concatenation of A and B. If A or B is not a string, it is first converted into a string type. The result is a string. |
-<!--table-caption title="String operator"-->
+{: caption="Table 52. String operator" caption-side="bottom"}
 
-<h3 id="comparisonOperator">Comparison operators</h3>
+### Comparison operators
+{: #comparison-operators}
 
 | Operator | Operand types | Description |
 | :----: | ---- | ---- |
@@ -2618,16 +2624,17 @@ The following types of operators can be used:
 | `A >= B` |All primitive types | Returns NULL if A or B is NULL, TRUE if A is greater than or equal to B, FALSE otherwise. |
 | `A !< B` | All primitive types| Returns NULL if A or B is NULL, TRUE if A is not less than B, FALSE otherwise.|
 | `A <=> B` | All primitive types| Returns the same result as the equal (=) operator if both A and B are not NULL, TRUE if both A and B are NULL, FALSE if A or B (but not both) is NULL.|
-<!--table-caption title="Comparison operators"-->
+{: caption="Table 53. Comparison operators" caption-side="bottom"}
 
-<h3 id="booleanOperator">Boolean operators</h3>
+### Boolean operators
+{: #boolean-operators}
 
 | Operator | Operand types | Description |
 | :----: | ---- | ---- |
 | `NOT A` | Boolean expressions | TRUE if A is FALSE, FALSE otherwise. |
 | `A AND B` | Boolean expressions | TRUE if A and B are both TRUE, FALSE otherwise. |
 | `A OR B` | Boolean expressions | FALSE if A and B are both FALSE, TRUE otherwise. |
-<!--table-caption title="Boolean operators"-->
+{: caption="Table 54. Boolean operators" caption-side="bottom"}
 
 <h3>Related references</h3>
 
@@ -2666,7 +2673,8 @@ STRUCT<
 Some data formats, particularly CSV, do not support composite types. When your query result contains data with a composite type,
 use an [INTO clause](#intoClause) to specify an appropriate target format, like JSON.
 
-<h3 id="primitiveType">Primitive Types Overview</h3>
+### Primitive Types Overview
+{: #primitive-types-overview}
 
 The following primitive data types are supported in {{site.data.keyword.sqlquery_short}}:
 - Numeric types
@@ -2675,8 +2683,8 @@ The following primitive data types are supported in {{site.data.keyword.sqlquery
 - Boolean
 - Binary
 
-
-<h3>Numeric Types</h3>
+### Numeric Types
+{: #numeric-types}
 
 Numeric data types are summarized in the following table.
 
@@ -2690,20 +2698,20 @@ Numeric data types are summarized in the following table.
 | `FLOAT` | single precision floating point number | 4 | n/a | n/a |
 | `DOUBLE` | double precision floating point number | 8 | n/a | n/a |
 | `DECIMAL` | precision of 38 digits | n/a | -10e37+1 | 10e37-1 |
-<!--table-caption title="Numeric Data Types"-->
+{: caption="Table 55. Numeric data types" caption-side="bottom"}
 
-Numeric literals with fractional digits are parsed as `DECIMAL` by default. For example, <code>123.45</code> is treated as `DECIMAL(5,2)`, and <code>1.234e-3</code> is treated as `DECIMAL(6,6)` with value 0.001234, and not as a floating point number. You can force specific data types with a <code>CAST</code> expression or by adding one of the following suffix types:
-- <code>123L</code> forces `BIGINT` data type
-- <code>123BD</code> forces `DECIMAL` data type
-- <code>123D</code> forces `DOUBLE` data type
+Numeric literals with fractional digits are parsed as `DECIMAL` by default. For example, `123.45` is treated as `DECIMAL(5,2)`, and `1.234e-3` is treated as `DECIMAL(6,6)` with value 0.001234, and not as a floating point number. You can force specific data types with a `CAST` expression or by adding one of the following suffix types:
+- `123L` forces `BIGINT` data type
+- `123BD` forces `DECIMAL` data type
+- `123D` forces `DOUBLE` data type
 
+### String Types
+{: #string-types}
 
-<h3>String Types</h3>
+Strings are represented as `STRING` data type. The type definitions `VARCHAR(n)` and `CHAR(n)` can be used as aliases for `STRING`. The syntax requires that you specify a maximum length for these types, but no length restriction is enforced.
 
-Strings are represented as `STRING` data type. The type definitions `VARCHAR(n)` and `CHAR(n)` can be used as aliases for `STRING`.
-The syntax requires that you specify a maximum length for these types, but no length restriction is enforced.
-
-<h3>Date and Timestamp Types</h3>
+### Date and Timestamp Types
+{: #date-and-timestamp-types}
 
 String values with appropriate formats can be converted to a timestamp or date, by using data types `TIMESTAMP` or `DATE`.
 
@@ -2717,25 +2725,20 @@ FROM VALUES ('dummy')
 ```
 {: codeblock}
 
-
 The result of the example query is shown in the following table.
 
 |CAST(2018-10-31 23:55:00 AS TIMESTAMP)|CAST(2018-2-28 23:55:00 AS DATE)|CAST(HELLO AS TIMESTAMP)|
 |--------------------------------------|--------------------------------|------------------------|
 |2018-10-31 23:55:00.0                 |2018-02-28                      |null                    |
-<!--table-caption title="Query result for example 'cast string values to TIMESTAMP and DATE types'"-->
+{: caption="Table 55. Query result for example 'cast string values to TIMESTAMP and DATE types" caption-side="bottom"}
 
-<h3>Boolean Type</h3>
+### Boolean Type
+{: #boolean-type}
 
-The `BOOLEAN` type represents a domain with two values, `true` or `false`.
+The `BOOLEAN` type represents a domain with two values, `true` or `false`. Any numeric value that represents zero, for example, `0`, `0.0`, or `0.0E10`, can be cast to `false`. Numeric values that represent a nonzero value, for example, 1, 1.0, 1.0E10, or 21474.83648 can be cast to `true`. The string value `'0'` can be cast to `false` and `'1'` can be cast to `true`. Any other string value is cast to `false`.
 
-Any numeric value that represents zero, for example, `0`, `0.0`, or `0.0E10`, can be cast to `false`.
-
-Numeric values that represent a nonzero value, for example, 1, 1.0, 1.0E10, or 21474.83648 can be cast to `true`.
-
-The string value `'0'` can be cast to `false` and `'1'` can be cast to `true`. Any other string value is cast to `false`.
-
-<h3>Binary Type</h3>
+### Binary Type
+{: #binary-type}
 
 A `BINARY` type represents an array of byte values. Thus, string values can be cast to type `BINARY`.
 
@@ -2744,7 +2747,6 @@ A `BINARY` type represents an array of byte values. Thus, string values can be c
 A *dataType* is referenced by the following clauses:
 - [castExpression](#castExpression)
 - [createTable](#createTable)
-
 
 ## Catalog management
 {: #chapterHiveCatalog}
@@ -2756,19 +2758,19 @@ For more information, see [catalog management](/docs/sql-query?topic=sql-query-h
 ### Create table
 {: #chapterCreateTable}
 
-<h4 id="createTable">createTable</h4>
+#### createTable
+{: #createTable}
 
 <!--include-svg src="./svgfiles/createTable.svg" target="./diagrams/createTable.svg" alt="syntax diagram for a create table command" layout="@break@" -->
 
-<h4 id="columnDefinition">columnDefinition</h4>
+#### columnDefinition
+{: #columnDefinition}
 
 <!--include-svg src="./svgfiles/columnDefinition.svg" target="./diagrams/columnDefinition.svg" alt="syntax diagram for column definition" layout="@break@" -->
 
-Create a table definition in the catalog based on the objects in the specified {{site.data.keyword.cos_short}} location. The `LOCATION` option is mandatory.
-If a table or view with the same name exists in the same {{site.data.keyword.sqlquery_short}} instance, you receive an error, unless the `IF NOT EXISTS` clause is specified.
+Create a table definition in the catalog based on the objects in the specified {{site.data.keyword.cos_short}} location. The `LOCATION` option is mandatory. If a table or view with the same name exists in the same {{site.data.keyword.sqlquery_short}} instance, you receive an error, unless the `IF NOT EXISTS` clause is specified.
 
-The column and partition definitions are optional. If they are not provided, the table schema and partitioning is detected from the structure of the data at the indicated location.
-If you explicitly provide these definitions, ensure that they match the objects that are stored in {{site.data.keyword.cos_short}}.
+The column and partition definitions are optional. If they are not provided, the table schema and partitioning is detected from the structure of the data at the indicated location. If you explicitly provide these definitions, ensure that they match the objects that are stored in {{site.data.keyword.cos_short}}.
 See [data types](#dataType) for details on the supported column types.
 
 ```sql
@@ -2827,7 +2829,8 @@ location cos://us-geo/sql/shippers.parquet
 ```
 {: codeblock}
 
-<h4 id="tableProperty">tableProperty</h4>
+#### tableProperty
+{: #tableProperty}
 
 The tableProperty option consists of one or more key and value pairs.
 
@@ -2836,6 +2839,7 @@ Key | Value | Default | Description
 HEADER | true or false | true | Use the HEADER option to specify whether your CSV object has a header included.
 DELIMITER | single (possibly escaped) character | `,` (comma) | Use the DELIMITER option to specify the used delimiter in your CSV objects. All single Unicode characters are allowed as delimiters.
 MULTILINE | true or false | false | Use the MULITLINE option to specify whether the JSON object is single or multiline.
+{: caption="Table 56. tableProperty option" caption-side="bottom"}
 
 ```sql
 -- Example of creating a table definition in the catalog for a CSV data without header line:
@@ -2851,13 +2855,15 @@ options(HEADER=false)
 ### Drop Table
 {: #chapterDropTable}
 
-<h4 id="dropTable">dropTable</h4>
+#### dropTable
+{: #dropTable}
 
 <!--include-svg src="./svgfiles/dropTable.svg" target="./diagrams/dropTable.svg" alt="syntax diagram for a drop table command" layout="@break@" -->
 
 Drop a table definition from the catalog. If the table does not exist, you receive an error, unless the `IF EXISTS` option is specified.
 
-Note: This command does not delete any data in {{site.data.keyword.cos_short}}. It removes only the table definition from the catalog.
+This command does not delete any data in {{site.data.keyword.cos_short}}. It removes only the table definition from the catalog.
+{: note}
 
 ```sql
 -- drop a definition for the table customer
@@ -2868,19 +2874,19 @@ DROP TABLE customers
 ### Create View
 {: #chapterCreateView}
 
-<h4 id="createView">createView</h4>
+#### createView
+{: #createView}
 
 <!--include-svg src="./svgfiles/createView.svg" target="./diagrams/createView.svg" alt="syntax diagram for a create view command" layout="@break@" -->
 
-<h4 id="identifierComment">identifierComment</h4>
+#### identifierComment
+{: #identifierComment}
 
 <!--include-svg src="./svgfiles/identifierComment.svg" target="./diagrams/identifierComment.svg" alt="syntax diagram for identifier comment definition" layout="@break@" -->
 
-Create a view definition in the catalog, based on existing table and view definitions.
-If a table or view with the same name exists in the same {{site.data.keyword.sqlquery_short}} instance, you receive an error, unless the `IF NOT EXISTS` clause is specified.
+Create a view definition in the catalog, based on existing table and view definitions. If a table or view with the same name exists in the same {{site.data.keyword.sqlquery_short}} instance, you receive an error, unless the `IF NOT EXISTS` clause is specified.
 
-The query definition is mandatory. It automatically specifies the SQL query that is used, whenever you use the view in a FROM clause of a query.
-You can hide some complexity of your data model by creating views on top of your tables. It is also possible to define views on top of other views.
+The query definition is mandatory. It automatically specifies the SQL query that is used, whenever you use the view in a FROM clause of a query. You can hide some complexity of your data model by creating views on top of your tables. It is also possible to define views on top of other views.
 
 ```sql
 -- create a view on top of table customer
@@ -2895,7 +2901,8 @@ CREATE VIEW CUSTOMER_STATISTICS AS
 ### Drop View
 {: #chapterDropView}
 
-<h4 id="dropView">dropView</h4>
+#### dropView
+{: #dropView}
 
 <!--include-svg src="./svgfiles/dropView.svg" target="./diagrams/dropView.svg" alt="syntax diagram for a drop view command" layout="@break@" -->
 
@@ -2912,7 +2919,8 @@ DROP VIEW customer_statistics
 ### Alter Table Partitions
 {: #chapterAlterTable}
 
-<h4 id="alterTablePartitions">alterTablePartitions</h4>
+#### alterTablePartitions
+{: #chapterAlterTable}
 
 <!--include-svg src="./svgfiles/alterTablePartitions.svg" target="./diagrams/alterTablePartitions.svg" alt="syntax diagram for a alter table partitions command" layout="@break@" -->
 
@@ -2935,7 +2943,6 @@ To add or remove partitions individually, use the `ADD PARTITION` or `DROP PARTI
 With the `ADD PARTITION` option you can specify an explicit location for the new partition. This way, you can construct a table from object locations that do not share a common {{site.data.keyword.cos_short}} prefix, or are even located in separate buckets.
 If the partition location is not specified, it is inferred from the location of the table and the value(s) of the partitioning column(s). `ADD PARTITION` does not validate the specified or inferred location.
 
-
 ```sql
 -- alter the table partitions by adding a partition
 ALTER TABLE customers_partitioned ADD IF NOT EXISTS PARTITION ( COUNTRY = 'Spain') LOCATION cos://us-geo/sql/customers_partitioned.csv/COUNTRY=Spain
@@ -2945,7 +2952,6 @@ ALTER TABLE customers_partitioned DROP IF EXISTS PARTITION ( COUNTRY = 'Nowhere'
 {: codeblock}
 
 The `SET LOCATION` option can be used to change the location of an existing partition.
-
 
 ```sql
 -- modify the location of an existing partition
@@ -2958,7 +2964,8 @@ Use the `EXISTS` option to avoid getting errors during `ADD` or `DROP`.
 ### Alter Table Columns
 {: #chapterAlterTableColumns}
 
-<h4 id="alterTableColumns">alterTableColumns</h4>
+#### alterTableColumns
+{: #alterTableColumns}
 
 <!--include-svg src="./svgfiles/alterTableColumns.svg" target="./diagrams/alterTableColumns.svg" alt="syntax diagram for a alter table columns command" layout="@break@" -->
 
@@ -2977,27 +2984,11 @@ Do not use the `ADD COLUMNS` option with CSV tables. The CSV data format identif
 
 Alternatively, you can perform schema changes by dropping and re-creating catlog tables. It does not affect the stored data in {{site.data.keyword.cos_short}}. This allows you to re-execute the automatic schema detection when the underlying data is extended with new objects containing additional columns. You can also use this method to remove columns from the schema that you do not want to appear in the catalog.
 
-<!-- HIDE START ### Analyze Table
-
-<h4 id="analyzeTable">Analyze Table</h4>
-
-*!<add comment lines here> include-svg src="./svgfiles/analyzeTable.svg" target="./diagrams/analyzeTable.svg" alt="syntax diagram for a analyze table command" layout="@break@" <add comment lines here>*
-
-The `ANALYZE TABLE` statement collects statistics about the specified table and for the specified columns. This information can be used by the query optimizer to improve the query plan.
-For example, to decide which table is smaller when you use a broadcast hash join, add those columns that are used in the SELECT statements.
-
-```sql
-<add comment lines here> analyze statistics for the table customer without scanning each object
-analyze table customer compute STATISTICS NOSCAN
-```
-{: codeblock}
-
-The option `NOSCAN` only collects the sizes of the objects. HIDE END -->
-
 ### Describe Table
 {: #chapterDescribeTable}
 
-<h4 id="describeTable">describeTable</h4>
+#### describeTable
+{: #describeTable}
 
 <!--include-svg src="./svgfiles/describeTable.svg" target="./diagrams/describeTable.svg" alt="syntax diagram for describe tables command" layout="@break@" -->
 
@@ -3012,7 +3003,8 @@ DESCRIBE TABLE customers_partitioned
 ### Show Tables
 {: #chapterShowTables}
 
-<h4 id="showTables">showTables</h4>
+#### showTables
+{: #showTables}
 
 <!--include-svg src="./svgfiles/showTables.svg" target="./diagrams/showTables.svg" alt="syntax diagram for show tables command" layout="@break@" -->
 
@@ -3024,37 +3016,16 @@ SHOW TABLES
 ```
 {: codeblock}
 
-<!-- HIDE START ### Show Table Properties
-
-<h4 id="showTblProperties">Show Table Properties</h4>
-
-*!<add comment lines here> include-svg src="./svgfiles/showTblProperties.svg" target="./diagrams/showTblProperties.svg" alt="syntax diagram for show table properties" layout="@break@" <add comment lines here>*
-
-<h4 id="tableProperty">Table Property</h4>
-
-*!<add comment lines here> include-svg src="./svgfiles/tableProperty.svg" target="./diagrams/tableProperty.svg" alt="syntax diagram for table properties" layout="@break@" <add comment lines here>*
-
-*!<add comment lines here> include-svg src="./svgfiles/tablePropertyKey.svg" target="./diagrams/tablePropertyKey.svg" alt="syntax diagram for table properties" layout="@break@" <add comment lines here>*
-
-
-Return either all properties of a table definition or a specific property. You receive an error if the table does not exist.
-
-```sql
-<add comment lines here> returns all specified table options for the table customer
-SHOW TBLPROPERTIES customer
-```
-{: codeblock} HIDE END -->
-
 ### Show Partitions
 {: #chapterShowPartitions}
 
-<h4 id="showPartitions">showPartitions</h4>
+#### showPartitions
+{: #showPartitions}
 
 <!--include-svg src="./svgfiles/showPartitions.svg" target="./diagrams/showPartitions.svg" alt="syntax diagram for show partitions command" layout="@break@" -->
 
 List the defined partitions of a table when a table was created as partitioned. You can filter the returned partitions by using the *partitionSpec*
 option.
-
 
 ```sql
 -- returns all partitions for the table customers_partitioned
@@ -3065,20 +3036,20 @@ SHOW PARTITIONS customers_partitioned
 ## Index Management
 {: #chapterIndexManagement}
 
-The following commands allow you to create indexes for data skipping during SQL execution to improve performance and lower the costs of your SQL queries.
-The indexes store summary metadata for each partition of your table to avoid scanning data that is not needed for the query execution.
-For more information, see [index management](/docs/sql-query?topic=sql-query-index_management).
+The following commands allow you to create indexes for data skipping during SQL execution to improve performance and lower the costs of your SQL queries. The indexes store summary metadata for each partition of your table to avoid scanning data that is not needed for the query execution. For more information, see [index management](/docs/sql-query?topic=sql-query-index_management).
 
 ### Create Index
 {: #chapterCreateIndex}
 
-<h4 id="createIndex">createIndex</h4>
+#### createIndex
+{: #createIndex}
 
 <!--include-svg src="./svgfiles/metaindexCreateCommand.svg" target="./diagrams/metaindexCreateCommand.svg" alt="syntax diagram for create index command" layout="@break@" -->
 
 Create an index on the objects in the specified {{site.data.keyword.cos_short}} location or on the specified table. Define the required index type for each column that you want to calculate the summary metadata for. Create the index on columns that are used for predicates in the SQL statements.
 
-<h4 id="metaindexIndextype">metaindexIndextype</h4>
+#### metaindexIndextype
+{: #metaindexIndextype}
 
 <!--include-svg src="./svgfiles/metaindexIndextype.svg" target="./diagrams/metaindexIndextype.svg" alt="syntax diagram for the different index types" layout="@break@" -->
 
@@ -3126,7 +3097,8 @@ ALTER METAINDEX SET LOCATION cos://us-south/<mybucket>/<mypath>
 ### Drop Index
 {: #chapterDropIndex}
 
-<h4 id="dropIndex">dropIndex</h4>
+#### dropIndex
+{: #dropIndex}
 
 <!--include-svg src="./svgfiles/metaindexDropCommand.svg" target="./diagrams/metaindexDropCommand.svg" alt="syntax diagram for drop index command" layout="@break@" -->
 
@@ -3141,12 +3113,12 @@ DROP METAINDEX ON cos://us-geo/sql/metergen STORED AS parquet
 ### Refresh Index
 {: #chapterRefreshIndex}
 
-<h4 id="refreshIndex">refreshIndex</h4>
+#### refreshIndex
+{: #refreshIndex}
 
 <!--include-svg src="./svgfiles/metaindexRefreshCommand.svg" target="./diagrams/metaindexRefreshCommand.svg" alt="syntax diagram for refresh index command" layout="@break@" -->
 
-Refresh an existing index based on the objects in the specified {{site.data.keyword.cos_short}} location or on the specified table.
-Use the following command if the data changed and you need to update the index:
+Refresh an existing index based on the objects in the specified {{site.data.keyword.cos_short}} location or on the specified table. Use the following command if the data changed and you need to update the index:
 
 ```sql
 -- refresh the index based on metergen sample data set
@@ -3157,12 +3129,12 @@ REFRESH METAINDEX ON cos://us-geo/sql/metergen STORED AS parquet
 ### Describe Index
 {: #chapterDescribeIndex}
 
-<h4 id="describeIndex">describeIndex</h4>
+#### describeIndex
+{: #describeIndex}
 
 <!--include-svg src="./svgfiles/metaindexDescribeCommand.svg" target="./diagrams/metaindexDescribeCommand.svg" alt="syntax diagram for describe index command" layout="@break@" -->
 
-Describe an existing index based on the objects in the specified {{site.data.keyword.cos_short}} location or on the specified table.
-Use the following command to receive information of the index, such as index status, types that are used, location where it is stored, or number of objects processed.
+Describe an existing index based on the objects in the specified {{site.data.keyword.cos_short}} location or on the specified table. Use the following command to receive information of the index, such as index status, types that are used, location where it is stored, or number of objects processed.
 
 ```sql
 -- describe the index based on the metergen sample data set
@@ -3173,7 +3145,8 @@ DESCRIBE METAINDEX ON cos://us-geo/sql/metergen STORED AS parquet
 ### Show Indexes
 {: #chapterShowIndexes}
 
-<h4 id="showIndexes">showIndexes</h4>
+#### showIndexes
+{: #showIndexes}
 
 <!--include-svg src="./svgfiles/metaindexShowCommand.svg" target="./diagrams/mmetaindexShowCommand.svg" alt="syntax diagram for show indexes command" layout="@break@" -->
 
@@ -3188,13 +3161,12 @@ SHOW METAINDEXES
 ### Alter Index
 {: #chapterAlterIndex}
 
-<h4 id="alterIndex">alterIndex</h4>
+#### alterIndex
+{: #alterIndex}
 
 <!--include-svg src="./svgfiles/metaindexLocationCommand.svg" target="./diagrams/metaindexLocationCommand.svg" alt="syntax diagram for alter index command" layout="@break@" -->
 
-You must alter the {{site.data.keyword.cos_short}} location for all indexes only once to define the base location.
-If you change it later, {{site.data.keyword.sqlquery_short}} cannot find the index metadata anymore.
-Existing index metadata on previous location is not dropped. Therefore, you can always switch back to the old location when needed.
+You must alter the {{site.data.keyword.cos_short}} location for all indexes only once to define the base location. If you change it later, {{site.data.keyword.sqlquery_short}} cannot find the index metadata anymore. Existing index metadata on previous location is not dropped. Therefore, you can always switch back to the old location when needed.
 
 ```sql
 -- set the default location for all indexes
@@ -3202,11 +3174,11 @@ ALTER METAINDEX SET LOCATION cos://us-south/<mybucket>/<mypath>/
 ```
 {: codeblock}
 
-
 ### Alter Table Set Location
 {: #chapterAlterTableSetLocation}
 
-<h4 id="alterTableSetLocation">alterTableSetLocation</h4>
+#### alterTableSetLocation
+{: #alterTableSetLocation}
 
 <!--include-svg src="./svgfiles/hiveMetaindexLocationCommand.svg" target="./diagrams/hiveMetaindexLocationCommand.svg" alt="syntax diagram for alter table set location command" layout="@break@" -->
 
@@ -3218,11 +3190,11 @@ ALTER TABLE CUSTOMERS_PARTITIONED SET METAINDEX LOCATION cos://us-south/<mybucke
 ```
 {: codeblock}
 
-
 ### Alter Table Drop Location
 {: #chapterAlterTableDropLocation}
 
-<h4 id="alterTableDropLocation">alterTableDropLocation</h4>
+#### alterTableDropLocation
+{: #alterTableDropLocation}
 
 <!--include-svg src="./svgfiles/hiveMetaindexDropLocationCommand.svg" target="./diagrams/hiveMetaindexDropLocationCommand.svg" alt="syntax diagram for alter table drop location command" layout="@break@" -->
 
@@ -3237,7 +3209,8 @@ ALTER TABLE CUSTOMERS_PARTITIONED DROP METAINDEX LOCATION
 ### IndexAsset
 {: #chapterIndexAsset}
 
-<h4 id="metaindexAsset">metaindexAsset</h4>
+#### metaindexAsset
+{: #metaindexAsset}
 
 The indexAsset is either based on a table or Cloud {{site.data.keyword.cos_short}} location.
 
@@ -3254,31 +3227,34 @@ The `metaindexAssetHiveTable` refers to a Hive table.
 ## Miscellaneous Definitions
 {: #chapterMiscDefinitions}
 
-<h3 id ="COSURI">COSURI</h3>
+### COSURI
+{: #cosuri}
 
 A Cloud {{site.data.keyword.cos_short}} Uniform Resource Identifier (COS URI) is a string of characters that uniquely identifies an object on Cloud {{site.data.keyword.cos_short}}. By definition URIs are case-insensitive.
 
 The syntax of a Cloud {{site.data.keyword.cos_short}} URI is thoroughly described in section [Table unique resource identifier](https://cloud.ibm.com/docs/sql-query?topic=sql-query-overview#unique).
 
-<h3 id ="CRN_URI">CRN_URI</h3>
+### CRN_URI
+{: #crn-uri}
 
-A database table CRN is a unique identifier that consists of the CRN of a database service instance and a specific table name that instance.
-The user must have access to this service instance and its credentials.
+A database table CRN is a unique identifier that consists of the CRN of a database service instance and a specific table name that instance. The user must have access to this service instance and its credentials.
 
 The syntax of a table CRN is thoroughly described in section [Table unique resource identifier](/docs/sql-query?topic=sql-query-overview#unique).
 
-<h3 id ="DB2_TABLE_URI">DB2_TABLE_URI</h3>
+### DB2_TABLE_URI
+{: #db2-table-uri}
 
-A Db2 table URI is a string of characters that uniquely identifies a table in an {{site.data.keyword.Db2_on_Cloud_long}} and {{site.data.keyword.dashdblong}} instance.
-The instance must be enabled for IAM and the IBMid if the user must be added as a database user.
+A Db2 table URI is a string of characters that uniquely identifies a table in an {{site.data.keyword.Db2_on_Cloud_long}} and {{site.data.keyword.dashdblong}} instance. The instance must be enabled for IAM and the IBMid if the user must be added as a database user.
 
 The syntax of a Db2 Table URI is thoroughly described in section [Table unique resource identifier](/docs/sql-query?topic=sql-query-overview#unique).
 
-<h3 id="identifier">Identifier</h3>
+### Identifier
+{: #identifier}
 
 An *identifier* is a name that uniquely identifies an entity. The two types of identifiers are unquoted identifiers and back quoted identifiers.
 
-<h4>Unquoted identifier</h4>
+#### Unquoted identifier
+{: #binary-type}
 
 An unquoted identifier is at least one character long. The following valid characters can be used:
 
@@ -3286,9 +3262,10 @@ An unquoted identifier is at least one character long. The following valid chara
 - Letters `a-z`, `A-Z`
 - Underscore `_`
 
-<h4>Back quoted identifier</h4>
+#### Back quoted identifier
+{: #back-quoted-identifier}
 
-It is an identifier that is embraced by grave accent <code>\`</code> characters. A back quoted identifier can contain any character. That includes the grave accent character that must be escaped like this <code>\`\`</code>.
+It is an identifier that is embraced by grave accent `` ` `` characters. A back quoted identifier can contain any character. That includes the grave accent character that must be escaped like this ` `` `.
 
 The following example shows how to add a column name that contains a special character:
 
@@ -3296,7 +3273,8 @@ The following example shows how to add a column name that contains a special cha
 SELECT col1 as `Lösung` FROM VALUES 1, 2 ,3
 ```
 
-<h3 id="tableIdentifier">Table Identifier</h3>
+### Table Identifier
+{: #table-identifier}
 
 A *table identifier* uniquely identifies a table or view in the catalog of the {{site.data.keyword.sqlquery_short}} instance. The following valid characters can be used:
 
@@ -3304,19 +3282,23 @@ A *table identifier* uniquely identifies a table or view in the catalog of the {
 - Letters `a-z`, `A-Z`
 - Underscore `_`
 
-<h3 id="number">Number</h3>
+### Number
+{: #number}
 
 A number is either a signed or unsigned *integer* or a *decimal* number.
 
-<h3 id="unsignedNumber">Unsigned Number</h3>
+### Unsigned Number
+{: #unsigned-number}
 
 An unsigned number is an *integer* or *decimal* number without sign or type suffix.
 
-<h3 id="unsignedInteger">Unsigned Integer Number</h3>
+### >Unsigned Integer Number
+{: #unsigned-integer-number}
 
 An unsigned integer is an *integer* number without sign or type suffix.
 
-<h4 id="INTEGER_VALUE">Integer Number</h4>
+#### Integer Number
+{: #integer-number}
 
 An integer number is represented by a sequence of at least one digit, that is, `0` to `9`.
 The integer number can have a suffix denoting the type of integer number. The three types of integer numbers are:
@@ -3327,7 +3309,8 @@ The integer number can have a suffix denoting the type of integer number. The th
 
 For more information about data types, see [dataType](#dataType).
 
-<h4 id="DECIMAL_VALUE">Decimal Number</h4>
+#### Decimal Number
+{: #decimal-number}
 
 The following is a decimal number:
 
@@ -3342,8 +3325,9 @@ The decimal number can have a suffix denoting the type of decimal number. The tw
 
 For more information about data types, see [dataType](#dataType).
 
-<h3 id="STRING">String</h3>
+### String
+{: #string}
 
 A *string* is a sequence of arbitrary characters that includes escaped characters, for example,
-`\t`, either enclosed in single quotation marks `'`, or double quotation marks, `"`.
-To include any quotation mark characters in the string, they must be escaped as <code>\\\\\`</code> or `\\"`.
+`\t`, either enclosed in single quotation marks `'`, or double quotation marks `"`.
+To include any quotation mark characters in the string, they must be escaped as `\\'` or `\\"`.
