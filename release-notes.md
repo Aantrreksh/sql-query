@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-03-23"
+lastupdated: "2022-03-24"
 
 keywords: sql query release notes
 
@@ -57,9 +57,6 @@ Supported regions
 {{site.data.keyword.cos_full_notm}}
 :   {{site.data.keyword.cos_full_notm}} web console discovers SQL-queryable objects and folders and directly launches the {{site.data.keyword.sqlquery_short}} web console with a prefilled SQL statement for seamless interactive data exploration.
 
-Master versions
-:   Master fix pack update changelog documentation is available for Kubernetes version [1.21.3_1525](/docs/containers?topic=containers-changelog#1213_1525), [1.20.9_1547](/docs/containers?topic=containers-changelog#1209_1547), [1.19.13_1554](/docs/containers?topic=containers-changelog#11913_1554), and [1.18.20_1559](/docs/containers?topic=containers-changelog#11820_1559)
-
 ## November 2020
 {: #subcollection-november2020}
 {: release-note}
@@ -113,14 +110,7 @@ Catalog management
 {: release-note}
 
 Database catalog
-:   {{site.data.keyword.sqlquery_short}} support for [database catalog](/docs/services/sql-query?topic=sql-query-hivemetastore) is generally available with full production support.
-
-## March 2020
-{: #subcollection-march2020}
-{: release-note}
-
-Database catalog
-:   {{site.data.keyword.sqlquery_short}} has a [database catalog](/docs/services/sql-query?topic=sql-query-hivemetastore). It is based on Hive Metastore and significantly speeds up query execution and decouples data management from SQL users and applications.
+:   {{site.data.keyword.sqlquery_short}} support for [database catalog](/docs/services/sql-query?topic=sql-query-hivemetastore) is generally available with full production support. The database catalog is based on Hive Metastore and significantly speeds up query execution and decouples data management from SQL users and applications.
 
 ## January 2020
 {: #subcollection-january2020}
