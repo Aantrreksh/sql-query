@@ -3,7 +3,7 @@
 copyright:
   years: 2018, 2022
 
-lastupdated: "2022-01-17"
+lastupdated: "2022-01-18"
 
 
 keywords: what's new, support, release, beta
