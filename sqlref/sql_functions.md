@@ -27,14 +27,29 @@ expr
 expr1 % expr2 
 :   Returns the remainder after <code>expr1</code>/<code>expr2</code>.
 
-:   Example of an SQL function usage fragment: 
+:   **Example of an SQL function usage fragment:** 
+
     ```
     > SELECT 2 % 1.8
     ````
-    
-:   Result value: `0.2`
-:   Example of an SQL function usage fragment: `> SELECT MOD(2, 1.8)`
-:   Result value: `0.2`
+
+:   **Result value:**
+
+    ```
+    0.2
+    ```
+
+:   **Example of an SQL function usage fragment:**
+
+    ```
+    > SELECT MOD(2, 1.8)
+    ```
+
+:   **Result value:**
+
+    ```
+    0.2
+    ```
 
 
 ## &
