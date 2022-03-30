@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-03-11"
+lastupdated: "2022-03-30"
 
 ---
 
@@ -390,7 +390,7 @@ For more information about the clauses that are used in a *fullselect*, see the 
 - [valuesClause](#valuesClause)
 
 ### Related references - fullselect
-{: #more-topics-fullselect}
+{: #related-references-fullselect}
 
 A *fullselect* is referenced by the following clauses:
 - [fullselect](#fullselect)
@@ -3254,7 +3254,7 @@ The syntax of a Db2 Table URI is thoroughly described in section [Table unique r
 An *identifier* is a name that uniquely identifies an entity. The two types of identifiers are unquoted identifiers and back quoted identifiers.
 
 #### Unquoted identifier
-{: #binary-type}
+{: #unquoted-identifier}
 
 An unquoted identifier is at least one character long. The following valid characters can be used:
 
