@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-10-07"
+  years: 2018, 2022
+lastupdated: "2022-03-30"
 
 keywords: SQL, functions
 
@@ -18,20 +18,22 @@ You can use any of the following functions in your query.
 ## !
 {: #!}
 
-expr - Logical not.
+expr
+:   Logical not.
 
 ## %
 {: #%}
 
-expr1 % expr2 - Returns the remainder after <code>expr1</code>/<code>expr2</code>.
+expr1 % expr2 
+:   Returns the remainder after <code>expr1</code>/<code>expr2</code>.
 
 **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT 2 % 1.8</code></pre>
+`> SELECT 2 % 1.8`
 
 **Result value:**
 
-<pre><code> 0.2 </code></pre>
+`0.2`
 
 **Example of an SQL function usage fragment:**
 
