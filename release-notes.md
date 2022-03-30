@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-03-25"
+lastupdated: "2022-03-30"
 
 keywords: sql query release notes
 
@@ -123,7 +123,7 @@ Support for all endpoints
 :   {{site.data.keyword.sqlquery_short}} fully supports all current public and private {{site.data.keyword.cos_full}} endpoints (ending with `appdomain.cloud`, for example, `s3.us.cloud-object-storage.appdomain.cloud`) and all new single data center endpoints (for example, `sng01`).
 
 ## December 2019
-{: #subcollection-december2020}
+{: #subcollection-december2019}
 {: release-note}
 
 {{site.data.keyword.keymanagementserviceshort}}
