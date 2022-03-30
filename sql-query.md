@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-03-09"
+lastupdated: "2022-03-30"
 
 keywords: SQL query, analyze, data, CVS, JSON, ORC, Parquet, Avro, object storage, SELECT, cloud instance, URI, endpoint, api, user roles
 
@@ -166,7 +166,7 @@ Matching columns must have compatible data types across all objects where they a
 Two ways to specify database locations exist, CRN URIs, and Db2 table URIs. Which one you choose depends on the target database plan and the access you have to that database. The number of parallel Db2 connections affects performance. The more parallel connections there are, the better the performance gets, depending on the allowed connections to Db2 and the current free resources of {{site.data.keyword.sqlquery_short}}. Check how many connections your [Db2 plan](https://cloud.ibm.com/catalog/services/db2) allows.
 
 #### CRN URI location
-{: #crn-uri}
+{: #crn-uri-location}
 
 If the {{site.data.keyword.Db2_on_Cloud_short}} instance is in an {{site.data.keyword.Bluemix_notm}} account that is accessible to the SQL user, and if the SQL user can see the credentials for that instance (requires the Operator privilege), the user can specify the database location by using its instance CRN. The access to the database is performed with the username and password that is found in the service credentials for this Db2 instance. Newly created Db2 instances don't have any service credentials; to create them, select the instance in the {{site.data.keyword.Bluemix_notm}} console and choose **Service credentials** > **New credential**.
 
@@ -185,7 +185,7 @@ The **`<table name>`** part specifies the table that is created in your database
 An example for a CRN table is: `crn:v1:bluemix:public:dashdb-for-transactions:us-south:s/c3882b7e-00c4-4e7c-a63b-cded1c298f25:23eb50c5-723d-41e0-b7d8-603feaa79ccc:cf-service-instance:/RWS46052.QUERY_RESULT`
 
 #### Db2 table URI location
-{: #db2-table-uri}
+{: #db2-table-uri-location}
 
 If the SQL user cannot access the service credentials for the {{site.data.keyword.Db2_on_Cloud_short}} instance (because the user does not have access to the account that contains the database instance, or is not granted Operator privilege on the instance), the user can specify the database location by using a URI with the Db2 database hostname.
 
