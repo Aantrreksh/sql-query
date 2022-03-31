@@ -51,7 +51,7 @@ Connect to data lakes with {{site.data.keyword.cpd_short}}
 and import data assets into projects and catalogs in {{site.data.keyword.cpd_short}}. For more information, see [Connecting to a Cloud Data Lake with IBM Cloud Pak for Data](https://www.ibm.com/cloud/blog/connecting-to-a-cloud-data-lake-with-ibm-cloud-pak-for-data).
 
 ## December 2020
-{: #subcollection-december2020}
+{: #sql-query-december2020}
 {: release-note}
 
 Supported regions
@@ -61,14 +61,14 @@ Supported regions
 :   {{site.data.keyword.cos_full_notm}} web console discovers SQL-queryable objects and folders and directly launches the {{site.data.keyword.sqlquery_short}} web console with a prefilled SQL statement for seamless interactive data exploration.
 
 ## November 2020
-{: #subcollection-november2020}
+{: #sql-query-november2020}
 {: release-note}
 
 Modify location of Hive partitions
 :   The location of Hive partitions can be modified by using the [`ALTER TABLE SET LOCATION`](/docs/sql-query?topic=sql-query-sql-reference#chapterAlterTableSetLocation) feature.
 
 ## October 2020
-{: #subcollection-october2020}
+{: #sql-query-october2020}
 {: release-note}
 
 Index management
@@ -87,7 +87,7 @@ Usage of legacy SoftLayer endpoints discontinued
 :   The usage of the legacy SoftLayer endpoints of Cloud {{site.data.keyword.cos_full_notm}} is discontinued. Check out the [Cloud Object Storage announcement](https://cloud.ibm.com/status?component=cloud-object-storage&location=global&selected=announcement&query=2020+Actions) for more details.
 
 ## September 2020
-{: #subcollection-september2020}
+{: #sql-query-september2020}
 {: release-note}
 
 Use JDBC to connect to business intelligence tools
@@ -97,7 +97,7 @@ Monitoring with Sysdig
 :   {{site.data.keyword.sqlquery_short}} supports monitoring metrics for submitted jobs by using [{{site.data.keyword.mon_full}}](https://cloud.ibm.com/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-getting-started). You can view completed and failed jobs, the number of bytes processed, and the jobs in progress. A default {{site.data.keyword.sqlquery_short}} dashboard exists, and you can define custom dashboards and alerts.
 
 ## May 2020
-{: #subcollection-may2020}
+{: #sql-query-may2020}
 {: release-note}
 
 Index management
@@ -109,35 +109,35 @@ Catalog management
 :   {{site.data.keyword.sqlquery_short}} catalog management is out of the Beta stage and can be used with the Standard plan.
 
 ## April 2020
-{: #subcollection-april2020}
+{: #sql-query-april2020}
 {: release-note}
 
 Database catalog
 :   {{site.data.keyword.sqlquery_short}} support for [database catalog](/docs/services/sql-query?topic=sql-query-hivemetastore) is generally available with full production support. The database catalog is based on Hive Metastore and significantly speeds up query execution and decouples data management from SQL users and applications.
 
 ## January 2020
-{: #subcollection-january2020}
+{: #sql-query-january2020}
 {: release-note}
 
 Support for all endpoints
 :   {{site.data.keyword.sqlquery_short}} fully supports all current public and private {{site.data.keyword.cos_full}} endpoints (ending with `appdomain.cloud`, for example, `s3.us.cloud-object-storage.appdomain.cloud`) and all new single data center endpoints (for example, `sng01`).
 
 ## December 2019
-{: #subcollection-december2020}
+{: #sql-query-december2020}
 {: release-note}
 
 {{site.data.keyword.keymanagementserviceshort}}
 :   You can use [{{site.data.keyword.keymanagementserviceshort}}](https://cloud.ibm.com/catalog/services/key-protect) as a secure credential broker to pass credentials to data resources referenced by your queries, thus ensuring safe handling of your secrets. For more information, see the [authentication documentation](/docs/sql-query?topic=sql-query-authentication).
 
 ## November 2019
-{: #subcollection-november2019}
+{: #sql-query-november2019}
 {: release-note}
 
 `MULTILINE` option
 :   You can specify a [`MULTILINE`](/docs/sql-query?topic=sql-query-sql-reference#externalTableSpec) option for JSON input data if individual JSON records are stored across multiple lines.
 
 ## October 2019
-{: #subcollection-october2019}
+{: #sql-query-october2019}
 {: release-note}
 
 New open source script for uploading large volumes
@@ -153,21 +153,21 @@ Query hints
 :   {{site.data.keyword.sqlquery_short}} has query hints for SQL queries that have potential for faster execution by using certain features of {{site.data.keyword.sqlquery_short}}. These hints are flagged with a light bulb icon in the job list and the specific hint is available inside the Details pane.
 
 ## September 2019
-{: #subcollection-september2019}
+{: #sql-query-september2019}
 {: release-note}
 
 Support for ETL to {{site.data.keyword.Db2_on_Cloud_long}}
 :   You can specify [Db2 target tables](/docs/sql-query?topic=sql-query-overview#unique) in your SQL queries to process data from {{site.data.keyword.cos_full_notm}} and save the {{site.data.keyword.sqlquery_short}} result into {{site.data.keyword.Db2_on_Cloud_short}}.
 
 ## August 2019
-{: #subcollection-august2019}
+{: #sql-query-august2019}
 {: release-note}
 
 Support for `DESCRIBE` table transformation function
 :   Support for the [`DESCRIBE`](/docs/sql-query?topic=sql-query-sql-reference#tableTransformer) table transformation function that enables easier exploration of the schema of data by returning the schema definition instead of data as the table content. Check out the new Starter Query sample in the UI.
 
 ## July 2019
-{: #subcollection-july2019}
+{: #sql-query-july2019}
 {: release-note}
 
 JSON preview
@@ -181,7 +181,7 @@ New table transformation functions
 :   Support for [`FLATTEN`](/docs/sql-query?topic=sql-query-sql-reference#tableTransformer) table transformation function that generically flattens all nested input columns into a flat hierarchy, allowing to easily work with, for example, JSON input data and write the results out to flat CSV files. Check out the new samples in the UI.
 
 ## June 2019
-{: #subcollection-june2019}
+{: #sql-query-june2019}
 {: release-note}
 
 {{site.data.keyword.sqlquery_short}} now available in Frankfurt
@@ -191,7 +191,7 @@ Support for time series SQL functions
 :   Support for [time series SQL functions](/docs/services/sql-query?topic=sql-query-ts_intro) to process time series data, for example, to identify trends and to predict future values based on these trends.
 
 ## May 2019
-{: #subcollection-may2019}
+{: #sql-query-may2019}
 {: release-note}
 
 Updates to the [SQL reference](/docs/services/sql-query?topic=sql-query-sql-reference)
@@ -200,7 +200,7 @@ Updates to the [SQL reference](/docs/services/sql-query?topic=sql-query-sql-refe
 :   [`PARTITIONED INTO BUCKETS`](/docs/sql-query?topic=sql-query-sql-reference#partitionedClause) and [`PARTITIONED INTO OBJECTS`](/docs/sql-query?topic=sql-query-sql-reference#partitionedClause) are both supported, thus you can use them synonymously.
 
 ## April 2019
-{: #subcollection-april2019}
+{: #sql-query-april2019}
 {: release-note}
 
 Support for encryption with {{site.data.keyword.keymanagementservicefull}}
@@ -208,7 +208,7 @@ Support for encryption with {{site.data.keyword.keymanagementservicefull}}
 :   {{site.data.keyword.sqlquery_notm}} with {{site.data.keyword.keymanagementservicelong_notm}} for managing encryption keys meets the required IBM controls that are commensurate with the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Security and Privacy Rule requirements.
 
 ## February 2019
-{: #subcollection-february2019}
+{: #sql-query-february2019}
 {: release-note}
 
 Beta support for JDBC driver
@@ -221,14 +221,14 @@ Beta support for time series
 :   Beta support for SQL-native time series in {{site.data.keyword.sqlquery_short}}. This includes functions for time series segmentation, prediction, alignment, temporal joins, and subsequence mining. Request to participate by sending an email to  Joshua.Mintz@ibm.com.
 
 ## December 2018
-{: #subcollection-december2018}
+{: #sql-query-december2018}
 {: release-note}
 
 New SQl reference guide
 :   Release of a complete SQL Reference Guide, an SQL introduction for Cloud SQL/Spark SQL. [This guide](/docs/sql-query?topic=sql-query-sql-reference) includes examples that can be copied and directly pasted into the web UI to be run.
 
 ## November 2018
-{: #subcollection-november2018}
+{: #sql-query-november2018}
 {: release-note}
 
 Support for hive-style partitioning
@@ -238,14 +238,14 @@ Support for Python SDK extensions
 :   Support for extensions in [Python SDK](https://pypi.org/project/ibmcloudsql) for result data partitioning, pagination, and exporting SQL job history to {{site.data.keyword.cos_full_notm}}.
 
 ## October 2018
-{: #subcollection-october2018}
+{: #sql-query-october2018}
 {: release-note}
 
 Control your result's format
 :   Support for SELECT INTO to control the format the SQL result is written in.
 
 ## August 2018
-{: #subcollection-august2018}
+{: #sql-query-august2018}
 {: release-note}
 
 General availability
@@ -256,7 +256,7 @@ New built-in functions
 :   Set of SQL optimizer and ANSI SQL and Hive SQL compliance enhancements that are introduced with Apache Spark 2.3.
 
 ## June 2018
-{: #subcollection-june2018}
+{: #sql-query-june2018}
 {: release-note}
 
 ORC
@@ -269,7 +269,7 @@ ibmcloudsql Node.js client SDK
 :   Release of [ibmcloudsql Node.js client SDK](https://www.npmjs.com/package/ibmcloudsql).
 
 ## April 2018
-{: #subcollection-april2018}
+{: #sql-query-april2018}
 {: release-note}
 
 Introducing {{site.data.keyword.sqlquery_notm}}
