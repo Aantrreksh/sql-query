@@ -75,7 +75,7 @@ expr1 & expr2
 expr1 * expr2
 :   Returns `expr1`*`expr2`.
 
-:   **Example of an SQL function usage fragment:
+:   **Example of an SQL function usage fragment:**
 
    ```sql
    > SELECT 2 * 3
@@ -99,7 +99,7 @@ expr1 + expr2
    > SELECT 1 + 2
    ```
 
-**Result value:**
+:   **Result value:**
 
    ```sql
    3
@@ -161,8 +161,7 @@ expr1 > expr2
 
 :   **Arguments:**
 
-    expr1, expr2
-    :  The two expressions must be same type or can be cast to a common type,
+    expr1, expr2 - The two expressions must be same type or can be cast to a common type,
     and must be a type that can be ordered. For example, map type is not orderable, so it
     is not supported. For complex types such array and struct, the data types of fields must
     be orderable.
@@ -173,7 +172,7 @@ expr1 > expr2
    > SELECT 1 > 2
    ```
 
-:   Result value:**
+:   **Result value:**
 
    ```sql
    true
@@ -235,8 +234,7 @@ expr1 >= expr2
 
 :   **Arguments:**
 
-    expr1, expr2
-    :   The two expressions must be same type or can be cast to a common type,
+    expr1, expr2 - The two expressions must be same type or can be cast to a common type,
     and must be a type that can be ordered. For example, map type is not orderable, so it
     is not supported. For complex types such array and struct, the data types of fields must
     be orderable.
@@ -261,174 +259,231 @@ expr1 >= expr2
 
 :   **Result value:**
 
-<pre><code> true</code></pre>
+   ```sql
+   true
+   ```
 
 :   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT to_date('2009-07-30 04:17:52') &lt;= to_date('2009-07-30 04:17:52')</code></pre>
+   ```sql
+   > SELECT to_date('2009-07-30 04:17:52') >= to_date('2009-07-30 04:17:52')
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> true</code></pre>
+   ```sql
+   true
+   ```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT to_date('2009-07-30 04:17:52') &lt;= to_date('2009-08-01 04:17:52')</code></pre>
+   ```sql
+   > SELECT to_date('2009-07-30 04:17:52') >= to_date('2009-08-01 04:17:52')
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> true</code></pre>
+   ```sql
+   true
+   ```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT 1 &lt;= NULL</code></pre>
+   ```sql
+   > SELECT 1 >= NULL
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> NULL</code></pre>
+   ```sql
+   NULL
+   ```
 
+## <=>
+{: #<=>}
 
-## &lt;=&gt;
-{: #&lt;=&gt;}
-
-expr1 &lt;=&gt; expr2 - Returns same result as the EQUAL(=) operator for non-null operands,
+expr1 <=> expr2
+:   Returns same result as the EQUAL(=) operator for non-null operands,
 but returns true if both are null, false if one of the them is null.
 
-**Arguments:**
+:   **Arguments:**
 
-<ul>
-<li>expr1, expr2 - the two expressions must be same type or can be cast to a common type,
+    expr1, expr2 - The two expressions must be same type or can be cast to a common type,
     and must be a type that can be used in equality comparison. Map type is not supported.
-    For complex types such array and struct, the data types of fields must be orderable.</li>
-</ul>
+    For complex types such array and struct, the data types of fields must be orderable.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT 2 &lt;=&gt; 2</code></pre>
+   ```sql
+   > SELECT 2 <=>; 2
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> true</code></pre>
+   ```sql
+   true
+   ```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT 1 &lt;=&gt; '1'</code></pre>
+   ```sql
+   > SELECT 1 <=> '1'
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> true</code></pre>
+   ```sql
+   true
+   ```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT true &lt;=&gt; NULL</code></pre>
+   ```sql
+   > SELECT true <=> NULL
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> false</code></pre>
+   ```sql
+   false
+   ```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT NULL &lt;=&gt; NULL</code></pre>
+   ```sql
+   > SELECT NULL <=> NULL
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> true</code></pre>
-
+   ```sql
+   true
+   ```
 
 ## =
 {: #=}
 
-expr1 = expr2 - Returns true if <code>expr1</code> equals <code>expr2</code>, or false otherwise.
+expr1 = expr2
+:   Returns true if `expr1` equals `expr2`, or false otherwise.
 
-**Arguments:**
+:   **Arguments:**
 
-<ul>
-<li>expr1, expr2 - the two expressions must be same type or can be cast to a common type,
+    expr1, expr2 - The two expressions must be same type or can be cast to a common type,
     and must be a type that can be used in equality comparison. Map type is not supported.
-    For complex types such array and struct, the data types of fields must be orderable.</li>
-</ul>
+    For complex types such array and struct, the data types of fields must be orderable.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT 2 = 2</code></pre>
+   ```sql
+   > SELECT 2 = 2
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> true</code></pre>
+   ```sql
+   true
+   ```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT 1 = '1'</code></pre>
+   ```sql
+   > SELECT 1 = '1'
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> true</code></pre>
+   ```sql
+   true
+   ```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT true = NULL</code></pre>
+   ```sql
+   > SELECT true = NULL
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> NULL</code></pre>
+   ```sql
+   NULL
+   ```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT NULL = NULL</code></pre>
+   ```sql
+   > SELECT NULL = NULL
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> NULL</code></pre>
+   ```sql
+   NULL
+   ```
 
 ## ==
 {: #==}
 
-expr1 == expr2 - Returns true if <code>expr1</code> equals <code>expr2</code>, or false otherwise.
+expr1 == expr2
+:   Returns true if `expr1` equals `expr2`, or false otherwise.
 
-**Arguments:**
+:   **Arguments:**
 
-<ul>
-<li>expr1, expr2 - the two expressions must be same type or can be cast to a common type,
+    expr1, expr2 - The two expressions must be same type or can be cast to a common type,
     and must be a type that can be used in equality comparison. Map type is not supported.
-    For complex types such array and struct, the data types of fields must be orderable.</li>
-</ul>
+    For complex types such array and struct, the data types of fields must be orderable.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT 2 == 2</code></pre>
+   ```sql
+   > SELECT 2 == 2
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> true</code></pre>
+   ```sql
+   true
+   ```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT 1 == '1'</code></pre>
+   ```sql
+   > SELECT 1 == '1'
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> true</code></pre>
+   ```sql
+   true
+   ```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT true == NULL</code></pre>
+   ```sql
+   > SELECT true == NULL
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> NULL</code></pre>
+   ```sql
+   NULL
+   ```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT NULL == NULL</code></pre>
+   ```sql
+   > SELECT NULL == NULL
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> NULL</code></pre>
+   ```sql
+   NULL
+   ```
 
-## &gt;
-{: #&gt;}
+## >
+{: #>}
 
-expr1 &gt; expr2 - Returns true if <code>expr1</code> is greater than <code>expr2</code>.
+expr1 &gt; expr2 - Returns true if `expr1` is greater than `expr2`.
 
 **Arguments:**
 
@@ -441,7 +496,7 @@ expr1 &gt; expr2 - Returns true if <code>expr1</code> is greater than <code>expr
 
 **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT 2 &gt; 1</code></pre>
+> SELECT 2 &gt; 1
 
 **Result value:**
 
