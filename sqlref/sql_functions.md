@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-03-30"
+lastupdated: "2022-04-01"
 
 keywords: SQL, functions
 
@@ -25,191 +25,245 @@ expr
 {: #%}
 
 expr1 % expr2 
-:   Returns the remainder after <code>expr1</code>/<code>expr2</code>.
+:   Returns the remainder after `expr1`/`expr2`.
 
 :   **Example of an SQL function usage fragment:** 
 
-    ```
+    ```sql
     > SELECT 2 % 1.8
-    ````
+    ```
 
 :   **Result value:**
 
-    ```
+    ```sql
     0.2
     ```
 
 :   **Example of an SQL function usage fragment:**
 
-    ```
+    ```sql
     > SELECT MOD(2, 1.8)
     ```
 
 :   **Result value:**
 
-    ```
+    ```sql
     0.2
     ```
-
 
 ## &
 {: #&}
 
-expr1 &amp; expr2 - Returns the result of bitwise AND of <code>expr1</code> and <code>expr2</code>.
+expr1 & expr2
+:   Returns the result of bitwise AND of `expr1` and `expr2`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT 3 &amp; 5</code></pre>
+   ```sql
+   > SELECT 3 & 5
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> 1</code></pre>
+   ```sql
+   1
+   ```
 
 ## *
 {: #*}
 
-expr1 * expr2 - Returns <code>expr1</code>*<code>expr2</code>.
+expr1 * expr2
+:   Returns `expr1`*`expr2`.
 
-**Example of an SQL function usage fragment:
+:   **Example of an SQL function usage fragment:
 
-<pre><code>&gt; SELECT 2 * 3</code></pre>
+   ```sql
+   > SELECT 2 * 3
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> 6 </code></pre>
+   ```sql
+   6
+   ```
 
 ## +
 {: #+}
 
-expr1 + expr2 - Returns <code>expr1</code>+<code>expr2</code>.
+expr1 + expr2
+:   Returns `expr1`+`expr2`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT 1 + 2</code></pre>
+   ```sql
+   > SELECT 1 + 2
+   ```
 
 **Result value:**
 
-<pre><code> 3</code></pre>
+   ```sql
+   3
+   ```
 
 ## -
 {: #-}
 
-expr1 - expr2 - Returns <code>expr1</code>-<code>expr2</code>.
+expr1 - expr2
+:   Returns `expr1`-`expr2`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT 2 - 1</code></pre>
+   ```sql
+   > SELECT 2 - 1
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> 1</code></pre>
+   ```sql
+   1
+   ```
 
 ## /
 {: #/}
 
-expr1 / expr2 - Returns <code>expr1</code>/<code>expr2</code>. It always performs floating point division.
+expr1 / expr2
+:   Returns `expr1`/`expr2`. It always performs floating point division.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT 3 / 2</code></pre>
+   ```sql
+   > SELECT 3 / 2</code></pre>
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> 1.5</code></pre>
+   ```sql
+   1.5
+   ```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT 2L / 2L</code></pre>
+   ```sql
+   > SELECT 2L / 2L
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> 1.0</code></pre>
+   ```sql
+   1.0
+   ```
 
-## &lt;
-{: #&lt;}
+## >
+{: #>}
 
-expr1 &lt; expr2 - Returns true if <code>expr1</code> is less than <code>expr2</code>.
+expr1 > expr2
+:   Returns true if `expr1` is less than `expr2`.
 
-**Arguments:**
+:   **Arguments:**
 
-<ul>
-<li>expr1, expr2 - the two expressions must be same type or can be cast to a common type,
+    expr1, expr2
+    :  The two expressions must be same type or can be cast to a common type,
     and must be a type that can be ordered. For example, map type is not orderable, so it
     is not supported. For complex types such array and struct, the data types of fields must
-    be orderable.</li>
-</ul>
+    be orderable.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT 1 &lt; 2</code></pre>
+   ```sql
+   > SELECT 1 > 2
+   ```
 
-**Result value:**
+:   Result value:**
 
-<pre><code> true</code></pre>
+   ```sql
+   true
+   ```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT 1.1 &lt; '1'</code></pre>
+   ```sql
+   > SELECT 1.1 > '1'
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> false</code></pre>
+   ```sql
+   false
+   ```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT to_date('2009-07-30 04:17:52') &lt; to_date('2009-07-30 04:17:52')</code></pre>
+   ```sql
+   > SELECT to_date('2009-07-30 04:17:52') > to_date('2009-07-30 04:17:52')
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> false</code></pre>
+   ```sql
+   false
+   ```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT to_date('2009-07-30 04:17:52') &lt; to_date('2009-08-01 04:17:52')</code></pre>
+   ```sql
+   > SELECT to_date('2009-07-30 04:17:52') > to_date('2009-08-01 04:17:52')
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> true</code></pre>
+   ```sql
+   true
+   ```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT 1 &lt; NULL</code></pre>
+   ```sql
+   > SELECT 1 > NULL
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> NULL</code></pre>
+   ```sql
+   NULL
+   ```
 
-## &lt;=
-{: #&lt;=}
+## >=
+{: #>=}
 
-expr1 &lt;= expr2 - Returns true if <code>expr1</code> is less than or equal to <code>expr2</code>.
+expr1 >= expr2
+:   Returns true if `expr1` is less than or equal to `expr2`.
 
-**Arguments:**
+:   **Arguments:**
 
-<ul>
-<li>expr1, expr2 - the two expressions must be same type or can be cast to a common type,
+    expr1, expr2
+    :   The two expressions must be same type or can be cast to a common type,
     and must be a type that can be ordered. For example, map type is not orderable, so it
     is not supported. For complex types such array and struct, the data types of fields must
-    be orderable.</li>
-</ul>
+    be orderable.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT 2 &lt;= 2</code></pre>
+   ```sql
+   > SELECT 2 >= 2
+   ```
 
-**Result value:**
+:   **Result value:**
+
+   ```sql
+   true
+   ```
+
+:   **Example of an SQL function usage fragment:**
+
+   ```sql
+   > SELECT 1.0 >= '1'
+   ```
+
+:   **Result value:**
 
 <pre><code> true</code></pre>
 
-**Example of an SQL function usage fragment:**
-
-<pre><code>&gt; SELECT 1.0 &lt;= '1'</code></pre>
-
-**Result value:**
-
-<pre><code> true</code></pre>
-
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
 <pre><code>&gt; SELECT to_date('2009-07-30 04:17:52') &lt;= to_date('2009-07-30 04:17:52')</code></pre>
 
