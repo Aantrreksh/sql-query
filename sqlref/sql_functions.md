@@ -483,268 +483,346 @@ expr1 == expr2
 ## >
 {: #>}
 
-expr1 &gt; expr2 - Returns true if `expr1` is greater than `expr2`.
+expr1 > expr2
+:   Returns true if `expr1` is greater than `expr2`.
 
-**Arguments:**
+:   **Arguments:**
 
-<ul>
-<li>expr1, expr2 - the two expressions must be same type or can be cast to a common type,
+    expr1, expr2 - the two expressions must be same type or can be cast to a common type,
     and must be a type that can be ordered. For example, map type is not orderable, so it
     is not supported. For complex types such array and struct, the data types of fields must
-    be orderable.</li>
-</ul>
+    be orderable.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-> SELECT 2 &gt; 1
+   ```sql
+   > SELECT 2 > 1
+   ```
+
+:   **Result value:**
+
+   ```sql
+   true
+   ```
+
+:   **Example of an SQL function usage fragment:**
+
+   ```sql
+   > SELECT 2 > '1.1'
+   ```
+
+:   **Result value:**
+
+   ```sql
+   true
+   ```
+
+:   **Example of an SQL function usage fragment:**
+
+   ```sql
+   > SELECT to_date('2009-07-30 04:17:52') > to_date('2009-07-30 04:17:52')
+   ```
+
+:   **Result value:**
+
+   ```sql
+   false
+   ```
+
+:   **Example of an SQL function usage fragment:**
+
+   ```sql
+   > SELECT to_date('2009-07-30 04:17:52') > to_date('2009-08-01 04:17:52')
+   ```
+
+:   **Result value:**
+
+   ```sql
+   false
+   ```
+
+:   **Example of an SQL function usage fragment:**
+
+   ```sql
+   > SELECT 1 > NULL
+   ```
 
 **Result value:**
 
-<pre><code> true</code></pre>
+   ```sql
+   NULL
+   ```
 
-**Example of an SQL function usage fragment:**
+## >=
+{: #>=}
 
-<pre><code>&gt; SELECT 2 &gt; '1.1'</code></pre>
+expr1 >= expr2
+:   Returns true if `expr1` is greater than or equal to `expr2`.
 
-**Result value:**
+:   **Arguments:**
 
-<pre><code> true</code></pre>
-
-**Example of an SQL function usage fragment:**
-
-<pre><code>&gt; SELECT to_date('2009-07-30 04:17:52') &gt; to_date('2009-07-30 04:17:52')</code></pre>
-
-**Result value:**
-
-<pre><code> false</code></pre>
-
-**Example of an SQL function usage fragment:**
-
-<pre><code>&gt; SELECT to_date('2009-07-30 04:17:52') &gt; to_date('2009-08-01 04:17:52')</code></pre>
-
-**Result value:**
-
-<pre><code> false</code></pre>
-
-**Example of an SQL function usage fragment:**
-
-<pre><code>&gt; SELECT 1 &gt; NULL</code></pre>
-
-**Result value:**
-
-<pre><code> NULL</code></pre>
-
-
-## &gt;=
-{: #&gt;=}
-
-expr1 &gt;= expr2 - Returns true if <code>expr1</code> is greater than or equal to <code>expr2</code>.
-
-**Arguments:**
-
-<ul>
-<li>expr1, expr2 - the two expressions must be same type or can be cast to a common type,
+    expr1, expr2 - the two expressions must be same type or can be cast to a common type,
     and must be a type that can be ordered. For example, map type is not orderable, so it
     is not supported. For complex types such array and struct, the data types of fields must
-    be orderable.</li>
-</ul>
+    be orderable.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT 2 &gt;= 1</code></pre>
+   ```sql
+   > SELECT 2 >= 1
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> true</code></pre>
+   ```sql
+   true
+   ```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT 2.0 &gt;= '2.1'</code></pre>
+   ```sql
+   > SELECT 2.0 >= '2.1'
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> false</code></pre>
+   ```sql
+   false
+   ```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT to_date('2009-07-30 04:17:52') &gt;= to_date('2009-07-30 04:17:52')</code></pre>
+   ```sql
+   > SELECT to_date('2009-07-30 04:17:52') >= to_date('2009-07-30 04:17:52')
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> true</code></pre>
+   ```sql
+   true
+   ```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT to_date('2009-07-30 04:17:52') &gt;= to_date('2009-08-01 04:17:52')</code></pre>
+   ```sql
+   > SELECT to_date('2009-07-30 04:17:52') >= to_date('2009-08-01 04:17:52')
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> false</code></pre>
+   ```sql
+   false
+   ```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT 1 &gt;= NULL</code></pre>
+   ```sql
+   > SELECT 1 &gt;= NULL
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> NULL</code></pre>
-
+   ```sql
+   NULL
+   ```
 
 ## ^
 {: #^}
 
-expr1 ^ expr2 - Returns the result of bitwise exclusive OR of <code>expr1</code> and <code>expr2</code>.
+expr1 ^ expr2
+:   Returns the result of bitwise exclusive OR of `expr1` and `expr2`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT 3 ^ 5</code></pre>
+   ```sql
+   > SELECT 3 ^ 5
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> 2</code></pre>
-
+   ```sql
+   2
+   ```
 
 ## abs
 {: #abs}
 
-abs(expr) - Returns the absolute value of the numeric value.
+abs(expr)
+:   Returns the absolute value of the numeric value.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT abs(-1)</code></pre>
+   ```sql
+   > SELECT abs(-1)
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> 1</code></pre>
-
+   ```sql
+   1
+   ```
 
 ## acos
 {: #acos}
 
-acos(expr) - Returns the inverse cosine (also known as arccosine) of <code>expr</code> if -1&lt;=<code>expr</code>&lt;=1 or NaN otherwise.
+acos(expr)
+:   Returns the inverse cosine (also known as arccosine) of <code>expr</code> if -1&lt;=<code>expr</code>&lt;=1 or NaN otherwise.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT acos(1)</code></pre>
+   ```sql
+   > SELECT acos(1)
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> 0.0</code></pre>
+   ```sql
+   0.0
+   ```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT acos(2)</code></pre>
+   ```sql
+   > SELECT acos(2)
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> NaN</code></pre>
-
+   ```sql
+   NaN
+   ```
 
 ## add_months
 {: #add_months}
 
-add_months(start_date, num_months) - Returns the date that is <code>num_months</code> after <code>start_date</code>.
+add_months(start_date, num_months)
+:   Returns the date that is `num_months` after `start_date`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT add_months('2016-08-31', 1)</code></pre>
+   ```sql
+   > SELECT add_months('2016-08-31', 1)
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> 2016-09-30</code></pre>
+   ```sql
+   2016-09-30
+   ```
 
-<strong>Since:</strong> 1.5.0
+:   **Since:** 1.5.0
 
 ## and
 {: #and}
 
-expr1 and expr2 - Logical AND.
+expr1 and expr2
+:   Logical AND.
 
 ## approx_count_distinct
 {: #approx_count_distinct}
 
-approx_count_distinct(expr[, relativeSD]) - Returns the estimated cardinality by HyperLogLog++.
-<code>relativeSD</code> defines the maximum estimation error allowed.
+approx_count_distinct(expr[, relativeSD])
+:   Returns the estimated cardinality by HyperLogLog++. `relativeSD` defines the maximum estimation error allowed.
 
 
 ## approx_percentile
 {: #approx_percentile}
 
-approx_percentile(col, percentage [, accuracy]) - Returns the approximate percentile value of numeric
-column <code>col</code> at the indicated percentage. The value of percentage must be between 0.0
-and 1.0. The <code>accuracy</code> parameter (default: 10000) is a positive numeric literal that
-controls approximation accuracy at the cost of memory. Higher value of <code>accuracy</code> yields
-better accuracy, <code>1.0/accuracy</code> is the relative error of the approximation.
-When <code>percentage</code> is an array, each value of the percentage array must be between 0.0 and 1.0.
-In this case, returns the approximate percentile array of column <code>col</code> at the indicated
-percentage array.
+approx_percentile(col, percentage [, accuracy])
+:   Returns the approximate percentile value of numeric column `col` at the indicated percentage. The value of percentage must be between 0.0
+and 1.0. The `accuracy` parameter (default: 10000) is a positive numeric literal that controls approximation accuracy at the cost of memory. Higher value of `accuracy` yields better accuracy, `1.0/accuracy` is the relative error of the approximation.
+When `percentage` is an array, each value of the percentage array must be between 0.0 and 1.0.
+In this case, returns the approximate percentile array of column `col` at the indicated percentage array.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT approx_percentile(10.0, array(0.5, 0.4, 0.1), 100)</code></pre>
+   ```sql
+   > SELECT approx_percentile(10.0, array(0.5, 0.4, 0.1), 100)
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> [10.0,10.0,10.0]</code></pre>
+   ```sql
+   [10.0,10.0,10.0]
+   ```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT approx_percentile(10.0, 0.5, 100)</code></pre>
+   ```sql
+   > SELECT approx_percentile(10.0, 0.5, 100)
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> 10.0</code></pre>
-
+   ```sql
+   10.0
+   ```
 
 ## array
 {: #array}
 
-array(expr, ...) - Returns an array with the indicated elements.
+array(expr, ...)
+:   Returns an array with the indicated elements.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT array(1, 2, 3)</code></pre>
+   ```sql
+   > SELECT array(1, 2, 3)
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> [1,2,3]</code></pre>
-
+   ```sql
+   [1,2,3]
+   ```
 
 ## array_contains
 {: #array_contains}
 
-array_contains(array, value) - Returns true if the array contains the value.
+array_contains(array, value)
+:   Returns true if the array contains the value.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT array_contains(array(1, 2, 3), 2)</code></pre>
+   ```sql
+   > SELECT array_contains(array(1, 2, 3), 2)
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> true</code></pre>
-
+   ```sql
+   true
+   ```
 
 ## ascii
 {: #ascii}
 
-ascii(str) - Returns the numeric value of the first character of <code>str</code>.
+ascii(str)
+:   Returns the numeric value of the first character of `str`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT ascii('222')</code></pre>
+   ```sql
+   > SELECT ascii('222')
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> 50</code></pre>
+   ```sql
+   50
+   ```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment:**
 
-<pre><code>&gt; SELECT ascii(2)</code></pre>
+   ```sql
+   > SELECT ascii(2)
+   ```
 
-**Result value:**
+:   **Result value:**
 
-<pre><code> 50</code></pre>
-
+   ```sql 
+   50
+   ```
 
 ## asin
 {: #asin}
