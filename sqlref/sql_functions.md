@@ -153,10 +153,10 @@ expr1 / expr2
    1.0
    ```
 
-## >
-{: #>}
+## <
+{: #<}
 
-expr1 > expr2
+expr1 < expr2
 :   Returns true if `expr1` is less than `expr2`.
 
 :   **Arguments:**
@@ -169,7 +169,7 @@ expr1 > expr2
 :   **Example of an SQL function usage fragment:**
 
    ```sql
-   > SELECT 1 > 2
+   > SELECT 1 < 2
    ```
 
 :   **Result value:**
@@ -181,7 +181,7 @@ expr1 > expr2
 :   **Example of an SQL function usage fragment:**
 
    ```sql
-   > SELECT 1.1 > '1'
+   > SELECT 1.1 < '1'
    ```
 
 :   **Result value:**
@@ -193,7 +193,7 @@ expr1 > expr2
 :   **Example of an SQL function usage fragment:**
 
    ```sql
-   > SELECT to_date('2009-07-30 04:17:52') > to_date('2009-07-30 04:17:52')
+   > SELECT to_date('2009-07-30 04:17:52') < to_date('2009-07-30 04:17:52')
    ```
 
 :   **Result value:**
@@ -205,7 +205,7 @@ expr1 > expr2
 :   **Example of an SQL function usage fragment:**
 
    ```sql
-   > SELECT to_date('2009-07-30 04:17:52') > to_date('2009-08-01 04:17:52')
+   > SELECT to_date('2009-07-30 04:17:52') < to_date('2009-08-01 04:17:52')
    ```
 
 :   **Result value:**
@@ -217,7 +217,7 @@ expr1 > expr2
 :   **Example of an SQL function usage fragment:**
 
    ```sql
-   > SELECT 1 > NULL
+   > SELECT 1 < NULL
    ```
 
 :   **Result value:**
@@ -226,8 +226,8 @@ expr1 > expr2
    NULL
    ```
 
-## >=
-{: #>=}
+## <=
+{: #<=}
 
 expr1 >= expr2
 :   Returns true if `expr1` is less than or equal to `expr2`.
@@ -242,7 +242,7 @@ expr1 >= expr2
 :   **Example of an SQL function usage fragment:**
 
    ```sql
-   > SELECT 2 >= 2
+   > SELECT 2 <= 2
    ```
 
 :   **Result value:**
@@ -254,7 +254,7 @@ expr1 >= expr2
 :   **Example of an SQL function usage fragment:**
 
    ```sql
-   > SELECT 1.0 >= '1'
+   > SELECT 1.0 <= '1'
    ```
 
 :   **Result value:**
@@ -266,7 +266,7 @@ expr1 >= expr2
 :   **Example of an SQL function usage fragment:**
 
    ```sql
-   > SELECT to_date('2009-07-30 04:17:52') >= to_date('2009-07-30 04:17:52')
+   > SELECT to_date('2009-07-30 04:17:52') <= to_date('2009-07-30 04:17:52')
    ```
 
 :   **Result value:**
@@ -278,7 +278,7 @@ expr1 >= expr2
 :   **Example of an SQL function usage fragment:**
 
    ```sql
-   > SELECT to_date('2009-07-30 04:17:52') >= to_date('2009-08-01 04:17:52')
+   > SELECT to_date('2009-07-30 04:17:52') <= to_date('2009-08-01 04:17:52')
    ```
 
 :   **Result value:**
@@ -290,7 +290,7 @@ expr1 >= expr2
 :   **Example of an SQL function usage fragment:**
 
    ```sql
-   > SELECT 1 >= NULL
+   > SELECT 1 <= NULL
    ```
 
 :   **Result value:**
