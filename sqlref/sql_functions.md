@@ -4323,11 +4323,15 @@ unbase64(str)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT unbase64('U3BhcmsgU1FM')```
+   ```sql
+   > SELECT unbase64('U3BhcmsgU1FM')
+   ```
 
 :   **Result value**
 
-``` Spark SQL```
+   ```sql
+    Spark SQL
+    ```
 
 
 ## unhex
@@ -4338,11 +4342,15 @@ unhex(expr)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT decode(unhex('537061726B2053514C'), 'UTF-8')```
+   ```sql
+   > SELECT decode(unhex('537061726B2053514C'), 'UTF-8')
+   ```
 
 :   **Result value**
 
-``` Spark SQL```
+   ```sql
+    Spark SQL
+    ```
 
 
 ## unix_timestamp
@@ -4353,19 +4361,27 @@ unix_timestamp([expr[, pattern]])
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT unix_timestamp()```
+   ```sql
+   > SELECT unix_timestamp()
+   ```
 
 :   **Result value**
 
-``` 1476884637```
+   ```sql
+    1476884637
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT unix_timestamp('2016-04-08', 'yyyy-MM-dd')```
+   ```sql
+   > SELECT unix_timestamp('2016-04-08', 'yyyy-MM-dd')
+   ```
 
 :   **Result value**
 
-``` 1460041200```
+   ```sql
+    1460041200
+    ```
 
 **Since:** 1.5.0
 
@@ -4378,11 +4394,15 @@ upper(str)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT upper('SparkSql')```
+   ```sql
+   > SELECT upper('SparkSql')
+   ```
 
 :   **Result value**
 
-``` SPARKSQL```
+   ```sql
+    SPARKSQL
+    ```
 
 
 ## uuid
@@ -4393,11 +4413,15 @@ uuid()
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT uuid()```
+   ```sql
+   > SELECT uuid()
+   ```
 
 :   **Result value**
 
-``` 46707d92-02f4-4817-8116-a4c3b23e6266```
+   ```sql
+    46707d92-02f4-4817-8116-
+    ```
 
 
 ## var_pop
@@ -4428,11 +4452,15 @@ weekofyear(date)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT weekofyear('2008-02-20')```
+   ```sql
+   > SELECT weekofyear('2008-02-20')
+   ```
 
 :   **Result value**
 
-``` 8```
+   ```
+    8
+    ```
 
 **Since:** 1.5.0
 
@@ -4448,27 +4476,38 @@ CASE WHEN expr1 THEN expr2 [WHEN expr3 THEN expr4]* [ELSE expr5] END - When `exp
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT CASE WHEN 1 > 0 THEN 1 WHEN 2 > 0 THEN 2.0 ELSE 1.2 END;```
+   ```sql
+   > SELECT CASE WHEN 1 > 0 THEN 1 WHEN 2 > 0 THEN 2.0 ELSE 1.2 END;
+   ```
 
 :   **Result value**
 
-``` 1```
+   ```sql
+    1
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT CASE WHEN 1 &lt; 0 THEN 1 WHEN 2 > 0 THEN 2.0 ELSE 1.2 END;```
+   ```sql
+   > SELECT CASE WHEN 1 &lt; 0 THEN 1 WHEN 2 > 0 THEN 2.0 ELSE 1.2 END;
+   ```
 
 :   **Result value**
 
-``` 2```
+   ```sql
+    2
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT CASE WHEN 1 &lt; 0 THEN 1 WHEN 2 &lt; 0 THEN 2.0 END;```
+   ```sql
+   > SELECT CASE WHEN 1 &lt; 0 THEN 1 WHEN 2 &lt; 0 THEN 2.0 END;
+   ```
 
 :   **Result value**
 
-``` NULL```
+   ```sql NULL
+   ```
 
 ## window
 {: #window}
@@ -4481,11 +4520,15 @@ xpath(xml, xpath)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT xpath('&lt;a>&lt;b>b1&lt;/b>&lt;b>b2&lt;/b>&lt;b>b3&lt;/b>&lt;c>c1&lt;/c>&lt;c>c2&lt;/c>&lt;/a>','a/b/text()')```
+   ```sql
+   > SELECT xpath('&lt;a>&lt;b>b1&lt;/b>&lt;b>b2&lt;/b>&lt;b>b3&lt;/b>&lt;c>c1&lt;/c>&lt;c>c2&lt;/c>&lt;/a>','a/b/text()')
+   ```
 
 :   **Result value**
 
-``` ['b1','b2','b3']```
+   ```sql
+    ['b1','b2','b3']
+    ```
 
 
 ## xpath_boolean
@@ -4496,11 +4539,15 @@ xpath_boolean(xml, xpath)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT xpath_boolean('&lt;a>&lt;b>1&lt;/b>&lt;/a>','a/b')```
+   ```sql
+   > SELECT xpath_boolean('&lt;a>&lt;b>1&lt;/b>&lt;/a>','a/b')
+   ```
 
 :   **Result value**
 
-``` true```
+   ```sql
+    true
+    ```
 
 
 ## xpath_double
@@ -4511,11 +4558,15 @@ xpath_double(xml, xpath)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT xpath_double('&lt;a>&lt;b>1&lt;/b>&lt;b>2&lt;/b>&lt;/a>', 'sum(a/b)')```
+   ```sql
+   > SELECT xpath_double('&lt;a>&lt;b>1&lt;/b>&lt;b>2&lt;/b>&lt;/a>', 'sum(a/b)')
+   ```
 
 :   **Result value**
 
-``` 3.0```
+   ```sql
+    3.0
+    ```
 
 ## xpath_float
 {: #xpath_float}
@@ -4525,11 +4576,15 @@ xpath_float(xml, xpath)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT xpath_float('&lt;a>&lt;b>1&lt;/b>&lt;b>2&lt;/b>&lt;/a>', 'sum(a/b)')```
+   ```sql
+   > SELECT xpath_float('&lt;a>&lt;b>1&lt;/b>&lt;b>2&lt;/b>&lt;/a>', 'sum(a/b)')
+   ```
 
 :   **Result value**
 
-``` 3.0```
+   ```sql
+    3.0
+    ```
 
 ## xpath_int
 {: #xpath_int}
@@ -4539,11 +4594,15 @@ xpath_int(xml, xpath)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT xpath_int('&lt;a>&lt;b>1&lt;/b>&lt;b>2&lt;/b>&lt;/a>', 'sum(a/b)')```
+   ```sql
+   > SELECT xpath_int('&lt;a>&lt;b>1&lt;/b>&lt;b>2&lt;/b>&lt;/a>', 'sum(a/b)')
+   ```
 
 :   **Result value**
 
-``` 3```
+   ```sql
+    3
+    ```
 
 ## xpath_long
 {: #xpath_long}
