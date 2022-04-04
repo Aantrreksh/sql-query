@@ -561,7 +561,7 @@ expr1 >= expr2
 
 :   **Arguments**
 
-    expr1, expr2 - the two expressions must be same type or can be cast to a common type,
+    expr1, expr2the two expressions must be same type or can be cast to a common type,
     and must be a type that can be ordered. For example, map type is not orderable, so it
     is not supported. For complex types such array and struct, the data types of fields must
     be orderable.
@@ -1046,165 +1046,221 @@ cbrt(expr)
 ## ceil
 {: #ceil}
 
-ceil(expr) - Returns the smallest integer not smaller than `expr`.
+ceil(expr)
+:   Returns the smallest integer not smaller than `expr`.
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT ceil(-0.1)```
+   ```sql
+   > SELECT ceil(-0.1)
+   ```
 
 :   **Result value**
 
-``` 0```
+   ```sql
+    0
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT ceil(5)```
+   ```sql
+   > SELECT ceil(5)
+   ```
 
 :   **Result value**
 
-``` 5```
-
+   ```sql
+    5
+    ```
 
 ## ceiling
 {: #ceiling}
 
-ceiling(expr) - Returns the smallest integer not smaller than `expr`.
+ceiling(expr)
+:   Returns the smallest integer not smaller than `expr`.
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT ceiling(-0.1)```
+   ```sql
+   > SELECT ceiling(-0.1)
+   ```
 
 :   **Result value**
 
-``` 0```
+   ```sql
+    0
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT ceiling(5)```
+   ```sql
+   > SELECT ceiling(5)
+   ```
 
 :   **Result value**
 
-``` 5```
-
+   ```sql
+    5
+    ```
 
 ## char
 {: #char}
 
-char(expr) - Returns the ASCII character that has the binary equivalent to `expr`. If n is larger than 256, the result is equivalent to chr(n % 256)
+char(expr)
+:   Returns the ASCII character that has the binary equivalent to `expr`. If n is larger than 256, the result is equivalent to chr(n % 256).
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT char(65)```
+   ```sql
+   > SELECT char(65)
+   ```
 
 :   **Result value**
 
-``` A```
-
+   ```sql
+    A
+    ```
 
 ## char_length
 {: #char_length}
 
-char_length(expr) - Returns the character length of string data or number of bytes of binary data. The length of string data includes the trailing spaces. The length of binary data includes binary zeros.
+char_length(expr)
+:   Returns the character length of string data or number of bytes of binary data. The length of string data includes the trailing spaces. The length of binary data includes binary zeros.
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT char_length('Spark SQL ')```
+   ```sql
+   > SELECT char_length('Spark SQL ')
+   ```
 
 :   **Result value**
 
-``` 10```
+   ```sql
+    10
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT CHAR_LENGTH('Spark SQL ')```
+   ```sql
+   > SELECT CHAR_LENGTH('Spark SQL ')
+   ```
 
 :   **Result value**
 
-``` 10```
+   ```sql
+    10
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT CHARACTER_LENGTH('Spark SQL ')```
+   ```sql
+   > SELECT CHARACTER_LENGTH('Spark SQL ')
+   ```
 
 :   **Result value**
 
-``` 10```
-
+   ```sql
+    10
+    ```
 
 ## character_length
 {: #character_length}
 
-character_length(expr) - Returns the character length of string data or number of bytes of binary data. The length of string data includes the trailing spaces. The length of binary data includes binary zeros.
+character_length(expr)
+:   Returns the character length of string data or number of bytes of binary data. The length of string data includes the trailing spaces. The length of binary data includes binary zeros.
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT character_length('Spark SQL ')```
+   ```sql
+   > SELECT character_length('Spark SQL ')
+   ```
 
 :   **Result value**
 
-``` 10```
+   ```sql
+    10
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT CHAR_LENGTH('Spark SQL ')```
+   ```sql
+   > SELECT CHAR_LENGTH('Spark SQL ')
+   ```
 
 :   **Result value**
 
-``` 10```
+   ```sql
+    10
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT CHARACTER_LENGTH('Spark SQL ')```
+   ```sql
+   > SELECT CHARACTER_LENGTH('Spark SQL ')
+   ```
 
 :   **Result value**
 
-``` 10```
+   ```sql
+    10
+    ```
 
 
 ## chr
 {: #chr}
 
-chr(expr) - Returns the ASCII character that has the binary equivalent to `expr`. If n is larger than 256, the result is equivalent to chr(n % 256)
+chr(expr)
+:   Returns the ASCII character that has the binary equivalent to `expr`. If n is larger than 256, the result is equivalent to chr(n % 256).
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT chr(65)```
+   ```sql
+   > SELECT chr(65)
+   ```
 
 :   **Result value**
 
-``` A```
-
+   ```sql
+    A
+    ```
 
 ## coalesce
 {: #coalesce}
 
-coalesce(expr1, expr2, ...) - Returns the first non-null argument if exists. Otherwise, null.
+coalesce(expr1, expr2, ...)
+:   Returns the first non-null argument if exists. Otherwise, null.
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT coalesce(NULL, 1, NULL)```
+   ```sql
+   > SELECT coalesce(NULL, 1, NULL)
+   ```
 
 :   **Result value**
 
-``` 1```
-
+   ```sql
+    1
+    ```
 
 ## collect_list
 {: #collect_list}
 
-collect_list(expr) - Collects and returns a list of non-unique elements.
+collect_list(expr)
+:   Collects and returns a list of non-unique elements.
 
 
 ## collect_set
 {: #collect_set}
 
-collect_set(expr) - Collects and returns a set of unique elements.
+collect_set(expr)
+:   Collects and returns a set of unique elements.
 
 
 ## concat
 {: #concat}
 
-concat(str1, str2, ..., strN) - Returns the concatenation of str1, str2, ..., strN.
+concat(str1, str2, ..., strN)
+:   Returns the concatenation of str1, str2, ..., strN.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1218,7 +1274,8 @@ concat(str1, str2, ..., strN) - Returns the concatenation of str1, str2, ..., st
 ## concat_ws
 {: #concat_ws}
 
-concat_ws(sep, [str | array(str)]+) - Returns the concatenation of the strings separated by `sep`.
+concat_ws(sep, [str | array(str)]+)
+:   Returns the concatenation of the strings separated by `sep`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1232,7 +1289,8 @@ concat_ws(sep, [str | array(str)]+) - Returns the concatenation of the strings s
 ## conv
 {: #conv}
 
-conv(num, from_base, to_base) - Convert `num` from `from_base` to `to_base`.
+conv(num, from_base, to_base)
+:   Convert `num` from `from_base` to `to_base`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1250,17 +1308,17 @@ conv(num, from_base, to_base) - Convert `num` from `from_base` to `to_base`.
 
 ``` -16```
 
-
 ## corr
 {: #corr}
 
-corr(expr1, expr2) - Returns Pearson coefficient of correlation between a set of number pairs.
-
+corr(expr1, expr2)
+:   Returns Pearson coefficient of correlation between a set of number pairs.
 
 ## cos
 {: #cos}
 
-cos(expr) - Returns the cosine of `expr`.
+cos(expr)
+:   Returns the cosine of `expr`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1270,11 +1328,11 @@ cos(expr) - Returns the cosine of `expr`.
 
 ``` 1.0```
 
-
 ## cosh
 {: #cosh}
 
-cosh(expr) - Returns the hyperbolic cosine of `expr`.
+cosh(expr)
+:   Returns the hyperbolic cosine of `expr`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1288,7 +1346,8 @@ cosh(expr) - Returns the hyperbolic cosine of `expr`.
 ## cot
 {: #cot}
 
-cot(expr) - Returns the cotangent of `expr`.
+cot(expr)
+:   Returns the cotangent of `expr`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1302,38 +1361,41 @@ cot(expr) - Returns the cotangent of `expr`.
 ## count
 {: #count}
 
-count(*) - Returns the total number of retrieved rows, including rows that contain null.
+count(*)
+:   Returns the total number of retrieved rows, including rows that contain null.
 
-count(expr) - Returns the number of rows for which the supplied expression is non-null.
+count(expr)
+:   Returns the number of rows for which the supplied expression is non-null.
 
-count(DISTINCT expr[, expr...]) - Returns the number of rows for which the supplied expressions are unique and non-null.
-
+count(DISTINCT expr[, expr...])
+:   Returns the number of rows for which the supplied expressions are unique and non-null.
 
 ## count_min_sketch
 {: #cont_min_sketch}
 
-count_min_sketch(col, eps, confidence, seed) - Returns a count-min sketch of a column with the indicated esp,
+count_min_sketch(col, eps, confidence, seed)
+:   Returns a count-min sketch of a column with the indicated esp,
 confidence, and seed. The result is an array of bytes, which can be de-serialized to a
 `CountMinSketch` before usage. Count-min sketch is a probabilistic data structure that is used for
 cardinality estimation by using sublinear space.
 
-
 ## covar_pop
 {: #covar_pop}
 
-covar_pop(expr1, expr2) - Returns the population covariance of a set of number pairs.
-
+covar_pop(expr1, expr2)
+:   Returns the population covariance of a set of number pairs.
 
 ## covar_samp
 {: #covar_samp}
 
-covar_samp(expr1, expr2) - Returns the sample covariance of a set of number pairs.
-
+covar_samp(expr1, expr2)
+:   Returns the sample covariance of a set of number pairs.
 
 ## crc32
 {: #crc32}
 
-crc32(expr) - Returns a cyclic redundancy check value of the `expr` as a bigint.
+crc32(expr)
+:   Returns a cyclic redundancy check value of the `expr` as a bigint.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1343,20 +1405,20 @@ crc32(expr) - Returns a cyclic redundancy check value of the `expr` as a bigint.
 
 ``` 1557323817```
 
-
 ## cube
 {: #cube}
 
 ## cume_dist
 {: #cume_dist}
 
-cume_dist() - Computes the position of a value relative to all values in the partition.
-
+cume_dist()
+:   Computes the position of a value relative to all values in the partition.
 
 ## current_database
 {: #current_database}
 
-current_database() - Returns the current database.
+current_database()
+:   Returns the current database.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1366,33 +1428,35 @@ current_database() - Returns the current database.
 
 ``` default```
 
-
 ## current_date
 {: #current_date}
 
-current_date() - Returns the current date at the start of query evaluation.
+current_date()
+:   Returns the current date at the start of query evaluation.
 
-<strong>Since:</strong> 1.5.0
-
+**Since:** 1.5.0
 
 ## current_timestamp
 {: #current_timestamp}
 
-current_timestamp() - Returns the current timestamp at the start of query evaluation.
+current_timestamp()
+:   Returns the current timestamp at the start of query evaluation.
 
-<strong>Since:</strong> 1.5.0
+**Since:** 1.5.0
 
 
 ## date
 {: #date}
 
-date(expr) - Casts the value `expr` to the target data type `date`.
+date(expr)
+:   Casts the value `expr` to the target data type `date`.
 
 
 ## date_add
 {: #date_add}
 
-date_add(start_date, num_days) - Returns the date that is `num_days` after `start_date`.
+date_add(start_date, num_days)
+:   Returns the date that is `num_days` after `start_date`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1402,13 +1466,14 @@ date_add(start_date, num_days) - Returns the date that is `num_days` after `star
 
 ``` 2016-07-31```
 
-<strong>Since:</strong> 1.5.0
+**Since:** 1.5.0
 
 
 ## date_format
 {: #date_format}
 
-date_format(timestamp, fmt) - Converts `timestamp` to a value of string in the format specified by the date format `fmt`.
+date_format(timestamp, fmt)
+:   Converts `timestamp` to a value of string in the format specified by the date format `fmt`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1426,13 +1491,14 @@ date_format(timestamp, fmt) - Converts `timestamp` to a value of string in the f
 
 ```2016-04-16```
 
-<strong>Since:</strong> 1.5.0
+**Since:** 1.5.0
 
 
 ## date_sub
 {: #date_sub}
 
-date_sub(start_date, num_days) - Returns the date that is `num_days` before `start_date`.
+date_sub(start_date, num_days)
+:   Returns the date that is `num_days` before `start_date`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1442,13 +1508,14 @@ date_sub(start_date, num_days) - Returns the date that is `num_days` before `sta
 
 ``` 2016-07-29```
 
-<strong>Since:</strong> 1.5.0
+**Since:** 1.5.0
 
 
 ## date_trunc
 {: #date_trunc}
 
-date_trunc(fmt, ts) - Returns timestamp `ts` truncated to the unit specified by the format model `fmt`.
+date_trunc(fmt, ts)
+:   Returns timestamp `ts` truncated to the unit specified by the format model `fmt`.
 `fmt` to be one of ["YEAR", "YYYY", "YY", "MON", "MONTH", "MM", "DAY", "DD", "HOUR", "MINUTE", "SECOND", "WEEK", "QUARTER"].
 
 :   **Example of an SQL function usage fragment**
@@ -1483,13 +1550,14 @@ date_trunc(fmt, ts) - Returns timestamp `ts` truncated to the unit specified by 
 
 ``` 2015-03-05T09:00:00```
 
-<strong>Since:</strong> 2.3.0
+**Since:** 2.3.0
 
 
 ## datediff
 {: #datediff}
 
-datediff(endDate, startDate) - Returns the number of days from `startDate` to `endDate`.
+datediff(endDate, startDate)
+:   Returns the number of days from `startDate` to `endDate`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1507,13 +1575,14 @@ datediff(endDate, startDate) - Returns the number of days from `startDate` to `e
 
 ``` -1```
 
-<strong>Since:</strong> 1.5.0
+**Since:** 1.5.0
 
 
 ## day
 {: #day}
 
-day(date) - Returns the day of month of the date/timestamp.
+day(date)
+:   Returns the day of month of the date/timestamp.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1523,13 +1592,14 @@ day(date) - Returns the day of month of the date/timestamp.
 
 ``` 30```
 
-<strong>Since:</strong> 1.5.0
+**Since:** 1.5.0
 
 
 ## dayofmonth
 {: #dayofmonth}
 
-dayofmonth(date) - Returns the day of month of the date/timestamp.
+dayofmonth(date)
+:   Returns the day of month of the date/timestamp.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1539,13 +1609,14 @@ dayofmonth(date) - Returns the day of month of the date/timestamp.
 
 ``` 30```
 
-<strong>Since:</strong> 1.5.0
+**Since:** 1.5.0
 
 
 ## dayofweek
 {: #dayofweek}
 
-dayofweek(date) - Returns the day of the week for date/timestamp (1 = Sunday, 2 = Monday, ..., 7 = Saturday).
+dayofweek(date)
+:   Returns the day of the week for date/timestamp (1 = Sunday, 2 = Monday, ..., 7 = Saturday).
 
 :   **Example of an SQL function usage fragment**
 
@@ -1555,13 +1626,14 @@ dayofweek(date) - Returns the day of the week for date/timestamp (1 = Sunday, 2 
 
 ``` 5```
 
-<strong>Since:</strong> 2.3.0
+**Since:** 2.3.0
 
 
 ## dayofyear
 {: #dayofyear}
 
-dayofyear(date) - Returns the day of year of the date/timestamp.
+dayofyear(date)
+:   Returns the day of year of the date/timestamp.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1571,20 +1643,22 @@ dayofyear(date) - Returns the day of year of the date/timestamp.
 
 ``` 100```
 
-<strong>Since:</strong> 1.5.0
+**Since:** 1.5.0
 
 
 ## decimal
 {: #decimal}
 
-decimal(expr) - Casts the value `expr` to the target data type `DECIMAL(10,0)`, truncating the result if needed.
+decimal(expr)
+:   Casts the value `expr` to the target data type `DECIMAL(10,0)`, truncating the result if needed.
 Use `CAST(expr AS DECIMAL(p,f))` to specify precision and fractional digits explicitly.
 
 
 ## decode
 {: #decode}
 
-decode(bin, charset) - Decodes the first argument by using the second argument character set.
+decode(bin, charset)
+:   Decodes the first argument by using the second argument character set.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1598,7 +1672,8 @@ decode(bin, charset) - Decodes the first argument by using the second argument c
 ## degrees
 {: #degrees}
 
-degrees(expr) - Converts radians to degrees.
+degrees(expr)
+:   Converts radians to degrees.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1612,7 +1687,8 @@ degrees(expr) - Converts radians to degrees.
 ## dense_rank
 {: #dense_rank}
 
-dense_rank() - Computes the rank of a value in a group of values. The result is one plus the
+dense_rank()
+:   Computes the rank of a value in a group of values. The result is one plus the
 previously assigned rank value. Unlike the function rank, dense_rank does not produce gaps
 in the ranking sequence.
 
@@ -1620,12 +1696,14 @@ in the ranking sequence.
 ## double
 {: #double}
 
-double(expr) - Casts the value `expr` to the target data type `double`.
+double(expr)
+:   Casts the value `expr` to the target data type `double`.
 
 
 ## e
 
-e() - Returns Euler's number, e.
+e()
+:   Returns Euler's number, e.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1639,7 +1717,8 @@ e() - Returns Euler's number, e.
 ## elt
 {: #elt}
 
-elt(n, input1, input2, ...) - Returns the `n`-th input, for example, returns `input2` when `n` is 2.
+elt(n, input1, input2, ...)
+:   Returns the `n`-th input, for example, returns `input2` when `n` is 2.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1653,7 +1732,8 @@ elt(n, input1, input2, ...) - Returns the `n`-th input, for example, returns `in
 ## encode
 {: #encode}
 
-encode(str, charset) - Encodes the first argument by using the second argument character set.
+encode(str, charset)
+:   Encodes the first argument by using the second argument character set.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1667,7 +1747,8 @@ encode(str, charset) - Encodes the first argument by using the second argument c
 ## exp
 {: #exp}
 
-exp(expr) - Returns e to the power of `expr`.
+exp(expr)
+:   Returns e to the power of `expr`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1681,7 +1762,8 @@ exp(expr) - Returns e to the power of `expr`.
 ## explode
 {: #explode}
 
-explode(expr) - Separates the elements of array `expr` into multiple rows, or the elements of map `expr` into multiple rows and columns.
+explode(expr)
+:   Separates the elements of array `expr` into multiple rows, or the elements of map `expr` into multiple rows and columns.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1696,7 +1778,8 @@ explode(expr) - Separates the elements of array `expr` into multiple rows, or th
 ## explode_outer
 {: #explode_outer}
 
-explode_outer(expr) - Separates the elements of array `expr` into multiple rows, or the elements of map `expr` into multiple rows and columns.
+explode_outer(expr)
+:   Separates the elements of array `expr` into multiple rows, or the elements of map `expr` into multiple rows and columns.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1711,7 +1794,8 @@ explode_outer(expr) - Separates the elements of array `expr` into multiple rows,
 ## expm1
 {: #expm1}
 
-expm1(expr) - Returns exp(`expr`) - 1.
+expm1(expr)
+:   Returns exp(`expr`) - 1.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1725,7 +1809,8 @@ expm1(expr) - Returns exp(`expr`) - 1.
 ## factorial
 {: #factorial}
 
-factorial(expr) - Returns the factorial of `expr`. `expr` is [0..20]. Otherwise, null.
+factorial(expr)
+:   Returns the factorial of `expr`. `expr` is [0..20]. Otherwise, null.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1739,7 +1824,8 @@ factorial(expr) - Returns the factorial of `expr`. `expr` is [0..20]. Otherwise,
 ## find_in_set
 {: #find_in_set}
 
-find_in_set(str, str_array) - Returns the index (1-based) of the indicated string (`str`) in the comma-delimited list (`str_array`).
+find_in_set(str, str_array)
+:   Returns the index (1-based) of the indicated string (`str`) in the comma-delimited list (`str_array`).
 Returns 0, if the string was not found or if the indicated string (`str`) contains a comma.
 
 :   **Example of an SQL function usage fragment**
@@ -1754,27 +1840,31 @@ Returns 0, if the string was not found or if the indicated string (`str`) contai
 ## first
 {: #first}
 
-first(expr[, isIgnoreNull]) - Returns the first value of `expr` for a group of rows.
+first(expr[, isIgnoreNull])
+:   Returns the first value of `expr` for a group of rows.
 If `isIgnoreNull` is true, returns only non-null values.
 
 
 ## first_value
 {: #first_value}
 
-first_value(expr[, isIgnoreNull]) - Returns the first value of `expr` for a group of rows.
+first_value(expr[, isIgnoreNull])
+:   Returns the first value of `expr` for a group of rows.
 If `isIgnoreNull` is true, returns only non-null values.
 
 
 ## float
 {: #float}
 
-float(expr) - Casts the value `expr` to the target data type `float`.
+float(expr)
+:   Casts the value `expr` to the target data type `float`.
 
 
 ## floor
 {: #floor}
 
-floor(expr) - Returns the largest integer not greater than `expr`.
+floor(expr)
+:   Returns the largest integer not greater than `expr`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1796,7 +1886,8 @@ floor(expr) - Returns the largest integer not greater than `expr`.
 ## format_number
 {: #format_number}
 
-format_number(expr1, expr2) - Formats the number `expr1` like '#,###,###.##', rounded to `expr2`
+format_number(expr1, expr2)
+:   Formats the number `expr1` like '#,###,###.##', rounded to `expr2`
 decimal places. If `expr2` is 0, the result has no decimal point or fractional part.
 This function is supposed to work like MySQL's FORMAT.
 
@@ -1812,7 +1903,8 @@ This function is supposed to work like MySQL's FORMAT.
 ## format_string
 {: #format_string}
 
-format_string(strfmt, obj, ...) - Returns a formatted string from printf-style format strings.
+format_string(strfmt, obj, ...)
+:   Returns a formatted string from printf-style format strings.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1826,7 +1918,8 @@ format_string(strfmt, obj, ...) - Returns a formatted string from printf-style f
 ## from_json
 {: #from_json}
 
-from_json(jsonStr, schema[, options]) - Returns a struct value with the indicated `jsonStr` and `schema`.
+from_json(jsonStr, schema[, options])
+:   Returns a struct value with the indicated `jsonStr` and `schema`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1844,13 +1937,14 @@ from_json(jsonStr, schema[, options]) - Returns a struct value with the indicate
 
 ``` {&quot;time&quot;:&quot;2015-08-26 00:00:00.0&quot;}```
 
-<strong>Since:</strong> 2.2.0
+**Since:** 2.2.0
 
 
 ## from_unixtime
 {: #from_unixtime}
 
-from_unixtime(unix_time, format) - Returns `unix_time` in the specified `format`.
+from_unixtime(unix_time, format)
+:   Returns `unix_time` in the specified `format`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1860,13 +1954,14 @@ from_unixtime(unix_time, format) - Returns `unix_time` in the specified `format`
 
 ``` 1970-01-01 00:00:00```
 
-<strong>Since:</strong> 1.5.0
+**Since:** 1.5.0
 
 
 ## from_utc_timestamp
 {: #from_utc_timestamp}
 
-from_utc_timestamp(timestamp, timezone) - Given a timestamp, such as '2017-07-14 02:40:00.0', this function interprets it as a time in Coordinated Universal Time (UTC), and renders that time as a timestamp in the indicated time zone. For example, 'GMT+1' would yield '2017-07-14 03:40:00.0'.
+from_utc_timestamp(timestamp, timezone)
+:   Given a timestamp, such as '2017-07-14 02:40:00.0', this function interprets it as a time in Coordinated Universal Time (UTC), and renders that time as a timestamp in the indicated time zone. For example, 'GMT+1' would yield '2017-07-14 03:40:00.0'.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1876,13 +1971,14 @@ from_utc_timestamp(timestamp, timezone) - Given a timestamp, such as '2017-07-14
 
 ``` 2016-08-31 09:00:00```
 
-<strong>Since:</strong> 1.5.0
+**Since:** 1.5.0
 
 
 ## get_json_object
 {: #get_json_object}
 
-get_json_object(json_txt, path) - Extracts a JSON object from `path`.
+get_json_object(json_txt, path)
+:   Extracts a JSON object from `path`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1896,7 +1992,8 @@ get_json_object(json_txt, path) - Extracts a JSON object from `path`.
 ## greatest
 {: #greatest}
 
-greatest(expr, ...) - Returns the greatest value of all parameters, skipping null values.
+greatest(expr, ...)
+:   Returns the greatest value of all parameters, skipping null values.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1918,7 +2015,8 @@ greatest(expr, ...) - Returns the greatest value of all parameters, skipping nul
 ## hash
 {: #hash}
 
-hash(expr1, expr2, ...) - Returns a hash value of the arguments.
+hash(expr1, expr2, ...)
+:   Returns a hash value of the arguments.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1932,7 +2030,8 @@ hash(expr1, expr2, ...) - Returns a hash value of the arguments.
 ## hex
 {: #hex}
 
-hex(expr) - Converts `expr` to hexadecimal.
+hex(expr)
+:   Converts `expr` to hexadecimal.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1954,7 +2053,8 @@ hex(expr) - Converts `expr` to hexadecimal.
 ## hour
 {: #hour}
 
-hour(timestamp) - Returns the hour component of the string/timestamp.
+hour(timestamp)
+:   Returns the hour component of the string/timestamp.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1964,13 +2064,14 @@ hour(timestamp) - Returns the hour component of the string/timestamp.
 
 ``` 12```
 
-<strong>Since:</strong> 1.5.0
+**Since:** 1.5.0
 
 
 ## hypot
 {: #hypot}
 
-hypot(expr1, expr2) - Returns sqrt(`expr1`<strong>2 + `expr2`</strong>2).
+hypot(expr1, expr2)
+:   Returns sqrt(`expr1`**2 + `expr2`**2).
 
 :   **Example of an SQL function usage fragment**
 
@@ -1984,7 +2085,8 @@ hypot(expr1, expr2) - Returns sqrt(`expr1`<strong>2 + `expr2`</strong>2).
 ## if
 {: #if}
 
-if(expr1, expr2, expr3) - If `expr1` evaluates to true, then returns `expr2`; otherwise, returns `expr3`.
+if(expr1, expr2, expr3)
+:   If `expr1` evaluates to true, then returns `expr2`; otherwise, returns `expr3`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1998,7 +2100,8 @@ if(expr1, expr2, expr3) - If `expr1` evaluates to true, then returns `expr2`; ot
 ## ifnull
 {: #ifnull}
 
-ifnull(expr1, expr2) - Returns `expr2` if `expr1` is null, or `expr1` otherwise.
+ifnull(expr1, expr2)
+:   Returns `expr2` if `expr1` is null, or `expr1` otherwise.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2012,13 +2115,12 @@ ifnull(expr1, expr2) - Returns `expr2` if `expr1` is null, or `expr1` otherwise.
 ## in
 {: #in}
 
-expr1 in(expr2, expr3, ...) - Returns true if `expr` equals to any valN.
+expr1 in(expr2, expr3, ...)
+:   Returns true if `expr` equals to any valN.
 
 :   **Arguments**
 
-<ul>
-<li>expr1, expr2, expr3, ... - the arguments must be same type.</li>
-</ul>
+   expr1, expr2, expr3, ... - the arguments must be same type.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2056,7 +2158,8 @@ expr1 in(expr2, expr3, ...) - Returns true if `expr` equals to any valN.
 ## initcap
 {: #initcap}
 
-initcap(str) - Returns `str` with the first letter of each word in uppercase.
+initcap(str)
+:   Returns `str` with the first letter of each word in uppercase.
 All other letters are in lowercase. Words are delimited by white space.
 
 :   **Example of an SQL function usage fragment**
@@ -2071,7 +2174,8 @@ All other letters are in lowercase. Words are delimited by white space.
 ## inline
 {: #inline}
 
-inline(expr) - Explodes an array of structs into a table.
+inline(expr)
+:   Explodes an array of structs into a table.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2086,7 +2190,8 @@ inline(expr) - Explodes an array of structs into a table.
 ## inline_outer
 {: #inline_outer}
 
-inline_outer(expr) - Explodes an array of structs into a table.
+inline_outer(expr)
+:   Explodes an array of structs into a table.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2101,13 +2206,15 @@ inline_outer(expr) - Explodes an array of structs into a table.
 ## input_file_name
 {: #input_file_name}
 
-input_file_name() - Returns the name of the file that is being read, or empty string if not available.
+input_file_name()
+:   Returns the name of the file that is being read, or empty string if not available.
 
 
 ## instr
 {: #instr}
 
-instr(str, substr) - Returns the (1-based) index of the first occurrence of `substr` in `str`.
+instr(str, substr)
+:   Returns the (1-based) index of the first occurrence of `substr` in `str`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2121,13 +2228,15 @@ instr(str, substr) - Returns the (1-based) index of the first occurrence of `sub
 ## int
 {: #int}
 
-int(expr) - Casts the value `expr` to the target data type `int`.
+int(expr)
+:   Casts the value `expr` to the target data type `int`.
 
 
 ## isnan
 {: #isnan}
 
-isnan(expr) - Returns true if `expr` is NaN, or false otherwise.
+isnan(expr)
+:   Returns true if `expr` is NaN, or false otherwise.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2141,7 +2250,8 @@ isnan(expr) - Returns true if `expr` is NaN, or false otherwise.
 ## isnotnull
 {: #isnotnull}
 
-isnotnull(expr) - Returns true if `expr` is not null, or false otherwise.
+isnotnull(expr)
+:   Returns true if `expr` is not null, or false otherwise.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2155,7 +2265,8 @@ isnotnull(expr) - Returns true if `expr` is not null, or false otherwise.
 ## isnull
 {: #isnull}
 
-isnull(expr) - Returns true if `expr` is null, or false otherwise.
+isnull(expr)
+:   Returns true if `expr` is null, or false otherwise.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2169,7 +2280,8 @@ isnull(expr) - Returns true if `expr` is null, or false otherwise.
 ## json_tuple
 {: #json_tuple}
 
-json_tuple(jsonStr, p1, p2, ..., pn) - Returns a tuple like the function  `get_json_object`, but it takes multiple names. All the input parameters and output column types are string.
+json_tuple(jsonStr, p1, p2, ..., pn)
+:   Returns a tuple like the function  `get_json_object`, but it takes multiple names. All the input parameters and output column types are string.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2183,13 +2295,15 @@ json_tuple(jsonStr, p1, p2, ..., pn) - Returns a tuple like the function  `get_j
 ## kurtosis
 {: #kurtosis}
 
-kurtosis(expr) - Returns the kurtosis value that is calculated from values of a group.
+kurtosis(expr)
+:   Returns the kurtosis value that is calculated from values of a group.
 
 
 ## lag
 {: #lag}
 
-lag(input[, offset[, default]]) - Returns the value of `input` at the `offset`th row
+lag(input[, offset[, default]])
+:   Returns the value of `input` at the `offset`th row
 before the current row in the window. The default value of `offset` is 1 and the default
 value of `default` is null. If the value of `input` at the `offset`th row is null,
 null is returned. If no such offset row exists (for example, when the offset is 1, the first
@@ -2199,14 +2313,16 @@ row of the window does not have any previous row), `default` is returned.
 ## last
 {: #last}
 
-last(expr[, isIgnoreNull]) - Returns the last value of `expr` for a group of rows.
+last(expr[, isIgnoreNull])
+:   Returns the last value of `expr` for a group of rows.
 If `isIgnoreNull` is true, returns only non-null values.
 
 
 ## last_day
 {: #last_day}
 
-last_day(date) - Returns the last day of the month that the date belongs to.
+last_day(date)
+:   Returns the last day of the month that the date belongs to.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2216,20 +2332,22 @@ last_day(date) - Returns the last day of the month that the date belongs to.
 
 ``` 2009-01-31```
 
-<strong>Since:</strong> 1.5.0
+**Since:** 1.5.0
 
 
 ## last_value
 {: #last_value}
 
-last_value(expr[, isIgnoreNull]) - Returns the last value of `expr` for a group of rows.
+last_value(expr[, isIgnoreNull])
+:   Returns the last value of `expr` for a group of rows.
 If `isIgnoreNull` is true, returns only non-null values.
 
 
 ## lcase
 {: #lcase}
 
-lcase(str) - Returns `str` with all characters that are changed to lowercase.
+lcase(str)
+:   Returns `str` with all characters that are changed to lowercase.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2243,7 +2361,8 @@ lcase(str) - Returns `str` with all characters that are changed to lowercase.
 ## lead
 {: #lead}
 
-lead(input[, offset[, default]]) - Returns the value of `input` at the `offset`th row
+lead(input[, offset[, default]])
+:   Returns the value of `input` at the `offset`th row
 after the current row in the window. The default value of `offset` is 1 and the default
 value of `default` is null. If the value of `input` at the `offset`th row is null,
 null is returned. If no such offset row exists (for example, when the offset is 1, the last
@@ -2253,7 +2372,8 @@ row of the window does not have any subsequent row), `default` is returned.
 ## least
 {: #least}
 
-least(expr, ...) - Returns the least value of all parameters, skipping null values.
+least(expr, ...)
+:   Returns the least value of all parameters, skipping null values.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2267,7 +2387,8 @@ least(expr, ...) - Returns the least value of all parameters, skipping null valu
 ## left
 {: #left}
 
-left(str, len) - Returns the leftmost `len`(`len` can be string type) characters from the string `str`, if `len` is less or equal than 0 the result is an empty string.
+left(str, len)
+:   Returns the leftmost `len`(`len` can be string type) characters from the string `str`, if `len` is less or equal than 0 the result is an empty string.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2281,7 +2402,8 @@ left(str, len) - Returns the leftmost `len`(`len` can be string type) characters
 ## length
 {: #length}
 
-length(expr) - Returns the character length of string data or number of bytes of binary data. The length of string data includes the trailing spaces. The length of binary data includes binary zeros.
+length(expr)
+:   Returns the character length of string data or number of bytes of binary data. The length of string data includes the trailing spaces. The length of binary data includes binary zeros.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2311,7 +2433,8 @@ length(expr) - Returns the character length of string data or number of bytes of
 ## levenshtein
 {: #levenshtein}
 
-levenshtein(str1, str2) - Returns the Levenshtein distance between the two indicated strings.
+levenshtein(str1, str2)
+:   Returns the Levenshtein distance between the two indicated strings.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2325,13 +2448,12 @@ levenshtein(str1, str2) - Returns the Levenshtein distance between the two indic
 ## like
 {: #like}
 
-str like pattern - Returns true if str matches pattern, null if any arguments are null, otherwise, false.
+str like pattern
+:   Returns true if str matches pattern, null if any arguments are null, otherwise, false.
 
 :   **Arguments**
 
-<ul>
-<li>str - a string expression</li>
-<li>
+   str - a string expression
 
 pattern - A string expression. The pattern is a string that is matched literally, with
     exception to the following special symbols:
@@ -2347,9 +2469,6 @@ any other character.
 
 String literals are unescaped in our SQL parser. For example, to match "\abc", the pattern is "\\abc".
 
-</li>
-</ul>
-
 :   **Example of an SQL function usage fragment**
 
 ```> SELECT '%SystemDrive%\Users\John' like '\%SystemDrive\%\\Users%'```
@@ -2358,7 +2477,7 @@ String literals are unescaped in our SQL parser. For example, to match "\abc", t
 
 ```true```
 
-<strong>Note:</strong>
+**Note:**
 
 Use RLIKE to match with standard regular expressions.
 
@@ -2366,7 +2485,8 @@ Use RLIKE to match with standard regular expressions.
 ## ln
 {: #ln}
 
-ln(expr) - Returns the natural logarithm (base e) of `expr`.
+ln(expr)
+:   Returns the natural logarithm (base e) of `expr`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2380,7 +2500,8 @@ ln(expr) - Returns the natural logarithm (base e) of `expr`.
 ## locate
 {: #locate}
 
-locate(substr, str[, pos]) - Returns the position of the first occurrence of `substr` in `str` after position `pos`.
+locate(substr, str[, pos])
+:   Returns the position of the first occurrence of `substr` in `str` after position `pos`.
 The indicated `pos` and return value are 1-based.
 
 :   **Example of an SQL function usage fragment**
@@ -2411,7 +2532,8 @@ The indicated `pos` and return value are 1-based.
 ## log
 {: #log}
 
-log(base, expr) - Returns the logarithm of `expr` with `base`.
+log(base, expr)
+:   Returns the logarithm of `expr` with `base`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2425,7 +2547,8 @@ log(base, expr) - Returns the logarithm of `expr` with `base`.
 ## log10
 {: #log10}
 
-log10(expr) - Returns the logarithm of `expr` with base 10.
+log10(expr)
+:   Returns the logarithm of `expr` with base 10.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2439,7 +2562,8 @@ log10(expr) - Returns the logarithm of `expr` with base 10.
 ## log1p
 {: #log1p}
 
-log1p(expr) - Returns log(1 + `expr`).
+log1p(expr)
+:   Returns log(1 + `expr`).
 
 :   **Example of an SQL function usage fragment**
 
@@ -2453,7 +2577,8 @@ log1p(expr) - Returns log(1 + `expr`).
 ## log2
 {: #log2}
 
-log2(expr) - Returns the logarithm of `expr` with base 2.
+log2(expr)
+:   Returns the logarithm of `expr` with base 2.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2467,7 +2592,8 @@ log2(expr) - Returns the logarithm of `expr` with base 2.
 ## lower
 {: #lower}
 
-lower(str) - Returns `str` with all characters that are changed to lowercase.
+lower(str)
+:   Returns `str` with all characters that are changed to lowercase.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2481,7 +2607,8 @@ lower(str) - Returns `str` with all characters that are changed to lowercase.
 ## lpad
 {: #lpad}
 
-lpad(str, len, pad) - Returns `str`, left-padded with `pad` to a length of `len`.
+lpad(str, len, pad)
+:   Returns `str`, left-padded with `pad` to a length of `len`.
 If `str` is longer than `len`, the return value is shortened to `len` characters.
 
 :   **Example of an SQL function usage fragment**
@@ -2503,16 +2630,16 @@ If `str` is longer than `len`, the return value is shortened to `len` characters
 ## ltrim
 {: #ltrim}
 
-ltrim(str) - Removes the leading space characters from `str`.
+ltrim(str)
+:   Removes the leading space characters from `str`.
 
-ltrim(trimStr, str) - Removes the leading string contains the characters from the trim string.
+ltrim(trimStr, str)
+:   Removes the leading string contains the characters from the trim string.
 
 :   **Arguments**
 
-<ul>
-<li>str - A string expression</li>
-<li>trimStr - The trim string characters to trim, the default value is a single space.</li>
-</ul>
+   - str - A string expression.
+   - trimStr - The trim string characters to trim, the default value is a single space.
 
 :   **Example of an SQL function usage fragment**
 ```> SELECT ltrim('    SparkSQL   ')```
@@ -2533,7 +2660,8 @@ ltrim(trimStr, str) - Removes the leading string contains the characters from th
 ## map
 {: #map}
 
-map(key0, value0, key1, value1, ...) - Creates a map with the indicated key/value pairs.
+map(key0, value0, key1, value1, ...)
+:   Creates a map with the indicated key/value pairs.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2547,7 +2675,8 @@ map(key0, value0, key1, value1, ...) - Creates a map with the indicated key/valu
 ## map_keys
 {: #map_keys}
 
-map_keys(map) - Returns an unordered array that contains the keys of the map.
+map_keys(map)
+:   Returns an unordered array that contains the keys of the map.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2561,7 +2690,8 @@ map_keys(map) - Returns an unordered array that contains the keys of the map.
 ## map_values
 {: #map_values}
 
-map_values(map) - Returns an unordered array that contains the values of the map.
+map_values(map)
+:   Returns an unordered array that contains the values of the map.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2575,13 +2705,15 @@ map_values(map) - Returns an unordered array that contains the values of the map
 ## max
 {: #max}
 
-max(expr) - Returns the maximum value of `expr`.
+max(expr)
+:   Returns the maximum value of `expr`.
 
 
 ## md5
 {: #md5}
 
-md5(expr) - Returns an MD5 128-bit checksum as a hex string of `expr`.
+md5(expr)
+:   Returns an MD5 128-bit checksum as a hex string of `expr`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2594,19 +2726,22 @@ md5(expr) - Returns an MD5 128-bit checksum as a hex string of `expr`.
 ## mean
 {: #mean}
 
-mean(expr) - Returns the mean that is calculated from values of a group.
+mean(expr)
+:   Returns the mean that is calculated from values of a group.
 
 
 ## min
 {: #min}
 
-min(expr) - Returns the minimum value of `expr`.
+min(expr)
+:   Returns the minimum value of `expr`.
 
 
 ## minute
 {: #minute}
 
-minute(timestamp) - Returns the minute component of the string/timestamp.
+minute(timestamp)
+:   Returns the minute component of the string/timestamp.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2616,13 +2751,14 @@ minute(timestamp) - Returns the minute component of the string/timestamp.
 
 ``` 58```
 
-<strong>Since:</strong> 1.5.0
+**Since:** 1.5.0
 
 
 ## mod
 {: #mod}
 
-expr1 mod expr2 - Returns the remainder after `expr1`/`expr2`.
+expr1 mod expr2
+:   Returns the remainder after `expr1`/`expr2`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2644,7 +2780,8 @@ expr1 mod expr2 - Returns the remainder after `expr1`/`expr2`.
 ## monotonically_increasing_id
 {: #monotonically_increasing_id}
 
-monotonically_increasing_id() - Returns monotonically increasing 64-bit integers. The generated ID is guaranteed
+monotonically_increasing_id()
+:   Returns monotonically increasing 64-bit integers. The generated ID is guaranteed
 to be monotonically increasing and unique, but not consecutive. The current implementation
 puts the partition ID in the upper 31 bits, and the lower 33 bits represent the record number
 within each partition. The assumption is that the data frame has less than 1 billion
@@ -2654,7 +2791,8 @@ partitions, and each partition has less than 8 billion records.
 ## month
 {: #month}
 
-month(date) - Returns the month component of the date/timestamp.
+month(date)
+:   Returns the month component of the date/timestamp.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2664,13 +2802,14 @@ month(date) - Returns the month component of the date/timestamp.
 
 ``` 7```
 
-<strong>Since:</strong> 1.5.0
+**Since:** 1.5.0
 
 
 ## months_between
 {: #months_between}
 
-months_between(timestamp1, timestamp2) - Returns number of months between `timestamp1` and `timestamp2`.
+months_between(timestamp1, timestamp2)
+:   Returns number of months between `timestamp1` and `timestamp2`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2680,13 +2819,14 @@ months_between(timestamp1, timestamp2) - Returns number of months between `times
 
 ``` 3.94959677```
 
-<strong>Since:</strong> 1.5.0
+**Since:** 1.5.0
 
 
 ## named_struct
 {: #named_struct}
 
-named_struct(name1, val1, name2, val2, ...) - Creates a struct with the indicated field names and values.
+named_struct(name1, val1, name2, val2, ...)
+:   Creates a struct with the indicated field names and values.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2700,7 +2840,8 @@ named_struct(name1, val1, name2, val2, ...) - Creates a struct with the indicate
 ## nanvl
 {: #nanvl}
 
-nanvl(expr1, expr2) - Returns `expr1` if it's not NaN, or `expr2` otherwise.
+nanvl(expr1, expr2)
+:   Returns `expr1` if it's not NaN, or `expr2` otherwise.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2714,7 +2855,8 @@ nanvl(expr1, expr2) - Returns `expr1` if it's not NaN, or `expr2` otherwise.
 ## negative
 {: #negative}
 
-negative(expr) - Returns the negated value of `expr`.
+negative(expr)
+:   Returns the negated value of `expr`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2728,7 +2870,8 @@ negative(expr) - Returns the negated value of `expr`.
 ## next_day
 {: #next_day}
 
-next_day(start_date, day_of_week) - Returns the first date that is later than `start_date` and named as indicated.
+next_day(start_date, day_of_week)
+:   Returns the first date that is later than `start_date` and named as indicated.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2738,34 +2881,37 @@ next_day(start_date, day_of_week) - Returns the first date that is later than `s
 
 ``` 2015-01-20```
 
-<strong>Since:</strong> 1.5.0
+**Since:** 1.5.0
 
 
 ## not
 {: #not}
 
-not expr - Logical not.
+not expr:   Logical not.
 
 
 ## now
 {: #now}
 
-now() - Returns the current timestamp at the start of query evaluation.
+now()
+:   Returns the current timestamp at the start of query evaluation.
 
-<strong>Since:</strong> 1.5.0
+**Since:** 1.5.0
 
 
 ## ntile
 {: #ntile}
 
-ntile(n) - Divides the rows for each window partition into `n` buckets that range
+ntile(n)
+:   Divides the rows for each window partition into `n` buckets that range
 from 1 to at most `n`.
 
 
 ## nullif
 {: #nullif}
 
-nullif(expr1, expr2) - Returns null if `expr1` equals to `expr2`, or `expr1` otherwise.
+nullif(expr1, expr2)
+:   Returns null if `expr1` equals to `expr2`, or `expr1` otherwise.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2779,7 +2925,8 @@ nullif(expr1, expr2) - Returns null if `expr1` equals to `expr2`, or `expr1` oth
 ## nvl
 {: #nvl}
 
-nvl(expr1, expr2) - Returns `expr2` if `expr1` is null, or `expr1` otherwise.
+nvl(expr1, expr2)
+:   Returns `expr2` if `expr1` is null, or `expr1` otherwise.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2793,7 +2940,8 @@ nvl(expr1, expr2) - Returns `expr2` if `expr1` is null, or `expr1` otherwise.
 ## nvl2
 {: #nvl2}
 
-nvl2(expr1, expr2, expr3) - Returns `expr2` if `expr1` is not null, or `expr3` otherwise.
+nvl2(expr1, expr2, expr3)
+:   Returns `expr2` if `expr1` is not null, or `expr3` otherwise.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2807,7 +2955,8 @@ nvl2(expr1, expr2, expr3) - Returns `expr2` if `expr1` is not null, or `expr3` o
 ## octet_length
 {: #octet_length}
 
-octet_length(expr) - Returns the byte length of string data or number of bytes of binary data.
+octet_length(expr)
+:   Returns the byte length of string data or number of bytes of binary data.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2821,13 +2970,15 @@ octet_length(expr) - Returns the byte length of string data or number of bytes o
 ## or
 {: #or}
 
-expr1 or expr2 - Logical OR.
+expr1 or expr2
+:   Logical OR.
 
 
 ## parse_url
 {: #parse_url}
 
-parse_url(url, partToExtract[, key]) - Extracts a part from a URL.
+parse_url(url, partToExtract[, key])
+:   Extracts a part from a URL.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2857,24 +3008,27 @@ parse_url(url, partToExtract[, key]) - Extracts a part from a URL.
 ## percent_rank
 {: #percent_rank}
 
-percent_rank() - Computes the percentage ranking of a value in a group of values.
+percent_rank()
+:   Computes the percentage ranking of a value in a group of values.
 
 
 ## percentile
 {: #percentile}
 
-percentile(col, percentage [, frequency]) - Returns the exact percentile value of numeric column
+percentile(col, percentage [, frequency])
+:   Returns the exact percentile value of numeric column
 `col` at the indicated percentage. The value of percentage must be between 0.0 and 1.0. The value of frequency must be a positive integral.
 
-percentile(col, array(percentage1 [, percentage2]...) [, frequency]) - Returns the exact
-percentile value array of numeric column `col` at the indicated percentage. Each value of the percentage array must be between 0.0 and 1.0. The value of frequency must be a
-positive integral.
+percentile(col, array(percentage1 [, percentage2]...) [, frequency])
+:   Returns the exact
+percentile value array of numeric column `col` at the indicated percentage. Each value of the percentage array must be between 0.0 and 1.0. The value of frequency must be a positive integral.
 
 
 ## percentile_approx
 {: #percentile_approx}
 
-percentile_approx(col, percentage [, accuracy]) - Returns the approximate percentile value of numeric
+percentile_approx(col, percentage [, accuracy])
+:   Returns the approximate percentile value of numeric
 column `col` at the indicated percentage. The value of percentage must be between 0.0
 and 1.0. The `accuracy` parameter (default: 10000) is a positive numeric literal that
 controls approximation accuracy at the cost of memory. Higher value of `accuracy` yields
@@ -2903,7 +3057,8 @@ percentage array.
 ## pi
 {: #pi}
 
-pi() - Returns pi.
+pi()
+:   Returns pi.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2917,7 +3072,8 @@ pi() - Returns pi.
 ## pmod
 {: #pmod}
 
-pmod(expr1, expr2) - Returns the positive value of `expr1` mod `expr2`.
+pmod(expr1, expr2)
+:   Returns the positive value of `expr1` mod `expr2`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2939,7 +3095,8 @@ pmod(expr1, expr2) - Returns the positive value of `expr1` mod `expr2`.
 ## posexplode
 {: #posexplode}
 
-posexplode(expr) - Separates the elements of array `expr` into multiple rows with positions, or the elements of map `expr` into multiple rows and columns with positions.
+posexplode(expr)
+:   Separates the elements of array `expr` into multiple rows with positions, or the elements of map `expr` into multiple rows and columns with positions.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2954,7 +3111,8 @@ posexplode(expr) - Separates the elements of array `expr` into multiple rows wit
 ## posexplode_outer
 {: #posexplode_outer}
 
-posexplode_outer(expr) - Separates the elements of array `expr` into multiple rows with positions, or the elements of map `expr` into multiple rows and columns with positions.
+posexplode_outer(expr)
+:   Separates the elements of array `expr` into multiple rows with positions, or the elements of map `expr` into multiple rows and columns with positions.
 
 :   **Example of an SQL function usage fragment**
 
@@ -2967,7 +3125,8 @@ posexplode_outer(expr) - Separates the elements of array `expr` into multiple ro
 ## position
 {: #position}
 
-position(substr, str[, pos]) - Returns the position of the first occurrence of `substr` in `str` after position `pos`.
+position(substr, str[, pos])
+:   Returns the position of the first occurrence of `substr` in `str` after position `pos`.
 The indicated `pos` and return value are 1-based.
 
 :   **Example of an SQL function usage fragment**
@@ -2998,13 +3157,15 @@ The indicated `pos` and return value are 1-based.
 ## positive
 {: #positive}
 
-positive(expr) - Returns the value of `expr`.
+positive(expr)
+:   Returns the value of `expr`.
 
 
 ## pow
 {: #pow}
 
-pow(expr1, expr2) - Raises `expr1` to the power of `expr2`.
+pow(expr1, expr2)
+:   Raises `expr1` to the power of `expr2`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3018,7 +3179,8 @@ pow(expr1, expr2) - Raises `expr1` to the power of `expr2`.
 ## power
 {: #power}
 
-power(expr1, expr2) - Raises `expr1` to the power of `expr2`.
+power(expr1, expr2)
+:   Raises `expr1` to the power of `expr2`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3032,7 +3194,8 @@ power(expr1, expr2) - Raises `expr1` to the power of `expr2`.
 ## printf
 {: #printf}
 
-printf(strfmt, obj, ...) - Returns a formatted string from printf-style format strings.
+printf(strfmt, obj, ...)
+:   Returns a formatted string from printf-style format strings.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3046,7 +3209,8 @@ printf(strfmt, obj, ...) - Returns a formatted string from printf-style format s
 ## quarter
 {: #quarter}
 
-quarter(date) - Returns the quarter of the year for date, in the range 1 - 4.
+quarter(date)
+:   Returns the quarter of the year for date, in the range 1 - 4.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3056,13 +3220,14 @@ quarter(date) - Returns the quarter of the year for date, in the range 1 - 4.
 
 ``` 3```
 
-<strong>Since:</strong> 1.5.0
+**Since:** 1.5.0
 
 
 ## radians
 {: #radians}
 
-radians(expr) - Converts degrees to radians.
+radians(expr)
+:   Converts degrees to radians.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3076,7 +3241,8 @@ radians(expr) - Converts degrees to radians.
 ## rand
 {: #rand}
 
-rand([seed]) - Returns a random value with independent and identically distributed (i.i.d.) uniformly distributed values in [0, 1).
+rand([seed])
+:   Returns a random value with independent and identically distributed (i.i.d.) uniformly distributed values in [0, 1).
 
 :   **Example of an SQL function usage fragment**
 
@@ -3106,7 +3272,8 @@ rand([seed]) - Returns a random value with independent and identically distribut
 ## randn
 {: #randn}
 
-randn([seed]) - Returns a random value with independent and identically distributed (i.i.d.) values drawn from the standard normal distribution.
+randn([seed])
+:   Returns a random value with independent and identically distributed (i.i.d.) values drawn from the standard normal distribution.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3136,7 +3303,8 @@ randn([seed]) - Returns a random value with independent and identically distribu
 ## rank
 {: #rank}
 
-rank() - Computes the rank of a value in a group of values. The result is one plus the number
+rank()
+:   Computes the rank of a value in a group of values. The result is one plus the number
 of rows preceding or equal to the current row in the ordering of the partition. The values
  produce gaps in the sequence.
 
@@ -3144,7 +3312,8 @@ of rows preceding or equal to the current row in the ordering of the partition. 
 ## regexp_extract
 {: #regexp_extract}
 
-regexp_extract(str, regexp[, idx]) - Extracts a group that matches `regexp`.
+regexp_extract(str, regexp[, idx])
+:   Extracts a group that matches `regexp`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3158,7 +3327,8 @@ regexp_extract(str, regexp[, idx]) - Extracts a group that matches `regexp`.
 ## regexp_replace
 {: #regexp_replace}
 
-regexp_replace(str, regexp, rep) - Replaces all substrings of `str` that match `regexp` with `rep`.
+regexp_replace(str, regexp, rep)
+:   Replaces all substrings of `str` that match `regexp` with `rep`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3172,7 +3342,8 @@ regexp_replace(str, regexp, rep) - Replaces all substrings of `str` that match `
 ## repeat
 {: #repeat}
 
-repeat(str, n) - Returns the string that repeats the indicated string value n times.
+repeat(str, n
+   Returns the string that repeats the indicated string value n times.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3186,16 +3357,14 @@ repeat(str, n) - Returns the string that repeats the indicated string value n ti
 ## replace
 {: #replace}
 
-replace(str, search[, replace]) - Replaces all occurrences of `search` with `replace`.
+replace(str, search[, replace])
+:   Replaces all occurrences of `search` with `replace`.
 
 :   **Arguments**
 
-<ul>
-<li>str - A string expression.</li>
-<li>search - A string expression. If `search` is not found in `str`, `str` is returned unchanged.</li>
-<li>replace - A string expression. If `replace` is not specified or is an empty string, nothing replaces
-    the string that is removed from `str`.</li>
-</ul>
+   - str - A string expression.
+   - search - A string expression. If `search` is not found in `str`, `str` is returned unchanged.
+   - replace - A string expression. If `replace` is not specified or is an empty string, nothing replaces the string that is removed from `str`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3209,7 +3378,8 @@ replace(str, search[, replace]) - Replaces all occurrences of `search` with `rep
 ## reverse
 {: #reverse}
 
-reverse(str) - Returns the reversed indicated string.
+reverse(str)
+:   Returns the reversed indicated string.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3223,7 +3393,8 @@ reverse(str) - Returns the reversed indicated string.
 ## right
 {: #right}
 
-right(str, len) - Returns the rightmost `len`(`len` can be string type) characters from the string `str`, if `len` is less or equal than 0 the result is an empty string.
+right(str, len)
+:   Returns the rightmost `len`(`len` can be string type) characters from the string `str`, if `len` is less or equal than 0 the result is an empty string.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3237,7 +3408,8 @@ right(str, len) - Returns the rightmost `len`(`len` can be string type) characte
 ## rint
 {: #rint}
 
-rint(expr) - Returns the double value that is closest in value to the argument and is equal to a mathematical integer.
+rint(expr)
+:   Returns the double value that is closest in value to the argument and is equal to a mathematical integer.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3251,15 +3423,13 @@ rint(expr) - Returns the double value that is closest in value to the argument a
 ## rlike
 {: #rlike}
 
-str rlike regexp - Returns true if `str` matches `regexp`, or false otherwise.
+str rlike regexp
+:   Returns true if `str` matches `regexp`, or false otherwise.
 
 :   **Arguments**
 
-<ul>
-<li>str - A string expression.</li>
-</ul>
-
-regexp - A string expression. The pattern string is a Java™ regular expression.
+   - str - A string expression.
+   - regexp - A string expression. The pattern string is a Java™ regular expression.
 
 String literals (including regex patterns) are unescaped in our SQL
 parser. For example, to match "\abc", a regular expression for `regexp` can be
@@ -3273,7 +3443,7 @@ parser. For example, to match "\abc", a regular expression for `regexp` can be
 
 ```true```
 
-<strong>Note:</strong>
+**Note:**
 
 Use LIKE to match with simple string pattern.
 
@@ -3285,7 +3455,8 @@ Use LIKE to match with simple string pattern.
 ## round
 {: #round}
 
-round(expr, d) - Returns `expr` rounded to `d` decimal places by using HALF_UP rounding mode.
+round(expr, d)
+:   Returns `expr` rounded to `d` decimal places by using HALF_UP rounding mode.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3299,14 +3470,16 @@ round(expr, d) - Returns `expr` rounded to `d` decimal places by using HALF_UP r
 ## row_number
 {: #row_number}
 
-row_number() - Assigns a unique, sequential number to each row, starting with one,
+row_number()
+:   Assigns a unique, sequential number to each row, starting with one,
 according to the ordering of rows within the window partition.
 
 
 ## rpad
 {: #rpad}
 
-rpad(str, len, pad) - Returns `str`, right-padded with `pad` to a length of `len`.
+rpad(str, len, pad)
+:   Returns `str`, right-padded with `pad` to a length of `len`.
 If `str` is longer than `len`, the return value is shortened to `len` characters.
 
 :   **Example of an SQL function usage fragment**
@@ -3329,17 +3502,17 @@ If `str` is longer than `len`, the return value is shortened to `len` characters
 ## rtrim
 {: #rtrim}
 
-rtrim(str) - Removes the trailing space characters from `str`.
+rtrim(str)
+:   Removes the trailing space characters from `str`.
 
 
-rtrim(trimStr, str) - Removes the trailing string that contains the characters from the trim string from the `str`.
+rtrim(trimStr, str)
+:   Removes the trailing string that contains the characters from the trim string from the `str`.
 
 :   **Arguments**
 
-<ul>
-<li>str - A string expression.</li>
-<li>trimStr - The trim string characters to trim, the default value is a single space</li>.
-</ul>
+   - str - A string expression.
+   - trimStr - The trim string characters to trim, the default value is a single space
 
 :   **Example of an SQL function usage fragment**
 
@@ -3360,7 +3533,8 @@ rtrim(trimStr, str) - Removes the trailing string that contains the characters f
 ## second
 {: #second}
 
-second(timestamp) - Returns the second component of the string/timestamp.
+second(timestamp)
+:   Returns the second component of the string/timestamp.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3370,13 +3544,14 @@ second(timestamp) - Returns the second component of the string/timestamp.
 
 ``` 59```
 
-<strong>Since:</strong> 1.5.0
+**Since:** 1.5.0
 
 
 ## sentences
 {: #sentences}
 
-sentences(str[, lang, country]) - Splits `str` into an array of words.
+sentences(str[, lang, country])
+:   Splits `str` into an array of words.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3390,7 +3565,8 @@ sentences(str[, lang, country]) - Splits `str` into an array of words.
 ## sha
 {: #sha}
 
-sha(expr) - Returns a sha1 hash value as a hex string of the `expr`.
+sha(expr)
+:   Returns a sha1 hash value as a hex string of the `expr`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3404,7 +3580,8 @@ sha(expr) - Returns a sha1 hash value as a hex string of the `expr`.
 ## sha1
 {: #sha1}
 
-sha1(expr) - Returns a sha1 hash value as a hex string of the `expr`.
+sha1(expr)
+:   Returns a sha1 hash value as a hex string of the `expr`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3418,7 +3595,8 @@ sha1(expr) - Returns a sha1 hash value as a hex string of the `expr`.
 ## sha2
 {: #sha2}
 
-sha2(expr, bitLength) - Returns a checksum of SHA-2 family as a hex string of `expr`.
+sha2(expr, bitLength)
+:   Returns a checksum of SHA-2 family as a hex string of `expr`.
 SHA-224, SHA-256, SHA-384, and SHA-512 are supported. Bit length of 0 is equivalent to 256.
 
 :   **Example of an SQL function usage fragment**
@@ -3433,7 +3611,8 @@ SHA-224, SHA-256, SHA-384, and SHA-512 are supported. Bit length of 0 is equival
 ## shiftleft
 {: #shiftleft}
 
-shiftleft(base, expr) - Bitwise left shift.
+shiftleft(base, expr)
+:   Bitwise left shift.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3444,9 +3623,11 @@ shiftleft(base, expr) - Bitwise left shift.
 ``` 4```
 
 
-<h3 id="shiftright">shiftright</h3>
+## shiftright
+{: #shiftright}
 
-shiftright(base, expr) - Bitwise (signed) right shift.
+shiftright(base, expr)
+:   Bitwise (signed) right shift.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3460,7 +3641,8 @@ shiftright(base, expr) - Bitwise (signed) right shift.
 ## shiftrightunsigned
 {: #shiftrightunsigned}
 
-shiftrightunsigned(base, expr) - Bitwise unsigned right shift.
+shiftrightunsigned(base, expr)
+:   Bitwise unsigned right shift.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3474,7 +3656,8 @@ shiftrightunsigned(base, expr) - Bitwise unsigned right shift.
 ## sign
 {: #sign}
 
-sign(expr) - Returns -1.0, 0.0 or 1.0 as `expr` is negative, 0 or positive.
+sign(expr)
+:   Returns -1.0, 0.0 or 1.0 as `expr` is negative, 0 or positive.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3488,7 +3671,8 @@ sign(expr) - Returns -1.0, 0.0 or 1.0 as `expr` is negative, 0 or positive.
 ## signum
 {: #signum}
 
-signum(expr) - Returns -1.0, 0.0 or 1.0 as `expr` is negative, 0 or positive.
+signum(expr)
+:   Returns -1.0, 0.0 or 1.0 as `expr` is negative, 0 or positive.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3502,7 +3686,8 @@ signum(expr) - Returns -1.0, 0.0 or 1.0 as `expr` is negative, 0 or positive.
 ## sin
 {: #sin}
 
-sin(expr) - Returns the sine of `expr`.
+sin(expr)
+:   Returns the sine of `expr`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3513,9 +3698,11 @@ sin(expr) - Returns the sine of `expr`.
 ``` 0.0```
 
 
-<h3 id="sinh">sinh</h3>
+## sinh
+{: #sinh}
 
-sinh(expr) - Returns the hyperbolic sine of `expr`.
+sinh(expr)
+:   Returns the hyperbolic sine of `expr`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3529,7 +3716,8 @@ sinh(expr) - Returns the hyperbolic sine of `expr`.
 ## size
 {: #size}
 
-size(expr) - Returns the size of an array or a map. Returns -1 if null.
+size(expr)
+:   Returns the size of an array or a map. Returns -1 if null.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3543,19 +3731,22 @@ size(expr) - Returns the size of an array or a map. Returns -1 if null.
 ## skewness
 {: #skewness}
 
-skewness(expr) - Returns the skewness value that is calculated from values of a group.
+skewness(expr)
+:   Returns the skewness value that is calculated from values of a group.
 
 
 ## smallint
 {: #smallint}
 
-smallint(expr) - Casts the value `expr` to the target data type `smallint`.
+smallint(expr)
+:   Casts the value `expr` to the target data type `smallint`.
 
 
 ## sort_array
 {: #sort_array}
 
-sort_array(array[, ascendingOrder]) - Sorts the input array in ascending or descending order according to the natural ordering of the array elements.
+sort_array(array[, ascendingOrder])
+:   Sorts the input array in ascending or descending order according to the natural ordering of the array elements.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3569,7 +3760,8 @@ sort_array(array[, ascendingOrder]) - Sorts the input array in ascending or desc
 ## soundex
 {: #soundex}
 
-soundex(str) - Returns Soundex code of the string.
+soundex(str)
+:   Returns Soundex code of the string.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3583,7 +3775,8 @@ soundex(str) - Returns Soundex code of the string.
 ## space
 {: #space}
 
-space(n) - Returns a string that consists of `n` spaces.
+space(n)
+:   Returns a string that consists of `n` spaces.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3597,13 +3790,15 @@ space(n) - Returns a string that consists of `n` spaces.
 ## spark_partition_id
 {: #spark_partition_id}
 
-spark_partition_id() - Returns the current partition ID.
+spark_partition_id()
+:   Returns the current partition ID.
 
 
 ## split
 {: #split}
 
-split(str, regex) - Splits `str` around occurrences that match `regex`.
+split(str, regex)
+:   Splits `str` around occurrences that match `regex`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3617,7 +3812,8 @@ split(str, regex) - Splits `str` around occurrences that match `regex`.
 ## sqrt
 {: #sqrt}
 
-sqrt(expr) - Returns the square root of `expr`.
+sqrt(expr)
+:   Returns the square root of `expr`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3631,7 +3827,8 @@ sqrt(expr) - Returns the square root of `expr`.
 ## stack
 {: #stack}
 
-stack(n, expr1, ..., exprk) - Separates `expr1`, ..., `exprk` into `n` rows.
+stack(n, expr1, ..., exprk)
+:   Separates `expr1`, ..., `exprk` into `n` rows.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3647,31 +3844,36 @@ stack(n, expr1, ..., exprk) - Separates `expr1`, ..., `exprk` into `n` rows.
 ## std
 {: #std}
 
-std(expr) - Returns the sample standard deviation that is calculated from values of a group.
+std(expr)
+:   Returns the sample standard deviation that is calculated from values of a group.
 
 
 ## stddev
 {: #stddev}
 
-stddev(expr) - Returns the sample standard deviation that is calculated from values of a group.
+stddev(expr)
+:   Returns the sample standard deviation that is calculated from values of a group.
 
 
 ## stddev_pop
 {: #stddev_pop}
 
-stddev_pop(expr) - Returns the population standard deviation that is calculated from values of a group.
+stddev_pop(expr)
+:   Returns the population standard deviation that is calculated from values of a group.
 
 
 ## stddev_samp
 {: #stddev_samp}
 
-stddev_samp(expr) - Returns the sample standard deviation that is calculated from values of a group.
+stddev_samp(expr)
+:   Returns the sample standard deviation that is calculated from values of a group.
 
 
 ## str_to_map
 {: #str_to_map}
 
-str_to_map(text[, pairDelim[, keyValueDelim]]) - Creates a map after splitting the text into key/value pairs by using delimiters. Default delimiters are ',' for `pairDelim` and ':' for `keyValueDelim`.
+str_to_map(text[, pairDelim[, keyValueDelim]])
+:   Creates a map after splitting the text into key/value pairs by using delimiters. Default delimiters are ',' for `pairDelim` and ':' for `keyValueDelim`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3693,19 +3895,22 @@ str_to_map(text[, pairDelim[, keyValueDelim]]) - Creates a map after splitting t
 ## string
 {: #string}
 
-string(expr) - Casts the value `expr` to the target data type `string`.
+string(expr)
+:   Casts the value `expr` to the target data type `string`.
 
 
 ## struct
 {: #struct}
 
-struct(col1, col2, col3, ...) - Creates a struct with the indicated field values.
+struct(col1, col2, col3, ...)
+:   Creates a struct with the indicated field values.
 
 
 ## substr
 {: #substr}
 
-substr(str, pos[, len]) - Returns the substring of `str` that starts at `pos` and is of length `len`, or the slice of byte array that starts at `pos` and is of length `len`.
+substr(str, pos[, len])
+:   Returns the substring of `str` that starts at `pos` and is of length `len`, or the slice of byte array that starts at `pos` and is of length `len`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3735,7 +3940,8 @@ substr(str, pos[, len]) - Returns the substring of `str` that starts at `pos` an
 ## substring
 {: #substring}
 
-substring(str, pos[, len]) - Returns the substring of `str` that starts at `pos` and is of length `len`, or the slice of byte array that starts at `pos` and is of length `len`.
+substring(str, pos[, len])
+:   Returns the substring of `str` that starts at `pos` and is of length `len`, or the slice of byte array that starts at `pos` and is of length `len`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3765,7 +3971,8 @@ substring(str, pos[, len]) - Returns the substring of `str` that starts at `pos`
 ## substring_index
 {: #substring_index}
 
-substring_index(str, delim, count) - Returns the substring from `str` before `count` occurrences of the delimiter `delim`.
+substring_index(str, delim, count)
+:   Returns the substring from `str` before `count` occurrences of the delimiter `delim`.
 If `count` is positive, everything to the left of the final delimiter (counting from the
 left) is returned. If `count` is negative, everything to the right of the final delimiter
 (counting from the right) is returned. The function substring_index performs a case-sensitive match
@@ -3783,13 +3990,15 @@ when you search for `delim`.
 ## sum
 {: #sum}
 
-sum(expr) - Returns the sum that is calculated from values of a group.
+sum(expr)
+:   Returns the sum that is calculated from values of a group.
 
 
 ## tan
 {: #tan}
 
-tan(expr) - Returns the tangent of `expr`.
+tan(expr)
+:   Returns the tangent of `expr`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3803,7 +4012,8 @@ tan(expr) - Returns the tangent of `expr`.
 ## tanh
 {: #tanh}
 
-tanh(expr) - Returns the hyperbolic tangent of `expr`.
+tanh(expr)
+:   Returns the hyperbolic tangent of `expr`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3817,19 +4027,22 @@ tanh(expr) - Returns the hyperbolic tangent of `expr`.
 ## timestamp
 {: #timestamp}
 
-timestamp(expr) - Casts the value `expr` to the target data type `timestamp`.
+timestamp(expr)
+:   Casts the value `expr` to the target data type `timestamp`.
 
 
 ## tinyint
 {: #tinyint}
 
-tinyint(expr) - Casts the value `expr` to the target data type `tinyint`.
+tinyint(expr)
+:   Casts the value `expr` to the target data type `tinyint`.
 
 
 ## to_date
 {: #to_date}
 
-to_date(date_str[, fmt]) - Parses the `date_str` expression with the `fmt` expression to
+to_date(date_str[, fmt])
+:   Parses the `date_str` expression with the `fmt` expression to
 a date. Returns null with invalid input. By default, it follows casting rules to a date if
 the `fmt` is omitted.
 
@@ -3849,13 +4062,14 @@ the `fmt` is omitted.
 
 ``` 2016-12-31```
 
-<strong>Since:</strong> 1.5.0
+**Since:** 1.5.0
 
 
 ## to_json
 {: #to_json}
 
-to_json(expr[, options]) - Returns a JSON string with a indicated struct value.
+to_json(expr[, options])
+:   Returns a JSON string with a indicated struct value.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3913,13 +4127,14 @@ to_json(expr[, options]) - Returns a JSON string with a indicated struct value.
 
 ``` [{&quot;a&quot;:1}]```
 
-<strong>Since:</strong> 2.2.0
+**Since:** 2.2.0
 
 
 ## to_timestamp
 {: #to_timestamp}
 
-to_timestamp(timestamp[, fmt]) - Parses the `timestamp` expression with the `fmt` expression to
+to_timestamp(timestamp[, fmt])
+:   Parses the `timestamp` expression with the `fmt` expression to
 a timestamp. Returns null with invalid input. By default, it follows casting rules to
 a timestamp if the `fmt` is omitted.
 
@@ -3939,13 +4154,14 @@ a timestamp if the `fmt` is omitted.
 
 ``` 2016-12-31 00:00:00```
 
-<strong>Since:</strong> 2.2.0
+**Since:** 2.2.0
 
 
 ## to_unix_timestamp
 {: #to_unix_timestamp}
 
-to_unix_timestamp(expr[, pattern]) - Returns the UNIX timestamp of the indicated time.
+to_unix_timestamp(expr[, pattern])
+:   Returns the UNIX timestamp of the indicated time.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3955,13 +4171,14 @@ to_unix_timestamp(expr[, pattern]) - Returns the UNIX timestamp of the indicated
 
 ``` 1460041200```
 
-<strong>Since:</strong> 1.6.0
+**Since:** 1.6.0
 
 
 ## to_utc_timestamp
 {: #to_utc_timestamp}
 
-to_utc_timestamp(timestamp, timezone) - Given a timestamp, such as '2017-07-14 02:40:00.0', this function interprets it as a time in the indicated time zone, and renders that time as a timestamp in UTC. For example, 'GMT+1' would yield '2017-07-14 01:40:00.0'.
+to_utc_timestamp(timestamp, timezone)
+:   Given a timestamp, such as '2017-07-14 02:40:00.0', this function interprets it as a time in the indicated time zone, and renders that time as a timestamp in UTC. For example, 'GMT+1' would yield '2017-07-14 01:40:00.0'.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3971,13 +4188,14 @@ to_utc_timestamp(timestamp, timezone) - Given a timestamp, such as '2017-07-14 0
 
 ``` 2016-08-30 15:00:00```
 
-<strong>Since:</strong> 1.5.0
+**Since:** 1.5.0
 
 
 ## translate
 {: #translate}
 
-translate(input, from, to) - Converts the `input` string by replacing the characters present in the `from` string with the corresponding characters in the `to` string.
+translate(input, from, to)
+:   Converts the `input` string by replacing the characters present in the `from` string with the corresponding characters in the `to` string.
 
 :   **Example of an SQL function usage fragment**
 
@@ -3991,26 +4209,28 @@ translate(input, from, to) - Converts the `input` string by replacing the charac
 ## trim
 {: #trim}
 
-trim(str) - Removes the leading and trailing space characters from `str`.
+trim(str)
+:   Removes the leading and trailing space characters from `str`.
 
-trim(BOTH trimStr FROM str) - Removes the leading and trailing `trimStr` characters from `str`.
+trim(BOTH trimStr FROM str)
+:   Removes the leading and trailing `trimStr` characters from `str`.
 
-trim(LEADING trimStr FROM str) - Removes the leading `trimStr` characters from `str`.
+trim(LEADING trimStr FROM str)
+:   Removes the leading `trimStr` characters from `str`.
 
-trim(TRAILING trimStr FROM str) - Removes the trailing `trimStr` characters from `str`.
+trim(TRAILING trimStr FROM str)
+:   Removes the trailing `trimStr` characters from `str`.
 
 :   **Arguments**
 
-<ul>
-<li>str - A string expression</li>.
-<li>trimStr - The trim string characters to trim, the default value is a single space.</li>
-<li>BOTH, FROM - Keywords to specify trimming string characters from both ends of
-    the string.</li>
-<li>LEADING, FROM - Keywords to specify trimming string characters from the left
-    end of the string.</li>
-<li>TRAILING, FROM - Keywords to specify trimming string characters from the right
-    end of the string.</li>
-</ul>
+   - str - A string expression.
+   - trimStr - The trim string characters to trim, the default value is a single space.
+   - BOTH, FROM - Keywords to specify trimming string characters from both ends of
+    the string.
+   - LEADING, FROM - Keywords to specify trimming string characters from the left
+    end of the string.
+   - TRAILING, FROM - Keywords to specify trimming string characters from the right
+    end of the string.
 
 :   **Example of an SQL function usage fragment**
 
@@ -4057,7 +4277,8 @@ trim(TRAILING trimStr FROM str) - Removes the trailing `trimStr` characters from
 ## trunc
 {: #trunc}
 
-trunc(date, fmt) - Returns `date` with the time portion of the day truncated to the unit specified by the format model `fmt`.
+trunc(date, fmt)
+:   Returns `date` with the time portion of the day truncated to the unit specified by the format model `fmt`.
 `fmt` is one of ["year", "yyyy", "yy", "mon", "month", "mm"].
 
 :   **Example of an SQL function usage fragment**
@@ -4076,13 +4297,14 @@ trunc(date, fmt) - Returns `date` with the time portion of the day truncated to 
 
 ``` 2015-01-01```
 
-<strong>Since:</strong> 1.5.0
+**Since:** 1.5.0
 
 
 ## ucase
 {: #ucase}
 
-ucase(str) - Returns `str` with all characters that are changed to uppercase.
+ucase(str)
+:   Returns `str` with all characters that are changed to uppercase.
 
 :   **Example of an SQL function usage fragment**
 
@@ -4093,11 +4315,11 @@ ucase(str) - Returns `str` with all characters that are changed to uppercase.
 ``` SPARKSQL```
 
 
-
 ## unbase64
 {: #unbase64}
 
-unbase64(str) - Converts the argument from a base 64 string `str` to a binary.
+unbase64(str)
+:   Converts the argument from a base 64 string `str` to a binary.
 
 :   **Example of an SQL function usage fragment**
 
@@ -4111,7 +4333,8 @@ unbase64(str) - Converts the argument from a base 64 string `str` to a binary.
 ## unhex
 {: #unhex}
 
-unhex(expr) - Converts hexadecimal `expr` to binary.
+unhex(expr)
+:   Converts hexadecimal `expr` to binary.
 
 :   **Example of an SQL function usage fragment**
 
@@ -4125,7 +4348,8 @@ unhex(expr) - Converts hexadecimal `expr` to binary.
 ## unix_timestamp
 {: #unix_timestamp}
 
-unix_timestamp([expr[, pattern]]) - Returns the UNIX timestamp of current or specified time.
+unix_timestamp([expr[, pattern]])
+:   Returns the UNIX timestamp of current or specified time.
 
 :   **Example of an SQL function usage fragment**
 
@@ -4143,13 +4367,14 @@ unix_timestamp([expr[, pattern]]) - Returns the UNIX timestamp of current or spe
 
 ``` 1460041200```
 
-<strong>Since:</strong> 1.5.0
+**Since:** 1.5.0
 
 
 ## upper
 {: #upper}
 
-upper(str) - Returns `str` with all characters that are changed to uppercase.
+upper(str)
+:   Returns `str` with all characters that are changed to uppercase.
 
 :   **Example of an SQL function usage fragment**
 
@@ -4163,7 +4388,8 @@ upper(str) - Returns `str` with all characters that are changed to uppercase.
 ## uuid
 {: #uuid}
 
-uuid() - Returns a universally unique identifier (UUID) string. The value is returned as a canonical UUID 36-character string.
+uuid()
+:   Returns a universally unique identifier (UUID) string. The value is returned as a canonical UUID 36-character string.
 
 :   **Example of an SQL function usage fragment**
 
@@ -4177,25 +4403,28 @@ uuid() - Returns a universally unique identifier (UUID) string. The value is ret
 ## var_pop
 {: #var_pop}
 
-var_pop(expr) - Returns the population variance that is calculated from values of a group.
+var_pop(expr)
+:   Returns the population variance that is calculated from values of a group.
 
 
 ## var_samp
 {: #var_samp}
 
-var_samp(expr) - Returns the sample variance that is calculated from values of a group.
+var_samp(expr)
+:   Returns the sample variance that is calculated from values of a group.
 
 
 ## variance
 {: #variance}
 
-variance(expr) - Returns the sample variance that is calculated from values of a group.
-
+variance(expr)
+:   Returns the sample variance that is calculated from values of a group.
 
 ## weekofyear
 {: #weekofyear}
 
-weekofyear(date) - Returns the week of the year of the indicated date. A week is considered to start on a Monday and week 1 is the first week with >3 days.
+weekofyear(date)
+:   Returns the week of the year of the indicated date. A week is considered to start on a Monday and week 1 is the first week with >3 days.
 
 :   **Example of an SQL function usage fragment**
 
@@ -4205,8 +4434,7 @@ weekofyear(date) - Returns the week of the year of the indicated date. A week is
 
 ``` 8```
 
-<strong>Since:</strong> 1.5.0
-
+**Since:** 1.5.0
 
 when
 
@@ -4214,11 +4442,9 @@ CASE WHEN expr1 THEN expr2 [WHEN expr3 THEN expr4]* [ELSE expr5] END - When `exp
 
 :   **Arguments**
 
-<ul>
-<li>expr1, expr3 - the branch condition expressions must all be Boolean type.</li>
-<li>expr2, expr4, expr5 - the branch value expressions and else value expression must all be
-    same type or coercible to a common type.</li>
-</ul>
+   - expr1, expr3 - the branch condition expressions must all be Boolean type.
+   - expr2, expr4, expr5 - the branch value expressions and else value expression must all be
+    same type or coercible to a common type.
 
 :   **Example of an SQL function usage fragment**
 
@@ -4250,7 +4476,8 @@ CASE WHEN expr1 THEN expr2 [WHEN expr3 THEN expr4]* [ELSE expr5] END - When `exp
 ## xpath
 {: #xpath}
 
-xpath(xml, xpath) - Returns a string array of values within the nodes of xml that match the XPath expression.
+xpath(xml, xpath)
+:   Returns a string array of values within the nodes of xml that match the XPath expression.
 
 :   **Example of an SQL function usage fragment**
 
@@ -4264,7 +4491,8 @@ xpath(xml, xpath) - Returns a string array of values within the nodes of xml tha
 ## xpath_boolean
 {: #xpath_boolean}
 
-xpath_boolean(xml, xpath) - Returns true if the XPath expression evaluates to true, or if a matching node is found.
+xpath_boolean(xml, xpath)
+:   Returns true if the XPath expression evaluates to true, or if a matching node is found.
 
 :   **Example of an SQL function usage fragment**
 
@@ -4278,7 +4506,8 @@ xpath_boolean(xml, xpath) - Returns true if the XPath expression evaluates to tr
 ## xpath_double
 {: #xpath_double}
 
-xpath_double(xml, xpath) - Returns a double value, the value zero if no match is found, or NaN if a match is found but the value is non-numeric.
+xpath_double(xml, xpath)
+:   Returns a double value, the value zero if no match is found, or NaN if a match is found but the value is non-numeric.
 
 :   **Example of an SQL function usage fragment**
 
@@ -4291,7 +4520,8 @@ xpath_double(xml, xpath) - Returns a double value, the value zero if no match is
 ## xpath_float
 {: #xpath_float}
 
-xpath_float(xml, xpath) - Returns a float value, the value zero if no match is found, or NaN if a match is found but the value is non-numeric.
+xpath_float(xml, xpath)
+:   Returns a float value, the value zero if no match is found, or NaN if a match is found but the value is non-numeric.
 
 :   **Example of an SQL function usage fragment**
 
@@ -4304,7 +4534,8 @@ xpath_float(xml, xpath) - Returns a float value, the value zero if no match is f
 ## xpath_int
 {: #xpath_int}
 
-xpath_int(xml, xpath) - Returns an integer value, or the value zero if no match is found, or a match is found but the value is non-numeric.
+xpath_int(xml, xpath)
+:   Returns an integer value, or the value zero if no match is found, or a match is found but the value is non-numeric.
 
 :   **Example of an SQL function usage fragment**
 
@@ -4317,7 +4548,8 @@ xpath_int(xml, xpath) - Returns an integer value, or the value zero if no match 
 ## xpath_long
 {: #xpath_long}
 
-xpath_long(xml, xpath) - Returns a long integer value, or the value zero if no match is found, or a match is found but the value is non-numeric.
+xpath_long(xml, xpath)
+:   Returns a long integer value, or the value zero if no match is found, or a match is found but the value is non-numeric.
 
 :   **Example of an SQL function usage fragment**
 
@@ -4330,7 +4562,8 @@ xpath_long(xml, xpath) - Returns a long integer value, or the value zero if no m
 ## xpath_number
 {: #xpath_number}
 
-xpath_number(xml, xpath) - Returns a double value, the value zero if no match is found, or NaN if a match is found but the value is non-numeric.
+xpath_number(xml, xpath)
+:   Returns a double value, the value zero if no match is found, or NaN if a match is found but the value is non-numeric.
 
 :   **Example of an SQL function usage fragment**
 
@@ -4344,7 +4577,8 @@ xpath_number(xml, xpath) - Returns a double value, the value zero if no match is
 ## xpath_short
 {: #xpath_short}
 
-xpath_short(xml, xpath) - Returns a short integer value, or the value zero if no match is found, or a match is found but the value is non-numeric.
+xpath_short(xml, xpath)
+:   Returns a short integer value, or the value zero if no match is found, or a match is found but the value is non-numeric.
 
 :   **Example of an SQL function usage fragment**
 
@@ -4358,7 +4592,8 @@ xpath_short(xml, xpath) - Returns a short integer value, or the value zero if no
 ## xpath_string
 {: #xpath_string}
 
-xpath_string(xml, xpath) - Returns the text contents of the first xml node that matches the XPath expression.
+xpath_string(xml, xpath)
+:   Returns the text contents of the first xml node that matches the XPath expression.
 
 :   **Example of an SQL function usage fragment**
 
@@ -4372,7 +4607,8 @@ xpath_string(xml, xpath) - Returns the text contents of the first xml node that 
 ## year
 {: #year}
 
-year(date) - Returns the year component of the date/timestamp.
+year(date)
+:   Returns the year component of the date/timestamp.
 
 :   **Example of an SQL function usage fragment**
 
@@ -4382,13 +4618,14 @@ year(date) - Returns the year component of the date/timestamp.
 
 ``` 2016```
 
-<strong>Since:</strong> 1.5.0
+**Since:** 1.5.0
 
 
 ## |
 {: #|}
 
-expr1 | expr2 - Returns the result of bitwise OR of `expr1` and `expr2`.
+expr1 | expr2
+:   Returns the result of bitwise OR of `expr1` and `expr2`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -4402,7 +4639,8 @@ expr1 | expr2 - Returns the result of bitwise OR of `expr1` and `expr2`.
 ## ~
 {: #~}
 
-~ expr - Returns the result of bitwise NOT of `expr`.
+~ expr
+:   Returns the result of bitwise NOT of `expr`.
 
 :   **Example of an SQL function usage fragment**
 
