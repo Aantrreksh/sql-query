@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-04-01"
+lastupdated: "2022-04-04"
 
 keywords: SQL, functions
 
@@ -27,25 +27,25 @@ expr
 expr1 % expr2 
 :   Returns the remainder after `expr1`/`expr2`.
 
-:   **Example of an SQL function usage fragment:** 
+:   **Example of an SQL function usage fragment** 
 
     ```sql
     > SELECT 2 % 1.8
     ```
 
-:   **Result value:**
+:   **Result value**
 
     ```sql
     0.2
     ```
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
     ```sql
     > SELECT MOD(2, 1.8)
     ```
 
-:   **Result value:**
+:   **Result value**
 
     ```sql
     0.2
@@ -57,13 +57,13 @@ expr1 % expr2
 expr1 & expr2
 :   Returns the result of bitwise AND of `expr1` and `expr2`.
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT 3 & 5
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    1
@@ -75,13 +75,13 @@ expr1 & expr2
 expr1 * expr2
 :   Returns `expr1`*`expr2`.
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT 2 * 3
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    6
@@ -93,13 +93,13 @@ expr1 * expr2
 expr1 + expr2
 :   Returns `expr1`+`expr2`.
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT 1 + 2
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    3
@@ -111,13 +111,13 @@ expr1 + expr2
 expr1 - expr2
 :   Returns `expr1`-`expr2`.
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT 2 - 1
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    1
@@ -129,25 +129,25 @@ expr1 - expr2
 expr1 / expr2
 :   Returns `expr1`/`expr2`. It always performs floating point division.
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT 3 / 2</code></pre>
+   > SELECT 3 / 2```
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    1.5
    ```
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT 2L / 2L
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    1.0
@@ -159,68 +159,68 @@ expr1 / expr2
 expr1 < expr2
 :   Returns true if `expr1` is less than `expr2`.
 
-:   **Arguments:**
+:   **Arguments**
 
     expr1, expr2 - The two expressions must be same type or can be cast to a common type,
     and must be a type that can be ordered. For example, map type is not orderable, so it
     is not supported. For complex types such array and struct, the data types of fields must
     be orderable.
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT 1 < 2
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    true
    ```
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT 1.1 < '1'
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    false
    ```
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT to_date('2009-07-30 04:17:52') < to_date('2009-07-30 04:17:52')
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    false
    ```
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT to_date('2009-07-30 04:17:52') < to_date('2009-08-01 04:17:52')
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    true
    ```
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT 1 < NULL
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    NULL
@@ -232,68 +232,68 @@ expr1 < expr2
 expr1 >= expr2
 :   Returns true if `expr1` is less than or equal to `expr2`.
 
-:   **Arguments:**
+:   **Arguments**
 
     expr1, expr2 - The two expressions must be same type or can be cast to a common type,
     and must be a type that can be ordered. For example, map type is not orderable, so it
     is not supported. For complex types such array and struct, the data types of fields must
     be orderable.
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT 2 <= 2
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    true
    ```
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT 1.0 <= '1'
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    true
    ```
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT to_date('2009-07-30 04:17:52') <= to_date('2009-07-30 04:17:52')
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    true
    ```
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT to_date('2009-07-30 04:17:52') <= to_date('2009-08-01 04:17:52')
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    true
    ```
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT 1 <= NULL
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    NULL
@@ -306,55 +306,55 @@ expr1 <=> expr2
 :   Returns same result as the EQUAL(=) operator for non-null operands,
 but returns true if both are null, false if one of the them is null.
 
-:   **Arguments:**
+:   **Arguments**
 
     expr1, expr2 - The two expressions must be same type or can be cast to a common type,
     and must be a type that can be used in equality comparison. Map type is not supported.
     For complex types such array and struct, the data types of fields must be orderable.
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT 2 <=>; 2
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    true
    ```
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT 1 <=> '1'
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    true
    ```
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT true <=> NULL
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    false
    ```
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT NULL <=> NULL
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    true
@@ -366,55 +366,55 @@ but returns true if both are null, false if one of the them is null.
 expr1 = expr2
 :   Returns true if `expr1` equals `expr2`, or false otherwise.
 
-:   **Arguments:**
+:   **Arguments**
 
     expr1, expr2 - The two expressions must be same type or can be cast to a common type,
     and must be a type that can be used in equality comparison. Map type is not supported.
     For complex types such array and struct, the data types of fields must be orderable.
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT 2 = 2
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    true
    ```
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT 1 = '1'
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    true
    ```
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT true = NULL
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    NULL
    ```
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT NULL = NULL
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    NULL
@@ -426,55 +426,55 @@ expr1 = expr2
 expr1 == expr2
 :   Returns true if `expr1` equals `expr2`, or false otherwise.
 
-:   **Arguments:**
+:   **Arguments**
 
     expr1, expr2 - The two expressions must be same type or can be cast to a common type,
     and must be a type that can be used in equality comparison. Map type is not supported.
     For complex types such array and struct, the data types of fields must be orderable.
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT 2 == 2
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    true
    ```
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT 1 == '1'
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    true
    ```
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT true == NULL
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    NULL
    ```
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT NULL == NULL
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    NULL
@@ -486,68 +486,68 @@ expr1 == expr2
 expr1 > expr2
 :   Returns true if `expr1` is greater than `expr2`.
 
-:   **Arguments:**
+:   **Arguments**
 
     expr1, expr2 - the two expressions must be same type or can be cast to a common type,
     and must be a type that can be ordered. For example, map type is not orderable, so it
     is not supported. For complex types such array and struct, the data types of fields must
     be orderable.
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT 2 > 1
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    true
    ```
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT 2 > '1.1'
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    true
    ```
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT to_date('2009-07-30 04:17:52') > to_date('2009-07-30 04:17:52')
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    false
    ```
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT to_date('2009-07-30 04:17:52') > to_date('2009-08-01 04:17:52')
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    false
    ```
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT 1 > NULL
    ```
 
-**Result value:**
+:   **Result value**
 
    ```sql
    NULL
@@ -559,68 +559,68 @@ expr1 > expr2
 expr1 >= expr2
 :   Returns true if `expr1` is greater than or equal to `expr2`.
 
-:   **Arguments:**
+:   **Arguments**
 
     expr1, expr2 - the two expressions must be same type or can be cast to a common type,
     and must be a type that can be ordered. For example, map type is not orderable, so it
     is not supported. For complex types such array and struct, the data types of fields must
     be orderable.
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT 2 >= 1
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    true
    ```
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT 2.0 >= '2.1'
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    false
    ```
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT to_date('2009-07-30 04:17:52') >= to_date('2009-07-30 04:17:52')
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    true
    ```
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT to_date('2009-07-30 04:17:52') >= to_date('2009-08-01 04:17:52')
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    false
    ```
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT 1 &gt;= NULL
+   > SELECT 1 >= NULL
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    NULL
@@ -632,13 +632,13 @@ expr1 >= expr2
 expr1 ^ expr2
 :   Returns the result of bitwise exclusive OR of `expr1` and `expr2`.
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT 3 ^ 5
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    2
@@ -650,13 +650,13 @@ expr1 ^ expr2
 abs(expr)
 :   Returns the absolute value of the numeric value.
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT abs(-1)
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    1
@@ -666,27 +666,27 @@ abs(expr)
 {: #acos}
 
 acos(expr)
-:   Returns the inverse cosine (also known as arccosine) of <code>expr</code> if -1&lt;=<code>expr</code>&lt;=1 or NaN otherwise.
+:   Returns the inverse cosine (also known as arccosine) of `expr` if -1<;=`expr`<=1 or NaN otherwise.
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT acos(1)
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    0.0
    ```
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT acos(2)
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    NaN
@@ -698,19 +698,19 @@ acos(expr)
 add_months(start_date, num_months)
 :   Returns the date that is `num_months` after `start_date`.
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT add_months('2016-08-31', 1)
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    2016-09-30
    ```
 
-:   **Since:** 1.5.0
+:   **Since** 1.5.0
 
 ## and
 {: #and}
@@ -734,25 +734,25 @@ and 1.0. The `accuracy` parameter (default: 10000) is a positive numeric literal
 When `percentage` is an array, each value of the percentage array must be between 0.0 and 1.0.
 In this case, returns the approximate percentile array of column `col` at the indicated percentage array.
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT approx_percentile(10.0, array(0.5, 0.4, 0.1), 100)
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    [10.0,10.0,10.0]
    ```
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT approx_percentile(10.0, 0.5, 100)
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    10.0
@@ -764,13 +764,13 @@ In this case, returns the approximate percentile array of column `col` at the in
 array(expr, ...)
 :   Returns an array with the indicated elements.
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT array(1, 2, 3)
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    [1,2,3]
@@ -782,13 +782,13 @@ array(expr, ...)
 array_contains(array, value)
 :   Returns true if the array contains the value.
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT array_contains(array(1, 2, 3), 2)
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    true
@@ -800,25 +800,25 @@ array_contains(array, value)
 ascii(str)
 :   Returns the numeric value of the first character of `str`.
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT ascii('222')
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql
    50
    ```
 
-:   **Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT ascii(2)
    ```
 
-:   **Result value:**
+:   **Result value**
 
    ```sql 
    50
@@ -827,231 +827,278 @@ ascii(str)
 ## asin
 {: #asin}
 
-asin(expr) - Returns the inverse sine (also known as arcsine) the arc sin of <code>expr</code> if -1&lt;=<code>expr</code>&lt;=1 or NaN otherwise.
+asin(expr)
+:   Returns the inverse sine (also known as arcsine) the arc sin of `expr` if -1<=`expr`<=1 or NaN otherwise.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT asin(0)</code></pre>
+    ```sql
+    > SELECT asin(0)
+    ```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 0.0</code></pre>
+    ```sql
+    0.0
+    ```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT asin(2)</code></pre>
+   > SELECT asin(2)
 
-**Result value:**
+:   **Result value**
 
-<pre><code> NaN</code></pre>
+ NaN
 
 
 ## atan
 {: #atan}
 
-atan(expr) - Returns the inverse tangent (also known as arctangent).
+atan(expr)
+:   Returns the inverse tangent (also known as arctangent).
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT atan(0)</code></pre>
+   ```sql
+   > SELECT atan(0)
+   ```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 0.0</code></pre>
-
+   ```sql
+    0.0
+    ```
 
 ## atan2
 {: #atan2}
 
-atan2(expr1, expr2) - Returns the angle in radians between the positive x-axis of a plane and the point indicated by the coordinates (<code>expr1</code>, <code>expr2</code>).
+atan2(expr1, expr2)
+:   Returns the angle in radians between the positive x-axis of a plane and the point indicated by the coordinates (`expr1`, `expr2`).
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT atan2(0, 0)</code></pre>
+   ```sql
+   > SELECT atan2(0, 0)
+   ```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 0.0</code></pre>
-
+   ```sql
+    0.0
+    ```
 
 ## avg
 {: #avg}
 
-avg(expr) - Returns the mean that is calculated from values of a group.
-
+avg(expr)
+:   Returns the mean that is calculated from values of a group.
 
 ## base64
 {: #base64}
 
-base64(bin) - Converts the argument from a binary <code>bin</code> to a base 64 string.
+base64(bin)
+:   Converts the argument from a binary `bin` to a base 64 string.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT base64('Spark SQL')</code></pre>
+   ```sql
+   > SELECT base64('Spark SQL')
+   ```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> U3BhcmsgU1FM</code></pre>
-
+   ```sql
+    U3BhcmsgU1FM
+    ```
 
 ## bigint
 {: #bigint}
 
-bigint(expr) - Casts the value <code>expr</code> to the target data type <code>bigint</code>.
-
+bigint(expr)
+:   Casts the value `expr` to the target data type `bigint`.
 
 ## bin
 {: #bin}
 
-bin(expr) - Returns the string representation of the long value <code>expr</code> represented in binary.
+bin(expr)
+:   Returns the string representation of the long value `expr` represented in binary.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT bin(13)</code></pre>
+   ```sql
+   > SELECT bin(13)
+   ```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 1101</code></pre>
+   ```sql
+    1101
+    ```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT bin(-13)</code></pre>
+   ```sql
+   > SELECT bin(-13)
+   ```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 1111111111111111111111111111111111111111111111111111111111110011</code></pre>
+   ```sql
+    1111111111111111111111111111111111111111111111111111111111110011
+    ```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT bin(13.3)</code></pre>
+   ```sql
+   > SELECT bin(13.3)
+   ```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 1101</code></pre>
-
+   ```sql
+    1101
+    ```
 
 ## binary
 {: #binary}
 
-binary(expr) - Casts the value <code>expr</code> to the target data type <code>binary</code>.
+binary(expr)
+:   Casts the value `expr` to the target data type `binary`.
 
 ## bit_length
 {: #bit_length}
 
-bit_length(expr) - Returns the bit length of string data or number of bits of binary data.
+bit_length(expr)
+:   Returns the bit length of string data or number of bits of binary data.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT bit_length('Spark SQL')</code></pre>
+   ```sql
+   > SELECT bit_length('Spark SQL')
+   ```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 72</code></pre>
-
+   ```sql
+    72
+    ```
 
 ## boolean
 {: #boolean}
 
-boolean(expr) - Casts the value <code>expr</code> to the target data type <code>boolean</code>.
+boolean(expr)
+:   Casts the value `expr` to the target data type `boolean`.
 
 ## bround
 {: #bround}
 
-bround(expr, d) - Returns <code>expr</code> rounded to <code>d</code> decimal places by using HALF_EVEN rounding mode.
+bround(expr, d):   Returns `expr` rounded to `d` decimal places by using HALF_EVEN rounding mode.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT bround(2.5, 0)</code></pre>
+   ```
+   > SELECT bround(2.5, 0)
+   ```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 2.0</code></pre>
+   ```sql 
+   2.0
+   ```
 
 
 ## cast
 {: #cast}
 
-cast(expr AS type) - Casts the value <code>expr</code> to the target data type <code>type</code>.
+cast(expr AS type)
+:   Casts the value `expr` to the target data type `type`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT cast('10' as int)</code></pre>
+   ```sql
+   > SELECT cast('10' as int)
+   ```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 10</code></pre>
-
+   ```sql
+    10
+    ```
 
 ## cbrt
 {: #cbrt}
 
-cbrt(expr) - Returns the cube root of <code>expr</code>.
+cbrt(expr)
+:   Returns the cube root of `expr`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT cbrt(27.0)</code></pre>
+   ```sql
+   > SELECT cbrt(27.0)
+   ```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 3.0</code></pre>
-
+   ```sql
+    3.0
+    ```
 
 ## ceil
 {: #ceil}
 
-ceil(expr) - Returns the smallest integer not smaller than <code>expr</code>.
+ceil(expr) - Returns the smallest integer not smaller than `expr`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT ceil(-0.1)</code></pre>
+```> SELECT ceil(-0.1)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 0</code></pre>
+``` 0```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT ceil(5)</code></pre>
+```> SELECT ceil(5)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 5</code></pre>
+``` 5```
 
 
 ## ceiling
 {: #ceiling}
 
-ceiling(expr) - Returns the smallest integer not smaller than <code>expr</code>.
+ceiling(expr) - Returns the smallest integer not smaller than `expr`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT ceiling(-0.1)</code></pre>
+```> SELECT ceiling(-0.1)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 0</code></pre>
+``` 0```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT ceiling(5)</code></pre>
+```> SELECT ceiling(5)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 5</code></pre>
+``` 5```
 
 
 ## char
 {: #char}
 
-char(expr) - Returns the ASCII character that has the binary equivalent to <code>expr</code>. If n is larger than 256, the result is equivalent to chr(n % 256)
+char(expr) - Returns the ASCII character that has the binary equivalent to `expr`. If n is larger than 256, the result is equivalent to chr(n % 256)
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT char(65)</code></pre>
+```> SELECT char(65)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> A</code></pre>
+``` A```
 
 
 ## char_length
@@ -1059,29 +1106,29 @@ char(expr) - Returns the ASCII character that has the binary equivalent to <code
 
 char_length(expr) - Returns the character length of string data or number of bytes of binary data. The length of string data includes the trailing spaces. The length of binary data includes binary zeros.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT char_length('Spark SQL ')</code></pre>
+```> SELECT char_length('Spark SQL ')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 10</code></pre>
+``` 10```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT CHAR_LENGTH('Spark SQL ')</code></pre>
+```> SELECT CHAR_LENGTH('Spark SQL ')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 10</code></pre>
+``` 10```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT CHARACTER_LENGTH('Spark SQL ')</code></pre>
+```> SELECT CHARACTER_LENGTH('Spark SQL ')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 10</code></pre>
+``` 10```
 
 
 ## character_length
@@ -1089,43 +1136,43 @@ char_length(expr) - Returns the character length of string data or number of byt
 
 character_length(expr) - Returns the character length of string data or number of bytes of binary data. The length of string data includes the trailing spaces. The length of binary data includes binary zeros.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT character_length('Spark SQL ')</code></pre>
+```> SELECT character_length('Spark SQL ')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 10</code></pre>
+``` 10```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT CHAR_LENGTH('Spark SQL ')</code></pre>
+```> SELECT CHAR_LENGTH('Spark SQL ')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 10</code></pre>
+``` 10```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT CHARACTER_LENGTH('Spark SQL ')</code></pre>
+```> SELECT CHARACTER_LENGTH('Spark SQL ')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 10</code></pre>
+``` 10```
 
 
 ## chr
 {: #chr}
 
-chr(expr) - Returns the ASCII character that has the binary equivalent to <code>expr</code>. If n is larger than 256, the result is equivalent to chr(n % 256)
+chr(expr) - Returns the ASCII character that has the binary equivalent to `expr`. If n is larger than 256, the result is equivalent to chr(n % 256)
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT chr(65)</code></pre>
+```> SELECT chr(65)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> A</code></pre>
+``` A```
 
 
 ## coalesce
@@ -1133,13 +1180,13 @@ chr(expr) - Returns the ASCII character that has the binary equivalent to <code>
 
 coalesce(expr1, expr2, ...) - Returns the first non-null argument if exists. Otherwise, null.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT coalesce(NULL, 1, NULL)</code></pre>
+```> SELECT coalesce(NULL, 1, NULL)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 1</code></pre>
+``` 1```
 
 
 ## collect_list
@@ -1159,49 +1206,49 @@ collect_set(expr) - Collects and returns a set of unique elements.
 
 concat(str1, str2, ..., strN) - Returns the concatenation of str1, str2, ..., strN.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT concat('Spark', 'SQL')</code></pre>
+```> SELECT concat('Spark', 'SQL')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> SparkSQL</code></pre>
+``` SparkSQL```
 
 
 ## concat_ws
 {: #concat_ws}
 
-concat_ws(sep, [str | array(str)]+) - Returns the concatenation of the strings separated by <code>sep</code>.
+concat_ws(sep, [str | array(str)]+) - Returns the concatenation of the strings separated by `sep`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT concat_ws(' ', 'Spark', 'SQL')</code></pre>
+```> SELECT concat_ws(' ', 'Spark', 'SQL')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> Spark SQL</code></pre>
+``` Spark SQL```
 
 
 ## conv
 {: #conv}
 
-conv(num, from_base, to_base) - Convert <code>num</code> from <code>from_base</code> to <code>to_base</code>.
+conv(num, from_base, to_base) - Convert `num` from `from_base` to `to_base`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT conv('100', 2, 10)</code></pre>
+```> SELECT conv('100', 2, 10)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 4</code></pre>
+``` 4```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT conv(-10, 16, -10)</code></pre>
+```> SELECT conv(-10, 16, -10)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> -16</code></pre>
+``` -16```
 
 
 ## corr
@@ -1213,43 +1260,43 @@ corr(expr1, expr2) - Returns Pearson coefficient of correlation between a set of
 ## cos
 {: #cos}
 
-cos(expr) - Returns the cosine of <code>expr</code>.
+cos(expr) - Returns the cosine of `expr`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT cos(0)</code></pre>
+```> SELECT cos(0)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 1.0</code></pre>
+``` 1.0```
 
 
 ## cosh
 {: #cosh}
 
-cosh(expr) - Returns the hyperbolic cosine of <code>expr</code>.
+cosh(expr) - Returns the hyperbolic cosine of `expr`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT cosh(0)</code></pre>
+```> SELECT cosh(0)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 1.0</code></pre>
+``` 1.0```
 
 
 ## cot
 {: #cot}
 
-cot(expr) - Returns the cotangent of <code>expr</code>.
+cot(expr) - Returns the cotangent of `expr`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT cot(1)</code></pre>
+```> SELECT cot(1)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 0.6420926159343306</code></pre>
+``` 0.6420926159343306```
 
 
 ## count
@@ -1267,7 +1314,7 @@ count(DISTINCT expr[, expr...]) - Returns the number of rows for which the suppl
 
 count_min_sketch(col, eps, confidence, seed) - Returns a count-min sketch of a column with the indicated esp,
 confidence, and seed. The result is an array of bytes, which can be de-serialized to a
-<code>CountMinSketch</code> before usage. Count-min sketch is a probabilistic data structure that is used for
+`CountMinSketch` before usage. Count-min sketch is a probabilistic data structure that is used for
 cardinality estimation by using sublinear space.
 
 
@@ -1286,15 +1333,15 @@ covar_samp(expr1, expr2) - Returns the sample covariance of a set of number pair
 ## crc32
 {: #crc32}
 
-crc32(expr) - Returns a cyclic redundancy check value of the <code>expr</code> as a bigint.
+crc32(expr) - Returns a cyclic redundancy check value of the `expr` as a bigint.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT crc32('Spark')</code></pre>
+```> SELECT crc32('Spark')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 1557323817</code></pre>
+``` 1557323817```
 
 
 ## cube
@@ -1311,13 +1358,13 @@ cume_dist() - Computes the position of a value relative to all values in the par
 
 current_database() - Returns the current database.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT current_database()</code></pre>
+```> SELECT current_database()```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> default</code></pre>
+``` default```
 
 
 ## current_date
@@ -1339,21 +1386,21 @@ current_timestamp() - Returns the current timestamp at the start of query evalua
 ## date
 {: #date}
 
-date(expr) - Casts the value <code>expr</code> to the target data type <code>date</code>.
+date(expr) - Casts the value `expr` to the target data type `date`.
 
 
 ## date_add
 {: #date_add}
 
-date_add(start_date, num_days) - Returns the date that is <code>num_days</code> after <code>start_date</code>.
+date_add(start_date, num_days) - Returns the date that is `num_days` after `start_date`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT date_add('2016-07-30', 1)</code></pre>
+```> SELECT date_add('2016-07-30', 1)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 2016-07-31</code></pre>
+``` 2016-07-31```
 
 <strong>Since:</strong> 1.5.0
 
@@ -1361,23 +1408,23 @@ date_add(start_date, num_days) - Returns the date that is <code>num_days</code> 
 ## date_format
 {: #date_format}
 
-date_format(timestamp, fmt) - Converts <code>timestamp</code> to a value of string in the format specified by the date format <code>fmt</code>.
+date_format(timestamp, fmt) - Converts `timestamp` to a value of string in the format specified by the date format `fmt`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT date_format('2016-04-08', 'y')</code></pre>
+```> SELECT date_format('2016-04-08', 'y')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 2016</code></pre>
+``` 2016```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT date_format('2016-04-16T15:16:29.000Z', 'y-MM-dd')</code></pre>
+```> SELECT date_format('2016-04-16T15:16:29.000Z', 'y-MM-dd')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code>2016-04-16</code></pre>
+```2016-04-16```
 
 <strong>Since:</strong> 1.5.0
 
@@ -1385,15 +1432,15 @@ date_format(timestamp, fmt) - Converts <code>timestamp</code> to a value of stri
 ## date_sub
 {: #date_sub}
 
-date_sub(start_date, num_days) - Returns the date that is <code>num_days</code> before <code>start_date</code>.
+date_sub(start_date, num_days) - Returns the date that is `num_days` before `start_date`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT date_sub('2016-07-30', 1)</code></pre>
+```> SELECT date_sub('2016-07-30', 1)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 2016-07-29</code></pre>
+``` 2016-07-29```
 
 <strong>Since:</strong> 1.5.0
 
@@ -1401,40 +1448,40 @@ date_sub(start_date, num_days) - Returns the date that is <code>num_days</code> 
 ## date_trunc
 {: #date_trunc}
 
-date_trunc(fmt, ts) - Returns timestamp <code>ts</code> truncated to the unit specified by the format model <code>fmt</code>.
-<code>fmt</code> to be one of ["YEAR", "YYYY", "YY", "MON", "MONTH", "MM", "DAY", "DD", "HOUR", "MINUTE", "SECOND", "WEEK", "QUARTER"].
+date_trunc(fmt, ts) - Returns timestamp `ts` truncated to the unit specified by the format model `fmt`.
+`fmt` to be one of ["YEAR", "YYYY", "YY", "MON", "MONTH", "MM", "DAY", "DD", "HOUR", "MINUTE", "SECOND", "WEEK", "QUARTER"].
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT date_trunc('YEAR', '2015-03-05T09:32:05.359')</code></pre>
+```> SELECT date_trunc('YEAR', '2015-03-05T09:32:05.359')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 2015-01-01T00:00:00</code></pre>
+``` 2015-01-01T00:00:00```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT date_trunc('MM', '2015-03-05T09:32:05.359')</code></pre>
+```> SELECT date_trunc('MM', '2015-03-05T09:32:05.359')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 2015-03-01T00:00:00</code></pre>
+``` 2015-03-01T00:00:00```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT date_trunc('DD', '2015-03-05T09:32:05.359')</code></pre>
+```> SELECT date_trunc('DD', '2015-03-05T09:32:05.359')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 2015-03-05T00:00:00</code></pre>
+``` 2015-03-05T00:00:00```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT date_trunc('HOUR', '2015-03-05T09:32:05.359')</code></pre>
+```> SELECT date_trunc('HOUR', '2015-03-05T09:32:05.359')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 2015-03-05T09:00:00</code></pre>
+``` 2015-03-05T09:00:00```
 
 <strong>Since:</strong> 2.3.0
 
@@ -1442,23 +1489,23 @@ date_trunc(fmt, ts) - Returns timestamp <code>ts</code> truncated to the unit sp
 ## datediff
 {: #datediff}
 
-datediff(endDate, startDate) - Returns the number of days from <code>startDate</code> to <code>endDate</code>.
+datediff(endDate, startDate) - Returns the number of days from `startDate` to `endDate`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT datediff('2009-07-31', '2009-07-30')</code></pre>
+```> SELECT datediff('2009-07-31', '2009-07-30')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 1</code></pre>
+``` 1```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT datediff('2009-07-30', '2009-07-31')</code></pre>
+```> SELECT datediff('2009-07-30', '2009-07-31')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> -1</code></pre>
+``` -1```
 
 <strong>Since:</strong> 1.5.0
 
@@ -1468,13 +1515,13 @@ datediff(endDate, startDate) - Returns the number of days from <code>startDate</
 
 day(date) - Returns the day of month of the date/timestamp.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT day('2009-07-30')</code></pre>
+```> SELECT day('2009-07-30')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 30</code></pre>
+``` 30```
 
 <strong>Since:</strong> 1.5.0
 
@@ -1484,13 +1531,13 @@ day(date) - Returns the day of month of the date/timestamp.
 
 dayofmonth(date) - Returns the day of month of the date/timestamp.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT dayofmonth('2009-07-30')</code></pre>
+```> SELECT dayofmonth('2009-07-30')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 30</code></pre>
+``` 30```
 
 <strong>Since:</strong> 1.5.0
 
@@ -1500,13 +1547,13 @@ dayofmonth(date) - Returns the day of month of the date/timestamp.
 
 dayofweek(date) - Returns the day of the week for date/timestamp (1 = Sunday, 2 = Monday, ..., 7 = Saturday).
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT dayofweek('2009-07-30')</code></pre>
+```> SELECT dayofweek('2009-07-30')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 5</code></pre>
+``` 5```
 
 <strong>Since:</strong> 2.3.0
 
@@ -1516,13 +1563,13 @@ dayofweek(date) - Returns the day of the week for date/timestamp (1 = Sunday, 2 
 
 dayofyear(date) - Returns the day of year of the date/timestamp.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT dayofyear('2016-04-09')</code></pre>
+```> SELECT dayofyear('2016-04-09')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 100</code></pre>
+``` 100```
 
 <strong>Since:</strong> 1.5.0
 
@@ -1530,8 +1577,8 @@ dayofyear(date) - Returns the day of year of the date/timestamp.
 ## decimal
 {: #decimal}
 
-decimal(expr) - Casts the value <code>expr</code> to the target data type <code>DECIMAL(10,0)</code>, truncating the result if needed.
-Use <code>CAST(expr AS DECIMAL(p,f))</code> to specify precision and fractional digits explicitly.
+decimal(expr) - Casts the value `expr` to the target data type `DECIMAL(10,0)`, truncating the result if needed.
+Use `CAST(expr AS DECIMAL(p,f))` to specify precision and fractional digits explicitly.
 
 
 ## decode
@@ -1539,13 +1586,13 @@ Use <code>CAST(expr AS DECIMAL(p,f))</code> to specify precision and fractional 
 
 decode(bin, charset) - Decodes the first argument by using the second argument character set.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT decode(encode('abc', 'utf-8'), 'utf-8')</code></pre>
+```> SELECT decode(encode('abc', 'utf-8'), 'utf-8')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> abc</code></pre>
+``` abc```
 
 
 ## degrees
@@ -1553,13 +1600,13 @@ decode(bin, charset) - Decodes the first argument by using the second argument c
 
 degrees(expr) - Converts radians to degrees.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT degrees(3.141592653589793)</code></pre>
+```> SELECT degrees(3.141592653589793)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 180.0</code></pre>
+``` 180.0```
 
 
 ## dense_rank
@@ -1573,34 +1620,34 @@ in the ranking sequence.
 ## double
 {: #double}
 
-double(expr) - Casts the value <code>expr</code> to the target data type <code>double</code>.
+double(expr) - Casts the value `expr` to the target data type `double`.
 
 
 ## e
 
 e() - Returns Euler's number, e.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT e()</code></pre>
+```> SELECT e()```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 2.718281828459045</code></pre>
+``` 2.718281828459045```
 
 
 ## elt
 {: #elt}
 
-elt(n, input1, input2, ...) - Returns the <code>n</code>-th input, for example, returns <code>input2</code> when <code>n</code> is 2.
+elt(n, input1, input2, ...) - Returns the `n`-th input, for example, returns `input2` when `n` is 2.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT elt(1, 'scala', 'java')</code></pre>
+```> SELECT elt(1, 'scala', 'java')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> scala</code></pre>
+``` scala```
 
 
 ## encode
@@ -1608,158 +1655,158 @@ elt(n, input1, input2, ...) - Returns the <code>n</code>-th input, for example, 
 
 encode(str, charset) - Encodes the first argument by using the second argument character set.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT encode('abc', 'utf-8')</code></pre>
+```> SELECT encode('abc', 'utf-8')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> abc</code></pre>
+``` abc```
 
 
 ## exp
 {: #exp}
 
-exp(expr) - Returns e to the power of <code>expr</code>.
+exp(expr) - Returns e to the power of `expr`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT exp(0)</code></pre>
+```> SELECT exp(0)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 1.0</code></pre>
+``` 1.0```
 
 
 ## explode
 {: #explode}
 
-explode(expr) - Separates the elements of array <code>expr</code> into multiple rows, or the elements of map <code>expr</code> into multiple rows and columns.
+explode(expr) - Separates the elements of array `expr` into multiple rows, or the elements of map `expr` into multiple rows and columns.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT explode(array(10, 20))</code></pre>
+```> SELECT explode(array(10, 20))```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 10
- 20</code></pre>
+``` 10
+ 20```
 
 
 ## explode_outer
 {: #explode_outer}
 
-explode_outer(expr) - Separates the elements of array <code>expr</code> into multiple rows, or the elements of map <code>expr</code> into multiple rows and columns.
+explode_outer(expr) - Separates the elements of array `expr` into multiple rows, or the elements of map `expr` into multiple rows and columns.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT explode_outer(array(10, 20))</code></pre>
+```> SELECT explode_outer(array(10, 20))```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 10
- 20</code></pre>
+``` 10
+ 20```
 
 
 ## expm1
 {: #expm1}
 
-expm1(expr) - Returns exp(<code>expr</code>) - 1.
+expm1(expr) - Returns exp(`expr`) - 1.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT expm1(0)</code></pre>
+```> SELECT expm1(0)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 0.0</code></pre>
+``` 0.0```
 
 
 ## factorial
 {: #factorial}
 
-factorial(expr) - Returns the factorial of <code>expr</code>. <code>expr</code> is [0..20]. Otherwise, null.
+factorial(expr) - Returns the factorial of `expr`. `expr` is [0..20]. Otherwise, null.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT factorial(5)</code></pre>
+```> SELECT factorial(5)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 120</code></pre>
+``` 120```
 
 
 ## find_in_set
 {: #find_in_set}
 
-find_in_set(str, str_array) - Returns the index (1-based) of the indicated string (<code>str</code>) in the comma-delimited list (<code>str_array</code>).
-Returns 0, if the string was not found or if the indicated string (<code>str</code>) contains a comma.
+find_in_set(str, str_array) - Returns the index (1-based) of the indicated string (`str`) in the comma-delimited list (`str_array`).
+Returns 0, if the string was not found or if the indicated string (`str`) contains a comma.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT find_in_set('ab','abc,b,ab,c,def')</code></pre>
+```> SELECT find_in_set('ab','abc,b,ab,c,def')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 3</code></pre>
+``` 3```
 
 
 ## first
 {: #first}
 
-first(expr[, isIgnoreNull]) - Returns the first value of <code>expr</code> for a group of rows.
-If <code>isIgnoreNull</code> is true, returns only non-null values.
+first(expr[, isIgnoreNull]) - Returns the first value of `expr` for a group of rows.
+If `isIgnoreNull` is true, returns only non-null values.
 
 
 ## first_value
 {: #first_value}
 
-first_value(expr[, isIgnoreNull]) - Returns the first value of <code>expr</code> for a group of rows.
-If <code>isIgnoreNull</code> is true, returns only non-null values.
+first_value(expr[, isIgnoreNull]) - Returns the first value of `expr` for a group of rows.
+If `isIgnoreNull` is true, returns only non-null values.
 
 
 ## float
 {: #float}
 
-float(expr) - Casts the value <code>expr</code> to the target data type <code>float</code>.
+float(expr) - Casts the value `expr` to the target data type `float`.
 
 
 ## floor
 {: #floor}
 
-floor(expr) - Returns the largest integer not greater than <code>expr</code>.
+floor(expr) - Returns the largest integer not greater than `expr`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT floor(-0.1)</code></pre>
+```> SELECT floor(-0.1)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> -1</code></pre>
+``` -1```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT floor(5)</code></pre>
+```> SELECT floor(5)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 5</code></pre>
+``` 5```
 
 
 ## format_number
 {: #format_number}
 
-format_number(expr1, expr2) - Formats the number <code>expr1</code> like '#,###,###.##', rounded to <code>expr2</code>
-decimal places. If <code>expr2</code> is 0, the result has no decimal point or fractional part.
+format_number(expr1, expr2) - Formats the number `expr1` like '#,###,###.##', rounded to `expr2`
+decimal places. If `expr2` is 0, the result has no decimal point or fractional part.
 This function is supposed to work like MySQL's FORMAT.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT format_number(12332.123456, 4)</code></pre>
+```> SELECT format_number(12332.123456, 4)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 12,332.1235</code></pre>
+``` 12,332.1235```
 
 
 ## format_string
@@ -1767,35 +1814,35 @@ This function is supposed to work like MySQL's FORMAT.
 
 format_string(strfmt, obj, ...) - Returns a formatted string from printf-style format strings.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT format_string(&quot;Hello World %d %s&quot;, 100, &quot;days&quot;)</code></pre>
+```> SELECT format_string(&quot;Hello World %d %s&quot;, 100, &quot;days&quot;)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> Hello World 100 days</code></pre>
+``` Hello World 100 days```
 
 
 ## from_json
 {: #from_json}
 
-from_json(jsonStr, schema[, options]) - Returns a struct value with the indicated <code>jsonStr</code> and <code>schema</code>.
+from_json(jsonStr, schema[, options]) - Returns a struct value with the indicated `jsonStr` and `schema`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT from_json('{&quot;a&quot;:1, &quot;b&quot;:0.8}', 'a INT, b DOUBLE')</code></pre>
+```> SELECT from_json('{&quot;a&quot;:1, &quot;b&quot;:0.8}', 'a INT, b DOUBLE')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> {&quot;a&quot;:1, &quot;b&quot;:0.8}</code></pre>
+``` {&quot;a&quot;:1, &quot;b&quot;:0.8}```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT from_json('{&quot;time&quot;:&quot;26/08/2015&quot;}', 'time Timestamp', map('timestampFormat', 'dd/MM/yyyy'))</code></pre>
+```> SELECT from_json('{&quot;time&quot;:&quot;26/08/2015&quot;}', 'time Timestamp', map('timestampFormat', 'dd/MM/yyyy'))```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> {&quot;time&quot;:&quot;2015-08-26 00:00:00.0&quot;}</code></pre>
+``` {&quot;time&quot;:&quot;2015-08-26 00:00:00.0&quot;}```
 
 <strong>Since:</strong> 2.2.0
 
@@ -1803,15 +1850,15 @@ from_json(jsonStr, schema[, options]) - Returns a struct value with the indicate
 ## from_unixtime
 {: #from_unixtime}
 
-from_unixtime(unix_time, format) - Returns <code>unix_time</code> in the specified <code>format</code>.
+from_unixtime(unix_time, format) - Returns `unix_time` in the specified `format`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT from_unixtime(0, 'yyyy-MM-dd HH:mm:ss')</code></pre>
+```> SELECT from_unixtime(0, 'yyyy-MM-dd HH:mm:ss')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 1970-01-01 00:00:00</code></pre>
+``` 1970-01-01 00:00:00```
 
 <strong>Since:</strong> 1.5.0
 
@@ -1821,13 +1868,13 @@ from_unixtime(unix_time, format) - Returns <code>unix_time</code> in the specifi
 
 from_utc_timestamp(timestamp, timezone) - Given a timestamp, such as '2017-07-14 02:40:00.0', this function interprets it as a time in Coordinated Universal Time (UTC), and renders that time as a timestamp in the indicated time zone. For example, 'GMT+1' would yield '2017-07-14 03:40:00.0'.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT from_utc_timestamp('2016-08-31', 'Asia/Seoul')</code></pre>
+```> SELECT from_utc_timestamp('2016-08-31', 'Asia/Seoul')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 2016-08-31 09:00:00</code></pre>
+``` 2016-08-31 09:00:00```
 
 <strong>Since:</strong> 1.5.0
 
@@ -1835,15 +1882,15 @@ from_utc_timestamp(timestamp, timezone) - Given a timestamp, such as '2017-07-14
 ## get_json_object
 {: #get_json_object}
 
-get_json_object(json_txt, path) - Extracts a JSON object from <code>path</code>.
+get_json_object(json_txt, path) - Extracts a JSON object from `path`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT get_json_object('{&quot;a&quot;:&quot;b&quot;}', '$.a')</code></pre>
+```> SELECT get_json_object('{&quot;a&quot;:&quot;b&quot;}', '$.a')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> b</code></pre>
+``` b```
 
 
 ## greatest
@@ -1851,13 +1898,13 @@ get_json_object(json_txt, path) - Extracts a JSON object from <code>path</code>.
 
 greatest(expr, ...) - Returns the greatest value of all parameters, skipping null values.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT greatest(10, 9, 2, 4, 3)</code></pre>
+```> SELECT greatest(10, 9, 2, 4, 3)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 10</code></pre>
+``` 10```
 
 
 ## grouping
@@ -1873,35 +1920,35 @@ greatest(expr, ...) - Returns the greatest value of all parameters, skipping nul
 
 hash(expr1, expr2, ...) - Returns a hash value of the arguments.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT hash('Spark', array(123), 2)</code></pre>
+```> SELECT hash('Spark', array(123), 2)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> -1321691492</code></pre>
+``` -1321691492```
 
 
 ## hex
 {: #hex}
 
-hex(expr) - Converts <code>expr</code> to hexadecimal.
+hex(expr) - Converts `expr` to hexadecimal.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT hex(17)</code></pre>
+```> SELECT hex(17)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 11</code></pre>
+``` 11```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT hex('Spark SQL')</code></pre>
+```> SELECT hex('Spark SQL')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 537061726B2053514C</code></pre>
+``` 537061726B2053514C```
 
 
 ## hour
@@ -1909,13 +1956,13 @@ hex(expr) - Converts <code>expr</code> to hexadecimal.
 
 hour(timestamp) - Returns the hour component of the string/timestamp.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT hour('2009-07-30 12:58:59')</code></pre>
+```> SELECT hour('2009-07-30 12:58:59')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 12</code></pre>
+``` 12```
 
 <strong>Since:</strong> 1.5.0
 
@@ -1923,102 +1970,102 @@ hour(timestamp) - Returns the hour component of the string/timestamp.
 ## hypot
 {: #hypot}
 
-hypot(expr1, expr2) - Returns sqrt(<code>expr1</code><strong>2 + <code>expr2</code></strong>2).
+hypot(expr1, expr2) - Returns sqrt(`expr1`<strong>2 + `expr2`</strong>2).
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT hypot(3, 4)</code></pre>
+```> SELECT hypot(3, 4)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 5.0</code></pre>
+``` 5.0```
 
 
 ## if
 {: #if}
 
-if(expr1, expr2, expr3) - If <code>expr1</code> evaluates to true, then returns <code>expr2</code>; otherwise, returns <code>expr3</code>.
+if(expr1, expr2, expr3) - If `expr1` evaluates to true, then returns `expr2`; otherwise, returns `expr3`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT if(1 &lt; 2, 'a', 'b')</code></pre>
+```> SELECT if(1 &lt; 2, 'a', 'b')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> a</code></pre>
+``` a```
 
 
 ## ifnull
 {: #ifnull}
 
-ifnull(expr1, expr2) - Returns <code>expr2</code> if <code>expr1</code> is null, or <code>expr1</code> otherwise.
+ifnull(expr1, expr2) - Returns `expr2` if `expr1` is null, or `expr1` otherwise.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT ifnull(NULL, array('2'))</code></pre>
+```> SELECT ifnull(NULL, array('2'))```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> [&quot;2&quot;]</code></pre>
+``` [&quot;2&quot;]```
 
 
 ## in
 {: #in}
 
-expr1 in(expr2, expr3, ...) - Returns true if <code>expr</code> equals to any valN.
+expr1 in(expr2, expr3, ...) - Returns true if `expr` equals to any valN.
 
-**Arguments:**
+:   **Arguments**
 
 <ul>
 <li>expr1, expr2, expr3, ... - the arguments must be same type.</li>
 </ul>
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT 1 in(1, 2, 3)</code></pre>
+```> SELECT 1 in(1, 2, 3)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> true</code></pre>
+``` true```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT 1 in(2, 3, 4)</code></pre>
+```> SELECT 1 in(2, 3, 4)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> false</code></pre>
+``` false```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT named_struct('a', 1, 'b', 2) in(named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3))</code></pre>
+```> SELECT named_struct('a', 1, 'b', 2) in(named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3))```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> false</code></pre>
+``` false```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT named_struct('a', 1, 'b', 2) in(named_struct('a', 1, 'b', 2), named_struct('a', 1, 'b', 3))</code></pre>
+```> SELECT named_struct('a', 1, 'b', 2) in(named_struct('a', 1, 'b', 2), named_struct('a', 1, 'b', 3))```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> true</code></pre>
+``` true```
 
 
 ## initcap
 {: #initcap}
 
-initcap(str) - Returns <code>str</code> with the first letter of each word in uppercase.
+initcap(str) - Returns `str` with the first letter of each word in uppercase.
 All other letters are in lowercase. Words are delimited by white space.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT initcap('sPark sql')</code></pre>
+```> SELECT initcap('sPark sql')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> Spark Sql</code></pre>
+``` Spark Sql```
 
 
 ## inline
@@ -2026,14 +2073,14 @@ All other letters are in lowercase. Words are delimited by white space.
 
 inline(expr) - Explodes an array of structs into a table.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT inline(array(struct(1, 'a'), struct(2, 'b')))</code></pre>
+```> SELECT inline(array(struct(1, 'a'), struct(2, 'b')))```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 1  a
- 2  b</code></pre>
+``` 1  a
+ 2  b```
 
 
 ## inline_outer
@@ -2041,14 +2088,14 @@ inline(expr) - Explodes an array of structs into a table.
 
 inline_outer(expr) - Explodes an array of structs into a table.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT inline_outer(array(struct(1, 'a'), struct(2, 'b')))</code></pre>
+```> SELECT inline_outer(array(struct(1, 'a'), struct(2, 'b')))```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 1  a
- 2  b</code></pre>
+``` 1  a
+ 2  b```
 
 
 ## input_file_name
@@ -2060,63 +2107,63 @@ input_file_name() - Returns the name of the file that is being read, or empty st
 ## instr
 {: #instr}
 
-instr(str, substr) - Returns the (1-based) index of the first occurrence of <code>substr</code> in <code>str</code>.
+instr(str, substr) - Returns the (1-based) index of the first occurrence of `substr` in `str`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT instr('SparkSQL', 'SQL')</code></pre>
+```> SELECT instr('SparkSQL', 'SQL')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 6</code></pre>
+``` 6```
 
 
 ## int
 {: #int}
 
-int(expr) - Casts the value <code>expr</code> to the target data type <code>int</code>.
+int(expr) - Casts the value `expr` to the target data type `int`.
 
 
 ## isnan
 {: #isnan}
 
-isnan(expr) - Returns true if <code>expr</code> is NaN, or false otherwise.
+isnan(expr) - Returns true if `expr` is NaN, or false otherwise.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT isnan(cast('NaN' as double))</code></pre>
+```> SELECT isnan(cast('NaN' as double))```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> true</code></pre>
+``` true```
 
 
 ## isnotnull
 {: #isnotnull}
 
-isnotnull(expr) - Returns true if <code>expr</code> is not null, or false otherwise.
+isnotnull(expr) - Returns true if `expr` is not null, or false otherwise.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT isnotnull(1)</code></pre>
+```> SELECT isnotnull(1)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> true</code></pre>
+``` true```
 
 
 ## isnull
 {: #isnull}
 
-isnull(expr) - Returns true if <code>expr</code> is null, or false otherwise.
+isnull(expr) - Returns true if `expr` is null, or false otherwise.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT isnull(1)</code></pre>
+```> SELECT isnull(1)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> false</code></pre>
+``` false```
 
 
 ## json_tuple
@@ -2124,13 +2171,13 @@ isnull(expr) - Returns true if <code>expr</code> is null, or false otherwise.
 
 json_tuple(jsonStr, p1, p2, ..., pn) - Returns a tuple like the function  `get_json_object`, but it takes multiple names. All the input parameters and output column types are string.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT json_tuple('{&quot;a&quot;:1, &quot;b&quot;:2}', 'a', 'b')</code></pre>
+```> SELECT json_tuple('{&quot;a&quot;:1, &quot;b&quot;:2}', 'a', 'b')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 1  2</code></pre>
+``` 1  2```
 
 
 ## kurtosis
@@ -2142,18 +2189,18 @@ kurtosis(expr) - Returns the kurtosis value that is calculated from values of a 
 ## lag
 {: #lag}
 
-lag(input[, offset[, default]]) - Returns the value of <code>input</code> at the <code>offset</code>th row
-before the current row in the window. The default value of <code>offset</code> is 1 and the default
-value of <code>default</code> is null. If the value of <code>input</code> at the <code>offset</code>th row is null,
+lag(input[, offset[, default]]) - Returns the value of `input` at the `offset`th row
+before the current row in the window. The default value of `offset` is 1 and the default
+value of `default` is null. If the value of `input` at the `offset`th row is null,
 null is returned. If no such offset row exists (for example, when the offset is 1, the first
-row of the window does not have any previous row), <code>default</code> is returned.
+row of the window does not have any previous row), `default` is returned.
 
 
 ## last
 {: #last}
 
-last(expr[, isIgnoreNull]) - Returns the last value of <code>expr</code> for a group of rows.
-If <code>isIgnoreNull</code> is true, returns only non-null values.
+last(expr[, isIgnoreNull]) - Returns the last value of `expr` for a group of rows.
+If `isIgnoreNull` is true, returns only non-null values.
 
 
 ## last_day
@@ -2161,13 +2208,13 @@ If <code>isIgnoreNull</code> is true, returns only non-null values.
 
 last_day(date) - Returns the last day of the month that the date belongs to.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT last_day('2009-01-12')</code></pre>
+```> SELECT last_day('2009-01-12')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 2009-01-31</code></pre>
+``` 2009-01-31```
 
 <strong>Since:</strong> 1.5.0
 
@@ -2175,32 +2222,32 @@ last_day(date) - Returns the last day of the month that the date belongs to.
 ## last_value
 {: #last_value}
 
-last_value(expr[, isIgnoreNull]) - Returns the last value of <code>expr</code> for a group of rows.
-If <code>isIgnoreNull</code> is true, returns only non-null values.
+last_value(expr[, isIgnoreNull]) - Returns the last value of `expr` for a group of rows.
+If `isIgnoreNull` is true, returns only non-null values.
 
 
 ## lcase
 {: #lcase}
 
-lcase(str) - Returns <code>str</code> with all characters that are changed to lowercase.
+lcase(str) - Returns `str` with all characters that are changed to lowercase.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT lcase('SparkSql')</code></pre>
+```> SELECT lcase('SparkSql')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> sparksql</code></pre>
+``` sparksql```
 
 
 ## lead
 {: #lead}
 
-lead(input[, offset[, default]]) - Returns the value of <code>input</code> at the <code>offset</code>th row
-after the current row in the window. The default value of <code>offset</code> is 1 and the default
-value of <code>default</code> is null. If the value of <code>input</code> at the <code>offset</code>th row is null,
+lead(input[, offset[, default]]) - Returns the value of `input` at the `offset`th row
+after the current row in the window. The default value of `offset` is 1 and the default
+value of `default` is null. If the value of `input` at the `offset`th row is null,
 null is returned. If no such offset row exists (for example, when the offset is 1, the last
-row of the window does not have any subsequent row), <code>default</code> is returned.
+row of the window does not have any subsequent row), `default` is returned.
 
 
 ## least
@@ -2208,27 +2255,27 @@ row of the window does not have any subsequent row), <code>default</code> is ret
 
 least(expr, ...) - Returns the least value of all parameters, skipping null values.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT least(10, 9, 2, 4, 3)</code></pre>
+```> SELECT least(10, 9, 2, 4, 3)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 2</code></pre>
+``` 2```
 
 
 ## left
 {: #left}
 
-left(str, len) - Returns the leftmost <code>len</code>(<code>len</code> can be string type) characters from the string <code>str</code>, if <code>len</code> is less or equal than 0 the result is an empty string.
+left(str, len) - Returns the leftmost `len`(`len` can be string type) characters from the string `str`, if `len` is less or equal than 0 the result is an empty string.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT left('Spark SQL', 3)</code></pre>
+```> SELECT left('Spark SQL', 3)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> Spa</code></pre>
+``` Spa```
 
 
 ## length
@@ -2236,29 +2283,29 @@ left(str, len) - Returns the leftmost <code>len</code>(<code>len</code> can be s
 
 length(expr) - Returns the character length of string data or number of bytes of binary data. The length of string data includes the trailing spaces. The length of binary data includes binary zeros.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT length('Spark SQL ')</code></pre>
+```> SELECT length('Spark SQL ')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 10</code></pre>
+``` 10```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT CHAR_LENGTH('Spark SQL ')</code></pre>
+```> SELECT CHAR_LENGTH('Spark SQL ')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 10</code></pre>
+``` 10```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT CHARACTER_LENGTH('Spark SQL ')</code></pre>
+```> SELECT CHARACTER_LENGTH('Spark SQL ')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 10</code></pre>
+``` 10```
 
 
 ## levenshtein
@@ -2266,13 +2313,13 @@ length(expr) - Returns the character length of string data or number of bytes of
 
 levenshtein(str1, str2) - Returns the Levenshtein distance between the two indicated strings.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT levenshtein('kitten', 'sitting')</code></pre>
+```> SELECT levenshtein('kitten', 'sitting')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 3</code></pre>
+``` 3```
 
 
 ## like
@@ -2280,7 +2327,7 @@ levenshtein(str1, str2) - Returns the Levenshtein distance between the two indic
 
 str like pattern - Returns true if str matches pattern, null if any arguments are null, otherwise, false.
 
-**Arguments:**
+:   **Arguments**
 
 <ul>
 <li>str - a string expression</li>
@@ -2303,13 +2350,13 @@ String literals are unescaped in our SQL parser. For example, to match "\abc", t
 </li>
 </ul>
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT '%SystemDrive%\Users\John' like '\%SystemDrive\%\\Users%'</code></pre>
+```> SELECT '%SystemDrive%\Users\John' like '\%SystemDrive\%\\Users%'```
 
-**Result value:**
+:   **Result value**
 
-<pre><code>true</code></pre>
+```true```
 
 <strong>Note:</strong>
 
@@ -2319,168 +2366,168 @@ Use RLIKE to match with standard regular expressions.
 ## ln
 {: #ln}
 
-ln(expr) - Returns the natural logarithm (base e) of <code>expr</code>.
+ln(expr) - Returns the natural logarithm (base e) of `expr`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT ln(1)</code></pre>
+```> SELECT ln(1)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 0.0</code></pre>
+``` 0.0```
 
 
 ## locate
 {: #locate}
 
-locate(substr, str[, pos]) - Returns the position of the first occurrence of <code>substr</code> in <code>str</code> after position <code>pos</code>.
-The indicated <code>pos</code> and return value are 1-based.
+locate(substr, str[, pos]) - Returns the position of the first occurrence of `substr` in `str` after position `pos`.
+The indicated `pos` and return value are 1-based.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT locate('bar', 'foobarbar')</code></pre>
+```> SELECT locate('bar', 'foobarbar')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 4</code></pre>
+``` 4```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT locate('bar', 'foobarbar', 5)</code></pre>
+```> SELECT locate('bar', 'foobarbar', 5)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 7</code></pre>
+``` 7```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT POSITION('bar' IN 'foobarbar')</code></pre>
+```> SELECT POSITION('bar' IN 'foobarbar')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 4</code></pre>
+``` 4```
 
 
 ## log
 {: #log}
 
-log(base, expr) - Returns the logarithm of <code>expr</code> with <code>base</code>.
+log(base, expr) - Returns the logarithm of `expr` with `base`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT log(10, 100)</code></pre>
+```> SELECT log(10, 100)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 2.0</code></pre>
+``` 2.0```
 
 
 ## log10
 {: #log10}
 
-log10(expr) - Returns the logarithm of <code>expr</code> with base 10.
+log10(expr) - Returns the logarithm of `expr` with base 10.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT log10(10)</code></pre>
+```> SELECT log10(10)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 1.0</code></pre>
+``` 1.0```
 
 
 ## log1p
 {: #log1p}
 
-log1p(expr) - Returns log(1 + <code>expr</code>).
+log1p(expr) - Returns log(1 + `expr`).
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT log1p(0)</code></pre>
+```> SELECT log1p(0)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 0.0</code></pre>
+``` 0.0```
 
 
 ## log2
 {: #log2}
 
-log2(expr) - Returns the logarithm of <code>expr</code> with base 2.
+log2(expr) - Returns the logarithm of `expr` with base 2.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT log2(2)</code></pre>
+```> SELECT log2(2)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 1.0</code></pre>
+``` 1.0```
 
 
 ## lower
 {: #lower}
 
-lower(str) - Returns <code>str</code> with all characters that are changed to lowercase.
+lower(str) - Returns `str` with all characters that are changed to lowercase.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT lower('SparkSql')</code></pre>
+```> SELECT lower('SparkSql')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> sparksql</code></pre>
+``` sparksql```
 
 
 ## lpad
 {: #lpad}
 
-lpad(str, len, pad) - Returns <code>str</code>, left-padded with <code>pad</code> to a length of <code>len</code>.
-If <code>str</code> is longer than <code>len</code>, the return value is shortened to <code>len</code> characters.
+lpad(str, len, pad) - Returns `str`, left-padded with `pad` to a length of `len`.
+If `str` is longer than `len`, the return value is shortened to `len` characters.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT lpad('hi', 5, '??')</code></pre>
+```> SELECT lpad('hi', 5, '??')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> ???hi</code></pre>
+``` ???hi```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT lpad('hi', 1, '??')</code></pre>
+```> SELECT lpad('hi', 1, '??')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> h</code></pre>
+``` h```
 
 ## ltrim
 {: #ltrim}
 
-ltrim(str) - Removes the leading space characters from <code>str</code>.
+ltrim(str) - Removes the leading space characters from `str`.
 
 ltrim(trimStr, str) - Removes the leading string contains the characters from the trim string.
 
-**Arguments:**
+:   **Arguments**
 
 <ul>
 <li>str - A string expression</li>
 <li>trimStr - The trim string characters to trim, the default value is a single space.</li>
 </ul>
 
-**Example of an SQL function usage fragment:**
-<pre><code>&gt; SELECT ltrim('    SparkSQL   ')</code></pre>
+:   **Example of an SQL function usage fragment**
+```> SELECT ltrim('    SparkSQL   ')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> SparkSQL</code></pre>
+``` SparkSQL```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT ltrim('Sp', 'SSparkSQLS')</code></pre>
+```> SELECT ltrim('Sp', 'SSparkSQLS')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> arkSQLS</code></pre>
+``` arkSQLS```
 
 
 ## map
@@ -2488,13 +2535,13 @@ ltrim(trimStr, str) - Removes the leading string contains the characters from th
 
 map(key0, value0, key1, value1, ...) - Creates a map with the indicated key/value pairs.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT map(1.0, '2', 3.0, '4')</code></pre>
+```> SELECT map(1.0, '2', 3.0, '4')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> {1.0:&quot;2&quot;,3.0:&quot;4&quot;}</code></pre>
+``` {1.0:&quot;2&quot;,3.0:&quot;4&quot;}```
 
 
 ## map_keys
@@ -2502,13 +2549,13 @@ map(key0, value0, key1, value1, ...) - Creates a map with the indicated key/valu
 
 map_keys(map) - Returns an unordered array that contains the keys of the map.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT map_keys(map(1, 'a', 2, 'b'))</code></pre>
+```> SELECT map_keys(map(1, 'a', 2, 'b'))```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> [1,2]</code></pre>
+``` [1,2]```
 
 
 ## map_values
@@ -2516,33 +2563,33 @@ map_keys(map) - Returns an unordered array that contains the keys of the map.
 
 map_values(map) - Returns an unordered array that contains the values of the map.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT map_values(map(1, 'a', 2, 'b'))</code></pre>
+```> SELECT map_values(map(1, 'a', 2, 'b'))```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> [&quot;a&quot;,&quot;b&quot;]</code></pre>
+``` [&quot;a&quot;,&quot;b&quot;]```
 
 
 ## max
 {: #max}
 
-max(expr) - Returns the maximum value of <code>expr</code>.
+max(expr) - Returns the maximum value of `expr`.
 
 
 ## md5
 {: #md5}
 
-md5(expr) - Returns an MD5 128-bit checksum as a hex string of <code>expr</code>.
+md5(expr) - Returns an MD5 128-bit checksum as a hex string of `expr`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT md5('Spark')</code></pre>
+```> SELECT md5('Spark')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 8cde774d6f7333752ed72cacddb05126</code></pre>
+``` 8cde774d6f7333752ed72cacddb05126```
 
 ## mean
 {: #mean}
@@ -2553,7 +2600,7 @@ mean(expr) - Returns the mean that is calculated from values of a group.
 ## min
 {: #min}
 
-min(expr) - Returns the minimum value of <code>expr</code>.
+min(expr) - Returns the minimum value of `expr`.
 
 
 ## minute
@@ -2561,13 +2608,13 @@ min(expr) - Returns the minimum value of <code>expr</code>.
 
 minute(timestamp) - Returns the minute component of the string/timestamp.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT minute('2009-07-30 12:58:59')</code></pre>
+```> SELECT minute('2009-07-30 12:58:59')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 58</code></pre>
+``` 58```
 
 <strong>Since:</strong> 1.5.0
 
@@ -2575,23 +2622,23 @@ minute(timestamp) - Returns the minute component of the string/timestamp.
 ## mod
 {: #mod}
 
-expr1 mod expr2 - Returns the remainder after <code>expr1</code>/<code>expr2</code>.
+expr1 mod expr2 - Returns the remainder after `expr1`/`expr2`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT 2 mod 1.8;</code></pre>
+```> SELECT 2 mod 1.8;```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 0.2</code></pre>
+``` 0.2```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT MOD(2, 1.8)</code></pre>
+```> SELECT MOD(2, 1.8)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 0.2</code></pre>
+``` 0.2```
 
 
 ## monotonically_increasing_id
@@ -2609,13 +2656,13 @@ partitions, and each partition has less than 8 billion records.
 
 month(date) - Returns the month component of the date/timestamp.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT month('2016-07-30')</code></pre>
+```> SELECT month('2016-07-30')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 7</code></pre>
+``` 7```
 
 <strong>Since:</strong> 1.5.0
 
@@ -2623,15 +2670,15 @@ month(date) - Returns the month component of the date/timestamp.
 ## months_between
 {: #months_between}
 
-months_between(timestamp1, timestamp2) - Returns number of months between <code>timestamp1</code> and <code>timestamp2</code>.
+months_between(timestamp1, timestamp2) - Returns number of months between `timestamp1` and `timestamp2`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT months_between('1997-02-28 10:30:00', '1996-10-30')</code></pre>
+```> SELECT months_between('1997-02-28 10:30:00', '1996-10-30')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 3.94959677</code></pre>
+``` 3.94959677```
 
 <strong>Since:</strong> 1.5.0
 
@@ -2641,55 +2688,55 @@ months_between(timestamp1, timestamp2) - Returns number of months between <code>
 
 named_struct(name1, val1, name2, val2, ...) - Creates a struct with the indicated field names and values.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT named_struct(&quot;a&quot;, 1, &quot;b&quot;, 2, &quot;c&quot;, 3)</code></pre>
+```> SELECT named_struct(&quot;a&quot;, 1, &quot;b&quot;, 2, &quot;c&quot;, 3)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> {&quot;a&quot;:1,&quot;b&quot;:2,&quot;c&quot;:3}</code></pre>
+``` {&quot;a&quot;:1,&quot;b&quot;:2,&quot;c&quot;:3}```
 
 
 ## nanvl
 {: #nanvl}
 
-nanvl(expr1, expr2) - Returns <code>expr1</code> if it's not NaN, or <code>expr2</code> otherwise.
+nanvl(expr1, expr2) - Returns `expr1` if it's not NaN, or `expr2` otherwise.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT nanvl(cast('NaN' as double), 123)</code></pre>
+```> SELECT nanvl(cast('NaN' as double), 123)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 123.0</code></pre>
+``` 123.0```
 
 
 ## negative
 {: #negative}
 
-negative(expr) - Returns the negated value of <code>expr</code>.
+negative(expr) - Returns the negated value of `expr`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT negative(1)</code></pre>
+```> SELECT negative(1)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> -1</code></pre>
+``` -1```
 
 
 ## next_day
 {: #next_day}
 
-next_day(start_date, day_of_week) - Returns the first date that is later than <code>start_date</code> and named as indicated.
+next_day(start_date, day_of_week) - Returns the first date that is later than `start_date` and named as indicated.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT next_day('2015-01-14', 'TU')</code></pre>
+```> SELECT next_day('2015-01-14', 'TU')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 2015-01-20</code></pre>
+``` 2015-01-20```
 
 <strong>Since:</strong> 1.5.0
 
@@ -2711,50 +2758,50 @@ now() - Returns the current timestamp at the start of query evaluation.
 ## ntile
 {: #ntile}
 
-ntile(n) - Divides the rows for each window partition into <code>n</code> buckets that range
-from 1 to at most <code>n</code>.
+ntile(n) - Divides the rows for each window partition into `n` buckets that range
+from 1 to at most `n`.
 
 
 ## nullif
 {: #nullif}
 
-nullif(expr1, expr2) - Returns null if <code>expr1</code> equals to <code>expr2</code>, or <code>expr1</code> otherwise.
+nullif(expr1, expr2) - Returns null if `expr1` equals to `expr2`, or `expr1` otherwise.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT nullif(2, 2)</code></pre>
+```> SELECT nullif(2, 2)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> NULL</code></pre>
+``` NULL```
 
 
 ## nvl
 {: #nvl}
 
-nvl(expr1, expr2) - Returns <code>expr2</code> if <code>expr1</code> is null, or <code>expr1</code> otherwise.
+nvl(expr1, expr2) - Returns `expr2` if `expr1` is null, or `expr1` otherwise.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT nvl(NULL, array('2'))</code></pre>
+```> SELECT nvl(NULL, array('2'))```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> [&quot;2&quot;]</code></pre>
+``` [&quot;2&quot;]```
 
 
 ## nvl2
 {: #nvl2}
 
-nvl2(expr1, expr2, expr3) - Returns <code>expr2</code> if <code>expr1</code> is not null, or <code>expr3</code> otherwise.
+nvl2(expr1, expr2, expr3) - Returns `expr2` if `expr1` is not null, or `expr3` otherwise.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT nvl2(NULL, 2, 1)</code></pre>
+```> SELECT nvl2(NULL, 2, 1)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 1</code></pre>
+``` 1```
 
 
 ## octet_length
@@ -2762,13 +2809,13 @@ nvl2(expr1, expr2, expr3) - Returns <code>expr2</code> if <code>expr1</code> is 
 
 octet_length(expr) - Returns the byte length of string data or number of bytes of binary data.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT octet_length('Spark SQL')</code></pre>
+```> SELECT octet_length('Spark SQL')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 9</code></pre>
+``` 9```
 
 
 ## or
@@ -2782,29 +2829,29 @@ expr1 or expr2 - Logical OR.
 
 parse_url(url, partToExtract[, key]) - Extracts a part from a URL.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT parse_url('http://spark.apache.org/path?query=1', 'HOST')</code></pre>
+```> SELECT parse_url('http://spark.apache.org/path?query=1', 'HOST')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> spark.apache.org</code></pre>
+``` spark.apache.org```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT parse_url('http://spark.apache.org/path?query=1', 'QUERY')</code></pre>
+```> SELECT parse_url('http://spark.apache.org/path?query=1', 'QUERY')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> query=1</code></pre>
+``` query=1```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT parse_url('http://spark.apache.org/path?query=1', 'QUERY', 'query')</code></pre>
+```> SELECT parse_url('http://spark.apache.org/path?query=1', 'QUERY', 'query')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 1</code></pre>
+``` 1```
 
 
 ## percent_rank
@@ -2817,10 +2864,10 @@ percent_rank() - Computes the percentage ranking of a value in a group of values
 {: #percentile}
 
 percentile(col, percentage [, frequency]) - Returns the exact percentile value of numeric column
-<code>col</code> at the indicated percentage. The value of percentage must be between 0.0 and 1.0. The value of frequency must be a positive integral.
+`col` at the indicated percentage. The value of percentage must be between 0.0 and 1.0. The value of frequency must be a positive integral.
 
 percentile(col, array(percentage1 [, percentage2]...) [, frequency]) - Returns the exact
-percentile value array of numeric column <code>col</code> at the indicated percentage. Each value of the percentage array must be between 0.0 and 1.0. The value of frequency must be a
+percentile value array of numeric column `col` at the indicated percentage. Each value of the percentage array must be between 0.0 and 1.0. The value of frequency must be a
 positive integral.
 
 
@@ -2828,29 +2875,29 @@ positive integral.
 {: #percentile_approx}
 
 percentile_approx(col, percentage [, accuracy]) - Returns the approximate percentile value of numeric
-column <code>col</code> at the indicated percentage. The value of percentage must be between 0.0
-and 1.0. The <code>accuracy</code> parameter (default: 10000) is a positive numeric literal that
-controls approximation accuracy at the cost of memory. Higher value of <code>accuracy</code> yields
-better accuracy, <code>1.0/accuracy</code> is the relative error of the approximation.
-When <code>percentage</code> is an array, each value of the percentage array must be between 0.0 and 1.0.
-In this case, returns the approximate percentile array of column <code>col</code> at the indicated
+column `col` at the indicated percentage. The value of percentage must be between 0.0
+and 1.0. The `accuracy` parameter (default: 10000) is a positive numeric literal that
+controls approximation accuracy at the cost of memory. Higher value of `accuracy` yields
+better accuracy, `1.0/accuracy` is the relative error of the approximation.
+When `percentage` is an array, each value of the percentage array must be between 0.0 and 1.0.
+In this case, returns the approximate percentile array of column `col` at the indicated
 percentage array.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT percentile_approx(10.0, array(0.5, 0.4, 0.1), 100)</code></pre>
+```> SELECT percentile_approx(10.0, array(0.5, 0.4, 0.1), 100)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> [10.0,10.0,10.0]</code></pre>
+``` [10.0,10.0,10.0]```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT percentile_approx(10.0, 0.5, 100)</code></pre>
+```> SELECT percentile_approx(10.0, 0.5, 100)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 10.0</code></pre>
+``` 10.0```
 
 
 ## pi
@@ -2858,128 +2905,128 @@ percentage array.
 
 pi() - Returns pi.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT pi()</code></pre>
+```> SELECT pi()```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 3.141592653589793</code></pre>
+``` 3.141592653589793```
 
 
 ## pmod
 {: #pmod}
 
-pmod(expr1, expr2) - Returns the positive value of <code>expr1</code> mod <code>expr2</code>.
+pmod(expr1, expr2) - Returns the positive value of `expr1` mod `expr2`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT pmod(10, 3)</code></pre>
+```> SELECT pmod(10, 3)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 1</code></pre>
+``` 1```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT pmod(-10, 3)</code></pre>
+```> SELECT pmod(-10, 3)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 2</code></pre>
+``` 2```
 
 
 ## posexplode
 {: #posexplode}
 
-posexplode(expr) - Separates the elements of array <code>expr</code> into multiple rows with positions, or the elements of map <code>expr</code> into multiple rows and columns with positions.
+posexplode(expr) - Separates the elements of array `expr` into multiple rows with positions, or the elements of map `expr` into multiple rows and columns with positions.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT posexplode(array(10,20))</code></pre>
+```> SELECT posexplode(array(10,20))```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 0  10
- 1  20</code></pre>
+``` 0  10
+ 1  20```
 
 
 ## posexplode_outer
 {: #posexplode_outer}
 
-posexplode_outer(expr) - Separates the elements of array <code>expr</code> into multiple rows with positions, or the elements of map <code>expr</code> into multiple rows and columns with positions.
+posexplode_outer(expr) - Separates the elements of array `expr` into multiple rows with positions, or the elements of map `expr` into multiple rows and columns with positions.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT posexplode_outer(array(10,20))
+```> SELECT posexplode_outer(array(10,20))
  0  10
  1  20
-</code></pre>
+```
 
 
 ## position
 {: #position}
 
-position(substr, str[, pos]) - Returns the position of the first occurrence of <code>substr</code> in <code>str</code> after position <code>pos</code>.
-The indicated <code>pos</code> and return value are 1-based.
+position(substr, str[, pos]) - Returns the position of the first occurrence of `substr` in `str` after position `pos`.
+The indicated `pos` and return value are 1-based.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT position('bar', 'foobarbar')</code></pre>
+```> SELECT position('bar', 'foobarbar')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 4</code></pre>
+``` 4```
 
- **Example of an SQL function usage fragment:**
+ :   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT position('bar', 'foobarbar', 5)</code></pre>
+```> SELECT position('bar', 'foobarbar', 5)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 7</code></pre>
+``` 7```
 
- **Example of an SQL function usage fragment:**
+ :   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT POSITION('bar' IN 'foobarbar')</code></pre>
+```> SELECT POSITION('bar' IN 'foobarbar')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 4</code></pre>
+``` 4```
 
 
 ## positive
 {: #positive}
 
-positive(expr) - Returns the value of <code>expr</code>.
+positive(expr) - Returns the value of `expr`.
 
 
 ## pow
 {: #pow}
 
-pow(expr1, expr2) - Raises <code>expr1</code> to the power of <code>expr2</code>.
+pow(expr1, expr2) - Raises `expr1` to the power of `expr2`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT pow(2, 3)</code></pre>
+```> SELECT pow(2, 3)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 8.0</code></pre>
+``` 8.0```
 
 
 ## power
 {: #power}
 
-power(expr1, expr2) - Raises <code>expr1</code> to the power of <code>expr2</code>.
+power(expr1, expr2) - Raises `expr1` to the power of `expr2`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT power(2, 3)</code></pre>
+```> SELECT power(2, 3)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 8.0</code></pre>
+``` 8.0```
 
 
 ## printf
@@ -2987,13 +3034,13 @@ power(expr1, expr2) - Raises <code>expr1</code> to the power of <code>expr2</cod
 
 printf(strfmt, obj, ...) - Returns a formatted string from printf-style format strings.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT printf(&quot;Hello World %d %s&quot;, 100, &quot;days&quot;)</code></pre>
+```> SELECT printf(&quot;Hello World %d %s&quot;, 100, &quot;days&quot;)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> Hello World 100 days</code></pre>
+``` Hello World 100 days```
 
 
 ## quarter
@@ -3001,13 +3048,13 @@ printf(strfmt, obj, ...) - Returns a formatted string from printf-style format s
 
 quarter(date) - Returns the quarter of the year for date, in the range 1 - 4.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT quarter('2016-08-31')</code></pre>
+```> SELECT quarter('2016-08-31')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 3</code></pre>
+``` 3```
 
 <strong>Since:</strong> 1.5.0
 
@@ -3017,13 +3064,13 @@ quarter(date) - Returns the quarter of the year for date, in the range 1 - 4.
 
 radians(expr) - Converts degrees to radians.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT radians(180)</code></pre>
+```> SELECT radians(180)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 3.141592653589793</code></pre>
+``` 3.141592653589793```
 
 
 ## rand
@@ -3031,29 +3078,29 @@ radians(expr) - Converts degrees to radians.
 
 rand([seed]) - Returns a random value with independent and identically distributed (i.i.d.) uniformly distributed values in [0, 1).
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT rand()</code></pre>
+```> SELECT rand()```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 0.9629742951434543</code></pre>
+``` 0.9629742951434543```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT rand(0)</code></pre>
+```> SELECT rand(0)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 0.8446490682263027</code></pre>
+``` 0.8446490682263027```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT rand(null)</code></pre>
+```> SELECT rand(null)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 0.8446490682263027</code></pre>
+``` 0.8446490682263027```
 
 
 ## randn
@@ -3061,29 +3108,29 @@ rand([seed]) - Returns a random value with independent and identically distribut
 
 randn([seed]) - Returns a random value with independent and identically distributed (i.i.d.) values drawn from the standard normal distribution.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT randn()</code></pre>
+```> SELECT randn()```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> -0.3254147983080288</code></pre>
+``` -0.3254147983080288```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT randn(0)</code></pre>
+```> SELECT randn(0)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 1.1164209726833079</code></pre>
+``` 1.1164209726833079```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT randn(null)</code></pre>
+```> SELECT randn(null)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 1.1164209726833079</code></pre>
+``` 1.1164209726833079```
 
 
 ## rank
@@ -3097,29 +3144,29 @@ of rows preceding or equal to the current row in the ordering of the partition. 
 ## regexp_extract
 {: #regexp_extract}
 
-regexp_extract(str, regexp[, idx]) - Extracts a group that matches <code>regexp</code>.
+regexp_extract(str, regexp[, idx]) - Extracts a group that matches `regexp`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT regexp_extract('100-200', '(\\d+)-(\\d+)', 1)</code></pre>
+```> SELECT regexp_extract('100-200', '(\\d+)-(\\d+)', 1)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 100</code></pre>
+``` 100```
 
 
 ## regexp_replace
 {: #regexp_replace}
 
-regexp_replace(str, regexp, rep) - Replaces all substrings of <code>str</code> that match <code>regexp</code> with <code>rep</code>.
+regexp_replace(str, regexp, rep) - Replaces all substrings of `str` that match `regexp` with `rep`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT regexp_replace('100-200', '(\\d+)', 'num')</code></pre>
+```> SELECT regexp_replace('100-200', '(\\d+)', 'num')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> num-num</code></pre>
+``` num-num```
 
 
 ## repeat
@@ -3127,36 +3174,36 @@ regexp_replace(str, regexp, rep) - Replaces all substrings of <code>str</code> t
 
 repeat(str, n) - Returns the string that repeats the indicated string value n times.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT repeat('123', 2)</code></pre>
+```> SELECT repeat('123', 2)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 123123</code></pre>
+``` 123123```
 
 
 ## replace
 {: #replace}
 
-replace(str, search[, replace]) - Replaces all occurrences of <code>search</code> with <code>replace</code>.
+replace(str, search[, replace]) - Replaces all occurrences of `search` with `replace`.
 
-**Arguments:**
+:   **Arguments**
 
 <ul>
 <li>str - A string expression.</li>
-<li>search - A string expression. If <code>search</code> is not found in <code>str</code>, <code>str</code> is returned unchanged.</li>
-<li>replace - A string expression. If <code>replace</code> is not specified or is an empty string, nothing replaces
-    the string that is removed from <code>str</code>.</li>
+<li>search - A string expression. If `search` is not found in `str`, `str` is returned unchanged.</li>
+<li>replace - A string expression. If `replace` is not specified or is an empty string, nothing replaces
+    the string that is removed from `str`.</li>
 </ul>
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT replace('ABCabc', 'abc', 'DEF')</code></pre>
+```> SELECT replace('ABCabc', 'abc', 'DEF')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> ABCDEF</code></pre>
+``` ABCDEF```
 
 
 ## reverse
@@ -3164,27 +3211,27 @@ replace(str, search[, replace]) - Replaces all occurrences of <code>search</code
 
 reverse(str) - Returns the reversed indicated string.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT reverse('Spark SQL')</code></pre>
+```> SELECT reverse('Spark SQL')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> LQS krapS</code></pre>
+``` LQS krapS```
 
 
 ## right
 {: #right}
 
-right(str, len) - Returns the rightmost <code>len</code>(<code>len</code> can be string type) characters from the string <code>str</code>, if <code>len</code> is less or equal than 0 the result is an empty string.
+right(str, len) - Returns the rightmost `len`(`len` can be string type) characters from the string `str`, if `len` is less or equal than 0 the result is an empty string.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT right('Spark SQL', 3)</code></pre>
+```> SELECT right('Spark SQL', 3)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> SQL</code></pre>
+``` SQL```
 
 
 ## rint
@@ -3192,21 +3239,21 @@ right(str, len) - Returns the rightmost <code>len</code>(<code>len</code> can be
 
 rint(expr) - Returns the double value that is closest in value to the argument and is equal to a mathematical integer.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT rint(12.3456)</code></pre>
+```> SELECT rint(12.3456)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 12.0</code></pre>
+``` 12.0```
 
 
 ## rlike
 {: #rlike}
 
-str rlike regexp - Returns true if <code>str</code> matches <code>regexp</code>, or false otherwise.
+str rlike regexp - Returns true if `str` matches `regexp`, or false otherwise.
 
-**Arguments:**
+:   **Arguments**
 
 <ul>
 <li>str - A string expression.</li>
@@ -3215,16 +3262,16 @@ str rlike regexp - Returns true if <code>str</code> matches <code>regexp</code>,
 regexp - A string expression. The pattern string is a Java™ regular expression.
 
 String literals (including regex patterns) are unescaped in our SQL
-parser. For example, to match "\abc", a regular expression for <code>regexp</code> can be
+parser. For example, to match "\abc", a regular expression for `regexp` can be
 "^\abc$".
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT '%SystemDrive%\Users\John' rlike '%SystemDrive%\\Users.*'</code></pre>
+```> SELECT '%SystemDrive%\Users\John' rlike '%SystemDrive%\\Users.*'```
 
-**Result value:**
+:   **Result value**
 
-<pre><code>true</code></pre>
+```true```
 
 <strong>Note:</strong>
 
@@ -3238,15 +3285,15 @@ Use LIKE to match with simple string pattern.
 ## round
 {: #round}
 
-round(expr, d) - Returns <code>expr</code> rounded to <code>d</code> decimal places by using HALF_UP rounding mode.
+round(expr, d) - Returns `expr` rounded to `d` decimal places by using HALF_UP rounding mode.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT round(2.5, 0)</code></pre>
+```> SELECT round(2.5, 0)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 3.0</code></pre>
+``` 3.0```
 
 
 ## row_number
@@ -3259,55 +3306,55 @@ according to the ordering of rows within the window partition.
 ## rpad
 {: #rpad}
 
-rpad(str, len, pad) - Returns <code>str</code>, right-padded with <code>pad</code> to a length of <code>len</code>.
-If <code>str</code> is longer than <code>len</code>, the return value is shortened to <code>len</code> characters.
+rpad(str, len, pad) - Returns `str`, right-padded with `pad` to a length of `len`.
+If `str` is longer than `len`, the return value is shortened to `len` characters.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT rpad('hi', 5, '??')</code></pre>
+```> SELECT rpad('hi', 5, '??')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> hi???</code></pre>
+``` hi???```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT rpad('hi', 1, '??')</code></pre>
+```> SELECT rpad('hi', 1, '??')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> h</code></pre>
+``` h```
 
 
 ## rtrim
 {: #rtrim}
 
-rtrim(str) - Removes the trailing space characters from <code>str</code>.
+rtrim(str) - Removes the trailing space characters from `str`.
 
 
-rtrim(trimStr, str) - Removes the trailing string that contains the characters from the trim string from the <code>str</code>.
+rtrim(trimStr, str) - Removes the trailing string that contains the characters from the trim string from the `str`.
 
-**Arguments:**
+:   **Arguments**
 
 <ul>
 <li>str - A string expression.</li>
 <li>trimStr - The trim string characters to trim, the default value is a single space</li>.
 </ul>
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT rtrim('    SparkSQL   ')</code></pre>
+```> SELECT rtrim('    SparkSQL   ')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> SparkSQL</code></pre>
+``` SparkSQL```
 
-**Example of an SQL function usage fragment:**
-<pre><code>&gt; SELECT rtrim('LQSa', 'SSparkSQLS')</code></pre>
+:   **Example of an SQL function usage fragment**
+```> SELECT rtrim('LQSa', 'SSparkSQLS')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> SSpark</code></pre>
+``` SSpark```
 
 
 ## second
@@ -3315,13 +3362,13 @@ rtrim(trimStr, str) - Removes the trailing string that contains the characters f
 
 second(timestamp) - Returns the second component of the string/timestamp.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT second('2009-07-30 12:58:59')</code></pre>
+```> SELECT second('2009-07-30 12:58:59')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 59</code></pre>
+``` 59```
 
 <strong>Since:</strong> 1.5.0
 
@@ -3329,58 +3376,58 @@ second(timestamp) - Returns the second component of the string/timestamp.
 ## sentences
 {: #sentences}
 
-sentences(str[, lang, country]) - Splits <code>str</code> into an array of words.
+sentences(str[, lang, country]) - Splits `str` into an array of words.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT sentences('Hi there! Good morning.')</code></pre>
+```> SELECT sentences('Hi there! Good morning.')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> [[&quot;Hi&quot;,&quot;there&quot;],[&quot;Good&quot;,&quot;morning&quot;]]</code></pre>
+``` [[&quot;Hi&quot;,&quot;there&quot;],[&quot;Good&quot;,&quot;morning&quot;]]```
 
 
 ## sha
 {: #sha}
 
-sha(expr) - Returns a sha1 hash value as a hex string of the <code>expr</code>.
+sha(expr) - Returns a sha1 hash value as a hex string of the `expr`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT sha('Spark')</code></pre>
+```> SELECT sha('Spark')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 85f5955f4b27a9a4c2aab6ffe5d7189fc298b92c</code></pre>
+``` 85f5955f4b27a9a4c2aab6ffe5d7189fc298b92c```
 
 
 ## sha1
 {: #sha1}
 
-sha1(expr) - Returns a sha1 hash value as a hex string of the <code>expr</code>.
+sha1(expr) - Returns a sha1 hash value as a hex string of the `expr`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT sha1('Spark')</code></pre>
+```> SELECT sha1('Spark')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 85f5955f4b27a9a4c2aab6ffe5d7189fc298b92c</code></pre>
+``` 85f5955f4b27a9a4c2aab6ffe5d7189fc298b92c```
 
 
 ## sha2
 {: #sha2}
 
-sha2(expr, bitLength) - Returns a checksum of SHA-2 family as a hex string of <code>expr</code>.
+sha2(expr, bitLength) - Returns a checksum of SHA-2 family as a hex string of `expr`.
 SHA-224, SHA-256, SHA-384, and SHA-512 are supported. Bit length of 0 is equivalent to 256.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT sha2('Spark', 256)</code></pre>
+```> SELECT sha2('Spark', 256)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 529bc3b07127ecb7e53a4dcf1991d9152c24537d919178022b2c42657f79a26b</code></pre>
+``` 529bc3b07127ecb7e53a4dcf1991d9152c24537d919178022b2c42657f79a26b```
 
 
 ## shiftleft
@@ -3388,26 +3435,26 @@ SHA-224, SHA-256, SHA-384, and SHA-512 are supported. Bit length of 0 is equival
 
 shiftleft(base, expr) - Bitwise left shift.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT shiftleft(2, 1)</code></pre>
+```> SELECT shiftleft(2, 1)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 4</code></pre>
+``` 4```
 
 
 <h3 id="shiftright">shiftright</h3>
 
 shiftright(base, expr) - Bitwise (signed) right shift.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT shiftright(4, 1)</code></pre>
+```> SELECT shiftright(4, 1)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 2</code></pre>
+``` 2```
 
 
 ## shiftrightunsigned
@@ -3415,68 +3462,68 @@ shiftright(base, expr) - Bitwise (signed) right shift.
 
 shiftrightunsigned(base, expr) - Bitwise unsigned right shift.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT shiftrightunsigned(4, 1)</code></pre>
+```> SELECT shiftrightunsigned(4, 1)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 2</code></pre>
+``` 2```
 
 
 ## sign
 {: #sign}
 
-sign(expr) - Returns -1.0, 0.0 or 1.0 as <code>expr</code> is negative, 0 or positive.
+sign(expr) - Returns -1.0, 0.0 or 1.0 as `expr` is negative, 0 or positive.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT sign(40)</code></pre>
+```> SELECT sign(40)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 1.0</code></pre>
+``` 1.0```
 
 
 ## signum
 {: #signum}
 
-signum(expr) - Returns -1.0, 0.0 or 1.0 as <code>expr</code> is negative, 0 or positive.
+signum(expr) - Returns -1.0, 0.0 or 1.0 as `expr` is negative, 0 or positive.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT signum(40)</code></pre>
+```> SELECT signum(40)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 1.0</code></pre>
+``` 1.0```
 
 
 ## sin
 {: #sin}
 
-sin(expr) - Returns the sine of <code>expr</code>.
+sin(expr) - Returns the sine of `expr`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT sin(0)</code></pre>
+```> SELECT sin(0)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 0.0</code></pre>
+``` 0.0```
 
 
 <h3 id="sinh">sinh</h3>
 
-sinh(expr) - Returns the hyperbolic sine of <code>expr</code>.
+sinh(expr) - Returns the hyperbolic sine of `expr`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT sinh(0)</code></pre>
+```> SELECT sinh(0)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 0.0</code></pre>
+``` 0.0```
 
 
 ## size
@@ -3484,13 +3531,13 @@ sinh(expr) - Returns the hyperbolic sine of <code>expr</code>.
 
 size(expr) - Returns the size of an array or a map. Returns -1 if null.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT size(array('b', 'd', 'c', 'a'))</code></pre>
+```> SELECT size(array('b', 'd', 'c', 'a'))```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 4</code></pre>
+``` 4```
 
 
 ## skewness
@@ -3502,7 +3549,7 @@ skewness(expr) - Returns the skewness value that is calculated from values of a 
 ## smallint
 {: #smallint}
 
-smallint(expr) - Casts the value <code>expr</code> to the target data type <code>smallint</code>.
+smallint(expr) - Casts the value `expr` to the target data type `smallint`.
 
 
 ## sort_array
@@ -3510,13 +3557,13 @@ smallint(expr) - Casts the value <code>expr</code> to the target data type <code
 
 sort_array(array[, ascendingOrder]) - Sorts the input array in ascending or descending order according to the natural ordering of the array elements.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT sort_array(array('b', 'd', 'c', 'a'), true)</code></pre>
+```> SELECT sort_array(array('b', 'd', 'c', 'a'), true)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;]</code></pre>
+``` [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;]```
 
 
 ## soundex
@@ -3524,27 +3571,27 @@ sort_array(array[, ascendingOrder]) - Sorts the input array in ascending or desc
 
 soundex(str) - Returns Soundex code of the string.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT soundex('Miller')</code></pre>
+```> SELECT soundex('Miller')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> M460</code></pre>
+``` M460```
 
 
 ## space
 {: #space}
 
-space(n) - Returns a string that consists of <code>n</code> spaces.
+space(n) - Returns a string that consists of `n` spaces.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT concat(space(2), '1')</code></pre>
+```> SELECT concat(space(2), '1')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 1</code></pre>
+``` 1```
 
 
 ## spark_partition_id
@@ -3556,45 +3603,45 @@ spark_partition_id() - Returns the current partition ID.
 ## split
 {: #split}
 
-split(str, regex) - Splits <code>str</code> around occurrences that match <code>regex</code>.
+split(str, regex) - Splits `str` around occurrences that match `regex`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT split('oneAtwoBthreeC', '[ABC]')</code></pre>
+```> SELECT split('oneAtwoBthreeC', '[ABC]')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> [&quot;one&quot;,&quot;two&quot;,&quot;three&quot;,&quot;&quot;]</code></pre>
+``` [&quot;one&quot;,&quot;two&quot;,&quot;three&quot;,&quot;&quot;]```
 
 
 ## sqrt
 {: #sqrt}
 
-sqrt(expr) - Returns the square root of <code>expr</code>.
+sqrt(expr) - Returns the square root of `expr`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT sqrt(4)</code></pre>
+```> SELECT sqrt(4)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 2.0</code></pre>
+``` 2.0```
 
 
 ## stack
 {: #stack}
 
-stack(n, expr1, ..., exprk) - Separates <code>expr1</code>, ..., <code>exprk</code> into <code>n</code> rows.
+stack(n, expr1, ..., exprk) - Separates `expr1`, ..., `exprk` into `n` rows.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT stack(2, 1, 2, 3)</code></pre>
+```> SELECT stack(2, 1, 2, 3)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 1  2
+``` 1  2
  3  NULL
-</code></pre>
+```
 
 
 ## std
@@ -3624,29 +3671,29 @@ stddev_samp(expr) - Returns the sample standard deviation that is calculated fro
 ## str_to_map
 {: #str_to_map}
 
-str_to_map(text[, pairDelim[, keyValueDelim]]) - Creates a map after splitting the text into key/value pairs by using delimiters. Default delimiters are ',' for <code>pairDelim</code> and ':' for <code>keyValueDelim</code>.
+str_to_map(text[, pairDelim[, keyValueDelim]]) - Creates a map after splitting the text into key/value pairs by using delimiters. Default delimiters are ',' for `pairDelim` and ':' for `keyValueDelim`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT str_to_map('a:1,b:2,c:3', ',', ':')</code></pre>
+```> SELECT str_to_map('a:1,b:2,c:3', ',', ':')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> map(&quot;a&quot;:&quot;1&quot;,&quot;b&quot;:&quot;2&quot;,&quot;c&quot;:&quot;3&quot;)</code></pre>
+``` map(&quot;a&quot;:&quot;1&quot;,&quot;b&quot;:&quot;2&quot;,&quot;c&quot;:&quot;3&quot;)```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT str_to_map('a')</code></pre>
+```> SELECT str_to_map('a')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> map(&quot;a&quot;:null)</code></pre>
+``` map(&quot;a&quot;:null)```
 
 
 ## string
 {: #string}
 
-string(expr) - Casts the value <code>expr</code> to the target data type <code>string</code>.
+string(expr) - Casts the value `expr` to the target data type `string`.
 
 
 ## struct
@@ -3658,79 +3705,79 @@ struct(col1, col2, col3, ...) - Creates a struct with the indicated field values
 ## substr
 {: #substr}
 
-substr(str, pos[, len]) - Returns the substring of <code>str</code> that starts at <code>pos</code> and is of length <code>len</code>, or the slice of byte array that starts at <code>pos</code> and is of length <code>len</code>.
+substr(str, pos[, len]) - Returns the substring of `str` that starts at `pos` and is of length `len`, or the slice of byte array that starts at `pos` and is of length `len`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT substr('Spark SQL', 5)</code></pre>
+```> SELECT substr('Spark SQL', 5)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> k SQL</code></pre>
+``` k SQL```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT substr('Spark SQL', -3)</code></pre>
+```> SELECT substr('Spark SQL', -3)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> SQL</code></pre>
+``` SQL```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT substr('Spark SQL', 5, 1)</code></pre>
+```> SELECT substr('Spark SQL', 5, 1)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> k</code></pre>
+``` k```
 
 
 ## substring
 {: #substring}
 
-substring(str, pos[, len]) - Returns the substring of <code>str</code> that starts at <code>pos</code> and is of length <code>len</code>, or the slice of byte array that starts at <code>pos</code> and is of length <code>len</code>.
+substring(str, pos[, len]) - Returns the substring of `str` that starts at `pos` and is of length `len`, or the slice of byte array that starts at `pos` and is of length `len`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT substring('Spark SQL', 5)</code></pre>
+```> SELECT substring('Spark SQL', 5)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> k SQL</code></pre>
+``` k SQL```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT substring('Spark SQL', -3)</code></pre>
+```> SELECT substring('Spark SQL', -3)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> SQL</code></pre>
+``` SQL```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT substring('Spark SQL', 5, 1)</code></pre>
+```> SELECT substring('Spark SQL', 5, 1)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> k</code></pre>
+``` k```
 
 
 ## substring_index
 {: #substring_index}
 
-substring_index(str, delim, count) - Returns the substring from <code>str</code> before <code>count</code> occurrences of the delimiter <code>delim</code>.
-If <code>count</code> is positive, everything to the left of the final delimiter (counting from the
-left) is returned. If <code>count</code> is negative, everything to the right of the final delimiter
+substring_index(str, delim, count) - Returns the substring from `str` before `count` occurrences of the delimiter `delim`.
+If `count` is positive, everything to the left of the final delimiter (counting from the
+left) is returned. If `count` is negative, everything to the right of the final delimiter
 (counting from the right) is returned. The function substring_index performs a case-sensitive match
-when you search for <code>delim</code>.
+when you search for `delim`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT substring_index('www.apache.org', '.', 2)</code></pre>
+```> SELECT substring_index('www.apache.org', '.', 2)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> www.apache</code></pre>
+``` www.apache```
 
 
 ## sum
@@ -3742,65 +3789,65 @@ sum(expr) - Returns the sum that is calculated from values of a group.
 ## tan
 {: #tan}
 
-tan(expr) - Returns the tangent of <code>expr</code>.
+tan(expr) - Returns the tangent of `expr`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT tan(0)</code></pre>
+```> SELECT tan(0)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 0.0</code></pre>
+``` 0.0```
 
 
 ## tanh
 {: #tanh}
 
-tanh(expr) - Returns the hyperbolic tangent of <code>expr</code>.
+tanh(expr) - Returns the hyperbolic tangent of `expr`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT tanh(0)</code></pre>
+```> SELECT tanh(0)```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 0.0</code></pre>
+``` 0.0```
 
 
 ## timestamp
 {: #timestamp}
 
-timestamp(expr) - Casts the value <code>expr</code> to the target data type <code>timestamp</code>.
+timestamp(expr) - Casts the value `expr` to the target data type `timestamp`.
 
 
 ## tinyint
 {: #tinyint}
 
-tinyint(expr) - Casts the value <code>expr</code> to the target data type <code>tinyint</code>.
+tinyint(expr) - Casts the value `expr` to the target data type `tinyint`.
 
 
 ## to_date
 {: #to_date}
 
-to_date(date_str[, fmt]) - Parses the <code>date_str</code> expression with the <code>fmt</code> expression to
+to_date(date_str[, fmt]) - Parses the `date_str` expression with the `fmt` expression to
 a date. Returns null with invalid input. By default, it follows casting rules to a date if
-the <code>fmt</code> is omitted.
+the `fmt` is omitted.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT to_date('2009-07-30 04:17:52')</code></pre>
+```> SELECT to_date('2009-07-30 04:17:52')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 2009-07-30</code></pre>
+``` 2009-07-30```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT to_date('2016-12-31', 'yyyy-MM-dd')</code></pre>
+```> SELECT to_date('2016-12-31', 'yyyy-MM-dd')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 2016-12-31</code></pre>
+``` 2016-12-31```
 
 <strong>Since:</strong> 1.5.0
 
@@ -3810,61 +3857,61 @@ the <code>fmt</code> is omitted.
 
 to_json(expr[, options]) - Returns a JSON string with a indicated struct value.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT to_json(named_struct('a', 1, 'b', 2))</code></pre>
+```> SELECT to_json(named_struct('a', 1, 'b', 2))```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> {&quot;a&quot;:1,&quot;b&quot;:2}</code></pre>
+``` {&quot;a&quot;:1,&quot;b&quot;:2}```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT to_json(named_struct('time', to_timestamp('2015-08-26', 'yyyy-MM-dd')), map('timestampFormat', 'dd/MM/yyyy'))</code></pre>
+```> SELECT to_json(named_struct('time', to_timestamp('2015-08-26', 'yyyy-MM-dd')), map('timestampFormat', 'dd/MM/yyyy'))```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> {&quot;time&quot;:&quot;26/08/2015&quot;}</code></pre>
+``` {&quot;time&quot;:&quot;26/08/2015&quot;}```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT to_json(array(named_struct('a', 1, 'b', 2))</code></pre>
+```> SELECT to_json(array(named_struct('a', 1, 'b', 2))```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> [{&quot;a&quot;:1,&quot;b&quot;:2}]</code></pre>
+``` [{&quot;a&quot;:1,&quot;b&quot;:2}]```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT to_json(map('a', named_struct('b', 1)))</code></pre>
+```> SELECT to_json(map('a', named_struct('b', 1)))```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> {&quot;a&quot;:{&quot;b&quot;:1}}</code></pre>
+``` {&quot;a&quot;:{&quot;b&quot;:1}}```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT to_json(map(named_struct('a', 1),named_struct('b', 2)))</code></pre>
+```> SELECT to_json(map(named_struct('a', 1),named_struct('b', 2)))```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> {&quot;[1]&quot;:{&quot;b&quot;:2}}</code></pre>
+``` {&quot;[1]&quot;:{&quot;b&quot;:2}}```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT to_json(map('a', 1))</code></pre>
+```> SELECT to_json(map('a', 1))```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> {&quot;a&quot;:1}</code></pre>
+``` {&quot;a&quot;:1}```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT to_json(array((map('a', 1))))</code></pre>
+```> SELECT to_json(array((map('a', 1))))```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> [{&quot;a&quot;:1}]</code></pre>
+``` [{&quot;a&quot;:1}]```
 
 <strong>Since:</strong> 2.2.0
 
@@ -3872,25 +3919,25 @@ to_json(expr[, options]) - Returns a JSON string with a indicated struct value.
 ## to_timestamp
 {: #to_timestamp}
 
-to_timestamp(timestamp[, fmt]) - Parses the <code>timestamp</code> expression with the <code>fmt</code> expression to
+to_timestamp(timestamp[, fmt]) - Parses the `timestamp` expression with the `fmt` expression to
 a timestamp. Returns null with invalid input. By default, it follows casting rules to
-a timestamp if the <code>fmt</code> is omitted.
+a timestamp if the `fmt` is omitted.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT to_timestamp('2016-12-31 00:12:00')</code></pre>
+```> SELECT to_timestamp('2016-12-31 00:12:00')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 2016-12-31 00:12:00</code></pre>
+``` 2016-12-31 00:12:00```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT to_timestamp('2016-12-31', 'yyyy-MM-dd')</code></pre>
+```> SELECT to_timestamp('2016-12-31', 'yyyy-MM-dd')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 2016-12-31 00:00:00</code></pre>
+``` 2016-12-31 00:00:00```
 
 <strong>Since:</strong> 2.2.0
 
@@ -3900,13 +3947,13 @@ a timestamp if the <code>fmt</code> is omitted.
 
 to_unix_timestamp(expr[, pattern]) - Returns the UNIX timestamp of the indicated time.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT to_unix_timestamp('2016-04-08', 'yyyy-MM-dd')</code></pre>
+```> SELECT to_unix_timestamp('2016-04-08', 'yyyy-MM-dd')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 1460041200</code></pre>
+``` 1460041200```
 
 <strong>Since:</strong> 1.6.0
 
@@ -3916,13 +3963,13 @@ to_unix_timestamp(expr[, pattern]) - Returns the UNIX timestamp of the indicated
 
 to_utc_timestamp(timestamp, timezone) - Given a timestamp, such as '2017-07-14 02:40:00.0', this function interprets it as a time in the indicated time zone, and renders that time as a timestamp in UTC. For example, 'GMT+1' would yield '2017-07-14 01:40:00.0'.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT to_utc_timestamp('2016-08-31', 'Asia/Seoul')</code></pre>
+```> SELECT to_utc_timestamp('2016-08-31', 'Asia/Seoul')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 2016-08-30 15:00:00</code></pre>
+``` 2016-08-30 15:00:00```
 
 <strong>Since:</strong> 1.5.0
 
@@ -3930,29 +3977,29 @@ to_utc_timestamp(timestamp, timezone) - Given a timestamp, such as '2017-07-14 0
 ## translate
 {: #translate}
 
-translate(input, from, to) - Converts the <code>input</code> string by replacing the characters present in the <code>from</code> string with the corresponding characters in the <code>to</code> string.
+translate(input, from, to) - Converts the `input` string by replacing the characters present in the `from` string with the corresponding characters in the `to` string.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT translate('AaBbCc', 'abc', '123')</code></pre>
+```> SELECT translate('AaBbCc', 'abc', '123')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> A1B2C3</code></pre>
+``` A1B2C3```
 
 
 ## trim
 {: #trim}
 
-trim(str) - Removes the leading and trailing space characters from <code>str</code>.
+trim(str) - Removes the leading and trailing space characters from `str`.
 
-trim(BOTH trimStr FROM str) - Removes the leading and trailing <code>trimStr</code> characters from <code>str</code>.
+trim(BOTH trimStr FROM str) - Removes the leading and trailing `trimStr` characters from `str`.
 
-trim(LEADING trimStr FROM str) - Removes the leading <code>trimStr</code> characters from <code>str</code>.
+trim(LEADING trimStr FROM str) - Removes the leading `trimStr` characters from `str`.
 
-trim(TRAILING trimStr FROM str) - Removes the trailing <code>trimStr</code> characters from <code>str</code>.
+trim(TRAILING trimStr FROM str) - Removes the trailing `trimStr` characters from `str`.
 
-**Arguments:**
+:   **Arguments**
 
 <ul>
 <li>str - A string expression</li>.
@@ -3965,69 +4012,69 @@ trim(TRAILING trimStr FROM str) - Removes the trailing <code>trimStr</code> char
     end of the string.</li>
 </ul>
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT trim('    SparkSQL   ')</code></pre>
+```> SELECT trim('    SparkSQL   ')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> SparkSQL</code></pre>
+``` SparkSQL```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT trim('SL', 'SSparkSQLS')</code></pre>
+```> SELECT trim('SL', 'SSparkSQLS')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> parkSQ</code></pre>
+``` parkSQ```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT trim(BOTH 'SL' FROM 'SSparkSQLS')</code></pre>
+```> SELECT trim(BOTH 'SL' FROM 'SSparkSQLS')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> parkSQ</code></pre>
+``` parkSQ```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT trim(LEADING 'SL' FROM 'SSparkSQLS')</code></pre>
+```> SELECT trim(LEADING 'SL' FROM 'SSparkSQLS')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> parkSQLS</code></pre>
+``` parkSQLS```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT trim(TRAILING 'SL' FROM 'SSparkSQLS')</code></pre>
+```> SELECT trim(TRAILING 'SL' FROM 'SSparkSQLS')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> SSparkSQ</code></pre>
+``` SSparkSQ```
 
 
 
 ## trunc
 {: #trunc}
 
-trunc(date, fmt) - Returns <code>date</code> with the time portion of the day truncated to the unit specified by the format model <code>fmt</code>.
-<code>fmt</code> is one of ["year", "yyyy", "yy", "mon", "month", "mm"].
+trunc(date, fmt) - Returns `date` with the time portion of the day truncated to the unit specified by the format model `fmt`.
+`fmt` is one of ["year", "yyyy", "yy", "mon", "month", "mm"].
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT trunc('2009-02-12', 'MM')</code></pre>
+```> SELECT trunc('2009-02-12', 'MM')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 2009-02-01</code></pre>
+``` 2009-02-01```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT trunc('2015-10-27', 'YEAR')</code></pre>
+```> SELECT trunc('2015-10-27', 'YEAR')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 2015-01-01</code></pre>
+``` 2015-01-01```
 
 <strong>Since:</strong> 1.5.0
 
@@ -4035,44 +4082,44 @@ trunc(date, fmt) - Returns <code>date</code> with the time portion of the day tr
 ## ucase
 {: #ucase}
 
-ucase(str) - Returns <code>str</code> with all characters that are changed to uppercase.
+ucase(str) - Returns `str` with all characters that are changed to uppercase.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT ucase('SparkSql')</code></pre>
+```> SELECT ucase('SparkSql')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> SPARKSQL</code></pre>
+``` SPARKSQL```
 
 
 
 ## unbase64
 {: #unbase64}
 
-unbase64(str) - Converts the argument from a base 64 string <code>str</code> to a binary.
+unbase64(str) - Converts the argument from a base 64 string `str` to a binary.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT unbase64('U3BhcmsgU1FM')</code></pre>
+```> SELECT unbase64('U3BhcmsgU1FM')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> Spark SQL</code></pre>
+``` Spark SQL```
 
 
 ## unhex
 {: #unhex}
 
-unhex(expr) - Converts hexadecimal <code>expr</code> to binary.
+unhex(expr) - Converts hexadecimal `expr` to binary.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT decode(unhex('537061726B2053514C'), 'UTF-8')</code></pre>
+```> SELECT decode(unhex('537061726B2053514C'), 'UTF-8')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> Spark SQL</code></pre>
+``` Spark SQL```
 
 
 ## unix_timestamp
@@ -4080,21 +4127,21 @@ unhex(expr) - Converts hexadecimal <code>expr</code> to binary.
 
 unix_timestamp([expr[, pattern]]) - Returns the UNIX timestamp of current or specified time.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT unix_timestamp()</code></pre>
+```> SELECT unix_timestamp()```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 1476884637</code></pre>
+``` 1476884637```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT unix_timestamp('2016-04-08', 'yyyy-MM-dd')</code></pre>
+```> SELECT unix_timestamp('2016-04-08', 'yyyy-MM-dd')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 1460041200</code></pre>
+``` 1460041200```
 
 <strong>Since:</strong> 1.5.0
 
@@ -4102,15 +4149,15 @@ unix_timestamp([expr[, pattern]]) - Returns the UNIX timestamp of current or spe
 ## upper
 {: #upper}
 
-upper(str) - Returns <code>str</code> with all characters that are changed to uppercase.
+upper(str) - Returns `str` with all characters that are changed to uppercase.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT upper('SparkSql')</code></pre>
+```> SELECT upper('SparkSql')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> SPARKSQL</code></pre>
+``` SPARKSQL```
 
 
 ## uuid
@@ -4118,13 +4165,13 @@ upper(str) - Returns <code>str</code> with all characters that are changed to up
 
 uuid() - Returns a universally unique identifier (UUID) string. The value is returned as a canonical UUID 36-character string.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT uuid()</code></pre>
+```> SELECT uuid()```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 46707d92-02f4-4817-8116-a4c3b23e6266</code></pre>
+``` 46707d92-02f4-4817-8116-a4c3b23e6266```
 
 
 ## var_pop
@@ -4148,24 +4195,24 @@ variance(expr) - Returns the sample variance that is calculated from values of a
 ## weekofyear
 {: #weekofyear}
 
-weekofyear(date) - Returns the week of the year of the indicated date. A week is considered to start on a Monday and week 1 is the first week with &gt;3 days.
+weekofyear(date) - Returns the week of the year of the indicated date. A week is considered to start on a Monday and week 1 is the first week with >3 days.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT weekofyear('2008-02-20')</code></pre>
+```> SELECT weekofyear('2008-02-20')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 8</code></pre>
+``` 8```
 
 <strong>Since:</strong> 1.5.0
 
 
 when
 
-CASE WHEN expr1 THEN expr2 [WHEN expr3 THEN expr4]* [ELSE expr5] END - When <code>expr1</code> = true, returns <code>expr2</code>; else when <code>expr3</code> = true, returns <code>expr4</code>; else returns <code>expr5</code>.
+CASE WHEN expr1 THEN expr2 [WHEN expr3 THEN expr4]* [ELSE expr5] END - When `expr1` = true, returns `expr2`; else when `expr3` = true, returns `expr4`; else returns `expr5`.
 
-**Arguments:**
+:   **Arguments**
 
 <ul>
 <li>expr1, expr3 - the branch condition expressions must all be Boolean type.</li>
@@ -4173,29 +4220,29 @@ CASE WHEN expr1 THEN expr2 [WHEN expr3 THEN expr4]* [ELSE expr5] END - When <cod
     same type or coercible to a common type.</li>
 </ul>
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT CASE WHEN 1 &gt; 0 THEN 1 WHEN 2 &gt; 0 THEN 2.0 ELSE 1.2 END;</code></pre>
+```> SELECT CASE WHEN 1 > 0 THEN 1 WHEN 2 > 0 THEN 2.0 ELSE 1.2 END;```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 1</code></pre>
+``` 1```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT CASE WHEN 1 &lt; 0 THEN 1 WHEN 2 &gt; 0 THEN 2.0 ELSE 1.2 END;</code></pre>
+```> SELECT CASE WHEN 1 &lt; 0 THEN 1 WHEN 2 > 0 THEN 2.0 ELSE 1.2 END;```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 2</code></pre>
+``` 2```
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT CASE WHEN 1 &lt; 0 THEN 1 WHEN 2 &lt; 0 THEN 2.0 END;</code></pre>
+```> SELECT CASE WHEN 1 &lt; 0 THEN 1 WHEN 2 &lt; 0 THEN 2.0 END;```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> NULL</code></pre>
+``` NULL```
 
 ## window
 {: #window}
@@ -4205,13 +4252,13 @@ CASE WHEN expr1 THEN expr2 [WHEN expr3 THEN expr4]* [ELSE expr5] END - When <cod
 
 xpath(xml, xpath) - Returns a string array of values within the nodes of xml that match the XPath expression.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT xpath('&lt;a&gt;&lt;b&gt;b1&lt;/b&gt;&lt;b&gt;b2&lt;/b&gt;&lt;b&gt;b3&lt;/b&gt;&lt;c&gt;c1&lt;/c&gt;&lt;c&gt;c2&lt;/c&gt;&lt;/a&gt;','a/b/text()')</code></pre>
+```> SELECT xpath('&lt;a>&lt;b>b1&lt;/b>&lt;b>b2&lt;/b>&lt;b>b3&lt;/b>&lt;c>c1&lt;/c>&lt;c>c2&lt;/c>&lt;/a>','a/b/text()')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> ['b1','b2','b3']</code></pre>
+``` ['b1','b2','b3']```
 
 
 ## xpath_boolean
@@ -4219,13 +4266,13 @@ xpath(xml, xpath) - Returns a string array of values within the nodes of xml tha
 
 xpath_boolean(xml, xpath) - Returns true if the XPath expression evaluates to true, or if a matching node is found.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT xpath_boolean('&lt;a&gt;&lt;b&gt;1&lt;/b&gt;&lt;/a&gt;','a/b')</code></pre>
+```> SELECT xpath_boolean('&lt;a>&lt;b>1&lt;/b>&lt;/a>','a/b')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> true</code></pre>
+``` true```
 
 
 ## xpath_double
@@ -4233,65 +4280,65 @@ xpath_boolean(xml, xpath) - Returns true if the XPath expression evaluates to tr
 
 xpath_double(xml, xpath) - Returns a double value, the value zero if no match is found, or NaN if a match is found but the value is non-numeric.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT xpath_double('&lt;a&gt;&lt;b&gt;1&lt;/b&gt;&lt;b&gt;2&lt;/b&gt;&lt;/a&gt;', 'sum(a/b)')</code></pre>
+```> SELECT xpath_double('&lt;a>&lt;b>1&lt;/b>&lt;b>2&lt;/b>&lt;/a>', 'sum(a/b)')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 3.0</code></pre>
+``` 3.0```
 
 ## xpath_float
 {: #xpath_float}
 
 xpath_float(xml, xpath) - Returns a float value, the value zero if no match is found, or NaN if a match is found but the value is non-numeric.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT xpath_float('&lt;a&gt;&lt;b&gt;1&lt;/b&gt;&lt;b&gt;2&lt;/b&gt;&lt;/a&gt;', 'sum(a/b)')</code></pre>
+```> SELECT xpath_float('&lt;a>&lt;b>1&lt;/b>&lt;b>2&lt;/b>&lt;/a>', 'sum(a/b)')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 3.0</code></pre>
+``` 3.0```
 
 ## xpath_int
 {: #xpath_int}
 
 xpath_int(xml, xpath) - Returns an integer value, or the value zero if no match is found, or a match is found but the value is non-numeric.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT xpath_int('&lt;a&gt;&lt;b&gt;1&lt;/b&gt;&lt;b&gt;2&lt;/b&gt;&lt;/a&gt;', 'sum(a/b)')</code></pre>
+```> SELECT xpath_int('&lt;a>&lt;b>1&lt;/b>&lt;b>2&lt;/b>&lt;/a>', 'sum(a/b)')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 3</code></pre>
+``` 3```
 
 ## xpath_long
 {: #xpath_long}
 
 xpath_long(xml, xpath) - Returns a long integer value, or the value zero if no match is found, or a match is found but the value is non-numeric.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT xpath_long('&lt;a&gt;&lt;b&gt;1&lt;/b&gt;&lt;b&gt;2&lt;/b&gt;&lt;/a&gt;', 'sum(a/b)')</code></pre>
+```> SELECT xpath_long('&lt;a>&lt;b>1&lt;/b>&lt;b>2&lt;/b>&lt;/a>', 'sum(a/b)')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 3</code></pre>
+``` 3```
 
 ## xpath_number
 {: #xpath_number}
 
 xpath_number(xml, xpath) - Returns a double value, the value zero if no match is found, or NaN if a match is found but the value is non-numeric.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT xpath_number('&lt;a&gt;&lt;b&gt;1&lt;/b&gt;&lt;b&gt;2&lt;/b&gt;&lt;/a&gt;', 'sum(a/b)')</code></pre>
+```> SELECT xpath_number('&lt;a>&lt;b>1&lt;/b>&lt;b>2&lt;/b>&lt;/a>', 'sum(a/b)')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 3.0</code></pre>
+``` 3.0```
 
 
 ## xpath_short
@@ -4299,13 +4346,13 @@ xpath_number(xml, xpath) - Returns a double value, the value zero if no match is
 
 xpath_short(xml, xpath) - Returns a short integer value, or the value zero if no match is found, or a match is found but the value is non-numeric.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT xpath_short('&lt;a&gt;&lt;b&gt;1&lt;/b&gt;&lt;b&gt;2&lt;/b&gt;&lt;/a&gt;', 'sum(a/b)')</code></pre>
+```> SELECT xpath_short('&lt;a>&lt;b>1&lt;/b>&lt;b>2&lt;/b>&lt;/a>', 'sum(a/b)')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 3</code></pre>
+``` 3```
 
 
 ## xpath_string
@@ -4313,13 +4360,13 @@ xpath_short(xml, xpath) - Returns a short integer value, or the value zero if no
 
 xpath_string(xml, xpath) - Returns the text contents of the first xml node that matches the XPath expression.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT xpath_string('&lt;a&gt;&lt;b&gt;b&lt;/b&gt;&lt;c&gt;cc&lt;/c&gt;&lt;/a&gt;','a/c')</code></pre>
+```> SELECT xpath_string('&lt;a>&lt;b>b&lt;/b>&lt;c>cc&lt;/c>&lt;/a>','a/c')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> cc</code></pre>
+``` cc```
 
 
 ## year
@@ -4327,13 +4374,13 @@ xpath_string(xml, xpath) - Returns the text contents of the first xml node that 
 
 year(date) - Returns the year component of the date/timestamp.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT year('2016-07-30')</code></pre>
+```> SELECT year('2016-07-30')```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 2016</code></pre>
+``` 2016```
 
 <strong>Since:</strong> 1.5.0
 
@@ -4341,26 +4388,26 @@ year(date) - Returns the year component of the date/timestamp.
 ## |
 {: #|}
 
-expr1 | expr2 - Returns the result of bitwise OR of <code>expr1</code> and <code>expr2</code>.
+expr1 | expr2 - Returns the result of bitwise OR of `expr1` and `expr2`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT 3 | 5;</code></pre>
+```> SELECT 3 | 5;```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> 7</code></pre>
+``` 7```
 
 
 ## ~
 {: #~}
 
-~ expr - Returns the result of bitwise NOT of <code>expr</code>.
+~ expr - Returns the result of bitwise NOT of `expr`.
 
-**Example of an SQL function usage fragment:**
+:   **Example of an SQL function usage fragment**
 
-<pre><code>&gt; SELECT ~ 0;</code></pre>
+```> SELECT ~ 0;```
 
-**Result value:**
+:   **Result value**
 
-<pre><code> -1</code></pre>
+``` -1```
