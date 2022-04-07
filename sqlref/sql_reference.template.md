@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-03-30"
+lastupdated: "2022-04-07"
 
 ---
 
@@ -82,7 +82,6 @@ SELECT deptno
 FROM dtotal
 WHERE totalpay = (SELECT MAX(totalpay) FROM dtotal)
 ```
-
 {: codeblock}
 
 The result of the example queries is shown in the following table.
@@ -837,7 +836,8 @@ In a multi-column result set, each expression represents a list of *n* expressio
 
 To join a *values clause* with other types of result sets, specify an `identifier` that acts as an **alias** for the values clause.
 
-<h3>Examples</h3>
+### Examples - values clause
+{: #examples-valuesClause}
 
 ```sql
 -- single column result set with 3 rows
@@ -905,7 +905,8 @@ The result of the example query is shown in the following table.
 
 A *values statement* is a statement on its own. It can be used instead of a *fullselect* if your statement references only a single value and does not contain any join with other relations or values clauses.
 
-<h3>Examples</h3>
+### Examples - values statement
+{: #examples-values-statement}
 
 ```sql
 -- values statement with single column result set with 3 rows
@@ -977,7 +978,8 @@ The semantics of the entities in order of appearance in the syntax diagrams is a
 - `identifier`: Lateral view name, that is, the name of the new virtual table.
 - `identifier`: Lateral view column names.
 
-<h3>Examples</h3>
+### Examples - lateralView
+{: #examples-lateralView}
 
 Lateral views are useful when you deal with repeating groups within a table, that is, not normalized tables. The examples show how to deal with tables that represent a 1-n relation and an n-m relation.
 
@@ -1190,7 +1192,7 @@ The result of the example query is shown in the following table.
 {: caption="Table 21. Query result for example: full outer join query" caption-side="bottom"}
 
 #### Cross join
-{: cross-join}
+{: #cross-join}
 
 A `CROSS` join creates a Cartesian product of the tables that are involved in the join operation, if a CROSS join that specifies a join condition behaves like an inner join.
 
@@ -1290,7 +1292,7 @@ The result of the example query is shown in the following table.
 {: caption="Table 24. Query result for example: left anti join query" caption-side="bottom"}
 
 #### Left semi join
-{: left-semi-join}
+{: #left-semi-join}
 
 A `LEFT SEMI` join acts like an inner join but does not include the columns of the right table.
 
@@ -1316,7 +1318,8 @@ The result of the example query is shown in the following table.
 |4     |14    |
 {: caption="Table 25. Query result for example: left semi join query" caption-side="bottom"}
 
-<h3>Related references</h3>
+### Related references - join types
+{: #related-references-join-types}
 
 The *join types* are specified in a [relation](#relation).
 
@@ -1328,12 +1331,12 @@ Any table that is object stored on Cloud {{site.data.keyword.cos_short}}, used i
 The general syntax of a table sample clause is described by the following syntax diagram.
 
 ### sample
-{: sample}
+{: #sample}
 
 <!--include-svg src="./svgfiles/sample.svg" target="./diagrams/sample.svg" alt="syntax diagram for a sample" layout="@break@" -->
 
 ### bucketSampleClause
-{: bucketSampleClause}
+{: #bucketSampleClause}
 
 <!--include-svg src="./svgfiles/bucketSampleClause.svg" target="./diagrams/bucketSampleClause.svg" alt="syntax diagram for a bucket sample clause" layout="@break@" -->
 
@@ -1343,7 +1346,8 @@ Three sampling types are supported:
 - With `TABLESAMPLE <expression> ROWS` you can sample some rows from the underlying table.
 - With `TABLESAMPLE BUCKET x OUT OF y` you can bucketize the underlying data into `y` buckets and returns rows from bucket `x`. Buckets are numbered from `1` to `y`.
 
-<h3>Examples</h3>
+### Examples - sample
+{: #examples-sample}
 
 The following examples demonstrate how to sample a subset of data from a Parquet object on Cloud {{site.data.keyword.cos_short}}.
 The object referenced is accessible from the web UI as part of the provided sample queries.
@@ -1494,7 +1498,8 @@ The window specification consists of the following clauses:
 
 <!--include-svg src="./svgfiles/frameBound.svg" target="./diagrams/frameBound.svg" alt="syntax diagram for a frame boundary" layout="@break@" -->
 
-<h3>Examples</h3>
+### Examples - window function
+{: #examples-window-function}
 
 The following window function examples use *values clauses* to define result sets for group by operations. For more information about the values clause, see [valuesClause](#valuesClause).
 
@@ -1769,7 +1774,8 @@ The `EXISTS` predicate tests for the existence of certain rows. The `query` can 
 - The result is false only if the number of rows that is specified is zero.
 - The result cannot be unknown.
 
-<h4>Related references</h4>
+#### Related references - Boolean expression
+{: #related-references-boolean-expression}
 
 A *Boolean expression* is referenced by the following clauses:
 
@@ -1951,7 +1957,8 @@ For example, a column name can be qualified by the name of the *relation* the co
 - [lateralView](#lateralView)
 - [sample](#sample)
 
-<h4>Related references</h4>
+#### Related references - primary expression
+{: #related-references-primary-expression}
 
 For more information about the clauses that are used by a *primary expression*, see the following topics:
 
@@ -2010,7 +2017,8 @@ The following DISTINCT predicates are logically equivalent to the corresponding 
 | value 1 IS DISTINCT FROM value2 | NOT (value1 IS NOT DISTINCT FROM value2)|
 {: caption="Table 35. DISTINCT predicate and search condition" caption-side="bottom"}
 
-<h4>Examples</h4>
+#### Examples - predicate
+{: #examples-predicate}
 
 ##### `IS DISTINCT FROM` Examples
 {: #is-distinct-from-examples}
@@ -2292,7 +2300,6 @@ FROM VALUES
     (4, '123 456 789') AS data
 WHERE data.col2 RLIKE '(abc){3}'
 ```
-
 {: codeblock}
 
 The result of the example query is shown in the following table.
@@ -2300,7 +2307,7 @@ The result of the example query is shown in the following table.
 |COL1|COL2     |
 |----|---------|
 |2   |abcabcabc|
-{: caption="Table 45. Query result for example 'all rows that contain in col2 a sequence of 3 abc string occurrences" caption-side="bottom"}
+{: caption="Table 45. Query result for example "all rows that contain in col2 a sequence of 3 abc string occurrences" caption-side="bottom"}
 
 ```sql
 -- all rows that contain in col2 a sequence of integer values (3 digits) separated by blank or tab
@@ -2408,7 +2415,8 @@ A *result expression* is an expression that follows the `THEN` or `ELSE` keyword
 
 <!--include-svg src="./svgfiles/whenClause.svg" target="./diagrams/whenClause.svg" alt="syntax diagram for a when clause" layout="@break@" -->
 
-<h4>Examples</h4>
+#### Examples - whenClause
+{: #examples-whenclause}
 
 ```sql
 -- simple case expression with no ELSE clause
@@ -2474,7 +2482,8 @@ For more information about the clauses that are used by a *case expression*, see
 
 - [expression](#expression)
 
-<h4>Related references</h4>
+#### Related references - case expression
+{: #related-references-case-expression}
 
 A *case expression* is referenced by the following clause:
 
@@ -2486,7 +2495,7 @@ A *case expression* is referenced by the following clause:
 The syntax of a *time series expression* is described by the following syntax diagrams.
 
 #### timeSeriesExpression
-{: timeSeriesExpression}
+{: #timeSeriesExpression}
 
 <!--include-svg src="./svgfiles/timeSeriesExpression.svg" target="./diagrams/timeSeriesExpression.svg" alt="syntax diagram for time series expression" layout="@break@" -->
 
@@ -2494,7 +2503,8 @@ The syntax shows time series functions that require expressions, such as  `TS_MA
 
 For more information on each function, see [Data processing functions](/docs/sql-query?topic=sql-query-data_processing_functions).
 
-<h4>Example</h4>
+#### Example - time series
+{: #example-time-series}
 
 ```sql
 WITH timeseries_input AS (SELECT location, TIME_SERIES_WITH_TRS(TS_TIMESTAMP(timestamp), humidity, TS_TRS_DEFAULT()) AS ts
@@ -2636,7 +2646,8 @@ The following types of operators can be used:
 | `A OR B` | Boolean expressions | FALSE if A and B are both FALSE, TRUE otherwise. |
 {: caption="Table 54. Boolean operators" caption-side="bottom"}
 
-<h3>Related references</h3>
+### Related references - operator
+{: #related-references-operator}
 
 An *operator* is referenced by [valueExpression](#valueExpression).
 
@@ -2742,7 +2753,8 @@ The `BOOLEAN` type represents a domain with two values, `true` or `false`. Any n
 
 A `BINARY` type represents an array of byte values. Thus, string values can be cast to type `BINARY`.
 
-<h3>Related references</h3>
+### Related references - dataType
+{: #related-references-dataType}
 
 A *dataType* is referenced by the following clauses:
 - [castExpression](#castExpression)
@@ -2934,7 +2946,8 @@ ALTER TABLE customers_partitioned RECOVER PARTITIONS
 ```
 {: codeblock}
 
-<h4 id="partitionSpec">partitionSpecification</h4>
+#### partitionSpecification
+{: #partitionSpecification}
 
 <!--include-svg src="./svgfiles/partitionSpec.svg" target="./diagrams/partitionSpec.svg" alt="syntax diagram for a partition's specification" layout="@break@" -->
 
