@@ -24,10 +24,8 @@ and the date and time from which the timeticks are to be counted (that is, the t
 
 Each TRS comprises two components:  
 
-- A *granularity*, which specifies the length of each timetick. For example, it might specify that each timetick in a time series 
-represents 1 second, 5 minutes, 1 hour, 7 days, or any other length of time.
-- A zoned datetime that specifies the *start time* of the TRS. For example, a start time of 2019-12-30T14:15:30 specifies that 
-all timestamp increments are relative to 30 December 2019 at 14:15:30. A start time can be specified either as a TimestampType or as a string. 
+- A *granularity*, which specifies the length of each timetick. For example, it might specify that each timetick in a time series represents 1 second, 5 minutes, 1 hour, 7 days, or any other length of time.
+- A zoned datetime that specifies the *start time* of the TRS. For example, a start time of 2019-12-30T14:15:30 specifies that all timestamp increments are relative to 30 December 2019 at 14:15:30. A start time can be specified either as a TimestampType or as a string. 
 
 For a time series that uses a TRS, each timetick is relative to the TRS start time. See the following examples:  
 
