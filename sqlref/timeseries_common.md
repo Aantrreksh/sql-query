@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-03-02"
+  years: 2019, 2022
+lastupdated: "2022-04-07"
 
 keywords: SQL query, time series, SQL, cleaning, resampling, examples, common functions, converting, timeticks, segmentation, TRS
 
@@ -35,6 +35,7 @@ Consider the following table, which is stored in a Parquet object with the name 
 | 5         | "e"   |
 | 7         | "f"   |
 | 9         | "g"   |
+{: caption="Table 1. Table stored in Parquet" caption-side="bottom"}
 
 The following SQL statement creates a new table with the name ts_table:
 
@@ -52,6 +53,7 @@ The data type of column ts in the following table is DoubleTimeSeries.
 | Ts                                                                    |
 |-----------------------------------------------------------------------|
 | [(1,"a"), (3, "b"), (5, "c"), (5, "d"), (5, "e"), (7, "f"), (9, "g")] |
+{: caption="Table 2. Output object column" caption-side="bottom"}
 
 ## Combining observations that have identical timeticks
 {: #combining}
