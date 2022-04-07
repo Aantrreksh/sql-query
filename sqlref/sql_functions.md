@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-04-04"
+lastupdated: "2022-04-07"
 
 keywords: SQL, functions
 
@@ -1264,11 +1264,15 @@ concat(str1, str2, ..., strN)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT concat('Spark', 'SQL')```
+   ```sql
+   > SELECT concat('Spark', 'SQL')
+   ```
 
 :   **Result value**
 
-``` SparkSQL```
+   ```sql
+    SparkSQL
+    ```
 
 
 ## concat_ws
@@ -1279,11 +1283,15 @@ concat_ws(sep, [str | array(str)]+)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT concat_ws(' ', 'Spark', 'SQL')```
+   ```sql
+   > SELECT concat_ws(' ', 'Spark', 'SQL')
+   ```
 
 :   **Result value**
 
-``` Spark SQL```
+   ```sql
+    Spark SQL
+    ```
 
 
 ## conv
@@ -1294,19 +1302,27 @@ conv(num, from_base, to_base)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT conv('100', 2, 10)```
+   ```sql
+   > SELECT conv('100', 2, 10)
+   ```
 
 :   **Result value**
 
-``` 4```
+   ```sql
+    4
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT conv(-10, 16, -10)```
+   ```sql
+   > SELECT conv(-10, 16, -10)
+   ```
 
 :   **Result value**
 
-``` -16```
+   ```sql
+    -16
+    ```
 
 ## corr
 {: #corr}
@@ -1322,11 +1338,15 @@ cos(expr)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT cos(0)```
+   ```sql
+   > SELECT cos(0)
+   ```
 
 :   **Result value**
 
-``` 1.0```
+   ```sql
+    1.0
+    ```
 
 ## cosh
 {: #cosh}
@@ -1336,11 +1356,15 @@ cosh(expr)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT cosh(0)```
+   ```sql
+   > SELECT cosh(0)
+   ```
 
 :   **Result value**
 
-``` 1.0```
+   ```sql
+    1.0
+    ```
 
 
 ## cot
@@ -1351,11 +1375,15 @@ cot(expr)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT cot(1)```
+   ```sql
+   > SELECT cot(1)
+   ```
 
 :   **Result value**
 
-``` 0.6420926159343306```
+   ```sql
+    0.6420926159343306
+    ```
 
 
 ## count
@@ -1399,11 +1427,15 @@ crc32(expr)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT crc32('Spark')```
+   ```sql
+   > SELECT crc32('Spark')
+   ```
 
 :   **Result value**
 
-``` 1557323817```
+   ```sql
+    1557323817
+    ```
 
 ## cube
 {: #cube}
@@ -1422,11 +1454,15 @@ current_database()
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT current_database()```
+   ```sql
+   > SELECT current_database()
+   ```
 
 :   **Result value**
 
-``` default```
+   ```sql
+    default
+    ```
 
 ## current_date
 {: #current_date}
@@ -1460,11 +1496,15 @@ date_add(start_date, num_days)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT date_add('2016-07-30', 1)```
+   ```sql
+   > SELECT date_add('2016-07-30', 1)
+   ```
 
 :   **Result value**
 
-``` 2016-07-31```
+   ```sql
+    2016-07-31
+    ```
 
 **Since:** 1.5.0
 
@@ -1477,19 +1517,27 @@ date_format(timestamp, fmt)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT date_format('2016-04-08', 'y')```
+   ```sql
+   > SELECT date_format('2016-04-08', 'y')
+   ```
 
 :   **Result value**
 
-``` 2016```
+   ```sql
+    2016
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT date_format('2016-04-16T15:16:29.000Z', 'y-MM-dd')```
+   ```sql
+   > SELECT date_format('2016-04-16T15:16:29.000Z', 'y-MM-dd')
+   ```
 
 :   **Result value**
 
-```2016-04-16```
+   ```sql
+   2016-04-16
+   ```
 
 **Since:** 1.5.0
 
@@ -1502,11 +1550,15 @@ date_sub(start_date, num_days)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT date_sub('2016-07-30', 1)```
+   ```sql
+   > SELECT date_sub('2016-07-30', 1)
+    ```
 
 :   **Result value**
 
-``` 2016-07-29```
+   ```sql
+    2016-07-29
+    ```
 
 **Since:** 1.5.0
 
@@ -1520,35 +1572,51 @@ date_trunc(fmt, ts)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT date_trunc('YEAR', '2015-03-05T09:32:05.359')```
+   ```sql
+   > SELECT date_trunc('YEAR', '2015-03-05T09:32:05.359')
+   ```
 
 :   **Result value**
 
-``` 2015-01-01T00:00:00```
+   ```sql
+    2015-01-01T00:00:00
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT date_trunc('MM', '2015-03-05T09:32:05.359')```
+   ```sql
+   > SELECT date_trunc('MM', '2015-03-05T09:32:05.359')
+   ```
 
 :   **Result value**
 
-``` 2015-03-01T00:00:00```
+   ```sql
+    2015-03-01T00:00:00
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT date_trunc('DD', '2015-03-05T09:32:05.359')```
+   ```sql
+   > SELECT date_trunc('DD', '2015-03-05T09:32:05.359')
+   ```
 
 :   **Result value**
 
-``` 2015-03-05T00:00:00```
+   ```sql
+    2015-03-05T00:00:00
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT date_trunc('HOUR', '2015-03-05T09:32:05.359')```
+   ```sql
+   > SELECT date_trunc('HOUR', '2015-03-05T09:32:05.359')
+   ```
 
 :   **Result value**
 
-``` 2015-03-05T09:00:00```
+   ```sql
+    2015-03-05T09:00:00
+    ```
 
 **Since:** 2.3.0
 
@@ -1561,19 +1629,27 @@ datediff(endDate, startDate)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT datediff('2009-07-31', '2009-07-30')```
+   ```sql
+   > SELECT datediff('2009-07-31', '2009-07-30')
+   ```
 
 :   **Result value**
 
-``` 1```
+   ```sql
+    1
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT datediff('2009-07-30', '2009-07-31')```
+   ```sql
+   > SELECT datediff('2009-07-30', '2009-07-31')
+   ```
 
 :   **Result value**
 
-``` -1```
+   ```sql
+    -1
+    ```
 
 **Since:** 1.5.0
 
@@ -1586,11 +1662,14 @@ day(date)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT day('2009-07-30')```
+   ```sql
+   > SELECT day('2009-07-30')
+   ```
 
 :   **Result value**
 
-``` 30```
+   ```sql 30
+   ```
 
 **Since:** 1.5.0
 
@@ -1603,11 +1682,15 @@ dayofmonth(date)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT dayofmonth('2009-07-30')```
+   ```sql
+   > SELECT dayofmonth('2009-07-30')
+   ```
 
 :   **Result value**
 
-``` 30```
+   ```sql
+    30
+    ```
 
 **Since:** 1.5.0
 
@@ -1620,11 +1703,15 @@ dayofweek(date)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT dayofweek('2009-07-30')```
+   ```sql
+   > SELECT dayofweek('2009-07-30')
+   ```
 
 :   **Result value**
 
-``` 5```
+   ```sql
+    5
+    ```
 
 **Since:** 2.3.0
 
@@ -1637,11 +1724,14 @@ dayofyear(date)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT dayofyear('2016-04-09')```
+   ```sql
+   > SELECT dayofyear('2016-04-09')
+   ```
 
 :   **Result value**
 
-``` 100```
+   ```sql 100
+   ```
 
 **Since:** 1.5.0
 
@@ -1662,11 +1752,15 @@ decode(bin, charset)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT decode(encode('abc', 'utf-8'), 'utf-8')```
+   ```sql
+   > SELECT decode(encode('abc', 'utf-8'), 'utf-8')
+   ```
 
 :   **Result value**
 
-``` abc```
+   ```sql
+    abc
+    ```
 
 
 ## degrees
@@ -1677,11 +1771,15 @@ degrees(expr)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT degrees(3.141592653589793)```
+   ```sql
+   > SELECT degrees(3.141592653589793)
+   ```
 
 :   **Result value**
 
-``` 180.0```
+   ```sql
+    180.0
+    ```
 
 
 ## dense_rank
@@ -1707,11 +1805,14 @@ e()
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT e()```
+   ```sql
+   > SELECT e()
+   ```
 
 :   **Result value**
 
-``` 2.718281828459045```
+   ```sql 2.718281828459045
+   ```
 
 
 ## elt
@@ -1722,11 +1823,15 @@ elt(n, input1, input2, ...)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT elt(1, 'scala', 'java')```
+   ```sql
+   > SELECT elt(1, 'scala', 'java')
+   ```
 
 :   **Result value**
 
-``` scala```
+   ```sql
+    scala
+    ```
 
 
 ## encode
@@ -1737,11 +1842,15 @@ encode(str, charset)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT encode('abc', 'utf-8')```
+   ```sql
+   > SELECT encode('abc', 'utf-8')
+   ```
 
 :   **Result value**
 
-``` abc```
+   ```sql
+    abc
+    ```
 
 
 ## exp
@@ -1752,11 +1861,15 @@ exp(expr)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT exp(0)```
+   ```sql
+   > SELECT exp(0)
+   ```
 
 :   **Result value**
 
-``` 1.0```
+   ```sql
+    1.0
+    ```
 
 
 ## explode
@@ -1767,12 +1880,15 @@ explode(expr)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT explode(array(10, 20))```
+   ```sql
+   > SELECT explode(array(10, 20))
+   ```
 
 :   **Result value**
 
-``` 10
- 20```
+   ```sql
+    10  20
+    ```
 
 
 ## explode_outer
@@ -1783,12 +1899,15 @@ explode_outer(expr)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT explode_outer(array(10, 20))```
+   ```sql
+   > SELECT explode_outer(array(10, 20))
+   ```
 
 :   **Result value**
 
-``` 10
- 20```
+   ```sql
+    10  20
+    ```
 
 
 ## expm1
@@ -1799,11 +1918,14 @@ expm1(expr)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT expm1(0)```
+   ```sql > SELECT expm1(0)
+   ```
 
 :   **Result value**
 
-``` 0.0```
+   ```sql
+    0.0
+    ```
 
 
 ## factorial
@@ -1814,11 +1936,15 @@ factorial(expr)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT factorial(5)```
+   ```sql
+   > SELECT factorial(5)
+   ```
 
 :   **Result value**
 
-``` 120```
+   ```sql
+    120
+    ```
 
 
 ## find_in_set
@@ -1830,11 +1956,15 @@ Returns 0, if the string was not found or if the indicated string (`str`) contai
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT find_in_set('ab','abc,b,ab,c,def')```
+   ```sql
+   > SELECT find_in_set('ab','abc,b,ab,c,def')
+   ```
 
 :   **Result value**
 
-``` 3```
+   ```sql
+    3
+    ```
 
 
 ## first
@@ -1868,19 +1998,27 @@ floor(expr)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT floor(-0.1)```
+   ```sql
+   > SELECT floor(-0.1)
+   ```
 
 :   **Result value**
 
-``` -1```
+   ```sql
+    -1
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT floor(5)```
+   ```sql
+   > SELECT floor(5)
+   ```
 
 :   **Result value**
 
-``` 5```
+   ```sql
+    5
+    ```
 
 
 ## format_number
@@ -1893,11 +2031,15 @@ This function is supposed to work like MySQL's FORMAT.
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT format_number(12332.123456, 4)```
+   ```sql
+   > SELECT format_number(12332.123456, 4)
+   ```
 
 :   **Result value**
 
-``` 12,332.1235```
+   ```sql
+    12,332.1235
+    ```
 
 
 ## format_string
@@ -1908,11 +2050,15 @@ format_string(strfmt, obj, ...)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT format_string(&quot;Hello World %d %s&quot;, 100, &quot;days&quot;)```
+   ```sql
+   > SELECT format_string(&quot;Hello World %d %s&quot;, 100, &quot;days&quot;)
+   ```
 
 :   **Result value**
 
-``` Hello World 100 days```
+   ```sql
+    Hello World 100 days
+    ```
 
 
 ## from_json
@@ -1923,19 +2069,27 @@ from_json(jsonStr, schema[, options])
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT from_json('{&quot;a&quot;:1, &quot;b&quot;:0.8}', 'a INT, b DOUBLE')```
+   ```sql
+   > SELECT from_json('{&quot;a&quot;:1, &quot;b&quot;:0.8}', 'a INT, b DOUBLE')
+   ```
 
 :   **Result value**
 
-``` {&quot;a&quot;:1, &quot;b&quot;:0.8}```
+   ```sql
+    {&quot;a&quot;:1, &quot;b&quot;:0.8}
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT from_json('{&quot;time&quot;:&quot;26/08/2015&quot;}', 'time Timestamp', map('timestampFormat', 'dd/MM/yyyy'))```
+   ```sql
+   > SELECT from_json('{&quot;time&quot;:&quot;26/08/2015&quot;}', 'time Timestamp', map('timestampFormat', 'dd/MM/yyyy'))
+   ```
 
 :   **Result value**
 
-``` {&quot;time&quot;:&quot;2015-08-26 00:00:00.0&quot;}```
+   ```sql
+    {&quot;time&quot;:&quot;2015-08-26 00:00:00.0&quot;}
+    ```
 
 **Since:** 2.2.0
 
@@ -1948,11 +2102,15 @@ from_unixtime(unix_time, format)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT from_unixtime(0, 'yyyy-MM-dd HH:mm:ss')```
+   ```sql
+   > SELECT from_unixtime(0, 'yyyy-MM-dd HH:mm:ss')
+   ```
 
 :   **Result value**
 
-``` 1970-01-01 00:00:00```
+   ```sql
+    1970-01-01 00:00:00
+    ```
 
 **Since:** 1.5.0
 
@@ -1965,11 +2123,15 @@ from_utc_timestamp(timestamp, timezone)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT from_utc_timestamp('2016-08-31', 'Asia/Seoul')```
+   ```sql
+   > SELECT from_utc_timestamp('2016-08-31', 'Asia/Seoul')
+   ```
 
 :   **Result value**
 
-``` 2016-08-31 09:00:00```
+   ```sql
+    2016-08-31 09:00:00
+    ```
 
 **Since:** 1.5.0
 
@@ -1982,11 +2144,15 @@ get_json_object(json_txt, path)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT get_json_object('{&quot;a&quot;:&quot;b&quot;}', '$.a')```
+   ```sql
+   > SELECT get_json_object('{&quot;a&quot;:&quot;b&quot;}', '$.a')
+   ```
 
 :   **Result value**
 
-``` b```
+   ```sql
+    b
+    ```
 
 
 ## greatest
@@ -1997,11 +2163,15 @@ greatest(expr, ...)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT greatest(10, 9, 2, 4, 3)```
+   ```sql
+   > SELECT greatest(10, 9, 2, 4, 3)
+   ```
 
 :   **Result value**
 
-``` 10```
+   ```sql
+    10
+    ```
 
 
 ## grouping
@@ -2020,11 +2190,15 @@ hash(expr1, expr2, ...)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT hash('Spark', array(123), 2)```
+   ```sql
+   > SELECT hash('Spark', array(123), 2)
+   ```
 
 :   **Result value**
 
-``` -1321691492```
+   ```sql
+    -1321691492
+    ```
 
 
 ## hex
@@ -2035,19 +2209,27 @@ hex(expr)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT hex(17)```
+   ```sql
+   > SELECT hex(17)
+   ```
 
 :   **Result value**
 
-``` 11```
+   ```sql
+    11
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT hex('Spark SQL')```
+   ```sql
+   > SELECT hex('Spark SQL')
+   ```
 
 :   **Result value**
 
-``` 537061726B2053514C```
+   ```sql
+    537061726B2053514C
+    ```
 
 
 ## hour
@@ -2058,11 +2240,15 @@ hour(timestamp)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT hour('2009-07-30 12:58:59')```
+   ```sql
+   > SELECT hour('2009-07-30 12:58:59')
+   ```
 
 :   **Result value**
 
-``` 12```
+   ```sql
+    12
+    ```
 
 **Since:** 1.5.0
 
@@ -2075,11 +2261,15 @@ hypot(expr1, expr2)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT hypot(3, 4)```
+   ```sql
+   > SELECT hypot(3, 4)
+   ```
 
 :   **Result value**
 
-``` 5.0```
+   ```sql
+    5.0
+    ```
 
 
 ## if
@@ -2090,11 +2280,15 @@ if(expr1, expr2, expr3)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT if(1 &lt; 2, 'a', 'b')```
+   ```sql
+   > SELECT if(1 &lt; 2, 'a', 'b')
+   ```
 
 :   **Result value**
 
-``` a```
+   ```sql
+    a
+    ```
 
 
 ## ifnull
@@ -2105,11 +2299,15 @@ ifnull(expr1, expr2)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT ifnull(NULL, array('2'))```
+   ```sql
+   > SELECT ifnull(NULL, array('2'))
+   ```
 
 :   **Result value**
 
-``` [&quot;2&quot;]```
+   ```sql
+    [&quot;2&quot;]
+    ```
 
 
 ## in
@@ -2124,35 +2322,51 @@ expr1 in(expr2, expr3, ...)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT 1 in(1, 2, 3)```
+   ```sql
+   > SELECT 1 in(1, 2, 3)
+   ```
 
 :   **Result value**
 
-``` true```
+   ```sql
+    true
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT 1 in(2, 3, 4)```
+   ```sql
+   > SELECT 1 in(2, 3, 4)
+   ```
 
 :   **Result value**
 
-``` false```
+   ```sql
+    false
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT named_struct('a', 1, 'b', 2) in(named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3))```
+   ```sql
+   > SELECT named_struct('a', 1, 'b', 2) in(named_struct('a', 1, 'b', 1), named_struct('a', 1, 'b', 3))
+   ```
 
 :   **Result value**
 
-``` false```
+   ```sql
+    false
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT named_struct('a', 1, 'b', 2) in(named_struct('a', 1, 'b', 2), named_struct('a', 1, 'b', 3))```
+   ```sql
+   > SELECT named_struct('a', 1, 'b', 2) in(named_struct('a', 1, 'b', 2), named_struct('a', 1, 'b', 3))
+   ```
 
 :   **Result value**
 
-``` true```
+   ```sql
+    true
+    ```
 
 
 ## initcap
@@ -2164,11 +2378,15 @@ All other letters are in lowercase. Words are delimited by white space.
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT initcap('sPark sql')```
+   ```sql
+   > SELECT initcap('sPark sql')
+   ```
 
 :   **Result value**
 
-``` Spark Sql```
+   ```sql
+    Spark Sql
+    ```
 
 
 ## inline
@@ -2179,12 +2397,15 @@ inline(expr)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT inline(array(struct(1, 'a'), struct(2, 'b')))```
+   ```sql
+   > SELECT inline(array(struct(1, 'a'), struct(2, 'b')))
+   ```
 
 :   **Result value**
 
-``` 1  a
- 2  b```
+   ```sql
+    1  a   2  b
+    ```
 
 
 ## inline_outer
@@ -2195,12 +2416,15 @@ inline_outer(expr)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT inline_outer(array(struct(1, 'a'), struct(2, 'b')))```
+   ```sql
+   > SELECT inline_outer(array(struct(1, 'a'), struct(2, 'b')))
+   ```
 
 :   **Result value**
 
-``` 1  a
- 2  b```
+   ```sql
+    1  a   2  b
+    ```
 
 
 ## input_file_name
@@ -2218,11 +2442,15 @@ instr(str, substr)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT instr('SparkSQL', 'SQL')```
+   ```sql
+   > SELECT instr('SparkSQL', 'SQL')
+   ```
 
 :   **Result value**
 
-``` 6```
+   ```sql
+    6
+    ```
 
 
 ## int
@@ -2240,11 +2468,15 @@ isnan(expr)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT isnan(cast('NaN' as double))```
+   ```sql
+   > SELECT isnan(cast('NaN' as double))
+   ```
 
 :   **Result value**
 
-``` true```
+   ```sql
+    true
+    ```
 
 
 ## isnotnull
@@ -2255,11 +2487,15 @@ isnotnull(expr)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT isnotnull(1)```
+   ```sql
+   > SELECT isnotnull(1)
+   ```
 
 :   **Result value**
 
-``` true```
+   ```sql
+    true
+    ```
 
 
 ## isnull
@@ -2270,11 +2506,15 @@ isnull(expr)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT isnull(1)```
+   ```sql
+   > SELECT isnull(1)
+   ```
 
 :   **Result value**
 
-``` false```
+   ```sql
+    false
+    ```
 
 
 ## json_tuple
@@ -2285,11 +2525,15 @@ json_tuple(jsonStr, p1, p2, ..., pn)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT json_tuple('{&quot;a&quot;:1, &quot;b&quot;:2}', 'a', 'b')```
+   ```sql
+   > SELECT json_tuple('{&quot;a&quot;:1, &quot;b&quot;:2}', 'a', 'b')
+   ```
 
 :   **Result value**
 
-``` 1  2```
+   ```sql
+    1  2
+    ```
 
 
 ## kurtosis
@@ -2326,11 +2570,15 @@ last_day(date)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT last_day('2009-01-12')```
+   ```sql
+   > SELECT last_day('2009-01-12')
+   ```
 
 :   **Result value**
 
-``` 2009-01-31```
+   ```sql
+    2009-01-31
+    ```
 
 **Since:** 1.5.0
 
@@ -2351,11 +2599,15 @@ lcase(str)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT lcase('SparkSql')```
+   ```sql
+   > SELECT lcase('SparkSql')
+   ```
 
 :   **Result value**
 
-``` sparksql```
+   ```sql
+    sparksql
+    ```
 
 
 ## lead
@@ -2377,11 +2629,15 @@ least(expr, ...)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT least(10, 9, 2, 4, 3)```
+   ```sql
+   > SELECT least(10, 9, 2, 4, 3)
+   ```
 
 :   **Result value**
 
-``` 2```
+   ```sql
+    2
+    ```
 
 
 ## left
@@ -2392,11 +2648,15 @@ left(str, len)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT left('Spark SQL', 3)```
+   ```sql
+   > SELECT left('Spark SQL', 3)
+   ```
 
 :   **Result value**
 
-``` Spa```
+   ```sql
+    Spa
+    ```
 
 
 ## length
@@ -2407,27 +2667,39 @@ length(expr)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT length('Spark SQL ')```
+   ```sql
+   > SELECT length('Spark SQL ')
+   ```
 
 :   **Result value**
 
-``` 10```
+   ```sql
+    10
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT CHAR_LENGTH('Spark SQL ')```
+   ```sql
+   > SELECT CHAR_LENGTH('Spark SQL ')
+   ```
 
 :   **Result value**
 
-``` 10```
+   ```sql
+    10
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT CHARACTER_LENGTH('Spark SQL ')```
+   ```sql
+   > SELECT CHARACTER_LENGTH('Spark SQL ')
+   ```
 
 :   **Result value**
 
-``` 10```
+   ```sql
+    10
+    ```
 
 
 ## levenshtein
@@ -2437,12 +2709,16 @@ levenshtein(str1, str2)
 :   Returns the Levenshtein distance between the two indicated strings.
 
 :   **Example of an SQL function usage fragment**
-
-```> SELECT levenshtein('kitten', 'sitting')```
+ 
+   ```sql
+   > SELECT levenshtein('kitten', 'sitting')
+   ```
 
 :   **Result value**
 
-``` 3```
+   ```sql
+    3
+    ```
 
 
 ## like
@@ -2471,11 +2747,15 @@ String literals are unescaped in our SQL parser. For example, to match "\abc", t
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT '%SystemDrive%\Users\John' like '\%SystemDrive\%\\Users%'```
+   ```sql
+   > SELECT '%SystemDrive%\Users\John' like '\%SystemDrive\%\\Users%'
+   ```
 
 :   **Result value**
 
-```true```
+   ```sql
+   true
+   ```
 
 **Note:**
 
@@ -2490,11 +2770,15 @@ ln(expr)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT ln(1)```
+   ```sql
+   > SELECT ln(1)
+   ```
 
 :   **Result value**
 
-``` 0.0```
+   ```sql
+    0.0
+    ```
 
 
 ## locate
@@ -2506,27 +2790,39 @@ The indicated `pos` and return value are 1-based.
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT locate('bar', 'foobarbar')```
+   ```sql
+   > SELECT locate('bar', 'foobarbar')
+   ```
 
 :   **Result value**
 
-``` 4```
+   ```sql
+    4
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT locate('bar', 'foobarbar', 5)```
+   ```sql
+   > SELECT locate('bar', 'foobarbar', 5)
+   ```
 
 :   **Result value**
 
-``` 7```
+   ```sql
+    7
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT POSITION('bar' IN 'foobarbar')```
+   ```sql
+   > SELECT POSITION('bar' IN 'foobarbar')
+   ```
 
 :   **Result value**
 
-``` 4```
+   ```sql
+    4
+    ```
 
 
 ## log
@@ -2537,11 +2833,15 @@ log(base, expr)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT log(10, 100)```
+   ```sql
+   > SELECT log(10, 100)
+   ```
 
 :   **Result value**
 
-``` 2.0```
+   ```sql
+    2.0
+    ```
 
 
 ## log10
@@ -2552,11 +2852,15 @@ log10(expr)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT log10(10)```
+   ```sql
+   > SELECT log10(10)
+   ```
 
 :   **Result value**
 
-``` 1.0```
+   ```sql
+    1.0
+    ```
 
 
 ## log1p
@@ -2566,12 +2870,16 @@ log1p(expr)
 :   Returns log(1 + `expr`).
 
 :   **Example of an SQL function usage fragment**
-
-```> SELECT log1p(0)```
+u
+   ```sql
+   > SELECT log1p(0)
+   ```
 
 :   **Result value**
 
-``` 0.0```
+   ```sql
+    0.0
+    ```
 
 
 ## log2
@@ -2582,11 +2890,15 @@ log2(expr)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT log2(2)```
+   ```sql
+   > SELECT log2(2)
+   ```
 
 :   **Result value**
 
-``` 1.0```
+   ```sql
+    1.0
+    ```
 
 
 ## lower
@@ -2597,11 +2909,15 @@ lower(str)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT lower('SparkSql')```
+   ```sql
+   > SELECT lower('SparkSql')
+   ```
 
 :   **Result value**
 
-``` sparksql```
+   ```sql
+    sparksql
+    ```
 
 
 ## lpad
@@ -2613,19 +2929,27 @@ If `str` is longer than `len`, the return value is shortened to `len` characters
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT lpad('hi', 5, '??')```
+   ```sql
+   > SELECT lpad('hi', 5, '??')
+   ```
 
 :   **Result value**
 
-``` ???hi```
+   ```sql
+    ???hi
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT lpad('hi', 1, '??')```
+   ```sql
+   > SELECT lpad('hi', 1, '??')
+   ```
 
 :   **Result value**
 
-``` h```
+   ```sql
+    h
+    ```
 
 ## ltrim
 {: #ltrim}
@@ -2642,19 +2966,27 @@ ltrim(trimStr, str)
    - trimStr - The trim string characters to trim, the default value is a single space.
 
 :   **Example of an SQL function usage fragment**
-```> SELECT ltrim('    SparkSQL   ')```
+   ```sql
+   > SELECT ltrim('    SparkSQL   ')
+   ```
 
 :   **Result value**
 
-``` SparkSQL```
+   ```sql
+    SparkSQL
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT ltrim('Sp', 'SSparkSQLS')```
+   ```sql
+   > SELECT ltrim('Sp', 'SSparkSQLS')
+   ```
 
 :   **Result value**
 
-``` arkSQLS```
+   ```sql
+    arkSQLS
+    ```
 
 
 ## map
@@ -2665,11 +2997,15 @@ map(key0, value0, key1, value1, ...)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT map(1.0, '2', 3.0, '4')```
+   ```sql
+   > SELECT map(1.0, '2', 3.0, '4')
+   ```
 
 :   **Result value**
 
-``` {1.0:&quot;2&quot;,3.0:&quot;4&quot;}```
+   ```sql
+    {1.0:&quot;2&quot;,3.0:&quot;4&quot;}
+    ```
 
 
 ## map_keys
@@ -2680,11 +3016,15 @@ map_keys(map)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT map_keys(map(1, 'a', 2, 'b'))```
+   ```sql
+   > SELECT map_keys(map(1, 'a', 2, 'b'))
+   ```
 
 :   **Result value**
 
-``` [1,2]```
+   ```sql
+    [1,2]
+    ```
 
 
 ## map_values
@@ -2695,11 +3035,15 @@ map_values(map)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT map_values(map(1, 'a', 2, 'b'))```
+   ```sql
+   > SELECT map_values(map(1, 'a', 2, 'b'))
+   ```
 
 :   **Result value**
 
-``` [&quot;a&quot;,&quot;b&quot;]```
+   ```sql
+    [&quot;a&quot;,&quot;b&quot;]
+    ```
 
 
 ## max
@@ -2717,11 +3061,15 @@ md5(expr)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT md5('Spark')```
+   ```sql
+   > SELECT md5('Spark')
+   ```
 
 :   **Result value**
 
-``` 8cde774d6f7333752ed72cacddb05126```
+   ```sql
+    8cde774d6f7333752ed72cacddb05126
+    ```
 
 ## mean
 {: #mean}
@@ -2745,11 +3093,15 @@ minute(timestamp)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT minute('2009-07-30 12:58:59')```
+   ```sql
+   > SELECT minute('2009-07-30 12:58:59')
+   ```
 
 :   **Result value**
 
-``` 58```
+   ```sql
+    58
+    ```
 
 **Since:** 1.5.0
 
@@ -2762,19 +3114,27 @@ expr1 mod expr2
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT 2 mod 1.8;```
+   ```sql
+   > SELECT 2 mod 1.8;
+   ```
 
 :   **Result value**
 
-``` 0.2```
+   ```sql
+    0.2
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT MOD(2, 1.8)```
+   ```sql
+   > SELECT MOD(2, 1.8)
+   ```
 
 :   **Result value**
 
-``` 0.2```
+   ```sql
+    0.2
+    ```
 
 
 ## monotonically_increasing_id
@@ -2796,11 +3156,15 @@ month(date)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT month('2016-07-30')```
+   ```sql
+   > SELECT month('2016-07-30')
+   ```
 
 :   **Result value**
 
-``` 7```
+   ```sql
+    7
+    ```
 
 **Since:** 1.5.0
 
@@ -2813,11 +3177,15 @@ months_between(timestamp1, timestamp2)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT months_between('1997-02-28 10:30:00', '1996-10-30')```
+   ```sql
+   > SELECT months_between('1997-02-28 10:30:00', '1996-10-30')
+   ```
 
 :   **Result value**
 
-``` 3.94959677```
+   ```sql
+    3.94959677
+    ```
 
 **Since:** 1.5.0
 
@@ -2830,11 +3198,15 @@ named_struct(name1, val1, name2, val2, ...)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT named_struct(&quot;a&quot;, 1, &quot;b&quot;, 2, &quot;c&quot;, 3)```
+   ```sql
+   > SELECT named_struct(&quot;a&quot;, 1, &quot;b&quot;, 2, &quot;c&quot;, 3)
+   ```
 
 :   **Result value**
 
-``` {&quot;a&quot;:1,&quot;b&quot;:2,&quot;c&quot;:3}```
+   ```sql
+    {&quot;a&quot;:1,&quot;b&quot;:2,&quot;c&quot;:3}
+    ```
 
 
 ## nanvl
@@ -2845,11 +3217,15 @@ nanvl(expr1, expr2)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT nanvl(cast('NaN' as double), 123)```
+   ```sql
+   > SELECT nanvl(cast('NaN' as double), 123)
+   ```
 
 :   **Result value**
 
-``` 123.0```
+   ```sql
+    123.0
+     ```
 
 
 ## negative
@@ -2860,11 +3236,15 @@ negative(expr)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT negative(1)```
+   ```sql
+   > SELECT negative(1)
+   ```
 
 :   **Result value**
 
-``` -1```
+   ```sql
+    -1
+    ```
 
 
 ## next_day
@@ -2875,11 +3255,15 @@ next_day(start_date, day_of_week)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT next_day('2015-01-14', 'TU')```
+   ```sql
+   > SELECT next_day('2015-01-14', 'TU')
+   ```
 
 :   **Result value**
 
-``` 2015-01-20```
+   ```sql
+    2015-01-20
+    ```
 
 **Since:** 1.5.0
 
@@ -2915,11 +3299,15 @@ nullif(expr1, expr2)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT nullif(2, 2)```
+   ```sql
+   > SELECT nullif(2, 2)
+    ```
 
 :   **Result value**
 
-``` NULL```
+   ```sql
+    NULL
+    ```
 
 
 ## nvl
@@ -2930,11 +3318,15 @@ nvl(expr1, expr2)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT nvl(NULL, array('2'))```
+   ```sql
+   > SELECT nvl(NULL, array('2'))
+   ```
 
 :   **Result value**
 
-``` [&quot;2&quot;]```
+   ```sql
+    [&quot;2&quot;]
+    ```
 
 
 ## nvl2
@@ -2945,11 +3337,15 @@ nvl2(expr1, expr2, expr3)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT nvl2(NULL, 2, 1)```
+   ```sql
+   > SELECT nvl2(NULL, 2, 1)
+   ```
 
 :   **Result value**
 
-``` 1```
+   ```sql
+    1
+    ```
 
 
 ## octet_length
@@ -2960,11 +3356,15 @@ octet_length(expr)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT octet_length('Spark SQL')```
+   ```sql
+   > SELECT octet_length('Spark SQL')
+   ```
 
 :   **Result value**
 
-``` 9```
+   ```sql
+    9
+    ```
 
 
 ## or
@@ -2982,27 +3382,39 @@ parse_url(url, partToExtract[, key])
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT parse_url('http://spark.apache.org/path?query=1', 'HOST')```
+   ```sql
+   > SELECT parse_url('http://spark.apache.org/path?query=1', 'HOST')
+   ```
 
 :   **Result value**
 
-``` spark.apache.org```
+   ```sql
+    spark.apache.org
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT parse_url('http://spark.apache.org/path?query=1', 'QUERY')```
+   ```sql
+   > SELECT parse_url('http://spark.apache.org/path?query=1', 'QUERY')
+   ```
 
 :   **Result value**
 
-``` query=1```
+   ```sql
+    query=1
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT parse_url('http://spark.apache.org/path?query=1', 'QUERY', 'query')```
+   ```sql
+   > SELECT parse_url('http://spark.apache.org/path?query=1', 'QUERY', 'query')
+   ```
 
 :   **Result value**
 
-``` 1```
+   ```sql
+    1
+    ```
 
 
 ## percent_rank
@@ -3039,19 +3451,27 @@ percentage array.
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT percentile_approx(10.0, array(0.5, 0.4, 0.1), 100)```
+   ```sql
+   > SELECT percentile_approx(10.0, array(0.5, 0.4, 0.1), 100)
+   ```
 
 :   **Result value**
 
-``` [10.0,10.0,10.0]```
+   ```sql
+    [10.0,10.0,10.0]
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT percentile_approx(10.0, 0.5, 100)```
+   ```sql
+   > SELECT percentile_approx(10.0, 0.5, 100)
+   ```
 
 :   **Result value**
 
-``` 10.0```
+   ```sql
+    10.0
+    ```
 
 
 ## pi
@@ -3062,11 +3482,15 @@ pi()
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT pi()```
+   ```sql
+   > SELECT pi()
+   ```
 
 :   **Result value**
 
-``` 3.141592653589793```
+   ```sql
+    3.141592653589793
+    ```
 
 
 ## pmod
@@ -3077,19 +3501,27 @@ pmod(expr1, expr2)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT pmod(10, 3)```
+   ```sql
+   > SELECT pmod(10, 3)
+   ```
 
 :   **Result value**
 
-``` 1```
+   ```sql
+    1
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT pmod(-10, 3)```
+   ```sql
+   > SELECT pmod(-10, 3)
+   ```
 
 :   **Result value**
 
-``` 2```
+   ```sql
+    2
+    ```
 
 
 ## posexplode
@@ -3100,12 +3532,15 @@ posexplode(expr)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT posexplode(array(10,20))```
+   ```sql
+   > SELECT posexplode(array(10,20))
+   ```
 
 :   **Result value**
 
-``` 0  10
- 1  20```
+   ```sql
+    0  10  1  20
+    ```
 
 
 ## posexplode_outer
@@ -3116,10 +3551,11 @@ posexplode_outer(expr)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT posexplode_outer(array(10,20))
- 0  10
- 1  20
-```
+   ```sql
+   > SELECT posexplode_outer(array(10,20))
+   0  10
+   1  20
+   ```
 
 
 ## position
@@ -3131,27 +3567,39 @@ The indicated `pos` and return value are 1-based.
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT position('bar', 'foobarbar')```
+   ```sql
+   > SELECT position('bar', 'foobarbar')
+   ```
 
 :   **Result value**
 
-``` 4```
+   ```sql
+    4
+    ```
 
  :   **Example of an SQL function usage fragment**
 
-```> SELECT position('bar', 'foobarbar', 5)```
+   ```sql
+   > SELECT position('bar', 'foobarbar', 5)
+   ```
 
 :   **Result value**
 
-``` 7```
+   ```sql
+    7
+    ```
 
  :   **Example of an SQL function usage fragment**
 
-```> SELECT POSITION('bar' IN 'foobarbar')```
+   ```sql
+   > SELECT POSITION('bar' IN 'foobarbar')
+   ```
 
 :   **Result value**
 
-``` 4```
+   ```sql
+    4
+    ```
 
 
 ## positive
@@ -3169,11 +3617,15 @@ pow(expr1, expr2)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT pow(2, 3)```
+   ```sql
+   > SELECT pow(2, 3)
+   ```
 
 :   **Result value**
 
-``` 8.0```
+   ```sql
+    8.0
+    ```
 
 
 ## power
@@ -3184,11 +3636,15 @@ power(expr1, expr2)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT power(2, 3)```
+   ```sql
+   > SELECT power(2, 3)
+   ```
 
 :   **Result value**
 
-``` 8.0```
+   ```sql
+    8.0
+    ```
 
 
 ## printf
@@ -3199,11 +3655,15 @@ printf(strfmt, obj, ...)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT printf(&quot;Hello World %d %s&quot;, 100, &quot;days&quot;)```
+   ```sql
+   > SELECT printf(&quot;Hello World %d %s&quot;, 100, &quot;days&quot;)
+   ```
 
 :   **Result value**
 
-``` Hello World 100 days```
+   ```sql
+    Hello World 100 days
+    ```
 
 
 ## quarter
@@ -3214,11 +3674,15 @@ quarter(date)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT quarter('2016-08-31')```
+   ```sql
+   > SELECT quarter('2016-08-31')
+   ```
 
 :   **Result value**
 
-``` 3```
+   ```sql
+    3
+    ```
 
 **Since:** 1.5.0
 
@@ -3231,11 +3695,15 @@ radians(expr)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT radians(180)```
+   ```sql
+   > SELECT radians(180)
+   ```
 
 :   **Result value**
 
-``` 3.141592653589793```
+   ```sql
+    3.141592653589793
+    ```
 
 
 ## rand
@@ -3246,27 +3714,39 @@ rand([seed])
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT rand()```
+   ```sql
+   > SELECT rand()
+   ```
 
 :   **Result value**
 
-``` 0.9629742951434543```
+   ```sql
+    0.9629742951434543
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT rand(0)```
+   ```sql
+   > SELECT rand(0)
+   ```
 
 :   **Result value**
 
-``` 0.8446490682263027```
+   ```sql
+    0.8446490682263027
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT rand(null)```
+   ```sql
+   > SELECT rand(null)
+   ```
 
 :   **Result value**
 
-``` 0.8446490682263027```
+   ```sql
+    0.8446490682263027
+    ```
 
 
 ## randn
@@ -3277,27 +3757,39 @@ randn([seed])
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT randn()```
+   ```sql
+   > SELECT randn()
+   ```
 
 :   **Result value**
 
-``` -0.3254147983080288```
+   ```sql
+    -0.3254147983080288
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT randn(0)```
+   ```sql
+   > SELECT randn(0)
+   ```
 
 :   **Result value**
 
-``` 1.1164209726833079```
+   ```sql
+    1.1164209726833079
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT randn(null)```
+   ```sql
+   > SELECT randn(null)
+   ```
 
 :   **Result value**
 
-``` 1.1164209726833079```
+   ```sql
+    1.1164209726833079
+    ```
 
 
 ## rank
@@ -3317,11 +3809,15 @@ regexp_extract(str, regexp[, idx])
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT regexp_extract('100-200', '(\\d+)-(\\d+)', 1)```
+   ```sql
+   > SELECT regexp_extract('100-200', '(\\d+)-(\\d+)', 1)
+   ```
 
 :   **Result value**
 
-``` 100```
+   ```sql
+    100
+    ```
 
 
 ## regexp_replace
@@ -3332,11 +3828,15 @@ regexp_replace(str, regexp, rep)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT regexp_replace('100-200', '(\\d+)', 'num')```
+   ```sql
+   > SELECT regexp_replace('100-200', '(\\d+)', 'num')
+   ```
 
 :   **Result value**
 
-``` num-num```
+   ```sql
+    num-num
+    ```
 
 
 ## repeat
@@ -3347,11 +3847,15 @@ repeat(str, n
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT repeat('123', 2)```
+   ```sql
+   > SELECT repeat('123', 2)
+   ```
 
 :   **Result value**
 
-``` 123123```
+   ```sql
+    123123
+    ```
 
 
 ## replace
@@ -3368,11 +3872,15 @@ replace(str, search[, replace])
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT replace('ABCabc', 'abc', 'DEF')```
+   ```sql
+   > SELECT replace('ABCabc', 'abc', 'DEF')
+   ```
 
 :   **Result value**
 
-``` ABCDEF```
+   ```sql
+    ABCDEF
+    ```
 
 
 ## reverse
@@ -3383,11 +3891,15 @@ reverse(str)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT reverse('Spark SQL')```
+   ```sql
+   > SELECT reverse('Spark SQL')
+   ```
 
 :   **Result value**
 
-``` LQS krapS```
+   ```sql
+    LQS krapS
+    ```
 
 
 ## right
@@ -3398,11 +3910,15 @@ right(str, len)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT right('Spark SQL', 3)```
+   ```sql
+   > SELECT right('Spark SQL', 3)
+   ```
 
 :   **Result value**
 
-``` SQL```
+   ```sql
+    SQL
+    ```
 
 
 ## rint
@@ -3413,11 +3929,15 @@ rint(expr)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT rint(12.3456)```
+   ```sql
+   > SELECT rint(12.3456)
+   ```
 
 :   **Result value**
 
-``` 12.0```
+   ```sql
+    12.0
+    ```
 
 
 ## rlike
@@ -3437,11 +3957,15 @@ parser. For example, to match "\abc", a regular expression for `regexp` can be
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT '%SystemDrive%\Users\John' rlike '%SystemDrive%\\Users.*'```
+   ```sql
+   > SELECT '%SystemDrive%\Users\John' rlike '%SystemDrive%\\Users.*'
+   ```
 
 :   **Result value**
 
-```true```
+   ```sql
+   true
+   ```
 
 **Note:**
 
@@ -3460,11 +3984,15 @@ round(expr, d)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT round(2.5, 0)```
+   ```sql
+   > SELECT round(2.5, 0)
+   ```
 
 :   **Result value**
 
-``` 3.0```
+   ```sql
+    3.0
+    ```
 
 
 ## row_number
@@ -3484,19 +4012,27 @@ If `str` is longer than `len`, the return value is shortened to `len` characters
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT rpad('hi', 5, '??')```
+   ```sql
+   > SELECT rpad('hi', 5, '??')
+   ```
 
 :   **Result value**
 
-``` hi???```
+   ```sql
+    hi???
+    ```
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT rpad('hi', 1, '??')```
+   ```sql
+   > SELECT rpad('hi', 1, '??')
+   ```
 
 :   **Result value**
 
-``` h```
+   ```sql
+    h
+    ```
 
 
 ## rtrim
@@ -3516,18 +4052,27 @@ rtrim(trimStr, str)
 
 :   **Example of an SQL function usage fragment**
 
-```> SELECT rtrim('    SparkSQL   ')```
+   ```sql
+   > SELECT rtrim('    SparkSQL   ')
+   ```
 
 :   **Result value**
 
-``` SparkSQL```
+   ```sql
+    SparkSQL
+    ```
 
 :   **Example of an SQL function usage fragment**
-```> SELECT rtrim('LQSa', 'SSparkSQLS')```
+
+   ```sql
+   > SELECT rtrim('LQSa', 'SSparkSQLS')
+   ```
 
 :   **Result value**
 
-``` SSpark```
+   ```sql
+    SSpark
+    ```
 
 
 ## second
