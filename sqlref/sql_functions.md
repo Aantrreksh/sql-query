@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-04-07"
+lastupdated: "2022-04-04"
 
 keywords: SQL, functions
 
@@ -996,7 +996,7 @@ bround(expr, d):   Returns `expr` rounded to `d` decimal places by using HALF_EV
 
 :   **Example of an SQL function usage fragment**
 
-   ```
+   ```sql
    > SELECT bround(2.5, 0)
    ```
 
@@ -1799,6 +1799,7 @@ double(expr)
 
 
 ## e
+{: #e}
 
 e()
 :   Returns Euler's number, e.
@@ -5204,7 +5205,7 @@ weekofyear(date)
 
 :   **Result value**
 
-   ```
+   ```sql
     8
     ```
 
