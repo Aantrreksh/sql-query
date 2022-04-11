@@ -17,7 +17,7 @@ subcollection: sql-query
 {:pre: .pre}
 
 # Using a temporal join or align
-{: #temporal_align}
+{: #using_temporal__join_align}
 
 A temporal join produces a single array time series based on the observations of the two input time series. A temporal align produces two output time series with identical timeticks. In both cases, an interpolator is used to complete missing values.
 

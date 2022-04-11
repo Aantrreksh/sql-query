@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-03-05"
+  years: 2019, 2022
+lastupdated: "2022-04-07"
 
 keywords: SQL query, time series, SQL, artifact creation, function
 
@@ -19,8 +19,7 @@ subcollection: sql-query
 # Artifact creation functions
 {: #artifact}
 
-Each of these functions produces, as its output, a time series or some other artifact that some
-[data processing functions](/docs/services/sql-query?topic=sql-query-data_processing_functions) require as input.
+Each of these functions produces, as its output, a time series or some other artifact that some [data processing functions](/docs/services/sql-query?topic=sql-query-data_processing_functions) require as input.
 
 ## Time series creation functions
 {: #ts_creation}
@@ -149,31 +148,31 @@ Creates a combiner that instructs another function to combine, into a single obs
 
 Each of these functions generates an *interpolator* artifact, which is used by cleaning functions to replace null values, and by resampling, join, and align functions to calculate values for generated observations.
 
-**TS_INTERPOLATOR_FILL(see below<sup>2</sup>)**
+**TS_INTERPOLATOR_FILL[^1]**
 Output: InterpolatorType  
 Creates an interpolator that replaces any null value with the specified value.
 
-**TS_INTERPOLATOR_NEAREST(see below<sup>2</sup>)**
+**TS_INTERPOLATOR_NEAREST[^1]**
 Output: InterpolatorType  
 Creates an interpolator that replaces a null value with the value of the neighboring observation that has the nearest timetick. If the value of that observation is also null, the original null value remains unchanged. If the previous and next timeticks are equidistant, the value of the observation with the previous timetick is used. If no nearest observation exists (that is if the input time series contains a single observation), this function replaces the null value with the specified value.
 
-**TS_INTERPOLATOR_NEXT(see below<sup>2</sup>)**
+**TS_INTERPOLATOR_NEXT[^1]**
 Output: InterpolatorType  
 Creates an interpolator that replaces a null value with the next value in the time series. If no such value exists, it fills the null value with the specified value.
 
-**TS_INTERPOLATOR_PREV(see below<sup>2</sup>)**
+**TS_INTERPOLATOR_PREV[^1]**
 Output: InterpolatorType  
 Creates an interpolator that replaces a null value with the previous value. If no previous value exists, it fills the null value with the specified value.
 
-**TS_INTERPOLATOR_LINEAR(see below<sup>2</sup>, Integer, Integer)**
+**TS_INTERPOLATOR_LINEAR[^1](Integer, Integer)**
 Output: InterpolatorType  
 Creates an interpolator that replaces a null value with a value that is calculated by [linear interpolation](https://en.wikipedia.org/wiki/Linear_interpolation) based on the specified number of previous (second parameter) and subsequent (third parameter) observations (both numbers must be positive). The value of the first parameter is used as a filler value when not enough previous or subsequent values exist to satisfy parameter 2 or 3. For example, if `TS_INTERPOLATOR_LINEAR(9.76, 3, 5)` is specified, for each null value, a line is calculated by using the three previous and five subsequent data points that minimize the average error for all eight data points, and the point on this line that corresponds to the timetick of the null value determines the filler value. If three previous or five subsequent data points are not available, the value 9.76 is used as the filler value.
 
-**TS_INTERPOLATOR_SPLINE(see below<sup>2</sup>, Integer, Integer)**
+**TS_INTERPOLATOR_SPLINE[^1](Integer, Integer)**
 Output: InterpolatorType  
 Creates an interpolator that replaces a null value with a value that is calculated by [spline interpolation](https://en.wikipedia.org/wiki/Spline_interpolation) based on the specified number of previous (second parameter) and subsequent (third parameter) observations (both numbers must be positive). The value of the first parameter is used as a filler value when not enough previous or subsequent values exist to satisfy parameter 2 or 3. For example, if `TS_INTERPOLATOR_SPLINE(3, 5, 9.76)` is specified, for each null value, a spline is calculated by using the three previous and five subsequent data points that minimize the average error for all eight data points, and the point on this spline that corresponds to the timetick of the null value determines the filler value. If three previous or five subsequent data points are not available, the value 9.76 is used as the filler value.
 
-**<sup>2</sup> The input type can be any of String, Double, Array[String], Array[Double], but must be of a type that corresponds to the type of the time series.**
+[^1]: The input type can be any of String, Double, Array[String], Array[Double], but must be of a type that corresponds to the type of the time series.
 
 ## Time series expressions
 {: #time_series_expressions}
@@ -357,7 +356,7 @@ Anchor functions are deprecated, use expression creation functions instead.
 Expression creation functions are similar to anchor functions but they are more feature rich.
 {: note}
 
-**TS_ANCHOR_EQ(see below<sup>3</sup>)**
+**TS_ANCHOR_EQ[^2]**
 Output: AnchorType  
 Creates an anchor that sets an anchor point when an observation value equals the value of the input parameter.
 
@@ -413,7 +412,7 @@ Creates an anchor that sets an anchor point when the specified anchor would not.
 Output: AnchorType  
 Creates, for use by an array time series, an anchor of the specified type (first parameter) for a specified index (second parameter) of the series.
 
-**<sup>3</sup> The input type can be any of String, Double, Array[String], Array[Double]**
+[^2]: The input type can be any of String, Double, Array[String], Array[Double].
 
 ## Forecasting model creation functions
 {: #forecasting_model_creation}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-06-08"
+  years: 2018, 2022
+lastupdated: "2022-04-07"
 
 keywords: activity tracker, activity, event
 
@@ -40,3 +40,4 @@ Actions  |  Description
 `sql-query.sql-job.get` |  Details of a job were retrieved.
 `sql-query.catalog-table.list` |  List of catalog tables was retrieved.
 `sql-query.catalog-table.get` |  Details of a catalog table were retrieved.
+`sql-query.sql-job.disable` |  An SQL query streaming job was stopped.

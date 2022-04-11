@@ -44,7 +44,7 @@ for more information about how to use Cloud {{site.data.keyword.cos_short}}.
 3. Select the Lite plan and click **Create** to create an instance of the service.
 4. Click **Launch SQL Query UI** on the Dashboard page to open the {{site.data.keyword.sqlquery_short}} Console.
 
-  When you open the Console for the first time, the {{site.data.keyword.sqlquery_short}} service automatically creates a bucket for you in your Cloud {{site.data.keyword.cos_short}} instance. It uses this bucket as the default target for your query results.
+   When you open the Console for the first time, the {{site.data.keyword.sqlquery_short}} service automatically creates a bucket for you in your Cloud {{site.data.keyword.cos_short}} instance. It uses this bucket as the default target for your query results.
 
 ## Run one of the samples to see how to use the service
 {: #samples}
