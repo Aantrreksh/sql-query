@@ -280,7 +280,7 @@ TS_FILTER (time_series, Boolean expression)
 
 Each of these functions removes null values from time series.
 
-TS_FILLNA[^1](InterpolatorType)
+TS_FILLNA[^1] (InterpolatorType)
 :   Output: The output is of the same type as the input.  
 :   Replace each null value with a new value as determined by the specified [interpolator](/docs/services/sql-query?topic=sql-query-artifact#interpolator_creation).
 
