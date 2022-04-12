@@ -76,8 +76,7 @@ Output: StringArrayTimeSeries
 Creates a StringArrayTimeSeries that uses a custom [TRS](/docs/services/sql-query?topic=sql-query-TRS).
 - The first parameter specifies the name of a table column that contains numeric data that represents the timeticks of the observations.
 - The second parameter specifies the name of the table column that contains data of type StringArray that represents the values of the observations.
-- The third parameter specifies the name of the TRS that is to be associated with the time series. This TRS determines the granularity and start time of the time series
-timeticks.
+- The third parameter specifies the name of the TRS that is to be associated with the time series. This TRS determines the granularity and start time of the time series timeticks.
 
 ## TRS creation functions
 {: #trs_creation}
