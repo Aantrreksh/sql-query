@@ -51,7 +51,7 @@ TS_FLATTEN(*SegmentTimeSeries*)
     - An integer that indicates the index number (0 to n) of the segment.
     - A time series that contains the observations that comprise the segment.
 
-The type of the output time series corresponds to the type of the input segment time series.
+:   The type of the output time series corresponds to the type of the input segment time series.
 
 ## Summary functions
 {: #summary_functions}
@@ -159,7 +159,7 @@ TS_SEG_FFT(DoubleSegmentTimeSeries, String)
     - `forward` or `f` for a forward transform
     - `inverse` or `i` for an inverse transform
 
-Each timetick in the output time series is the timetick of the corresponding segment.
+:   Each timetick in the output time series is the timetick of the corresponding segment.
 
 TS_AUTO_CORRELATION(DoubleTimeSeries)
 :   Output: DoubleArray  
