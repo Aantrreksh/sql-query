@@ -2474,7 +2474,7 @@ The two scalar functions that are specialized to handle a subset of the function
 | CASE WHEN e1=e2 THEN NULL ELSE e1 END | NULLIF(e1,e2) |
 | CASE WHEN e1 IS NOT NULL THEN e1 ELSE e2 END| COALESCE(e1,e2) |
 | CASE WHEN e1 IS NOT NULL THEN e1 ELSE COALESCE(e2,...,eN) END| COALESCE(e1,e2,...,eN)|
-<!--table-caption title="CASE, NULLIF(), and COALESCE()"-->
+{: caption="Table 50. CASE, NULLIF(), and COALESCE()" caption-side="bottom"}
 
 For more information, see [SQL functions](/docs/sql-query?topic=sql-query-sqlfunctions#sqlfunctions).
 
@@ -2741,7 +2741,7 @@ The result of the example query is shown in the following table.
 |CAST(2018-10-31 23:55:00 AS TIMESTAMP)|CAST(2018-2-28 23:55:00 AS DATE)|CAST(HELLO AS TIMESTAMP)|
 |--------------------------------------|--------------------------------|------------------------|
 |2018-10-31 23:55:00.0                 |2018-02-28                      |null                    |
-{: caption="Table 55. Query result for example 'cast string values to TIMESTAMP and DATE types" caption-side="bottom"}
+{: caption="Table 56. Query result for example 'cast string values to TIMESTAMP and DATE types" caption-side="bottom"}
 
 ### Boolean Type
 {: #boolean-type}
