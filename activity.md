@@ -38,7 +38,7 @@ Actions  |  Description
 `sql-query.sql-job.create` |  An SQL query was submitted.
 `sql-query.sql-job.list` |  List of jobs was retrieved.
 `sql-query.sql-job.get` |  Details of a job were retrieved.
+`sql-query.sql-job.disable` |  An SQL query streaming job was stopped.
 `sql-query.catalog-table.list` |  List of catalog tables was retrieved.
 `sql-query.catalog-table.get` |  Details of a catalog table were retrieved.
-`sql-query.sql-job.disable` |  An SQL query streaming job was stopped.
-`sql-query.catalog-table-partitions.list`| List of partitions of a table was retrieved.
+`sql-query.catalog-table-partition.list`| List of partitions of a table was retrieved.
