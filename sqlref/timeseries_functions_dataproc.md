@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-04-12"
+lastupdated: "2022-04-22"
 
 keywords: SQL query, time series, SQL, data processing function
 
@@ -311,11 +311,11 @@ TS_SEGMENT_BY_TIME[^4](Long, Long)
 
 [^4]: The input time series can be of type DoubleTimeSeries, StringTimeSeries, DoubleArrayTimeSeries, or StringArrayTimeSeries.
 
-TS_SEGMENT_BY_SILENCE[^5](Long)
+TS_SEGMENT_BY_SILENCE[^5test](Long)
 :   Output: The type of the output segment time series corresponds to the type of the input.  
 :   Segment a time series whenever no observation occurs within the length of time, in timetick units, that is specified by the second parameter.
 
-[^5]: The input time series can be of type DoubleTimeSeries, StringTimeSeries, DoubleArrayTimeSeries, or StringArrayTimeSeries.
+[^5test]: The input time series can be of type DoubleTimeSeries, StringTimeSeries, DoubleArrayTimeSeries, or StringArrayTimeSeries.
 
 TS_SEGMENT_BY_SMOOTHED_SILENCE[^6](Double, Double, Long)
 :   Output: The type of the output segment time series corresponds to the type of the input.  
