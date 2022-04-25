@@ -280,13 +280,13 @@ TS_FILTER (time_series, Boolean expression)
 
 Each of these functions removes null values from time series.
 
-TS_FILLNA[^1](InterpolatorType)
+TS_FILLNA[^1] (InterpolatorType)
 :   Output: The output is of the same type as the input.  
 :   Replace each null value with a new value as determined by the specified [interpolator](/docs/services/sql-query?topic=sql-query-artifact#interpolator_creation).
 
 [^1]: The input time series can be of type DoubleTimeSeries, StringTimeSeries, DoubleArrayTimeSeries, or StringArrayTimeSeries.
 
-TS_DROPNA[^2]
+TS_DROPNA[^2] 
 :   Output: The output is of the same type as the input.  
 :   Drop all observations that contain at least one null value.
 
@@ -297,27 +297,27 @@ TS_DROPNA[^2]
 
 Each of these functions creates, as output, a segmented version of a time series. The lengths of the segments are determined by [anchor points](/docs/services/sql-query?topic=sql-query-artifact#anchor_creation).
 
-TS_SEGMENT[^3](Int, Int)
+TS_SEGMENT[^3] (Int, Int)
 :   Output: The type of the output segment time series corresponds to the type of the input.  
 :   Returns a SegmentTimeSeries based on the input time series and the specified segment size (second parameter) and step size (third parameter). 
 :   The step size corresponds to a number of observations. For example, the array `[1,2,3,4,5,6,7]` segmented with a segment size of three and a step size of two produces the result `[1,2,3]`, `[3,4,5]`, `[5,6,7]`.
 
 [^3]: The input time series can be of type DoubleTimeSeries, StringTimeSeries, DoubleArrayTimeSeries, or StringArrayTimeSeries.
 
-TS_SEGMENT_BY_TIME[^4](Long, Long)  
+TS_SEGMENT_BY_TIME[^4] (Long, Long)  
 :   Output: The type of the output segment time series corresponds to the type of the input.  
 :   Returns a SegmentTimeSeries based on the input time series and the specified segment size (second parameter) and step size (third parameter). 
 :   The segment and step sizes are of the same granularity as the input time series.
 
 [^4]: The input time series can be of type DoubleTimeSeries, StringTimeSeries, DoubleArrayTimeSeries, or StringArrayTimeSeries.
 
-TS_SEGMENT_BY_SILENCE[^5](Long)
+TS_SEGMENT_BY_SILENCE[^5] (Long)
 :   Output: The type of the output segment time series corresponds to the type of the input.  
 :   Segment a time series whenever no observation occurs within the length of time, in timetick units, that is specified by the second parameter.
 
 [^5]: The input time series can be of type DoubleTimeSeries, StringTimeSeries, DoubleArrayTimeSeries, or StringArrayTimeSeries.
 
-TS_SEGMENT_BY_SMOOTHED_SILENCE[^6](Double, Double, Long)
+TS_SEGMENT_BY_SMOOTHED_SILENCE[^6] (Double, Double, Long)
 :   Output: The type of the output segment time series corresponds to the type of the input.  
 :   Segment a time series whenever no observation occurs within the length of time, in timetick units, that is calculated by the formula `min(T×F, H)` where:
 
@@ -327,7 +327,7 @@ TS_SEGMENT_BY_SMOOTHED_SILENCE[^6](Double, Double, Long)
 
 [^6]: The input time series can be of type DoubleTimeSeries, StringTimeSeries, DoubleArrayTimeSeries, or StringArrayTimeSeries.
 
-TS_SEGMENT_BY_ANCHOR[^7](AnchorType, Long, Long) 
+TS_SEGMENT_BY_ANCHOR[^7] (AnchorType, Long, Long) 
 :   Output: The type of the output segment time series corresponds to the type of the input.  
 :   Segment a time series based on the specified anchor. The specified Long values determine a segment that begins before (third parameter) and ends after (fourth parameter) each anchor point. For example:
 
