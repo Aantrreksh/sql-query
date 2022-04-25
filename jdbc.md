@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-02-10"
+lastupdated: "2022-04-25"
 
 keywords: jdbc
 
@@ -195,6 +195,6 @@ If you use such business intelligence tools, you need another way to connect to 
 
 An easy way to set up ODBC connectivity to {{site.data.keyword.sqlquery_short}} is to use the [Progress DataDirect Hybrid Data Pipeline](https://www.progress.com/cloud-and-hybrid-data-integration) product.
 
-![ODBC connectivity to SQL Query.](images/ODBCIBMSQLQuery.svg "ODBC connectivity to SQL Query"){: caption="Figure 1. ODBC connectivity to SQL Query" caption-side="bottom"}
+![ODBC connectivity to SQL Query.](images/ODBC_image_DE.svg "ODBC connectivity to SQL Query"){: caption="Figure 1. ODBC connectivity to SQL Query" caption-side="bottom"}
 
 A [step-by-step tutorial](https://www.ibm.com/cloud/blog/odbc-connectivity-to-ibm-cloud-sql-query) explains how easily {{site.data.keyword.sqlquery_short}} and Hybrid Data Pipeline (HDP) can complement one another to achieve this task.
