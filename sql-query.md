@@ -242,6 +242,7 @@ Cross region endpoint name | Alias
 s3.us.cloud-object-storage.appdomain.cloud | us-geo
 s3.eu.cloud-object-storage.appdomain.cloud | eu-geo
 s3.ap.cloud-object-storage.appdomain.cloud | ap-geo
+{: caption="Table 1. Cross region endpoints" caption-side="bottom"}
 
 Regional endpoint name | Alias
 --- | ---
@@ -251,6 +252,7 @@ s3.us-south.cloud-object-storage.appdomain.cloud | us-south
 s3.us-east.cloud-object-storage.appdomain.cloud | us-east
 s3.au-syd.cloud-object-storage.appdomain.cloud | au-syd
 s3.jp-tok.cloud-object-storage.appdomain.cloud | jp-tok
+{: caption="Table 2. Regional endpoints" caption-side="bottom"}
 
 Single data center endpoint name | Alias
 --- | ---
@@ -268,6 +270,7 @@ s3.par01.cloud-object-storage.appdomain.cloud | par01
 s3.sjc04.cloud-object-storage.appdomain.cloud | sjc04
 s3.seo01.cloud-object-storage.appdomain.cloud | seo01
 s3.sng01.cloud-object-storage.appdomain.cloud | sng01
+{: caption="Table 3. Single data center endpoints" caption-side="bottom"}
 
 ## Availability zones
 {: #availability}
@@ -277,6 +280,7 @@ Regions | Availability zones
 Dallas | 3
 Frankfurt | 3
 Chennai | 1
+{: caption="Table 4. Regions" caption-side="bottom"}
 
 For Availability Service Level Agreements, see the [Cloud Services terms](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?OpenDocument).
 
@@ -319,6 +323,7 @@ Submit an SQL query | sql-query.api.submit | `POST/v2/sql_jobs/` | Manager or Wr
 Get information for all submitted jobs | sql-query.api.getalljobs | `GET/v2/sql_jobs/` | Manager, Writer, or Reader
 Get information for a specific submitted job | sql-query.api.getjobinfo | `GET/v2/sql_jobs/{job_id}` | Manager, Writer, or Reader
 Submit a catalog or index management statement | sql-query.api.managecatalog | `POST/v2/sql_jobs/` | Manager
+{: caption="Table 5. User roles" caption-side="bottom"}
 
 ## Behavior of scanned data
 {: #data-scanned}
