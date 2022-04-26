@@ -25,7 +25,7 @@ subcollection: sql-query
 
 **Note:** You can use {{site.data.keyword.sqlquery_short}} to create SELECT statements only; actions such as CREATE, DELETE, INSERT, and UPDATE are not possible.
 
-![SQL Query overview.](images/streams_landing_DE.svg "SQL Query Overview"){: caption="Figure 1. SQL Query overview" caption-side="bottom"}
+![SQL Query overview.](images/streams_landing_DE.svg "Data Engine Overview"){: caption="Figure 1. Data Engine overview" caption-side="bottom"}
 
 Input data is read from CSV, JSON, ORC, Parquet, or AVRO objects located in one or more {{site.data.keyword.cos_full}} instances.
 Each query result is written to a CSV, JSON, ORC, Parquet, or AVRO object in a Cloud {{site.data.keyword.cos_short}} or Db2 instance of your choice.
