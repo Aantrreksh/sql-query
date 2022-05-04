@@ -21,7 +21,7 @@ subcollection: sql-query
 {: #hive_metastore}
 {: beta}
 
-{{site.data.keyword.sqlquery_full}} provides an external Hive metastore (HMS) service. Hive metastore provides an Apache Thrift interface to store metadata, 
+{{site.data.keyword.sqlquery_full}} provides an external Hive metastore (HMS) service. Hive metastore has an Apache Thrift interface to store metadata, 
 such as tables or views in an underlaying Relational Database Management System (RDBMS). Each instance has its own database named *default* that cannot be changed.
 The Hive metastore can be used either within {{site.data.keyword.sqlquery_short}} by the internal Spark, for example by the creation of tables or views. 
 Or, it can be used by external Spark or Hive clients that support Apache Thrift.
@@ -42,7 +42,7 @@ create table
 ## External usage
 {: #external_usage}
 
-Read only mode is supported for external usage. In addition, Hive metastore access needs authentication, therefore a special version of the Hive metastore client is 
+Hive metastore can be used externally in Read only mode. In addition, Hive metastore access needs authentication, therefore a special version of the Hive metastore client is 
 required in order to access the Hive metastore server. For *user*, specify the CRN and for *password* a valid apikey is required. The Apache Thrift port to use is `9083`.
 In case you use Hive metastore within Apache Spark, a simple to configure function is provided, which allows access either through Scala or Python.
 
