@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-03-30"
+lastupdated: "2022-05-04"
 
 keywords: sql query release notes
 
@@ -20,6 +20,12 @@ content-type: release-note
 
 Use these release notes to learn about the latest {{site.data.keyword.sqlquery_full}} that are grouped by date. Release notes are available for a minimum of three years.
 {: shortdesc}
+
+## May 2022
+{: #sql-query-may2022}
+{: release-note}
+
+Hive{{site.data.keyword.sqlquery_short}} provides an external [Hive metastore (HMS) service](docs/sql-query?topic=sql-query-hive_metastore).  
 
 ## November 2021
 {: #sql-query-november2021}
