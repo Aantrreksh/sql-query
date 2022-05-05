@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-05-04"
+lastupdated: "2022-05-05"
 
 keywords: Data Engine, SQL query, Hive, metastore
 
@@ -25,8 +25,6 @@ subcollection: sql-query
 such as tables or views in an underlaying Relational Database Management System (RDBMS). Each instance has its own database named *default* that cannot be changed.
 The Hive metastore can be used either diretly within {{site.data.keyword.sqlquery_short}}, for example by the creation of tables or views. 
 Or, it can be used by external Spark or Hive clients that support Apache Thrift.
-
-As 
 
 ## HMS usage within {{site.data.keyword.sqlquery_short}}
 {: #internal_usage}
@@ -56,8 +54,8 @@ In case you use Hive metastore within Apache Spark, a simple to configure functi
 In order to use it store the HMS client jar in a directory which is accessable for Spark but not in the classpath. The helper Scala jar should be stored in the classpath of the used Apache Spark.
 
 To download the Hive client jar: https://us.sql-query.cloud.ibm.com/download/hive/hive-metastore-standalone-client-3.1.2-sqlquery.jar
-To download helper function in Scala https://us.sql-query.cloud.ibm.com/download/hive/spark-dataengine-integration-1.0.4.jar
-and Python: https://us.sql-query.cloud.ibm.com/download/hive/dataengine_spark-1.0.4-py3-none-any.whl
+To download helper function in Scala https://us.sql-query.cloud.ibm.com/download/hive/spark-dataengine-integration-1.0.9.jar
+and Python: https://us.sql-query.cloud.ibm.com/download/hive/dataengine_spark-1.0.9-py3-none-any.whl
 
 ### Usage Helper functions
 
