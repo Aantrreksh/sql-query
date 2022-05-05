@@ -23,7 +23,7 @@ subcollection: sql-query
 
 {{site.data.keyword.sqlquery_full}} provides an external Hive metastore (HMS) service. The Hive metastore provides an Apache Thrift interface to store metadata, 
 such as tables or views in an underlaying Relational Database Management System (RDBMS). Each instance has its own database named *default* that cannot be changed.
-The Hive metastore can be used either diretly within {{site.data.keyword.sqlquery_short}}, for example by the creation of tables or views. 
+The Hive metastore can be used either within {{site.data.keyword.sqlquery_short}}, for example by the creation of tables or views. 
 Or, it can be used by external Spark or Hive clients that support Apache Thrift.
 
 ## HMS usage within {{site.data.keyword.sqlquery_short}}
