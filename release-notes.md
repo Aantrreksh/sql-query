@@ -25,7 +25,11 @@ Use these release notes to learn about the latest {{site.data.keyword.sqlquery_f
 {: #sql-query-may2022}
 {: release-note}
 
-Hive{{site.data.keyword.sqlquery_short}} provides an external [Hive metastore (HMS) service](docs/sql-query?topic=sql-query-hive_metastore).  
+Rebranding
+: IBM Cloud SQL Query has been rebranded to {{site.data.keyword.sqlquery_notm}}.
+
+Hive
+:   {{site.data.keyword.sqlquery_short}} provides an external [Hive metastore (HMS) service](docs/sql-query?topic=sql-query-hive_metastore).  
 
 ## November 2021
 {: #sql-query-november2021}
