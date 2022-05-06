@@ -282,7 +282,7 @@ The metadata for a partitioned table must be different from the metadata on the 
 ## References
 {: #references_ds}
 
-- [Data skipping for IBM SQL Query](https://www.ibm.com/cloud/blog/data-skipping-for-ibm-cloud-sql-query)
+- [Data skipping for {{site.data.keyword.sqlquery_short}}](https://www.ibm.com/cloud/blog/data-skipping-for-ibm-cloud-sql-query)
 - [Data skipping demo at Think 2019](https://www.ibm.com/cloud/blog/ibm-cloud-sql-query-at-think-2019) for the [Danaos use case](https://www.danaos.com/home/default.aspx) of [BigDataStack](https://bigdatastack.eu/?utm_source=IBM-Ta-Shma)
 - [How to lay out Big Data in IBM Cloud Object Storage for Spark SQL](https://www.ibm.com/cloud/blog/big-data-layout)
-- [Querying Geospatial Data by using IBM SQL Query](https://www.ibm.com/cloud/blog/querying-geospatial-data-using-ibm-sql-query)
+- [Querying Geospatial Data by using {{site.data.keyword.sqlquery_short}}](https://www.ibm.com/cloud/blog/querying-geospatial-data-using-ibm-sql-query)
