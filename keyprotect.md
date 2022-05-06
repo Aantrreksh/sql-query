@@ -17,7 +17,7 @@ subcollection: sql-query
 {:screen: .screen}
 {:tip: .tip}
 
-# Encrypting SQL queries with Key Protect
+# Encrypting SQL queries with {{site.data.keyword.keymanagementserviceshort}}
 {: #keyprotect}
 
 By default, {{site.data.keyword.sqlquery_full}} uses server-managed encryption at rest for all job information that is recorded about your stored queries. If you are processing sensitive data in your queries that is governed by special regulations, you can additionally use customer-managed keys to encrypt the SQL query texts and error messages that are stored in the job information.
