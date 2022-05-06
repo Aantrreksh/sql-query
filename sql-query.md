@@ -25,12 +25,12 @@ subcollection: sql-query
 
 **Note:** You can use {{site.data.keyword.sqlquery_short}} to create SELECT statements only; actions such as CREATE, DELETE, INSERT, and UPDATE are not possible.
 
-![SQL Query overview.](images/streams_landing_DE.svg "Data Engine Overview"){: caption="Figure 1. Data Engine overview" caption-side="bottom"}
+![{{site.data.keyword.sqlquery_short}} overview.](images/streams_landing_DE.svg "{{site.data.keyword.sqlquery_short}} Overview"){: caption="Figure 1. {{site.data.keyword.sqlquery_short}} overview" caption-side="bottom"}
 
 Input data is read from CSV, JSON, ORC, Parquet, or AVRO objects located in one or more {{site.data.keyword.cos_full}} instances.
 Each query result is written to a CSV, JSON, ORC, Parquet, or AVRO object in a Cloud {{site.data.keyword.cos_short}} or Db2 instance of your choice.
 Use the {{site.data.keyword.sqlquery_short}} user interface (UI) to develop your queries and the
-[SQL Query REST API](#restapi) to automate them.
+[{{site.data.keyword.sqlquery_short}}REST API](#restapi) to automate them.
 
 ![IBM Cloud SQL Query: Provision the IBM Cloud Services](https://www.youtube.com/embed/_fMEyqRC__c?list=PLzpeuWUENMK2R9CqhF0eJDSxfPBi6JeXA){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
@@ -44,7 +44,7 @@ Before you can use the {{site.data.keyword.sqlquery_short}} service to run SQL q
 
 Watch the following video to learn more about {{site.data.keyword.sqlquery_short}} and how you can get started to run a basic query.
 
-![IBM Cloud SQL Query: Run Queries from the Console](https://www.youtube.com/embed/PZAaWSzwo7s?list=PLzpeuWUENMK2R9CqhF0eJDSxfPBi6JeXA){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![{{site.data.keyword.sqlquery_notm}}: Run Queries from the Console](https://www.youtube.com/embed/PZAaWSzwo7s?list=PLzpeuWUENMK2R9CqhF0eJDSxfPBi6JeXA){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 In SQL, the term *query* is just another way of saying *SELECT statement*. To run a query:
 
@@ -145,7 +145,7 @@ A more exact specification of the object or objects:
     - If the path is identical to the name of an existing (non-empty) object, it matches only that single object.
     - If the path is a prefix of multiple objects at a slash `/` character, it matches all those objects that are not empty. For example, the path `mydir/test1` (or `mydir/test1/`) matches objects `mydir/test1/object1`, `mydir/test1/nested/object2`, but not `mydir/test100`.
     - The usage of a * wildcard depends on how the object structure was created:
-          - If the object structure was created as Hive-partitioned structure, for example as SQL Query result output, and the result objects are starting with the prefix `part-`, wildcards are not supported. Using SQL constructs based on the Hive structure is always the preferred method to restrict the number of objects to be read during query processing.
+          - If the object structure was created as Hive-partitioned structure, for example as {{site.data.keyword.sqlquery_short}} result output, and the result objects are starting with the prefix `part-`, wildcards are not supported. Using SQL constructs based on the Hive structure is always the preferred method to restrict the number of objects to be read during query processing.
 	   - If the object structure was created as Hive-partitioned structure, but by using arbitrary file names, the usage of wildcards is supported. The wildcard matches all objects with the indicated path prefix. For example, `mydir/test1*`, matches objects `mydir/test100`, and `mydir/test101/nested/object`.
 
 - For an output URI, it is the prefix under which the [result objects](#result) are to be written.
@@ -290,7 +290,7 @@ For Availability Service Level Agreements, see the [Cloud Services terms](http:/
 ### REST API
 {: #restapi}
 
-You can use the [SQL Query service REST API](https://cloud.ibm.com/apidocs/sql-query/sql-query-v3) to run queries and retrieve information about their status. This is especially helpful when you write code that automatically queries data.
+You can use the [{{site.data.keyword.sqlquery_short}} service REST API](https://cloud.ibm.com/apidocs/sql-query/sql-query-v3) to run queries and retrieve information about their status. This is especially helpful when you write code that automatically queries data.
 
 **Note:** The Cloud Resource Name (CRN) is a mandatory part of an {{site.data.keyword.sqlquery_short}} REST endpoint call. The CRN Copy radio button copies your CRN to clipboard and you can paste it into your API call.
 
@@ -333,7 +333,7 @@ Submit a catalog or index management statement | sql-query.api.managecatalog | `
 ### Example
 {: #data-scanned-example}
 
-Assume you have 1 PB of data that is stored on Cloud {{site.data.keyword.cos_short}} that is laid out as described in the [blog post](https://www.ibm.com/cloud/blog/big-data-layout) and is optimized for the queries you want to run. If you run a single query, the most expensive query possible is `SELECT * FROM`, as reading 1 PB of data is required. Any other query is much cheaper and faster. For example, a 1 PB data set consists of audit events for users of a system (user A performed action B in system X at time T) and the data is laid out in a way that it is partitioned by time (one file per day and system). So to answer a query like `SELECT DISTINCT user FROM WHERE System='X' AND Day >= (TODAY - 30)`, {{site.data.keyword.sqlquery_short}} must access all objects for system X that contain data for the last 30 days. The sum of the size of these objects is the maximum estimate of data that is scanned that you would be charged for. But as {{site.data.keyword.sqlquery_short}} accesses only one field, and data is stored as Parquet, it is much less. Calculating the precise price of the query is not possible in advance because much of it depends on the data itself. Parquet, for example, stores compressed columns, so if the column can be compressed effectively, even less data needs to be read. You also find some further details in the blog post [SQL Query releases serverless transformation and partitioning of data in open formats](https://www.ibm.com/cloud/blog/announcements/sql-query-releases-serverless-transformation-and-partitioning-of-data-in-open-formats) about {{site.data.keyword.sqlquery_short}} ETL capabilities and how they affect scanned data.
+Assume you have 1 PB of data that is stored on Cloud {{site.data.keyword.cos_short}} that is laid out as described in the [blog post](https://www.ibm.com/cloud/blog/big-data-layout) and is optimized for the queries you want to run. If you run a single query, the most expensive query possible is `SELECT * FROM`, as reading 1 PB of data is required. Any other query is much cheaper and faster. For example, a 1 PB data set consists of audit events for users of a system (user A performed action B in system X at time T) and the data is laid out in a way that it is partitioned by time (one file per day and system). So to answer a query like `SELECT DISTINCT user FROM WHERE System='X' AND Day >= (TODAY - 30)`, {{site.data.keyword.sqlquery_short}} must access all objects for system X that contain data for the last 30 days. The sum of the size of these objects is the maximum estimate of data that is scanned that you would be charged for. But as {{site.data.keyword.sqlquery_short}} accesses only one field, and data is stored as Parquet, it is much less. Calculating the precise price of the query is not possible in advance because much of it depends on the data itself. Parquet, for example, stores compressed columns, so if the column can be compressed effectively, even less data needs to be read. You also find some further details in the blog post [{{site.data.keyword.sqlquery_short}} releases serverless transformation and partitioning of data in open formats](https://www.ibm.com/cloud/blog/announcements/sql-query-releases-serverless-transformation-and-partitioning-of-data-in-open-formats) about {{site.data.keyword.sqlquery_short}} ETL capabilities and how they affect scanned data.
 
 ## Timestamps
 {: #timestamps}
