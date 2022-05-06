@@ -27,12 +27,12 @@ The Hive metastore can be used either within {{site.data.keyword.sqlquery_short}
 Or, it can be used by external Spark or Hive clients that support Apache Thrift.
 {: beta}
 
-## HMS usage within {{site.data.keyword.sqlquery_short}}
+## Hive metastore usage within {{site.data.keyword.sqlquery_short}}
 {: #internal_usage}
 
 Hive metastore can be used in {{site.data.keyword.sqlquery_short}} in read and write mode. Seamless access is configured without any configuration steps needed.
 
-The following is an example statement to create a table that can be used within {{site.data.keyword.sqlquery_short}}. The metadata is stored in the HMS.
+The following is an example statement to create a table that can be used within {{site.data.keyword.sqlquery_short}}. The metadata is stored in the Hive metastore.
 
 ```sql
 CREATE TABLE LAX_CARGO
@@ -43,14 +43,14 @@ location cos://us-geo/sql/LAX_Cargo.csv
 options(header=false)
 ```
 
-For more samples that show how to work with the HMS, go to the samples tab of the {{site.data.keyword.sqlquery_short}} UI, and see "Catalog management statements".
+For more samples that show how to work with the Hive metastore, go to the samples tab of the {{site.data.keyword.sqlquery_short}} UI, and see "Catalog management statements".
 
-## Using HMS with Apache Spark outside {{site.data.keyword.sqlquery_short}}
+## Using Hive metastore with Apache Spark outside {{site.data.keyword.sqlquery_short}}
 {: #external_usage}
 
 Hive metastore can be used externally only in read only mode. The Hive metastore access needs authentication, therefore a special version of the Hive metastore client is required in order to access the Hive metastore server. For *user*, specify the CRN, and for *password*, specify a valid apikey with access to your {{site.data.keyword.sqlquery_short}}. The Apache Thrift port to use is `9083`. In case you use Hive metastore within Apache Spark, a simple to configure function is provided, which allows usage either through Scala or Python.
 
-Store the HMS client jar in a directory that is accessible for Spark but is not in the classpath. The helper Scala jar should be stored in the classpath of the used Apache Spark.
+Store the Hive metastore client jar in a directory that is accessible for Spark but is not in the classpath. The helper Scala jar should be stored in the classpath of the used Apache Spark.
 
 Download the Hive client jar: https://us.sql-query.cloud.ibm.com/download/hive/hive-metastore-standalone-client-3.1.2-sqlquery.jar
 Download the helper function in Scala: https://us.sql-query.cloud.ibm.com/download/hive/spark-dataengine-integration-1.0.9.jar
