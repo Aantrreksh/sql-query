@@ -22,14 +22,7 @@ toc:
       - catalog_management.md
       - hive_metastore.md
       - index_management.md
-      - event_streams_landing.md
-      - topicgroup: 
-          label: Security and compliance
-          topics:
-          - security.md
-          - authentication.md
-          - secrets.md
-          - keyprotect.md
+      - event_streams_landing.md          
 
   - navgroup: 
       id: howto
@@ -51,8 +44,13 @@ toc:
       - topicgroup:
           label: Enhancing security
           topics:
+          - security.md
           - topic: data-security.md
             navtitle: Securing your data
+          - topic: authentication.md
+            navtitle: Authentication (IAM)
+          - secrets.md
+          - keyprotect.md
           - deployment_model.md
           - dependencies.md
           
