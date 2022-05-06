@@ -8,7 +8,7 @@ toc:
     console-page: /catalog/services/sql-query
     product-page: https://www.ibm.com/cloud/sql-query
     path: sql-query
-    label: SQL Query
+    label: Data Engine
     version: 2
 
   entries: 
