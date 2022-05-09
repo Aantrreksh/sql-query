@@ -41,7 +41,7 @@ In order to connect to your catalog, download the files from the following links
 {: #hive_compatible_client}
 
 Download the [Hive-compatible client](https://us.sql-query.cloud.ibm.com/download/hive/hive-metastore-standalone-client-3.1.2-sqlquery.jar) and place it in a directory of your Apache Spark cluster that is not on the classpath. This step is necessary, as the client is loaded into an isolated classloader to avoid version conflicts.
-Note that in the examples the files are placed in `/opt/spark/metastore_jars`, when you use a different folder, adjust the example accordingly.
+Note that in the examples the files are placed in `/tmp/dataengine`, when you use a different folder, adjust the example accordingly.
 
 The client differs from the Hive version 3.1.2 release by addditional enhancements that add support for TLS and authentication through {{site.data.keyword.iamlong}}.
 For *user*, specify the CRN and for *password* a valid apikey with access to your {{site.data.keyword.sqlquery_short}}. Find the endpoint to use in the following table.
@@ -60,12 +60,13 @@ The required JAR/Wheel files are not available in the Spark environment used by 
 Use the following cell to transfer the files:
 
 ```sql
-!wget https://us.sql-query.cloud.ibm.com/download/hive/dataengine_spark-1.0.4-py3-none-any.whl -O /tmp/dataengine_spark-1.0.9-py3-none-any.whl
+!mkdir /tmp/dataengine
+!wget https://us.sql-query.cloud.ibm.com/download/catalog/dataengine_spark-1.0.10-py3-none-any.whl -O /tmp/dataengine/dataengine_spark-1.0.10-py3-none-any.whl
 // user-libs/spark2 is in the classpath of Spark
-!wget https://us.sql-query.cloud.ibm.com/download/hive/spark-dataengine-integration-1.0.4.jar -O user-libs/spark2/spark-dataengine-integration-1.0.9.jar
-!wget https://us.sql-query.cloud.ibm.com/download/hive/hive-metastore-standalone-client-3.1.2-sqlquery.jar -O  /tmp/hive-metastore-standalone-client-3.1.2-sqlquery.jar
+!wget https://us.sql-query.cloud.ibm.com/download/catalog/dataengine-spark-integration-1.0.10.jar -O user-libs/spark2/dataengine-spark-integration-1.0.10.jar
+!wget https://us.sql-query.cloud.ibm.com/download/catalog/hive-metastore-standalone-client-3.1.2-sqlquery.jar -O  /tmp/dataengine/hive-metastore-standalone-client-3.1.2-sqlquery.jar
 
-!pip install --force-reinstall /tmp/dataengine_spark-1.0.9-py3-none-any.whl
+!pip install --force-reinstall /tmp/dataengine/dataengine_spark-1.0.10-py3-none-any.whl
 ```
 
 After the cell is executed, restart the kernel to ensure that Spark loaded the jar. Set the required variables and call the helper functions:
@@ -78,7 +79,7 @@ apikey='yourAPIkey'
 from dataengine import SparkSessionWithDataengine
 
 // call the helper function
-session_builder = SparkSessionWithDataengine.enableDataengine(crn, apikey, "public", "/tmp/dataengine_jars")
+session_builder = SparkSessionWithDataengine.enableDataengine(crn, apikey, "public", "/tmp/dataengine")
 spark = session_builder.appName("Spark DataEngine integration test").getOrCreate()
 
 ```
@@ -98,8 +99,8 @@ While the {{site.data.keyword.sqlquery_short}} catalog is compatible with the Hi
 
 Download both, the Scala and the Python SDK, and place them in a folder that is in the classpath of your Apache Spark cluster.
 
-- [spark-dataengine-scala](https://us.sql-query.cloud.ibm.com/download/hive/spark-dataengine-integration-1.0.9.jar)
-- [spark-dataengine-python](https://us.sql-query.cloud.ibm.com/download/hive/dataengine_spark-1.0.9-py3-none-any.whl)
+- [spark-dataengine-scala](https://us.sql-query.cloud.ibm.com/download/catalog/dataengine-spark-integration-1.0.10.jar)
+- [spark-dataengine-python](https://us.sql-query.cloud.ibm.com/download/catalog/dataengine_spark-1.0.10-py3-none-any.whl)
 
 Use the following examples to get started with {{site.data.keyword.iae_full}}(IAE) or Spark runtimes in {{site.data.keyword.dsx}.
 
@@ -113,7 +114,9 @@ if __name__ == '__main__':
     crn = sys.argv[1]
     apikey = sys.argv[2]
 
-    session_builder = SparkSessionWithDataengine.enableDataengine(crn, apikey, "public", "/tmp/dataengine_jars/")
+
+    session_builder = SparkSessionWithDataengine.enableDataengine(crn, apikey, "public", "/tmp/dataengine")
+
     spark = session_builder.appName("Spark DataEngine integration") \
           .config("fs.cos.impl", "com.ibm.stocator.fs.ObjectStoreFileSystem") \
           .config("fs.stocator.scheme.list", "cos") \
@@ -186,7 +189,7 @@ For self-hosted Apache Spark installations, or in case you don't want to use the
         .config("spark.hadoop.fs.cos.us-geo.iam.api.key", '<YourAPIkey>') \
         .config("spark.sql.hive.metastore.version", "3.0") \
         // directory where the Hive client has been placed
-        .config("spark.sql.hive.metastore.jars", "/tmp/dataengine_jars/*") \
+        .config("spark.sql.hive.metastore.jars", "/tmp/dataengine/*") \
         .config("spark.hive.metastore.uris", "thrift://catalog.<region>.sql-query.cloud.ibm.com:9083") \
         .config("spark.hive.metastore.use.SSL", "true") \
         .config("spark.hive.metastore.truststore.password", "changeit") \
