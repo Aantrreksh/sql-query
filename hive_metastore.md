@@ -39,7 +39,7 @@ In order to connect to your catalog, download the following files from the links
 ### Apache Hive Metastore 3.1.2 compatible client
 
 Download the hive compatible client from [here](https://us.sql-query.cloud.ibm.com/download/hive/hive-metastore-standalone-client-3.1.2-sqlquery.jar) and place it in a directory that of your Apache Spark cluster that is not on the classpath. This is necessary as the client will be loaded into an isolated classloader to avoid version conflicts.
-Note that the examples below assume the files have been placed in `/opt/spark/metastore_jars`, when using a different folder, adjust the example accordingly.
+Note that the examples below assume the files have been placed in `/tmp/dataengine_jars/`, when using a different folder, adjust the example accordingly.
 
 The client differs from the Hive 3.1.2 release by addditional enhancements that add support for TLS and authentication through IAM.
 For *user*, specify the CRN and for *password* a valid apikey with access to your {{site.data.keyword.sqlquery_short}}. Find the endpoint to use in the table below.
@@ -111,7 +111,7 @@ if __name__ == '__main__':
     crn = sys.argv[1]
     apikey = sys.argv[2]
 
-    session_builder = SparkSessionWithDataengine.enableDataengine(crn, apikey, "public", "/opt/spark/metastore_jars")
+    session_builder = SparkSessionWithDataengine.enableDataengine(crn, apikey, "public", "/tmp/dataengine_jars/")
     spark = session_builder.appName("Spark DataEngine integration") \
           .config("fs.cos.impl", "com.ibm.stocator.fs.ObjectStoreFileSystem") \
           .config("fs.stocator.scheme.list", "cos") \
@@ -192,7 +192,7 @@ spark = SparkSession.builder.appName('Python-App') \
     .config("spark.hive.execution.engine", "spark") \
     .config("spark.hive.stats.autogather", "false") \
     .config("spark.sql.warehouse.dir", "file:///tmp") \
-    // only spark as default catalog is allowed
+    // only spark as default catalog exists
     .config("metastore.catalog.default", "spark") \
     .enableHiveSupport() \
     .getOrCreate()
