@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years:  2020, 2021
-lastupdated: "2021-08-24"
+  years:  2020, 2022
+lastupdated: "2022-05-09"
 
 keywords: hive, metastore, catalog, performance, create table, object storage
 
@@ -21,7 +21,7 @@ subcollection: sql-query
 # Getting started with the catalog
 {: #getting_started_catalog}
 
-Each instance of {{site.data.keyword.sqlquery_full}} includes a database catalog that you can use to register and manage table definitions for your data on {{site.data.keyword.cos_full}}. Catalog syntax is compatible with Hive Metastore syntax. See how to [work with the catalog](#usage) and refer to the [Catalog management](/docs/sql-query?topic=sql-query-sql-reference#chapterHiveCatalog) section of the SQL reference.
+Each instance of {{site.data.keyword.sqlquery_full}} includes a database catalog that you can use to register and manage table definitions for your data on {{site.data.keyword.cos_full}}. Catalog syntax is compatible with Hive metastore syntax. See how to [work with the catalog](#usage) and refer to the [Catalog management](/docs/sql-query?topic=sql-query-sql-reference#chapterHiveCatalog) section of the SQL reference.
 
 ## Benefits
 {: #benefits}
@@ -156,7 +156,7 @@ PARTITIONED BY (country)
 LOCATION cos://us-geo/sql/customers_partitioned.csv
 ```
 
-Automatic schema detection also recognizes paritioned tables from the structure of the object names, so the same table definition is created from the following statement:
+Automatic schema detection also recognizes partitioned tables from the structure of the object names, so the same table definition is created from the following statement:
 
 ```sql
 CREATE TABLE customers
