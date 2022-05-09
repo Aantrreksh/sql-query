@@ -22,11 +22,10 @@ toc:
       - topicgroup:
         label: Catalog management
         topics:
-          - catalog_management.md
-          - topic: catalog_management.md
-            navtitle: Getting started with catalog
-          - topic: hive_metastore.md
-            navtitle: Connecting Apache Spark with catalog
+        - topic: catalog_management.md
+          navtitle: Getting started with the catalog
+        - topic: hive_metastore.md
+          navtitle: Connecting Apache Spark with the catalog 
       - index_management.md
       - event_streams_landing.md
 
