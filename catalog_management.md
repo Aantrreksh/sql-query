@@ -18,8 +18,8 @@ subcollection: sql-query
 {:tip: .tip}
 {:note: .note}
 
-# Catalog management
-{: #hivemetastore}
+# Getting started with the catalog
+{: #getting_started_catalog}
 
 Each instance of {{site.data.keyword.sqlquery_full}} includes a database catalog that you can use to register and manage table definitions for your data on {{site.data.keyword.cos_full}}. Catalog syntax is compatible with Hive Metastore syntax. See how to [work with the catalog](#usage) and refer to the [Catalog management](/docs/sql-query?topic=sql-query-sql-reference#chapterHiveCatalog) section of the SQL reference.
 
