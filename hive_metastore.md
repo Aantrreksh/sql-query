@@ -2,9 +2,9 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-05-06"
+lastupdated: "2022-05-09"
 
-keywords: Data Engine, SQL query, Hive, metastore
+keywords: Data Engine, SQL query, Hive, metastore, catalog
 
 subcollection: sql-query
 
@@ -17,51 +17,93 @@ subcollection: sql-query
 {:pre: .pre}
 {:beta: .beta}
 
-# Hive metastore
+# Hive compatible metastore
 {: #hive_metastore}
 {: beta}
 
-{{site.data.keyword.sqlquery_full}} provides an external Hive metastore (HMS) service. The Hive metastore provides an Apache Thrift interface to store metadata, 
-such as tables or views in an underlaying Relational Database Management System (RDBMS). Each instance has its own database named *default* that cannot be changed.
-The Hive metastore can be used either within {{site.data.keyword.sqlquery_short}}, for example by the creation of tables or views. 
-Or, it can be used by external Spark or Hive clients that support Apache Thrift.
-{: beta}
+{{site.data.keyword.sqlquery_full}} catalog provides an Apache Hive metastore compatible interface. This unified metadata repository enables any Big Data engine, like Apache Spark, to use {{site.data.keyword.sqlquery_full}} as metastore. The same definition for tables and views can be created once and used from any connected engine. Each instance of {{site.data.keyword.sqlquery_full}} exports its catalog as database named *default*.
 
-## Hive metastore usage within {{site.data.keyword.sqlquery_short}}
+
+## Catalog usage within {{site.data.keyword.sqlquery_short}}
 {: #internal_usage}
 
-Hive metastore can be used in {{site.data.keyword.sqlquery_short}} in read and write mode. Seamless access is configured without any configuration steps needed.
+Catalog can be used in {{site.data.keyword.sqlquery_short}} in read and write mode. Seamless access is configured without any configuration steps needed.
 
-The following is an example statement to create a table that can be used within {{site.data.keyword.sqlquery_short}}. The metadata is stored in the Hive metastore.
-
-```sql
-CREATE TABLE LAX_CARGO
-(Extract_Date timestamp, Report_Date timestamp, Arrival_Departure string,
-Domestic_International string, Cargo_Type string, Air_Cargo_Tons int)
-using csv
-location cos://us-geo/sql/LAX_Cargo.csv
-options(header=false)
-```
-
-For more samples that show how to work with the Hive metastore, go to the samples tab of the {{site.data.keyword.sqlquery_short}} UI, and see "Catalog management statements".
-
-## Using Hive metastore with Apache Spark outside {{site.data.keyword.sqlquery_short}}
+## Connecting Apache Spark with {{site.data.keyword.sqlquery_short}}
 {: #external_usage}
 
-Hive metastore can be used externally only in read only mode. The Hive metastore access needs authentication, therefore a special version of the Hive metastore client is required in order to access the Hive metastore server. For *user*, specify the CRN, and for *password*, specify a valid apikey with access to your {{site.data.keyword.sqlquery_short}}. The Apache Thrift port to use is `9083`. In case you use Hive metastore within Apache Spark, a simple to configure function is provided, which allows usage either through Scala or Python.
+When using the hive metastore compatible interface, access is limited to read only operations. This means that existing tables and views can be used, but not modified.
 
-Store the Hive metastore client jar in a directory that is accessible for Spark but is not in the classpath. The helper Scala jar should be stored in the classpath of the used Apache Spark.
+In order to connect to your catalog, download the following files from the links below:
 
-Download the Hive client jar: https://us.sql-query.cloud.ibm.com/download/hive/hive-metastore-standalone-client-3.1.2-sqlquery.jar
-Download the helper function in Scala: https://us.sql-query.cloud.ibm.com/download/hive/spark-dataengine-integration-1.0.9.jar
-and Python: https://us.sql-query.cloud.ibm.com/download/hive/dataengine_spark-1.0.9-py3-none-any.whl
+### Apache Hive Metastore 3.1.2 compatible client
 
-### Using the helper functions
-{: #usage_helper}
+Download the hive compatible client from [here](https://us.sql-query.cloud.ibm.com/download/hive/hive-metastore-standalone-client-3.1.2-sqlquery.jar) and place it in a directory that of your Apache Spark cluster that is not on the classpath. This is necessary as the client will be loaded into an isolated classloader to avoid version conflicts.
+Note that the examples below assume the files have been placed in `/opt/spark/metastore_jars`, when using a different folder, adjust the example accordingly.
 
-The following is an example to run the functions using Python:
+The client differs from the Hive 3.1.2 release by addditional enhancements that add support for TLS and authentication through IAM.
+For *user*, specify the CRN and for *password* a valid apikey with access to your {{site.data.keyword.sqlquery_short}}. Find the endpoint to use in the table below.
 
-```sql
+| Region | Endpoint |
+|--------|----------|
+| us-south | thrift://catalog.us.dataengine.cloud.ibm.com:9083 |
+| eu-de | thrift://catalog.eu-de.dataengine.cloud.ibm.com:9083 |
+| in-che | thrift://catalog.in-che.dataengine.cloud.ibm.com:9083 |
+
+
+
+
+### Usage within IBM Watson Studio notebooks
+
+The required JAR/Wheel files are not available in the Spark environment used by Watson Studio. Therefore they need to be transferred into the existing Spark environment first.
+
+Use the cell below to transfer the files:
+
+```
+!wget https://us.sql-query.cloud.ibm.com/download/hive/dataengine_spark-1.0.4-py3-none-any.whl -O /tmp/dataengine_spark-1.0.9-py3-none-any.whl
+// user-libs/spark2 is in the classpath of Spark
+!wget https://us.sql-query.cloud.ibm.com/download/hive/spark-dataengine-integration-1.0.4.jar -O user-libs/spark2/spark-dataengine-integration-1.0.9.jar
+!wget https://us.sql-query.cloud.ibm.com/download/hive/hive-metastore-standalone-client-3.1.2-sqlquery.jar -O  /tmp/hive-metastore-standalone-client-3.1.2-sqlquery.jar
+
+!pip install --force-reinstall /tmp/dataengine_spark-1.0.9-py3-none-any.whl
+```
+
+After the above cell has been executed restart the kernel to ensure Spark has loaded the jar. Set the required variables and call the helper functions:
+```
+// change the CRN and the APIkey according your instance
+crn='yourDataengineCRN'
+apikey='yourAPIkey'
+
+from dataengine import SparkSessionWithDataengine
+
+// call the helper function
+session_builder = SparkSessionWithDataengine.enableDataengine(crn, apikey, "public", "/tmp/dataengine_jars")
+spark = session_builder.appName("Spark DataEngine integration test").getOrCreate()
+
+```
+
+Display your tables and run a sql statement:
+```
+spark.sql('show tables').show(truncate=False)
+
+spark.sql('select * from yourTable').show()
+```
+
+
+### Apache Spark Data Engine integration
+
+While {{site.data.keyword.sqlquery_full}} catalog is hive metastore compatible and can be used like any other external hive metastore server, a sdk is provided to minimize the steps needed to configure Apache Spark.
+The SDK simplifies connecting to both metastore and IBM Cloud Objectstorage buckets referenced by tables or views
+
+Download both, the scala and the python SDK and place them in a folder that is in the classpath of your Apache Spark cluster.
+[spark-dataengine-scala](https://us.sql-query.cloud.ibm.com/download/hive/spark-dataengine-integration-1.0.9.jar)
+[spark-dataengine-python](https://us.sql-query.cloud.ibm.com/download/hive/dataengine_spark-1.0.9-py3-none-any.whl)
+
+
+Use the examples below to get started for IBM Analytics Engine or Spark runtimes in Watson studio.
+
+Submit the following Python application using a Notebook or spark-submit:
+```
 import sys
 from SparkSessionWithDataengine import SparkSessionWithDataengine
 
@@ -81,17 +123,14 @@ if __name__ == '__main__':
         key = conf[0]
         value = "***" if apikey == conf[1] else conf[1]
         print(key, value)
-
-    # test payload
     print("Got a spark session, listing all tables")
     spark.sql('show tables').show()
 
     spark.stop()
 ```
 
-The following is an example to run the functions using Python:
-
-```sql
+If you're using Scala, run this application:
+```
 package com.ibm.cloud.dataengine
 
 import org.apache.spark.sql.SparkSession
@@ -120,12 +159,15 @@ object SparkSessionBuilderHMSConfigTest {
 }
 ```
 
+
 ### Required settings for native Spark builder
-{: #required_settings_spark}
 
-If you want to control the settings, see the following required settings. The special Hive metastore client must be availalbe in the specified path.
+For self-hosted Apache Spark installations, or in case you don't want to use the integration SDK, use instructions below:
 
-```config
+- Make sure [stocator](https://github.com/CODAIT/stocator) is installed according to the instructions provided.
+- Download the hive compatible client per [instructions](#apache-hive-metastore-3.1.2-compatible-client
+- Set the following settings in SparkContext:
+```
 spark = SparkSession.builder.appName('Python-App') \
     .config("spark.sql.pyspark.jvmStacktrace.enabled", True) \
     .config("spark.hive.metastore.truststore.path", "file:///opt/ibm/jdk/jre/lib/security/cacerts") \
@@ -134,19 +176,19 @@ spark = SparkSession.builder.appName('Python-App') \
     .config("fs.stocator.scheme.list", "cos") \
     .config("fs.stocator.cos.impl", "com.ibm.stocator.fs.cos.COSAPIClient") \
     .config("fs.stocator.cos.scheme", "cos") \
-    // register the required Cloud Object path used in our application
+    // register the required Cloud Object path used in our application, add endpoints for all buckets
     .config("spark.hadoop.fs.cos.us-geo.endpoint", "https://s3.us.cloud-object-storage.appdomain.cloud") \
     .config("spark.hadoop.fs.cos.us-geo.iam.endpoint", "https://iam.cloud.ibm.com/identity/token") \
-    .config("spark.hadoop.fs.cos.us-geo.iam.api.key", 'YourAPIkey') \
+    .config("spark.hadoop.fs.cos.us-geo.iam.api.key", '<YourAPIkey>') \
     .config("spark.sql.hive.metastore.version", "3.0") \
-    // directory where the HMS client has been stored
+    // directory where the Hive client has been placed
     .config("spark.sql.hive.metastore.jars", "/tmp/dataengine_jars/*") \
-    .config("spark.hive.metastore.uris", "thrift://catalog.sql-query.cloud.ibm.com:9083") \
+    .config("spark.hive.metastore.uris", "thrift://catalog.<region>.sql-query.cloud.ibm.com:9083") \
     .config("spark.hive.metastore.use.SSL", "true") \
     .config("spark.hive.metastore.truststore.password", "changeit") \
     .config("spark.hive.metastore.client.auth.mode", "PLAIN") \
-    .config("spark.hive.metastore.client.plain.username", 'YourDataengineCRN') \
-    .config("spark.hive.metastore.client.plain.password", 'YourAPIkey') \
+    .config("spark.hive.metastore.client.plain.username", '<YourDataengineCRN>') \
+    .config("spark.hive.metastore.client.plain.password", '<YourAPIkey>') \
     .config("spark.hive.execution.engine", "spark") \
     .config("spark.hive.stats.autogather", "false") \
     .config("spark.sql.warehouse.dir", "file:///tmp") \
@@ -156,45 +198,3 @@ spark = SparkSession.builder.appName('Python-App') \
     .getOrCreate()
 
 ```
-
-### Usage within {{site.data.keyword.dsx}} notebooks
-{: #usage_notebooks}
-
-The required JAR/Wheel files are not available in the Spark environment used by {{site.data.keyword.dsx_full}}. Therefore, you must transfer them into the existing Spark environment first. See the following cell that transfers the files:
-
-```sql
-!wget https://us.sql-query.cloud.ibm.com/download/hive/dataengine_spark-1.0.4-py3-none-any.whl -O /tmp/dataengine_spark-1.0.9-py3-none-any.whl
-// user-libs/spark2 is in the classpath of Spark
-!wget https://us.sql-query.cloud.ibm.com/download/hive/spark-dataengine-integration-1.0.4.jar -O user-libs/spark2/spark-dataengine-integration-1.0.9.jar
-!wget https://us.sql-query.cloud.ibm.com/download/hive/hive-metastore-standalone-client-3.1.2-sqlquery.jar -O  /tmp/hive-metastore-standalone-client-3.1.2-sqlquery.jar
-
-!pip install --force-reinstall /tmp/dataengine_spark-1.0.9-py3-none-any.whl
-```
-
-Afer you executed the cell, restart the kernel. Otherwise, the jar files are not recognized. Set the required variables and call the helper functions, as follows:
-
-```sql
-// change the CRN and the APIkey according your instance
-crn='yourDataengineCRN'
-apikey='yourAPIkey'
-
-from dataengine import SparkSessionWithDataengine
-
-// call the helper function
-session_builder = SparkSessionWithDataengine.enableDataengine(crn, apikey, "public", "/tmp/dataengine_jars")
-spark = session_builder.appName("Spark DataEngine integration test").getOrCreate()
-```
-
-Next, display your tables and run an SQL statement:
-
-```sql
-spark.sql('show tables').show(truncate=False)
-
-spark.sql('select * from yourTable').show()
-```
-
-## Encryption
-{: #encryption}
-
-If encryption with {{site.data.keyword.keymanagementservicefull}} is enabled for the used instance, the table metadata in the underlaying RDBMS will be stored encrypted. Tables created before May 6, 2022 were not stored encpyted with your {{site.data.keyword.keymanagementserviceshort}} key. To encrypt them, drop and recreate the tables.
-
