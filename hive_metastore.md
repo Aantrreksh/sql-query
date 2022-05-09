@@ -40,7 +40,7 @@ In order to connect to your catalog, download the files from the following links
 ### Apache Hive metastore version 3.1.2 compatible client
 {: #hive_compatible_client}
 
-Download the [Hive-compatible client]( https://us.sql-query.cloud.ibm.com/download/catalog/hive-metastore-standalone-client-3.1.2-sqlquery.jar) and place it in a directory of your Apache Spark cluster that is not on the classpath. This step is necessary, as the client is loaded into an isolated classloader to avoid version conflicts.
+Download the [Hive-compatible client](https://us.sql-query.cloud.ibm.com/download/catalog/hive-metastore-standalone-client-3.1.2-sqlquery.jar) and place it in a directory of your Apache Spark cluster that is not on the classpath. This step is necessary, as the client is loaded into an isolated classloader to avoid version conflicts.
 Note that in the examples the files are placed in `/tmp/dataengine`, when you use a different folder, adjust the example accordingly.
 
 The client differs from the Hive version 3.1.2 release by additional enhancements that add support for TLS and authentication through {{site.data.keyword.iamlong}}.
