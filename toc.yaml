@@ -8,36 +8,35 @@ toc:
     console-page: /catalog/services/sql-query
     product-page: https://www.ibm.com/cloud/sql-query
     path: sql-query
-    label: SQL Query
+    label: Data Engine
     version: 2
 
-  entries: 
-  - navgroup: 
+  entries:
+  - navgroup:
       id: learn
       topics:
       - getting-started.md
       - sql-query.md
       - topic: release-notes.md
         navtitle: Release notes
-      - hive_metastore.md
+      - topicgroup:
+        label: Catalog management
+        topics:
+        - topic: catalog_management.md
+          navtitle: Getting started with the catalog
+        - topic: hive_metastore.md
+          navtitle: Connecting Apache Spark with Data Engine
       - index_management.md
       - event_streams_landing.md
-      - topicgroup: 
-          label: Security and compliance
-          topics:
-          - security.md
-          - authentication.md
-          - secrets.md
-          - keyprotect.md
 
-  - navgroup: 
+  - navgroup:
       id: howto
       topics:
       - videos.md
       - notebooks.md
-      - topicgroup: 
+      - topicgroup:
           label: Guides
-          topics: 
+          topics:
           - big_data.md
           - setup.md
           - data_lake.md
@@ -50,11 +49,16 @@ toc:
       - topicgroup:
           label: Enhancing security
           topics:
+          - security.md
           - topic: data-security.md
             navtitle: Securing your data
+          - topic: authentication.md
+            navtitle: Authentication (IAM)
+          - secrets.md
+          - keyprotect.md
           - deployment_model.md
           - dependencies.md
-          
+
   - navgroup:
       id: reference
       topics:
@@ -83,6 +87,5 @@ toc:
 
   - navgroup:
       id: help
-      topics: 
+      topics:
       - faq.md
-      

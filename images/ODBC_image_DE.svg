@@ -12,9 +12,9 @@
             <tspan x="1062" y="624">JDBC</tspan>
         </text>
         <rect id="Rectangle-Copy" stroke="#2F528F" stroke-width="2" fill="#4472C4" x="1302" y="201" width="535" height="789"></rect>
-        <text id="IBM-Cloud-SQL-Query" font-family="IBMPlexSans, IBM Plex Sans" font-size="60" font-weight="normal" letter-spacing="-0.714286" fill="#FFFFFF">
-            <tspan x="1374.30286" y="524">IBM Cloud SQL</tspan>
-            <tspan x="1492.25572" y="603">Query</tspan>
+        <text id="IBM-Cloud-Data-Engin" font-family="IBMPlexSans, IBM Plex Sans" font-size="60" font-weight="normal" letter-spacing="-0.714286" fill="#FFFFFF">
+            <tspan x="1433.65429" y="524">IBM Cloud </tspan>
+            <tspan x="1414.26857" y="603">Data Engine</tspan>
         </text>
         <text id="IBM-Cloud" font-family="IBMPlexSans, IBM Plex Sans" font-size="60" font-weight="normal" letter-spacing="-0.714286" fill="#FFFFFF">
             <tspan x="1433.65429" y="756">IBM Cloud</tspan>

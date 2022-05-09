@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years:  2020, 2021
-lastupdated: "2021-02-24"
+  years:  2020, 2022
+lastupdated: "2022-05-09"
 
 keywords: data skipping, performance, cost, data format, indexes, sample data, index management
 
@@ -198,7 +198,9 @@ SHOW METAINDEXES
 ```
 
 The result includes the currently set metadata base location and a list of indexed data sets.
-**Note:** If you see `DEPRECATED_SUPPORTED` in front of the index, it means that the metadata version is deprecated but supported and skipping works. The next `REFRESH` updates the metadata automatically.
+
+If you see `DEPRECATED_SUPPORTED` in front of the index, it means that the metadata version is deprecated but supported and skipping works. The next `REFRESH` updates the metadata automatically.
+{: note}
 
 ### Deleting data skipping indexes
 {: #deleting_ds}
@@ -260,7 +262,7 @@ The metadata for a partitioned table must be different from the metadata on the 
 ## Limitations
 {: #limitations_ds}
 
-- Data skipping sometimes does not work if type *casting* is used in the `WHERE` clause. For example, given a MinMax index on a column    with a short data type, the following query does not benefit from data skipping:
+- Data skipping sometimes does not work if type *casting* is used in the `WHERE` clause. For example, given a MinMax index on a column with a short data type, the following query does not benefit from data skipping:
 
     ```sql
     select * from table where shortType > 1
@@ -282,7 +284,7 @@ The metadata for a partitioned table must be different from the metadata on the 
 ## References
 {: #references_ds}
 
-- [Data skipping for IBM SQL Query](https://www.ibm.com/cloud/blog/data-skipping-for-ibm-cloud-sql-query)
+- [Data skipping for {{site.data.keyword.sqlquery_short}}](https://www.ibm.com/cloud/blog/data-skipping-for-ibm-cloud-sql-query)
 - [Data skipping demo at Think 2019](https://www.ibm.com/cloud/blog/ibm-cloud-sql-query-at-think-2019) for the [Danaos use case](https://www.danaos.com/home/default.aspx) of [BigDataStack](https://bigdatastack.eu/?utm_source=IBM-Ta-Shma)
 - [How to lay out Big Data in IBM Cloud Object Storage for Spark SQL](https://www.ibm.com/cloud/blog/big-data-layout)
-- [Querying Geospatial Data by using IBM SQL Query](https://www.ibm.com/cloud/blog/querying-geospatial-data-using-ibm-sql-query)
+- [Querying Geospatial Data by using {{site.data.keyword.sqlquery_short}}](https://www.ibm.com/cloud/blog/querying-geospatial-data-using-ibm-sql-query)

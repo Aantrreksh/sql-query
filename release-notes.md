@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-03-30"
+lastupdated: "2022-05-04"
 
-keywords: sql query release notes
+keywords: sql query, data engine, release notes
 
 subcollection: sql-query
 
@@ -20,6 +20,16 @@ content-type: release-note
 
 Use these release notes to learn about the latest {{site.data.keyword.sqlquery_full}} that are grouped by date. Release notes are available for a minimum of three years.
 {: shortdesc}
+
+## May 2022
+{: #sql-query-may2022}
+{: release-note}
+
+Rebranding
+: IBM Cloud SQL Query has been rebranded to {{site.data.keyword.sqlquery_notm}}.
+
+Hive
+:   {{site.data.keyword.sqlquery_short}} provides an external [Hive metastore (HMS) service](docs/sql-query?topic=sql-query-hive_metastore).  
 
 ## November 2021
 {: #sql-query-november2021}
@@ -81,7 +91,7 @@ Time series functions
 :   {{site.data.keyword.sqlquery_short}} time series functions: The anchor functions are deprecated and replaced by the new and more powerful expression creation functions.
 
 Python SDK
-:   The [ibmcloudsql](https://pypi.org/project/ibmcloudsql) Python SDK significantly expanded in functionality for even more powerful Python analytics with SQL. Take a tour of the functions in the [SQL Query Starter Notebook](https://dataplatform.cloud.ibm.com/exchange/public/entry/view/4a9bb1c816fb1e0f31fec5d580e4e14d). The Python SDK also comes with a dedicated [online documentation](https://ibm-cloud.github.io/sql-query-clients/intro.html#ibmcloudsql).
+:   The [ibmcloudsql](https://pypi.org/project/ibmcloudsql) Python SDK significantly expanded in functionality for even more powerful Python analytics with SQL. Take a tour of the functions in the [{{site.data.keyword.sqlquery_short}} Starter Notebook](https://dataplatform.cloud.ibm.com/exchange/public/entry/view/4a9bb1c816fb1e0f31fec5d580e4e14d). The Python SDK also comes with a dedicated [online documentation](https://ibm-cloud.github.io/sql-query-clients/intro.html#ibmcloudsql).
 
 Usage of legacy SoftLayer endpoints discontinued
 :   The usage of the legacy SoftLayer endpoints of Cloud {{site.data.keyword.cos_full_notm}} is discontinued. Check out the [Cloud Object Storage announcement](https://cloud.ibm.com/status?component=cloud-object-storage&location=global&selected=announcement&query=2020+Actions) for more details.

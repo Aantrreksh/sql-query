@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-03-02"
+lastupdated: "2022-05-06"
 
-keywords: SQL, query, object storage, bucket, sample, instance, analyze, CSV, JSON, ORC, Parquet
+keywords: SQL, query, object storage, bucket, sample, instance, analyze, CSV, JSON, ORC, Parquet, Data Engine
 
 subcollection: sql-query
 
@@ -17,7 +17,7 @@ subcollection: sql-query
 {:screen: .screen}
 {:tip: .tip}
 
-# Getting started with IBM Cloud SQL Query
+# Getting started with {{site.data.keyword.sqlquery_notm}}
 {: #getting-started}
 
 In this {{site.data.keyword.sqlquery_full}} tutorial, we set you up to begin querying rectangular data in {{site.data.keyword.cos_full}} and storing the results in {{site.data.keyword.cos_short}}.
@@ -39,10 +39,10 @@ for more information about how to use Cloud {{site.data.keyword.cos_short}}.
 ## Create your {{site.data.keyword.sqlquery_short}} service instance
 {: #sql_query}
 
-1. Go to the [**IBM Cloud catalog**](https://cloud.ibm.com/catalog) and search for **SQL Query**.
-2. Click **SQL Query** to open the catalog details page.
+1. Go to the [**IBM Cloud catalog**](https://cloud.ibm.com/catalog) and search for **{{site.data.keyword.sqlquery_short}}**.
+2. Click **{{site.data.keyword.sqlquery_short}}** to open the catalog details page.
 3. Select the Lite plan and click **Create** to create an instance of the service.
-4. Click **Launch SQL Query UI** on the Dashboard page to open the {{site.data.keyword.sqlquery_short}} Console.
+4. Click **Launch {{site.data.keyword.sqlquery_short}} UI** on the Dashboard page to open the {{site.data.keyword.sqlquery_short}} Console.
 
    When you open the Console for the first time, the {{site.data.keyword.sqlquery_short}} service automatically creates a bucket for you in your Cloud {{site.data.keyword.cos_short}} instance. It uses this bucket as the default target for your query results.
 
@@ -61,7 +61,7 @@ To analyze your own data (CSV, JSON, ORC, or Parquet), upload it to a Cloud {{si
 
 For more advanced capabilities, check out the following video tutorials.
 
-- [IBM Cloud SQL Query introduction](http://ibm.biz/csq-run-queries)
+- [IBM Cloud {{site.data.keyword.sqlquery_short}} introduction](http://ibm.biz/csq-run-queries)
 - [How to connect to IBM Cloud Object Storage through the Command Line](http://ibm.biz/csq-aws-sli)
-- [How to use the SQL Query REST API](https://video.ibm.com/playlist/633112/video/127739961)
+- [How to use the {{site.data.keyword.sqlquery_short}} REST API](https://video.ibm.com/playlist/633112/video/127739961)
 - [How to operationalize SQL code and call it from an application](http://ibm.biz/csq-e2e)

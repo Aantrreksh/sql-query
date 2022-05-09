@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-03-03"
+lastupdated: "2022-05-06"
 
 keywords: security, authentication, access, iam, sso, service credential
 
@@ -29,7 +29,7 @@ The {{site.data.keyword.sqlquery_short}} UI supports [IAM sessions](/docs/accoun
 
 Queries submitted from the UI can run at maximum for one hour or the remaining session lifetime, whichever is shorter. Queries submitted via the API can always run for one hour maximum if you retrieve the API token using the method described in the [{{site.data.keyword.sqlquery_short}} API documentation](https://cloud.ibm.com/apidocs/sql-query-v3).
 
-## Authenticating access to data resources in SQL Query
+## Authenticating access to data resources in {{site.data.keyword.sqlquery_short}}
 {: #accessauthentication}
 
 ### SSO through {{site.data.keyword.iamshort}}

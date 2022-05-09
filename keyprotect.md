@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2022
 lastupdated: "2022-02-28"
 
-keywords: encryption, key protect, query, key management system
+keywords: encryption, key protect, query, key management system, data engine
 
 subcollection: sql-query
 
@@ -17,7 +17,7 @@ subcollection: sql-query
 {:screen: .screen}
 {:tip: .tip}
 
-# Encrypting SQL queries with Key Protect
+# Encrypting SQL queries with {{site.data.keyword.keymanagementserviceshort}}
 {: #keyprotect}
 
 By default, {{site.data.keyword.sqlquery_full}} uses server-managed encryption at rest for all job information that is recorded about your stored queries. If you are processing sensitive data in your queries that is governed by special regulations, you can additionally use customer-managed keys to encrypt the SQL query texts and error messages that are stored in the job information.
@@ -50,9 +50,9 @@ You can use {{site.data.keyword.cloudaccesstraillong}} to audit the lifecycle ev
     - Open your {{site.data.keyword.cloud_notm}} dashboard.
     - From the menu bar, click **Manage** > **Access (IAM)**, and select **Authorizations**.
     - Click **Create**.
-    - In the source service menu, select **IBM SQL Query**.
+    - In the source service menu, select **{{site.data.keyword.sqlquery_notm}}**.
     - In the source service instance menu, select the service instance to authorize.
-    - In the target service menu, select **IBM Key Protect**.
+    - In the target service menu, select **{{site.data.keyword.keymanagementservicelong_notm}}**.
     - In the target service instance menu, select the service instance to authorize.
     - Enable the **Reader** role.
     - Click **Authorize**.
