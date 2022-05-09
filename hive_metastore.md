@@ -52,10 +52,10 @@ For *user*, specify the CRN and for *password* a valid apikey with access to you
 | eu-de | thrift://catalog.eu-de.dataengine.cloud.ibm.com:9083 |
 | in-che | thrift://catalog.in-che.dataengine.cloud.ibm.com:9083 |
 
-### Usage within {{site.data.keyword.dsx}} notebooks
+### Usage within {{site.data.keyword.DSX}} notebooks
 {: #usage_watson_notebooks}
 
-The required JAR/Wheel files are not available in the Spark environment used by {{site.data.keyword.dsx_full}}. Therefore, transfer them into the existing Spark environment first.
+The required JAR/Wheel files are not available in the Spark environment used by {{site.data.keyword.DSX_full}}. Therefore, transfer them into the existing Spark environment first.
 
 Use the following cell to transfer the files:
 
@@ -72,7 +72,7 @@ Use the following cell to transfer the files:
 After the cell is executed, restart the kernel to ensure that Spark loaded the jar. Set the required variables and call the helper functions:
 
 ```sql
-// change the CRN and the APIkey according your instance
+// change the CRN and the APIkey according to your instance
 crn='yourDataengineCRN'
 apikey='yourAPIkey'
 
