@@ -17,11 +17,11 @@ subcollection: sql-query
 {:pre: .pre}
 {:beta: .beta}
 
-# Hive-compatible metastore
+# Connecting Apache Spark to {{site.data.keyword.sqlquery_short}}
 {: #hive_metastore}
 {: beta}
 
-{{site.data.keyword.sqlquery_full}} catalog provides an interface that is compatible with Apache Hive metastore. This unified metadata repository enables any Big Data engine, such as Apache Spark, to use {{site.data.keyword.sqlquery_full}} as metastore. The same definition for tables and views can be created once and used from any connected engine. Each instance of {{site.data.keyword.sqlquery_full}} exports its catalog as a database named *default*.
+{{site.data.keyword.sqlquery_full}} catalog provides an interface that is compatible with Apache Hive metastore. This unified metadata repository enables any Big Data engine, such as Apache Spark, to use {{site.data.keyword.sqlquery_short}} as metastore. The same definition for tables and views can be created once and used from any connected engine. Each instance of {{site.data.keyword.sqlquery_short}} exports its catalog as a database named *default*.
 {: beta}
 
 
@@ -94,14 +94,14 @@ spark.sql('select * from yourTable').show()
 ### Apache Spark Data Engine integration
 {: #spark_data_engine_integration}
 
-While the {{site.data.keyword.sqlquery_full}} catalog is compatible with the Hive metastore and can be used as any other external Hive metastore server, an SDK is provided to minimize the steps that are needed to configure Apache Spark. The SDK simplifies connecting to both, metastore and IBM Cloud Object storage, buckets referenced by tables or views.
+While the {{site.data.keyword.sqlquery_short}} catalog is compatible with the Hive metastore and can be used as any other external Hive metastore server, an SDK is provided to minimize the steps that are needed to configure Apache Spark. The SDK simplifies connecting to both, metastore and IBM Cloud Object storage, buckets referenced by tables or views.
 
 Download both, the Scala and the Python SDK, and place them in a folder that is in the classpath of your Apache Spark cluster.
 
 - [spark-dataengine-scala](https://us.sql-query.cloud.ibm.com/download/hive/spark-dataengine-integration-1.0.9.jar)
 - [spark-dataengine-python](https://us.sql-query.cloud.ibm.com/download/hive/dataengine_spark-1.0.9-py3-none-any.whl)
 
-Use the following examples to get started with {{site.data.keyword.iae_full} or Spark runtimes in {{site.data.keyword.dsx}.
+Use the following examples to get started with {{site.data.keyword.iae_full}}(IAE) or Spark runtimes in {{site.data.keyword.dsx}.
 
 Submit the following Python application using a notebook or the `spark-submit` command:
 
