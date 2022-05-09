@@ -44,7 +44,7 @@ Download the [Hive-compatible client](https://us.sql-query.cloud.ibm.com/downloa
 Note that in the examples the files are placed in `/tmp/dataengine`, when you use a different folder, adjust the example accordingly.
 
 The client differs from the Hive version 3.1.2 release by additional enhancements that add support for TLS and authentication through {{site.data.keyword.iamlong}}.
-For *user*, specify the CRN and for *password* a valid apikey with access to your {{site.data.keyword.sqlquery_short}}. Find the endpoint to use in the following table.
+For *user*, specify the CRN and for *password* a valid API key with access to your {{site.data.keyword.sqlquery_short}}. Find the endpoint to use in the following table.
 
 | Region | Endpoint |
 |--------|----------|
