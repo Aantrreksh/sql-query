@@ -11,27 +11,33 @@ toc:
     label: Data Engine
     version: 2
 
-  entries: 
-  - navgroup: 
+  entries:
+  - navgroup:
       id: learn
       topics:
       - getting-started.md
       - sql-query.md
       - topic: release-notes.md
         navtitle: Release notes
-      - catalog_management.md
-      - hive_metastore.md
+      - topicgroup:
+        label: Catalog management
+        topics:
+          - catalog_management.md
+          - topic: catalog_management.md
+            navtitle: Getting started with catalog
+          - topic: hive_metastore.md
+            navtitle: Connecting Apache Spark with catalog
       - index_management.md
-      - event_streams_landing.md          
+      - event_streams_landing.md
 
-  - navgroup: 
+  - navgroup:
       id: howto
       topics:
       - videos.md
       - notebooks.md
-      - topicgroup: 
+      - topicgroup:
           label: Guides
-          topics: 
+          topics:
           - big_data.md
           - setup.md
           - data_lake.md
@@ -53,7 +59,7 @@ toc:
           - keyprotect.md
           - deployment_model.md
           - dependencies.md
-          
+
   - navgroup:
       id: reference
       topics:
@@ -82,6 +88,5 @@ toc:
 
   - navgroup:
       id: help
-      topics: 
+      topics:
       - faq.md
-      
