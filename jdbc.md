@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-04-25"
+lastupdated: "2022-05-13"
 
 keywords: jdbc, data engine
 
@@ -63,6 +63,12 @@ Connection properties (except for the CRN) can be specified as part of the URL, 
 
 This driver is designed as a facade to JVM applications for easy access to {{site.data.keyword.sqlquery_short}} service. The driver uses the REST API of the service to run queries, stores the results in Cloud {{site.data.keyword.cos_short}}, and makes these results accessible through JDBC interfaces.
 
+The JDBC driver supports Java 17. To make use of the JDBC driver in a Java 17 JVM, you must pass the following option to the JVM:
+
+```
+ --add-opens java.base/java.lang=ALL-UNNAMED
+ ```
+
 The driver does not implement full JDBC-compliant functionality, but only the parts of the API that are most commonly used by clients. The following functions are explicitly tested:
 
 - Retrieving query results with the following primitive SQL types: `STRING` or `VARCHAR`, `INTEGER`, `LONG`, `FLOAT`, `DOUBLE`, `DECIMAL`, `DATE`, `TIME`, `TIMESTAMP`. `TIMESTAMP` columns are handled as Coordinated Universal Time (UTC).
@@ -72,7 +78,7 @@ The driver does not implement full JDBC-compliant functionality, but only the pa
 
 The SQL syntax itself is the full syntax that is supported by {{site.data.keyword.sqlquery_short}} except for the `INTO` clause. An `INTO` clause is implicitly added by the driver based on the Cloud {{site.data.keyword.cos_short}} location that is given with the `targetcosurl` connection property.
 
-Results in the `targetcosurl` location are never deleted by the driver. You can use [expiration rules](/docs/cloud-object-storage?topic=cloud-object-storage-expiry) to clean up your results on the {{site.data.keyword.cloud_notm}} automatically.
+Results in the `targetcosurl` location are never deleted by the driver. Use [expiration rules](/docs/cloud-object-storage?topic=cloud-object-storage-expiry) to clean up your results on the {{site.data.keyword.cloud_notm}} automatically.
 
 ## Basic limitations
 {: #basic_limitations}
