@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-05-06"
+lastupdated: "2022-05-24"
 
 keywords: SQL, query, object storage, bucket, sample, instance, analyze, CSV, JSON, ORC, Parquet, Data Engine
 
@@ -22,6 +22,8 @@ subcollection: sql-query
 
 In this {{site.data.keyword.sqlquery_full}} tutorial, we set you up to begin querying rectangular data in {{site.data.keyword.cos_full}} and storing the results in {{site.data.keyword.cos_short}}.
 {: shortdesc}
+
+![Get started with {{site.data.keyword.sqlquery_notm}}](https://video.ibm.com/embed/channel/23952663/video/csq-provision){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ## Before you begin
 {: #prereqs}
