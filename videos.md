@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-03-11"
+lastupdated: "2022-05-30"
 
 keywords: SQL query, tutorial, video, provision, run query, introduction, REST API, command line, object storage, Data Engine
 
