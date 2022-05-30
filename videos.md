@@ -28,7 +28,7 @@ The first video shows you how to provision {{site.data.keyword.cos_full}} and {{
 
 The second video helps you to run a basic query from the console.
 
-![{{site.data.keyword.sqlquery_notm}}: Run Queries from the Console](https://www.youtube.com/embed/PZAaWSzwo7s?list=PLzpeuWUENMK2R9CqhF0eJDSxfPBi6JeXA){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![{{site.data.keyword.sqlquery_notm}}: Run Queries from the Console](https://video.ibm.com/embed/channel/23952663/video/csq-run-queries){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 The next video gives a broader introduction to the service, introduces some of the sample queries in the UI, shows the use of real-life data, Notebooks, and REST API.
 
