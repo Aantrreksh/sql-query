@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-05-24"
+lastupdated: "2022-06-01"
 
 keywords: SQL, query, object storage, bucket, sample, instance, analyze, CSV, JSON, ORC, Parquet, Data Engine
 
@@ -23,7 +23,7 @@ subcollection: sql-query
 In this {{site.data.keyword.sqlquery_full}} tutorial, we set you up to begin querying rectangular data in {{site.data.keyword.cos_full}} and storing the results in {{site.data.keyword.cos_short}}.
 {: shortdesc}
 
-![Get started with {{site.data.keyword.sqlquery_notm}}](https://video.ibm.com/embed/channel/23952663/video/csq-provision){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Get started with {{site.data.keyword.sqlquery_notm}}](https://video.ibm.com/embed/channel/23952663/video/csq-provision){: video output="iframe" data-script="none" id="watsonmediaplayer" width="560" height="315" scrolling="no" allowfullscreen webkitallowfullscreen mozAllowFullScreen frameborder="0" style="border: 0 none transparent;"}
 
 ## Before you begin
 {: #prereqs}
@@ -64,6 +64,6 @@ To analyze your own data (CSV, JSON, ORC, or Parquet), upload it to a Cloud {{si
 For more advanced capabilities, check out the following video tutorials.
 
 - [IBM Cloud {{site.data.keyword.sqlquery_short}} introduction](http://ibm.biz/csq-run-queries)
-- [How to connect to IBM Cloud Object Storage through the Command Line](http://ibm.biz/csq-aws-sli)
-- [How to use the {{site.data.keyword.sqlquery_short}} REST API](https://video.ibm.com/playlist/633112/video/127739961)
+- [How to connect to IBM Cloud Object Storage through the Command Line](https://video.ibm.com/embed/channel/23952663/video/csq-connect-cos)
+- [How to use the {{site.data.keyword.sqlquery_short}} REST API](https://video.ibm.com/embed/channel/23952663/video/csq-rest-api)
 - [How to operationalize SQL code and call it from an application](http://ibm.biz/csq-e2e)
