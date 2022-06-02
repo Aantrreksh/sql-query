@@ -62,23 +62,25 @@ Use the following cell to transfer the files:
 ```sql
 !mkdir /tmp/dataengine
 !wget https://us.sql-query.cloud.ibm.com/download/catalog/dataengine_spark-1.0.10-py3-none-any.whl -O /tmp/dataengine/dataengine_spark-1.0.10-py3-none-any.whl
-// user-libs/spark2 is in the classpath of Spark
+# user-libs/spark2 is in the classpath of Spark
 !wget https://us.sql-query.cloud.ibm.com/download/catalog/dataengine-spark-integration-1.0.10.jar -O user-libs/spark2/dataengine-spark-integration-1.0.10.jar
 !wget https://us.sql-query.cloud.ibm.com/download/catalog/hive-metastore-standalone-client-3.1.2-sqlquery.jar -O  /tmp/dataengine/hive-metastore-standalone-client-3.1.2-sqlquery.jar
 
 !pip install --force-reinstall /tmp/dataengine/dataengine_spark-1.0.10-py3-none-any.whl
+
+print("Restart your kernel!")
 ```
 
 After the cell is executed, restart the kernel to ensure that Spark loaded the jar. Set the required variables and call the helper functions:
 
 ```sql
-// change the CRN and the APIkey according to your instance
+# change the CRN and the APIkey according to your instance
 crn='yourDataengineCRN'
 apikey='yourAPIkey'
 
 from dataengine import SparkSessionWithDataengine
 
-// call the helper function
+# call the helper function
 session_builder = SparkSessionWithDataengine.enableDataengine(crn, apikey, "public", "/tmp/dataengine")
 spark = session_builder.appName("Spark DataEngine integration test").getOrCreate()
 
@@ -89,6 +91,7 @@ Display your tables and run an SQL statement:
 ```sql
 spark.sql('show tables').show(truncate=False)
 
+# replace yourTable with a valid table. Do not use the sample tables as you do not have access to the data!
 spark.sql('select * from yourTable').show()
 ```
 
