@@ -32,7 +32,7 @@ Each query result is written to a CSV, JSON, ORC, Parquet, or AVRO object in a C
 Use the {{site.data.keyword.sqlquery_short}} user interface (UI) to develop your queries and the
 [{{site.data.keyword.sqlquery_short}}REST API](#restapi) to automate them.
 
-![IBM Cloud SQL Query: Provision the IBM Cloud Services](https://www.youtube.com/embed/_fMEyqRC__c?list=PLzpeuWUENMK2R9CqhF0eJDSxfPBi6JeXA){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![{{site.data.keyword.sqlquery_notm}}: Provision the IBM Cloud Services](https://www.youtube.com/embed/_fMEyqRC__c?list=PLzpeuWUENMK2R9CqhF0eJDSxfPBi6JeXA){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
 
 ## Where your input data and query results are stored
 {: #stored}
@@ -90,7 +90,7 @@ LIMIT 50
 #### Example of an exact target path specification
 {: #path}
 
-The following query writes an SQL result into an exact result path. Normally, SQL query always appends `jobid=<jobid>` to the provided target path to ensure a unique result location with each query execution. However, in the following sample query, this suffix is eliminated by adding JOBPREFIX NONE to the path in the INTO clause. Note: This action overwrites all objects that are currently stored in the provided result path.
+The following query writes an SQL result into an exact result path. Normally, {{site.data.keyword.sqlquery_short}} always appends `jobid=<jobid>` to the provided target path to ensure a unique result location with each query execution. However, in the following sample query, this suffix is eliminated by adding JOBPREFIX NONE to the path in the INTO clause. Note: This action overwrites all objects that are currently stored in the provided result path.
 
 ```sql
 SELECT *
