@@ -1,7 +1,7 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="railroad-diagram" width="2669" height="162" viewBox="0 0 2669 162" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMin meet">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="railroad-diagram" width="2989" height="162" viewBox="0 0 2989 162" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMin meet">
     <defs>
         <style type="text/css"><![CDATA[ svg.railroad-diagram {
   background-color: #ffffff;
@@ -35,7 +35,7 @@ svg.railroad-diagram rect {
         <path d="M 20 31 v 20 m 10 -20 v 20 m -10 -10 h 20.5"/>
         <g>
             <path d="M40 41h0"/>
-            <path d="M2628 41h0"/>
+            <path d="M2948 41h0"/>
             <path d="M40 41h10"/>
             <g>
                 <path d="M50 41h0"/>
@@ -402,25 +402,66 @@ svg.railroad-diagram rect {
                 <text x="2388" y="45">@break@</text>
             </g>
             <path d="M2426 41h10"/>
-            <path d="M2436 41h10"/>
             <g>
-                <path d="M2446 41h0"/>
-                <path d="M2530 41h0"/>
-                <rect x="2446" y="30" width="84" height="22" rx="10" ry="10"/>
-                <text x="2488" y="45">LOCATION</text>
+                <path d="M2436 41h0"/>
+                <path d="M2660 41h0"/>
+                <path d="M2436 41a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"/>
+                <g>
+                    <path d="M2456 21h184"/>
+                </g>
+                <path d="M2640 21a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"/>
+                <path d="M2436 41h20"/>
+                <g>
+                    <path d="M2456 41h0"/>
+                    <path d="M2640 41h0"/>
+                    <path d="M2456 41h10"/>
+                    <g>
+                        <path d="M2466 41h0"/>
+                        <path d="M2542 41h0"/>
+                        <rect x="2466" y="30" width="76" height="22" rx="10" ry="10"/>
+                        <text x="2504" y="45">COMMENT</text>
+                    </g>
+                    <path d="M2542 41h10"/>
+                    <path d="M2552 41h10"/>
+                    <g>
+                        <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#STRING" target="_top">
+                            <path d="M2562 41h0"/>
+                            <path d="M2630 41h0"/>
+                            <rect x="2562" y="30" width="68" height="22"/>
+                            <text x="2596" y="45">STRING</text>
+                        </a>
+                    </g>
+                    <path d="M2630 41h10"/>
+                </g>
+                <path d="M2640 41h20"/>
             </g>
-            <path d="M2530 41h10"/>
-            <path d="M2540 41h10"/>
+            <path d="M2660 41h10"/>
+            <g>
+                <path d="M2670 41h0"/>
+                <path d="M2746 41h0"/>
+                <rect x="2670" y="30" width="76" height="22" rx="10" ry="10"/>
+                <text x="2708" y="45">@break@</text>
+            </g>
+            <path d="M2746 41h10"/>
+            <path d="M2756 41h10"/>
+            <g>
+                <path d="M2766 41h0"/>
+                <path d="M2850 41h0"/>
+                <rect x="2766" y="30" width="84" height="22" rx="10" ry="10"/>
+                <text x="2808" y="45">LOCATION</text>
+            </g>
+            <path d="M2850 41h10"/>
+            <path d="M2860 41h10"/>
             <g>
                 <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#COSURI" target="_top">
-                    <path d="M2550 41h0"/>
-                    <path d="M2618 41h0"/>
-                    <rect x="2550" y="30" width="68" height="22"/>
-                    <text x="2584" y="45">COSURI</text>
+                    <path d="M2870 41h0"/>
+                    <path d="M2938 41h0"/>
+                    <rect x="2870" y="30" width="68" height="22"/>
+                    <text x="2904" y="45">COSURI</text>
                 </a>
             </g>
-            <path d="M2618 41h10"/>
+            <path d="M2938 41h10"/>
         </g>
-        <path d="M 2628 41 h 20 m -10 -10 v 20 m 10 -20 v 20"/>
+        <path d="M 2948 41 h 20 m -10 -10 v 20 m 10 -20 v 20"/>
     </g>
 </svg>
