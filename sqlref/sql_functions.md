@@ -1661,7 +1661,8 @@ day(date)
 
 :   **Result value**
 
-   ```sql 30
+   ```sql 
+   30
    ```
 
 
@@ -1720,7 +1721,8 @@ dayofyear(date)
 
 :   **Result value**
 
-   ```sql 100
+   ```sql 
+   100
    ```
 
 
@@ -1801,7 +1803,8 @@ e()
 
 :   **Result value**
 
-   ```sql 2.718281828459045
+   ```sql 
+   2.718281828459045
    ```
 
 
@@ -1908,7 +1911,8 @@ expm1(expr)
 
 :   **Example of an SQL function usage fragment**
 
-   ```sql > SELECT expm1(0)
+   ```sql 
+   > SELECT expm1(0)
    ```
 
 :   **Result value**
@@ -2267,7 +2271,7 @@ if(expr1, expr2, expr3)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT if(1 &lt; 2, 'a', 'b')
+   > SELECT if(1 < 2, 'a', 'b')
    ```
 
 :   **Result value**
@@ -5206,7 +5210,7 @@ CASE WHEN expr1 THEN expr2 [WHEN expr3 THEN expr4]* [ELSE expr5] END - When `exp
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT CASE WHEN 1 &lt; 0 THEN 1 WHEN 2 > 0 THEN 2.0 ELSE 1.2 END;
+   > SELECT CASE WHEN 1 < 0 THEN 1 WHEN 2 > 0 THEN 2.0 ELSE 1.2 END;
    ```
 
 :   **Result value**
@@ -5218,12 +5222,13 @@ CASE WHEN expr1 THEN expr2 [WHEN expr3 THEN expr4]* [ELSE expr5] END - When `exp
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT CASE WHEN 1 &lt; 0 THEN 1 WHEN 2 &lt; 0 THEN 2.0 END;
+   > SELECT CASE WHEN 1 < 0 THEN 1 WHEN 2 < 0 THEN 2.0 END;
    ```
 
 :   **Result value**
 
-   ```sql NULL
+   ```sql 
+   NULL
    ```
 
 ## window
@@ -5238,7 +5243,7 @@ xpath(xml, xpath)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT xpath('&lt;a>&lt;b>b1&lt;/b>&lt;b>b2&lt;/b>&lt;b>b3&lt;/b>&lt;c>c1&lt;/c>&lt;c>c2&lt;/c>&lt;/a>','a/b/text()')
+   > SELECT xpath('<a><b>b1</b><b>b2</b><b>b3</b><c>c1</c><c>c2</c></a>','a/b/text()')
    ```
 
 :   **Result value**
@@ -5257,7 +5262,7 @@ xpath_boolean(xml, xpath)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT xpath_boolean('&lt;a>&lt;b>1&lt;/b>&lt;/a>','a/b')
+   > SELECT xpath_boolean('<a><b>1</b></a>','a/b')
    ```
 
 :   **Result value**
@@ -5276,7 +5281,7 @@ xpath_double(xml, xpath)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT xpath_double('&lt;a>&lt;b>1&lt;/b>&lt;b>2&lt;/b>&lt;/a>', 'sum(a/b)')
+   > SELECT xpath_double('<a><b>1</b><b>2</b></a>', 'sum(a/b)')
    ```
 
 :   **Result value**
@@ -5294,7 +5299,7 @@ xpath_float(xml, xpath)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT xpath_float('&lt;a>&lt;b>1&lt;/b>&lt;b>2&lt;/b>&lt;/a>', 'sum(a/b)')
+   > SELECT xpath_float('<a><b>1</b><b>2</b></a>', 'sum(a/b)')
    ```
 
 :   **Result value**
@@ -5312,7 +5317,7 @@ xpath_int(xml, xpath)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT xpath_int('&lt;a>&lt;b>1&lt;/b>&lt;b>2&lt;/b>&lt;/a>', 'sum(a/b)')
+   > SELECT xpath_int('<a><b>1</b><b>2</b></a>', 'sum(a/b)')
    ```
 
 :   **Result value**
@@ -5330,7 +5335,7 @@ xpath_long(xml, xpath)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT xpath_long('&lt;a>&lt;b>1&lt;/b>&lt;b>2&lt;/b>&lt;/a>', 'sum(a/b)')
+   > SELECT xpath_long('<a><b>1</b><b>2</b></a>', 'sum(a/b)')
    ```
 
 :   **Result value**
@@ -5348,7 +5353,7 @@ xpath_number(xml, xpath)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT xpath_number('&lt;a>&lt;b>1&lt;/b>&lt;b>2&lt;/b>&lt;/a>', 'sum(a/b)')
+   > SELECT xpath_number('<a><b>1</b><b>2</b></a>', 'sum(a/b)')
    ```
 
 :   **Result value**
@@ -5367,7 +5372,7 @@ xpath_short(xml, xpath)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT xpath_short('&lt;a>&lt;b>1&lt;/b>&lt;b>2&lt;/b>&lt;/a>', 'sum(a/b)')
+   > SELECT xpath_short('<a><b>1</b><b>2</b></a>', 'sum(a/b)')
    ```
 
 :   **Result value**
@@ -5386,7 +5391,7 @@ xpath_string(xml, xpath)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT xpath_string('&lt;a>&lt;b>b&lt;/b>&lt;c>cc&lt;/c>&lt;/a>','a/c')
+   > SELECT xpath_string('<a><b>b</b><c>cc</c></a>','a/c')
    ```
 
 :   **Result value**
