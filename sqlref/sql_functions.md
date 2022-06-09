@@ -2052,7 +2052,7 @@ format_string(strfmt, obj, ...)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT format_string(&quot;Hello World %d %s&quot;, 100, &quot;days&quot;)
+   > SELECT format_string("Hello World %d %s", 100, "days")
    ```
 
 :   **Result value**
@@ -2071,25 +2071,25 @@ from_json(jsonStr, schema[, options])
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT from_json('{&quot;a&quot;:1, &quot;b&quot;:0.8}', 'a INT, b DOUBLE')
+   > SELECT from_json('{"a":1, "b":0.8}', 'a INT, b DOUBLE')
    ```
 
 :   **Result value**
 
    ```sql
-    {&quot;a&quot;:1, &quot;b&quot;:0.8}
+    {"a":1, "b":0.8}
     ```
 
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT from_json('{&quot;time&quot;:&quot;26/08/2015&quot;}', 'time Timestamp', map('timestampFormat', 'dd/MM/yyyy'))
+   > SELECT from_json('{"time":"26/08/2015"}', 'time Timestamp', map('timestampFormat', 'dd/MM/yyyy'))
    ```
 
 :   **Result value**
 
    ```sql
-    {&quot;time&quot;:&quot;2015-08-26 00:00:00.0&quot;}
+    {"time":"2015-08-26 00:00:00.0"}
     ```
 
 **Since:** 2.2.0
@@ -2146,7 +2146,7 @@ get_json_object(json_txt, path)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT get_json_object('{&quot;a&quot;:&quot;b&quot;}', '$.a')
+   > SELECT get_json_object('{"a":"b"}', '$.a')
    ```
 
 :   **Result value**
@@ -2307,7 +2307,7 @@ ifnull(expr1, expr2)
 :   **Result value**
 
    ```sql
-    [&quot;2&quot;]
+    ["2"]
     ```
 
 
@@ -2527,7 +2527,7 @@ json_tuple(jsonStr, p1, p2, ..., pn)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT json_tuple('{&quot;a&quot;:1, &quot;b&quot;:2}', 'a', 'b')
+   > SELECT json_tuple('{"a":1, "b":2}', 'a', 'b')
    ```
 
 :   **Result value**
@@ -3005,7 +3005,7 @@ map(key0, value0, key1, value1, ...)
 :   **Result value**
 
    ```sql
-    {1.0:&quot;2&quot;,3.0:&quot;4&quot;}
+    {1.0:"2",3.0:"4"}
     ```
 
 
@@ -3043,7 +3043,7 @@ map_values(map)
 :   **Result value**
 
    ```sql
-    [&quot;a&quot;,&quot;b&quot;]
+    ["a","b"]
     ```
 
 
@@ -3200,13 +3200,13 @@ named_struct(name1, val1, name2, val2, ...)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT named_struct(&quot;a&quot;, 1, &quot;b&quot;, 2, &quot;c&quot;, 3)
+   > SELECT named_struct("a", 1, "b", 2, "c", 3)
    ```
 
 :   **Result value**
 
    ```sql
-    {&quot;a&quot;:1,&quot;b&quot;:2,&quot;c&quot;:3}
+    {"a":1,"b":2,"c":3}
     ```
 
 
@@ -3326,7 +3326,7 @@ nvl(expr1, expr2)
 :   **Result value**
 
    ```sql
-    [&quot;2&quot;]
+    ["2"]
     ```
 
 
@@ -3657,7 +3657,7 @@ printf(strfmt, obj, ...)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT printf(&quot;Hello World %d %s&quot;, 100, &quot;days&quot;)
+   > SELECT printf("Hello World %d %s", 100, "days")
    ```
 
 :   **Result value**
@@ -3843,8 +3843,8 @@ regexp_replace(str, regexp, rep)
 ## repeat
 {: #repeat}
 
-repeat(str, n
-   Returns the string that repeats the indicated string value n times.
+repeat(str, n)
+:   Returns the string that repeats the indicated string value n times.
 
 :   **Example of an SQL function usage fragment**
 
@@ -4112,7 +4112,7 @@ sentences(str[, lang, country])
 :   **Result value**
 
    ```sql
-    [[&quot;Hi&quot;,&quot;there&quot;],[&quot;Good&quot;,&quot;morning&quot;]]
+    [["Hi","there"],["Good","morning"]]
     ```
 
 
@@ -4355,7 +4355,7 @@ sort_array(array[, ascendingOrder])
 :   **Result value**
 
    ```sql
-    [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;]
+    ["a","b","c","d"]
     ```
 
 
@@ -4419,7 +4419,7 @@ split(str, regex)
 :   **Result value**
 
    ```sql
-    [&quot;one&quot;,&quot;two&quot;,&quot;three&quot;,&quot;&quot;]
+    ["one","two","three",""]
     ```
 
 
@@ -4504,7 +4504,7 @@ str_to_map(text[, pairDelim[, keyValueDelim]])
 :   **Result value**
 
    ```sql
-   map(&quot;a&quot;:&quot;1&quot;,&quot;b&quot;:&quot;2&quot;,&quot;c&quot;:&quot;3&quot;)
+   map("a":"1","b":"2","c":"3")
    ```
 
 :   **Example of an SQL function usage fragment**
@@ -4516,7 +4516,7 @@ str_to_map(text[, pairDelim[, keyValueDelim]])
 :   **Result value**
 
    ```sql
-    map(&quot;a&quot;:null)
+    map("a":null)
     ```
 
 
@@ -4752,7 +4752,7 @@ to_json(expr[, options])
 :   **Result value**
 
    ```sql
-    {&quot;a&quot;:1,&quot;b&quot;:2}
+    {"a":1,"b":2}
     ```
 
 :   **Example of an SQL function usage fragment**
@@ -4764,7 +4764,7 @@ to_json(expr[, options])
 :   **Result value**
 
    ```sql
-    {&quot;time&quot;:&quot;26/08/2015&quot;}
+    {"time":"26/08/2015"}
     ```
 
 :   **Example of an SQL function usage fragment**
@@ -4776,7 +4776,7 @@ to_json(expr[, options])
 :   **Result value**
 
    ```sql
-    [{&quot;a&quot;:1,&quot;b&quot;:2}]
+    [{"a":1,"b":2}]
     ```
 
 :   **Example of an SQL function usage fragment**
@@ -4788,7 +4788,7 @@ to_json(expr[, options])
 :   **Result value**
 
    ```sql
-    {&quot;a&quot;:{&quot;b&quot;:1}}
+    {"a":{"b":1}}
     ```
 
 :   **Example of an SQL function usage fragment**
@@ -4800,7 +4800,7 @@ to_json(expr[, options])
 :   **Result value**
 
    ```sql
-    {&quot;[1]&quot;:{&quot;b&quot;:2}}
+    {"[1]":{"b":2}}
     ```
 
 :   **Example of an SQL function usage fragment**
@@ -4812,7 +4812,7 @@ to_json(expr[, options])
 :   **Result value**
 
    ```sql
-    {&quot;a&quot;:1}
+    {"a":1}
     ```
 
 :   **Example of an SQL function usage fragment**
@@ -4824,7 +4824,7 @@ to_json(expr[, options])
 :   **Result value**
 
    ```sql
-    [{&quot;a&quot;:1}]
+    [{"a":1}]
     ```
 
 **Since:** 2.2.0
