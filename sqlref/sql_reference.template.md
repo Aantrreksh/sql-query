@@ -2775,6 +2775,8 @@ For more information, see [catalog management](/docs/sql-query?topic=sql-query-h
 
 <!--include-svg src="./svgfiles/createTable.svg" target="./diagrams/createTable.svg" alt="syntax diagram for a create table command" layout="@break@" -->
 
+<!--dummy comment to force a rebuild-->
+
 #### columnDefinition
 {: #columnDefinition}
 
