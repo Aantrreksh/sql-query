@@ -1470,7 +1470,6 @@ current_database()
 current_date()
 :   Returns the current date at the start of query evaluation.
 
-**Since:** 1.5.0
 
 ## current_timestamp
 {: #current_timestamp}
@@ -1478,7 +1477,6 @@ current_date()
 current_timestamp()
 :   Returns the current timestamp at the start of query evaluation.
 
-**Since:** 1.5.0
 
 
 ## date
@@ -1506,7 +1504,6 @@ date_add(start_date, num_days)
     2016-07-31
     ```
 
-**Since:** 1.5.0
 
 
 ## date_format
@@ -1539,7 +1536,6 @@ date_format(timestamp, fmt)
    2016-04-16
    ```
 
-**Since:** 1.5.0
 
 
 ## date_sub
@@ -1560,7 +1556,6 @@ date_sub(start_date, num_days)
     2016-07-29
     ```
 
-**Since:** 1.5.0
 
 
 ## date_trunc
@@ -1618,7 +1613,6 @@ date_trunc(fmt, ts)
     2015-03-05T09:00:00
     ```
 
-**Since:** 2.3.0
 
 
 ## datediff
@@ -1651,7 +1645,6 @@ datediff(endDate, startDate)
     -1
     ```
 
-**Since:** 1.5.0
 
 
 ## day
@@ -1671,7 +1664,6 @@ day(date)
    ```sql 30
    ```
 
-**Since:** 1.5.0
 
 
 ## dayofmonth
@@ -1692,7 +1684,6 @@ dayofmonth(date)
     30
     ```
 
-**Since:** 1.5.0
 
 
 ## dayofweek
@@ -1713,7 +1704,6 @@ dayofweek(date)
     5
     ```
 
-**Since:** 2.3.0
 
 
 ## dayofyear
@@ -1733,7 +1723,6 @@ dayofyear(date)
    ```sql 100
    ```
 
-**Since:** 1.5.0
 
 
 ## decimal
@@ -2092,7 +2081,6 @@ from_json(jsonStr, schema[, options])
     {"time":"2015-08-26 00:00:00.0"}
     ```
 
-**Since:** 2.2.0
 
 
 ## from_unixtime
@@ -2113,7 +2101,6 @@ from_unixtime(unix_time, format)
     1970-01-01 00:00:00
     ```
 
-**Since:** 1.5.0
 
 
 ## from_utc_timestamp
@@ -2134,7 +2121,6 @@ from_utc_timestamp(timestamp, timezone)
     2016-08-31 09:00:00
     ```
 
-**Since:** 1.5.0
 
 
 ## get_json_object
@@ -2251,7 +2237,6 @@ hour(timestamp)
     12
     ```
 
-**Since:** 1.5.0
 
 
 ## hypot
@@ -2581,7 +2566,6 @@ last_day(date)
     2009-01-31
     ```
 
-**Since:** 1.5.0
 
 
 ## last_value
@@ -3104,7 +3088,6 @@ minute(timestamp)
     58
     ```
 
-**Since:** 1.5.0
 
 
 ## mod
@@ -3167,7 +3150,6 @@ month(date)
     7
     ```
 
-**Since:** 1.5.0
 
 
 ## months_between
@@ -3188,7 +3170,6 @@ months_between(timestamp1, timestamp2)
     3.94959677
     ```
 
-**Since:** 1.5.0
 
 
 ## named_struct
@@ -3266,7 +3247,6 @@ next_day(start_date, day_of_week)
     2015-01-20
     ```
 
-**Since:** 1.5.0
 
 
 ## not
@@ -3281,7 +3261,6 @@ not expr:   Logical not.
 now()
 :   Returns the current timestamp at the start of query evaluation.
 
-**Since:** 1.5.0
 
 
 ## ntile
@@ -3685,7 +3664,6 @@ quarter(date)
     3
     ```
 
-**Since:** 1.5.0
 
 
 ## radians
@@ -4094,7 +4072,6 @@ second(timestamp)
     59
     ```
 
-**Since:** 1.5.0
 
 
 ## sentences
@@ -4734,7 +4711,6 @@ the `fmt` is omitted.
     2016-12-31
     ```
 
-**Since:** 1.5.0
 
 
 ## to_json
@@ -4827,7 +4803,6 @@ to_json(expr[, options])
     [{"a":1}]
     ```
 
-**Since:** 2.2.0
 
 
 ## to_timestamp
@@ -4862,7 +4837,6 @@ a timestamp if the `fmt` is omitted.
     2016-12-31 00:00:00
     ```
 
-**Since:** 2.2.0
 
 
 ## to_unix_timestamp
@@ -4879,7 +4853,7 @@ to_unix_timestamp(expr[, pattern])
 
 ``` 1460041200```
 
-**Since:** 1.6.0
+
 
 
 ## to_utc_timestamp
@@ -4900,7 +4874,6 @@ to_utc_timestamp(timestamp, timezone)
    2016-08-30 15:00:00
    ```
 
-**Since:** 1.5.0
 
 
 ## translate
@@ -5040,7 +5013,6 @@ trunc(date, fmt)
     2015-01-01
     ```
 
-**Since:** 1.5.0
 
 
 ## ucase
@@ -5130,7 +5102,6 @@ unix_timestamp([expr[, pattern]])
     1460041200
     ```
 
-**Since:** 1.5.0
 
 
 ## upper
@@ -5209,7 +5180,6 @@ weekofyear(date)
     8
     ```
 
-**Since:** 1.5.0
 
 when
 
@@ -5444,7 +5414,6 @@ year(date)
     2016
     ```
 
-**Since:** 1.5.0
 
 
 ## |
