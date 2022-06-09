@@ -2,7 +2,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="railroad-diagram"  viewBox="0 0 738 663"  xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMin meet">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="railroad-diagram"  viewBox="0 0 738 738"  xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMin meet">
     <defs>
         <style type="text/css"><![CDATA[ svg.railroad-diagram {
   background-color: #ffffff;
@@ -37,7 +37,7 @@ svg.railroad-diagram rect {
 <path d="M20 31  v 20 m 10 -20 v 20 m -10 -10 h 20.5"/>
 <g>
 <path d="M40 41 h0"/>
-<path d="M2628 41 h0"/>
+<path d="M2948 41 h0"/>
 <path d="M40 41 h10"/>
 <g>
 <path d="M50 41 h0"/>
@@ -399,30 +399,71 @@ svg.railroad-diagram rect {
 <path d="M521 383 h10"/>
 <g id="eol">
 <path d="M531 383 h0"/>
-<path d="M531 383 a 10 10 0 0 1 10 10 V 432 a 10 10 0 0 1 -10 10 h -500 a 10 10 0 0 0 -10 10 V 468 a 10 10 0 0 0 10 10"/>
+<path d="M531 383 a 10 10 0 0 1 10 10 V 432 a 10 10 0 0 1 -10 10 h -500 a 10 10 0 0 0 -10 10 V 477 a 10 10 0 0 0 10 10"/>
 <path d="M531 383 h0"/>
 <path d="M531 383 h0"/>
 </g>
-<path d="M31 478 h10"/>
-<path d="M41 478 h10"/>
+<path d="M31 487 h10"/>
 <g>
-<path d="M51 478 h0"/>
-<path d="M135 478 h0"/>
-<rect x="51" y="467" width="84" height="22" />
-<text x="93" y="482">LOCATION</text>
+<path d="M41 487 h0"/>
+<path d="M265 487 h0"/>
+<path d="M41 487 a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"/>
+<g>
+<path d="M61 467 h184"/>
 </g>
-<path d="M135 478 h10"/>
-<path d="M145 478 h10"/>
+<path d="M245 467 a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"/>
+<path d="M41 487 h20"/>
 <g>
-<a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#COSURI" target="_top">
-<path d="M155 478 h0"/>
-<path d="M223 478 h0"/>
-<rect x="155" y="467" width="68" height="22" />
-<text x="189" y="482">COSURI</text>
+<path d="M61 487 h0"/>
+<path d="M245 487 h0"/>
+<path d="M61 487 h10"/>
+<g>
+<path d="M71 487 h0"/>
+<path d="M147 487 h0"/>
+<rect x="71" y="476" width="76" height="22" />
+<text x="109" y="491">COMMENT</text>
+</g>
+<path d="M147 487 h10"/>
+<path d="M157 487 h10"/>
+<g>
+<a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#STRING" target="_top">
+<path d="M167 487 h0"/>
+<path d="M235 487 h0"/>
+<rect x="167" y="476" width="68" height="22" />
+<text x="201" y="491">STRING</text>
 </a>
 </g>
-<path d="M223 478 h10"/>
+<path d="M235 487 h10"/>
 </g>
-<path d="M233 478  h 20 m -10 -10 v 20 m 10 -20 v 20"/>
+<path d="M245 487 h20"/>
+</g>
+<path d="M265 487 h10"/>
+<g id="eol">
+<path d="M275 487 h0"/>
+<path d="M275 487 a 10 10 0 0 1 10 10 V 506 a 10 10 0 0 1 -10 10 h -244 a 10 10 0 0 0 -10 10 V 542 a 10 10 0 0 0 10 10"/>
+<path d="M275 487 h0"/>
+<path d="M275 487 h0"/>
+</g>
+<path d="M31 552 h10"/>
+<path d="M41 552 h10"/>
+<g>
+<path d="M51 552 h0"/>
+<path d="M135 552 h0"/>
+<rect x="51" y="541" width="84" height="22" />
+<text x="93" y="556">LOCATION</text>
+</g>
+<path d="M135 552 h10"/>
+<path d="M145 552 h10"/>
+<g>
+<a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#COSURI" target="_top">
+<path d="M155 552 h0"/>
+<path d="M223 552 h0"/>
+<rect x="155" y="541" width="68" height="22" />
+<text x="189" y="556">COSURI</text>
+</a>
+</g>
+<path d="M223 552 h10"/>
+</g>
+<path d="M233 552  h 20 m -10 -10 v 20 m 10 -20 v 20"/>
 </g>
 </svg>
