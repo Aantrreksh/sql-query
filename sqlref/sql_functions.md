@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-04-04"
+lastupdated: "2022-06-09"
 
 keywords: SQL, functions
 
@@ -709,8 +709,6 @@ add_months(start_date, num_months)
    ```sql
    2016-09-30
    ```
-
-:   **Since** 1.5.0
 
 ## and
 {: #and}
