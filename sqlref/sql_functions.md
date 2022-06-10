@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-04-04"
+lastupdated: "2022-06-09"
 
 keywords: SQL, functions
 
@@ -709,8 +709,6 @@ add_months(start_date, num_months)
    ```sql
    2016-09-30
    ```
-
-:   **Since** 1.5.0
 
 ## and
 {: #and}
@@ -1470,7 +1468,6 @@ current_database()
 current_date()
 :   Returns the current date at the start of query evaluation.
 
-**Since:** 1.5.0
 
 ## current_timestamp
 {: #current_timestamp}
@@ -1478,7 +1475,6 @@ current_date()
 current_timestamp()
 :   Returns the current timestamp at the start of query evaluation.
 
-**Since:** 1.5.0
 
 
 ## date
@@ -1506,7 +1502,6 @@ date_add(start_date, num_days)
     2016-07-31
     ```
 
-**Since:** 1.5.0
 
 
 ## date_format
@@ -1539,7 +1534,6 @@ date_format(timestamp, fmt)
    2016-04-16
    ```
 
-**Since:** 1.5.0
 
 
 ## date_sub
@@ -1560,7 +1554,6 @@ date_sub(start_date, num_days)
     2016-07-29
     ```
 
-**Since:** 1.5.0
 
 
 ## date_trunc
@@ -1618,7 +1611,6 @@ date_trunc(fmt, ts)
     2015-03-05T09:00:00
     ```
 
-**Since:** 2.3.0
 
 
 ## datediff
@@ -1651,7 +1643,6 @@ datediff(endDate, startDate)
     -1
     ```
 
-**Since:** 1.5.0
 
 
 ## day
@@ -1668,10 +1659,10 @@ day(date)
 
 :   **Result value**
 
-   ```sql 30
+   ```sql 
+   30
    ```
 
-**Since:** 1.5.0
 
 
 ## dayofmonth
@@ -1692,7 +1683,6 @@ dayofmonth(date)
     30
     ```
 
-**Since:** 1.5.0
 
 
 ## dayofweek
@@ -1713,7 +1703,6 @@ dayofweek(date)
     5
     ```
 
-**Since:** 2.3.0
 
 
 ## dayofyear
@@ -1730,10 +1719,10 @@ dayofyear(date)
 
 :   **Result value**
 
-   ```sql 100
+   ```sql 
+   100
    ```
 
-**Since:** 1.5.0
 
 
 ## decimal
@@ -1812,7 +1801,8 @@ e()
 
 :   **Result value**
 
-   ```sql 2.718281828459045
+   ```sql 
+   2.718281828459045
    ```
 
 
@@ -1919,7 +1909,8 @@ expm1(expr)
 
 :   **Example of an SQL function usage fragment**
 
-   ```sql > SELECT expm1(0)
+   ```sql 
+   > SELECT expm1(0)
    ```
 
 :   **Result value**
@@ -2052,7 +2043,7 @@ format_string(strfmt, obj, ...)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT format_string(&quot;Hello World %d %s&quot;, 100, &quot;days&quot;)
+   > SELECT format_string("Hello World %d %s", 100, "days")
    ```
 
 :   **Result value**
@@ -2071,28 +2062,27 @@ from_json(jsonStr, schema[, options])
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT from_json('{&quot;a&quot;:1, &quot;b&quot;:0.8}', 'a INT, b DOUBLE')
+   > SELECT from_json('{"a":1, "b":0.8}', 'a INT, b DOUBLE')
    ```
 
 :   **Result value**
 
    ```sql
-    {&quot;a&quot;:1, &quot;b&quot;:0.8}
+    {"a":1, "b":0.8}
     ```
 
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT from_json('{&quot;time&quot;:&quot;26/08/2015&quot;}', 'time Timestamp', map('timestampFormat', 'dd/MM/yyyy'))
+   > SELECT from_json('{"time":"26/08/2015"}', 'time Timestamp', map('timestampFormat', 'dd/MM/yyyy'))
    ```
 
 :   **Result value**
 
    ```sql
-    {&quot;time&quot;:&quot;2015-08-26 00:00:00.0&quot;}
+    {"time":"2015-08-26 00:00:00.0"}
     ```
 
-**Since:** 2.2.0
 
 
 ## from_unixtime
@@ -2113,7 +2103,6 @@ from_unixtime(unix_time, format)
     1970-01-01 00:00:00
     ```
 
-**Since:** 1.5.0
 
 
 ## from_utc_timestamp
@@ -2134,7 +2123,6 @@ from_utc_timestamp(timestamp, timezone)
     2016-08-31 09:00:00
     ```
 
-**Since:** 1.5.0
 
 
 ## get_json_object
@@ -2146,7 +2134,7 @@ get_json_object(json_txt, path)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT get_json_object('{&quot;a&quot;:&quot;b&quot;}', '$.a')
+   > SELECT get_json_object('{"a":"b"}', '$.a')
    ```
 
 :   **Result value**
@@ -2251,7 +2239,6 @@ hour(timestamp)
     12
     ```
 
-**Since:** 1.5.0
 
 
 ## hypot
@@ -2282,7 +2269,7 @@ if(expr1, expr2, expr3)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT if(1 &lt; 2, 'a', 'b')
+   > SELECT if(1 < 2, 'a', 'b')
    ```
 
 :   **Result value**
@@ -2307,7 +2294,7 @@ ifnull(expr1, expr2)
 :   **Result value**
 
    ```sql
-    [&quot;2&quot;]
+    ["2"]
     ```
 
 
@@ -2527,7 +2514,7 @@ json_tuple(jsonStr, p1, p2, ..., pn)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT json_tuple('{&quot;a&quot;:1, &quot;b&quot;:2}', 'a', 'b')
+   > SELECT json_tuple('{"a":1, "b":2}', 'a', 'b')
    ```
 
 :   **Result value**
@@ -2581,7 +2568,6 @@ last_day(date)
     2009-01-31
     ```
 
-**Since:** 1.5.0
 
 
 ## last_value
@@ -3005,7 +2991,7 @@ map(key0, value0, key1, value1, ...)
 :   **Result value**
 
    ```sql
-    {1.0:&quot;2&quot;,3.0:&quot;4&quot;}
+    {1.0:"2",3.0:"4"}
     ```
 
 
@@ -3043,7 +3029,7 @@ map_values(map)
 :   **Result value**
 
    ```sql
-    [&quot;a&quot;,&quot;b&quot;]
+    ["a","b"]
     ```
 
 
@@ -3104,7 +3090,6 @@ minute(timestamp)
     58
     ```
 
-**Since:** 1.5.0
 
 
 ## mod
@@ -3167,7 +3152,6 @@ month(date)
     7
     ```
 
-**Since:** 1.5.0
 
 
 ## months_between
@@ -3188,7 +3172,6 @@ months_between(timestamp1, timestamp2)
     3.94959677
     ```
 
-**Since:** 1.5.0
 
 
 ## named_struct
@@ -3200,13 +3183,13 @@ named_struct(name1, val1, name2, val2, ...)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT named_struct(&quot;a&quot;, 1, &quot;b&quot;, 2, &quot;c&quot;, 3)
+   > SELECT named_struct("a", 1, "b", 2, "c", 3)
    ```
 
 :   **Result value**
 
    ```sql
-    {&quot;a&quot;:1,&quot;b&quot;:2,&quot;c&quot;:3}
+    {"a":1,"b":2,"c":3}
     ```
 
 
@@ -3266,7 +3249,6 @@ next_day(start_date, day_of_week)
     2015-01-20
     ```
 
-**Since:** 1.5.0
 
 
 ## not
@@ -3281,7 +3263,6 @@ not expr:   Logical not.
 now()
 :   Returns the current timestamp at the start of query evaluation.
 
-**Since:** 1.5.0
 
 
 ## ntile
@@ -3326,7 +3307,7 @@ nvl(expr1, expr2)
 :   **Result value**
 
    ```sql
-    [&quot;2&quot;]
+    ["2"]
     ```
 
 
@@ -3657,7 +3638,7 @@ printf(strfmt, obj, ...)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT printf(&quot;Hello World %d %s&quot;, 100, &quot;days&quot;)
+   > SELECT printf("Hello World %d %s", 100, "days")
    ```
 
 :   **Result value**
@@ -3685,7 +3666,6 @@ quarter(date)
     3
     ```
 
-**Since:** 1.5.0
 
 
 ## radians
@@ -3843,8 +3823,8 @@ regexp_replace(str, regexp, rep)
 ## repeat
 {: #repeat}
 
-repeat(str, n
-   Returns the string that repeats the indicated string value n times.
+repeat(str, n)
+:   Returns the string that repeats the indicated string value n times.
 
 :   **Example of an SQL function usage fragment**
 
@@ -4094,7 +4074,6 @@ second(timestamp)
     59
     ```
 
-**Since:** 1.5.0
 
 
 ## sentences
@@ -4112,7 +4091,7 @@ sentences(str[, lang, country])
 :   **Result value**
 
    ```sql
-    [[&quot;Hi&quot;,&quot;there&quot;],[&quot;Good&quot;,&quot;morning&quot;]]
+    [["Hi","there"],["Good","morning"]]
     ```
 
 
@@ -4355,7 +4334,7 @@ sort_array(array[, ascendingOrder])
 :   **Result value**
 
    ```sql
-    [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;]
+    ["a","b","c","d"]
     ```
 
 
@@ -4419,7 +4398,7 @@ split(str, regex)
 :   **Result value**
 
    ```sql
-    [&quot;one&quot;,&quot;two&quot;,&quot;three&quot;,&quot;&quot;]
+    ["one","two","three",""]
     ```
 
 
@@ -4504,7 +4483,7 @@ str_to_map(text[, pairDelim[, keyValueDelim]])
 :   **Result value**
 
    ```sql
-   map(&quot;a&quot;:&quot;1&quot;,&quot;b&quot;:&quot;2&quot;,&quot;c&quot;:&quot;3&quot;)
+   map("a":"1","b":"2","c":"3")
    ```
 
 :   **Example of an SQL function usage fragment**
@@ -4516,7 +4495,7 @@ str_to_map(text[, pairDelim[, keyValueDelim]])
 :   **Result value**
 
    ```sql
-    map(&quot;a&quot;:null)
+    map("a":null)
     ```
 
 
@@ -4734,7 +4713,6 @@ the `fmt` is omitted.
     2016-12-31
     ```
 
-**Since:** 1.5.0
 
 
 ## to_json
@@ -4752,7 +4730,7 @@ to_json(expr[, options])
 :   **Result value**
 
    ```sql
-    {&quot;a&quot;:1,&quot;b&quot;:2}
+    {"a":1,"b":2}
     ```
 
 :   **Example of an SQL function usage fragment**
@@ -4764,7 +4742,7 @@ to_json(expr[, options])
 :   **Result value**
 
    ```sql
-    {&quot;time&quot;:&quot;26/08/2015&quot;}
+    {"time":"26/08/2015"}
     ```
 
 :   **Example of an SQL function usage fragment**
@@ -4776,7 +4754,7 @@ to_json(expr[, options])
 :   **Result value**
 
    ```sql
-    [{&quot;a&quot;:1,&quot;b&quot;:2}]
+    [{"a":1,"b":2}]
     ```
 
 :   **Example of an SQL function usage fragment**
@@ -4788,7 +4766,7 @@ to_json(expr[, options])
 :   **Result value**
 
    ```sql
-    {&quot;a&quot;:{&quot;b&quot;:1}}
+    {"a":{"b":1}}
     ```
 
 :   **Example of an SQL function usage fragment**
@@ -4800,7 +4778,7 @@ to_json(expr[, options])
 :   **Result value**
 
    ```sql
-    {&quot;[1]&quot;:{&quot;b&quot;:2}}
+    {"[1]":{"b":2}}
     ```
 
 :   **Example of an SQL function usage fragment**
@@ -4812,7 +4790,7 @@ to_json(expr[, options])
 :   **Result value**
 
    ```sql
-    {&quot;a&quot;:1}
+    {"a":1}
     ```
 
 :   **Example of an SQL function usage fragment**
@@ -4824,10 +4802,9 @@ to_json(expr[, options])
 :   **Result value**
 
    ```sql
-    [{&quot;a&quot;:1}]
+    [{"a":1}]
     ```
 
-**Since:** 2.2.0
 
 
 ## to_timestamp
@@ -4862,7 +4839,6 @@ a timestamp if the `fmt` is omitted.
     2016-12-31 00:00:00
     ```
 
-**Since:** 2.2.0
 
 
 ## to_unix_timestamp
@@ -4879,7 +4855,7 @@ to_unix_timestamp(expr[, pattern])
 
 ``` 1460041200```
 
-**Since:** 1.6.0
+
 
 
 ## to_utc_timestamp
@@ -4900,7 +4876,6 @@ to_utc_timestamp(timestamp, timezone)
    2016-08-30 15:00:00
    ```
 
-**Since:** 1.5.0
 
 
 ## translate
@@ -5040,7 +5015,6 @@ trunc(date, fmt)
     2015-01-01
     ```
 
-**Since:** 1.5.0
 
 
 ## ucase
@@ -5130,7 +5104,6 @@ unix_timestamp([expr[, pattern]])
     1460041200
     ```
 
-**Since:** 1.5.0
 
 
 ## upper
@@ -5209,7 +5182,6 @@ weekofyear(date)
     8
     ```
 
-**Since:** 1.5.0
 
 when
 
@@ -5236,7 +5208,7 @@ CASE WHEN expr1 THEN expr2 [WHEN expr3 THEN expr4]* [ELSE expr5] END - When `exp
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT CASE WHEN 1 &lt; 0 THEN 1 WHEN 2 > 0 THEN 2.0 ELSE 1.2 END;
+   > SELECT CASE WHEN 1 < 0 THEN 1 WHEN 2 > 0 THEN 2.0 ELSE 1.2 END;
    ```
 
 :   **Result value**
@@ -5248,12 +5220,13 @@ CASE WHEN expr1 THEN expr2 [WHEN expr3 THEN expr4]* [ELSE expr5] END - When `exp
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT CASE WHEN 1 &lt; 0 THEN 1 WHEN 2 &lt; 0 THEN 2.0 END;
+   > SELECT CASE WHEN 1 < 0 THEN 1 WHEN 2 < 0 THEN 2.0 END;
    ```
 
 :   **Result value**
 
-   ```sql NULL
+   ```sql 
+   NULL
    ```
 
 ## window
@@ -5268,7 +5241,7 @@ xpath(xml, xpath)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT xpath('&lt;a>&lt;b>b1&lt;/b>&lt;b>b2&lt;/b>&lt;b>b3&lt;/b>&lt;c>c1&lt;/c>&lt;c>c2&lt;/c>&lt;/a>','a/b/text()')
+   > SELECT xpath('<a><b>b1</b><b>b2</b><b>b3</b><c>c1</c><c>c2</c></a>','a/b/text()')
    ```
 
 :   **Result value**
@@ -5287,7 +5260,7 @@ xpath_boolean(xml, xpath)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT xpath_boolean('&lt;a>&lt;b>1&lt;/b>&lt;/a>','a/b')
+   > SELECT xpath_boolean('<a><b>1</b></a>','a/b')
    ```
 
 :   **Result value**
@@ -5306,7 +5279,7 @@ xpath_double(xml, xpath)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT xpath_double('&lt;a>&lt;b>1&lt;/b>&lt;b>2&lt;/b>&lt;/a>', 'sum(a/b)')
+   > SELECT xpath_double('<a><b>1</b><b>2</b></a>', 'sum(a/b)')
    ```
 
 :   **Result value**
@@ -5324,7 +5297,7 @@ xpath_float(xml, xpath)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT xpath_float('&lt;a>&lt;b>1&lt;/b>&lt;b>2&lt;/b>&lt;/a>', 'sum(a/b)')
+   > SELECT xpath_float('<a><b>1</b><b>2</b></a>', 'sum(a/b)')
    ```
 
 :   **Result value**
@@ -5342,7 +5315,7 @@ xpath_int(xml, xpath)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT xpath_int('&lt;a>&lt;b>1&lt;/b>&lt;b>2&lt;/b>&lt;/a>', 'sum(a/b)')
+   > SELECT xpath_int('<a><b>1</b><b>2</b></a>', 'sum(a/b)')
    ```
 
 :   **Result value**
@@ -5360,7 +5333,7 @@ xpath_long(xml, xpath)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT xpath_long('&lt;a>&lt;b>1&lt;/b>&lt;b>2&lt;/b>&lt;/a>', 'sum(a/b)')
+   > SELECT xpath_long('<a><b>1</b><b>2</b></a>', 'sum(a/b)')
    ```
 
 :   **Result value**
@@ -5378,7 +5351,7 @@ xpath_number(xml, xpath)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT xpath_number('&lt;a>&lt;b>1&lt;/b>&lt;b>2&lt;/b>&lt;/a>', 'sum(a/b)')
+   > SELECT xpath_number('<a><b>1</b><b>2</b></a>', 'sum(a/b)')
    ```
 
 :   **Result value**
@@ -5397,7 +5370,7 @@ xpath_short(xml, xpath)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT xpath_short('&lt;a>&lt;b>1&lt;/b>&lt;b>2&lt;/b>&lt;/a>', 'sum(a/b)')
+   > SELECT xpath_short('<a><b>1</b><b>2</b></a>', 'sum(a/b)')
    ```
 
 :   **Result value**
@@ -5416,7 +5389,7 @@ xpath_string(xml, xpath)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT xpath_string('&lt;a>&lt;b>b&lt;/b>&lt;c>cc&lt;/c>&lt;/a>','a/c')
+   > SELECT xpath_string('<a><b>b</b><c>cc</c></a>','a/c')
    ```
 
 :   **Result value**
@@ -5444,7 +5417,6 @@ year(date)
     2016
     ```
 
-**Since:** 1.5.0
 
 
 ## |
