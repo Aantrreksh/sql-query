@@ -41,3 +41,5 @@ Actions  |  Description
 `sql-query.catalog-table.list` |  List of catalog tables was retrieved.
 `sql-query.catalog-table.get` |  Details of a catalog table were retrieved.
 `sql-query.sql-job.disable` |  An SQL query streaming job was stopped.
+`sql-query.sql-job.notify` |  An SQL query streaming job could not process all messages before being rolled out of the EventStreams topic.
+
