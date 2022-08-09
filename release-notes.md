@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-05-04"
+lastupdated: "2022-08-09"
 
 keywords: sql query, data engine, release notes
 
@@ -20,6 +20,13 @@ content-type: release-note
 
 Use these release notes to learn about the latest {{site.data.keyword.sqlquery_full}} that are grouped by date. Release notes are available for a minimum of three years.
 {: shortdesc}
+
+## August 2022
+{: #sql-query-aug2022}
+{: release-note}
+
+Chennai deprecation
+: You cannot create a new instance in the Chennai region anymore. Already existing instances still work but will be fully depracted on October 31st.
 
 ## May 2022
 {: #sql-query-may2022}
