@@ -26,7 +26,7 @@ Use these release notes to learn about the latest {{site.data.keyword.sqlquery_f
 {: release-note}
 
 Chennai deprecation
-: You cannot create a new instance in the Chennai region anymore. Already existing instances still work but will be fully depracted on October 31st.
+: You cannot create new instances in the Chennai region anymore. Already existing instances still work but will be fully depracted on October 31st.
 
 ## May 2022
 {: #sql-query-may2022}
