@@ -105,7 +105,7 @@ Download both, the Scala and the Python SDK, and place them in a folder that is 
 - [spark-dataengine-scala](https://us.sql-query.cloud.ibm.com/download/catalog/dataengine-spark-integration-1.0.10.jar)
 - [spark-dataengine-python](https://us.sql-query.cloud.ibm.com/download/catalog/dataengine_spark-1.0.10-py3-none-any.whl)
 
-Use the following examples to get started with {{site.data.keyword.iae_full}}(IAE) or Spark runtimes in {{site.data.keyword.dsx}.
+Use the following examples to get started with {{site.data.keyword.iae_full}}(IAE) or Spark runtimes in {{site.data.keyword.dsx}}.
 
 Submit the following Python application using a notebook or the `spark-submit` command:
 
