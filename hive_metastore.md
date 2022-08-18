@@ -17,25 +17,24 @@ subcollection: sql-query
 {:pre: .pre}
 {:beta: .beta}
 
-# Connecting Apache Spark to {{site.data.keyword.sqlquery_short}}
+# Connecting Apache Spark with {{site.data.keyword.sqlquery_short}}
 {: #hive_metastore}
 {: beta}
 
-{{site.data.keyword.sqlquery_full}} catalog provides an interface that is compatible with Apache Hive metastore. This unified metadata repository enables any Big Data engine, such as Apache Spark, to use {{site.data.keyword.sqlquery_short}} as metastore. The same definition for tables and views can be created once and used from any connected engine. Each instance of {{site.data.keyword.sqlquery_short}} exports its catalog as a database named *default*.
+{{site.data.keyword.sqlquery_full}} catalog provides an interface that is compatible with Apache Hive metastore. This unified metadata repository enables any Big Data engine, such as Apache Spark, to use {{site.data.keyword.sqlquery_short}} as metastore. The same definition for tables and views can be created once and used from any connected engine. Each instance of {{site.data.keyword.sqlquery_short}} exports its catalog as a database called *default*.
 {: beta}
-
 
 ## Catalog usage within {{site.data.keyword.sqlquery_short}}
 {: #internal_usage}
 
-Catalog can be used in {{site.data.keyword.sqlquery_short}} in read and write mode. Seamless access is configured without any configuration steps needed.
+The Catalog can be used in {{site.data.keyword.sqlquery_short}} in read and write mode. Seamless access is configured without any configuration steps needed.
 
 ## Connecting Apache Spark with {{site.data.keyword.sqlquery_short}}
 {: #external_usage}
 
-When using the hive metastore compatible interface, access is limited to read only operations. This means that existing tables and views can be used, but not modified.
+When using the Hive metastore compatible interface, access is limited to read only operations. Thus, existing tables and views can be used, but not modified.
 
-In order to connect to your catalog, download the files from the following links:
+In order to connect to your catalog, download the files from the following links.
 
 ### Apache Hive metastore version 3.1.2 compatible client
 {: #hive_compatible_client}
@@ -208,3 +207,18 @@ For self-hosted Apache Spark installations, or in case you don't want to use the
         .getOrCreate()
 
     ```
+    
+### Troubleshooting error message
+{: #spark_data_engine_troubleshooting}
+
+If you receive the following error message when you run the SQL statement, check which of the possible causes exist.
+
+```sql
+AnalysisException: org.apache.hadoop.hive.ql.metadata.HiveException: java.lang.RuntimeException: Unable to instantiate org.apache.hadoop.hive.ql.metadata.SessionHiveMetaStoreClient
+```
+
+Possible causes:
+
+- The CRN is invalid or the service does not exist.
+- THE APIKEY is invalid.
+- The {{site.data.keyword.sqlquery_short}} service has a Lite plan.
