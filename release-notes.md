@@ -25,6 +25,9 @@ Use these release notes to learn about the latest {{site.data.keyword.sqlquery_f
 {: #sql-query-aug2022}
 {: release-note}
 
+Support for BYOK encryption for table metadata
+: Table metadata for tables created after 23th august 2022 that is associated with a instance that uses BYOK will be encrypted using {{site.data.keyword.keymanagementservicefull}}. See [Securing your data in Data Engine](sql-query?topic=sql-query-securing-data#data-storage)
+
 Chennai deprecation
 : You cannot create new instances in the Chennai region anymore. Already existing instances still work but will be fully depracted on October 31st.
 
