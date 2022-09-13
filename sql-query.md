@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-03-30"
+lastupdated: "2022-08-09"
 
 keywords: SQL query, analyze, data, CVS, JSON, ORC, Parquet, Avro, object storage, SELECT, cloud instance, URI, endpoint, api, user roles
 
@@ -10,12 +10,7 @@ subcollection: sql-query
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:video: .video}
+{{site.data.keyword.attribute-definition-list}}
 
 # Overview
 {: #overview}
@@ -32,7 +27,7 @@ Each query result is written to a CSV, JSON, ORC, Parquet, or AVRO object in a C
 Use the {{site.data.keyword.sqlquery_short}} user interface (UI) to develop your queries and the
 [{{site.data.keyword.sqlquery_short}}REST API](#restapi) to automate them.
 
-![{{site.data.keyword.sqlquery_notm}}: Provision the IBM Cloud Services](https://www.youtube.com/embed/_fMEyqRC__c?list=PLzpeuWUENMK2R9CqhF0eJDSxfPBi6JeXA){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![Get started with {{site.data.keyword.sqlquery_notm}}](https://video.ibm.com/embed/channel/23952663/video/csq-provision){: video output="iframe" data-script="none" id="watsonmediaplayer" width="560" height="315" scrolling="no" allowfullscreen webkitallowfullscreen mozAllowFullScreen frameborder="0" style="border: 0 none transparent;"}
 
 ## Where your input data and query results are stored
 {: #stored}
@@ -44,7 +39,7 @@ Before you can use the {{site.data.keyword.sqlquery_short}} service to run SQL q
 
 Watch the following video to learn more about {{site.data.keyword.sqlquery_short}} and how you can get started to run a basic query.
 
-![{{site.data.keyword.sqlquery_notm}}: Run Queries from the Console](https://www.youtube.com/embed/PZAaWSzwo7s?list=PLzpeuWUENMK2R9CqhF0eJDSxfPBi6JeXA){: video output="iframe" data-script="none" id="youtubeplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen}
+![{{site.data.keyword.sqlquery_notm}}: Run Queries from the Console](https://video.ibm.com/embed/channel/23952663/video/csq-run-queries){: video output="iframe" data-script="none" id="watsonmediaplayer" width="560" height="315" scrolling="no" allowfullscreen webkitallowfullscreen mozAllowFullScreen frameborder="0" style="border: 0 none transparent;"}
 
 In SQL, the term *query* is just another way of saying *SELECT statement*. To run a query:
 
@@ -233,9 +228,13 @@ Your Cloud {{site.data.keyword.cos_short}} instance has one of the supported end
 
 Aliases to tethering endpoints (specific endpoints within cross region domains, for example, `dal-us-geo`) are considered legacy. They continue to work until further notice but are planned to be deprecated sometime in the future. To be prepared, update your applications to use the alias of the corresponding cross region endpoint (for example, `us-geo`).
 
-**Note:** {{site.data.keyword.sqlquery_short}} always uses the internal endpoint to interact with {{site.data.keyword.cos_short}}, even if an external endpoint was specified in the query. The result location for a query always indicates the external endpoint name. When you interact with {{site.data.keyword.sqlquery_short}} programmatically through the API, you can use the internal endpoint name to read results instead of the external endpoint name that is returned by the API.
+{{site.data.keyword.sqlquery_short}} always uses the internal endpoint to interact with {{site.data.keyword.cos_short}}, even if an external endpoint was specified in the query. The result location for a query always indicates the external endpoint name. When you interact with {{site.data.keyword.sqlquery_short}} programmatically through the API, you can use the internal endpoint name to read results instead of the external endpoint name that is returned by the API.
+{: note}
 
-The following tables list some examples of currently supported {{site.data.keyword.sqlquery_short}} endpoints:
+The following tables list some examples of currently supported {{site.data.keyword.sqlquery_short}} endpoints.
+
+The Chennai region is planned to be deprecated end of October. Thus, you cannot create a new instance in this region anymore. Already existing endpoints in Chennai continue to work until the deprecation date.
+{: note}
 
 Cross region endpoint name | Alias
 --- | ---

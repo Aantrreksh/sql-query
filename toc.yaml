@@ -20,12 +20,12 @@ toc:
       - topic: release-notes.md
         navtitle: Release notes
       - topicgroup:
-        label: Catalog management
-        topics:
-        - topic: catalog_management.md
-          navtitle: Getting started with the catalog
-        - topic: hive_metastore.md
-          navtitle: Connecting Apache Spark with Data Engine
+          label: Catalog management
+          topics:
+          - topic: catalog_management.md
+            navtitle: Getting started with the catalog
+          - topic: hive_metastore.md
+            navtitle: Connecting Apache Spark with Data Engine
       - index_management.md
       - event_streams_landing.md
 
