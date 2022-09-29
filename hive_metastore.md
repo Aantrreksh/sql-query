@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-05-09"
+lastupdated: "2022-09-29"
 
 keywords: Data Engine, SQL query, Hive, metastore, catalog
 
@@ -60,9 +60,9 @@ Use the following cell to transfer the files:
 
 ```sql
 !mkdir /tmp/dataengine
-!wget https://us.sql-query.cloud.ibm.com/download/catalog/dataengine_spark-1.0.10-py3-none-any.whl -O /tmp/dataengine/dataengine_spark-1.0.10-py3-none-any.whl
+!wget https://us.sql-query.cloud.ibm.com/download/catalog/dataengine_spark-1.1.67-py3-none-any.whl -O /tmp/dataengine/dataengine_spark-1.1.67-py3-none-any.whl
 # user-libs/spark2 is in the classpath of Spark
-!wget https://us.sql-query.cloud.ibm.com/download/catalog/dataengine-spark-integration-1.0.10.jar -O user-libs/spark2/dataengine-spark-integration-1.0.10.jar
+!wget https://us.sql-query.cloud.ibm.com/download/catalog/dataengine-spark-integration-1.1.67.jar -O user-libs/spark2/dataengine-spark-integration-1.1.67.jar
 !wget https://us.sql-query.cloud.ibm.com/download/catalog/hive-metastore-standalone-client-3.1.2-sqlquery.jar -O  /tmp/dataengine/hive-metastore-standalone-client-3.1.2-sqlquery.jar
 
 !pip install --force-reinstall /tmp/dataengine/dataengine_spark-1.0.10-py3-none-any.whl
@@ -82,7 +82,6 @@ from dataengine import SparkSessionWithDataengine
 # call the helper function
 session_builder = SparkSessionWithDataengine.enableDataengine(crn, apikey, "public", "/tmp/dataengine")
 spark = session_builder.appName("Spark DataEngine integration test").getOrCreate()
-
 ```
 
 Display your tables and run an SQL statement:
@@ -94,15 +93,68 @@ spark.sql('show tables').show(truncate=False)
 spark.sql('select * from yourTable').show()
 ```
 
-### Apache Spark Data Engine integration
+### Usage with {{site.data.keyword.iae_full_notm}}
+{: #iae_data_engine_integration}
+
+{{site.data.keyword.iae_full}} has the JAR/Wheel files already included, and thus allows for a quick start. The following example shows a Spark batch job for a *show tables* example in Python:
+
+```sql
+import sys
+from dataengine import SparkSessionWithDataengine
+
+if __name__ == '__main__':
+    crn = sys.argv[1]
+    apikey = sys.argv[2]
+
+    print(" Start SparkSessionWithDataengine example")
+    session_builder = SparkSessionWithDataengine.enableDataengine(crn, apikey, "public", "/opt/ibm/connectors/data-engine/hms-client")
+
+    print(" Setup IBM Cloud Object Storage access")
+    spark = session_builder.appName("AnalyticEngine DataEngine integration") \
+          .config("fs.cos.impl", "com.ibm.stocator.fs.ObjectStoreFileSystem") \
+          .config("fs.stocator.scheme.list", "cos") \
+          .config("fs.stocator.cos.impl", "com.ibm.stocator.fs.cos.COSAPIClient") \
+          .getOrCreate()
+
+    print(" Got a spark session, listing all tables")
+    spark.sql('show tables').show()
+
+    spark.stop()
+```
+
+Prepare a JSON file to start that program, as in the following example (listTablesExample.json):
+
+```sql
+{
+  "application_details": {
+     "application": "cos://<your-bucket>.listtab/listTablesExample.py",
+     "arguments": ["<Data-Engine-instance-CRN>", "<API-key-to-access-data-engine-instance>"],
+     "conf": {
+        "ae.spark.executor.count":"1",
+        "ae.spark.autoscale.enable":"false",
+        "spark.hadoop.fs.cos.listtab.endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud",
+        "spark.hadoop.fs.cos.listtab.iam.api.key": "<API-key-to-access-python-file>",
+        "spark.app.name": "DataEngineHiveAccess"
+     }
+  }
+}
+```
+
+Start the application using a curl command, as in the following example:
+
+```curl
+curl -X POST https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<GUID of Analytic Engine>/spark_applications --header "Authorization: Bearer $TOKEN" -H "content-type: application/json"  -d @listTablesExample.json
+```
+
+### Apache Spark {{site.data.keyword.sqlquery_short}} integration
 {: #spark_data_engine_integration}
 
 While the {{site.data.keyword.sqlquery_short}} catalog is compatible with the Hive metastore and can be used as any other external Hive metastore server, an SDK is provided to minimize the steps that are needed to configure Apache Spark. The SDK simplifies connecting to both, metastore and IBM Cloud Object storage, buckets referenced by tables or views.
 
 Download both, the Scala and the Python SDK, and place them in a folder that is in the classpath of your Apache Spark cluster.
 
-- [spark-dataengine-scala](https://us.sql-query.cloud.ibm.com/download/catalog/dataengine-spark-integration-1.0.10.jar)
-- [spark-dataengine-python](https://us.sql-query.cloud.ibm.com/download/catalog/dataengine_spark-1.0.10-py3-none-any.whl)
+- [spark-dataengine-scala](https://us.sql-query.cloud.ibm.com/download/catalog/dataengine-spark-integration-1.1.67.jar)
+- [spark-dataengine-python](https://us.sql-query.cloud.ibm.com/download/catalog/dataengine_spark-1.1.67-py3-none-any.whl)
 
 Use the following examples to get started with {{site.data.keyword.iae_full}} (IAE) or Spark runtimes in {{site.data.keyword.DSX}}.
 
@@ -110,26 +162,22 @@ Submit the following Python application using a notebook or the `spark-submit` c
 
 ```sql
 import sys
-from SparkSessionWithDataengine import SparkSessionWithDataengine
+from dataengine import SparkSessionWithDataengine
 
 if __name__ == '__main__':
     crn = sys.argv[1]
     apikey = sys.argv[2]
 
-
+    print(" Start SparkSessionWithDataengine example")
     session_builder = SparkSessionWithDataengine.enableDataengine(crn, apikey, "public", "/tmp/dataengine")
 
+    print(" Setup IBM Cloud Object Storage access")
     spark = session_builder.appName("Spark DataEngine integration") \
           .config("fs.cos.impl", "com.ibm.stocator.fs.ObjectStoreFileSystem") \
           .config("fs.stocator.scheme.list", "cos") \
           .config("fs.stocator.cos.impl", "com.ibm.stocator.fs.cos.COSAPIClient") \
           .getOrCreate()
 
-    print("Dumping session config...")
-    for conf in spark.sparkContext.getConf().getAll():
-        key = conf[0]
-        value = "***" if apikey == conf[1] else conf[1]
-        print(key, value)
     print("Got a spark session, listing all tables")
     spark.sql('show tables').show()
 
@@ -156,10 +204,7 @@ object SparkSessionBuilderHMSConfigTest {
       .config("fs.stocator.cos.impl", "com.ibm.stocator.fs.cos.COSAPIClient")
       .config("fs.stocator.cos.scheme", "cos")
       .getOrCreate()
-    println("Dumping session config...")
-    val config = spark.sparkContext.getConf.getAll
-    for (conf <- config)
-      println(conf._1 +", "+ conf._2)
+
     println("Got a spark session, listing all tables")
     val sqlDF = spark.sql("SHOW TABLES")
     sqlDF.show()
