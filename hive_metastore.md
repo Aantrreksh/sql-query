@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-08-31"
+lastupdated: "2022-09-29"
 
 keywords: Data Engine, SQL query, Hive, metastore, catalog
 
@@ -82,7 +82,6 @@ from dataengine import SparkSessionWithDataengine
 # call the helper function
 session_builder = SparkSessionWithDataengine.enableDataengine(crn, apikey, "public", "/tmp/dataengine")
 spark = session_builder.appName("Spark DataEngine integration test").getOrCreate()
-
 ```
 
 Display your tables and run an SQL statement:
@@ -94,10 +93,10 @@ spark.sql('show tables').show(truncate=False)
 spark.sql('select * from yourTable').show()
 ```
 
-### Usage with IBM Analytic Engine 
+### Usage with {{site.data.keyword.iae_full_notm}}
 {: #iae_data_engine_integration}
 
-IBM Analytic Engine has the above described JAR/Wheel files already included and allows therefore a quick start. A Spark batch job for a *show tables* example in Python would look like:
+{{site.data.keyword.iae_full}} has the JAR/Wheel files already included, and thus allows for a quick start. The following example shows a Spark batch job for a *show tables* example in Python:
 
 ```sql
 import sys
@@ -123,7 +122,7 @@ if __name__ == '__main__':
     spark.stop()
 ```
 
-Prepare a JSON file to start that program like below (listTablesExample.json):
+Prepare a JSON file to start that program, as in the following example (listTablesExample.json):
 
 ```sql
 {
@@ -141,12 +140,13 @@ Prepare a JSON file to start that program like below (listTablesExample.json):
 }
 ```
 
-Start the application using a curl command like following:
-```
+Start the application using a curl command, as in the following example:
+
+```curl
 curl -X POST https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<GUID of Analytic Engine>/spark_applications --header "Authorization: Bearer $TOKEN" -H "content-type: application/json"  -d @listTablesExample.json
 ```
 
-### Apache Spark Data Engine integration
+### Apache Spark {{site.data.keyword.sqlquery_short}} integration
 {: #spark_data_engine_integration}
 
 While the {{site.data.keyword.sqlquery_short}} catalog is compatible with the Hive metastore and can be used as any other external Hive metastore server, an SDK is provided to minimize the steps that are needed to configure Apache Spark. The SDK simplifies connecting to both, metastore and IBM Cloud Object storage, buckets referenced by tables or views.
