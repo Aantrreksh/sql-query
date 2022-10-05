@@ -105,6 +105,9 @@ The `SHOW TABLES` statement provides you with an overview of the existing tables
 SHOW TABLES LIKE '*cus*'
 ```
 
+It is not possible to to create a different namespace than *default*.
+{: note}
+
 To clean up catalog entries for unused data, use the `DROP TABLE` statement.
 This statement removes the table definition from the catalog without affecting the actual data on {{site.data.keyword.cos_short}}:
 
