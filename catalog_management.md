@@ -2,7 +2,7 @@
 
 copyright:
   years:  2020, 2022
-lastupdated: "2022-010-05"
+lastupdated: "2022-10-06"
 
 keywords: hive, metastore, catalog, performance, create table, object storage
 
@@ -105,7 +105,7 @@ The `SHOW TABLES` statement provides you with an overview of the existing tables
 SHOW TABLES LIKE '*cus*'
 ```
 
-It is not possible to to create a different namespace than *default*.
+It is not possible to use a different namespace than *default*.
 {: note}
 
 To clean up catalog entries for unused data, use the `DROP TABLE` statement.
