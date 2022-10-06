@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-09-29"
+lastupdated: "2022-10-06"
 
 keywords: Data Engine, SQL query, Hive, metastore, catalog
 
@@ -153,8 +153,8 @@ While the {{site.data.keyword.sqlquery_short}} catalog is compatible with the Hi
 
 Download both, the Scala and the Python SDK, and place them in a folder that is in the classpath of your Apache Spark cluster.
 
-- [spark-dataengine-scala](https://us.sql-query.cloud.ibm.com/download/catalog/dataengine-spark-integration-1.1.67.jar)
-- [spark-dataengine-python](https://us.sql-query.cloud.ibm.com/download/catalog/dataengine_spark-1.1.67-py3-none-any.whl)
+- [spark-dataengine-scala](https://us.sql-query.cloud.ibm.com/download/catalog/dataengine-spark-integration-1.1.80.jar)
+- [spark-dataengine-python](https://us.sql-query.cloud.ibm.com/download/catalog/dataengine_spark-1.1.80-py3-none-any.whl)
 
 Use the following examples to get started with {{site.data.keyword.iae_full}} (IAE) or Spark runtimes in {{site.data.keyword.DSX}}.
 
