@@ -281,7 +281,7 @@ Frankfurt | 3
 Chennai | 1
 {: caption="Table 4. Regions" caption-side="bottom"}
 
-For Availability Service Level Agreements, see the [Cloud Services terms](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?OpenDocument).
+For Availability Service Level Agreements, see the [Cloud Services terms](https://cloud.ibm.com/docs/overview?topic=overview-slas).
 
 ## Programmatic access
 {: #access}
@@ -299,7 +299,7 @@ You can use the [{{site.data.keyword.sqlquery_short}} service REST API](https://
 For a Python application, you can also use the [ibmcloudsql package](https://pypi.org/project/ibmcloudsql/).
 Use IBM Watson Studio to run queries with {{site.data.keyword.sqlquery_short}} and visualize the query results with one of the various widget libraries available in [Watson Studio](https://cloud.ibm.com/catalog/services/data-science-experience).
 
-Using the ibmcloudsql library, you can also interact with {{site.data.keyword.sqlquery_short}} directly from Watson Studio notebooks. You can start by [Using IBM Cloud SQL Query notebook](https://dataplatform.cloud.ibm.com/exchange/public/entry/view/4a9bb1c816fb1e0f31fec5d580e4e14d) in the [IBM Cloud Pak for Data Gallery](https://dataplatform.cloud.ibm.com/gallery?context=cpdaas&query=sql).
+Using the ibmcloudsql library, you can also interact with {{site.data.keyword.sqlquery_short}} directly from Watson Studio notebooks. You can start by [Using IBM Cloud SQL Query notebook](https://dataplatform.cloud.ibm.com/exchange/public/entry/view/e82c765fd1165439caccfc4ce8579a25?context=cpdaas) in the [IBM Cloud Pak for Data Gallery](https://dataplatform.cloud.ibm.com/gallery?context=cpdaas&query=sql).
 
 ### Cloud functions
 {: #cloud}
