@@ -26,7 +26,7 @@ Use these release notes to learn about the latest {{site.data.keyword.sqlquery_f
 {: release-note}
 
 Support for BYOK encryption for table metadata
-: Table metadata for tables created after 23th August 2022 that is associated with a instance that uses BYOK will be encrypted using {{site.data.keyword.keymanagementservicefull}}. See [Securing your data in Data Engine](sql-query?topic=sql-query-securing-data#data-storage)
+: Table metadata for tables created after 23th August 2022 that is associated with a instance that uses BYOK will be encrypted using {{site.data.keyword.keymanagementservicefull}}. See [Securing your data in Data Engine](/docs/sql-query?topic=sql-query-securing-data#data-storage)
 
 Chennai deprecation
 : You cannot create new instances in the Chennai region anymore. Already existing instances still work but will be fully depracted on October 31st.
@@ -39,7 +39,7 @@ Rebranding
 : IBM Cloud SQL Query has been rebranded to {{site.data.keyword.sqlquery_notm}}.
 
 Hive
-:   {{site.data.keyword.sqlquery_short}} provides an external [Hive metastore (HMS) service](sql-query?topic=sql-query-hive_metastore).  
+:   {{site.data.keyword.sqlquery_short}} provides an external [Hive metastore (HMS) service](/docs/sql-query?topic=sql-query-hive_metastore).  
 
 ## November 2021
 {: #sql-query-november2021}
