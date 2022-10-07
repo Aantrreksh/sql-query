@@ -101,7 +101,7 @@ Time series functions
 :   {{site.data.keyword.sqlquery_short}} time series functions: The anchor functions are deprecated and replaced by the new and more powerful expression creation functions.
 
 Python SDK
-:   The [ibmcloudsql](https://pypi.org/project/ibmcloudsql) Python SDK significantly expanded in functionality for even more powerful Python analytics with SQL. Take a tour of the functions in the [{{site.data.keyword.sqlquery_short}} Starter Notebook](https://dataplatform.cloud.ibm.com/exchange/public/entry/view/4a9bb1c816fb1e0f31fec5d580e4e14d). The Python SDK also comes with a dedicated [online documentation](https://ibm-cloud.github.io/sql-query-clients/intro.html#ibmcloudsql).
+:   The [ibmcloudsql](https://pypi.org/project/ibmcloudsql) Python SDK significantly expanded in functionality for even more powerful Python analytics with SQL. Take a tour of the functions in the [{{site.data.keyword.sqlquery_short}} Starter Notebook](https://dataplatform.cloud.ibm.com/exchange/public/entry/view/e82c765fd1165439caccfc4ce8579a25?context=cpdaas). The Python SDK also comes with a dedicated [online documentation](https://ibm-cloud.github.io/sql-query-clients/intro.html#ibmcloudsql).
 
 Usage of legacy SoftLayer endpoints discontinued
 :   The usage of the legacy SoftLayer endpoints of Cloud {{site.data.keyword.cos_full_notm}} is discontinued. Check out the [Cloud Object Storage announcement](https://cloud.ibm.com/status?component=cloud-object-storage&location=global&selected=announcement&query=2020+Actions) for more details.
