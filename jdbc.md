@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-05-13"
+lastupdated: "2022-10-07"
 
 keywords: jdbc, data engine
 
@@ -124,7 +124,7 @@ You cannot run statements with an `INTO` clause by using the generic `Statement.
 ## JDBC driver logging
 {: #jdbc_driver_logging}
 
-JDBC driver logging uses the java.util.logging framework, similar to the [postgresql JDBC driver](https://jdbc.postgresql.org/documentation/head/logging.html). However, since driver version 2.5.30, logging is turned off by default to avoid unexpected console output in a default logging configuration. To turn on logging, use the connection property `loggerLevel`:
+JDBC driver logging uses the java.util.logging framework, similar to the [postgresql JDBC driver](https://jdbc.postgresql.org/documentation/logging/). However, since driver version 2.5.30, logging is turned off by default to avoid unexpected console output in a default logging configuration. To turn on logging, use the connection property `loggerLevel`:
 
 Set `loggerLevel` to an explicit log level name, such as `INFO`, to configure that log level for the driver base logger `com.ibm.cloud.sql.jdbc`.
 Set `loggerLevel` to the value default to respect the `existing java.util.logging` configuration without overriding the base logger level. Java™ SE Development Kit default is usually to log to the console at `INFO` level, but you can [set log levels and log destinations with a configuration file](https://docs.oracle.com/javase/8/docs/api/java/util/logging/LogManager.html). The file name must be specified as Java system property `-D java.util.logging.config.file=<path>`.
