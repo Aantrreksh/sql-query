@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-08-09"
+lastupdated: "2022-10-12"
 
 keywords: SQL query, analyze, data, CVS, JSON, ORC, Parquet, Avro, object storage, SELECT, cloud instance, URI, endpoint, api, user roles
 
@@ -15,14 +15,13 @@ subcollection: sql-query
 # Overview
 {: #overview}
 
-{{site.data.keyword.sqlquery_full}} is a fully managed service that runs SQL queries (that is, SELECT statements) to analyze, transform, or clean up rectangular data.
+{{site.data.keyword.sqlquery_full}} is a fully managed service that runs SQL queries (that is, SELECT statements) to read, analyze, transform, store, and stream data in {{site.data.keyword.cos_full}} and Kafka. It also allows you to manage table metadata in a catalog that is compatible with Hive metastore.
+{{site.data.keyword.sqlquery_short}} is {{site.data.keyword.bluemix_short}}'s central service for data lakes. Combining {{site.data.keyword.sqlquery_short}} with data in {{site.data.keyword.cos_short}} enables you to create an active workspace for a range of big data analytics use cases.
 {: shortdesc}
-
-**Note:** You can use {{site.data.keyword.sqlquery_short}} to create SELECT statements only; actions such as CREATE, DELETE, INSERT, and UPDATE are not possible.
 
 ![{{site.data.keyword.sqlquery_short}} overview.](images/streams_landing_DE.svg "{{site.data.keyword.sqlquery_short}} Overview"){: caption="Figure 1. {{site.data.keyword.sqlquery_short}} overview" caption-side="bottom"}
 
-Input data is read from CSV, JSON, ORC, Parquet, or AVRO objects located in one or more {{site.data.keyword.cos_full}} instances.
+Input data is read from CSV, JSON, ORC, Parquet, or AVRO objects located in one or more Cloud {{site.data.keyword.cos_short}} instances.
 Each query result is written to a CSV, JSON, ORC, Parquet, or AVRO object in a Cloud {{site.data.keyword.cos_short}} or Db2 instance of your choice.
 Use the {{site.data.keyword.sqlquery_short}} user interface (UI) to develop your queries and the
 [{{site.data.keyword.sqlquery_short}}REST API](#restapi) to automate them.
