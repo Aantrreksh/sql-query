@@ -1,0 +1,328 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="railroad-diagram"  viewBox="0 0 1694 152"  xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMin meet">
+    <defs>
+        <style type="text/css"><![CDATA[ svg.railroad-diagram {
+  background-color: #ffffff;
+}
+svg.railroad-diagram path {
+  stroke-width: 2;
+  stroke: #5a6872;
+  fill: none;
+}
+svg.railroad-diagram text {
+  font-size: 14px;
+  font-family: 'ibm-plex-mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace;
+  color: #152935;
+  text-anchor: middle;
+  cursor: pointer;
+}
+svg.railroad-diagram text.label {
+  text-anchor: start;
+}
+svg.railroad-diagram text.comment {
+  font-size: 12px;
+}
+svg.railroad-diagram rect {
+  stroke-width: 2;
+  stroke:  #5a6872;
+  fill: #5aaafa;
+}
+ ]]></style>
+    </defs>
+    
+<g transform="translate(.5 .5)">
+<path d="M 20 21 v 20 m 10 -20 v 20 m -10 -10 h 20.5"/>
+<g>
+<path d="M40 31h0"/>
+<path d="M1664 31h0"/>
+<path d="M40 31h20"/>
+<g>
+<path d="M60 31h224"/>
+<path d="M1420 31h224"/>
+<path d="M284 31h10"/>
+<g>
+<path d="M294 31h0"/>
+<path d="M466 31h0"/>
+<rect x="294" y="20" width="172" height="22" rx="10" ry="10"/>
+<text x="380" y="35">TS_EXP_IF_THEN_ELSE</text>
+</g>
+<path d="M466 31h10"/>
+<path d="M476 31h10"/>
+<g>
+<path d="M486 31h0"/>
+<path d="M514 31h0"/>
+<rect x="486" y="20" width="28" height="22" rx="10" ry="10"/>
+<text x="500" y="35">(</text>
+</g>
+<path d="M514 31h10"/>
+<path d="M524 31h10"/>
+<g>
+<a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanTimeSeriesExpression" target="_top">
+<path d="M534 31h0"/>
+<path d="M770 31h0"/>
+<rect x="534" y="20" width="236" height="22"/>
+<text x="652" y="35">booleanTimeSeriesExpression</text>
+</a>
+</g>
+<path d="M770 31h10"/>
+<path d="M780 31h10"/>
+<g>
+<path d="M790 31h0"/>
+<path d="M818 31h0"/>
+<rect x="790" y="20" width="28" height="22" rx="10" ry="10"/>
+<text x="804" y="35">,</text>
+</g>
+<path d="M818 31h10"/>
+<path d="M828 31h10"/>
+<g>
+<a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#stringTimeSeriesExpression" target="_top">
+<path d="M838 31h0"/>
+<path d="M1066 31h0"/>
+<rect x="838" y="20" width="228" height="22"/>
+<text x="952" y="35">stringTimeSeriesExpression</text>
+</a>
+</g>
+<path d="M1066 31h10"/>
+<path d="M1076 31h10"/>
+<g>
+<path d="M1086 31h0"/>
+<path d="M1114 31h0"/>
+<rect x="1086" y="20" width="28" height="22" rx="10" ry="10"/>
+<text x="1100" y="35">,</text>
+</g>
+<path d="M1114 31h10"/>
+<path d="M1124 31h10"/>
+<g>
+<a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#stringTimeSeriesExpression" target="_top">
+<path d="M1134 31h0"/>
+<path d="M1362 31h0"/>
+<rect x="1134" y="20" width="228" height="22"/>
+<text x="1248" y="35">stringTimeSeriesExpression</text>
+</a>
+</g>
+<path d="M1362 31h10"/>
+<path d="M1372 31h10"/>
+<g>
+<path d="M1382 31h0"/>
+<path d="M1410 31h0"/>
+<rect x="1382" y="20" width="28" height="22" rx="10" ry="10"/>
+<text x="1396" y="35">)</text>
+</g>
+<path d="M1410 31h10"/>
+</g>
+<path d="M1644 31h20"/>
+<path d="M40 31a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10"/>
+<g>
+<path d="M60 61h392"/>
+<path d="M1252 61h392"/>
+<path d="M452 61h10"/>
+<g>
+<path d="M462 61h0"/>
+<path d="M594 61h0"/>
+<rect x="462" y="50" width="132" height="22" rx="10" ry="10"/>
+<text x="528" y="65">TS_EXP_IF_THEN</text>
+</g>
+<path d="M594 61h10"/>
+<path d="M604 61h10"/>
+<g>
+<path d="M614 61h0"/>
+<path d="M642 61h0"/>
+<rect x="614" y="50" width="28" height="22" rx="10" ry="10"/>
+<text x="628" y="65">(</text>
+</g>
+<path d="M642 61h10"/>
+<path d="M652 61h10"/>
+<g>
+<a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanTimeSeriesExpression" target="_top">
+<path d="M662 61h0"/>
+<path d="M898 61h0"/>
+<rect x="662" y="50" width="236" height="22"/>
+<text x="780" y="65">booleanTimeSeriesExpression</text>
+</a>
+</g>
+<path d="M898 61h10"/>
+<path d="M908 61h10"/>
+<g>
+<path d="M918 61h0"/>
+<path d="M946 61h0"/>
+<rect x="918" y="50" width="28" height="22" rx="10" ry="10"/>
+<text x="932" y="65">,</text>
+</g>
+<path d="M946 61h10"/>
+<path d="M956 61h10"/>
+<g>
+<a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#stringTimeSeriesExpression" target="_top">
+<path d="M966 61h0"/>
+<path d="M1194 61h0"/>
+<rect x="966" y="50" width="228" height="22"/>
+<text x="1080" y="65">stringTimeSeriesExpression</text>
+</a>
+</g>
+<path d="M1194 61h10"/>
+<path d="M1204 61h10"/>
+<g>
+<path d="M1214 61h0"/>
+<path d="M1242 61h0"/>
+<rect x="1214" y="50" width="28" height="22" rx="10" ry="10"/>
+<text x="1228" y="65">)</text>
+</g>
+<path d="M1242 61h10"/>
+</g>
+<path d="M1644 61a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10"/>
+<path d="M40 31a10 10 0 0 1 10 10v40a10 10 0 0 0 10 10"/>
+<g>
+<path d="M60 91h0"/>
+<path d="M1644 91h0"/>
+<path d="M60 91h10"/>
+<g>
+<path d="M70 91h0"/>
+<path d="M226 91h0"/>
+<rect x="70" y="80" width="156" height="22" rx="10" ry="10"/>
+<text x="148" y="95">TS_EXP_MATCH_CASE</text>
+</g>
+<path d="M226 91h10"/>
+<path d="M236 91h10"/>
+<g>
+<path d="M246 91h0"/>
+<path d="M274 91h0"/>
+<rect x="246" y="80" width="28" height="22" rx="10" ry="10"/>
+<text x="260" y="95">(</text>
+</g>
+<path d="M274 91h10"/>
+<path d="M284 91h10"/>
+<g>
+<path d="M294 91h0"/>
+<path d="M354 91h0"/>
+<rect x="294" y="80" width="60" height="22" rx="10" ry="10"/>
+<text x="324" y="95">ARRAY</text>
+</g>
+<path d="M354 91h10"/>
+<path d="M364 91h10"/>
+<g>
+<path d="M374 91h0"/>
+<path d="M402 91h0"/>
+<rect x="374" y="80" width="28" height="22" rx="10" ry="10"/>
+<text x="388" y="95">(</text>
+</g>
+<path d="M402 91h10"/>
+<path d="M412 91h10"/>
+<g>
+<path d="M422 91h0"/>
+<path d="M1242 91h0"/>
+<path d="M422 91h10"/>
+<g>
+<path d="M432 91h0"/>
+<path d="M1232 91h0"/>
+<path d="M432 91h10"/>
+<g>
+<path d="M442 91h0"/>
+<path d="M574 91h0"/>
+<rect x="442" y="80" width="132" height="22" rx="10" ry="10"/>
+<text x="508" y="95">TS_EXP_IF_THEN</text>
+</g>
+<path d="M574 91h10"/>
+<path d="M584 91h10"/>
+<g>
+<path d="M594 91h0"/>
+<path d="M622 91h0"/>
+<rect x="594" y="80" width="28" height="22" rx="10" ry="10"/>
+<text x="608" y="95">(</text>
+</g>
+<path d="M622 91h10"/>
+<path d="M632 91h10"/>
+<g>
+<a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#booleanTimeSeriesExpression" target="_top">
+<path d="M642 91h0"/>
+<path d="M878 91h0"/>
+<rect x="642" y="80" width="236" height="22"/>
+<text x="760" y="95">booleanTimeSeriesExpression</text>
+</a>
+</g>
+<path d="M878 91h10"/>
+<path d="M888 91h10"/>
+<g>
+<path d="M898 91h0"/>
+<path d="M926 91h0"/>
+<rect x="898" y="80" width="28" height="22" rx="10" ry="10"/>
+<text x="912" y="95">,</text>
+</g>
+<path d="M926 91h10"/>
+<path d="M936 91h10"/>
+<g>
+<a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#stringTimeSeriesExpression" target="_top">
+<path d="M946 91h0"/>
+<path d="M1174 91h0"/>
+<rect x="946" y="80" width="228" height="22"/>
+<text x="1060" y="95">stringTimeSeriesExpression</text>
+</a>
+</g>
+<path d="M1174 91h10"/>
+<path d="M1184 91h10"/>
+<g>
+<path d="M1194 91h0"/>
+<path d="M1222 91h0"/>
+<rect x="1194" y="80" width="28" height="22" rx="10" ry="10"/>
+<text x="1208" y="95">)</text>
+</g>
+<path d="M1222 91h10"/>
+</g>
+<path d="M1232 91h10"/>
+<path d="M432 91a10 10 0 0 0 -10 10v10a10 10 0 0 0 10 10"/>
+<g>
+<path d="M432 121h376"/>
+<path d="M856 121h376"/>
+<path d="M808 121h10"/>
+<g>
+<path d="M818 121h0"/>
+<path d="M846 121h0"/>
+<rect x="818" y="110" width="28" height="22" rx="10" ry="10"/>
+<text x="832" y="125">,</text>
+</g>
+<path d="M846 121h10"/>
+</g>
+<path d="M1232 121a10 10 0 0 0 10 -10v-10a10 10 0 0 0 -10 -10"/>
+</g>
+<path d="M1242 91h10"/>
+<path d="M1252 91h10"/>
+<g>
+<path d="M1262 91h0"/>
+<path d="M1290 91h0"/>
+<rect x="1262" y="80" width="28" height="22" rx="10" ry="10"/>
+<text x="1276" y="95">)</text>
+</g>
+<path d="M1290 91h10"/>
+<path d="M1300 91h10"/>
+<g>
+<path d="M1310 91h0"/>
+<path d="M1338 91h0"/>
+<rect x="1310" y="80" width="28" height="22" rx="10" ry="10"/>
+<text x="1324" y="95">,</text>
+</g>
+<path d="M1338 91h10"/>
+<path d="M1348 91h10"/>
+<g>
+<a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#stringTimeSeriesExpression" target="_top">
+<path d="M1358 91h0"/>
+<path d="M1586 91h0"/>
+<rect x="1358" y="80" width="228" height="22"/>
+<text x="1472" y="95">stringTimeSeriesExpression</text>
+</a>
+</g>
+<path d="M1586 91h10"/>
+<path d="M1596 91h10"/>
+<g>
+<path d="M1606 91h0"/>
+<path d="M1634 91h0"/>
+<rect x="1606" y="80" width="28" height="22" rx="10" ry="10"/>
+<text x="1620" y="95">)</text>
+</g>
+<path d="M1634 91h10"/>
+</g>
+<path d="M1644 91a10 10 0 0 0 10 -10v-40a10 10 0 0 1 10 -10"/>
+</g>
+<path d="M 1664 31 h 20 m -10 -10 v 20 m 10 -20 v 20"/>
+</g>
+</svg>

@@ -1,0 +1,101 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="railroad-diagram"  viewBox="0 0 566 72"  xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMin meet">
+    <defs>
+        <style type="text/css"><![CDATA[ svg.railroad-diagram {
+  background-color: #ffffff;
+}
+svg.railroad-diagram path {
+  stroke-width: 2;
+  stroke: #5a6872;
+  fill: none;
+}
+svg.railroad-diagram text {
+  font-size: 14px;
+  font-family: 'ibm-plex-mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace;
+  color: #152935;
+  text-anchor: middle;
+  cursor: pointer;
+}
+svg.railroad-diagram text.label {
+  text-anchor: start;
+}
+svg.railroad-diagram text.comment {
+  font-size: 12px;
+}
+svg.railroad-diagram rect {
+  stroke-width: 2;
+  stroke:  #5a6872;
+  fill: #5aaafa;
+}
+ ]]></style>
+    </defs>
+    
+<g transform="translate(.5 .5)">
+<path d="M 20 31 v 20 m 10 -20 v 20 m -10 -10 h 20.5"/>
+<g>
+<path d="M40 41h0"/>
+<path d="M536 41h0"/>
+<path d="M40 41h10"/>
+<g>
+<path d="M50 41h0"/>
+<path d="M102 41h0"/>
+<rect x="50" y="30" width="52" height="22" rx="10" ry="10"/>
+<text x="76" y="45">DROP</text>
+</g>
+<path d="M102 41h10"/>
+<path d="M112 41h10"/>
+<g>
+<path d="M122 41h0"/>
+<path d="M182 41h0"/>
+<rect x="122" y="30" width="60" height="22" rx="10" ry="10"/>
+<text x="152" y="45">TABLE</text>
+</g>
+<path d="M182 41h10"/>
+<g>
+<path d="M192 41h0"/>
+<path d="M376 41h0"/>
+<path d="M192 41a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"/>
+<g>
+<path d="M212 21h144"/>
+</g>
+<path d="M356 21a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"/>
+<path d="M192 41h20"/>
+<g>
+<path d="M212 41h0"/>
+<path d="M356 41h0"/>
+<path d="M212 41h10"/>
+<g>
+<path d="M222 41h0"/>
+<path d="M258 41h0"/>
+<rect x="222" y="30" width="36" height="22" rx="10" ry="10"/>
+<text x="240" y="45">IF</text>
+</g>
+<path d="M258 41h10"/>
+<path d="M268 41h10"/>
+<g>
+<path d="M278 41h0"/>
+<path d="M346 41h0"/>
+<rect x="278" y="30" width="68" height="22" rx="10" ry="10"/>
+<text x="312" y="45">EXISTS</text>
+</g>
+<path d="M346 41h10"/>
+</g>
+<path d="M356 41h20"/>
+</g>
+<path d="M376 41h10"/>
+<g>
+<a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#tableIdentifier" target="_top">
+<path d="M386 41h0"/>
+<path d="M526 41h0"/>
+<rect x="386" y="30" width="140" height="22"/>
+<text x="456" y="45">tableIdentifier</text>
+</a>
+</g>
+<path d="M526 41h10"/>
+</g>
+<path d="M 536 41 h 20 m -10 -10 v 20 m 10 -20 v 20"/>
+</g>
+</svg>

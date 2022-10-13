@@ -1,210 +1,269 @@
 ---
 
 copyright:
-  year:  2020
-lastupdated: "2020-07-15"
+  years: 2022
+lastupdated: "2022-10-06"
 
-keywords: hive, metastore, catalog, performance, create table, object storage
+keywords: Data Engine, SQL query, Hive, metastore, catalog
 
 subcollection: sql-query
 
 ---
 
-{:shortdesc: .shortdesc}
 {:new_window: target="_blank"}
+{:shortdesc: .shortdesc}
+{:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:note: .note}
+{:beta: .beta}
 
+# Connecting Apache Spark with {{site.data.keyword.sqlquery_short}}
+{: #hive_metastore}
+{: beta}
 
-# Catalog management
-{: #hivemetastore}
+{{site.data.keyword.sqlquery_full}} catalog provides an interface that is compatible with Apache Hive metastore. This unified metadata repository enables any Big Data engine, such as Apache Spark, to use {{site.data.keyword.sqlquery_short}} as metastore. The same definition for tables and views can be created once and used from any connected engine. Each instance of {{site.data.keyword.sqlquery_short}} exports its catalog as a database called *default*.
+{: beta}
 
-Each instance of {{site.data.keyword.sqlquery_full}} includes a database catalog that you can use to register and manage table definitions for your data on {{site.data.keyword.cos_full}}. Catalog syntax is compatible with Hive Metastore syntax. See below how to [work with the catalog](#usage) and refer to the [Catalog Management](/docs/services/sql-query?topic=sql-query-sql-reference#chapterHiveCatalog) section of the SQL reference.
+## Catalog usage within {{site.data.keyword.sqlquery_short}}
+{: #internal_usage}
 
-## Benefits
-{: #benefits}
+The Catalog can be used in {{site.data.keyword.sqlquery_short}} in read and write mode. Seamless access is configured without any configuration steps needed.
 
-You can explore, change, or discover structured data on [Cloud Object Storage](/docs/services/cloud-object-storage/getting-started.html#getting-started-console) by {{site.data.keyword.sqlquery_short}} using SQL syntax. To query data on {{site.data.keyword.cos_short}} without a table in the catalog, you need to specify the data location (the corresponding COS URI) and the data format in your SELECT statement. During query execution, data and schema are dynamically discovered as part of the SQL compilation process. This process, called inference, derives column names, data types, the list of partitions, and individual objects on {{site.data.keyword.cos_short}} that together make up the table data.
- 
-Inferring all this information and doing it repetitively with every query imposes latency to your queries. The inference process can take up a significant amount of time, especially for text formats (for example, CSV and JSON), or when there are thousands of objects in different table partitions. In some cases, the inference process even accounts for the largest part of the overall query execution time. So, if you are either familiar with the schema, or want to repetitively use the data for queries, create a table in the catalog. Such a table improves performance for repeated query executions.
+## Connecting Apache Spark with {{site.data.keyword.sqlquery_short}}
+{: #external_usage}
 
-Another advantage of creating a table in the catalog is that the table name serves as an alias and is decoupled from the data location. This allows to separate the tasks of data engineers and SQL authors. Data engineers deal with the data location and publish registered tables in the catalog using descriptive table names. Hence, SQL authors are able to compose queries without having to know the exact location and format of data on {{site.data.keyword.cos_short}}. If the data location changes, only the table in the catalog must be updated, but the table name remains unchanged. Updates of the physical data structure are simplified and the robustness of SQL statements and applications is increased.
+When using the Hive metastore compatible interface, access is limited to read only operations. Thus, existing tables and views can be used, but not modified.
 
-## Usage
-{: #usage}
+In order to connect to your catalog, download the files from the following links.
 
-You manage the database catalog in {{site.data.keyword.sqlquery_short}} via Database Definition Language (DDL) statements that you submit just like any other SQL query statement.
-The catalog is stored independently of {{site.data.keyword.cos_short}}: No data is written to {{site.data.keyword.cos_short}} when you create or change table definitions, and no data is deleted from {{site.data.keyword.cos_short}} when you drop a table definition.
-To call the catalog management statements, you need to have the **Manager** user role assigned.
+### Apache Hive metastore version 3.1.2 compatible client
+{: #hive_compatible_client}
 
-To register a new table in the catalog, use the `CREATE TABLE` statement, as in the following example:
+Download the [Hive-compatible client](https://us.sql-query.cloud.ibm.com/download/catalog/hive-metastore-standalone-client-3.1.2-sqlquery.jar) and place it in a directory of your Apache Spark cluster that is not on the classpath. This step is necessary, as the client is loaded into an isolated classloader to avoid version conflicts.
+Note that in the examples the files are placed in `/tmp/dataengine`, when you use a different folder, adjust the example accordingly.
 
-```sql
-CREATE TABLE employees
-USING PARQUET
-LOCATION cos://us-geo/sql/employees.parquet
-```
+The client differs from the Hive version 3.1.2 release by additional enhancements that add support for TLS and authentication through {{site.data.keyword.iamlong}}.
+For *user*, specify the CRN and for *password* a valid API key with access to your {{site.data.keyword.sqlquery_short}}. Find the endpoint to use in the following table.
 
-The statement automatically detects the schema of the data at the given location.
-See the [SQL reference](/docs/services/sql-query?topic=sql-query-sql-reference#createTable) for options that can be set on the table.
+| Region | Endpoint |
+|--------|----------|
+| us-south | thrift://catalog.us.dataengine.cloud.ibm.com:9083 |
+| eu-de | thrift://catalog.eu-de.dataengine.cloud.ibm.com:9083 |
+| in-che | thrift://catalog.in-che.dataengine.cloud.ibm.com:9083 |
 
-Use the `DESCRIBE TABLE` statement to verify the detected table schema:
+### Usage within {{site.data.keyword.DSX}} notebooks
+{: #usage_watson_notebooks}
 
-```sql
-DESCRIBE TABLE employees
-```
+The required JAR/Wheel files are not available in the Spark environment used by {{site.data.keyword.DSX_full}}. Therefore, transfer them into the existing Spark environment first.
 
-If the `DESCRIBE TABLE` output shows partition information, you must execute an `ALTER TABLE ... RECOVER PARTITIONS` statement to attach the partitions. See the section on [partitioned tables](#partitioned) below for more information.
-
-You can then query the table by name instead of specifying the {{site.data.keyword.cos_short}} URI directly in the SQL statement:
+Use the following cell to transfer the files:
 
 ```sql
-SELECT * FROM employees LIMIT 10
+!mkdir /tmp/dataengine
+!wget https://us.sql-query.cloud.ibm.com/download/catalog/dataengine_spark-1.1.67-py3-none-any.whl -O /tmp/dataengine/dataengine_spark-1.1.67-py3-none-any.whl
+# user-libs/spark2 is in the classpath of Spark
+!wget https://us.sql-query.cloud.ibm.com/download/catalog/dataengine-spark-integration-1.1.67.jar -O user-libs/spark2/dataengine-spark-integration-1.1.67.jar
+!wget https://us.sql-query.cloud.ibm.com/download/catalog/hive-metastore-standalone-client-3.1.2-sqlquery.jar -O  /tmp/dataengine/hive-metastore-standalone-client-3.1.2-sqlquery.jar
+
+!pip install --force-reinstall /tmp/dataengine/dataengine_spark-1.0.10-py3-none-any.whl
+
+print("Restart your kernel!")
 ```
 
-If you want to use more specific data types than those inferred by automatic schema detection, you can also specify the table schema explicitly:
+After the cell is executed, restart the kernel to ensure that Spark loaded the jar. Set the required variables and call the helper functions:
 
 ```sql
-CREATE TABLE employees (
-  employeeID int,
-  lastName string,
-  firstName string,
-  title string,
-  titleOfCourtesy string,
-  birthDate timestamp,
-  hireDate timestamp,
-  address string,
-  city string,
-  region string,
-  postalCode string,
-  country string,
-  homePhone string,
-  extension int,
-  photo string,
-  notes string,
-  reportsTo string,
-  photoPath string
-)
-USING PARQUET
-LOCATION cos://us-geo/sql/employees.parquet
+# change the CRN and the APIkey according to your instance
+crn='yourDataengineCRN'
+apikey='yourAPIkey'
+
+from dataengine import SparkSessionWithDataengine
+
+# call the helper function
+session_builder = SparkSessionWithDataengine.enableDataengine(crn, apikey, "public", "/tmp/dataengine")
+spark = session_builder.appName("Spark DataEngine integration test").getOrCreate()
 ```
 
-If accessing the table in a SELECT statement does not work as expected, it is possibly caused by improper specification of the table schema in the `CREATE TABLE` statement. The column names and their data types in your CREATE TABLE statement must match the result of the following query:
+Display your tables and run an SQL statement:
 
 ```sql
-SELECT * FROM describe (<data-location> stored as <storage-format>)
+spark.sql('show tables').show(truncate=False)
+
+# replace yourTable with a valid table. Do not use the sample tables as you do not have access to the data!
+spark.sql('select * from yourTable').show()
 ```
 
-Note that column names are case-sensitive. Incorrect column name specification results in an empty column, that is, the column seems to contain no data. To solve such a problem, use the automatic schema detection, reorder the columns, or omit some columns.
+### Usage with {{site.data.keyword.iae_full_notm}}
+{: #iae_data_engine_integration}
 
-The `SHOW TABLES` statement provides you with an overview of the existing tables in your instance.
-This statement allows an optional search filter to limit the number of results:
+{{site.data.keyword.iae_full}} has the JAR/Wheel files already included, and thus allows for a quick start. The following example shows a Spark batch job for a *show tables* example in Python:
 
 ```sql
-SHOW TABLES LIKE '*cus*'
+import sys
+from dataengine import SparkSessionWithDataengine
+
+if __name__ == '__main__':
+    crn = sys.argv[1]
+    apikey = sys.argv[2]
+
+    print(" Start SparkSessionWithDataengine example")
+    session_builder = SparkSessionWithDataengine.enableDataengine(crn, apikey, "public", "/opt/ibm/connectors/data-engine/hms-client")
+
+    print(" Setup IBM Cloud Object Storage access")
+    spark = session_builder.appName("AnalyticEngine DataEngine integration") \
+          .config("fs.cos.impl", "com.ibm.stocator.fs.ObjectStoreFileSystem") \
+          .config("fs.stocator.scheme.list", "cos") \
+          .config("fs.stocator.cos.impl", "com.ibm.stocator.fs.cos.COSAPIClient") \
+          .getOrCreate()
+
+    print(" Got a spark session, listing all tables")
+    spark.sql('show tables').show()
+
+    spark.stop()
 ```
 
-To clean up catalog entries for unused data, use the `DROP TABLE` statement.
-This statement removes the table definition from the catalog without affecting the actual data on {{site.data.keyword.cos_short}}:
+Prepare a JSON file to start that program, as in the following example (listTablesExample.json):
 
 ```sql
-DROP TABLE customers
+{
+  "application_details": {
+     "application": "cos://<your-bucket>.listtab/listTablesExample.py",
+     "arguments": ["<Data-Engine-instance-CRN>", "<API-key-to-access-data-engine-instance>"],
+     "conf": {
+        "ae.spark.executor.count":"1",
+        "ae.spark.autoscale.enable":"false",
+        "spark.hadoop.fs.cos.listtab.endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud",
+        "spark.hadoop.fs.cos.listtab.iam.api.key": "<API-key-to-access-python-file>",
+        "spark.app.name": "DataEngineHiveAccess"
+     }
+  }
+}
 ```
 
+Start the application using a curl command, as in the following example:
 
-## Partitioned tables
-{: #partitioned}
-
-You can manage a table in the catalog that references data organized in multiple partitions on {{site.data.keyword.cos_short}}. The naming of the objects must adhere to the Hive-style partition naming convention: The object names must include the structure `/columm=value/`. The `column` must be a column name that is included in the schema definition of the `CREATE TABLE` statement. You can also have more than one partitioning columns in the object names, such as `/columm1=value/column2=value/`.
-
-Following is an example list of object names on {{site.data.keyword.cos_short}} that is partitioned on the `country` column following the Hive-style partition naming convention:
-
-```
-customers_partitioned.csv/country=Germany/cust-1.csv
-customers_partitioned.csv/country=Germany/cust-2.csv
-customers_partitioned.csv/country=Spain/cust-1.csv
-customers_partitioned.csv/country=Austria/cust-1.csv
-customers_partitioned.csv/country=Austria/cust-2.csv
-customers_partitioned.csv/country=USA/cust-1.csv
-customers_partitioned.csv/country=USA/cust-2.csv
-customers_partitioned.csv/country=USA/cust-3.csv
-customers_partitioned.csv/country=Sweden/cust-1.csv
+```curl
+curl -X POST https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<GUID of Analytic Engine>/spark_applications --header "Authorization: Bearer $TOKEN" -H "content-type: application/json"  -d @listTablesExample.json
 ```
 
-In order to query partitioned tables, you must perform two mandatory steps:
+### Apache Spark {{site.data.keyword.sqlquery_short}} integration
+{: #spark_data_engine_integration}
 
-### Step 1: Register the table
-{: #step1}
+While the {{site.data.keyword.sqlquery_short}} catalog is compatible with the Hive metastore and can be used as any other external Hive metastore server, an SDK is provided to minimize the steps that are needed to configure Apache Spark. The SDK simplifies connecting to both, metastore and IBM Cloud Object storage, buckets referenced by tables or views.
 
-This data partitioning is reflected in the PARTITIONED BY clause of the following CREATE TABLE statement:
+Download both, the Scala and the Python SDK, and place them in a folder that is in the classpath of your Apache Spark cluster.
+
+- [spark-dataengine-scala](https://us.sql-query.cloud.ibm.com/download/catalog/dataengine-spark-integration-1.1.80.jar)
+- [spark-dataengine-python](https://us.sql-query.cloud.ibm.com/download/catalog/dataengine_spark-1.1.80-py3-none-any.whl)
+
+Use the following examples to get started with {{site.data.keyword.iae_full}} (IAE) or Spark runtimes in {{site.data.keyword.DSX}}.
+
+Submit the following Python application using a notebook or the `spark-submit` command:
 
 ```sql
-CREATE TABLE customers (
-  customerID string,
-  companyName string,
-  contactName string,
-  contactTitle string,
-  address string,
-  region string,
-  postalCode string,
-  country string,
-  phone string,
-  fax string
-)
-USING CSV
-PARTITIONED BY (country)
-LOCATION cos://us-geo/sql/customers_partitioned.csv
+import sys
+from dataengine import SparkSessionWithDataengine
+
+if __name__ == '__main__':
+    crn = sys.argv[1]
+    apikey = sys.argv[2]
+
+    print(" Start SparkSessionWithDataengine example")
+    session_builder = SparkSessionWithDataengine.enableDataengine(crn, apikey, "public", "/tmp/dataengine")
+
+    print(" Setup IBM Cloud Object Storage access")
+    spark = session_builder.appName("Spark DataEngine integration") \
+          .config("fs.cos.impl", "com.ibm.stocator.fs.ObjectStoreFileSystem") \
+          .config("fs.stocator.scheme.list", "cos") \
+          .config("fs.stocator.cos.impl", "com.ibm.stocator.fs.cos.COSAPIClient") \
+          .getOrCreate()
+
+    print("Got a spark session, listing all tables")
+    spark.sql('show tables').show()
+
+    spark.stop()
 ```
 
-Automatic schema detection also recognizes paritioned tables from the structure of the object names, so the same table definition is created from the following statement:
+If you use Scala, run the following application:
 
 ```sql
-CREATE TABLE customers
-USING CSV
-LOCATION cos://us-geo/sql/customers_partitioned.csv
+package com.ibm.cloud.dataengine
+
+import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.SparkSession.{Builder => SessionBuilder}
+import SparkSessionBuilderAddOn._
+
+object SparkSessionBuilderHMSConfigTest {
+  def main(args: Array[String]) = {
+    val spark = SparkSession
+      .builder()
+      .appName("Spark DataEngine integration")
+      .enableDataengine(args(0), args(1), "public")
+      .config("fs.cos.impl", "com.ibm.stocator.fs.ObjectStoreFileSystem")
+      .config("fs.stocator.scheme.list", "cos")
+      .config("fs.stocator.cos.impl", "com.ibm.stocator.fs.cos.COSAPIClient")
+      .config("fs.stocator.cos.scheme", "cos")
+      .getOrCreate()
+
+    println("Got a spark session, listing all tables")
+    val sqlDF = spark.sql("SHOW TABLES")
+    sqlDF.show()
+  }
+}
 ```
 
-If your data on {{site.data.keyword.cos_short}} does not adhere to this naming convention, you can convert it to a Hive-partitioned layout by using {{site.data.keyword.sqlquery_short}} in a data preparation step.
-Use `SELECT *` to copy the data to a new location and specify [PARTITION BY](/docs/services/sql-query?topic=sql-query-sql-reference#partitionedClause) in the INTO clause:
+### Required settings for native Spark builder
+{: #settings_native_spark}
+
+For self-hosted Apache Spark installations, or in case you don't want to use the integration SDK, use the following instructions.
+
+1.  Ensure that [Stocator](https://github.com/CODAIT/stocator) is installed according to the instructions provided.
+2.  Download the Hive-compatible client with the provided [instructions](#apache-hive-metastore-3.1.2-compatible-client).
+3.  Set the following settings in SparkContext: 
+
+    ```
+    spark = SparkSession.builder.appName('Python-App') \
+        .config("spark.sql.pyspark.jvmStacktrace.enabled", True) \
+        .config("spark.hive.metastore.truststore.path", "file:///opt/ibm/jdk/jre/lib/security/cacerts") \
+        // to access IBM cloud object storage ensure that stocator is available
+        .config("fs.cos.impl", "com.ibm.stocator.fs.ObjectStoreFileSystem") \
+        .config("fs.stocator.scheme.list", "cos") \
+        .config("fs.stocator.cos.impl", "com.ibm.stocator.fs.cos.COSAPIClient") \
+        .config("fs.stocator.cos.scheme", "cos") \
+        // register the required Cloud Object path used in our application, add endpoints for all buckets
+        .config("spark.hadoop.fs.cos.us-geo.endpoint", "https://s3.us.cloud-object-storage.appdomain.cloud") \
+        .config("spark.hadoop.fs.cos.us-geo.iam.endpoint", "https://iam.cloud.ibm.com/identity/token") \
+        .config("spark.hadoop.fs.cos.us-geo.iam.api.key", '<YourAPIkey>') \
+        .config("spark.sql.hive.metastore.version", "3.0") \
+        // directory where the Hive client has been placed
+        .config("spark.sql.hive.metastore.jars", "/tmp/dataengine/*") \
+        .config("spark.hive.metastore.uris", "thrift://catalog.<region>.sql-query.cloud.ibm.com:9083") \
+        .config("spark.hive.metastore.use.SSL", "true") \
+        .config("spark.hive.metastore.truststore.password", "changeit") \
+        .config("spark.hive.metastore.client.auth.mode", "PLAIN") \
+        .config("spark.hive.metastore.client.plain.username", '<YourDataengineCRN>') \
+        .config("spark.hive.metastore.client.plain.password", '<YourAPIkey>') \
+        .config("spark.hive.execution.engine", "spark") \
+        .config("spark.hive.stats.autogather", "false") \
+        .config("spark.sql.warehouse.dir", "file:///tmp") \
+        // only spark as default catalog is allowed
+        .config("metastore.catalog.default", "spark") \
+        .enableHiveSupport() \
+        .getOrCreate()
+
+    ```
+    
+### Troubleshooting error message
+{: #spark_data_engine_troubleshooting}
+
+If you receive the following error message when you run the SQL statement, check which of the possible causes exist.
 
 ```sql
-SELECT * FROM cos://us-geo/sql/customers.csv
-INTO cos://us-geo/mybucket/customers_partitioned.csv
-PARTITIONED BY (country)
+AnalysisException: org.apache.hadoop.hive.ql.metadata.HiveException: java.lang.RuntimeException: Unable to instantiate org.apache.hadoop.hive.ql.metadata.SessionHiveMetaStoreClient
 ```
 
-### Step 2: Attach table partitions
-{: #step2}
+Possible causes:
 
-After you defined a partitioned table, it is initially empty and you must attach the partitions to it explicitly.
-A convenient way to add all partitions that already exist on {{site.data.keyword.cos_short}}, is to use the `RECOVER PARTITIONS` clause as follows:
-
-```sql
-ALTER TABLE customers RECOVER PARTITIONS
-```
-
-This overwrites the current partition definitions for the table with the structure detected from {{site.data.keyword.cos_short}} data using the location prefix specified for the table. You can also update partition definitions selectively with the `ADD PARTITION` and `DROP PARTITION` clauses of the `ALTER TABLE` statement, for example, to attach additional data to a table that has been uploaded recently.
-
-Once you have added all partitions, the partitioned table is set up to be queried. You get all the German customers, if you submit the following query:
-
-```sql
-SELECT customerID FROM customers WHERE country = 'Germany'
-```
-
-The query execution only reads the objects under the `cos://us-geo/sql/customers_partitioned.csv/country=Germany/` prefix because the partition definitions are used by the query optimizer to minimize the necessary data transfer.
-
-## Limitations
-{: #limitations_catalog}
-
-- With the Standard plan, you can create up to 100 tables with up to 20,000 partitions per table.
-
-- Using the Lite plan, the catalog management features, such as `CREATE TABLE`, are not allowed.
-
-- The `ADD PARTITION` option of the `ALTER TABLE` statement may not correctly locate partitions if the value for a partition column contains special characters. This includes the colon `:` that can appear as a timestamp separator.
-
-  When the location is inferred from the partition value(s), some special characters in the values are URL escaped when constructing the {{site.data.keyword.cos_short}} location. For example, the statement `ALTER TABLE mytable ADD PARTITION ( startTime = '2020-01-01 12:00:00' )` constructs a partition with an {{site.data.keyword.cos_short}} location `.../startTime=2020-01-01 12%3A00%3A00/`. If that location does not match the location of the objects to be added, the objects are not found and the new partition is empty.
-
-  Avoid this case by explicitly specifying the _exact_ object location, as in `ALTER TABLE mytable ADD PARTITION ( startTime = '2020-01-01 12:00:00' ) LOCATION <base-location>/startTime=2020-01-01 12:00:00/` (note the unescaped colons in the location).
+- The CRN is invalid or the service does not exist.
+- THE APIKEY is invalid.
+- The {{site.data.keyword.sqlquery_short}} service has a Lite plan.

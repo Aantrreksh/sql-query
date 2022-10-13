@@ -1,0 +1,152 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="railroad-diagram" width="893" height="102" viewBox="0 0 893 102" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMin meet">
+    <defs>
+        <style type="text/css"><![CDATA[ svg.railroad-diagram {
+  background-color: #ffffff;
+}
+svg.railroad-diagram path {
+  stroke-width: 2;
+  stroke: #5a6872;
+  fill: none;
+}
+svg.railroad-diagram text {
+  font-size: 14px;
+  font-family: 'ibm-plex-mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace;
+  color: #152935;
+  text-anchor: middle;
+  cursor: pointer;
+}
+svg.railroad-diagram text.label {
+  text-anchor: start;
+}
+svg.railroad-diagram text.comment {
+  font-size: 12px;
+}
+svg.railroad-diagram rect {
+  stroke-width: 2;
+  stroke:  #5a6872;
+  fill: #5aaafa;
+}
+ ]]></style>
+    </defs>
+    <g transform="translate(.5 .5)">
+        <path d="M 20 31 v 20 m 10 -20 v 20 m -10 -10 h 20.5"/>
+        <g>
+            <path d="M40 41h0"/>
+            <path d="M852 41h0"/>
+            <g>
+                <path d="M40 41h0"/>
+                <path d="M140 41h0"/>
+                <path d="M40 41a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"/>
+                <g>
+                    <path d="M60 21h60"/>
+                </g>
+                <path d="M120 21a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"/>
+                <path d="M40 41h20"/>
+                <g>
+                    <path d="M60 41h0"/>
+                    <path d="M120 41h0"/>
+                    <rect x="60" y="30" width="60" height="22" rx="10" ry="10"/>
+                    <text x="90" y="45">USING</text>
+                </g>
+                <path d="M120 41h20"/>
+            </g>
+            <path d="M140 41h10"/>
+            <g>
+                <path d="M150 41h0"/>
+                <path d="M314 41h0"/>
+                <rect x="150" y="30" width="164" height="22" rx="10" ry="10"/>
+                <text x="232" y="45">TIME_SERIES_FORMAT</text>
+            </g>
+            <path d="M314 41h10"/>
+            <path d="M324 41h10"/>
+            <g>
+                <path d="M334 41h0"/>
+                <path d="M362 41h0"/>
+                <rect x="334" y="30" width="28" height="22" rx="10" ry="10"/>
+                <text x="348" y="45">(</text>
+            </g>
+            <path d="M362 41h10"/>
+            <path d="M372 41h10"/>
+            <g>
+                <path d="M382 41h0"/>
+                <path d="M578 41h0"/>
+                <path d="M382 41h10"/>
+                <g>
+                    <path d="M392 41h0"/>
+                    <path d="M568 41h0"/>
+                    <path d="M392 41h10"/>
+                    <g>
+                        <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#timeSeriesOptions" target="_top">
+                            <path d="M402 41h0"/>
+                            <path d="M558 41h0"/>
+                            <rect x="402" y="30" width="156" height="22"/>
+                            <text x="480" y="45">timeSeriesOptions</text>
+                        </a>
+                    </g>
+                    <path d="M558 41h10"/>
+                </g>
+                <path d="M568 41h10"/>
+                <path d="M392 41a10 10 0 0 0 -10 10v10a10 10 0 0 0 10 10"/>
+                <g>
+                    <path d="M392 71h64"/>
+                    <path d="M504 71h64"/>
+                    <path d="M456 71h10"/>
+                    <g>
+                        <path d="M466 71h0"/>
+                        <path d="M494 71h0"/>
+                        <rect x="466" y="60" width="28" height="22" rx="10" ry="10"/>
+                        <text x="480" y="75">,</text>
+                    </g>
+                    <path d="M494 71h10"/>
+                </g>
+                <path d="M568 71a10 10 0 0 0 10 -10v-10a10 10 0 0 0 -10 -10"/>
+            </g>
+            <path d="M578 41h10"/>
+            <path d="M588 41h10"/>
+            <g>
+                <path d="M598 41h0"/>
+                <path d="M626 41h0"/>
+                <rect x="598" y="30" width="28" height="22" rx="10" ry="10"/>
+                <text x="612" y="45">)</text>
+            </g>
+            <path d="M626 41h10"/>
+            <g>
+                <path d="M636 41h0"/>
+                <path d="M852 41h0"/>
+                <path d="M636 41a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10"/>
+                <g>
+                    <path d="M656 21h176"/>
+                </g>
+                <path d="M832 21a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10"/>
+                <path d="M636 41h20"/>
+                <g>
+                    <path d="M656 41h0"/>
+                    <path d="M832 41h0"/>
+                    <path d="M656 41h10"/>
+                    <g>
+                        <path d="M666 41h0"/>
+                        <path d="M702 41h0"/>
+                        <rect x="666" y="30" width="36" height="22" rx="10" ry="10"/>
+                        <text x="684" y="45">IN</text>
+                    </g>
+                    <path d="M702 41h10"/>
+                    <path d="M712 41h10"/>
+                    <g>
+                        <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#identifier" target="_top">
+                            <path d="M722 41h0"/>
+                            <path d="M822 41h0"/>
+                            <rect x="722" y="30" width="100" height="22"/>
+                            <text x="772" y="45">identifier</text>
+                        </a>
+                    </g>
+                    <path d="M822 41h10"/>
+                </g>
+                <path d="M832 41h20"/>
+            </g>
+        </g>
+        <path d="M 852 41 h 20 m -10 -10 v 20 m 10 -20 v 20"/>
+    </g>
+</svg>

@@ -1,8 +1,9 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="railroad-diagram" width="609" height="62" viewBox="0 0 609 62">
-<defs><style type="text/css"><![CDATA[ svg.railroad-diagram {
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="railroad-diagram" width="609" height="62" viewBox="0 0 609 62" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMin meet">
+    <defs>
+        <style type="text/css"><![CDATA[ svg.railroad-diagram {
   background-color: #ffffff;
 }
 svg.railroad-diagram path {
@@ -28,53 +29,58 @@ svg.railroad-diagram rect {
   stroke:  #5a6872;
   fill: #5aaafa;
 }
- ]]></style></defs>
-<g transform="translate(.5 .5)">
-<path d="M 20 21 v 20 m 10 -20 v 20 m -10 -10 h 20.5"></path>
-<g>
-<path d="M40 31h0"></path>
-<path d="M568 31h0"></path>
-<path d="M40 31h10"></path>
-<g>
-<path d="M50 31h0"></path>
-<path d="M118 31h0"></path>
-<rect x="50" y="20" width="68" height="22" rx="10" ry="10"></rect>
-<text x="84" y="35">BUCKET</text>
-</g>
-<path d="M118 31h10"></path>
-<path d="M128 31h10"></path>
-<g>
-<path d="M138 31h0"></path>
-<path d="M278 31h0"></path>
-<rect x="138" y="20" width="140" height="22"></rect>
-<text x="208" y="35">unsignedInteger</text>
-</g>
-<path d="M278 31h10"></path>
-<path d="M288 31h10"></path>
-<g>
-<path d="M298 31h0"></path>
-<path d="M342 31h0"></path>
-<rect x="298" y="20" width="44" height="22" rx="10" ry="10"></rect>
-<text x="320" y="35">OUT</text>
-</g>
-<path d="M342 31h10"></path>
-<path d="M352 31h10"></path>
-<g>
-<path d="M362 31h0"></path>
-<path d="M398 31h0"></path>
-<rect x="362" y="20" width="36" height="22" rx="10" ry="10"></rect>
-<text x="380" y="35">OF</text>
-</g>
-<path d="M398 31h10"></path>
-<path d="M408 31h10"></path>
-<g>
-<path d="M418 31h0"></path>
-<path d="M558 31h0"></path>
-<rect x="418" y="20" width="140" height="22"></rect>
-<text x="488" y="35">unsignedInteger</text>
-</g>
-<path d="M558 31h10"></path>
-</g>
-<path d="M 568 31 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
-</g>
+ ]]></style>
+    </defs>
+    <g transform="translate(.5 .5)">
+        <path d="M 20 21 v 20 m 10 -20 v 20 m -10 -10 h 20.5"/>
+        <g>
+            <path d="M40 31h0"/>
+            <path d="M568 31h0"/>
+            <path d="M40 31h10"/>
+            <g>
+                <path d="M50 31h0"/>
+                <path d="M118 31h0"/>
+                <rect x="50" y="20" width="68" height="22" rx="10" ry="10"/>
+                <text x="84" y="35">BUCKET</text>
+            </g>
+            <path d="M118 31h10"/>
+            <path d="M128 31h10"/>
+            <g>
+                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#unsignedInteger" target="_top">
+                    <path d="M138 31h0"/>
+                    <path d="M278 31h0"/>
+                    <rect x="138" y="20" width="140" height="22"/>
+                    <text x="208" y="35">unsignedInteger</text>
+                </a>
+            </g>
+            <path d="M278 31h10"/>
+            <path d="M288 31h10"/>
+            <g>
+                <path d="M298 31h0"/>
+                <path d="M342 31h0"/>
+                <rect x="298" y="20" width="44" height="22" rx="10" ry="10"/>
+                <text x="320" y="35">OUT</text>
+            </g>
+            <path d="M342 31h10"/>
+            <path d="M352 31h10"/>
+            <g>
+                <path d="M362 31h0"/>
+                <path d="M398 31h0"/>
+                <rect x="362" y="20" width="36" height="22" rx="10" ry="10"/>
+                <text x="380" y="35">OF</text>
+            </g>
+            <path d="M398 31h10"/>
+            <path d="M408 31h10"/>
+            <g>
+                <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#unsignedInteger" target="_top">
+                    <path d="M418 31h0"/>
+                    <path d="M558 31h0"/>
+                    <rect x="418" y="20" width="140" height="22"/>
+                    <text x="488" y="35">unsignedInteger</text>
+                </a>
+            </g>
+            <path d="M558 31h10"/>
+        </g>
+        <path d="M 568 31 h 20 m -10 -10 v 20 m 10 -20 v 20"/>
+    </g>
 </svg>
