@@ -17,9 +17,9 @@ subcollection: sql-query
 {:pre: .pre}
 {:beta: .beta}
 
-[dataengine-spark-whl]: <> "search=dataengine_spark-[^ ]*-py3-none-any\.whl    replace=exp:dataengine_spark-${VERSION}-py3-none-any.whl"
-[dataengine-spark-jar]: <> "search=dataengine-spark-integration-[^ ]*\.jar     replace=exp:dataengine-spark-integration-${VERSION}.jar"
-[hms-client-jar]:       <> "search=hive-metastore-standalone-client-[^ ]*\.jar replace=exp:hive-metastore-standalone-client-3.1.2-sqlquery-${VERSION}.jar"
+[dataengine-spark-whl]: <> "search=dataengine_spark-[^\s]*-py3-none-any\.whl    replace=exp:dataengine_spark-${VERSION}-py3-none-any.whl"
+[dataengine-spark-jar]: <> "search=dataengine-spark-integration-[^\s]*\.jar     replace=exp:dataengine-spark-integration-${VERSION}.jar"
+[hms-client-jar]:       <> "search=hive-metastore-standalone-client-[^\s]*\.jar replace=exp:hive-metastore-standalone-client-3.1.2-sqlquery-${VERSION}.jar"
 
 # Connecting Apache Spark with {{site.data.keyword.sqlquery_short}}
 {: #hive_metastore}
