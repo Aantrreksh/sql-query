@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-10-12"
+lastupdated: "2022-10-21"
 
 keywords: SQL query, analyze, data, CVS, JSON, ORC, Parquet, Avro, object storage, SELECT, cloud instance, URI, endpoint, api, user roles
 
@@ -257,16 +257,11 @@ Single data center endpoint name | Alias
 s3.ams03.cloud-object-storage.appdomain.cloud | ams03
 s3.che01.cloud-object-storage.appdomain.cloud | che01
 s3.tor01.cloud-object-storage.appdomain.cloud | tor01
-s3.osl01.cloud-object-storage.appdomain.cloud | osl01
-s3.mel01.cloud-object-storage.appdomain.cloud | mel01
 s3.sao01.cloud-object-storage.appdomain.cloud | sao01
-s3.hkg02.cloud-object-storage.appdomain.cloud | hkg02
-s3.mex01.cloud-object-storage.appdomain.cloud | mex01
 s3.mil01.cloud-object-storage.appdomain.cloud | mil01
 s3.mon01.cloud-object-storage.appdomain.cloud | mon01
 s3.par01.cloud-object-storage.appdomain.cloud | par01
 s3.sjc04.cloud-object-storage.appdomain.cloud | sjc04
-s3.seo01.cloud-object-storage.appdomain.cloud | seo01
 s3.sng01.cloud-object-storage.appdomain.cloud | sng01
 {: caption="Table 3. Single data center endpoints" caption-side="bottom"}
 
