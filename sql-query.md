@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-10-21"
+lastupdated: "2022-10-24"
 
 keywords: SQL query, analyze, data, CVS, JSON, ORC, Parquet, Avro, object storage, SELECT, cloud instance, URI, endpoint, api, user roles
 
@@ -220,7 +220,7 @@ A query can even process the output of multiple previous query executions by omi
 
 If you want to run a query over the combined results of multiple previous queries, ensure that these have compatible outputs so that their schemas can be merged. For more information, see the section on [composite input tables](#compositeInput). To make this work properly for CSV format, all setup queries must use the same column names and sequence in their `SELECT` clause, so the results have compatible schemas. If you later need to introduce new columns in extra setup queries, add these columns to the end of the column list. If not, the structure of the composite `tempstore` data set gets corrupted, causing unreadable objects, corrupted data, or unreliable results.
 
-## Endpoints
+## Cloud {{site.data.keyword.cos_short}} endpoints
 {: #endpoints}
 
 Your Cloud {{site.data.keyword.cos_short}} instance has one of the supported endpoints. {{site.data.keyword.sqlquery_short}} supports all [public and private {{site.data.keyword.cos_short}} endpoints](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-endpoints). To save space, you can use the alias that is shown instead of the full endpoint name.
@@ -247,21 +247,12 @@ Regional endpoint name | Alias
 s3.eu-de.cloud-object-storage.appdomain.cloud | eu-de
 s3.eu-gb.cloud-object-storage.appdomain.cloud | eu-gb
 s3.us-south.cloud-object-storage.appdomain.cloud | us-south
-s3.us-east.cloud-object-storage.appdomain.cloud | us-east
-s3.au-syd.cloud-object-storage.appdomain.cloud | au-syd
-s3.jp-tok.cloud-object-storage.appdomain.cloud | jp-tok
 {: caption="Table 2. Regional endpoints" caption-side="bottom"}
 
 Single data center endpoint name | Alias
 --- | ---
 s3.ams03.cloud-object-storage.appdomain.cloud | ams03
-s3.che01.cloud-object-storage.appdomain.cloud | che01
-s3.tor01.cloud-object-storage.appdomain.cloud | tor01
-s3.sao01.cloud-object-storage.appdomain.cloud | sao01
-s3.mil01.cloud-object-storage.appdomain.cloud | mil01
 s3.mon01.cloud-object-storage.appdomain.cloud | mon01
-s3.par01.cloud-object-storage.appdomain.cloud | par01
-s3.sjc04.cloud-object-storage.appdomain.cloud | sjc04
 s3.sng01.cloud-object-storage.appdomain.cloud | sng01
 {: caption="Table 3. Single data center endpoints" caption-side="bottom"}
 
@@ -272,7 +263,6 @@ Regions | Availability zones
 --- | ---
 Dallas | 3
 Frankfurt | 3
-Chennai | 1
 {: caption="Table 4. Regions" caption-side="bottom"}
 
 For Availability Service Level Agreements, see the [Cloud Services terms](https://cloud.ibm.com/docs/overview?topic=overview-slas).
