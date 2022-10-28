@@ -108,6 +108,53 @@ WHERE e2.city = e1.city
 ORDER BY e1.city , e1.firstname
 ```
 
+### Query data with an unstable schema
+{: #query-logs}
+
+To query JSON data where no schema can be infered, e. g. logs, you could make use of the option to read the data `AS TEXT`.
+The input is then read without infering any schema and each line is put into a single column named `value`.
+
+To see how the data is structured, execute a basic select query:
+```sql
+SELECT *
+FROM cos://us-geo/sql/LogDNA/_year=2019/_dayofyear=226/_hour=14 STORED AS TEXT
+LIMIT 5
+```
+
+Fields can further be extracted by using e. g. `get_json_objet` or `regexp_extract`.
+The data can then be filtered on the extracted columns.
+```sql
+WITH logs (
+  SELECT get_json_object(value, "$._source._host") as host,
+  from_unixtime(get_json_object(value, "$._source._ts") / 1000, 'yyyy-MM-dd HH:mm:ss') as timestamp,
+  get_json_object(value, "$._source._file") as file,
+  get_json_object(value, "$._source.request_method") as request_method,
+  get_json_object(value, "$._source.request_uri") as request_uri
+  FROM cos://us-geo/sql/LogDNA/_year=2019/_dayofyear=226/_hour=14 STORED AS TEXT
+)
+SELECT *
+FROM logs
+WHERE request_uri LIKE "/iae_instances/%"
+ORDER BY timestamp
+```
+
+To get the logs for a specific time frame, use a query like this:
+```sql
+WITH logs (
+  SELECT get_json_object(value, "$._source._host") as host,
+  get_json_object(value, "$._source._ts") / 1000 as unix_timestamp,
+  from_unixtime(get_json_object(value, "$._source._ts") / 1000, 'yyyy-MM-dd HH:mm:ss') as timestamp,
+  get_json_object(value, "$._source._file") as file,
+  get_json_object(value, "$._source.request_method") as request_method,
+  get_json_object(value, "$._source.request_uri") as request_uri
+  FROM cos://us-geo/sql/LogDNA/_year=2019/_dayofyear=226/_hour=13 STORED AS TEXT
+)
+SELECT *
+FROM logs
+WHERE minute(from_unixtime(unix_timestamp)) >= 40 AND minute(from_unixtime(unix_timestamp)) <= 44
+ORDER BY timestamp
+```
+
 ## Table unique resource identifier
 {: #unique}
 
