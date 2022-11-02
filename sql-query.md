@@ -111,18 +111,20 @@ ORDER BY e1.city , e1.firstname
 ### Query data with an unstable schema
 {: #query-logs}
 
-To query JSON data where no schema can be infered, e. g. logs, you could make use of the option to read the data `AS TEXT`.
+To query JSON data where no schema can be infered, for example, in logs, use the option to read the data `AS TEXT`.
 The input is then read without infering any schema and each line is put into a single column named `value`.
 
-To see how the data is structured, execute a basic select query:
+To see how the data is structured, execute a basic select query.
+
 ```sql
 SELECT *
 FROM cos://us-geo/sql/LogDNA/_year=2019/_dayofyear=226/_hour=14 STORED AS TEXT
 LIMIT 5
 ```
 
-Fields can further be extracted by using e. g. `get_json_objet` or `regexp_extract`.
-The data can then be filtered on the extracted columns.
+You can further extract fields by using the options `get_json_object` or `regexp_extract`.
+You can then filter data on the extracted columns.
+
 ```sql
 WITH logs (
   SELECT get_json_object(value, "$._source._host") as host,
@@ -138,7 +140,8 @@ WHERE request_uri LIKE "/iae_instances/%"
 ORDER BY timestamp
 ```
 
-To get the logs for a specific time frame, use a query like this:
+To get the logs for a specific time frame, use the following query.
+
 ```sql
 WITH logs (
   SELECT get_json_object(value, "$._source._host") as host,
