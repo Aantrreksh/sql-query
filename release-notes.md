@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-08-09"
+lastupdated: "2022-11-03"
 
 keywords: sql query, data engine, release notes
 
@@ -20,6 +20,13 @@ content-type: release-note
 
 Use these release notes to learn about the latest {{site.data.keyword.sqlquery_full}} that are grouped by date. Release notes are available for a minimum of three years.
 {: shortdesc}
+
+## November 2022
+{: #sql-query-nov2022}
+{: release-note}
+
+Read as text
+: Files with an unstable schema, for example logs, can be read faster by using `STORED AS TEXT`. There is no schema inference and values must further be extracted, as explained in [Query data with an unstable schema](/docs/sql-query?topic=sql-query-overview#query-logs).
 
 ## August 2022
 {: #sql-query-aug2022}
