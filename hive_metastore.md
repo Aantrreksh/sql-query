@@ -64,12 +64,12 @@ Use the following cell to transfer the files:
 
 ```sql
 !mkdir /tmp/dataengine
-!wget https://us.sql-query.cloud.ibm.com/download/catalog/dataengine_spark-1.2.9-py3-none-any.whl -O /tmp/dataengine/dataengine_spark-1.2.9-py3-none-any.whl
+!wget https://us.sql-query.cloud.ibm.com/download/catalog/dataengine_spark-1.2.10-py3-none-any.whl -O /tmp/dataengine/dataengine_spark-1.2.10-py3-none-any.whl
 # user-libs/spark2 is in the classpath of Spark
-!wget https://us.sql-query.cloud.ibm.com/download/catalog/dataengine-spark-integration-1.2.9.jar -O user-libs/spark2/dataengine-spark-integration-1.2.9.jar
+!wget https://us.sql-query.cloud.ibm.com/download/catalog/dataengine-spark-integration-1.2.10.jar -O user-libs/spark2/dataengine-spark-integration-1.2.10.jar
 !wget https://us.sql-query.cloud.ibm.com/download/catalog/hive-metastore-standalone-client-3.1.2-sqlquery.jar -O  /tmp/dataengine/hive-metastore-standalone-client-3.1.2-sqlquery.jar
 
-!pip install --force-reinstall /tmp/dataengine/dataengine_spark-1.2.9-py3-none-any.whl
+!pip install --force-reinstall /tmp/dataengine/dataengine_spark-1.2.10-py3-none-any.whl
 
 print("Restart your kernel!")
 ```
@@ -157,8 +157,8 @@ While the {{site.data.keyword.sqlquery_short}} catalog is compatible with the Hi
 
 Download both, the Scala and the Python SDK, and place them in a folder that is in the classpath of your Apache Spark cluster.
 
-- [spark-dataengine-scala](https://us.sql-query.cloud.ibm.com/download/catalog/dataengine-spark-integration-1.2.9.jar)
-- [spark-dataengine-python](https://us.sql-query.cloud.ibm.com/download/catalog/dataengine_spark-1.2.9-py3-none-any.whl)
+- [spark-dataengine-scala](https://us.sql-query.cloud.ibm.com/download/catalog/dataengine-spark-integration-1.2.10.jar)
+- [spark-dataengine-python](https://us.sql-query.cloud.ibm.com/download/catalog/dataengine_spark-1.2.10-py3-none-any.whl)
 
 Use the following examples to get started with {{site.data.keyword.iae_full}} (IAE) or Spark runtimes in {{site.data.keyword.DSX}}.
 
