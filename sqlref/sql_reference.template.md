@@ -678,7 +678,7 @@ Apart from the join type, the following two different types of joins exist:
 ### externalTableSpec
 {: #externalTableSpec}
 
-An external table specification represents an URI for an object that is stored on Cloud {{site.data.keyword.cos_short}} combined with a specification of the object type. Valid values for object type identifier are `AVRO`, `CSV`, `JSON`, `ORC`, or `PARQUET`.
+An external table specification represents an URI for an object that is stored on Cloud {{site.data.keyword.cos_short}} combined with a specification of the object type. Valid values for object type identifier are `AVRO`, `CSV`, `JSON`, `ORC`, `PARQUET`, and `TEXT`.
 
 If the file format is CSV, with the optional `FIELDS TERMINATED BY` clause you can specify a field separator other than the default `,` (comma). The following example shows a query for parsing a CSV with `|` (vertical bar) as the delimiter:
 
@@ -695,6 +695,9 @@ By default, it is assumed that CSV input objects have a header line that specifi
 By default, if the format of the input data is JSON, each line must contain a separate, self-contained, and valid JSON object, also called newline-delimited JSON. However, if you specify the option `MULTILINE`, {{site.data.keyword.sqlquery_short}} can process JSON input data even if individual data records span multiple lines, such as when the data was formatted to make it easier to read. Specify this option only if you really need it because it limits input parallelization and can significantly reduce performance when you process large volumes of JSON data. If you need to frequently query large amounts of multiline JSON data, use {{site.data.keyword.sqlquery_short}} to transform the data into single -line JSON, or into a more performance optimized format, such as Parquet, before querying the transformed data.
 
 If the file format is Parquet, with the optional `MERGE SCHEMA` clause you can handle Parquet schema evolution by specifying to scan all qualifying Parquet objects for their schema, and to merge the final schema across all objects. By default, for Parquet input only the first Parquet object that is found is used to infer the schema, which guarantees minimal overhead for compiling the SQL. Thus, use this option if your Parquet input data does not have a homogeneous schema.
+
+If the object type identifier `TEXT` is used, the input is read line by line without infering any schema. The whole line is returned in one column, called `value`.
+To query specific fields from the input data, you can use the options [regexp_extract](/docs/sql-query?topic=sql-query-sqlfunctions#regexp_extract) or [get_json_object](/docs/sql-query?topic=sql-query-sqlfunctions#get_json_object).
 
 <!--include-svg src="./svgfiles/externalTableSpec.svg" target="./diagrams/externalTableSpec.svg" alt="syntax diagram for an external table specification" layout="@break@" -->
 
@@ -2774,8 +2777,6 @@ For more information, see [catalog management](/docs/sql-query?topic=sql-query-h
 {: #createTable}
 
 <!--include-svg src="./svgfiles/createTable.svg" target="./diagrams/createTable.svg" alt="syntax diagram for a create table command" layout="@break@" -->
-
-<!--dummy comment to force a rebuild-->
 
 #### columnDefinition
 {: #columnDefinition}
