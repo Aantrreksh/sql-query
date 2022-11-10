@@ -95,7 +95,7 @@ if __name__ == '__main__':
     apikey = sys.argv[2]
 
     print(" Start SparkSessionWithDataengine example")
-    session_builder = SparkSessionWithDataengine.enableDataengine(crn, apikey, "public", "/opt/ibm/connectors/data-engine/hms-client")
+    session_builder = SparkSessionWithDataengine.enableDataengine(crn, apikey, "public")
 
     print(" Setup IBM Cloud Object Storage access")
     spark = session_builder.appName("AnalyticEngine DataEngine integration") \
