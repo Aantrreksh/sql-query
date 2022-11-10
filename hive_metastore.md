@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-10-06"
+lastupdated: "2022-11-10"
 
 keywords: Data Engine, SQL query, Hive, metastore, catalog
 
@@ -199,4 +199,4 @@ Py4JJavaError: An error occurred while calling o8820.sql.
 
 Possible cause:
 
-- Tables based on sample data provided by Data Engine will not work for a select statement, please use data stored in your COS bucket!
+- Tables based on sample data provided by {{site.data.keyword.sqlquery_short}} does not not work for a SELECT statement. Therefore, use data stored in your Cloud {{site.data.keyword.cos_short}} bucket.
