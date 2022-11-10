@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-05-09"
+lastupdated: "2022-11-10"
 
 keywords: Data Engine, SQL query, Hive, metastore, catalog
 
@@ -16,6 +16,10 @@ subcollection: sql-query
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:beta: .beta}
+
+[dataengine-spark-whl]: <> "search=dataengine_spark-[^[:space:]]*-py3-none-any\.whl    replace=exp:dataengine_spark-${VERSION}-py3-none-any.whl"
+[dataengine-spark-jar]: <> "search=dataengine-spark-integration-[^[:space:]]*\.jar     replace=exp:dataengine-spark-integration-${VERSION}.jar"
+[hms-client-jar]:       <> "search=hive-metastore-standalone-client-[^[:space:]]*\.jar replace=exp:hive-metastore-standalone-client-3.1.2-sqlquery-${VERSION}.jar"
 
 # Connecting Apache Spark with {{site.data.keyword.sqlquery_short}}
 {: #hive_metastore}
@@ -54,23 +58,7 @@ For *user*, specify the CRN and for *password* a valid API key with access to yo
 ### Usage within {{site.data.keyword.DSX}} notebooks
 {: #usage_watson_notebooks}
 
-The required JAR/Wheel files are not available in the Spark environment used by {{site.data.keyword.DSX_full}}. Therefore, transfer them into the existing Spark environment first.
-
-Use the following cell to transfer the files:
-
-```sql
-!mkdir /tmp/dataengine
-!wget https://us.sql-query.cloud.ibm.com/download/catalog/dataengine_spark-1.0.10-py3-none-any.whl -O /tmp/dataengine/dataengine_spark-1.0.10-py3-none-any.whl
-# user-libs/spark2 is in the classpath of Spark
-!wget https://us.sql-query.cloud.ibm.com/download/catalog/dataengine-spark-integration-1.0.10.jar -O user-libs/spark2/dataengine-spark-integration-1.0.10.jar
-!wget https://us.sql-query.cloud.ibm.com/download/catalog/hive-metastore-standalone-client-3.1.2-sqlquery.jar -O  /tmp/dataengine/hive-metastore-standalone-client-3.1.2-sqlquery.jar
-
-!pip install --force-reinstall /tmp/dataengine/dataengine_spark-1.0.10-py3-none-any.whl
-
-print("Restart your kernel!")
-```
-
-After the cell is executed, restart the kernel to ensure that Spark loaded the jar. Set the required variables and call the helper functions:
+{{site.data.keyword.DSX}} has the JAR/Wheel files already included. Set the required variables (crn and apikey) and call the helper functions to connect to the Hive metastore:
 
 ```sql
 # change the CRN and the APIkey according to your instance
@@ -80,9 +68,8 @@ apikey='yourAPIkey'
 from dataengine import SparkSessionWithDataengine
 
 # call the helper function
-session_builder = SparkSessionWithDataengine.enableDataengine(crn, apikey, "public", "/tmp/dataengine")
+session_builder = SparkSessionWithDataengine.enableDataengine(crn, apikey, "public")
 spark = session_builder.appName("Spark DataEngine integration test").getOrCreate()
-
 ```
 
 Display your tables and run an SQL statement:
@@ -94,78 +81,59 @@ spark.sql('show tables').show(truncate=False)
 spark.sql('select * from yourTable').show()
 ```
 
-### Apache Spark Data Engine integration
-{: #spark_data_engine_integration}
+### Usage with {{site.data.keyword.iae_full_notm}}
+{: #iae_data_engine_integration}
 
-While the {{site.data.keyword.sqlquery_short}} catalog is compatible with the Hive metastore and can be used as any other external Hive metastore server, an SDK is provided to minimize the steps that are needed to configure Apache Spark. The SDK simplifies connecting to both, metastore and IBM Cloud Object storage, buckets referenced by tables or views.
-
-Download both, the Scala and the Python SDK, and place them in a folder that is in the classpath of your Apache Spark cluster.
-
-- [spark-dataengine-scala](https://us.sql-query.cloud.ibm.com/download/catalog/dataengine-spark-integration-1.0.10.jar)
-- [spark-dataengine-python](https://us.sql-query.cloud.ibm.com/download/catalog/dataengine_spark-1.0.10-py3-none-any.whl)
-
-Use the following examples to get started with {{site.data.keyword.iae_full}} (IAE) or Spark runtimes in {{site.data.keyword.DSX}}.
-
-Submit the following Python application using a notebook or the `spark-submit` command:
+{{site.data.keyword.iae_full}} has the JAR/Wheel files already included, and thus allows for a quick start. The following example shows a Spark batch job for a *show tables* example in Python:
 
 ```sql
 import sys
-from SparkSessionWithDataengine import SparkSessionWithDataengine
+from dataengine import SparkSessionWithDataengine
 
 if __name__ == '__main__':
     crn = sys.argv[1]
     apikey = sys.argv[2]
 
+    print(" Start SparkSessionWithDataengine example")
+    session_builder = SparkSessionWithDataengine.enableDataengine(crn, apikey, "public")
 
-    session_builder = SparkSessionWithDataengine.enableDataengine(crn, apikey, "public", "/tmp/dataengine")
-
-    spark = session_builder.appName("Spark DataEngine integration") \
+    print(" Setup IBM Cloud Object Storage access")
+    spark = session_builder.appName("AnalyticEngine DataEngine integration") \
           .config("fs.cos.impl", "com.ibm.stocator.fs.ObjectStoreFileSystem") \
           .config("fs.stocator.scheme.list", "cos") \
           .config("fs.stocator.cos.impl", "com.ibm.stocator.fs.cos.COSAPIClient") \
           .getOrCreate()
 
-    print("Dumping session config...")
-    for conf in spark.sparkContext.getConf().getAll():
-        key = conf[0]
-        value = "***" if apikey == conf[1] else conf[1]
-        print(key, value)
-    print("Got a spark session, listing all tables")
+    print(" Got a spark session, listing all tables")
     spark.sql('show tables').show()
 
     spark.stop()
 ```
 
-If you use Scala, run the following application:
+Prepare a JSON file to start that program, as in the following example (listTablesExample.json):
 
 ```sql
-package com.ibm.cloud.dataengine
-
-import org.apache.spark.sql.SparkSession
-import org.apache.spark.sql.SparkSession.{Builder => SessionBuilder}
-import SparkSessionBuilderAddOn._
-
-object SparkSessionBuilderHMSConfigTest {
-  def main(args: Array[String]) = {
-    val spark = SparkSession
-      .builder()
-      .appName("Spark DataEngine integration")
-      .enableDataengine(args(0), args(1), "public")
-      .config("fs.cos.impl", "com.ibm.stocator.fs.ObjectStoreFileSystem")
-      .config("fs.stocator.scheme.list", "cos")
-      .config("fs.stocator.cos.impl", "com.ibm.stocator.fs.cos.COSAPIClient")
-      .config("fs.stocator.cos.scheme", "cos")
-      .getOrCreate()
-    println("Dumping session config...")
-    val config = spark.sparkContext.getConf.getAll
-    for (conf <- config)
-      println(conf._1 +", "+ conf._2)
-    println("Got a spark session, listing all tables")
-    val sqlDF = spark.sql("SHOW TABLES")
-    sqlDF.show()
+{
+  "application_details": {
+     "application": "cos://<your-bucket>.listtab/listTablesExample.py",
+     "arguments": ["<Data-Engine-instance-CRN>", "<API-key-to-access-data-engine-instance>"],
+     "conf": {
+        "ae.spark.executor.count":"1",
+        "ae.spark.autoscale.enable":"false",
+        "spark.hadoop.fs.cos.listtab.endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud",
+        "spark.hadoop.fs.cos.listtab.iam.api.key": "<API-key-to-access-python-file>",
+        "spark.app.name": "DataEngineHiveAccess"
+     }
   }
 }
 ```
+
+Start the application using a curl command, as in the following example:
+
+```curl
+curl -X POST https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<GUID of Analytic Engine>/spark_applications --header "Authorization: Bearer $TOKEN" -H "content-type: application/json"  -d @listTablesExample.json
+```
+
 
 ### Required settings for native Spark builder
 {: #settings_native_spark}
@@ -222,3 +190,13 @@ Possible causes:
 - The CRN is invalid or the service does not exist.
 - THE APIKEY is invalid.
 - The {{site.data.keyword.sqlquery_short}} service has a Lite plan.
+
+
+```sql
+Py4JJavaError: An error occurred while calling o8820.sql.
+: java.util.concurrent.ExecutionException: com.ibm.stocator.fs.common.exception.ConfigurationParseException: Configuration parse exception: Access KEY is empty. Please provide valid access key
+```
+
+Possible cause:
+
+- Tables based on sample data provided by {{site.data.keyword.sqlquery_short}} does not not work for a SELECT statement. Therefore, use data stored in your Cloud {{site.data.keyword.cos_short}} bucket.

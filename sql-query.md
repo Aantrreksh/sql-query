@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-08-09"
+lastupdated: "2022-10-24"
 
 keywords: SQL query, analyze, data, CVS, JSON, ORC, Parquet, Avro, object storage, SELECT, cloud instance, URI, endpoint, api, user roles
 
@@ -15,14 +15,13 @@ subcollection: sql-query
 # Overview
 {: #overview}
 
-{{site.data.keyword.sqlquery_full}} is a fully managed service that runs SQL queries (that is, SELECT statements) to analyze, transform, or clean up rectangular data.
+{{site.data.keyword.sqlquery_full}} is a fully managed service that runs SQL queries (that is, SELECT statements) to read, analyze, transform, store, and stream data in {{site.data.keyword.cos_full}} and Kafka. It also allows you to manage table metadata in a catalog that is compatible with Hive metastore.
+{{site.data.keyword.sqlquery_short}} is {{site.data.keyword.Bluemix_short}}'s central service for data lakes. Combining {{site.data.keyword.sqlquery_short}} with data in {{site.data.keyword.cos_short}} enables you to create an active workspace for a range of big data analytics use cases.
 {: shortdesc}
-
-**Note:** You can use {{site.data.keyword.sqlquery_short}} to create SELECT statements only; actions such as CREATE, DELETE, INSERT, and UPDATE are not possible.
 
 ![{{site.data.keyword.sqlquery_short}} overview.](images/streams_landing_DE.svg "{{site.data.keyword.sqlquery_short}} Overview"){: caption="Figure 1. {{site.data.keyword.sqlquery_short}} overview" caption-side="bottom"}
 
-Input data is read from CSV, JSON, ORC, Parquet, or AVRO objects located in one or more {{site.data.keyword.cos_full}} instances.
+Input data is read from CSV, JSON, ORC, Parquet, or AVRO objects located in one or more Cloud {{site.data.keyword.cos_short}} instances.
 Each query result is written to a CSV, JSON, ORC, Parquet, or AVRO object in a Cloud {{site.data.keyword.cos_short}} or Db2 instance of your choice.
 Use the {{site.data.keyword.sqlquery_short}} user interface (UI) to develop your queries and the
 [{{site.data.keyword.sqlquery_short}}REST API](#restapi) to automate them.
@@ -271,7 +270,7 @@ A query can even process the output of multiple previous query executions by omi
 
 If you want to run a query over the combined results of multiple previous queries, ensure that these have compatible outputs so that their schemas can be merged. For more information, see the section on [composite input tables](#compositeInput). To make this work properly for CSV format, all setup queries must use the same column names and sequence in their `SELECT` clause, so the results have compatible schemas. If you later need to introduce new columns in extra setup queries, add these columns to the end of the column list. If not, the structure of the composite `tempstore` data set gets corrupted, causing unreadable objects, corrupted data, or unreliable results.
 
-## Endpoints
+## Cloud {{site.data.keyword.cos_short}} endpoints
 {: #endpoints}
 
 Your Cloud {{site.data.keyword.cos_short}} instance has one of the supported endpoints. {{site.data.keyword.sqlquery_short}} supports all [public and private {{site.data.keyword.cos_short}} endpoints](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-endpoints). To save space, you can use the alias that is shown instead of the full endpoint name.
@@ -288,37 +287,23 @@ The Chennai region is planned to be deprecated end of October. Thus, you cannot 
 
 Cross region endpoint name | Alias
 --- | ---
-s3.us.cloud-object-storage.appdomain.cloud | us-geo
-s3.eu.cloud-object-storage.appdomain.cloud | eu-geo
-s3.ap.cloud-object-storage.appdomain.cloud | ap-geo
+`s3.us.cloud-object-storage.appdomain.cloud` | `us-geo`
+`s3.eu.cloud-object-storage.appdomain.cloud` | `eu-geo`
+`s3.ap.cloud-object-storage.appdomain.cloud` | `ap-geo`
 {: caption="Table 1. Cross region endpoints" caption-side="bottom"}
 
 Regional endpoint name | Alias
 --- | ---
-s3.eu-de.cloud-object-storage.appdomain.cloud | eu-de
-s3.eu-gb.cloud-object-storage.appdomain.cloud | eu-gb
-s3.us-south.cloud-object-storage.appdomain.cloud | us-south
-s3.us-east.cloud-object-storage.appdomain.cloud | us-east
-s3.au-syd.cloud-object-storage.appdomain.cloud | au-syd
-s3.jp-tok.cloud-object-storage.appdomain.cloud | jp-tok
+`s3.eu-de.cloud-object-storage.appdomain.cloud` | `eu-de`
+`s3.eu-gb.cloud-object-storage.appdomain.cloud` | `eu-gb`
+`s3.us-south.cloud-object-storage.appdomain.cloud | us-south`
 {: caption="Table 2. Regional endpoints" caption-side="bottom"}
 
 Single data center endpoint name | Alias
 --- | ---
-s3.ams03.cloud-object-storage.appdomain.cloud | ams03
-s3.che01.cloud-object-storage.appdomain.cloud | che01
-s3.tor01.cloud-object-storage.appdomain.cloud | tor01
-s3.osl01.cloud-object-storage.appdomain.cloud | osl01
-s3.mel01.cloud-object-storage.appdomain.cloud | mel01
-s3.sao01.cloud-object-storage.appdomain.cloud | sao01
-s3.hkg02.cloud-object-storage.appdomain.cloud | hkg02
-s3.mex01.cloud-object-storage.appdomain.cloud | mex01
-s3.mil01.cloud-object-storage.appdomain.cloud | mil01
-s3.mon01.cloud-object-storage.appdomain.cloud | mon01
-s3.par01.cloud-object-storage.appdomain.cloud | par01
-s3.sjc04.cloud-object-storage.appdomain.cloud | sjc04
-s3.seo01.cloud-object-storage.appdomain.cloud | seo01
-s3.sng01.cloud-object-storage.appdomain.cloud | sng01
+`s3.ams03.cloud-object-storage.appdomain.cloud` | `ams03`
+`s3.mon01.cloud-object-storage.appdomain.cloud` | `mon01`
+`s3.sng01.cloud-object-storage.appdomain.cloud` | `sng01`
 {: caption="Table 3. Single data center endpoints" caption-side="bottom"}
 
 ## Availability zones
@@ -328,10 +313,9 @@ Regions | Availability zones
 --- | ---
 Dallas | 3
 Frankfurt | 3
-Chennai | 1
 {: caption="Table 4. Regions" caption-side="bottom"}
 
-For Availability Service Level Agreements, see the [Cloud Services terms](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?OpenDocument).
+For Availability Service Level Agreements, see the [Cloud Services terms](https://cloud.ibm.com/docs/overview?topic=overview-slas).
 
 ## Programmatic access
 {: #access}
@@ -349,7 +333,7 @@ You can use the [{{site.data.keyword.sqlquery_short}} service REST API](https://
 For a Python application, you can also use the [ibmcloudsql package](https://pypi.org/project/ibmcloudsql/).
 Use IBM Watson Studio to run queries with {{site.data.keyword.sqlquery_short}} and visualize the query results with one of the various widget libraries available in [Watson Studio](https://cloud.ibm.com/catalog/services/data-science-experience).
 
-Using the ibmcloudsql library, you can also interact with {{site.data.keyword.sqlquery_short}} directly from Watson Studio notebooks. You can start by [Using IBM Cloud SQL Query notebook](https://dataplatform.cloud.ibm.com/exchange/public/entry/view/4a9bb1c816fb1e0f31fec5d580e4e14d) in the [IBM Cloud Pak for Data Gallery](https://dataplatform.cloud.ibm.com/gallery?context=cpdaas&query=sql).
+Using the ibmcloudsql library, you can also interact with {{site.data.keyword.sqlquery_short}} directly from Watson Studio notebooks. You can start by [Using IBM Cloud SQL Query notebook](https://dataplatform.cloud.ibm.com/exchange/public/entry/view/e82c765fd1165439caccfc4ce8579a25?context=cpdaas) in the [IBM Cloud Pak for Data Gallery](https://dataplatform.cloud.ibm.com/gallery?context=cpdaas&query=sql).
 
 ### Cloud functions
 {: #cloud}

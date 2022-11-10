@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-04-07"
+lastupdated: "2022-10-10"
 
 ---
 
@@ -2768,7 +2768,7 @@ A *dataType* is referenced by the following clauses:
 
 The following commands allow users to store table metadata catalog in the {{site.data.keyword.sqlquery_short}} catalog.
 By defining the tables, columns, and partitions in the catalog, you can use short table names in the SQL SELECT statements. Each instance of {{site.data.keyword.sqlquery_short}} has its own catalog, and table definitions are not visible from other instances.
-For more information, see [catalog management](/docs/sql-query?topic=sql-query-hivemetastore).
+For more information, see [catalog management](/docs/sql-query?topic=sql-query-getting_started_catalog).
 
 ### Create table
 {: #chapterCreateTable}

@@ -63,7 +63,7 @@ To analyze your own data (CSV, JSON, ORC, or Parquet), upload it to a Cloud {{si
 
 For more advanced capabilities, check out the following video tutorials.
 
-- [IBM Cloud {{site.data.keyword.sqlquery_short}} introduction](http://ibm.biz/csq-run-queries)
-- [How to connect to IBM Cloud Object Storage through the Command Line](https://video.ibm.com/embed/channel/23952663/video/csq-connect-cos)
-- [How to use the {{site.data.keyword.sqlquery_short}} REST API](https://video.ibm.com/embed/channel/23952663/video/csq-rest-api)
-- [How to operationalize SQL code and call it from an application](http://ibm.biz/csq-e2e)
+- [IBM Cloud {{site.data.keyword.sqlquery_short}} introduction](/docs/sql-query?topic=sql-query-video#video_samples_notebooks_api)
+- [How to connect to IBM Cloud Object Storage through the Command Line](/docs/sql-query?topic=sql-query-video#video_command_line)
+- [How to use the {{site.data.keyword.sqlquery_short}} REST API](/docs/sql-query?topic=sql-query-video#video_rest_api)
+- [How to operationalize SQL code and call it from an application](/docs/sql-query?topic=sql-query-video#video_samples_notebooks_api)

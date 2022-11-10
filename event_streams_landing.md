@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2022
-lastupdated: "2022-04-25"
+lastupdated: "2022-10-20"
 
 keywords: Data Engine, SQL, query, event streams, streaming, cloud object storage, Kafka
 
@@ -57,6 +57,7 @@ The objects are written to Cloud {{site.data.keyword.cos_short}} in micro batche
 ## Streaming job details
 {: #streaming-job-details}
 
+You can see your active streaming jobs in the **Streaming** tab of the job list in the UI. 
 The details of a streaming job show that the states differ from batch query processing. *Stopping* is an extra state that indicates that {{site.data.keyword.sqlquery_short}} is stopping a running job. And instead of the *completed* state, a streaming job goes into the *stopped* state. The streaming states change from *queued* to *running* to *stopping* or *failed*.
 
 The job details show the following metrics (instead of *rows_returned*, *rows_read* and *bytes_read*):
