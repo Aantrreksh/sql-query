@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-04-07"
+lastupdated: "2022-11-25"
 
 keywords: activity tracker, activity, event
 
@@ -10,12 +10,7 @@ subcollection: sql-query
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
+{{site.data.keyword.attribute-definition-list}}
 
 # Activity Tracker events
 {: #activitytracker}
@@ -42,5 +37,5 @@ Actions  |  Description
 `sql-query.catalog-table.list` |  List of catalog tables was retrieved.
 `sql-query.catalog-table.get` |  Details of a catalog table were retrieved.
 `sql-query.sql-job.disable` |  An SQL query streaming job was stopped.
-`sql-query.sql-job.notify` |  An SQL query streaming job can't process all messages before being rolled out of the EventStreams topic.
+`sql-query.sql-job.notify` |  An SQL query streaming job can't process all messages before it is rolled out of the `EventStreams` topic.
 `sql-query.catalog-table-partition.list`| List of partitions of a table was retrieved.
