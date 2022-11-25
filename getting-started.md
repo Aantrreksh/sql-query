@@ -10,12 +10,7 @@ subcollection: sql-query
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
+{{site.data.keyword.attribute-definition-list}}
 
 # Getting started with {{site.data.keyword.sqlquery_notm}}
 {: #getting-started}
@@ -28,8 +23,7 @@ In this {{site.data.keyword.sqlquery_full}} tutorial, we set you up to begin que
 ## Before you begin
 {: #prereqs}
 
-Before you can run SQL queries, you need to have one or more Cloud {{site.data.keyword.cos_short}} buckets to hold the data to be analyzed and to hold the query results. Cloud {{site.data.keyword.cos_short}} offers several plans, including a Lite plan at no cost.
-To create a Cloud {{site.data.keyword.cos_short}} instance, do the following steps.
+Before you can run SQL queries, you need to have one or more Cloud {{site.data.keyword.cos_short}} buckets to hold the data to be analyzed and to hold the query results. Cloud {{site.data.keyword.cos_short}} offers several plans, including a Lite plan at no cost. To create a Cloud {{site.data.keyword.cos_short}} instance, do the following steps.
 
 1. Go to the [**IBM Cloud catalog > Storage > Object Storage**](https://cloud.ibm.com/objectstorage/create) page.
 2. Select one of the plans and create the service. If you want to find your Cloud {{site.data.keyword.cos_short}} instance later, go to your [**IBM Cloud resource list > Storage**](https://cloud.ibm.com/dashboard/apps).
@@ -63,7 +57,7 @@ To analyze your own data (CSV, JSON, ORC, or Parquet), upload it to a Cloud {{si
 
 For more advanced capabilities, check out the following video tutorials.
 
-- [IBM Cloud {{site.data.keyword.sqlquery_short}} introduction](/docs/sql-query?topic=sql-query-video#video_samples_notebooks_api)
-- [How to connect to IBM Cloud Object Storage through the Command Line](/docs/sql-query?topic=sql-query-video#video_command_line)
-- [How to use the {{site.data.keyword.sqlquery_short}} REST API](/docs/sql-query?topic=sql-query-video#video_rest_api)
-- [How to operationalize SQL code and call it from an application](/docs/sql-query?topic=sql-query-video#video_samples_notebooks_api)
+- [IBM Cloud {{site.data.keyword.sqlquery_short}} introduction](/docs/sql-query?topic=sql-query-video#video_samples_notebooks_api).
+- [How to connect to IBM Cloud Object Storage through the Command Line](/docs/sql-query?topic=sql-query-video#video_command_line).
+- [How to use the {{site.data.keyword.sqlquery_short}} REST API](/docs/sql-query?topic=sql-query-video#video_rest_api).
+- [How to operationalize SQL code and call it from an application](/docs/sql-query?topic=sql-query-video#video_samples_notebooks_api).
