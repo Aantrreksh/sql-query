@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-03-17"
+  years: 2019, 2022
+lastupdated: "2022-11-28"
 
 keywords: SQL query, time series, SQL, data types
 
@@ -10,11 +10,7 @@ subcollection: sql-query
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
+{{site.data.keyword.attribute-definition-list}}
 
 # Time series data types
 {: #ts_datatypes}
@@ -33,7 +29,7 @@ StringTimeSeries  | Time series with univariate observations of type String. See
 StringArrayTimeSeries | Time series with multivariate observations of type String. See the following example: `[(1, ["a", "xq"]), (3, ["b", "zr"]), (5, ["c", "ms"]), (5, ["d", "rt"]), (5, ["e", "wu"]), (7, ["f", "vv"]), (9, ["g", "zw"])]`
 StringSegmentTimeSeries | StringTimeSeries that is segmented. See the following example: `[(1,[(1, "a"), (3, "b")]), (5,[(5, "c"), (5, "d"), (5, "e")]), (7,[(7, "f"), (9, "g")])]`
 StringArraySegmentTimeSeries | StringArrayTimeSeries that is segmented. See the following example: `[(1,[(1, ["a", "xq"]), (3, ["b", "zr"])]), (5,[(5, ["c", "ms"]), (5, ["d", "rt"]), (5, ["e", "wu"])]), (7, [(7, ["f", "vv"]), (9, ["g", "zw"])])]`
-{: caption="Table 1. Time series data type" caption-side="bottom"}
+{: caption="Table 1. Time series data types" caption-side="bottom"}
 
 Pseudo data types are not actual data types, but are placeholders that are used by the documentation to represent any of several time series data types.
 
