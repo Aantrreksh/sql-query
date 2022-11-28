@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-03-05"
+  years: 2018, 2022
+lastupdated: "2022-11-28"
 
 keywords: security, gdpr, hipaa, compliance, personal data, personal information, privacy policy, cloud notice, terms of use
 
@@ -10,12 +10,7 @@ subcollection: sql-query
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
+{{site.data.keyword.attribute-definition-list}}
 
 # Security and compliance
 {: #security}
@@ -27,7 +22,7 @@ If you have an account with {{site.data.keyword.cloud}}, your personal data is h
 
 {{site.data.keyword.sqlquery_full}} processes limited client Personal Information (PI) in the course of running the service and optimizing the user experience.
 
-{{site.data.keyword.sqlquery_notm}} provides a [Data Sheet Addendum (DSA)](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=AC17FFB0B52911E7A9EB066095601ABB) with its policies as a Data Processor regarding content and data protection.
+{{site.data.keyword.sqlquery_notm}} provides a [Data Sheet Addendum (DSA)](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=AC17FFB0B52911E7A9EB066095601ABB) with its policies as a data processor regarding content and data protection.
 
 ## HIPAA
 {: #hipaa}
@@ -39,4 +34,4 @@ If you have an account with {{site.data.keyword.cloud}}, your personal data is h
 ## ISO 27001/27017/27018 and ISO 27701
 {: #iso}
 
-{{site.data.keyword.sqlquery_notm}} is ISO 27001/27017/27018 and ISO 27701 certified. The certificates and the certified cloud products listing can be found in the [IBM Trust Center](https://www.ibm.com/trust) in section [IBM Cloud Compliance Programs - Global](https://www.ibm.com/cloud/compliance/global).
+{{site.data.keyword.sqlquery_notm}} is ISO 27001, 27017, 27018, and ISO 27701 certified. The certificates and the certified cloud products listing can be found in the [IBM Trust Center](https://www.ibm.com/trust) in section [IBM Cloud Compliance Programs - Global](https://www.ibm.com/cloud/compliance/global).
