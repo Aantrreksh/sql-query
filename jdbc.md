@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2022
-lastupdated: "2022-10-07"
+lastupdated: "2022-11-25"
 
 keywords: jdbc, data engine
 
@@ -10,14 +10,7 @@ subcollection: sql-query
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:note: .note}
-{:deprecated: .deprecated}
-{:important: .important}
+{{site.data.keyword.attribute-definition-list}}
 
 # JDBC driver
 {: #jdbc}
@@ -26,10 +19,10 @@ subcollection: sql-query
 {: #driver_download}
 
 [ibmcloudsql-jdbc-jar]: <> "lines=1 search=\[.*\](.*) replace=exp:[`${VERSION}`](https://us.sql-query.cloud.ibm.com/download/jdbc/ibmcloudsql-jdbc-${VERSION}.jar)"
-Download the latest version: [`2.6.2`](https://us.sql-query.cloud.ibm.com/download/jdbc/ibmcloudsql-jdbc-2.6.2.jar)
+Download the latest version: [`2.7.1`](https://us.sql-query.cloud.ibm.com/download/jdbc/ibmcloudsql-jdbc-2.7.1.jar)
 
 [previous-ibmcloudsql-jdbc-jar]: <> "lines=1 search=\[.*\](.*) replace=ref:ibmcloudsql-jdbc-jar:link"
-Here you find the previous version for reference: [`2.6.1`](https://us.sql-query.cloud.ibm.com/download/jdbc/ibmcloudsql-jdbc-2.6.1.jar)
+Here you find the previous version for reference: [`2.7.0`](https://us.sql-query.cloud.ibm.com/download/jdbc/ibmcloudsql-jdbc-2.7.0.jar)
 
 ## JDBC driver class and URL format
 {: #jdbc_class}
@@ -52,7 +45,7 @@ Connection properties (except for the CRN) can be specified as part of the URL, 
 - `user` (optional): A username is not required and is ignored if given. It must start with a lowercase letter.
 - `targetcosurl` (optional, but usually needed): Cloud {{site.data.keyword.cos_short}} URI in SQL query style, where the results are stored. If this property is not specified, you cannot run queries that return a JDBC result set. The JDBC connection can still be used to retrieve database metadata and run DDL and [ETL-type statements](#etl-type-statements). It must start with a lowercase letter.
 - `loggerFile` (optional, default none): file to write driver logs to.
-- `loggerLevel` (optional, default set by Java SE Development Kit): `java.util.logging` level for the driver. Java SE Development Kit default is usually `INFO`.
+- `loggerLevel` (optional, default set by JDK: `java.util.logging` level for the driver. JDK default is usually `INFO`.
     - `DEBUG/FINER` or `TRACE/FINEST` are the most useful values.
 - `filterType` (optional, default none):
     - Only tables are returned if `filterType` value is set to `table`.
@@ -60,18 +53,18 @@ Connection properties (except for the CRN) can be specified as part of the URL, 
 - `appendInto` (optional, default *true*):
     - If it is set to false, no `INTO` clause is appended, and results are not available through the driver. It is used with [ETL-type statements](#etl-type-statements), where the INTO options are provided as part of the statement.
 
-## Driver functionality
+## Driver functions
 {: #driver_functionality}
 
 This driver is designed as a facade to JVM applications for easy access to {{site.data.keyword.sqlquery_short}} service. The driver uses the REST API of the service to run queries, stores the results in Cloud {{site.data.keyword.cos_short}}, and makes these results accessible through JDBC interfaces.
 
-The JDBC driver supports Java 17. To make use of the JDBC driver in a Java 17 JVM, you must pass the following option to the JVM:
+The JDBC driver supports Java 17. To use of the JDBC driver in a Java 17 JVM, you must pass the following option to the JVM:
 
 ```
  --add-opens java.base/java.lang=ALL-UNNAMED
  ```
 
-The driver does not implement full JDBC-compliant functionality, but only the parts of the API that are most commonly used by clients. The following functions are explicitly tested:
+The driver does not implement full JDBC-compliant functions, but only the parts of the API that are most commonly used by clients. The following functions are explicitly tested:
 
 - Retrieving query results with the following primitive SQL types: `STRING` or `VARCHAR`, `INTEGER`, `LONG`, `FLOAT`, `DOUBLE`, `DECIMAL`, `DATE`, `TIME`, `TIMESTAMP`. `TIMESTAMP` columns are handled as Coordinated Universal Time (UTC).
 - Inspecting result columns and types through the JDBC ResultSetMetaData interface.
@@ -91,7 +84,7 @@ The following limitations are implied by the use of {{site.data.keyword.sqlquery
 - {{site.data.keyword.sqlquery_short}} is not designed for interactive performance on small data. Even tiny queries usually take several seconds to run.
 - Query results are returned through results in Cloud {{site.data.keyword.cos_short}}. A `SELECT *` query creates a full copy of the selected table (or Cloud {{site.data.keyword.cos_short}}) in the `targetcosurl` location.
 - Streaming of query results cannot start until the execution fully completed and results were written to Cloud {{site.data.keyword.cos_short}}.
-- {{site.data.keyword.sqlquery_short}} works on read-only data in Cloud {{site.data.keyword.cos_short}}, so the following functionality that is related to data updates is not supported:
+- {{site.data.keyword.sqlquery_short}} works on read-only data in Cloud {{site.data.keyword.cos_short}}, so the following functions that are related to data updates is not supported:
     - Transactions are not supported. `commit()` and `rollback()` are no-ops.
     - Result sets that can be updated are not supported.
 - SQL statements cannot be canceled.
@@ -111,7 +104,7 @@ See the following technical limitations of the driver:
 ## ETL-type statements
 {: #etl_statements}
 
-You can use the JDBC driver to execute transform-type statements on your data in Cloud {{site.data.keyword.cos_short}}, where you do not want to retrieve the data in the JDBC client itself. See the following example of such a statement:
+You can use the JDBC driver to run transform-type statements on your data in Cloud {{site.data.keyword.cos_short}}, where you do not want to retrieve the data in the JDBC client itself. See the following example of such a statement:
 
 ```sql
 SELECT ...
@@ -148,7 +141,7 @@ The following steps describe how to make Tableau Desktop for Windows work with t
 2. Download the {{site.data.keyword.sqlquery_short}} JDBC driver and copy it to the installation directory of Tableau.
     - For **Windows**: `C:\Program Files\Tableau\Drivers\ibmcloudsql-jdbc-<version>.jar`
     - For **Mac**: `~/Library/Tableau/Drivers/ibmcloudsql-jdbc-<version>.jar`
-3. Create a Tableau Datasource Customization file (*.tdc) with the following content:
+3. Create a Tableau data source customization file (*.tdc) with the following content:
 
     ```sql
     <connection-customization class='genericjdbc' enabled='true' version='2020.2'>
@@ -172,6 +165,7 @@ The following steps describe how to make Tableau Desktop for Windows work with t
     - Store the content in a `*.tdc` file in the following folder:
       **Windows**: `C:\Documents\My Tableau Repository\Datasources\ibmcloudsql-jdbc.tdc`
       **Mac**: `~/My Tableau Repository/Datasources/ibmcloudsql-jdbc.tdc`
+      
       If further customization is needed in future, check out [capabilities](https://help.tableau.com/current/pro/desktop/en-us/jdbc_capabilities.htm) that can be turned on and off.
 4. Start Tableau Desktop. Go to **Connect > To a Server > More**.
 5. On the next page, you see a list of supported connectors. Select **Other Databases (JDBC)**.
@@ -192,7 +186,7 @@ As Tableau does not support complex data types, such as `struct`, if a table con
 ## Using the driver with Cognos Analytics
 {: #using_cognos}
 
-See the [Cognos Analytics Dynamic Query](https://www.ibm.com/docs/en/cognos-analytics/11.2.0?topic=administration-support-cloud-sql-query) documentation to learn how to create a data server connection to {{site.data.keyword.sqlquery_short}} via the {{site.data.keyword.sqlquery_short}} JDBC driver. 
+See the [Cognos Analytics Dynamic Query](https://www.ibm.com/docs/en/cognos-analytics/11.2.0?topic=administration-support-cloud-sql-query) documentation to learn how to create a data server connection to {{site.data.keyword.sqlquery_short}} through the {{site.data.keyword.sqlquery_short}} JDBC driver. 
 
 ## ODBC connectivity that uses the JDBC driver with Progress Data Direct HDP
 {: #odbc_connectivity}

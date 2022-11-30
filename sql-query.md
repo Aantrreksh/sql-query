@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-10-24"
+lastupdated: "2022-11-28"
 
 keywords: SQL query, analyze, data, CVS, JSON, ORC, Parquet, Avro, object storage, SELECT, cloud instance, URI, endpoint, api, user roles
 
@@ -15,7 +15,7 @@ subcollection: sql-query
 # Overview
 {: #overview}
 
-{{site.data.keyword.sqlquery_full}} is a fully managed service that runs SQL queries (that is, SELECT statements) to read, analyze, transform, store, and stream data in {{site.data.keyword.cos_full}} and Kafka. It also allows you to manage table metadata in a catalog that is compatible with Hive metastore.
+{{site.data.keyword.sqlquery_full}} is a fully managed service that runs SQL queries (that is, SELECT statements) to read, analyze, transform, store, and stream data in {{site.data.keyword.cos_full}} and Kafka. You can to manage table metadata in a catalog that is compatible with Hive metastore.
 {{site.data.keyword.sqlquery_short}} is {{site.data.keyword.Bluemix_short}}'s central service for data lakes. Combining {{site.data.keyword.sqlquery_short}} with data in {{site.data.keyword.cos_short}} enables you to create an active workspace for a range of big data analytics use cases.
 {: shortdesc}
 
@@ -61,7 +61,7 @@ In SQL, the term *query* is just another way of saying *SELECT statement*. To ru
 
 3. Click **Run**.
 
-    When the query completes, a preview of the query result is displayed in the query result tab of the UI. Preview functionality is only available for CSV and JSON result formats. You can run up to five queries simultaneously with a Standard plan instance of {{site.data.keyword.sqlquery_short}}.
+    When the query completes, a preview of the query result is displayed in the query result tab of the UI. The preview function is only available for CSV and JSON result formats. You can run up to five queries simultaneously with a Standard plan instance of {{site.data.keyword.sqlquery_short}}.
 
 ### Sample queries
 {: #sample}
@@ -110,8 +110,8 @@ ORDER BY e1.city , e1.firstname
 ### Query data with an unstable schema
 {: #query-logs}
 
-To query JSON data where no schema can be infered, for example, in logs, use the option to read the data `AS TEXT`.
-The input is then read without infering any schema and each line is put into a single column named `value`.
+To query JSON data where no schema can be inferred, for example, in logs, use the option to read the data `AS TEXT`.
+The input is then read without inferring any schema and each line is put into a single column named `value`.
 
 To see how the data is structured, execute a basic select query.
 
@@ -139,7 +139,7 @@ WHERE request_uri LIKE "/iae_instances/%"
 ORDER BY timestamp
 ```
 
-To get the logs for a specific time frame, use the following query.
+To get the logs for a specific timeframe, use the following query.
 
 ```sql
 WITH logs (
@@ -186,7 +186,7 @@ A more exact specification of the object or objects:
 
 - The specified path is interpreted in a similar way as listing file system contents with `ls`, interpreting slashes `/` in object names as a folder hierarchy.
 
-    - If the path is identical to the name of an existing (non-empty) object, it matches only that single object.
+    - If the path is identical to the name of an existing (nonempty) object, it matches only that single object.
     - If the path is a prefix of multiple objects at a slash `/` character, it matches all those objects that are not empty. For example, the path `mydir/test1` (or `mydir/test1/`) matches objects `mydir/test1/object1`, `mydir/test1/nested/object2`, but not `mydir/test100`.
     - The usage of a * wildcard depends on how the object structure was created:
           - If the object structure was created as Hive-partitioned structure, for example as {{site.data.keyword.sqlquery_short}} result output, and the result objects are starting with the prefix `part-`, wildcards are not supported. Using SQL constructs based on the Hive structure is always the preferred method to restrict the number of objects to be read during query processing.
@@ -246,7 +246,7 @@ The **`<db2 host name>`** is the hostname of the Db2 instance that is used to ac
 The **`<db2 port number>`** is optional. It is the port number of the DRDA endpoint of the Db2 instance that is used by client JDBC drivers. The default value is **`50001`**. For {{site.data.keyword.dashdblong}} instances, this port number is fixed and you can omit it. For {{site.data.keyword.Db2_on_Cloud_long}} instances, the port number can vary. Check the instance configuration to get the correct port number.
 
 The **`<table name>`** part specifies the table that is created in your database. It has the format **`<schemaname>.<tablename>`**.
-If you omit the **`<schemaname>`** part, the table is created in the schema of database user that was created for the IBMid of the SQL user. The table name is case-preserving, so use upper case to match database defaults.
+If you omit the **`<schemaname>`** part, the table is created in the schema of database user that was created for the IBMid of the SQL user. The table name is case-preserving, so use uppercase to match database defaults.
 
 The following URI is an example of a Db2 table URI:
 
@@ -261,7 +261,7 @@ By default, the following three objects are written to Cloud {{site.data.keyword
 2. `<target>/jobid=<job_id>/_SUCCESS`
 3. `<target>/jobid=<job_id>/<part-number>`
 
-Only the last object contains the result set, the other two objects are empty and don't contain any data. It is important not to delete any of the objects if you want to use the result set for subsequent queries. By default, the object names include the job ID. For example, if you specify `mydir/out` or `mydir/out/` as the target directory, the result objects are written under `mydir/out/jobid=<job_id>`. So, when a query is run multiple times, the result set is not overwritten. You can change this behavior with the [`JOBPREFIX`](/docs/sql-query?topic=sql-query-sql-reference#cosResultClause) option of the `INTO` clause.
+Only the last object contains the result set. The other two objects are empty and don't contain any data. It is important not to delete any of the objects if you want to use the result set for subsequent queries. By default, the object names include the job ID. For example, if you specify `mydir/out` or `mydir/out/` as the target directory, the result objects are written under `mydir/out/jobid=<job_id>`. So, when a query is run multiple times, the result set is not overwritten. You can change this behavior with the [`JOBPREFIX`](/docs/sql-query?topic=sql-query-sql-reference#cosResultClause) option of the `INTO` clause.
 
 You can use the result set from one query as input data for further SQL queries.
 If you want to specify a result of a single query execution as input in your SQL query, specify the first (`<target>/jobid=<job_id>`) or the third one (`<target>/jobid=<job_id>/<part-number>`). You can also use the [partitioning clause](/docs/sql-query?topic=sql-query-sql-reference#partitionedClause) to split the result set into multiple objects. Either the entire result set or individual objects can then serve as input for further queries.
@@ -282,7 +282,7 @@ Aliases to tethering endpoints (specific endpoints within cross region domains, 
 
 The following tables list some examples of currently supported {{site.data.keyword.sqlquery_short}} endpoints.
 
-The Chennai region is planned to be deprecated end of October. Thus, you cannot create a new instance in this region anymore. Already existing endpoints in Chennai continue to work until the deprecation date.
+The Chennai region is planned to be deprecated end of October. Thus, you cannot create a new instance in this region anymore. Existing endpoints in Chennai continue to work until the deprecation date.
 {: note}
 
 Cross region endpoint name | Alias
@@ -325,15 +325,14 @@ For Availability Service Level Agreements, see the [Cloud Services terms](https:
 
 You can use the [{{site.data.keyword.sqlquery_short}} service REST API](https://cloud.ibm.com/apidocs/sql-query/sql-query-v3) to run queries and retrieve information about their status. This is especially helpful when you write code that automatically queries data.
 
-**Note:** The Cloud Resource Name (CRN) is a mandatory part of an {{site.data.keyword.sqlquery_short}} REST endpoint call. The CRN Copy radio button copies your CRN to clipboard and you can paste it into your API call.
+**Note:** The Cloud Resource Name (CRN) is a mandatory part of a {{site.data.keyword.sqlquery_short}} REST endpoint call. The CRN Copy button copies your CRN to clipboard and you can paste it into your API call.
 
-### Python applications and notebooks
+### Python applications and Notebooks
 {: #python}
 
 For a Python application, you can also use the [ibmcloudsql package](https://pypi.org/project/ibmcloudsql/).
 Use IBM Watson Studio to run queries with {{site.data.keyword.sqlquery_short}} and visualize the query results with one of the various widget libraries available in [Watson Studio](https://cloud.ibm.com/catalog/services/data-science-experience).
 
-Using the ibmcloudsql library, you can also interact with {{site.data.keyword.sqlquery_short}} directly from Watson Studio notebooks. You can start by [Using IBM Cloud SQL Query notebook](https://dataplatform.cloud.ibm.com/exchange/public/entry/view/e82c765fd1165439caccfc4ce8579a25?context=cpdaas) in the [IBM Cloud Pak for Data Gallery](https://dataplatform.cloud.ibm.com/gallery?context=cpdaas&query=sql).
 
 ### Cloud functions
 {: #cloud}
@@ -352,10 +351,10 @@ The following table shows which user roles are required to start a particular se
 
 Description | Service action | API endpoint | Required user roles
 --- | --- | --- | ---
-Submit an SQL query | sql-query.api.submit | `POST/v2/sql_jobs/` | Manager or Writer
-Get information for all submitted jobs | sql-query.api.getalljobs | `GET/v2/sql_jobs/` | Manager, Writer, or Reader
-Get information for a specific submitted job | sql-query.api.getjobinfo | `GET/v2/sql_jobs/{job_id}` | Manager, Writer, or Reader
-Submit a catalog or index management statement | sql-query.api.managecatalog | `POST/v2/sql_jobs/` | Manager
+Submit an SQL query. | sql-query.api.submit | `POST/v2/sql_jobs/` | Manager or Writer
+Get information for all submitted jobs. | sql-query.api.getalljobs | `GET/v2/sql_jobs/` | Manager, Writer, or Reader
+Get information for a specific submitted job. | sql-query.api.getjobinfo | `GET/v2/sql_jobs/{job_id}` | Manager, Writer, or Reader
+Submit a catalog or index management statement. | sql-query.api.managecatalog | `POST/v2/sql_jobs/` | Manager
 {: caption="Table 5. User roles" caption-side="bottom"}
 
 ## Behavior of scanned data

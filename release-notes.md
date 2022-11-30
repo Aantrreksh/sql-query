@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-11-03"
+lastupdated: "2022-11-25"
 
 keywords: sql query, data engine, release notes
 
@@ -13,7 +13,6 @@ content-type: release-note
 ---
 
 {{site.data.keyword.attribute-definition-list}}
-
 
 # Release notes for {{site.data.keyword.sqlquery_short}}
 {: #sql-query-relnotes}
@@ -33,17 +32,17 @@ Read as text
 {: release-note}
 
 Support for BYOK encryption for table metadata
-: Table metadata for tables created after 23th August 2022 that is associated with a instance that uses BYOK will be encrypted using {{site.data.keyword.keymanagementservicefull}}. See [Securing your data in Data Engine](/docs/sql-query?topic=sql-query-securing-data#data-storage)
+: Table metadata for tables that are created after 23 August 2022 that is associated with an instance that uses BYOK get encrypted by using {{site.data.keyword.keymanagementservicefull}}. See [Securing your data in Data Engine](/docs/sql-query?topic=sql-query-securing-data#data-storage)
 
 Chennai deprecation
-: You cannot create new instances in the Chennai region anymore. Already existing instances still work but will be fully depracted on October 31st.
+: You cannot create new instances in the Chennai region anymore. Existing instances still work but will be fully deprecated on 31 October.
 
 ## May 2022
 {: #sql-query-may2022}
 {: release-note}
 
 Rebranding
-: IBM Cloud SQL Query has been rebranded to {{site.data.keyword.sqlquery_notm}}.
+: IBM Cloud SQL Query was rebranded to {{site.data.keyword.sqlquery_notm}}.
 
 Hive
 :   {{site.data.keyword.sqlquery_short}} provides an external [Hive metastore (HMS) service](/docs/sql-query?topic=sql-query-hive_metastore).  
@@ -70,7 +69,7 @@ New region for stream landing
 {: #sql-query-june2021}
 
 Stream landing support
-:   {{site.data.keyword.sqlquery_short}} now supports stream landing that enables you to stream your data in real-time from a topic to a bucket of your choice. 
+:   {{site.data.keyword.sqlquery_short}} now supports stream landing that enables you to stream your data in real time from a topic to a bucket of your choice. 
 This capability enables efficient analytics on the new objects created.
 
 Connect to data lakes with {{site.data.keyword.cpd_short}}
@@ -85,7 +84,7 @@ Supported regions
 :   {{site.data.keyword.sqlquery_short}} is available in Chennai, India. When you provision new instances, you can select whether it is being provisioned in Dallas, Frankfurt, or Chennai.
 
 {{site.data.keyword.cos_full_notm}}
-:   {{site.data.keyword.cos_full_notm}} web console discovers SQL-queryable objects and folders and directly launches the {{site.data.keyword.sqlquery_short}} web console with a prefilled SQL statement for seamless interactive data exploration.
+:   {{site.data.keyword.cos_full_notm}} web console discovers SQL-queryable objects and folders and directly starts the {{site.data.keyword.sqlquery_short}} web console with a prefilled SQL statement for seamless interactive data exploration.
 
 ## November 2020
 {: #sql-query-november2020}
@@ -223,7 +222,7 @@ Support for time series SQL functions
 
 Updates to the [SQL reference](/docs/services/sql-query?topic=sql-query-sql-reference)
 :   [`JOBPREFIX JOBID/NONE`](/docs/sql-query?topic=sql-query-sql-reference#cosResultClause), you can specify whether you want the job ID to be appended to the target prefix, or not.
-:   The [`SORT BY`](/docs/sql-query?topic=sql-query-sql-reference#sortClause) clause for SQL targets is new. You can use it to sort SQL result sets in many ways before writing the results to {{site.data.keyword.cos_full_notm}}. It can be used in combination with [`PARTITIONED BY`](/docs/sql-query?topic=sql-query-sql-reference#partitionedClause), [`PARTITIONED INTO`](/docs/sql-query?topic=sql-query-sql-reference#partitionedClause) (to cluster the results), or without the PARTITIONED clause.
+:   The [`SORT BY`](/docs/sql-query?topic=sql-query-sql-reference#sortClause) clause for SQL targets is new. You can use it to sort SQL result sets in many ways before you write the results to {{site.data.keyword.cos_full_notm}}. It can be used in combination with [`PARTITIONED BY`](/docs/sql-query?topic=sql-query-sql-reference#partitionedClause), [`PARTITIONED INTO`](/docs/sql-query?topic=sql-query-sql-reference#partitionedClause) (to cluster the results), or without the PARTITIONED clause.
 :   [`PARTITIONED INTO BUCKETS`](/docs/sql-query?topic=sql-query-sql-reference#partitionedClause) and [`PARTITIONED INTO OBJECTS`](/docs/sql-query?topic=sql-query-sql-reference#partitionedClause) are both supported, thus you can use them synonymously.
 
 ## April 2019
@@ -252,7 +251,7 @@ Beta support for time series
 {: release-note}
 
 New SQl reference guide
-:   Release of a complete SQL Reference Guide, an SQL introduction for Cloud SQL/Spark SQL. [This guide](/docs/sql-query?topic=sql-query-sql-reference) includes examples that can be copied and directly pasted into the web UI to be run.
+:   Release of a complete SQL Reference Guide, an SQL introduction for Cloud SQL/Spark SQL. [The new reference guide](/docs/sql-query?topic=sql-query-sql-reference) includes examples that can be copied and directly pasted into the web UI to be run.
 
 ## November 2018
 {: #sql-query-november2018}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2020-12-11"
+  years: 2018, 2022
+lastupdated: "2022-11-25"
 
 keywords: geospatial, analytics, analysis, SQL functions, calculation, index
 
@@ -10,12 +10,7 @@ subcollection: sql-query
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
+{{site.data.keyword.attribute-definition-list}}
 
 # Geospatial analytics
 {: #geospatial_analytics}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-10"
+lastupdated: "2022-11-25"
 
 keywords: Data Engine, SQL query, Hive, metastore, catalog
 
@@ -10,12 +10,7 @@ subcollection: sql-query
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:beta: .beta}
+{{site.data.keyword.attribute-definition-list}}
 
 [dataengine-spark-whl]: <> "search=dataengine_spark-[^[:space:]]*-py3-none-any\.whl    replace=exp:dataengine_spark-${VERSION}-py3-none-any.whl"
 [dataengine-spark-jar]: <> "search=dataengine-spark-integration-[^[:space:]]*\.jar     replace=exp:dataengine-spark-integration-${VERSION}.jar"
@@ -36,17 +31,16 @@ The Catalog can be used in {{site.data.keyword.sqlquery_short}} in read and writ
 ## Connecting Apache Spark with {{site.data.keyword.sqlquery_short}}
 {: #external_usage}
 
-When using the Hive metastore compatible interface, access is limited to read only operations. Thus, existing tables and views can be used, but not modified.
+When you use the Hive metastore compatible interface, access is limited to read only operations. Thus, existing tables and views can be used, but not modified.
 
-In order to connect to your catalog, download the files from the following links.
+To connect to your catalog, download the files from the following links.
 
 ### Apache Hive metastore version 3.1.2 compatible client
 {: #hive_compatible_client}
 
-Download the [Hive-compatible client](https://us.sql-query.cloud.ibm.com/download/catalog/hive-metastore-standalone-client-3.1.2-sqlquery.jar) and place it in a directory of your Apache Spark cluster that is not on the classpath. This step is necessary, as the client is loaded into an isolated classloader to avoid version conflicts.
-Note that in the examples the files are placed in `/tmp/dataengine`, when you use a different folder, adjust the example accordingly.
+Download the [Hive-compatible client](https://us.sql-query.cloud.ibm.com/download/catalog/hive-metastore-standalone-client-3.1.2-sqlquery.jar) and place it in a directory of your Apache Spark cluster that is not on the class path. This step is necessary, as the client is loaded into an isolated classloader to avoid version conflicts. In the examples the files are placed in `/tmp/dataengine`, when you use a different folder, adjust the example.
 
-The client differs from the Hive version 3.1.2 release by additional enhancements that add support for TLS and authentication through {{site.data.keyword.iamlong}}.
+The client differs from the Hive version 3.1.2 release by more enhancements that add support for TLS and authentication through {{site.data.keyword.iamlong}}.
 For *user*, specify the CRN and for *password* a valid API key with access to your {{site.data.keyword.sqlquery_short}}. Find the endpoint to use in the following table.
 
 | Region | Endpoint |
@@ -55,10 +49,10 @@ For *user*, specify the CRN and for *password* a valid API key with access to yo
 | eu-de | thrift://catalog.eu-de.dataengine.cloud.ibm.com:9083 |
 | in-che | thrift://catalog.in-che.dataengine.cloud.ibm.com:9083 |
 
-### Usage within {{site.data.keyword.DSX}} notebooks
+### Usage within {{site.data.keyword.DSX}} Notebooks
 {: #usage_watson_notebooks}
 
-{{site.data.keyword.DSX}} has the JAR/Wheel files already included. Set the required variables (crn and apikey) and call the helper functions to connect to the Hive metastore:
+{{site.data.keyword.DSX}} has the JAR/Wheel files already included. Set the required variables (CRN and apikey) and call the helper functions to connect to the Hive metastore:
 
 ```sql
 # change the CRN and the APIkey according to your instance
@@ -128,7 +122,7 @@ Prepare a JSON file to start that program, as in the following example (listTabl
 }
 ```
 
-Start the application using a curl command, as in the following example:
+Start the application by using a curl command, as in the following example:
 
 ```curl
 curl -X POST https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<GUID of Analytic Engine>/spark_applications --header "Authorization: Bearer $TOKEN" -H "content-type: application/json"  -d @listTablesExample.json
@@ -185,7 +179,7 @@ If you receive the following error message when you run the SQL statement, check
 AnalysisException: org.apache.hadoop.hive.ql.metadata.HiveException: java.lang.RuntimeException: Unable to instantiate org.apache.hadoop.hive.ql.metadata.SessionHiveMetaStoreClient
 ```
 
-Possible causes:
+The following possible causes could exist.
 
 - The CRN is invalid or the service does not exist.
 - THE APIKEY is invalid.
@@ -197,6 +191,6 @@ Py4JJavaError: An error occurred while calling o8820.sql.
 : java.util.concurrent.ExecutionException: com.ibm.stocator.fs.common.exception.ConfigurationParseException: Configuration parse exception: Access KEY is empty. Please provide valid access key
 ```
 
-Possible cause:
+The following possible cause could exist.
 
-- Tables based on sample data provided by {{site.data.keyword.sqlquery_short}} does not not work for a SELECT statement. Therefore, use data stored in your Cloud {{site.data.keyword.cos_short}} bucket.
+- Tables that are based on sample data that is provided by {{site.data.keyword.sqlquery_short}} do not work for a SELECT statement. Therefore, use data stored in your Cloud {{site.data.keyword.cos_short}} bucket.

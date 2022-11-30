@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-03-31"
+  years: 2020, 2022
+lastupdated: "2022-11-25"
 
 keywords: aspera, data lake, object storage, csv, monitoring
 
@@ -10,15 +10,7 @@ subcollection: sql-query
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:note: .note}
-{:deprecated: .deprecated}
-{:important: .important}
-{:external: .external target="_blank"}
+{{site.data.keyword.attribute-definition-list}}
 
 # Monitoring
 {: #metrics}
@@ -29,15 +21,15 @@ subcollection: sql-query
 ## Opting in to and enabling {{site.data.keyword.sqlquery_full}} metrics
 {: #opt_in_metrics}
 
-Before you can start to use {{site.data.keyword.sqlquery_short}} metrics, you must first opt in and then enable platform metrics by completing the following steps:
+Before you can start to use {{site.data.keyword.sqlquery_short}} metrics, you must first opt in, and then enable platform metrics by completing the following steps.
 
 1. Enable platform metrics for {{site.data.keyword.sqlquery_short}}. For more information, see [Enabling platform metrics](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-platform_metrics_enabling){: external}. The owner of the account has full access to the metrics data. For more information about managing access for other users, see [Getting started tutorial for {{site.data.keyword.mon_full}}](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-getting-started){: external}.
 
-2. To navigate from the {{site.data.keyword.sqlquery_short}} instance page to the {{site.data.keyword.mon_full_notm}} dashboard, click the three vertical dots in the upper right corner of the instance page (**Service instance options**) and select **Monitoring**.
+2. To navigate from the {{site.data.keyword.sqlquery_short}} instance page to the {{site.data.keyword.mon_full_notm}} dashboard, click the overflow menu (three vertical dots) of the instance page (**Service instance options**) and select **Monitoring**.
 
-   On your first usage, you might see a welcome wizard. To advance to the dashboard selection menu, select **Next** and then **Skip** at the bottom of the **Choosing an installation method** page. Accept the prompts that follow. You can then select the **{{site.data.keyword.sqlquery_short}}** dashboard.
+   On your first usage, you might see a welcome wizard. To advance to the dashboard selection menu, select **Next** and then **Skip** on the **Choosing an installation method** page. Accept the prompts that follow. You can then select the **{{site.data.keyword.sqlquery_short}}** dashboard.
 
-   Dashboards are available only after metrics start to be recorded; this might take a few minutes to initialize.
+   Dashboards are available only after metrics start to be recorded, which might take a few minutes to initialize.
    {: note}
 
 ## {{site.data.keyword.sqlquery_short}} metrics cost information
@@ -50,7 +42,7 @@ For more information, see [{{site.data.keyword.mon_full_notm}} pricing ![Externa
 ## {{site.data.keyword.sqlquery_short}} metrics details
 {: #metric_details}
 
-The following tables describe the specific metrics that are provided by {{site.data.keyword.sqlquery_short}}:
+The following tables describe the specific metrics that are provided by {{site.data.keyword.sqlquery_short}}.
 
 | Metric name |
 |-----------|
@@ -63,7 +55,7 @@ The following tables describe the specific metrics that are provided by {{site.d
 ### Number of bytes read by completed jobs
 {: #ibm_sqlquery_bytes_read}
 
-The following table shows the cumulative number of bytes read by all {{site.data.keyword.sqlquery_short}} jobs that completed successfully:
+The following table shows the cumulative number of bytes read by all {{site.data.keyword.sqlquery_short}} jobs that completed successfully.
 
 | Metadata | Description |
 |----------|-------------|
@@ -76,7 +68,7 @@ The following table shows the cumulative number of bytes read by all {{site.data
 ### Number of completed jobs
 {: #ibm_sqlquery_completed_jobs}
 
-The following table shows the number of {{site.data.keyword.sqlquery_short}} jobs that have completed successfully:
+The following table shows the number of {{site.data.keyword.sqlquery_short}} jobs that were completed successfully.
 
 | Metadata | Description |
 |----------|-------------|
@@ -89,7 +81,7 @@ The following table shows the number of {{site.data.keyword.sqlquery_short}} job
 ### Number of failed jobs
 {: #ibm_sqlquery_failed_jobs}
 
-The following table shows the number of {{site.data.keyword.sqlquery_short}} jobs that failed:
+The following table shows the number of {{site.data.keyword.sqlquery_short}} jobs that failed.
 
 | Metadata | Description |
 |----------|-------------|
@@ -102,7 +94,7 @@ The following table shows the number of {{site.data.keyword.sqlquery_short}} job
 ### Number of jobs in progress
 {: #ibm_sqlquery_jobs_in_progress}
 
-The following table shows the number of submitted {{site.data.keyword.sqlquery_short}} jobs that are in progress (queued or running):
+The following table shows the number of submitted {{site.data.keyword.sqlquery_short}} jobs that are in progress (queued or running).
 
 | Metadata | Description |
 |----------|-------------|
@@ -118,7 +110,7 @@ The following table shows the number of submitted {{site.data.keyword.sqlquery_s
 ### Global attributes
 {: #global-attributes}
 
-The following attributes are available for segmenting all of the listed metrics:
+The following attributes are available for segmenting all of the listed metrics.
 
 | Attribute | Attribute name | Attribute description |
 |-----------|----------------|-----------------------|

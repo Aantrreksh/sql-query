@@ -2,7 +2,7 @@
 
 copyright:
   years:  2020, 2022
-lastupdated: "2022-05-09"
+lastupdated: "2022-11-25"
 
 keywords: data skipping, performance, cost, data format, indexes, sample data, index management
 
@@ -10,13 +10,7 @@ subcollection: sql-query
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:note: .note}
+{{site.data.keyword.attribute-definition-list}}
 
 # Index management
 {: #index_management}
@@ -102,7 +96,7 @@ ON cos://us-geo/sql/metergen STORED AS parquet
 
 In the [Cloud {{site.data.keyword.cos_short}} URI](/docs/sql-query?topic=sql-query-sql-reference#COSURI), specify the top level (the root) of the data set.
 
-It is possible to share indexes across {{site.data.keyword.sqlquery_short}} accounts. Users who have READ access to the base location of an index can use it by setting their base location accordingly. However, it is important to avoid multiple users writing indexes for the same data set to the same base location. Users can avoid sharing indexes by using different base locations.
+It is possible to share indexes across {{site.data.keyword.sqlquery_short}} accounts. Users who have READ access to the base location of an index can use it by setting their base location. However, it is important to avoid multiple users who write indexes for the same data set to the same base location. Users can avoid sharing indexes by using different base locations.
 
 {{site.data.keyword.sqlquery_short}} charges for index creation based on the amount of data scanned. Index creation for Parquet files benefits from the availability of schema information and the possibility of column projection to limit the amount of data scanned. However, index creation for JSON and CSV files requires schema inference that results in extra passes on the input data. To avoid extra passes on the data, create a table in the catalog for the respective data to provide the required schema information.
 
@@ -116,7 +110,7 @@ DESCRIBE METAINDEX
 ON cos://us-geo/sql/metergen STORED AS parquet
 ```
 
-The result includes how many objects were indexed, whether the index is up-to-date, the base location of the indexes, and the
+The result includes how many objects were indexed, whether the index is up to date, the base location of the indexes, and the
 index types that were generated.
 
 ### Using data skipping indexes
@@ -157,7 +151,7 @@ ST_Distance(ST_Point(lng,lat),ST_WKTToSQL('POINT(6.433881 43.422323)')) < 1000.0
 #### Geospatial data skipping with geospatial indexes
 {: #geospatial_ds_geospatial_indexes}
 
-Geospatial indexes on columns with geometry types can also be used for data skipping. For example, the following statement creates a geospatial index. The hospitals data set is available as an {{site.data.keyword.sqlquery_short}} sample and contains a geometry type column called “location”. Geometry type columns can be created by using the Geospatial Toolkit.
+Geospatial indexes on columns with geometry types can also be used for data skipping. For example, the following statement creates a geospatial index. The hospitals data set is available as a {{site.data.keyword.sqlquery_short}} sample and contains a geometry type column called “location”. Geometry type columns can be created by using the Geospatial Toolkit.
 
 ```sql
 CREATE METAINDEX
@@ -176,7 +170,7 @@ WHERE ST_Intersects(ST_WKTToSQL(location), ST_Buffer(ST_WKTToSQL('POINT (-74.0 4
 ### Choosing data formats
 {: #choosing_data_formats}
 
-You can use data skipping with all of the formats that are supported by {{site.data.keyword.sqlquery_short}}, except for AVRO. It is best for data layout to use a column-based format, such as Parquet. To infer the schema for CSV and JSON, before running any queries, the entire data set must first be scanned. Scanning the entire data set is not necessary if you create tables by using the {{site.data.keyword.sqlquery_short}} [catalog](/docs/services/sql-query?topic=sql-query-hivemetastore). Unlike Parquet and ORC, CSV and JSON do not have built-in data skipping capabilities and can potentially benefit more from data skipping.
+You can use data skipping with all of the formats that are supported by {{site.data.keyword.sqlquery_short}}, except for AVRO. It is best for data layout to use a column-based format, such as Parquet. To infer the schema for CSV and JSON, before you run any queries, the entire data set must first be scanned. Scanning the entire data set is not necessary if you create tables by using the {{site.data.keyword.sqlquery_short}} [catalog](/docs/services/sql-query?topic=sql-query-hivemetastore). Unlike Parquet and ORC, CSV and JSON do not have built-in data skipping capabilities and can potentially benefit more from data skipping.
 
 ### Refreshing data skipping indexes
 {: #refreshing_ds}
@@ -218,9 +212,9 @@ Dropping a table does not also drop the table indexes.
 ## Data skipping on catalog tables
 {: #ds_catalog}
 
-Data skipping also supports indexing and skipping on [catalog tables](/docs/services/sql-query?topic=sql-query-hivemetastore). How the index is created differs for partitioned and non-partitioned tables.
+Data skipping also supports indexing and skipping on [catalog tables](/docs/services/sql-query?topic=sql-query-hivemetastore). How the index is created differs for partitioned and nonpartitioned tables.
 
-For non-partitioned tables, indexing must be done by using the [Cloud {{site.data.keyword.cos_short}} URI](/docs/sql-query?topic=sql-query-sql-reference#COSURI). In this case, the same metadata is used whether a query accesses the table by name or by physical location by using the Cloud {{site.data.keyword.cos_short}} URI.
+For nonpartitioned tables, indexing must be done by using the [Cloud {{site.data.keyword.cos_short}} URI](/docs/sql-query?topic=sql-query-sql-reference#COSURI). In this case, the same metadata is used whether a query accesses the table by name or by physical location by using the Cloud {{site.data.keyword.cos_short}} URI.
 
 For [partitioned tables](/docs/sql-query?topic=sql-query-hivemetastore#partitioned), indexes that are created in the Cloud {{site.data.keyword.cos_short}} URI are not used when you access a table by name. Instead, all preceding command and query examples must be rewritten by replacing the Cloud {{site.data.keyword.cos_short}} URI with the table name, by using the ON TABLE clause. For example, for the preceding CREATE INDEX statement, to index a table named `metergen` use the following syntax:
 
@@ -284,7 +278,7 @@ The metadata for a partitioned table must be different from the metadata on the 
 ## References
 {: #references_ds}
 
-- [Data skipping for {{site.data.keyword.sqlquery_short}}](https://www.ibm.com/cloud/blog/data-skipping-for-ibm-cloud-sql-query)
-- [Data skipping demo at Think 2019](https://www.ibm.com/cloud/blog/ibm-cloud-sql-query-at-think-2019) for the [Danaos use case](https://www.danaos.com/home/default.aspx) of [BigDataStack](https://bigdatastack.eu/?utm_source=IBM-Ta-Shma)
-- [How to lay out Big Data in IBM Cloud Object Storage for Spark SQL](https://www.ibm.com/cloud/blog/big-data-layout)
-- [Querying Geospatial Data by using {{site.data.keyword.sqlquery_short}}](https://www.ibm.com/cloud/blog/querying-geospatial-data-using-ibm-sql-query)
+- [Data skipping for {{site.data.keyword.sqlquery_short}}](https://www.ibm.com/cloud/blog/data-skipping-for-ibm-cloud-sql-query).
+- [Data skipping demo at Think 2019](https://www.ibm.com/cloud/blog/ibm-cloud-sql-query-at-think-2019) for the [Danaos use case](https://www.danaos.com/home/default.aspx) of [BigDataStack](https://bigdatastack.eu/?utm_source=IBM-Ta-Shma).
+- [How to lay out Big Data in IBM Cloud Object Storage for Spark SQL](https://www.ibm.com/cloud/blog/big-data-layout).
+- [Querying Geospatial Data by using {{site.data.keyword.sqlquery_short}}](https://www.ibm.com/cloud/blog/querying-geospatial-data-using-ibm-sql-query).
