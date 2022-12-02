@@ -10,6 +10,8 @@ subcollection: sql-query
 
 ---
 
+{{site.data.keyword.attribute-definition-list}}
+
 # SQL functions
 {: #sqlfunctions}
 
