@@ -36,7 +36,7 @@ See the following examples for an outline of the general syntax of an SQL query 
 ### query
 {: #query}
 
-<object alt="syntax diagram for a query"  data="./diagrams/query-73fe3374306d1ff4381dfc493d4199eb.svg" ></object>
+![syntax diagram for a query](./diagrams/query-73fe3374306d1ff4381dfc493d4199eb.svg)
 
 ### namedQuery
 {: #namedQuery}
