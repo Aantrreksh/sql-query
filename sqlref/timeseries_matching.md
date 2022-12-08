@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-03-03"
+  years: 2019, 2022
+lastupdated: "2022-12-08"
 
 keywords: SQL query, time series, SQL, string matching, set matching
 
@@ -10,11 +10,7 @@ subcollection: sql-query
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
+{{site.data.keyword.attribute-definition-list}}
 
 # String matching
 {: #string_matching}
@@ -27,7 +23,7 @@ The sublists of the sequence `[a,b,c,d]` are the following:
 
 `[a,b,c,d] [a,b,c] [a,b] [a] [b,c,d] [b,c] [b] [c,d] [c] [d]`  
 
-The subsequences of the sequence [a,b,c,d] are the sublists that are described previously, plus the following non-contiguous sequences:  
+The subsequences of the sequence [a,b,c,d] are the sublists that are described previously, plus the following noncontiguous sequences:  
 
 `[a,b,d] [a,c,d] [a,c] [b,d] [a,d]`  
 
