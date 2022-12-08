@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-04-25"
+lastupdated: "2022-12-08"
 
 keywords: SQL query, time series, SQL, data processing function
 
@@ -10,12 +10,7 @@ subcollection: sql-query
 
 ---
 
-
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
+{{site.data.keyword.attribute-definition-list}}
 
 # Data processing functions
 {: #data_processing_functions}
