@@ -58,6 +58,7 @@ toc:
           - keyprotect.md
           - deployment_model.md
           - dependencies.md
+      - terraform.md
 
   - navgroup:
       id: reference
