@@ -47,7 +47,6 @@ For *user*, specify the CRN and for *password* a valid API key with access to yo
 |--------|----------|
 | us-south | thrift://catalog.us.dataengine.cloud.ibm.com:9083 |
 | eu-de | thrift://catalog.eu-de.dataengine.cloud.ibm.com:9083 |
-| in-che | thrift://catalog.in-che.dataengine.cloud.ibm.com:9083 |
 
 ### Usage within {{site.data.keyword.DSX}} Notebooks
 {: #usage_watson_notebooks}
