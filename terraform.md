@@ -103,6 +103,7 @@ The following is an example of creating a Data Engine service instance in Terraf
 
   Then give the new {{site.data.keyword.sqlquery_short}} instance [access](/docs/account?topic=account-serviceauth) to your {{site.data.keyword.keymanagementserviceshort}} key:
 
+  ```
   resource "ibm_iam_authorization_policy" "iam_authorization_policy" {
     source_service_name         = "sql-query"
     source_resource_instance_id = ibm_resource_instance.resource_instance.id
@@ -111,3 +112,4 @@ The following is an example of creating a Data Engine service instance in Terraf
     roles                       = ["Reader"]
     description                 = "Service-to-service authorization: Data Engine access to Key Protect"
   }
+  ```
