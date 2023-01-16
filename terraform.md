@@ -49,13 +49,13 @@ The following steps guide you through an example of creating a {{site.data.keywo
     resource_group_id = data.ibm_resource_group.group.id
   }
   ```
-  
+
 2. Provide the API key to allow Terraform to make the requested changes to your {{site.data.keyword.cloud_notm}} instance. You can provide the API key as environment variable in the session where you also do the Terraform calls.
 
   ```
   export IC_API_KEY="<ibmcloud_api_key>"
   ```
-  
+
   See the [Terraform documentation](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about) for further options to provide credentials.
 
 3. Initialize the Terraform CLI. 
@@ -69,13 +69,13 @@ The following steps guide you through an example of creating a {{site.data.keywo
    ```
    terraform plan
    ```
-   
+
 5. Create the {{site.data.keyword.sqlquery_short}} service instance in the {{site.data.keyword.cloud_notm}}.
 
    ```
    terraform apply
    ```
-   
+
 6. In the [{{site.data.keyword.cloud_notm}} resource dashboard](https://cloud.ibm.com/resources){: external}, find the {{site.data.keyword.sqlquery_short}} service instance that you created.
 
 7. You can also create a {{site.data.keyword.sqlquery_short}} instance with user-managed key encryption (optional). You need the instance ID and the rootkey ID of a {{site.data.keyword.keymanagementserviceshort}} instance. Add the following parameter section into the `main.tf` file.
@@ -110,4 +110,4 @@ The following steps guide you through an example of creating a {{site.data.keywo
     description                 = "Service-to-service authorization: Data Engine access to Key Protect"
   }
   ```
-  
+
