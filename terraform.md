@@ -27,28 +27,28 @@ The following steps guide you through an example of creating a {{site.data.keywo
 
 1. Create a Terraform configuration file that is named `main.tf`. In this file, you declare the {{site.data.keyword.sqlquery_short}} service instance that you want to provision. The following example creates a {{site.data.keyword.sqlquery_short}} service instance that is named `My Data Engine Instance` in the `us-south` region.
 
-```
-terraform {
-  required_version = ">=1.0.0, <2.0"
-  required_providers {
-    ibm = {
-      source = "IBM-Cloud/ibm"
+    ```
+    terraform {
+      required_version = ">=1.0.0, <2.0"
+      required_providers {
+        ibm = {
+          source = "IBM-Cloud/ibm"
+        }
+      }
     }
-  }
-}
-provider "ibm" {
-}
-data "ibm_resource_group" "group" {
-  name = "default"
-}
-resource "ibm_resource_instance" "resource_instance" {
-  name              = "My Data Engine Instance"
-  service           = "sql-query"
-  plan              = "standard"
-  location          = "us-south"
-  resource_group_id = data.ibm_resource_group.group.id
-}
-```
+    provider "ibm" {
+    }
+    data "ibm_resource_group" "group" {
+      name = "default"
+    }
+    resource "ibm_resource_instance" "resource_instance" {
+      name              = "My Data Engine Instance"
+      service           = "sql-query"
+      plan              = "standard"
+      location          = "us-south"
+      resource_group_id = data.ibm_resource_group.group.id
+    }
+    ```
 
 
 2. Provide the API key to allow Terraform to make the requested changes to your {{site.data.keyword.cloud_notm}} instance. You can provide the API key as environment variable in the session where you also do the Terraform calls.
