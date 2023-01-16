@@ -36,14 +36,11 @@ The following steps guide you through an example of creating a {{site.data.keywo
       }
     }
   }
-
   provider "ibm" {
   }
-
   data "ibm_resource_group" "group" {
     name = "default"
   }
-
   resource "ibm_resource_instance" "resource_instance" {
     name              = "My Data Engine Instance"
     service           = "sql-query"
