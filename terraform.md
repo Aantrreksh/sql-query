@@ -29,10 +29,10 @@ The following is an example of creating a Data Engine service instance in Terraf
 
   ```
   terraform {
-  required_version = ">=1.0.0, <2.0"
-  required_providers {
+    required_version = ">=1.0.0, <2.0"
+    required_providers {
       ibm = {
-      source = "IBM-Cloud/ibm"
+        source = "IBM-Cloud/ibm"
       }
     }
   }
@@ -41,14 +41,14 @@ The following is an example of creating a Data Engine service instance in Terraf
   }
 
   data "ibm_resource_group" "group" {
-  name = "default"
+    name = "default"
   }
 
   resource "ibm_resource_instance" "resource_instance" {
-    name       = "My Data Engine Instance"
-    service      = "sql-query"
-    plan       = "standard"
-    location     = "us-south"
+    name              = "My Data Engine Instance"
+    service           = "sql-query"
+    plan              = "standard"
+    location          = "us-south"
     resource_group_id = data.ibm_resource_group.group.id
   }
   ```
@@ -80,25 +80,36 @@ The following is an example of creating a Data Engine service instance in Terraf
    
 6. From the [{{site.data.keyword.cloud_notm}} resource dashboard](https://cloud.ibm.com/resources){: external}, find the {{site.data.keyword.sqlquery_full}} service instance that you created.
 
-7. Optional: user-managed key encryptoin is required
+7. Optional: User-managed key encryption is desired
 
-  You can also create a {{site.data.keyword.sqlquery_short}} instance with user-managed key encryption. Add the parameter section as showed below into the main.tf file.
+  You can also create a {{site.data.keyword.sqlquery_short}} instance with user-managed key encryption. You need the instance id and the rootkey id of a {{site.data.keyword.keymanagementserviceshort}} instance. Add the parameter section as shown below into the main.tf file.
 
   ```
   resource "ibm_resource_instance" "resource_instance" {
-  name = "My Data Engine Instance"
-  service = "sql-query"
-  plan = "standard"
-  location = "us-south"
-  resource_group_id = data.ibm_resource_group.group.id
-  parameters = {
-    customerKeyEncrypted: true,
-    kms_instance_id: jsonencode({ "guid" = "<kms_instance_guid>", "url" = "https://us-south.kms.cloud.ibm.com" }),
-    kms_rootkey_id: "<kms_rootkey_id>"
+    name              = "My Data Engine Instance"
+    service           = "sql-query"
+    plan              = "standard"
+    location          = "us-south"
+    resource_group_id = data.ibm_resource_group.group.id
+    parameters = {
+      customerKeyEncrypted: true,
+      kms_instance_id: jsonencode({ "guid" = "<kms_instance_guid>", "url" = "https://us-south.kms.cloud.ibm.com" }),
+      kms_rootkey_id: "<kms_rootkey_id>"
     }
   }
   ```
 
-  You cannot change the encryption parameters once the instance is created.
-  {: note}
+  For user-managed key encryption, you need a standard plan. You cannot change the encryption parameters once the instance is created. {: note}
 
+  Then give the new {{site.data.keyword.sqlquery_short}} instance [access](/docs/account?topic=account-serviceauth) to your {{site.data.keyword.keymanagementserviceshort}} key:
+
+  ```
+  resource "ibm_iam_authorization_policy" "iam_authorization_policy" {
+    source_service_name         = "sql-query"
+    source_resource_instance_id = ibm_resource_instance.resource_instance.id
+    target_service_name         = "kms"
+    target_resource_instance_id = "<kms_instance_id>"
+    roles                       = ["Reader"]
+    description                 = "Service-to-service authorization: Data Engine access to Key Protect"
+  }
+  ```
