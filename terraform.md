@@ -17,11 +17,11 @@ subcollection: sql-query
 
 Terraform on IBM Cloud® enables predictable and consistent provisioning of IBM Cloud services, so that you can rapidly build complex, multitiered cloud environments following Infrastructure as Code (IaC) principles. Similar to using the IBM Cloud CLI or API, you can automate the provisioning and deletion of your {{site.data.keyword.sqlquery_full}} instances by using HashiCorp Configuration Language (HCL).
 
-## Step 1. Install the Terraform CLI and configure the IBM Cloud Provider plug-in
+## Install the Terraform CLI and configure the IBM Cloud Provider plug-in
 
 Follow the [Terraform on {{site.data.keyword.cloud_notm}} getting started tutorial](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-getting-started) to install the Terraform CLI and configure the {{site.data.keyword.cloud_notm}} Provider plug-in for Terraform. The plug-in abstracts the {{site.data.keyword.cloud_notm}} APIs that are used to provision, update, or delete {{site.data.keyword.sqlquery_short}} service instances and resources.
 
-## Step 2. Work with {{site.data.keyword.sqlquery_short}} resources in Terraform
+## Work with {{site.data.keyword.sqlquery_short}} resources in Terraform
 
 The following steps guide you through an example of creating a {{site.data.keyword.sqlquery_short}} service instance in Terraform.
 
@@ -50,6 +50,7 @@ resource "ibm_resource_instance" "resource_instance" {
 }
 ```
 
+
 2. Provide the API key to allow Terraform to make the requested changes to your {{site.data.keyword.cloud_notm}} instance. You can provide the API key as environment variable in the session where you also do the Terraform calls.
 
 ```
@@ -58,11 +59,13 @@ export IC_API_KEY="<ibmcloud_api_key>"
 
 See the [Terraform documentation](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about) for further options to provide credentials.
 
+
 3. Initialize the Terraform CLI. 
 
 ```
 terraform init
 ```
+
    
 4. Create a Terraform execution plan. The Terraform execution plan summarizes all the actions that have to be run to create the {{site.data.keyword.sqlquery_short}} service instance in your account. 
 
@@ -70,14 +73,15 @@ terraform init
 terraform plan
 ```
 
+
 5. Create the {{site.data.keyword.sqlquery_short}} service instance in the {{site.data.keyword.cloud_notm}}.
 
 ```
 terraform apply
 ```
 
-6. In the [{{site.data.keyword.cloud_notm}} resource dashboard](https://cloud.ibm.com/resources){: external}, find the {{site.data.keyword.sqlquery_short}} service instance that you created.
 
+6. In the [{{site.data.keyword.cloud_notm}} resource dashboard](https://cloud.ibm.com/resources){: external}, find the {{site.data.keyword.sqlquery_short}} service instance that you created.
 7. You can also create a {{site.data.keyword.sqlquery_short}} instance with user-managed key encryption (optional). You need the instance ID and the rootkey ID of a {{site.data.keyword.keymanagementserviceshort}} instance. Add the following parameter section into the `main.tf` file.
 
 ```
