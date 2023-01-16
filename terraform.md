@@ -56,7 +56,7 @@ resource "ibm_resource_instance" "resource_instance" {
 export IC_API_KEY="<ibmcloud_api_key>"
 ```
 
-  See the [Terraform documentation](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about) for further options to provide credentials.
+See the [Terraform documentation](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about) for further options to provide credentials.
 
 3. Initialize the Terraform CLI. 
 
