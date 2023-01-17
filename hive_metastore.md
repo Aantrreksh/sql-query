@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022
-lastupdated: "2022-11-25"
+lastupdated: "2022-12-15"
 
 keywords: Data Engine, SQL query, Hive, metastore, catalog
 
@@ -47,7 +47,6 @@ For *user*, specify the CRN and for *password* a valid API key with access to yo
 |--------|----------|
 | us-south | thrift://catalog.us.dataengine.cloud.ibm.com:9083 |
 | eu-de | thrift://catalog.eu-de.dataengine.cloud.ibm.com:9083 |
-| in-che | thrift://catalog.in-che.dataengine.cloud.ibm.com:9083 |
 
 ### Usage within {{site.data.keyword.DSX}} Notebooks
 {: #usage_watson_notebooks}
@@ -179,7 +178,7 @@ If you receive the following error message when you run the SQL statement, check
 AnalysisException: org.apache.hadoop.hive.ql.metadata.HiveException: java.lang.RuntimeException: Unable to instantiate org.apache.hadoop.hive.ql.metadata.SessionHiveMetaStoreClient
 ```
 
-The following possible causes could exist.
+The following possible causes might exist.
 
 - The CRN is invalid or the service does not exist.
 - THE APIKEY is invalid.
@@ -191,6 +190,6 @@ Py4JJavaError: An error occurred while calling o8820.sql.
 : java.util.concurrent.ExecutionException: com.ibm.stocator.fs.common.exception.ConfigurationParseException: Configuration parse exception: Access KEY is empty. Please provide valid access key
 ```
 
-The following possible cause could exist.
+The following possible cause might exist.
 
 - Tables that are based on sample data that is provided by {{site.data.keyword.sqlquery_short}} do not work for a SELECT statement. Therefore, use data stored in your Cloud {{site.data.keyword.cos_short}} bucket.

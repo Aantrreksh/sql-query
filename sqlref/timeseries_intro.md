@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2021
-lastupdated: "2021-03-03"
+  years: 2019, 2022
+lastupdated: "2022-12-08"
 
 keywords: SQL query, time series, SQL, analyzing 
 
@@ -10,11 +10,7 @@ subcollection: sql-query
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
+{{site.data.keyword.attribute-definition-list}}
 
 # Analyzing time series data
 {: #ts_intro}
@@ -28,7 +24,7 @@ See the following examples of time series:
 -   Temperature or seismographic data.
 -   Network performance measurements.
 -   Electricity usage as recorded by a smart meter and reported through an Internet of Things data feed.
--   A clickstream log that records, for an individual computer user, which buttons were clicked, which pages or websites were visited,       and other information of interest.
+-   A clickstream log that records, for an individual computer user, which buttons were clicked, which pages or websites were visited, and other information of interest.
 
 Each entry in a time series is called an observation. Each observation comprises a timetick (a 64-bit integer that indicates when the observation was made) and the data that is recorded for that observation. The recorded data can be either numerical (for example, temperature or stock share price) or categorical (for example, geographic area). 
 A time series can be, but must not necessarily be, associated with a [time reference system (TRS)](/docs/services/sql-query?topic=sql-query-TRS), which defines the granularity of each timetick and the start time.
@@ -75,7 +71,7 @@ Match the values of a string time series against a string sequence (sequence mat
 Convert a string or timestamp into a value of type Long.  
   
 -   [Time reference systems](/docs/services/sql-query?topic=sql-query-TRS)  
-    A time reference system (TRS) defines the *granularity* of a time series (that is, the length of each timetick), and the date and       time from which the timeticks are to be counted (that is, the time series start time).  
+    A time reference system (TRS) defines the *granularity* of a time series (that is, the length of each timetick), and the date and time from which the timeticks are to be counted (that is, the time series start time).  
 -   [Time series data types](/docs/services/sql-query?topic=sql-query-ts_datatypes)  
     Time series functions operate on a wide variety of special data types that are designed especially for time series data.  
 -   [Using SQL statements to process time series data](/docs/services/sql-query?topic=sql-query-using_sql)  

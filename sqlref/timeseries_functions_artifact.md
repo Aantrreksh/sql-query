@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-04-07"
+lastupdated: "2022-12-08"
 
 keywords: SQL query, time series, SQL, artifact creation, function
 
@@ -10,11 +10,7 @@ subcollection: sql-query
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
+{{site.data.keyword.attribute-definition-list}}
 
 # Artifact creation functions
 {: #artifact}
@@ -300,7 +296,7 @@ Expression that gets the cosine hyperbolic of an expression.
 
 **"TS_EXP_TANH" Double Expression**
 Output: Double Expression  
-Expression that gets the tanh of an expression.
+Expression that gets the TANH of an expression.
 
 **"TS_EXP_ADD”(DoubleExpType, DoubleExpType)**
 Output: Double Expression  
@@ -439,13 +435,13 @@ Creates an ARMA forecasting model with the specified minimum number of training 
 **TS_FORECAST_LINEAR(Integer, Integer)**
 Output: ForecastingModel  
 Creates an ordinary least squares (OLS) linear regression forecasting model.
-- The first parameter specifies the number of observations that are to be used to initialize the model (that is, to calculate its slope and intercept). If the model is not to be initialized, specify -1.
+- The first parameter specifies the number of observations that are to be used to initialize the model (that is to calculate its slope and intercept). If the model is not to be initialized, specify -1.
 - The second parameter specifies the minimum number of previous values that are used to compute each new slope and intercept. This minimum number must be at least 2.
 
 **TS_FORECAST_AVERAGE(Integer, Integer)**
 Output: ForecastingModel  
 Creates a forecasting model that returns the running average of the sample data as its forecast value.
-- The first parameter specifies the number of observations that are to be used to initialize the model (that is, to calculate its average). If the model is not to be initialized, specify -1.
+- The first parameter specifies the number of observations that are to be used to initialize the model (that is to calculate its average). If the model is not to be initialized, specify -1.
 - The second parameter specifies the minimum number of previous values that are used to compute each new average. This minimum number must be at least 2.
 
 **TS_FORECAST_AUTO(Integer)**
