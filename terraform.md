@@ -82,7 +82,7 @@ The following steps guide you through an example of creating a {{site.data.keywo
 
 
 6. In the [{{site.data.keyword.cloud_notm}} resource dashboard](https://cloud.ibm.com/resources){: external}, find the {{site.data.keyword.sqlquery_short}} service instance that you created.
-7. You can also create a {{site.data.keyword.sqlquery_short}} instance with user-managed key encryption (optional). You need the instance ID and the rootkey ID of a {{site.data.keyword.keymanagementserviceshort}} instance. Add the following parameter section into the `main.tf` file.
+7. You can also create a {{site.data.keyword.sqlquery_short}} instance with user-managed key encryption (optional). You need the instance ID and the rootkey ID of a {{site.data.keyword.keymanagementserviceshort}} instance. Add the following parameter section into the *main.tf* file.
 
     ```
     resource "ibm_resource_instance" "resource_instance" {
