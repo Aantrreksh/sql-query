@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-01-16"
+lastupdated: "2023-01-17"
 
 keywords: SQL query, Terraform
 
@@ -57,7 +57,7 @@ The following steps guide you through an example of creating a {{site.data.keywo
     export IC_API_KEY="<ibmcloud_api_key>"
     ```
 
-See the [Terraform documentation](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about) for further options to provide credentials.
+    See the [Terraform documentation](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about) for further options to provide credentials.
 
 
 3. Initialize the Terraform CLI. 
@@ -99,10 +99,10 @@ See the [Terraform documentation](/docs/ibm-cloud-provider-for-terraform?topic=i
     }
     ```
 
-For user-managed key encryption, you need a Standard plan. You cannot change the encryption parameters once the instance is created. 
-  {: note}
+    For user-managed key encryption, you need a Standard plan. You cannot change the encryption parameters once the instance is created. 
+    {: note}
 
-Next, give the new {{site.data.keyword.sqlquery_short}} instance [access](/docs/account?topic=account-serviceauth) to your {{site.data.keyword.keymanagementserviceshort}} key.
+    Next, give the new {{site.data.keyword.sqlquery_short}} instance [access](/docs/account?topic=account-serviceauth) to your {{site.data.keyword.keymanagementserviceshort}} key.
 
     ```
     resource "ibm_iam_authorization_policy" "iam_authorization_policy" {
