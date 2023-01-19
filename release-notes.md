@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-11-25"
+  years: 2018, 2023
+lastupdated: "2023-01-19"
 
 keywords: sql query, data engine, release notes
 
@@ -19,6 +19,13 @@ content-type: release-note
 
 Use these release notes to learn about the latest {{site.data.keyword.sqlquery_full}} that are grouped by date. Release notes are available for a minimum of three years.
 {: shortdesc}
+
+## January 2023
+{: #sql-query-jan2023}
+{: release-note}
+
+Create a new instance with Terraform
+: Detailed [documentation](/docs/sql-query?topic=sql-query-terraform) is now available on how to create new {{site.data.keyword.sqlquery_short}} instances with Terraform.
 
 ## November 2022
 {: #sql-query-nov2022}
