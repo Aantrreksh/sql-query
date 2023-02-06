@@ -851,6 +851,48 @@ asin(expr)
  NaN
 
 
+## assert_true
+{: #assert_true}
+
+assert_true(expr1 [, expr2])
+: Returns null if column `expr1` is true; throws an exception with the provided error message `expr2` otherwise.
+Useful to check if a `cast` for a column is successful for every row.
+
+:   **Example of an SQL function usage fragment**
+
+   ```sql
+   > SELECT ifnull(assert_true(cast(col as int) is not null), cast(col as int)) as col_int from mytable
+   ```
+
+:   **Alternatively, using it in the WHERE clause**
+
+   ```sql
+   SELECT cast(col as int) as col_int
+   FROM mytable
+   WHERE assert_true(cast(col as int) is not null) is null
+   ```
+
+:   **Result value when expr1 is false**
+
+   ```text
+   SQL execution failed
+   An assert_true function failed: ''NOT (cast(col#14393 as int) = cast(null as int))' is not true!'. Check your data to see which rows don't pass the function's condition and fix the issue.
+   ```
+
+:   **Example with a custom error message**
+
+   ```sql
+   > SELECT ifnull(assert_true(cast(col as int) is not null, "col must be a valid integer and not null!"), cast(col as int)) as col_int from mytable
+   ```
+
+:   **Result value when expr1 is false**
+
+   ```text
+   SQL execution failed
+   An assert_true function failed: 'col must be a valid integer and not null!'. Check your data to see which rows don't pass the function's condition and fix the issue.
+   ```
+
+
 ## atan
 {: #atan}
 
