@@ -2,13 +2,15 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-06-09"
+lastupdated: "2022-11-28"
 
 keywords: SQL, functions
 
 subcollection: sql-query
 
 ---
+
+{{site.data.keyword.attribute-definition-list}}
 
 # SQL functions
 {: #sqlfunctions}
@@ -303,7 +305,7 @@ expr1 >= expr2
 {: #<=>}
 
 expr1 <=> expr2
-:   Returns same result as the EQUAL(=) operator for non-null operands,
+:   Returns same result as the EQUAL(=) operator for nonnull operands,
 but returns true if both are null, false if one of the them is null.
 
 :   **Arguments**
@@ -849,6 +851,48 @@ asin(expr)
  NaN
 
 
+## assert_true
+{: #assert_true}
+
+assert_true(expr1 [, expr2])
+: Returns null if column `expr1` is true; throws an exception with the provided error message `expr2` otherwise.
+Useful to check if a `cast` for a column is successful for every row.
+
+:   **Example of an SQL function usage fragment**
+
+   ```sql
+   > SELECT ifnull(assert_true(cast(col as int) is not null), cast(col as int)) as col_int from mytable
+   ```
+
+:   **Alternatively, using it in the WHERE clause**
+
+   ```sql
+   SELECT cast(col as int) as col_int
+   FROM mytable
+   WHERE assert_true(cast(col as int) is not null) is null
+   ```
+
+:   **Result value when expr1 is false**
+
+   ```text
+   SQL execution failed
+   An assert_true function failed: ''NOT (cast(col#14393 as int) = cast(null as int))' is not true!'. Check your data to see which rows don't pass the function's condition and fix the issue.
+   ```
+
+:   **Example with a custom error message**
+
+   ```sql
+   > SELECT ifnull(assert_true(cast(col as int) is not null, "col must be a valid integer and not null!"), cast(col as int)) as col_int from mytable
+   ```
+
+:   **Result value when expr1 is false**
+
+   ```text
+   SQL execution failed
+   An assert_true function failed: 'col must be a valid integer and not null!'. Check your data to see which rows don't pass the function's condition and fix the issue.
+   ```
+
+
 ## atan
 {: #atan}
 
@@ -871,7 +915,7 @@ atan(expr)
 {: #atan2}
 
 atan2(expr1, expr2)
-:   Returns the angle in radians between the positive x-axis of a plane and the point indicated by the coordinates (`expr1`, `expr2`).
+:   Returns the angle in radians between the positive x-axis of a plane and the point that is indicated by the coordinates (`expr1`, `expr2`).
 
 :   **Example of an SQL function usage fragment**
 
@@ -1226,7 +1270,7 @@ chr(expr)
 {: #coalesce}
 
 coalesce(expr1, expr2, ...)
-:   Returns the first non-null argument if exists. Otherwise, null.
+:   Returns the first nonnull argument if exists. Otherwise, null.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1244,7 +1288,7 @@ coalesce(expr1, expr2, ...)
 {: #collect_list}
 
 collect_list(expr)
-:   Collects and returns a list of non-unique elements.
+:   Collects and returns a list of nonunique elements.
 
 
 ## collect_set
@@ -1277,7 +1321,7 @@ concat(str1, str2, ..., strN)
 {: #concat_ws}
 
 concat_ws(sep, [str | array(str)]+)
-:   Returns the concatenation of the strings separated by `sep`.
+:   Returns the concatenation of the strings that are separated by `sep`.
 
 :   **Example of an SQL function usage fragment**
 
@@ -1391,10 +1435,10 @@ count(*)
 :   Returns the total number of retrieved rows, including rows that contain null.
 
 count(expr)
-:   Returns the number of rows for which the supplied expression is non-null.
+:   Returns the number of rows for which the supplied expression is nonnull.
 
 count(DISTINCT expr[, expr...])
-:   Returns the number of rows for which the supplied expressions are unique and non-null.
+:   Returns the number of rows for which the supplied expressions are unique and nonnull.
 
 ## count_min_sketch
 {: #cont_min_sketch}
@@ -1964,7 +2008,7 @@ Returns 0, if the string was not found or if the indicated string (`str`) contai
 
 first(expr[, isIgnoreNull])
 :   Returns the first value of `expr` for a group of rows.
-If `isIgnoreNull` is true, returns only non-null values.
+If `isIgnoreNull` is true, returns only nonnull values.
 
 
 ## first_value
@@ -1972,7 +2016,7 @@ If `isIgnoreNull` is true, returns only non-null values.
 
 first_value(expr[, isIgnoreNull])
 :   Returns the first value of `expr` for a group of rows.
-If `isIgnoreNull` is true, returns only non-null values.
+If `isIgnoreNull` is true, returns only nonnull values.
 
 
 ## float
@@ -2547,7 +2591,7 @@ row of the window does not have any previous row), `default` is returned.
 
 last(expr[, isIgnoreNull])
 :   Returns the last value of `expr` for a group of rows.
-If `isIgnoreNull` is true, returns only non-null values.
+If `isIgnoreNull` is true, returns only nonnull values.
 
 
 ## last_day
@@ -2575,7 +2619,7 @@ last_day(date)
 
 last_value(expr[, isIgnoreNull])
 :   Returns the last value of `expr` for a group of rows.
-If `isIgnoreNull` is true, returns only non-null values.
+If `isIgnoreNull` is true, returns only nonnull values.
 
 
 ## lcase
@@ -5274,7 +5318,7 @@ xpath_boolean(xml, xpath)
 {: #xpath_double}
 
 xpath_double(xml, xpath)
-:   Returns a double value, the value zero if no match is found, or NaN if a match is found but the value is non-numeric.
+:   Returns a double value, the value zero if no match is found, or NaN if a match is found but the value is nonnumeric.
 
 :   **Example of an SQL function usage fragment**
 
@@ -5292,7 +5336,7 @@ xpath_double(xml, xpath)
 {: #xpath_float}
 
 xpath_float(xml, xpath)
-:   Returns a float value, the value zero if no match is found, or NaN if a match is found but the value is non-numeric.
+:   Returns a float value, the value zero if no match is found, or NaN if a match is found but the value is nonnumeric.
 
 :   **Example of an SQL function usage fragment**
 
@@ -5310,7 +5354,7 @@ xpath_float(xml, xpath)
 {: #xpath_int}
 
 xpath_int(xml, xpath)
-:   Returns an integer value, or the value zero if no match is found, or a match is found but the value is non-numeric.
+:   Returns an integer value, or the value zero if no match is found, or a match is found but the value is nonnumeric.
 
 :   **Example of an SQL function usage fragment**
 
@@ -5328,7 +5372,7 @@ xpath_int(xml, xpath)
 {: #xpath_long}
 
 xpath_long(xml, xpath)
-:   Returns a long integer value, or the value zero if no match is found, or a match is found but the value is non-numeric.
+:   Returns a long integer value, or the value zero if no match is found, or a match is found but the value is nonnumeric.
 
 :   **Example of an SQL function usage fragment**
 
@@ -5346,7 +5390,7 @@ xpath_long(xml, xpath)
 {: #xpath_number}
 
 xpath_number(xml, xpath)
-:   Returns a double value, the value zero if no match is found, or NaN if a match is found but the value is non-numeric.
+:   Returns a double value, the value zero if no match is found, or NaN if a match is found but the value is nonnumeric.
 
 :   **Example of an SQL function usage fragment**
 
@@ -5365,7 +5409,7 @@ xpath_number(xml, xpath)
 {: #xpath_short}
 
 xpath_short(xml, xpath)
-:   Returns a short integer value, or the value zero if no match is found, or a match is found but the value is non-numeric.
+:   Returns a short integer value, or the value zero if no match is found, or a match is found but the value is nonnumeric.
 
 :   **Example of an SQL function usage fragment**
 

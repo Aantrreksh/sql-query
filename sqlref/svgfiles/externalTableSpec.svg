@@ -1,7 +1,7 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="railroad-diagram" width="1293" height="342" viewBox="0 0 1293 342" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMin meet">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="railroad-diagram" width="1293" height="372" viewBox="0 0 1293 372" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMin meet">
     <defs>
         <style type="text/css"><![CDATA[ svg.railroad-diagram {
   background-color: #ffffff;
@@ -281,6 +281,14 @@ svg.railroad-diagram rect {
                                 <text x="652" y="285">SHAPEFILE</text>
                             </g>
                             <path d="M972 281a10 10 0 0 0 10 -10v-220a10 10 0 0 1 10 -10"/>
+                            <path d="M312 41a10 10 0 0 1 10 10v250a10 10 0 0 0 10 10"/>
+                            <g>
+                                <path d="M332 311h294"/>
+                                <path d="M678 311h294"/>
+                                <rect x="626" y="300" width="52" height="22" rx="10" ry="10"/>
+                                <text x="652" y="315">TEXT</text>
+                            </g>
+                            <path d="M972 311a10 10 0 0 0 10 -10v-250a10 10 0 0 1 10 -10"/>
                         </g>
                     </g>
                     <path d="M992 41h20"/>
@@ -306,16 +314,16 @@ svg.railroad-diagram rect {
                 </g>
             </g>
             <path d="M1232 41h20"/>
-            <path d="M40 41a10 10 0 0 1 10 10v250a10 10 0 0 0 10 10"/>
+            <path d="M40 41a10 10 0 0 1 10 10v280a10 10 0 0 0 10 10"/>
             <g>
                 <a xlink:href="/docs/sql-query?topic=sql-query-sql-reference#tableTransformer" target="_top">
-                    <path d="M60 311h512"/>
-                    <path d="M720 311h512"/>
-                    <rect x="572" y="300" width="148" height="22"/>
-                    <text x="646" y="315">tableTransformer</text>
+                    <path d="M60 341h512"/>
+                    <path d="M720 341h512"/>
+                    <rect x="572" y="330" width="148" height="22"/>
+                    <text x="646" y="345">tableTransformer</text>
                 </a>
             </g>
-            <path d="M1232 311a10 10 0 0 0 10 -10v-250a10 10 0 0 1 10 -10"/>
+            <path d="M1232 341a10 10 0 0 0 10 -10v-280a10 10 0 0 1 10 -10"/>
         </g>
         <path d="M 1252 41 h 20 m -10 -10 v 20 m 10 -20 v 20"/>
     </g>

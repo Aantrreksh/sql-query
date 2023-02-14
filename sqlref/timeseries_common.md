@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2022
-lastupdated: "2022-04-07"
+lastupdated: "2022-11-28"
 
 keywords: SQL query, time series, SQL, cleaning, resampling, examples, common functions, converting, timeticks, segmentation, TRS
 
@@ -10,11 +10,7 @@ subcollection: sql-query
 
 ---
 
-{:new_window: target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
+{{site.data.keyword.attribute-definition-list}}
 
 # Examples of common time series functions
 {: #examples_common}
@@ -206,7 +202,7 @@ Following, see the result of the example query:
 
 **Note:**
 
-The timestamp of the first generated observation is calculated by the formula TRUNCATE(first_timestamp/period)*x*period, so the first timestamp in the output time series is not necessarily the same as the first timestamp in the input time series. In this example, TRUNCATE(1/2)*x*2=0. Due to the difference in periodicity of the input and output time series, some of the observations in the input time series do not appear in the output. However, the values of any skipped observations are used during interpolation.  
+The timestamp of the first generated observation is calculated by the formula TRUNCATE(first_timestamp/period) *x* period, so the first timestamp in the output time series is not necessarily the same as the first timestamp in the input time series. In this example, TRUNCATE(1/2) *x* 2 = 0. Due to the difference in periodicity of the input and output time series, some of the observations in the input time series do not appear in the output. However, the values of any skipped observations are used during interpolation.  
 
 Changing the periodicity to 3 produces the following output:  
 

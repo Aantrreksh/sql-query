@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-02-28"
+lastupdated: "2022-11-25"
 
 keywords: encryption, key protect, query, key management system, data engine
 
@@ -10,12 +10,7 @@ subcollection: sql-query
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
+{{site.data.keyword.attribute-definition-list}}
 
 # Encrypting SQL queries with {{site.data.keyword.keymanagementserviceshort}}
 {: #keyprotect}
@@ -43,7 +38,7 @@ You can use {{site.data.keyword.cloudaccesstraillong}} to audit the lifecycle ev
 {: #encryption}
 
 1. Provision [Key Protect](/docs/services/key-protect?topic=key-protect-about) on your {{site.data.keyword.cloud_notm}} account.
-2. Go to to your instance of {{site.data.keyword.keymanagementserviceshort}} and generate or enter a [root key](/docs/services/key-protect?topic=key-protect-getting-started-tutorial).
+2. Go to your instance of {{site.data.keyword.keymanagementserviceshort}} and generate or enter a [root key](/docs/services/key-protect?topic=key-protect-getting-started-tutorial).
 3. Create a new Standard plan instance of {{site.data.keyword.sqlquery_short}} and select the {{site.data.keyword.keymanagementserviceshort}} key for encrypting your queries. For performance reasons, create both the {{site.data.keyword.keymanagementserviceshort}} and {{site.data.keyword.sqlquery_short}} instances in the same {{site.data.keyword.cloud_notm}} region.
 4. Give the new {{site.data.keyword.sqlquery_short}} instance [access](/docs/account?topic=account-serviceauth) to your {{site.data.keyword.keymanagementserviceshort}} key.
 
@@ -60,16 +55,13 @@ You can use {{site.data.keyword.cloudaccesstraillong}} to audit the lifecycle ev
 ## Further considerations
 {: #considerations}
 
-Customer key encryption in {{site.data.keyword.sqlquery_short}} applies to the queries that you are processing.
-With each query, you explicitly specify {{site.data.keyword.cos_full}} locations for input and target data, which is not controlled by {{site.data.keyword.sqlquery_short}}.
-So, if you are processing sensitive data, make sure that your query results are written to an {{site.data.keyword.cos_full_notm}} location that has appropriate protection. Default target locations, where results are stored by default if no other result locations are specified, are not and cannot be encrypted.
+Customer key encryption in {{site.data.keyword.sqlquery_short}} applies to the queries that you are processing. With each query, you explicitly specify {{site.data.keyword.cos_full}} locations for input and target data, which is not controlled by {{site.data.keyword.sqlquery_short}}. So, if you are processing sensitive data, make sure that your query results are written to an {{site.data.keyword.cos_full_notm}} location that has appropriate protection. Default target locations, where results are stored by default if no other result locations are specified, are not and cannot be encrypted.
 
-{{site.data.keyword.cos_full_notm}} documents how to configure customer key encryption for the Cloud Object Storage buckets in [Managing encryption](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-encryption)
-storing the actual data.
+{{site.data.keyword.cos_full_notm}} documents how to configure customer key encryption for the Cloud {{site.data.keyword.cos_short}} buckets in [Managing encryption](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-encryption) storing the actual data.
 
 If you use {{site.data.keyword.keymanagementserviceshort}} to encrypt your queries, IBM staff cannot view the encrypted query texts and error messages. Therefore, provide this data explicitly to IBM service in a support case, so you can make sure that no sensitive information is exposed.
 
 ## Deleting a key or an instance
 {: #deleting_key}
 
-Deleting a key or the containing {{site.data.keyword.keymanagementserviceshort}} instance from the system will shred its contents and any data still encrypted with that key. When it is removed, it cannot be undone or reversed. An {{site.data.keyword.sqlquery_short}} instance that is associated with a deleted key cannot be used for any further queries. You need to create a new {{site.data.keyword.sqlquery_short}} instance for future queries.
+Deleting a key or the containing {{site.data.keyword.keymanagementserviceshort}} instance from the system will shred its contents and any data still encrypted with that key. When it is removed, it cannot be undone or reversed. A {{site.data.keyword.sqlquery_short}} instance that is associated with a deleted key cannot be used for any further queries. You need to create a {{site.data.keyword.sqlquery_short}} instance for future queries.

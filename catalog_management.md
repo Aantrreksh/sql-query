@@ -2,7 +2,7 @@
 
 copyright:
   years:  2020, 2022
-lastupdated: "2022-10-06"
+lastupdated: "2022-11-25"
 
 keywords: hive, metastore, catalog, performance, create table, object storage
 
@@ -10,13 +10,7 @@ subcollection: sql-query
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-{:note: .note}
+{{site.data.keyword.attribute-definition-list}}
 
 # Getting started with the catalog
 {: #getting_started_catalog}
@@ -26,11 +20,11 @@ Each instance of {{site.data.keyword.sqlquery_full}} includes a database catalog
 ## Benefits
 {: #benefits}
 
-You can explore, change, or discover structured data on [Cloud Object Storage](/docs/services/cloud-object-storage/getting-started.html#getting-started-console) by {{site.data.keyword.sqlquery_short}} using SQL syntax. To query data on {{site.data.keyword.cos_short}} without a table in the catalog, you need to specify the data location (the corresponding {{site.data.keyword.cos_short}} URI) and the data format in your SELECT statement. During query execution, data and schema are dynamically discovered as part of the SQL compilation process. This process, called inference, derives column names, data types, the list of partitions, and individual objects on {{site.data.keyword.cos_short}} that together make up the table data.
+You can explore, change, or discover structured data on [Cloud Object Storage](/docs/services/cloud-object-storage/getting-started.html#getting-started-console) with {{site.data.keyword.sqlquery_short}} by using SQL syntax. To query data on {{site.data.keyword.cos_short}} without a table in the catalog, you need to specify the data location (the corresponding {{site.data.keyword.cos_short}} URI) and the data format in your SELECT statement. During query execution, data and schema are dynamically discovered as part of the SQL compilation process. This process, called inference, derives column names, data types, the list of partitions, and individual objects on {{site.data.keyword.cos_short}} that together make up the table data.
 
 Inferring all this information and doing it repetitively with every query imposes latency to your queries. The inference process can take up a significant amount of time, especially for text formats (for example, CSV and JSON), or when thousands of objects exist in different table partitions. In some cases, the inference process even accounts for the largest part of the overall query execution time. So, if you are either familiar with the schema, or want to repetitively use the data for queries, create a table in the catalog. Such a table improves performance for repeated query executions.
 
-Another advantage of creating a table in the catalog is that the table name serves as an alias and is decoupled from the data location. This allows you to separate the tasks of data engineers and SQL authors. Data engineers deal with the data location and publish registered tables in the catalog by using descriptive table names. Hence, SQL authors are able to compose queries without having to know the exact location and format of data on {{site.data.keyword.cos_short}}. If the data location changes, only the table in the catalog must be updated, but the table name remains unchanged. Updates of the physical data structure are simplified and the robustness of SQL statements and applications is increased.
+Another advantage of creating a table in the catalog is that the table name serves as an alias and is decoupled from the data location. Hence, you can separate the tasks of data engineers and SQL authors. Data engineers deal with the data location and publish registered tables in the catalog by using descriptive table names. Hence, SQL authors are able to compose queries without having to know the exact location and format of data on {{site.data.keyword.cos_short}}. If the data location changes, only the table in the catalog must be updated, but the table name remains unchanged. Updates of the physical data structure are simplified and the robustness of SQL statements and applications is increased.
 
 ## Usage
 {: #usage}
@@ -97,7 +91,8 @@ If accessing the table in a SELECT statement does not work as expected, it is po
 SELECT * FROM describe (<data-location> stored as <storage-format>)
 ```
 
-Note that column names are case-sensitive. Incorrect column name specification results in an empty column, that is, the column seems to contain no data. To solve such a problem, use the automatic schema detection, reorder the columns, or omit some columns.
+Column names are case-sensitive. Incorrect column name specification results in an empty column, that is, the column seems to contain no data. To solve such a problem, use the automatic schema detection, reorder the columns, or omit some columns.
+{: note}
 
 The `SHOW TABLES` statement provides you with an overview of the existing tables in your instance. This statement allows an optional search filter to limit the number of results:
 
@@ -120,7 +115,7 @@ DROP TABLE customers
 
 You can manage a table in the catalog that references data that is organized in multiple partitions on {{site.data.keyword.cos_short}}. The naming of the objects must adhere to the Hive-style partition naming convention: The object names must include the structure `/columm=value/`. The `column` must be a column name that is included in the schema definition of the `CREATE TABLE` statement. You can also have more than one partitioning columns in the object names, such as `/columm1=value/column2=value/`.
 
-Following is an example list of object names on {{site.data.keyword.cos_short}} that is partitioned on the `country` column while following the Hive-style partition naming convention:
+Following is an example list of object names on {{site.data.keyword.cos_short}} that is partitioned on the `country` column with the Hive-style partition naming convention:
 
 ```sql
 customers_partitioned.csv/country=Germany/cust-1.csv
@@ -205,6 +200,6 @@ The query execution reads the objects only under the `cos://us-geo/sql/customers
 
 - The `ADD PARTITION` option of the `ALTER TABLE` statement may not correctly locate partitions if the value for a partition column contains special characters, such as the colon `:` that can appear as a timestamp separator.
 
-    When the location is inferred from one or more partition values, some special characters in the values are URL escaped when you construct the {{site.data.keyword.cos_short}} location. For example, the statement `ALTER TABLE mytable ADD PARTITION ( startTime = '2020-01-01 12:00:00' )` constructs a partition with an {{site.data.keyword.cos_short}} location `.../startTime=2020-01-01 12%3A00%3A00/`. If that location does not match the location of the objects to be added, the objects are not found and the new partition is empty.
+    When the location is inferred from one or more partition values, some special characters in the values are URL escaped when you construct the {{site.data.keyword.cos_short}} location. For example, the statement `ALTER TABLE mytable ADD PARTITION ( startTime = '2020-01-01 12:00:00' )` constructs a partition with an {{site.data.keyword.cos_short}} location `.../startTime=2020-01-01 12%3A00%3A00/`. If that location does not match the location of the objects to be added, the objects are not found, and the new partition is empty.
 
     Avoid this case by explicitly specifying the _exact_ object location, as in `ALTER TABLE mytable ADD PARTITION ( startTime = '2020-01-01 12:00:00' ) LOCATION <base-location>/startTime=2020-01-01 12:00:00/` (note the unescaped colons in the location).

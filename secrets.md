@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-03-03"
+lastupdated: "2022-11-28"
 
 keywords: security, custom secrets, key protect, access
 
@@ -10,17 +10,12 @@ subcollection: sql-query
 
 ---
 
-{:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
+{{site.data.keyword.attribute-definition-list}}
 
 # Setting up custom secrets in Key Protect
 {: #kpsetup}
 
-{{site.data.keyword.keymanagementservicefull}} is the service for storing and managing secrets in {{site.data.keyword.Bluemix_notm}}. It also allows you to upload custom secrets and manages them for you. {{site.data.keyword.keymanagementserviceshort}} ensures that only those users and services whom you explicitly granted permission are able to access and use secrets. {{site.data.keyword.sqlquery_short}} uses {{site.data.keyword.keymanagementserviceshort}} as its secure and trusted credential broker for custom access secrets to data resources as the following diagram shows.
+{{site.data.keyword.keymanagementservicefull}} is the service for storing and managing secrets in {{site.data.keyword.Bluemix_notm}}. You can upload custom secrets and {{site.data.keyword.keymanagementserviceshort}} manages them for you. {{site.data.keyword.keymanagementserviceshort}} ensures that only those users and services whom you explicitly granted permission are able to access and use secrets. {{site.data.keyword.sqlquery_short}} uses {{site.data.keyword.keymanagementserviceshort}} as its secure and trusted credential broker for custom access secrets to data resources as the following diagram shows.
 
 ![Secure Credential Passing in {{site.data.keyword.sqlquery_short}}.](images/accesssecrets_new.svg "Secure Credential Passing in {{site.data.keyword.sqlquery_short}}"){: caption="Figure 1. Secure Credential Passing in {{site.data.keyword.sqlquery_short}}" caption-side="bottom"}
 
