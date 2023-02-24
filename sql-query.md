@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-11-28"
+  years: 2018, 2023
+lastupdated: "2023-02-24"
 
 keywords: SQL query, analyze, data, CVS, JSON, ORC, Parquet, Avro, object storage, SELECT, cloud instance, URI, endpoint, api, user roles
 
@@ -282,9 +282,6 @@ Aliases to tethering endpoints (specific endpoints within cross region domains, 
 
 The following tables list some examples of currently supported {{site.data.keyword.sqlquery_short}} endpoints.
 
-The Chennai region is planned to be deprecated end of October. Thus, you cannot create a new instance in this region anymore. Existing endpoints in Chennai continue to work until the deprecation date.
-{: note}
-
 Cross region endpoint name | Alias
 --- | ---
 `s3.us.cloud-object-storage.appdomain.cloud` | `us-geo`
@@ -332,7 +329,6 @@ You can use the [{{site.data.keyword.sqlquery_short}} service REST API](https://
 
 For a Python application, you can also use the [ibmcloudsql package](https://pypi.org/project/ibmcloudsql/).
 Use IBM Watson Studio to run queries with {{site.data.keyword.sqlquery_short}} and visualize the query results with one of the various widget libraries available in [Watson Studio](https://cloud.ibm.com/catalog/services/data-science-experience).
-
 
 ### Cloud functions
 {: #cloud}
