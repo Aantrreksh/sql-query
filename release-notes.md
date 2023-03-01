@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-01-19"
+lastupdated: "2023-03-01"
 
 keywords: sql query, data engine, release notes
 
@@ -19,6 +19,13 @@ content-type: release-note
 
 Use these release notes to learn about the latest {{site.data.keyword.sqlquery_full}} that are grouped by date. Release notes are available for a minimum of three years.
 {: shortdesc}
+
+## March 2023
+{: #sql-query-mar2023}
+{: release-note}
+
+Dark mode available in the {{site.data.keyword.sqlquery_short}} UI
+: The {{site.data.keyword.sqlquery_short}} UI follows your system theme. You can also choose your theme directly in the profile menu.
 
 ## January 2023
 {: #sql-query-jan2023}
