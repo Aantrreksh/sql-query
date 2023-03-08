@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2021, 2022
-lastupdated: "2022-11-25"
+  years: 2021, 2023
+lastupdated: "2023-03-08"
 
 keywords: Data Engine, SQL, query, event streams, streaming, cloud object storage, Kafka
 
@@ -60,21 +60,6 @@ The job details show the following metrics (instead of *rows_returned*, *rows_re
 - `last_change_time`: Shows when the last object was written to Cloud {{site.data.keyword.cos_short}}.
 - `rows_per_second`: Shows the number of records that were processed per second in the last micro batch.
 - `last_activity_time`: Shows the time when the streaming job was last active, with or without processing rows.
-
-## Estimating cost of stream landing
-{: #estimating-cost}
-
-To keep the example simple, assume to persist 1 MB per second of data in Cloud {{site.data.keyword.cos_short}} that originates from {{site.data.keyword.messagehub}}. All pricing in this example is in US currency.
-
-Feature | Price
---- | ---
-{{site.data.keyword.messagehub}} topic with one partition | $0.014 USD per partition hour
-{{site.data.keyword.messagehub}} outbound bandwidth charge | $0.28 for 3.6 GB data transmitted per hour
-{{site.data.keyword.sqlquery_short}} stream landing job | $0.11 per hour
-Cloud {{site.data.keyword.cos_short}} Class A requests for writing data | ~$0.02 per hour
-Cloud {{site.data.keyword.cos_short}} | $0.05 per month for each 3.6 GB by using the smart storage tier class
-
-Your total cost per hour, with the data that is stored for a month, would be approximately: $0.474. This price is only an example, so evaluate your own planned usage with the IBM Cloud cost calculator.
 
 ## Permissions
 {: #permissions-event-streams}
