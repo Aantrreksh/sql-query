@@ -169,6 +169,7 @@ For *user*, specify the CRN and for *password* a valid API key with access to yo
 |--------|----------|
 | us-south | thrift://catalog.us.dataengine.cloud.ibm.com:9083 |
 | eu-de | thrift://catalog.eu-de.dataengine.cloud.ibm.com:9083 |
+{: caption="Table 1. Region endpoints" caption-side="bottom"}
 
 #### Convenience libraries to configure Spark
 {: #convenience_libraries}
