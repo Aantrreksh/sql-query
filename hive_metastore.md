@@ -97,13 +97,13 @@ Prepare a JSON file to start that program, as in the following example (listTabl
 ```json
 {
   "application_details": {
-     "application": "cos://<your-bucket>.listtab/listTablesExample.py",
+     "application": "cos://<your-bucket>.<cos-region>/listTablesExample.py",
      "arguments": ["<Data-Engine-instance-CRN>", "<API-key-to-access-data-engine-instance>"],
      "conf": {
         "ae.spark.executor.count":"1",
         "ae.spark.autoscale.enable":"false",
-        "spark.hadoop.fs.cos.listtab.endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud",
-        "spark.hadoop.fs.cos.listtab.iam.api.key": "<API-key-to-access-python-file>",
+        "spark.hadoop.fs.cos.<cos-region>.endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud",
+        "spark.hadoop.fs.cos.<cos-region>.iam.api.key": "<API-key-to-access-python-file>",
         "spark.app.name": "DataEngineHiveAccess"
      }
   }
@@ -179,8 +179,8 @@ While the {{site.data.keyword.sqlquery_short}} catalog is compatible with the Hi
 In case of using Python download both, the Scala and the Python SDK, and place them in a folder that is in the classpath of your Apache Spark cluster.
 When using Scala, the Scala SDK is enough.
 
-- [spark-dataengine-scala](https://us.sql-query.cloud.ibm.com/download/catalog/dataengine-spark-integration-1.4.24.jar)
-- [spark-dataengine-python](https://us.sql-query.cloud.ibm.com/download/catalog/dataengine_spark-1.4.24-py3-none-any.whl)
+- [spark-dataengine-scala](https://us.sql-query.cloud.ibm.com/download/catalog/dataengine-spark-integration-1.4.31.jar)
+- [spark-dataengine-python](https://us.sql-query.cloud.ibm.com/download/catalog/dataengine_spark-1.4.31-py3-none-any.whl)
 
 An example of how to use the Python helper can be found in the [{{site.data.keyword.DSX}} Notebooks section](#usage_watson_notebooks).
 
