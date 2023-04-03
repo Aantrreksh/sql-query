@@ -97,13 +97,13 @@ Prepare a JSON file to start that program, as in the following example (listTabl
 ```json
 {
   "application_details": {
-     "application": "cos://<your-bucket>.listtab/listTablesExample.py",
+     "application": "cos://<your-bucket>.<cos-region>/listTablesExample.py",
      "arguments": ["<Data-Engine-instance-CRN>", "<API-key-to-access-data-engine-instance>"],
      "conf": {
         "ae.spark.executor.count":"1",
         "ae.spark.autoscale.enable":"false",
-        "spark.hadoop.fs.cos.listtab.endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud",
-        "spark.hadoop.fs.cos.listtab.iam.api.key": "<API-key-to-access-python-file>",
+        "spark.hadoop.fs.cos.<cos-region>.endpoint": "https://s3.direct.us-south.cloud-object-storage.appdomain.cloud",
+        "spark.hadoop.fs.cos.<cos-region>.iam.api.key": "<API-key-to-access-python-file>",
         "spark.app.name": "DataEngineHiveAccess"
      }
   }
