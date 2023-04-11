@@ -179,8 +179,8 @@ While the {{site.data.keyword.sqlquery_short}} catalog is compatible with the Hi
 In case of using Python download both, the Scala and the Python SDK, and place them in a folder that is in the classpath of your Apache Spark cluster.
 When using Scala, the Scala SDK is enough.
 
-- [spark-dataengine-scala](https://us.sql-query.cloud.ibm.com/download/catalog/dataengine-spark-integration-1.4.35.jar)
-- [spark-dataengine-python](https://us.sql-query.cloud.ibm.com/download/catalog/dataengine_spark-1.4.35-py3-none-any.whl)
+- [spark-dataengine-scala](https://us.sql-query.cloud.ibm.com/download/catalog/dataengine-spark-integration-1.4.36.jar)
+- [spark-dataengine-python](https://us.sql-query.cloud.ibm.com/download/catalog/dataengine_spark-1.4.36-py3-none-any.whl)
 
 An example of how to use the Python helper can be found in the [{{site.data.keyword.DSX}} Notebooks section](#usage_watson_notebooks).
 
