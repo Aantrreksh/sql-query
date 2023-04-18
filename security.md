@@ -34,4 +34,4 @@ If you have an account with {{site.data.keyword.cloud}}, your personal data is h
 ## ISO 27001/27017/27018 and ISO 27701
 {: #iso}
 
-{{site.data.keyword.sqlquery_notm}} is ISO 27001, 27017, 27018, and ISO 27701 certified. The certificates and the certified cloud products listing can be found in the [IBM Trust Center](https://www.ibm.com/trust) in section [IBM Cloud Compliance Programs - Global](https://www.ibm.com/cloud/compliance/global).
+{{site.data.keyword.sqlquery_notm}} is ISO 27001, 27017, 27018, and ISO 27701 certified. The certificates and the certified cloud products listing can be found in the [IBM Trust Center](https://www.ibm.com/trust) in section [IBM Cloud Compliance Programs - Global](https://www.ibm.com/cloud/compliance#Global%20programs).
