@@ -2770,7 +2770,7 @@ _ matches any one character in the input (similar to . in posix regular expressi
 % matches zero or more characters in the input (similar to .* in posix regular
 expressions)
 
-The escape character is '\'. If an escape character precedes a special symbol or another
+The escape character is "\". If an escape character precedes a special symbol or another
 escape character, the following character is matched literally. It is invalid to escape
 any other character.
 
