@@ -12,7 +12,7 @@ subcollection: sql-query
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Reading and writing to Cloud {{site.data.keyword.cos_short}}
+# Reading and writing Cloud {{site.data.keyword.cos_short}}
 {: #reading}
 
 ## Table unique resource identifier
