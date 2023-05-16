@@ -12,10 +12,10 @@ subcollection: sql-query
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Database locations
-{: #db-location}
+# Writing to databases
+{: #writing-databases}
 
-Two ways to specify database locations exist, CRN URIs, and Db2 table URIs. Which one you choose depends on the target database plan and the access you have to that database. The number of parallel Db2 connections affects performance. The more parallel connections there are, the better the performance gets, depending on the allowed connections to Db2 and the current free resources of {{site.data.keyword.sqlquery_short}}. Check how many connections your [Db2 plan](https://cloud.ibm.com/catalog/services/db2) allows.
+You can specify database locations either by CRN URIs or by Db2 table URIs. Which one you choose depends on the target database plan and the access you have to that database. The number of parallel Db2 connections affects performance. The more parallel connections there are, the better the performance gets, depending on the allowed connections to Db2 and the current free resources of {{site.data.keyword.sqlquery_short}}. Check how many connections your [Db2 plan](https://cloud.ibm.com/catalog/services/db2) allows.
 
 ## CRN URI location
 {: #crn-uri-location}
