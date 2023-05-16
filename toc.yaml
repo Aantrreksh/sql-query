@@ -18,12 +18,12 @@ toc:
       topics:
       - getting-started.md
       - topicgroup:
-	      label: Overview
-	      topics:
-	      - topic: reading_cos.md
+	  label: Overview
+	  topics:
+	  - topic: reading_cos.md
             navtitle: Reading and writing to Cloud Object Storage
-	      - topic: writing_databases.md
-	        navtitle: Writing to databases
+	  - topic: writing_databases.md
+	    navtitle: Writing to databases
       - sql-query.md
       - topic: release-notes.md
         navtitle: Release notes
