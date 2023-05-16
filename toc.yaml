@@ -1,3 +1,36 @@
+Skip to content
+ Enterprise
+Search or jump to…
+Pull requests
+Issues
+Explore
+ 
+@ANDREAL 
+cloud-docs
+/
+sql-query
+Public
+4
+0
+10
+Code
+Issues
+Pull requests
+2
+Projects
+Wiki
+Security
+Insights
+Settings
+sql-query/toc.yaml
+@ANDREAL
+ANDREAL Update toc.yaml
+Latest commit 2005171 5 minutes ago
+ History
+ 3 contributors
+@ANDREAL@jschlot@DPITTNER
+100 lines (96 sloc)  2.66 KB
+   
 toc:
   properties:
     subcollection: sql-query
@@ -17,12 +50,12 @@ toc:
       topics:
       - getting-started.md
       - topicgroup:
-	  label: Overview
-	  topics:
-	  - topic: reading_cos.md
+	      label: Overview
+	      topics:
+	      - topic: reading_cos.md
             navtitle: Reading and writing to Cloud Object Storage
-	  - topic: writing_databases.md
-	    navtitle: Writing to databases
+	      - topic: writing_databases.md
+	        navtitle: Writing to databases
       - sql-query.md
       - topic: release-notes.md
         navtitle: Release notes
@@ -98,3 +131,11 @@ toc:
       id: help
       topics:
       - faq.md
+© 2023 GitHub, Inc.
+Help
+Support
+API
+Training
+Blog
+About
+GitHub Enterprise Server 3.3.19
