@@ -18,11 +18,11 @@ toc:
       topics:
       - getting-started.md
       - topicgroup:
-	        label: Overview
-	        topics:
+          label: Overview
+	  topics:
           - topic: sql-query.md
-	        - topic: reading_cos.md
-	        - topic: writing_databases.md
+	  - topic: reading_cos.md
+	  - topic: writing_databases.md
       - topic: release-notes.md
         navtitle: Release notes
       - topicgroup:
