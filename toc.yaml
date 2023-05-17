@@ -20,10 +20,10 @@ toc:
       - topicgroup:
 	  label: Overview
 	  topics:
-      - topic: sql-query.md
-        navtitle: Overview 
+          - topic: sql-query.md
+            navtitle: Overview 
 	  - topic: reading_cos.md
-        navtitle: Reading and writing to Cloud Object Storage
+            navtitle: Reading and writing to Cloud Object Storage
 	  - topic: writing_databases.md
 	    navtitle: Writing to databases
       - topic: release-notes.md
