@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-03-08"
+lastupdated: "2023-06-12"
 
 keywords: Data Engine, SQL, query, event streams, streaming, cloud object storage, Kafka
 
@@ -67,7 +67,7 @@ The job details show the following metrics (instead of *rows_returned*, *rows_re
 The following permissions are needed for creating a stream landing job:
 
 - Permission to create service-to-service authentication.
-- Permission to write to IBM Secrets Manager or {{site.data.keyword.keymanagementservicelong}} (to store the API key).
+- Permission to write to {{site.data.keyword.secrets-manager_full}} or {{site.data.keyword.keymanagementservicelong}} (to store the API key).
 - Permission to create service IDs and API keys. The service ID needs to have following permissions:
     - Writer role for the Cloud {{site.data.keyword.cos_short}} bucket.
     - Reader access role for the cluster, topic, and group resources within the {{site.data.keyword.messagehub}} service instance.
