@@ -19,8 +19,8 @@ toc:
       - getting-started.md
       - topicgroup:
           label: Overview
-	  topics:
-          - topic: sql-query.md
+          topics:
+	  - topic: sql-query.md
 	  - topic: reading_cos.md
 	  - topic: writing_databases.md
       - topic: release-notes.md
