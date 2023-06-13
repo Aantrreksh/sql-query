@@ -20,9 +20,9 @@ toc:
       - topicgroup:
           label: Overview
           topics:
-	  - topic: sql-query.md
-	  - topic: reading_cos.md
-	  - topic: writing_databases.md
+          - topic: sql-query.md
+          - topic: reading_cos.md
+          - topic: writing_databases.md
       - topic: release-notes.md
         navtitle: Release notes
       - topicgroup:
