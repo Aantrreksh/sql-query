@@ -31,7 +31,7 @@ Use the {{site.data.keyword.sqlquery_short}} user interface (UI) to [develop you
 {: #input_output}
 
 Before you can use the {{site.data.keyword.sqlquery_short}} service to run SQL queries, the input data must be uploaded to one or more Cloud {{site.data.keyword.cos_short}} instances. You must also have at least 'Writer' access to at least one Cloud {{site.data.keyword.cos_short}} bucket, so that result objects (that is, the objects that contain output data) can be written there. For more information about Cloud {{site.data.keyword.cos_short}}, including how to provision an instance, create buckets, and upload data, see the [Cloud Object Storage Getting Started Guide](/docs/cloud-object-storage/getting-started.html#getting-started-console) and [Reading and writing to Cloud {{site.data.keyword.cos_short}}](/docs/sql-query/blob/draft/reading_cos.md). You can also [write to databases](/docs/sql-query/blob/draft/writing_databases.md) and take advantage of [index management](/docs/sql-query?topic=sql-query-index_management).
-.
+
 ## Programmatic access
 {: #access}
 
