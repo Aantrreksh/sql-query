@@ -1,3 +1,4 @@
+ 
 toc:
   properties:
     subcollection: sql-query
@@ -32,6 +33,9 @@ toc:
   - navgroup:
       id: howto
       topics:
+      - querying_json.md
+      - reading_cos.md
+      - writing_databases.md
       - videos.md
       - notebooks.md
       - topicgroup:
@@ -90,3 +94,4 @@ toc:
       id: help
       topics:
       - faq.md
+      

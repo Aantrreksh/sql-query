@@ -4,7 +4,7 @@ copyright:
   years: 2018, 2022
 lastupdated: "2022-06-01"
 
-keywords: SQL, query, object storage, bucket, sample, instance, analyze, CSV, JSON, ORC, Parquet, Data Engine
+keywords: sql query, data engine
 
 subcollection: sql-query
 
