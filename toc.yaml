@@ -17,12 +17,7 @@ toc:
       id: learn
       topics:
       - getting-started.md
-      - topicgroup:
-          label: Overview
-	  topics:
-          - topic: sql-query.md
-	  - topic: reading_cos.md
-	  - topic: writing_databases.md
+      - sql-query.md
       - topic: release-notes.md
         navtitle: Release notes
       - topicgroup:
@@ -38,6 +33,9 @@ toc:
   - navgroup:
       id: howto
       topics:
+      - querying_json.md
+      - reading_cos.md
+      - writing_databases.md
       - videos.md
       - notebooks.md
       - topicgroup:
@@ -51,7 +49,6 @@ toc:
           - microservice.md
           - db2.md
           - streams_landing_guide.md
-      - querying_json.md
       - disaster_recovery.md
       - topicgroup:
           label: Enhancing security

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-05-16"
+lastupdated: "2023-06-13"
 
 keywords: SQL query, analyze, data, CVS, JSON, ORC, Parquet, Avro, object storage, SELECT, cloud instance, URI, endpoint, api, user roles
 
@@ -23,7 +23,7 @@ subcollection: sql-query
 
 Input data is read from CSV, JSON, ORC, Parquet, or AVRO objects located in one or more Cloud {{site.data.keyword.cos_short}} instances.
 Each query result is written to a CSV, JSON, ORC, Parquet, or AVRO object in a Cloud {{site.data.keyword.cos_short}} or Db2 instance of your choice.
-Use the {{site.data.keyword.sqlquery_short}} user interface (UI) to develop your queries and the [{{site.data.keyword.sqlquery_short}}REST API](#restapi) to automate them.
+Use the {{site.data.keyword.sqlquery_short}} user interface (UI) to [develop your queries](/docs/sql-query?topic=sql-query-running) and the [{{site.data.keyword.sqlquery_short}}REST API](#restapi) to automate them.
 
 ![Get started with {{site.data.keyword.sqlquery_notm}}](https://video.ibm.com/embed/channel/23952663/video/csq-provision){: video output="iframe" data-script="none" id="watsonmediaplayer" width="560" height="315" scrolling="no" allowfullscreen webkitallowfullscreen mozAllowFullScreen frameborder="0" style="border: 0 none transparent;"}
 
@@ -31,7 +31,7 @@ Use the {{site.data.keyword.sqlquery_short}} user interface (UI) to develop your
 {: #input_output}
 
 Before you can use the {{site.data.keyword.sqlquery_short}} service to run SQL queries, the input data must be uploaded to one or more Cloud {{site.data.keyword.cos_short}} instances. You must also have at least 'Writer' access to at least one Cloud {{site.data.keyword.cos_short}} bucket, so that result objects (that is, the objects that contain output data) can be written there. For more information about Cloud {{site.data.keyword.cos_short}}, including how to provision an instance, create buckets, and upload data, see the [Cloud Object Storage Getting Started Guide](/docs/cloud-object-storage/getting-started.html#getting-started-console) and [Reading and writing to Cloud {{site.data.keyword.cos_short}}](/docs/sql-query/blob/draft/reading_cos.md). You can also [write to databases](/docs/sql-query/blob/draft/writing_databases.md) and take advantage of [index management](/docs/sql-query?topic=sql-query-index_management).
-.
+
 ## Programmatic access
 {: #access}
 
