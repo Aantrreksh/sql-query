@@ -25,7 +25,7 @@ Use these release notes to learn about the latest {{site.data.keyword.sqlquery_f
 {: release-note}
 
 Store passwords and API keys in {{site.data.keyword.secrets-manager_full}}
-: You can now store passwords and API keys as arbitrary secrets in {{site.data.keyword.secrets-manager_short}}. 
+: You can now store passwords and API keys as secrets in {{site.data.keyword.secrets-manager_short}}. 
 
 ## March 2023
 {: #sql-query-mar2023}
