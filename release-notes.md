@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-03-01"
+lastupdated: "2023-06-20"
 
 keywords: sql query, data engine, release notes
 
@@ -19,6 +19,13 @@ content-type: release-note
 
 Use these release notes to learn about the latest {{site.data.keyword.sqlquery_full}} that are grouped by date. Release notes are available for a minimum of three years.
 {: shortdesc}
+
+## June 2023
+{: #sql-query-jun2023}
+{: release-note}
+
+Store passwords and API keys in {{site.data.keyword.secrets-manager_full}}
+: You can now store passwords and API keys as secrets in {{site.data.keyword.secrets-manager_short}}. 
 
 ## March 2023
 {: #sql-query-mar2023}
