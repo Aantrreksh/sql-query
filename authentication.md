@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-11-25"
+  years: 2018, 2023
+lastupdated: "2023-06-20"
 
 keywords: security, authentication, access, iam, sso, service credential
 
@@ -45,16 +45,16 @@ You can use the unique CRN of a service instance in {{site.data.keyword.Bluemix_
 #### Custom user ID and password for each data resource
 {: #userpassword}
 
-You can use the USER and PASSWORD keywords in the corresponding FROM or INTO clauses to securely pass user ID and password for each resource location. To ensure that the passing of sensitive data is secure, store the password as a arbitrary secret in an instance of {{site.data.keyword.<secrets manager>}} to which you have access and then use the CRN of this arbitrary secret instead of the plain text password. For more information, see [Storing arbitrary secrets]([/docs/sql-query?topic=sql-query-kpsetup](https://cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets&interface=ui)) about how to store the password securely.
+You can use the USER and PASSWORD keywords in the corresponding FROM or INTO clauses to securely pass user ID and password for each resource location. To ensure that the passing of sensitive data is secure, store the password as an arbitrary secret in an instance of {{site.data.keyword.secrets-manager_full}} to which you have access, and then use the CRN of this arbitrary secret instead of the plain text password. For more information, see [Storing arbitrary secrets]([/docs/sql-query?topic=sql-query-kpsetup](https://cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-arbitrary-secrets&interface=ui)) about how to store the password securely.
 
-In addition there is still the option to store the password as a custom standard key in an instance of {{site.data.keyword.keymanagementserviceshort}} to which you have access and then use the CRN of this custom standard key instead of the plain text password. For more information, see [Setting up custom secrets in Key Protect](/docs/sql-query?topic=sql-query-kpsetup) about how to store the password securely. This option will be deprected in the future. 
+In addition, you also have the option to store the password as a custom standard key in an instance of {{site.data.keyword.keymanagementservicelong}} to which you have access, and then use the CRN of this custom standard key instead of the plain text password. For more information, see [Setting up custom secrets in {{site.data.keyword.keymanagementserviceshort}}](/docs/sql-query?topic=sql-query-kpsetup) about how to store the password securely. This option will be deprected in the future. 
 
 #### Custom API key for each data resource
 {: #apikey}
 
-As an alternative to providing user and password combinations, in {{site.data.keyword.Bluemix_notm}} you can also securely pass API keys for each resource location. Using the `APIKEY` keyword inside the according `FROM` or `INTO` clauses, you can pass in this information. To ensure that the passing of sensitive data is secure, first store the API key as a IAM credentials in a {{site.data.keyword.<secrets manager>}} service instance to which you have access, and then use the CRN of this IAM credentials instead of the plain text password. For more information, see [Creating IAM credentials](https://cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-iam-credentials&interface=ui) on how to store the API key securely and the options for rotating the API key automatically. 
+As an alternative to providing user and password combinations, in {{site.data.keyword.Bluemix_notm}} you can also securely pass API keys for each resource location. Using the `APIKEY` keyword inside the according `FROM` or `INTO` clauses, you can pass in this information. To ensure that the passing of sensitive data is secure, first store the API key as an IAM credential in a {{site.data.keyword.secrets-manager_short}} service instance to which you have access, and then use the CRN of this IAM credential instead of the plain text password. For more information, see [Creating IAM credentials](https://cloud.ibm.com/docs/secrets-manager?topic=secrets-manager-iam-credentials&interface=ui) on how to store the API key securely and the options for rotating the API key automatically. 
 
-Same as for the PASSWORD you do have the option to store the API key as a custom standard key in a {{site.data.keyword.keymanagementserviceshort}} service instance to which you have access, and then use the CRN of this custom standard key instead of the plain text password. For more information, see [Setting up custom secrets in Key Protect](/docs/sql-query?topic=sql-query-kpsetup) on how to store the API key securely. This option will be deprected in the future. 
+You also have the option to store the API key as a custom standard key in a {{site.data.keyword.keymanagementserviceshort}} service instance to which you have access, and then use the CRN of this custom standard key instead of the plain text password. For more information, see [Setting up custom secrets in {{site.data.keyword.keymanagementserviceshort}}](/docs/sql-query?topic=sql-query-kpsetup) on how to store the API key securely. This option will be deprected in the future.
 
 ### Supported authentication methods per data resource for {{site.data.keyword.sqlquery_short}}
 {: #supportedauthentication}
@@ -63,8 +63,8 @@ Same as for the PASSWORD you do have the option to store the API key as a custom
 | ---                                   | :---: | :---:        | :---:                  |
 | IAM SSO                               | Yes   | Enterprise   | Enterprise             |
 | CRN with Service Credentials          | No    | Yes          | Yes                    |
-| User and password through Secrets Manager CRN | No    | Yes          | Yes                    |
-| User and password through Key Protect CRN | No    | Yes          | Yes                    |
-| API key through Secrets Manager CRN       | No    | Enterprise   | Enterprise             |
-| API key through Key Protect CRN           | No    | Enterprise   | Enterprise             |
+| User and password through {{site.data.keyword.secrets-manager_short}} CRN | No    | Yes          | Yes                    |
+| User and password through {{site.data.keyword.keymanagementserviceshort}} CRN | No    | Yes          | Yes                    |
+| API key through {{site.data.keyword.secrets-manager_short}} CRN       | No    | Enterprise   | Enterprise             |
+| API key through {{site.data.keyword.keymanagementserviceshort}} CRN           | No    | Enterprise   | Enterprise             |
 {: caption="Table 1. "Supported authentication methods" caption-side="bottom"}"Supported authentication methods" caption-side="bottom"}
