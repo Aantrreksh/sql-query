@@ -25,7 +25,7 @@ Use these release notes to learn about the latest {{site.data.keyword.sqlquery_f
 {: release-note}
 
 New {{site.data.keyword.cos_full_notm}} browser
-: You can now select {{site.data.keyword.cos_full_notm}} result location and sources of a query using the new {{site.data.keyword.cos_full_notm}} browser.
+: You can now select {{site.data.keyword.cos_full_short}} result location and sources of a query using the new {{site.data.keyword.cos_full_short}} browser.
 
 ## June 2023
 {: #sql-query-jun2023}
