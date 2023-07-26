@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-11-28"
+  years: 2018, 2023
+lastupdated: "2023-07-26"
 
 keywords: SQL, functions
 
@@ -792,6 +792,88 @@ array_contains(array, value)
 
    ```sql
    true
+   ```
+   
+## array_distinct
+{: #array_distinct}
+
+array_distinct(array)
+:   Removes duplicate values from the array.
+
+:   **Example of an SQL function usage fragment**
+
+   ```sql
+   > SELECT array_distinct(array(1, 2, 3, null, 3));
+   [1,2,3,null]
+   ```
+
+## array_except
+{: #array_except}
+
+array_except(array1, array2)
+:    Returns an array of the elements in array1 but not in array2, without duplicates.
+
+:   **Example of an SQL function usage fragment**
+
+   ```sql
+   > SELECT array_except(array(1, 2, 3), array(1, 3, 5));
+   [2]
+   ```
+   
+## array_intersect
+{: #array_intersect}
+
+array_intersect(array1, array2)
+:     Returns an array of the elements in the intersection of array1 and array2, without duplicates.
+
+:   **Example of an SQL function usage fragment**
+
+   ```sql
+   > SELECT array_intersect(array(1, 2, 3), array(1, 3, 5));
+   [1,3]
+```
+
+## array_remove
+{: #array_remove}
+
+array_remove(array, element)
+:      Remove all elements that equal to element from array.
+
+:   **Example of an SQL function usage fragment**
+
+   ```sql
+   > SELECT array_remove(array(1, 2, 3, null, 3), 3);
+   [1,2,null]
+   ```
+
+## array_sort
+{: #array_sort}
+
+array_sort(expr, func)
+:       Sorts the input array. If func is omitted, sort in ascending order. The elements of the input array must be orderable. NaN is greater than any non-NaN elements for double/float type. Null elements will be placed at the end of the returned array. Since 3.0.0 this function also sorts and returns the array based on the given comparator function. The comparator will take two arguments representing two elements of the array. It returns a negative integer, 0, or a positive integer as the first element is less than, equal to, or greater than the second element. If the comparator function returns null, the function will fail and raise an error.
+
+:   **Example of an SQL function usage fragment**
+
+   ```sql
+   > SELECT array_sort(array(5, 6, 1), (left, right) -> case when left < right then -1 when left > right then 1 else 0 end);
+   [1,5,6]
+   > SELECT array_sort(array('bc', 'ab', 'dc'), (left, right) -> case when left is null and right is null then 0 when left is null then -1 when right is null then 1 when left <    right then 1 when left > right then -1 else 0 end);
+   ["dc","bc","ab"]
+   > SELECT array_sort(array('b', 'd', null, 'c', 'a'));
+   ["a","b","c","d",null]
+   ```
+
+## array_union
+{: #array_union}
+
+array_union(array1, array2)
+:       Returns an array of the elements in the union of array1 and array2, without duplicates.
+
+:   **Example of an SQL function usage fragment**
+
+   ```sql
+   > SELECT array_union(array(1, 2, 3), array(1, 3, 5));
+   [1,2,3,5]
    ```
 
 ## ascii
