@@ -805,8 +805,10 @@ array_distinct(array)
    ```sql
    > SELECT array_distinct(array(1, 2, 3, null, 3))
    ```
-   
 
+:   **Result value**
+
+   ```sql
    [1,2,3,null]
    ```
 
@@ -820,11 +822,12 @@ array_except(array1, array2)
 
    ```sql
    > SELECT array_except(array(1, 2, 3), array(1, 3, 5))
-   [2]
    ```
    
 :   **Result value**
 
+   ```sql
+   [2]
    ```
    
 ## array_intersect
@@ -837,11 +840,12 @@ array_intersect(array1, array2)
 
    ```sql
    > SELECT array_intersect(array(1, 2, 3), array(1, 3, 5))
-   [1,3]
    ```
    
 :   **Result value**
 
+   ```sql
+   [1,3]
    ```
 
 ## array_remove
@@ -854,11 +858,12 @@ array_remove(array, element)
 
    ```sql
    > SELECT array_remove(array(1, 2, 3, null, 3), 3)
-   [1,2,null]
    ```
    
 :   **Result value**
 
+   ```sql
+   [1,2,null]
    ```
 
 ## array_sort
@@ -875,7 +880,7 @@ array_sort(expr, func)
    
 :   **Result value**
 
-   ```
+   ```sql
    [1,5,6]
    ```
    
@@ -887,19 +892,19 @@ array_sort(expr, func)
    
  :   **Result value**
 
-   ```
+   ```sql
    ["dc","bc","ab"]
-   
+   ```
    
 :   **Example of an SQL function usage fragment**
 
-   ```
+   ```sql
    > SELECT array_sort(array('b', 'd', null, 'c', 'a'))
    ```
    
  :   **Result value**
 
-   ```
+   ```sql
    ["a","b","c","d",null]
    ```
 
@@ -917,7 +922,7 @@ array_union(array1, array2)
    
 :   **Result value**
 
-   ```
+   ```sql
    [1,2,3,5]
    ```
 
