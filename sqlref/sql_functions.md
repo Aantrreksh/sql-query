@@ -803,7 +803,10 @@ array_distinct(array)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT array_distinct(array(1, 2, 3, null, 3));
+   > SELECT array_distinct(array(1, 2, 3, null, 3))
+   ```
+   
+
    [1,2,3,null]
    ```
 
@@ -816,8 +819,12 @@ array_except(array1, array2)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT array_except(array(1, 2, 3), array(1, 3, 5));
+   > SELECT array_except(array(1, 2, 3), array(1, 3, 5))
    [2]
+   ```
+   
+:   **Result value**
+
    ```
    
 ## array_intersect
@@ -829,9 +836,13 @@ array_intersect(array1, array2)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT array_intersect(array(1, 2, 3), array(1, 3, 5));
+   > SELECT array_intersect(array(1, 2, 3), array(1, 3, 5))
    [1,3]
-```
+   ```
+   
+:   **Result value**
+
+   ```
 
 ## array_remove
 {: #array_remove}
@@ -842,8 +853,12 @@ array_remove(array, element)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT array_remove(array(1, 2, 3, null, 3), 3);
+   > SELECT array_remove(array(1, 2, 3, null, 3), 3)
    [1,2,null]
+   ```
+   
+:   **Result value**
+
    ```
 
 ## array_sort
@@ -856,10 +871,35 @@ array_sort(expr, func)
 
    ```sql
    > SELECT array_sort(array(5, 6, 1), (left, right) -> case when left < right then -1 when left > right then 1 else 0 end);
+   ```
+   
+:   **Result value**
+
+   ```
    [1,5,6]
+   ```
+   
+:   **Example of an SQL function usage fragment**
+
+   ```
    > SELECT array_sort(array('bc', 'ab', 'dc'), (left, right) -> case when left is null and right is null then 0 when left is null then -1 when right is null then 1 when left <    right then 1 when left > right then -1 else 0 end);
+   ```
+   
+ :   **Result value**
+
+   ```
    ["dc","bc","ab"]
-   > SELECT array_sort(array('b', 'd', null, 'c', 'a'));
+   
+   
+:   **Example of an SQL function usage fragment**
+
+   ```
+   > SELECT array_sort(array('b', 'd', null, 'c', 'a'))
+   ```
+   
+ :   **Result value**
+
+   ```
    ["a","b","c","d",null]
    ```
 
@@ -872,7 +912,12 @@ array_union(array1, array2)
 :   **Example of an SQL function usage fragment**
 
    ```sql
-   > SELECT array_union(array(1, 2, 3), array(1, 3, 5));
+   > SELECT array_union(array(1, 2, 3), array(1, 3, 5))
+   ```
+   
+:   **Result value**
+
+   ```
    [1,2,3,5]
    ```
 
