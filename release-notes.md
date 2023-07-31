@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-06-20"
+lastupdated: "2023-07-25"
 
-keywords: sql query, data engine, release notes
+keywords: release notes
 
 subcollection: sql-query
 
@@ -19,6 +19,13 @@ content-type: release-note
 
 Use these release notes to learn about the latest {{site.data.keyword.sqlquery_full}} that are grouped by date. Release notes are available for a minimum of three years.
 {: shortdesc}
+
+## July 2023
+{: #sql-query-jul2023}
+{: release-note}
+
+New {{site.data.keyword.cos_full_notm}} browser
+: You can now select {{site.data.keyword.cos_short}} result location and sources of a query using the new {{site.data.keyword.cos_short}} browser.
 
 ## June 2023
 {: #sql-query-jun2023}
@@ -105,7 +112,7 @@ Supported regions
 :   {{site.data.keyword.sqlquery_short}} is available in Chennai, India. When you provision new instances, you can select whether it is being provisioned in Dallas, Frankfurt, or Chennai.
 
 {{site.data.keyword.cos_full_notm}}
-:   {{site.data.keyword.cos_full_notm}} web console discovers SQL-queryable objects and folders and directly starts the {{site.data.keyword.sqlquery_short}} web console with a prefilled SQL statement for seamless interactive data exploration.
+:   {{site.data.keyword.cos_full}} web console discovers SQL-queryable objects and folders and directly starts the {{site.data.keyword.sqlquery_short}} web console with a prefilled SQL statement for seamless interactive data exploration.
 
 ## November 2020
 {: #sql-query-november2020}
@@ -167,7 +174,7 @@ Database catalog
 {: release-note}
 
 Support for all endpoints
-:   {{site.data.keyword.sqlquery_short}} fully supports all current public and private {{site.data.keyword.cos_full}} endpoints (ending with `appdomain.cloud`, for example, `s3.us.cloud-object-storage.appdomain.cloud`) and all new single data center endpoints (for example, `sng01`).
+:   {{site.data.keyword.sqlquery_short}} fully supports all current public and private {{site.data.keyword.cos_full_notm}} endpoints (ending with `appdomain.cloud`, for example, `s3.us.cloud-object-storage.appdomain.cloud`) and all new single data center endpoints (for example, `sng01`).
 
 ## December 2019
 {: #sql-query-december2019}
