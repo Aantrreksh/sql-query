@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-05-16"
+lastupdated: "2023-08-01"
 
 keywords: reading, writing, cos
 
@@ -103,7 +103,7 @@ Regional endpoint name | Alias
 --- | ---
 `s3.eu-de.cloud-object-storage.appdomain.cloud` | `eu-de`
 `s3.eu-gb.cloud-object-storage.appdomain.cloud` | `eu-gb`
-`s3.us-south.cloud-object-storage.appdomain.cloud | us-south`
+`s3.us-south.cloud-object-storage.appdomain.cloud | `us-south`
 {: caption="Table 2. Regional endpoints" caption-side="bottom"}
 
 Single data center endpoint name | Alias
