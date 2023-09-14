@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-07-26"
+lastupdated: "2023-09-14"
 
 keywords: SQL, functions
 
@@ -846,6 +846,24 @@ array_intersect(array1, array2)
 
    ```sql
    [1,3]
+   ```
+   
+ ## array_overlap
+{: #array_overlap}
+
+arrays_overlap(a1, a2)
+:      Returns true if a1 contains at least a non-null element present also in a2. If the arrays have no common element and they are both non-empty and either of them contains a null element null is returned, false otherwise.
+
+:   **Example of an SQL function usage fragment**
+
+   ```sql
+   > SELECT arrays_overlap(array(1, 2, 3), array(3, 4, 5))
+   ```
+   
+:   **Result value**
+
+   ```sql
+   true
    ```
 
 ## array_remove
