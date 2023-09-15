@@ -53,7 +53,7 @@ Create a new instance with Terraform
 {: release-note}
 
 Read as text
-: Files with an unstable schema, for example logs, can be read faster by using `STORED AS TEXT`. There is no schema inference and values must further be extracted, as explained in [Query data with an unstable schema](/docs/sql-query?topic=sql-query-overview#query-logs).
+: Files with an unstable schema, for example logs, can be read faster by using `STORED AS TEXT`. There is no schema inference and values must further be extracted, as explained in [Query data with an unstable schema](/docs/sql-query?topic=sql-query-running#query-json).
 
 ## August 2022
 {: #sql-query-aug2022}
