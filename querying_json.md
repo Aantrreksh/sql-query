@@ -89,7 +89,9 @@ ORDER BY e1.city , e1.firstname
 ## Querying JSON logs
 {: #query-json}
 
-To query JSON data where no schema can be inferred, for example, in logs, use the option to read the data `AS TEXT`.
+JSON data, unlike binary formats such as PARQUET and AVRO, does not include an explicit schema definition. If you can be sure that all JSON records in a data set conform to the same structure and data types, you can use automatic schema inference which detects the schema from your actual data. Schema inference tries to deal automatically with inconsistencies in your input data that may arise when your JSON data is combined from multiple sources: For example, when the same field is sometimes given as a string and sometimes as a sub-struct, the inferred type will be a string and sub-structs will be converted to strings.
+
+Sometimes, particularly when processing JSON logs from multiple sources where each source defines its own log output fields and new sources are added over time, it is not feasible to infer a general schema that fits all JSON input. To query such JSON data, use the option to read the data `AS TEXT`.
 The input is then read without inferring any schema and each line is put into a single column named `value`.
 
 To see how the data is structured, execute a basic select query.
@@ -100,7 +102,7 @@ FROM cos://us-geo/sql/LogDNA/_year=2019/_dayofyear=226/_hour=14 STORED AS TEXT
 LIMIT 5
 ```
 
-You can further extract fields by using the options `get_json_object` or `regexp_extract`.
+You can further extract fields from string data by using the functions `get_json_object` or `regexp_extract`.
 You can then filter data on the extracted columns.
 
 ```sql
@@ -135,3 +137,24 @@ FROM logs
 WHERE minute(from_unixtime(unix_timestamp)) >= 40 AND minute(from_unixtime(unix_timestamp)) <= 44
 ORDER BY timestamp
 ```
+
+The string conversion functions shown above are the most generic way to treat JSON data with an inconsistent schema. It also allows you to combine multiple alternative field names and formats with SQL constructs like `CASE` and `COALESCE`.
+
+There is a different option for cases where you simply want to ignore any JSON input that does not match a single expected schema: For this situation, you can declare an explicit catalog table on your data which specifies the expected schema and uses `mode='PERMISSIVE'`. With permissive processing mode, all JSON records and fields that do not match the schema will implicitly be converted to NULLs and can therefore be ignored in the query.
+
+```sql
+CREATE TABLE request_logs(
+    _source STRUCT<
+      time_date: timestamp,
+      request_method: string,
+      request_uri: string
+    >)
+  USING JSON OPTIONS (mode='PERMISSIVE')
+  LOCATION cos://us-geo/sql/LogDNA/_year=2019/_dayofyear=226/_hour=13
+
+SELECT DISTINCT _source.request_method FROM request_logs
+WHERE _source.time_date > TIMESTAMP("2019-08-14T13:30:00")
+  AND _source.time_date < TIMESTAMP("2019-08-14T13:35:00")
+```
+
+This way, you can use simple struct element access in the queries while skipping any JSON records that do not contain a _source element with the sub-fields required by the query or where these sub-fields don't match the declared data type.

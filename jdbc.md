@@ -19,7 +19,6 @@ subcollection: sql-query
 {: #driver_download}
 
 [ibmcloudsql-jdbc-jar]: <> "lines=1 search=\[.*\](.*) replace=exp:[`${VERSION}`](https://us.sql-query.cloud.ibm.com/download/jdbc/ibmcloudsql-jdbc-${VERSION}.jar)"
-
 Download the latest version: [`2.7.18`](https://us.sql-query.cloud.ibm.com/download/jdbc/ibmcloudsql-jdbc-2.7.18.jar)
 
 [previous-ibmcloudsql-jdbc-jar]: <> "lines=1 search=\[.*\](.*) replace=ref:ibmcloudsql-jdbc-jar:link"
@@ -166,7 +165,7 @@ The following steps describe how to make Tableau Desktop for Windows work with t
     - Store the content in a `*.tdc` file in the following folder:
       **Windows**: `C:\Documents\My Tableau Repository\Datasources\ibmcloudsql-jdbc.tdc`
       **Mac**: `~/My Tableau Repository/Datasources/ibmcloudsql-jdbc.tdc`
-      
+
       If further customization is needed in future, check out [capabilities](https://help.tableau.com/current/pro/desktop/en-us/jdbc_capabilities.htm) that can be turned on and off.
 4. Start Tableau Desktop. Go to **Connect > To a Server > More**.
 5. On the next page, you see a list of supported connectors. Select **Other Databases (JDBC)**.
@@ -183,11 +182,11 @@ As Tableau does not support complex data types, such as `struct`, if a table con
 - You can set the `filterType` option to `view`. This option effectively hides all tables and reveals views only to Tableau. To set the option with the JDBC URL, use the following URL:
 
     `jdbc:ibmcloudsql:{CRN of your {{site.data.keyword.sqlquery_short}} service instance}?targetcosurl={COS location for results}&filterType=view`
-    
+
 ## Using the driver with Cognos Analytics
 {: #using_cognos}
 
-See the [Cognos Analytics Dynamic Query](https://www.ibm.com/docs/en/cognos-analytics/11.2.0?topic=administration-support-cloud-sql-query) documentation to learn how to create a data server connection to {{site.data.keyword.sqlquery_short}} through the {{site.data.keyword.sqlquery_short}} JDBC driver. 
+See the [Cognos Analytics Dynamic Query](https://www.ibm.com/docs/en/cognos-analytics/11.2.0?topic=administration-support-cloud-sql-query) documentation to learn how to create a data server connection to {{site.data.keyword.sqlquery_short}} through the {{site.data.keyword.sqlquery_short}} JDBC driver.
 
 ## ODBC connectivity that uses the JDBC driver with Progress Data Direct HDP
 {: #odbc_connectivity}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-07-26"
+lastupdated: "2023-09-14"
 
 keywords: SQL, functions
 
@@ -816,7 +816,7 @@ array_distinct(array)
 {: #array_except}
 
 array_except(array1, array2)
-:    Returns an array of the elements in array1 but not in array2, without duplicates.
+:   Returns an array of the elements in array1 but not in array2, without duplicates.
 
 :   **Example of an SQL function usage fragment**
 
@@ -834,7 +834,7 @@ array_except(array1, array2)
 {: #array_intersect}
 
 array_intersect(array1, array2)
-:     Returns an array of the elements in the intersection of array1 and array2, without duplicates.
+:    Returns an array of the elements in the intersection of array1 and array2, without duplicates.
 
 :   **Example of an SQL function usage fragment**
 
@@ -847,12 +847,30 @@ array_intersect(array1, array2)
    ```sql
    [1,3]
    ```
+   
+ ## array_overlap
+{: #array_overlap}
+
+arrays_overlap(a1, a2)
+:   Returns true if a1 contains at least a non-null element present also in a2. If the arrays have no common element and they are both non-empty and either of them contains a null element null is returned, false otherwise.
+
+:   **Example of an SQL function usage fragment**
+
+   ```sql
+   > SELECT arrays_overlap(array(1, 2, 3), array(3, 4, 5))
+   ```
+   
+:   **Result value**
+
+   ```sql
+   true
+   ```
 
 ## array_remove
 {: #array_remove}
 
 array_remove(array, element)
-:      Remove all elements that equal to element from array.
+:    Remove all elements that equal to element from array.
 
 :   **Example of an SQL function usage fragment**
 
@@ -870,7 +888,7 @@ array_remove(array, element)
 {: #array_sort}
 
 array_sort(expr, func)
-:       Sorts the input array. If func is omitted, sort in ascending order. The elements of the input array must be orderable. NaN is greater than any non-NaN elements for double/float type. Null elements will be placed at the end of the returned array. Since 3.0.0 this function also sorts and returns the array based on the given comparator function. The comparator will take two arguments representing two elements of the array. It returns a negative integer, 0, or a positive integer as the first element is less than, equal to, or greater than the second element. If the comparator function returns null, the function will fail and raise an error.
+:   Sorts the input array. If func is omitted, sort in ascending order. The elements of the input array must be orderable. NaN is greater than any non-NaN elements for double/float type. Null elements will be placed at the end of the returned array. Since 3.0.0 this function also sorts and returns the array based on the given comparator function. The comparator will take two arguments representing two elements of the array. It returns a negative integer, 0, or a positive integer as the first element is less than, equal to, or greater than the second element. If the comparator function returns null, the function will fail and raise an error.
 
 :   **Example of an SQL function usage fragment**
 
@@ -912,7 +930,7 @@ array_sort(expr, func)
 {: #array_union}
 
 array_union(array1, array2)
-:       Returns an array of the elements in the union of array1 and array2, without duplicates.
+:   Returns an array of the elements in the union of array1 and array2, without duplicates.
 
 :   **Example of an SQL function usage fragment**
 
@@ -930,7 +948,7 @@ array_union(array1, array2)
 {: #ascii}
 
 ascii(str)
-:   Returns the numeric value of the first character of `str`.
+:    Returns the numeric value of the first character of `str`.
 
 :   **Example of an SQL function usage fragment**
 
