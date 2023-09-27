@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-11-28"
+  years: 2018, 2023
+lastupdated: "2023-09-27"
 
 keywords: security, gdpr, hipaa, compliance, personal data, personal information, privacy policy, cloud notice, terms of use
 
@@ -29,7 +29,7 @@ If you have an account with {{site.data.keyword.cloud}}, your personal data is h
 
 {{site.data.keyword.sqlquery_notm}} with {{site.data.keyword.keymanagementservicelong}} for managing encryption keys meets the required IBM controls that are commensurate with the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Security and Privacy Rule requirements. These requirements include the appropriate administrative, physical, and technical safeguards required of Business Associates in 45 CFR Part 160 and Subparts A and C of Part 164. HIPAA must be requested at the time of provisioning and requires a representative to sign a Business Associate Addendum (BAA) agreement with IBM.
 
-**Note:** If you are a HIPAA user, you must not use catalog management (Hive Metastore).
+**Note:** If you are a HIPAA user, see [Protecting your sensitive data in {{site.data.keyword.sqlquery_short}}](/docs/sql-query?topic=sql-query-securing-data#data-encryption) about storage and encryption of sensitive data.
 
 ## ISO 27001/27017/27018 and ISO 27701
 {: #iso}
