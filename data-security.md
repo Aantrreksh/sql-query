@@ -19,16 +19,24 @@ To ensure that you can securely manage your data when you use {{site.data.keywor
 {: shortdesc}
 
 ## How your data is stored and encrypted in {{site.data.keyword.sqlquery_short}}
-{: #data-storage} 
+{: #data-storage}
 
 All data that is stored in {{site.data.keyword.sqlquery_short}} has by default service-managed encryption. You can also choose to encrypt with BYOK using {{site.data.keyword.keymanagementservicefull}}. SQL query text and error messages can be encrypted by associating a {{site.data.keyword.keymanagementservicefull}} during instance creation. Table metadata is encrypted by using the same mechanism for all tables or views that were created after August 23rd, 2022.
-All table metadata that was created before that date is encrypted by using service-managed encryption. You can re-create tables to convert the encryption method to BYOK by using {{site.data.keyword.keymanagementservicefull}}.
+All table metadata that was created before that date is encrypted by using service-managed encryption. You can re-create tables to convert the encryption method to BYOK.
+
+The following elements of table metadata cannot be encrypted with BYOK by design:
+- Table names
+- Partition names, which are generated from values of a partitioning column
+
+Do not include PII or sensitive data in table names and do not use columns containing PII or sensitive data as partitioning columns.
+
+If you are processing sensitive data, ensure that the actual data storage locations on which {{site.data.keyword.sqlquery_short}} works (for example COS buckets, EventStreams queues, or Db2 tables) are adequately protected. Refer to the documentation of the respective cloud service for configuring security for these storage locations.
 
 ## Protecting your sensitive data in {{site.data.keyword.sqlquery_short}}
 {: #data-encryption}
 
-You can add a higher level of encryption protection and control to your data at rest (when it is stored) by enabling integration with {{site.data.keyword.keymanagementserviceshort}}. The data that you store in {{site.data.keyword.cloud_notm}} is encrypted at rest by using a service-managed key. If you need to control the encryption keys, you can integrate {{site.data.keyword.keymanagementserviceshort}}. This process is commonly referred to as Bring your own keys (BYOK). 
-With {{site.data.keyword.keymanagementserviceshort}} you can create, import, and manage encryption keys. You can assign access policies to the keys, 
+You can add a higher level of encryption protection and control to your data at rest (when it is stored) by enabling integration with {{site.data.keyword.keymanagementserviceshort}}. The data that you store in {{site.data.keyword.cloud_notm}} is encrypted at rest by using a service-managed key. If you need to control the encryption keys, you can integrate {{site.data.keyword.keymanagementserviceshort}}. This process is commonly referred to as Bring your own keys (BYOK).
+With {{site.data.keyword.keymanagementserviceshort}} you can create, import, and manage encryption keys. You can assign access policies to the keys,
 assign users or service IDs to the keys, or give the key access only to a specific service. The first 20 keys are free.
 
 ### Enabling customer-managed keys for {{site.data.keyword.sqlquery_short}}
