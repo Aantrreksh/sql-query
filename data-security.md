@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-11-25"
+  years: 2022, 2023
+lastupdated: "2023-09-27"
 
-keywords: data encryption in SQL Query, data storage for SQL Query, bring your own key method for SQL Query, BYOK for SQL Query, key management for SQL Query, key encryption for SQL Query, personal data in SQL Query, data deletion for SQL Query, data in SQL Query, data security in SQL Query, KYOK for SQL Query
+keywords: data encryption, data storage, bring your own key method, BYOK, key management, key encryption, personal data, data deletion, data security, KYOK
 
 subcollection: sql-query
 
@@ -24,13 +24,11 @@ To ensure that you can securely manage your data when you use {{site.data.keywor
 All data that is stored in {{site.data.keyword.sqlquery_short}} has by default service-managed encryption. You can also choose to encrypt with BYOK using {{site.data.keyword.keymanagementservicefull}}. SQL query text and error messages can be encrypted by associating a {{site.data.keyword.keymanagementservicefull}} during instance creation. Table metadata is encrypted by using the same mechanism for all tables or views that were created after August 23rd, 2022.
 All table metadata that was created before that date is encrypted by using service-managed encryption. You can re-create tables to convert the encryption method to BYOK.
 
-The following elements of table metadata cannot be encrypted with BYOK by design:
-- Table names
-- Partition names, which are generated from values of a partitioning column
+The following elements of table metadata cannot be encrypted with BYOK by design: table names and partition names that are generated from values of a partitioning column.
 
-Do not include PII or sensitive data in table names and do not use columns containing PII or sensitive data as partitioning columns.
+Do not include PII or sensitive data in table names, and do not use columns containing PII or sensitive data as partitioning columns.
 
-If you are processing sensitive data, ensure that the actual data storage locations on which {{site.data.keyword.sqlquery_short}} works (for example COS buckets, EventStreams queues, or Db2 tables) are adequately protected. Refer to the documentation of the respective cloud service for configuring security for these storage locations.
+If you are processing sensitive data, ensure that the actual data storage locations on which {{site.data.keyword.sqlquery_short}} works (for example COS buckets, {{site.data.keyword.messagehub}} queues, or Db2 tables) are adequately protected. Refer to the documentation of the respective cloud service for configuring security for these storage locations.
 
 ## Protecting your sensitive data in {{site.data.keyword.sqlquery_short}}
 {: #data-encryption}
