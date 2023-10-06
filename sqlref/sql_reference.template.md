@@ -624,7 +624,7 @@ The semantics of the *sort item* components are as follows.
     - `LAST`: Specifies that `NULL` values appear last in the order.
 
 ### More topics - expression clause
-{: #more-topics-expression} 
+{: #more-topics-expression}
 
 For more information about the clauses that are used in an *expression* clause, see the following topic:
 - [expression](#expression)
@@ -3005,6 +3005,22 @@ ALTER TABLE customers_addcol ADD COLUMNS (priority INTEGER)
 Do not use the `ADD COLUMNS` option with CSV tables. The CSV data format identifies columns by order (not by name), so any schema change leads to a schema mismatch with existing data.
 
 Alternatively, you can perform schema changes by dropping and re-creating catalog tables. It does not affect the stored data in {{site.data.keyword.cos_short}}. This allows you to reexecute the automatic schema detection when the underlying data is extended with new objects containing more columns. You can also use this method to remove columns from the schema that you do not want to appear in the catalog.
+
+### Alter table set table properties
+{: #chapterAlterTableSetTableProperties}
+
+#### alterTableSetTableProperties
+{: #alterTableSetTableProperties}
+
+<!--include-svg src="./svgfiles/alterTableSetTableProperties.svg" target="./diagrams/alterTableSetTableProperties.svg" alt="syntax diagram for a alter table set table properties command" layout="@break@" -->
+
+Use alter table set table properties to set new properties to the hive table. The property is set in key value format.
+Currently only comment key is supported.
+
+```sql
+-- set property comment to the table CUSTOMERS_PARTITIONED
+ALTER TABLE CUSTOMERS_PARTITIONED SET TBLPROPERTIES ('comment' = 'A table comment')
+```
 
 ### Describe table
 {: #chapterDescribeTable}
