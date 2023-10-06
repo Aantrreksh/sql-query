@@ -3012,7 +3012,7 @@ Alternatively, you can perform schema changes by dropping and re-creating catalo
 #### alterTableSetTableProperties
 {: #alterTableSetTableProperties}
 
-<!--include-svg src="./svgfiles/alterTableSetTableProperties.svg" target="./diagrams/alterTableSetTableProperties.svg" alt="syntax diagram for a alter table set table properties command" layout="@break@" -->
+<!--include-svg src="./svgfiles/alterTableSetTableProperties.svg" target="./diagrams/alterTableSetTableProperties.svg" alt="syntax diagram for alterTableSetTableProperties command" layout="@break@" -->
 
 Use alter table set table properties to set new properties to the hive table. The property is set in key value format.
 Currently only comment key is supported.
