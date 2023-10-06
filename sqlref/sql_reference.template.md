@@ -3014,7 +3014,7 @@ Alternatively, you can perform schema changes by dropping and re-creating catalo
 
 <!--include-svg src="./svgfiles/alterTableSetTableProperties.svg" target="./diagrams/alterTableSetTableProperties.svg" alt="syntax diagram for alterTableSetTableProperties command" layout="@break@" -->
 
-Use alter table set table properties to set new properties to the Hive table. The property is set in key value format. Currently, only the comment key is supported.
+Use alter table set table properties to set new properties to the Hive table. The property is set in key value format. Currently, only the comment property is supported.
 
 ```sql
 -- set property comment to the table CUSTOMERS_PARTITIONED
