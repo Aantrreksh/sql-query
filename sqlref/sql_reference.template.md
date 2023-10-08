@@ -2848,7 +2848,7 @@ LOCATION cos://us-geo/sql/shippers.parquet
 The tableProperty option consists of one or more key and value pairs.
 
 Key | Value | Default | Table format | Description
---- | --- | --- | ---
+--- | --- | --- | --- | ---
 HEADER | true or false | true | CSV | Use the HEADER option to specify whether your CSV object has a header included.
 DELIMITER | single (possibly escaped) character | `,` (comma) | CSV | Use the DELIMITER option to specify the used delimiter in your CSV objects. All single Unicode characters are allowed as delimiters.
 MULTILINE | true or false | false | JSON | Use the MULITLINE option to specify whether the JSON object is single or multiline.
