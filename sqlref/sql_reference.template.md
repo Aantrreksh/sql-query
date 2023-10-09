@@ -2941,7 +2941,7 @@ DROP VIEW customer_statistics
 {: #chapterAlterTable}
 
 #### alterTablePartitions
-{: #chapterAlterTable}
+{: #AlterTable}
 
 <!--include-svg src="./svgfiles/alterTablePartitions.svg" target="./diagrams/alterTablePartitions.svg" alt="syntax diagram for a alter table partitions command" layout="@break@" -->
 
