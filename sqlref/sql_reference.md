@@ -2847,12 +2847,12 @@ LOCATION cos://us-geo/sql/shippers.parquet
 
 The tableProperty option consists of one or more key and value pairs.
 
-Key | Value | Default | Table format | Description
---- | --- | --- | ---
-HEADER | true or false | true | CSV | Use the HEADER option to specify whether your CSV object has a header included.
-DELIMITER | single (possibly escaped) character | `,` (comma) | CSV | Use the DELIMITER option to specify the used delimiter in your CSV objects. All single Unicode characters are allowed as delimiters.
-MULTILINE | true or false | false | JSON | Use the MULITLINE option to specify whether the JSON object is single or multiline.
-MODE | 'FAILFAST' or 'PERMISSIVE' | 'FAILFAST' | JSON | `FAILFAST` mode causes an error when any JSON records are accessed that are either syntactically invalid or do not conform to the specicied table schema. In `PERMISSIVE` mode, illegal records or fields are implicitly converted to NULLs and do not cause the SQL statement to fail.
+| Key | Value | Default | Table format | Description |
+| --- | --- | --- | --- | --- |
+| HEADER | true or false | true | CSV | Use the HEADER option to specify whether your CSV object has a header included. |
+| DELIMITER | single (possibly escaped) character | `,` (comma) | CSV | Use the DELIMITER option to specify the used delimiter in your CSV objects. All single Unicode characters are allowed as delimiters. |
+| MULTILINE | true or false | false | JSON | Use the MULITLINE option to specify whether the JSON object is single or multiline. |
+| MODE | 'FAILFAST' or 'PERMISSIVE' | 'FAILFAST' | JSON | `FAILFAST` mode causes an error when any JSON records are accessed that are either syntactically invalid or do not conform to the specicied table schema. In `PERMISSIVE` mode, illegal records or fields are implicitly converted to NULLs and do not cause the SQL statement to fail. |
 {: caption="Table 56. tableProperty option." caption-side="bottom"}
 
 ```sql
