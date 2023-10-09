@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-09-14"
+lastupdated: "2023-10-06"
 
 ---
 
@@ -624,7 +624,7 @@ The semantics of the *sort item* components are as follows.
     - `LAST`: Specifies that `NULL` values appear last in the order.
 
 ### More topics - expression clause
-{: #more-topics-expression} 
+{: #more-topics-expression}
 
 For more information about the clauses that are used in an *expression* clause, see the following topic:
 - [expression](#expression)
@@ -2847,12 +2847,12 @@ LOCATION cos://us-geo/sql/shippers.parquet
 
 The tableProperty option consists of one or more key and value pairs.
 
-Key | Value | Default | Table format | Description
---- | --- | --- | ---
-HEADER | true or false | true | CSV | Use the HEADER option to specify whether your CSV object has a header included.
-DELIMITER | single (possibly escaped) character | `,` (comma) | CSV | Use the DELIMITER option to specify the used delimiter in your CSV objects. All single Unicode characters are allowed as delimiters.
-MULTILINE | true or false | false | JSON | Use the MULITLINE option to specify whether the JSON object is single or multiline.
-MODE | 'FAILFAST' or 'PERMISSIVE' | 'FAILFAST' | JSON | `FAILFAST` mode causes an error when any JSON records are accessed that are either syntactically invalid or do not conform to the specicied table schema. In `PERMISSIVE` mode, illegal records or fields are implicitly converted to NULLs and do not cause the SQL statement to fail.
+| Key | Value | Default | Table format | Description |
+| --- | --- | --- | --- | --- |
+| HEADER | true or false | true | CSV | Use the HEADER option to specify whether your CSV object has a header included. |
+| DELIMITER | single (possibly escaped) character | `,` (comma) | CSV | Use the DELIMITER option to specify the used delimiter in your CSV objects. All single Unicode characters are allowed as delimiters. |
+| MULTILINE | true or false | false | JSON | Use the MULITLINE option to specify whether the JSON object is single or multiline. |
+| MODE | 'FAILFAST' or 'PERMISSIVE' | 'FAILFAST' | JSON | `FAILFAST` mode causes an error when any JSON records are accessed that are either syntactically invalid or do not conform to the specicied table schema. In `PERMISSIVE` mode, illegal records or fields are implicitly converted to NULLs and do not cause the SQL statement to fail. |
 {: caption="Table 56. tableProperty option." caption-side="bottom"}
 
 ```sql
@@ -3005,6 +3005,21 @@ ALTER TABLE customers_addcol ADD COLUMNS (priority INTEGER)
 Do not use the `ADD COLUMNS` option with CSV tables. The CSV data format identifies columns by order (not by name), so any schema change leads to a schema mismatch with existing data.
 
 Alternatively, you can perform schema changes by dropping and re-creating catalog tables. It does not affect the stored data in {{site.data.keyword.cos_short}}. This allows you to reexecute the automatic schema detection when the underlying data is extended with new objects containing more columns. You can also use this method to remove columns from the schema that you do not want to appear in the catalog.
+
+### Alter table set table properties
+{: #chapterAlterTableSetTableProperties}
+
+#### alterTableSetTableProperties
+{: #alterTableSetTableProperties}
+
+<!--include-svg src="./svgfiles/alterTableSetTableProperties.svg" target="./diagrams/alterTableSetTableProperties.svg" alt="syntax diagram for alterTableSetTableProperties command" layout="@break@" -->
+
+Use alter table set table properties to set new properties to the Hive table. The property is set in key value format. Currently, only the comment property is supported.
+
+```sql
+-- set property comment to the table CUSTOMERS_PARTITIONED
+ALTER TABLE CUSTOMERS_PARTITIONED SET TBLPROPERTIES ('comment' = 'A table comment')
+```
 
 ### Describe table
 {: #chapterDescribeTable}
