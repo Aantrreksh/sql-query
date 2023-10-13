@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-05-16"
+lastupdated: "2023-10-13"
 
 keywords: json logs, stored as text
 
@@ -70,6 +70,16 @@ SELECT *
 FROM cos://us-geo/sql/employees.parquet STORED AS PARQUET
 INTO cos://us-south/sql-7fb0b44d-2d76-4c5c-af1e-c746c84f9da1/result/employees.csv JOBPREFIX NONE
 ```
+
+## Spark CSV rules
+{: #spark-csv}
+
+Spark has special CSV rules that you must follow in order to avoid errors that are caused by incorrect quoting.
+
+- Newlines in CSV strings cannot be escaped and are not permitted.
+- CSV strings that contain the field delimiter (comma by default) must be enclosed in double quotes.
+- Quotes inside a quoted string must be escaped with a backslash `\`.
+- A literal backslash inside a string must be escaped with another backslash.
 
 ### Example of a self-join
 {: #self-join}

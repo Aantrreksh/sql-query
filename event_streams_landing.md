@@ -2,9 +2,9 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-06-12"
+lastupdated: "2023-10-09"
 
-keywords: Data Engine, SQL, query, event streams, streaming, cloud object storage, Kafka
+keywords: streaming, stream landing
 
 subcollection: sql-query
 
