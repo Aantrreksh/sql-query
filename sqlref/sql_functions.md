@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-09-14"
+lastupdated: "2023-10-20"
 
 keywords: SQL, functions
 
@@ -4269,7 +4269,6 @@ second(timestamp)
     ```
 
 
-
 ## sentences
 {: #sentences}
 
@@ -4288,7 +4287,35 @@ sentences(str[, lang, country])
     [["Hi","there"],["Good","morning"]]
     ```
 
+## sequence
+{: #sequence}
 
+sequence(start, stop, step)
+:   Generates an array of elements from start to stop (inclusive), incrementing by step. The type of the returned elements is the same as the type of argument expressions.
+
+Supported types are: byte, short, integer, long, date, timestamp.
+
+The start and stop expressions must resolve to the same type. If start and stop expressions resolve to the 'date' or 'timestamp' type then the step expression must resolve to the 'interval' or 'year-month interval' or 'day-time interval' type, otherwise to the same type as the start and stop expressions.
+
+Arguments:
+
+- start - An expression. The start of the range.
+- stop - An expression. The end the range (inclusive).
+- step - An optional expression. The step of the range. By default, step is 1 if start is less than or equal to stop, otherwise -1. For the temporal sequences, it's 1 day and -1 day respectively. If start is greater than stop, then the step must be negative, and vice versa.
+
+:   **Example of an SQL function usage fragment**
+
+   ```sql
+   > SELECT sequence(1, 5);
+   ``` 
+
+:   **Result value**
+
+   ```sql
+   [1,2,3,4,5]
+   ```
+   
+   
 ## sha
 {: #sha}
 
