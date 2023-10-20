@@ -2910,9 +2910,8 @@ str like pattern
 
 :   **Arguments**
 
-   str - a string expression
-
-pattern - A string expression. The pattern is a string that is matched literally, with
+   - str - A string expression.
+   - pattern - A string expression. The pattern is a string that is matched literally, with
     exception to the following special symbols:
 
 _ matches any one character in the input (similar to . in posix regular expressions)
@@ -4297,12 +4296,12 @@ Supported types are: byte, short, integer, long, date, timestamp.
 
 The start and stop expressions must resolve to the same type. If start and stop expressions resolve to the 'date' or 'timestamp' type then the step expression must resolve to the 'interval' or 'year-month interval' or 'day-time interval' type, otherwise to the same type as the start and stop expressions.
 
-Arguments:
+:   **Arguments**
 
-- start - An expression. The start of the range.
-- stop - An expression. The end the range (inclusive).
-- step - An optional expression. The step of the range. By default, step is 1 if start is less than or equal to stop, otherwise -1. For the temporal sequences, it's 1 day and -1 day respectively. If start is greater than stop, then the step must be negative, and vice versa.
-
+   - start - An expression. The start of the range.
+   - stop - An expression. The end the range (inclusive).
+   - step - An optional expression. The step of the range. By default, step is 1 if start is less than or equal to stop, otherwise -1. For the temporal sequences, it's 1 day and -1 day respectively. If start is greater than stop, then the step must be negative, and vice versa.
+   
 :   **Example of an SQL function usage fragment**
 
    ```sql
