@@ -4125,7 +4125,7 @@ str rlike regexp
    - str - A string expression.
    - regexp - A string expression. The pattern string is a Java™ regular expression.
 
-String literals (including regex patterns) are unescaped in our SQL parser. For example, to match "\abc", a regular expression for `regexp` can be "^\abc$".
+:   String literals (including regex patterns) are unescaped in our SQL parser. For example, to match "\abc", a regular expression for `regexp` can be "^\abc$".
 
 :   **Example of an SQL function usage fragment**
 
@@ -4290,9 +4290,9 @@ sentences(str[, lang, country])
 sequence(start, stop, step)
 :   Generates an array of elements from start to stop (inclusive), incrementing by step. The type of the returned elements is the same as the type of argument expressions.
 
-Supported types are: byte, short, integer, long, date, timestamp.
+:   Supported types are: byte, short, integer, long, date, timestamp.
 
-The start and stop expressions must resolve to the same type. If start and stop expressions resolve to the 'date' or 'timestamp' type then the step expression must resolve to the 'interval' or 'year-month interval' or 'day-time interval' type, otherwise to the same type as the start and stop expressions.
+:   The start and stop expressions must resolve to the same type. If start and stop expressions resolve to the 'date' or 'timestamp' type then the step expression must resolve to the 'interval' or 'year-month interval' or 'day-time interval' type, otherwise to the same type as the start and stop expressions.
 
 :   **Arguments**
 
