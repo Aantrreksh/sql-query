@@ -4125,16 +4125,14 @@ str rlike regexp
    - str - A string expression.
    - regexp - A string expression. The pattern string is a Java™ regular expression.
 
-String literals (including regex patterns) are unescaped in our SQL
-parser. For example, to match "\abc", a regular expression for `regexp` can be
-"^\abc$".
+String literals (including regex patterns) are unescaped in our SQL parser. For example, to match "\abc", a regular expression for `regexp` can be "^\abc$".
 
 :   **Example of an SQL function usage fragment**
 
    ```sql
    > SELECT '%SystemDrive%\Users\John' rlike '%SystemDrive%\\Users.*'
    ```
-
+   
 :   **Result value**
 
    ```sql
