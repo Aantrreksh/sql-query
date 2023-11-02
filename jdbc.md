@@ -19,10 +19,10 @@ subcollection: sql-query
 {: #driver_download}
 
 [ibmcloudsql-jdbc-jar]: <> "lines=1 search=\[.*\](.*) replace=exp:[`${VERSION}`](https://us.sql-query.cloud.ibm.com/download/jdbc/ibmcloudsql-jdbc-${VERSION}.jar)"
-Download the latest version: [`2.7.27`](https://us.sql-query.cloud.ibm.com/download/jdbc/ibmcloudsql-jdbc-2.7.27.jar)
+Download the latest version: [`2.7.28`](https://us.sql-query.cloud.ibm.com/download/jdbc/ibmcloudsql-jdbc-2.7.28.jar)
 
 [previous-ibmcloudsql-jdbc-jar]: <> "lines=1 search=\[.*\](.*) replace=ref:ibmcloudsql-jdbc-jar:link"
-Here you find the previous version for reference: [`2.7.26`](https://us.sql-query.cloud.ibm.com/download/jdbc/ibmcloudsql-jdbc-2.7.26.jar)
+Here you find the previous version for reference: [`2.7.27`](https://us.sql-query.cloud.ibm.com/download/jdbc/ibmcloudsql-jdbc-2.7.27.jar)
 
 ## JDBC driver class and URL format
 {: #jdbc_class}
