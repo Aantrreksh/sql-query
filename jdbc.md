@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-11-25"
+  years: 2020, 2023
+lastupdated: "2023-11-02"
 
 keywords: jdbc, data engine
 
