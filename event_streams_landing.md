@@ -61,6 +61,32 @@ The job details show the following metrics (instead of *rows_returned*, *rows_re
 - `rows_per_second`: Shows the number of records that were processed per second in the last micro batch.
 - `last_activity_time`: Shows the time when the streaming job was last active, with or without processing rows.
 
+
+## Monitor streaming jobs
+{: #monitor--streaming-jobs}
+
+As streaming jobs will run conceptionally forever therefore it is important to monitor those jobs in order to see if they make process as expected or if they are loosing data.
+
+There are two ways to monitor your streaming jobs. First one is using Sysdig monitoring. A default {{site.data.keyword.sqlquery_short}} dashboard exists, and you can define custom dashboards and alerts. 
+
+After you have created your IBM Cloud Monitoring instance and have selected the instance to receive platform metrics it will take some minutes until you see "SQL Query" and "SQL Query Streaming" Dashboards within the Dashboard Library. 
+
+TBD add picture ...
+
+Graphs for all jobs 
+- Queued streaming jobs: you could put an alert on this metric if jobs are too long in queued state.
+- Running streaming jobs: helps you to see the number of all running jobs. 
+- Stopped streaming jobs: assuming that those jobs will normally not stopped an alert on this metric detects any undesired stopping of streaming jobs.
+- Failed streaming jobs: an alert on this metric will help to detect early any misconfiguration or problems.
+
+Graphs for specific job ids:
+- Rows per second: helps to understand if the job process data and how much or is in idle state
+- Number of offsets the job fell behind the Kafka topic: helps to understand if there are more incomming messages or if the job is able to catch up. If the graph for a job does not go to 0 or at least does not increase this could be a sign for a problem with the current setup.  
+- Time needed to catch up with the backlog on the Kafka topic: Shows a calculation if the job is able to finish within the displayed time.
+
+Second way to monitor streaming jobs is IBM Cloud Activity Tracker. Again an instance of IBM Cloud Activity Tracker needs to be created and selected to get all platform logs. 
+Data Engine provides different events to get informed about important events like stopped jobs (sql-query.sql-job.disable) or streaming job which can't process all messages before it is rolled out of the EventStreams topic (sql-query.sql-job.notify). Especially the sql-query.sql-job.notify event helps to understand if the job looses data or if it is healthy and scaled enough to be able to process the incoming messages.
+
 ## Permissions
 {: #permissions-event-streams}
 
