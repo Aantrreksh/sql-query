@@ -53,7 +53,7 @@ Indexes, or data skipping metadata, are stored in a location you specify. Metada
 ### Sample data
 {: #sample_data}
 
-The sample data set used in this documentation originates from the *meter_gen* [data generator](https://github.com/gridpocket/project-iostack/tree/master/meter_gen) that was developed by [GridPocket](https://www.gridpocket.com/en/) in the context of the [IOStack project](http://iostack.eu/).
+The sample data set used in this documentation originates from the *meter_gen* [data generator](https://github.com/gridpocket/project-iostack/tree/master/meter_gen) that was developed by GridPocket in the context of the [IOStack project](http://iostack.eu/).
 It generates electricity, water, and gas meter readings, along with their associated timestamps, geospatial locations, and additional information.
 The data set is in Parquet format, has 9 GB, and is publicly available to use with {{site.data.keyword.sqlquery_short}} at `cos:\\us-geo\sql\metergen`.
 The queries that are listed in the examples are also available in the UI under **Samples** > **Index management**.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-12-02"
+  years: 2018, 2023
+lastupdated: "2023-10-06"
 
 ---
 
@@ -152,8 +152,7 @@ The presence of multiple partitions allows for parallel input/output (I/O) durin
 ### partitionedClause
 {: #partitionedClause}
 
-You can use the result partitioned clause to control the layout of the SQL query result set being stored. The default behavior is to store the result into 
-one single partition, which is a single object in Cloud {{site.data.keyword.cos_short}}.
+You can use the result partitioned clause to control the layout of the SQL query result set being stored. The default behavior is to store the result into one single partition, which is a single object in Cloud {{site.data.keyword.cos_short}}.
 
 <!--include-svg src="./svgfiles/partitionedClause.svg" target="./diagrams/partitionedClause.svg" alt="syntax diagram for a result partitioned clause" layout="@break@" -->
 
@@ -184,8 +183,7 @@ See the following extra remarks on Hive-style partitioning.
 
 By partitioning a query result into objects, you can specify the exact number of *equally sized* result partitions. With this partitioning, you can experimentally fine-tune the number of objects to meet certain criteria for partition size. To specify the number of partitions, use the `PARTITIONED INTO x BUCKETS/OBJECTS` clause.
 
-For example, knowing the size of the query result, it is possible to calculate the number of objects to end up with partitions that have a certain size. 
-For example, 128 MB, which is the Hadoop default file size, or any other size that meets application requirements.
+For example, knowing the size of the query result, it is possible to calculate the number of objects to end up with partitions that have a certain size. For example, 128 MB, which is the Hadoop default file size, or any other size that meets application requirements.
 
 The `INTO x BUCKETS/OBJECTS` clause can be combined with the `BY (column-list)` clause to create some partitions that support data affinity regarding specified partition columns.
 
@@ -213,8 +211,7 @@ Storing query results in a database creates a new table with the columns that ar
 
 The table name and optional schema are specified as part of the target URI. **Important**: If a table with the name that is indicated exists in the target database, that table is dropped before the query executes and all existing data is deleted.
 
-Use the `PARALLELISM x` clause to specify that multiple parallel database connections are to be opened to write out the result. 
-Depending on the size of your result and the network connectivity of your target database service, this clause can reduce the query processing time significantly.
+Use the `PARALLELISM x` clause to specify that multiple parallel database connections are to be opened to write out the result. Depending on the size of your result and the network connectivity of your target database service, this clause can reduce the query processing time significantly.
 
 <!--include-svg src="./svgfiles/dbResultClause.svg" target="./diagrams/dbResultClause.svg" alt="syntax diagram for a Db2 result clause" layout="@break@" -->
 
@@ -627,13 +624,13 @@ The semantics of the *sort item* components are as follows.
     - `LAST`: Specifies that `NULL` values appear last in the order.
 
 ### More topics - expression clause
-{: #more-topics-expression} 
+{: #more-topics-expression}
 
 For more information about the clauses that are used in an *expression* clause, see the following topic:
 - [expression](#expression)
 
 ### Related references - sort item clause
-{: #related-references-sort-item} 
+{: #related-references-sort-item}
 
 A *sort item clause* is referenced by the following clauses:
 - [fullselect](#fullselect)
@@ -780,8 +777,7 @@ input and use CSV output to easily browse a sample of your JSON input data.
 The `FLATTEN` table transformation function creates a flat list of columns by concatenating all nested column names with _.
 You can optionally also combine `FLATTEN` with `CLEANCOLS`.
 
-You can wrap your external table definition optionally with the `CLEANCOLS` table transformation function. It preprocesses your input table before query compilation by renaming all columns that have characters that are NOT supported by certain target formats, such as Parquet. These characters are `,`, `;`, `,,,`, `=`, `(`, `)`, `{`, and `}`. They are replaced by the corresponding URL-encoded representation, for example, %20 for space (` `). 
-With this function, you can write results, for example, into Parquet, without the need to provide column by column alias names in your SQL when your input data has columns with these characters. A typical situation is the existence of space (` `) in input columns.
+You can wrap your external table definition optionally with the `CLEANCOLS` table transformation function. It preprocesses your input table before query compilation by renaming all columns that have characters that are NOT supported by certain target formats, such as Parquet. These characters are `,`, `;`, `,,,`, `=`, `(`, `)`, `{`, and `}`. They are replaced by the corresponding URL-encoded representation, for example, %20 for space (` `). With this function, you can write results, for example, into Parquet, without the need to provide column by column alias names in your SQL when your input data has columns with these characters. A typical situation is the existence of space (` `) in input columns.
 
 For example, you can use `SELECT * FROM CLEANCOLS(cos://us-geo/sql/iotmessages STORED AS JSON) INTO cos://us-geo/mybucket/myprefix STORED AS PARQUET` to produce a result set that can be stored as is into Parquet target format.
 
@@ -1068,8 +1064,7 @@ A *lateral view* clause is referenced by a [simpleselect](#simpleselect).
 
 SELECT statements can retrieve and join column values from two or more tables into a single row. The retrieval is based on a specified condition, typically of matching column values.
 
-The main characteristic of a join is, typically, matching column values in rows of each table that participates in the join. The result of a join associates rows from one table with rows from another table. 
-Depending on the type of join operation, some rows might be formed that contain column values in one table that do not match column values in another table.
+The main characteristic of a join is, typically, matching column values in rows of each table that participates in the join. The result of a join associates rows from one table with rows from another table. Depending on the type of join operation, some rows might be formed that contain column values in one table that do not match column values in another table.
 
 A joined table specifies an intermediate result table that is the result of either an `INNER` join, an `OUTER` join, a `CROSS` join, or an `ANTI` join. The table is derived by applying one of the join operators to its operands.
 
@@ -2408,8 +2403,7 @@ The syntax of a case expression is described by the following syntax diagrams.
 
 <!--include-svg src="./svgfiles/caseExpression.svg" target="./diagrams/caseExpression.svg" alt="syntax diagram for a case expression" layout="@break@" -->
 
-The upper path in the syntax diagram represents a *searched when clause*, which means that the `WHEN` keyword follows directly after the `CASE` keyword. 
-The lower path is a *simple when clause*, which means that an expression follows the `CASE` keyword.
+The upper path in the syntax diagram represents a *searched when clause*, which means that the `WHEN` keyword follows directly after the `CASE` keyword. The lower path is a *simple when clause*, which means that an expression follows the `CASE` keyword.
 
 In general, the value of the case expression is the value of the *result expression*, following the first (leftmost) case that evaluates to true. If no case evaluates to true and the ELSE keyword is present, the result is the value of the ELSE case result expression. If no case evaluates to true and the ELSE keyword is not present, the result is NULL. When a case evaluates to unknown (because of NULLs), the case is not true, and hence is treated the same way as a case that evaluates to false.
 
@@ -2808,7 +2802,7 @@ CREATE TABLE customers (
     fax string
 )
 USING CSV
-location  cos://us-geo/sql/customers.csv
+LOCATION  cos://us-geo/sql/customers.csv
 ```
 {: codeblock}
 
@@ -2831,7 +2825,7 @@ CREATE TABLE customers_partitioned (
 )
 USING CSV
 PARTITIONED BY (COUNTRY)
-location cos://us-geo/sql/customers_partitioned.csv
+LOCATION cos://us-geo/sql/customers_partitioned.csv
 
 -- attach table partitions by scanning the location of the table
 ALTER TABLE customers_partitioned RECOVER PARTITIONS
@@ -2844,7 +2838,7 @@ An alternative way to create a table definition is to use the automatic schema d
 -- create a definition for the table shippers with automatic schema detection
 CREATE TABLE shippers
 USING parquet
-location cos://us-geo/sql/shippers.parquet
+LOCATION cos://us-geo/sql/shippers.parquet
 ```
 {: codeblock}
 
@@ -2853,11 +2847,12 @@ location cos://us-geo/sql/shippers.parquet
 
 The tableProperty option consists of one or more key and value pairs.
 
-Key | Value | Default | Description
---- | --- | --- | ---
-HEADER | true or false | true | Use the HEADER option to specify whether your CSV object has a header included.
-DELIMITER | single (possibly escaped) character | `,` (comma) | Use the DELIMITER option to specify the used delimiter in your CSV objects. All single Unicode characters are allowed as delimiters.
-MULTILINE | true or false | false | Use the MULITLINE option to specify whether the JSON object is single or multiline.
+| Key | Value | Default | Table format | Description |
+| --- | --- | --- | --- | --- |
+| HEADER | true or false | true | CSV | Use the HEADER option to specify whether your CSV object has a header included. |
+| DELIMITER | single (possibly escaped) character | `,` (comma) | CSV | Use the DELIMITER option to specify the used delimiter in your CSV objects. All single Unicode characters are allowed as delimiters. |
+| MULTILINE | true or false | false | JSON | Use the MULITLINE option to specify whether the JSON object is single or multiline. |
+| MODE | 'FAILFAST' or 'PERMISSIVE' | 'FAILFAST' | JSON | `FAILFAST` mode causes an error when any JSON records are accessed that are either syntactically invalid or do not conform to the specicied table schema. In `PERMISSIVE` mode, illegal records or fields are implicitly converted to NULLs and do not cause the SQL statement to fail. |
 {: caption="Table 56. tableProperty option." caption-side="bottom"}
 
 ```sql
@@ -2866,10 +2861,17 @@ CREATE TABLE LAX_CARGO
 (Extract_Date timestamp, Report_Date timestamp, Arrival_Departure string,
 Domestic_International string, Cargo_Type string, Air_Cargo_Tons int)
 USING csv
-location cos://us-geo/sql/LAX_Cargo.csv
+LOCATION cos://us-geo/sql/LAX_Cargo.csv
 options(HEADER=false)
 ```
 {: codeblock}
+
+When you create a JSON table, the query engine expects that the data contains only syntactically valid records and that all fields and sub-fields match the schema that you have declared for the table. Any access to invalid data causes the query to fail. You can opt for more relaxed processing by specifying `mode='PERMISSIVE'` as part of the table options. In permissive mode, invalid JSON data does not fail the query, instead one of the following happens.
+
+- Fields or sub-fields that do not match the declared schema type are are dropped from the JSON records, so that their value becomes NULL.
+- JSON records that contain a syntax error, such as a misplaced comma or quote, are converted to an empty record, so that all their fields become NULL.
+
+Note that query input from a COS URI with `STORED AS JSON` format (where the schema is always inferred implicitly) is always processed in **permissive** mode. So, for COS URIs, invalid records are converted to NULLs. Only when you define a catalog table for more formalized access to the same data, the default handling changes to the stricter failfast mode, in order to avoid silent skipping of invalid data that might cause "data loss" problems. For a catalog table, you need to explicitly specify permissive mode to opt-in to relaxed processing that skips invalid data.
 
 ### Drop Table
 {: #chapterDropTable}
@@ -2939,7 +2941,7 @@ DROP VIEW customer_statistics
 {: #chapterAlterTable}
 
 #### alterTablePartitions
-{: #chapterAlterTable}
+{: #AlterTable}
 
 <!--include-svg src="./svgfiles/alterTablePartitions.svg" target="./diagrams/alterTablePartitions.svg" alt="syntax diagram for a alter table partitions command" layout="@break@" -->
 
@@ -3003,6 +3005,21 @@ ALTER TABLE customers_addcol ADD COLUMNS (priority INTEGER)
 Do not use the `ADD COLUMNS` option with CSV tables. The CSV data format identifies columns by order (not by name), so any schema change leads to a schema mismatch with existing data.
 
 Alternatively, you can perform schema changes by dropping and re-creating catalog tables. It does not affect the stored data in {{site.data.keyword.cos_short}}. This allows you to reexecute the automatic schema detection when the underlying data is extended with new objects containing more columns. You can also use this method to remove columns from the schema that you do not want to appear in the catalog.
+
+### Alter table set table properties
+{: #chapterAlterTableSetTableProperties}
+
+#### alterTableSetTableProperties
+{: #alterTableSetTableProperties}
+
+<!--include-svg src="./svgfiles/alterTableSetTableProperties.svg" target="./diagrams/alterTableSetTableProperties.svg" alt="syntax diagram for alterTableSetTableProperties command" layout="@break@" -->
+
+Use alter table set table properties to set new properties to the Hive table. The property is set in key value format. Currently, only the comment property is supported.
+
+```sql
+-- set property comment to the table CUSTOMERS_PARTITIONED
+ALTER TABLE CUSTOMERS_PARTITIONED SET TBLPROPERTIES ('comment' = 'A table comment')
+```
 
 ### Describe table
 {: #chapterDescribeTable}
@@ -3346,8 +3363,6 @@ The decimal number can have a suffix denoting the type of decimal number. The tw
 For more information about data types, see [dataType](#dataType).
 
 ### String
-{: #string}
+{: #string-definition}
 
-A *string* is a sequence of arbitrary characters that includes escaped characters, for example,
-`\t`, either enclosed in single quotation marks `'`, or double quotation marks `"`.
-To include any quotation mark characters in the string, they must be escaped as `\\'` or `\\"`.
+A *string* is a sequence of arbitrary characters that includes escaped characters, for example, `\t`, either enclosed in single quotation marks `'`, or double quotation marks `"`. To include any quotation mark characters in the string, they must be escaped as `\\'` or `\\"`.
