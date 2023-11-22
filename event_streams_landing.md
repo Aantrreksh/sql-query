@@ -3,7 +3,7 @@
 copyright:
   years: 2021, 2023
 
-lastupdated: "2023-11-06"
+lastupdated: "2023-11-22"
 
 keywords: streaming, stream landing
 
@@ -65,11 +65,11 @@ The job details show the following metrics (instead of *rows_returned*, *rows_re
 ## Monitoring streaming jobs
 {: #monitor-streaming-jobs}
 
-It is important to monitor streaming jobs in order to check if they make progress as expected, or if they are losing data.
+Monitoring your streaming jobs is important in order to understand if your streaming job keeps up with the load of incoming messages on your Kafka topic.
 
-There are two ways to monitor your streaming jobs. The first option is to use Sysdig monitoring. A default {{site.data.keyword.sqlquery_short}} dashboard exists, and you can define custom dashboards and alerts.
+There are two monitoring systems to check to get fully informed about your streaming jobs. The first system to use is Sysdig monitoring. A default {{site.data.keyword.sqlquery_short}} dashboard exists, and you can define custom dashboards and alerts.
 
-After you create your {{site.data.keyword.monitoringlong}} instance and select the instance for which you want to receive platform metrics, it takes a few minutes until you see **SQL Query** and **SQL Query Streaming** dashboards within the Dashboard Library. 
+After you create your {{site.data.keyword.monitoringlong}} instance and select the instance for which you want to receive platform metrics, it takes a few minutes until you see **{{site.data.keyword.sqlquery_short}}** and **{{site.data.keyword.sqlquery_short}} Streaming** dashboards within the Dashboard Library. 
 
 ![Monitoring stream landing.](images/monitoring_stream_landing.svg "Monitoring stream landing"){: caption="Figure 2. Monitoring stream landing" caption-side="bottom"}
 
@@ -80,13 +80,13 @@ Graphs for all jobs:
 - Stopped streaming jobs: An alert on this metric detects any undesired stopping of streaming jobs.
 - Failed streaming jobs: An alert on this metric helps to detect any misconfigurations or problems.
 
-Graphs for specific job IDs:
+Graphs that can be filtered by instance job ID:
 
-- Rows per second: This graph helps to see if the job processes data, and if so, how much data is processed, or if the job is in idle state.
-- Number of offsets the job fell behind the Kafka topic: This graph helps to understand if there are more incoming messages than the job can handle. If the graph for a job does not get to 0, or does not increase, it can be a sign for a problem with the current setup. 
-- Time needed to catch up with the backlog on the Kafka topic: This graph shows a calculation if the job is able to finish within the displayed time.
+- Rows per second: This chart represents the number of rows (Kafka messages) processed per second while a batch is active. It gives you an indication whether the job processes data or is in an idle state.
+- Number of offsets the job fell behind the Kafka topic: This graph helps to understand if there are more incoming messages than the job can handle. This chart is expected to be 0. If that is not the case or the backlog is growing, it means that the rate of incoming messages is too high for the streaming job and it needs additional resources. However, a high backlog may be ok, if your Kafka topic has a pattern of temporary load peaks and phases of fewer messages in between. Then you should see the backlog decreasing over time. In this scenario, check on the retention size and retention time that you configured for your Kafka topic, to make sure that the messages stay in the topic long enough for the streaming job to be able to process it.
+- Time needed to catch up with the backlog on the Kafka topic: This chart gives you an indication of how long it takes for the streaming job to process the current backlog, given the current processing rate.
 
-The second option to monitor streaming jobs is with {{site.data.keyword.cloudaccesstraillong}}. An instance of {{site.data.keyword.cloudaccesstrailshort}} must be created and selected to get all platform logs. {{site.data.keyword.sqlquery_short}} provides information about important events, such as stopped jobs (sql-query.sql-job.disable) or streaming jobs that can't process all messages before they get rolled out of the {{site.data.keyword.messagehub}} topic (sql-query.sql-job.notify). Especially the *sql-query.sql-job.notify* event helps to understand if the job loses data or if it is healthy and scaled enough to be able to process the incoming messages.
+The second option to monitor streaming jobs is with {{site.data.keyword.cloudaccesstraillong}}. An instance of {{site.data.keyword.cloudaccesstrailshort}} must be created and selected to get all platform logs. {{site.data.keyword.sqlquery_short}} provides information about important events, such as stopped jobs (sql-query.sql-job.disable) or streaming jobs that can't process all messages before they get rolled out of the {{site.data.keyword.messagehub}} topic (sql-query.sql-job.notify). Especially the *sql-query.sql-job.notify* event helps to understand if the job loses data or if it is healthy and scaled enough to be able to process the incoming messages. In addition, there is the option to be alerted if the streaming job was not able to process a set of messages, because these messages were rolled out of the Kafka topic before the streaming job could process them. In such a case, check retention size and retention time of the Kafka topic and consider increasing them.
 
 ## Permissions
 {: #permissions-event-streams}
