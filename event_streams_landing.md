@@ -2,7 +2,8 @@
 
 copyright:
   years: 2021, 2023
-lastupdated: "2023-10-09"
+
+lastupdated: "2023-11-22"
 
 keywords: streaming, stream landing
 
@@ -60,6 +61,32 @@ The job details show the following metrics (instead of *rows_returned*, *rows_re
 - `last_change_time`: Shows when the last object was written to Cloud {{site.data.keyword.cos_short}}.
 - `rows_per_second`: Shows the number of records that were processed per second in the last micro batch.
 - `last_activity_time`: Shows the time when the streaming job was last active, with or without processing rows.
+
+## Monitoring streaming jobs
+{: #monitor-streaming-jobs}
+
+Monitoring your streaming jobs is important in order to understand if your streaming job keeps up with the load of incoming messages on your Kafka topic.
+
+There are two monitoring systems to check to get fully informed about your streaming jobs. The first system to use is Sysdig monitoring. A default {{site.data.keyword.sqlquery_short}} dashboard exists, and you can define custom dashboards and alerts.
+
+After you create your {{site.data.keyword.monitoringlong}} instance and select the instance for which you want to receive platform metrics, it takes a few minutes until you see **{{site.data.keyword.sqlquery_short}}** and **{{site.data.keyword.sqlquery_short}} Streaming** dashboards within the Dashboard Library. 
+
+![Monitoring stream landing.](images/monitoring_stream_landing.svg "Monitoring stream landing"){: caption="Figure 2. Monitoring stream landing" caption-side="bottom"}
+
+Graphs for all jobs:
+
+- Queued streaming jobs: You can put an alert on this metric if jobs stay too long in queued state.
+- Running streaming jobs: This metric helps you to see the number of all running jobs.
+- Stopped streaming jobs: An alert on this metric detects any undesired stopping of streaming jobs.
+- Failed streaming jobs: An alert on this metric helps to detect any misconfigurations or problems.
+
+Graphs that can be filtered by instance job ID:
+
+- Rows per second: This chart represents the number of rows (Kafka messages) processed per second while a batch is active. It gives you an indication whether the job processes data or is in an idle state.
+- Number of offsets the job fell behind the Kafka topic: This graph helps to understand if there are more incoming messages than the job can handle. This chart is expected to be 0. If that is not the case or the backlog is growing, it means that the rate of incoming messages is too high for the streaming job and it needs additional resources. However, a high backlog may be ok, if your Kafka topic has a pattern of temporary load peaks and phases of fewer messages in between. Then you should see the backlog decreasing over time. In this scenario, check on the retention size and retention time that you configured for your Kafka topic, to make sure that the messages stay in the topic long enough for the streaming job to be able to process it.
+- Time needed to catch up with the backlog on the Kafka topic: This chart gives you an indication of how long it takes for the streaming job to process the current backlog, given the current processing rate.
+
+The second option to monitor streaming jobs is with {{site.data.keyword.cloudaccesstraillong}}. An instance of {{site.data.keyword.cloudaccesstrailshort}} must be created and selected to get all platform logs. {{site.data.keyword.sqlquery_short}} provides information about important events, such as stopped jobs (sql-query.sql-job.disable) or streaming jobs that can't process all messages before they get rolled out of the {{site.data.keyword.messagehub}} topic (sql-query.sql-job.notify). Especially the *sql-query.sql-job.notify* event helps to understand if the job loses data or if it is healthy and scaled enough to be able to process the incoming messages. In addition, there is the option to be alerted if the streaming job was not able to process a set of messages, because these messages were rolled out of the Kafka topic before the streaming job could process them. In such a case, check retention size and retention time of the Kafka topic and consider increasing them.
 
 ## Permissions
 {: #permissions-event-streams}
