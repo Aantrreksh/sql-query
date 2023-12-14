@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-06-13"
+lastupdated: "2023-12-14"
 
 keywords: SQL query, analyze, data, CVS, JSON, ORC, Parquet, Avro, object storage, SELECT, cloud instance, URI, endpoint, api, user roles
 
@@ -15,7 +15,10 @@ subcollection: sql-query
 # Overview
 {: #overview}
 
-{{site.data.keyword.sqlquery_full}} is a fully managed service that runs SQL queries (that is, SELECT statements) to read, analyze, transform, store, and stream data in {{site.data.keyword.cos_full}} and Kafka. You can also manage table metadata in a catalog that is compatible with Hive metastore.
+{{site.data.keyword.sqlquery_full}} is deprecated. As of 18 February 2024 you can't create new instances, and access to free instances will be removed. Existing Standard plan instances are supported until 18 January 2025. Any instances that still exist on that date will be deleted.
+{: deprecated}
+
+{{site.data.keyword.sqlquery_short}} is a fully managed service that runs SQL queries (that is, SELECT statements) to read, analyze, transform, store, and stream data in {{site.data.keyword.cos_full}} and Kafka. You can also manage table metadata in a catalog that is compatible with Hive metastore.
 {{site.data.keyword.sqlquery_short}} is {{site.data.keyword.Bluemix_short}}'s central service for data lakes. Combining {{site.data.keyword.sqlquery_short}} with data in {{site.data.keyword.cos_short}} enables you to create an active workspace for a range of big data analytics use cases.
 {: shortdesc}
 
