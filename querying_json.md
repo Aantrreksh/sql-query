@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-10-13"
+lastupdated: "2023-12-14"
 
 keywords: json logs, stored as text
 
@@ -14,6 +14,9 @@ subcollection: sql-query
 
 # Running a query
 {: #running}
+
+{{site.data.keyword.sqlquery_full}} is deprecated. As of 18 February 2024 you can't create new instances, and access to free instances will be removed. Existing Standard plan instances are supported until 18 January 2025. Any instances that still exist on that date will be deleted.
+{: deprecated}
 
 Watch the following video to learn more about {{site.data.keyword.sqlquery_short}} and how you can get started to run a basic query.
 
