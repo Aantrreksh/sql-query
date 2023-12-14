@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-02-23"
+  years: 2020, 2023
+lastupdated: "2023-12-14"
 
 keywords: SQL query, disaster recovery, backup
 subcollection: sql-query
@@ -18,7 +18,10 @@ subcollection: sql-query
 # Disaster recovery and backup
 {: #disaster}
 
-{{site.data.keyword.sqlquery_full}} stores information about submitted jobs, such as SQL statements, job status, job IDs, and database catalog information like table and views. If a disaster occurs, the regular backups ensure that no more than 24 hours of data are at risk of loss. Backups are done automatically, so no action is required on your side.
+{{site.data.keyword.sqlquery_full}} is deprecated. As of 18 February 2024 you can't create new instances, and access to free instances will be removed. Existing Standard plan instances are supported until 18 January 2025. Any instances that still exist on that date will be deleted.
+{: deprecated}
+
+{{site.data.keyword.sqlquery_short}} stores information about submitted jobs, such as SQL statements, job status, job IDs, and database catalog information like table and views. If a disaster occurs, the regular backups ensure that no more than 24 hours of data are at risk of loss. Backups are done automatically, so no action is required on your side.
 
 The job results are stored in {{site.data.keyword.cos_full}} and are independent of any {{site.data.keyword.sqlquery_short}} disaster recovery.
 
