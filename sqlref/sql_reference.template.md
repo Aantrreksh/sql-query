@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-10-06"
+lastupdated: "2023-12-14"
 
 ---
 
@@ -14,7 +14,10 @@ lastupdated: "2023-10-06"
 ## Introduction
 {: #chapterIntroduction}
 
-With {{site.data.keyword.sqlquery_full}}, you can analyze and transform open data with SQL. It supports the various types of SELECT statements from the ANSI SQL standard.
+{{site.data.keyword.sqlquery_full}} is deprecated. As of 18 February 2024 you can't create new instances, and access to free instances will be removed. Existing Standard plan instances are supported until 18 January 2025. Any instances that still exist on that date will be deleted.
+{: deprecated}
+
+With {{site.data.keyword.sqlquery_short}}, you can analyze and transform open data with SQL. It supports the various types of SELECT statements from the ANSI SQL standard.
 
 The SELECT statement (or query statement) is used to read object data from {{site.data.keyword.cos_full}} (COS), process the data, and store it back on Cloud {{site.data.keyword.cos_short}} eventually.
 
