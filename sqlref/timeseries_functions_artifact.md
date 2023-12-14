@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-12-08"
+  years: 2019, 2023
+lastupdated: "2023-12-14"
 
 keywords: SQL query, time series, SQL, artifact creation, function
 
@@ -14,6 +14,9 @@ subcollection: sql-query
 
 # Artifact creation functions
 {: #artifact}
+
+{{site.data.keyword.sqlquery_full}} is deprecated. As of 18 February 2024 you can't create new instances, and access to free instances will be removed. Existing Standard plan instances are supported until 18 January 2025. Any instances that still exist on that date will be deleted.
+{: deprecated}
 
 Each of these functions produces, as its output, a time series or some other artifact that some [data processing functions](/docs/services/sql-query?topic=sql-query-data_processing_functions) require as input.
 
