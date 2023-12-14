@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-09-27"
+lastupdated: "2023-12-14"
 
 keywords: security, gdpr, hipaa, compliance, personal data, personal information, privacy policy, cloud notice, terms of use
 
@@ -18,9 +18,12 @@ subcollection: sql-query
 ## General Data Protection Regulation (GDPR)
 {: #gdpr}
 
+{{site.data.keyword.sqlquery_full}} is deprecated. As of 18 February 2024 you can't create new instances, and access to free instances will be removed. Existing Standard plan instances are supported until 18 January 2025. Any instances that still exist on that date will be deleted.
+{: deprecated}
+
 If you have an account with {{site.data.keyword.cloud}}, your personal data is held by {{site.data.keyword.cloud_notm}}. The [IBM Data Processing Addendum (IBM DPA)](https://www.ibm.com/support/customer/csol/terms/?cat=dpa) applies to the processing of clients' personal data by IBM on behalf of the client to provide IBM standard services.
 
-{{site.data.keyword.sqlquery_full}} processes limited client Personal Information (PI) in the course of running the service and optimizing the user experience.
+{{site.data.keyword.sqlquery_short}} processes limited client Personal Information (PI) in the course of running the service and optimizing the user experience.
 
 {{site.data.keyword.sqlquery_notm}} provides a [Data Sheet Addendum (DSA)](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=AC17FFB0B52911E7A9EB066095601ABB) with its policies as a data processor regarding content and data protection.
 
