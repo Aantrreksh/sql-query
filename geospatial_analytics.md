@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-11-25"
+  years: 2018, 2023
+lastupdated: "2023-12-14"
 
 keywords: geospatial, analytics, analysis, SQL functions, calculation, index
 
@@ -15,7 +15,10 @@ subcollection: sql-query
 # Geospatial analytics
 {: #geospatial_analytics}
 
-Geospatial SQL functions allow developers to efficiently index and perform calculations on geospatial data. The combination of geospatial analytic functions with the serverless form factor of {{site.data.keyword.sqlquery_full}} makes it easy to build location analytics solutions with your data in the cloud.
+{{site.data.keyword.sqlquery_full}} is deprecated. As of 18 February 2024 you can't create new instances, and access to free instances will be removed. Existing Standard plan instances are supported until 18 January 2025. Any instances that still exist on that date will be deleted.
+{: deprecated}
+
+Geospatial SQL functions allow developers to efficiently index and perform calculations on geospatial data. The combination of geospatial analytic functions with the serverless form factor of {{site.data.keyword.sqlquery_short}} makes it easy to build location analytics solutions with your data in the cloud.
 
 [Getting Started with {{site.data.keyword.sqlquery_short}} Geospatial](https://github.com/IBM-Cloud/data/wiki/Getting-Started-with-SQL-Query-Geospatial) shows you how to use {{site.data.keyword.sqlquery_short}} to analyze geospatial data.
 
