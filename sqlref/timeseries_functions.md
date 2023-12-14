@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-06-03"
+  years: 2019, 2023
+lastupdated: "2013-12-14"
 
 keywords: SQL query, time series, SQL, functions
 
@@ -18,6 +18,9 @@ subcollection: sql-query
 
 # Time series functions
 {: #ts_functions}
+
+{{site.data.keyword.sqlquery_full}} is deprecated. As of 18 February 2024 you can't create new instances, and access to free instances will be removed. Existing Standard plan instances are supported until 18 January 2025. Any instances that still exist on that date will be deleted.
+{: deprecated}
 
 Use time series functions to process time series data.
 
