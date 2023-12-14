@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years:  2020, 2022
-lastupdated: "2022-11-25"
+  years:  2020, 2023
+lastupdated: "2023-12-14"
 
 keywords: hive, metastore, catalog, performance, create table, object storage
 
@@ -15,7 +15,10 @@ subcollection: sql-query
 # Getting started with the catalog
 {: #getting_started_catalog}
 
-Each instance of {{site.data.keyword.sqlquery_full}} includes a database catalog that you can use to register and manage table definitions for your data on {{site.data.keyword.cos_full}}. Catalog syntax is compatible with Hive metastore syntax. See how to [work with the catalog](#usage) and refer to the [Catalog management](/docs/sql-query?topic=sql-query-sql-reference#chapterHiveCatalog) section of the SQL reference.
+{{site.data.keyword.sqlquery_full}} is deprecated. As of 18 February 2024 you can't create new instances, and access to free instances will be removed. Existing Standard plan instances are supported until 18 January 2025. Any instances that still exist on that date will be deleted.
+{: deprecated}
+
+Each instance of {{site.data.keyword.sqlquery_short}} includes a database catalog that you can use to register and manage table definitions for your data on {{site.data.keyword.cos_full}}. Catalog syntax is compatible with Hive metastore syntax. See how to [work with the catalog](#usage) and refer to the [Catalog management](/docs/sql-query?topic=sql-query-sql-reference#chapterHiveCatalog) section of the SQL reference.
 
 ## Benefits
 {: #benefits}
