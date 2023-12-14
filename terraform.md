@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-01-17"
+lastupdated: "2023-12-14"
 
 keywords: SQL query, Terraform
 
@@ -15,7 +15,10 @@ subcollection: sql-query
 # Creating a new instance with Terraform
 {: #terraform}
 
-Terraform on IBM Cloud® enables predictable and consistent provisioning of IBM Cloud services, so that you can rapidly build complex, multitiered cloud environments following Infrastructure as Code (IaC) principles. Similar to using the IBM Cloud CLI or API, you can automate the provisioning and deletion of your {{site.data.keyword.sqlquery_full}} instances by using HashiCorp Configuration Language (HCL).
+{{site.data.keyword.sqlquery_full}} is deprecated. As of 18 February 2024 you can't create new instances, and access to free instances will be removed. Existing Standard plan instances are supported until 18 January 2025. Any instances that still exist on that date will be deleted.
+{: deprecated}
+
+Terraform on IBM Cloud® enables predictable and consistent provisioning of IBM Cloud services, so that you can rapidly build complex, multitiered cloud environments following Infrastructure as Code (IaC) principles. Similar to using the IBM Cloud CLI or API, you can automate the provisioning and deletion of your {{site.data.keyword.sqlquery_short}} instances by using HashiCorp Configuration Language (HCL).
 
 ## Install the Terraform CLI and configure the IBM Cloud Provider plug-in
 
