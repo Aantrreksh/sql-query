@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-08-17"
+lastupdated: "2023-12-14"
 
 keywords: security, authentication, access, iam, sso, service credential
 
@@ -20,7 +20,10 @@ subcollection: sql-query
 # Authentication
 {: #authentication}
 
-The {{site.data.keyword.sqlquery_full}} service is tightly integrated with {{site.data.keyword.iamlong}} (IAM). In order to perform an action by using the {{site.data.keyword.sqlquery_short}} user interface or API, you require an IAM user ID, which is an IBMid with an IBM Cloud account. {{site.data.keyword.sqlquery_short}} then verifies whether you are authorized to work with the service instance.
+{{site.data.keyword.sqlquery_full}} is deprecated. As of 18 February 2024 you can't create new instances, and access to free instances will be removed. Existing Standard plan instances are supported until 18 January 2025. Any instances that still exist on that date will be deleted.
+{: deprecated}
+
+The {{site.data.keyword.sqlquery}} service is tightly integrated with {{site.data.keyword.iamlong}} (IAM). In order to perform an action by using the {{site.data.keyword.sqlquery_short}} user interface or API, you require an IAM user ID, which is an IBMid with an IBM Cloud account. {{site.data.keyword.sqlquery_short}} then verifies whether you are authorized to work with the service instance.
 
 ## {{site.data.keyword.iamshort}} (IAM) session support
 {: #iam}
