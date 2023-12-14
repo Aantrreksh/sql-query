@@ -2,7 +2,7 @@
 
 copyright:
   years: 2022, 2023
-lastupdated: "2023-09-27"
+lastupdated: "2023-12-14"
 
 keywords: data encryption, data storage, bring your own key method, BYOK, key management, key encryption, personal data, data deletion, data security, KYOK
 
@@ -15,7 +15,10 @@ subcollection: sql-query
 # Securing your data in {{site.data.keyword.sqlquery_short}}
 {: #securing-data}
 
-To ensure that you can securely manage your data when you use {{site.data.keyword.sqlquery_full}}, it is important to know exactly [what data is stored and encrypted](/docs/sql-query?topic=sql-query-keyprotect#considerations) and how you can delete any stored data. Depending on your security requirements, you can encrypt data with customer-managed keys by integrating with {{site.data.keyword.cloud_notm}} key management services such as {{site.data.keyword.keymanagementserviceshort}}, which supports the Bring Your Own Key (BYOK) method.
+{{site.data.keyword.sqlquery_full}} is deprecated. As of 18 February 2024 you can't create new instances, and access to free instances will be removed. Existing Standard plan instances are supported until 18 January 2025. Any instances that still exist on that date will be deleted.
+{: deprecated}
+
+To ensure that you can securely manage your data when you use {{site.data.keyword.sqlquery_short}}, it is important to know exactly [what data is stored and encrypted](/docs/sql-query?topic=sql-query-keyprotect#considerations) and how you can delete any stored data. Depending on your security requirements, you can encrypt data with customer-managed keys by integrating with {{site.data.keyword.cloud_notm}} key management services such as {{site.data.keyword.keymanagementserviceshort}}, which supports the Bring Your Own Key (BYOK) method.
 {: shortdesc}
 
 ## How your data is stored and encrypted in {{site.data.keyword.sqlquery_short}}
