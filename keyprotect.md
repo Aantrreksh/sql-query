@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-11-25"
+  years: 2018, 2023
+lastupdated: "2023-12-14"
 
 keywords: encryption, key protect, query, key management system, data engine
 
@@ -15,7 +15,10 @@ subcollection: sql-query
 # Encrypting SQL queries with {{site.data.keyword.keymanagementserviceshort}}
 {: #keyprotect}
 
-By default, {{site.data.keyword.sqlquery_full}} uses server-managed encryption at rest for all job information that is recorded about your stored queries. If you are processing sensitive data in your queries that is governed by special regulations, you can additionally use customer-managed keys to encrypt the SQL query texts and error messages that are stored in the job information.
+{{site.data.keyword.sqlquery_full}} is deprecated. As of 18 February 2024 you can't create new instances, and access to free instances will be removed. Existing Standard plan instances are supported until 18 January 2025. Any instances that still exist on that date will be deleted.
+{: deprecated}
+
+By default, {{site.data.keyword.sqlquery_short}} uses server-managed encryption at rest for all job information that is recorded about your stored queries. If you are processing sensitive data in your queries that is governed by special regulations, you can additionally use customer-managed keys to encrypt the SQL query texts and error messages that are stored in the job information.
 
 {{site.data.keyword.keymanagementservicefull}} is a centralized key management system (KMS) for generating, managing, and destroying encryption keys that are used by {{site.data.keyword.cloud}} services. You can associate a key that is managed in {{site.data.keyword.keymanagementservicelong_notm}} with an SQL query instance to encrypt your queries. Customer key encryption can be configured only when you are creating the SQL query instance, and that configuration cannot be changed later. However, you can always create a new SQL query instance with a different configuration and use that for future queries. Encryption is only available for instances based on the {{site.data.keyword.sqlquery_short}} Standard plan.
 
