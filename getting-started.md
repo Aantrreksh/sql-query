@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-06-01"
+  years: 2018, 2023
+lastupdated: "2023-12-14"
 
 keywords: sql query, data engine
 
@@ -15,7 +15,10 @@ subcollection: sql-query
 # Getting started with {{site.data.keyword.sqlquery_notm}}
 {: #getting-started}
 
-In this {{site.data.keyword.sqlquery_full}} tutorial, we set you up to begin querying rectangular data in {{site.data.keyword.cos_full}} and storing the results in {{site.data.keyword.cos_short}}.
+{{site.data.keyword.sqlquery_full}} is deprecated. As of 18 February 2024 you can't create new instances, and access to free instances will be removed. Existing Standard plan instances are supported until 18 January 2025. Any instances that still exist on that date will be deleted.
+{: deprecated}
+
+In this {{site.data.keyword.sqlquery_short}} tutorial, we set you up to begin querying rectangular data in {{site.data.keyword.cos_full}} and storing the results in {{site.data.keyword.cos_short}}.
 {: shortdesc}
 
 ![Get started with {{site.data.keyword.sqlquery_notm}}](https://video.ibm.com/embed/channel/23952663/video/csq-provision){: video output="iframe" data-script="none" id="watsonmediaplayer" width="560" height="315" scrolling="no" allowfullscreen webkitallowfullscreen mozAllowFullScreen frameborder="0" style="border: 0 none transparent;"}
