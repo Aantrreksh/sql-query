@@ -17,6 +17,7 @@ toc:
   - navgroup:
       id: learn
       topics:
+      - deprecation.md
       - getting-started.md
       - sql-query.md
       - topic: release-notes.md
