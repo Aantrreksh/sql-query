@@ -66,7 +66,7 @@ Your existing instances created before this date will continue to run until 18 J
 <!-- How can the current customers migrate to an equivalent offering, upgrade to a new version, delete their instance and data by the EOS date, and get support for additional questions or issues with the deprecation? You can use H2s in this section if multiple processes need to be documented. The following content is just an example. Fill in details that apply to your service. -->
 
 Current users can continue using existing instances of {{site.data.keyword.sqlquery_short}} even though {{site.data.keyword.sqlquery_short}} is deprecated. 
-You can discontinue use and migrate to {{site.data.keyword.iae_full_notm}} starting today. As of 18 July 2025, all running instances will be deleted, 
+We encourage users to discontinue use and to immediately migrate their workloads to {{site.data.keyword.iae_full_notm}}, as support is removed on 18 January 2025. As of 18 July 2025, all running instances will be deleted, 
 including any user data.
 
 If you have any further questions about this deprecation, you can contact {{site.data.keyword.cloud_notm}} Support until the end of support date on 18 January 2025.
