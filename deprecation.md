@@ -66,7 +66,6 @@ Your existing instances created before this date will continue to run until 18 J
 <!-- How can the current customers migrate to an equivalent offering, upgrade to a new version, delete their instance and data by the EOS date, and get support for additional questions or issues with the deprecation? You can use H2s in this section if multiple processes need to be documented. The following content is just an example. Fill in details that apply to your service. -->
 
 Current users can continue using existing instances of {{site.data.keyword.sqlquery_short}} even though {{site.data.keyword.sqlquery_short}} is deprecated. 
-However, it is not recommended as {{site.data.keyword.IBM}} will no longer be providing support, including bug fixes or security updates. 
 You can discontinue use and migrate to {{site.data.keyword.iae_full_notm}} starting today. As of 18 July 2025, all running instances will be deleted, 
 including any user data.
 
@@ -78,7 +77,7 @@ If you have any further questions about this deprecation, you can contact {{site
 
 <!-- For use cases where there is a new equivalent offering for customer to move to, you can detail that option here and provide links, steps, or guidance on how to stand up the new service. There's an example included below: -->
 
-The {{site.data.keyword.iae_short}} service is now available that offers equivalent functionality. You can start using the 
+The {{site.data.keyword.iae_short}} service is available that offers equivalent functionality. You can start using the 
 {{site.data.keyword.iae_short}} service as you migrate and delete all {{site.data.keyword.sqlquery_short}} instances and data. 
 For more information about {{site.data.keyword.iae_short}}, see [Getting started with {{site.data.keyword.iae_short}}](/docs/AnalyticsEngine?topic=AnalyticsEngine-getting-started).
 
