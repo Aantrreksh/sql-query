@@ -70,7 +70,7 @@ However, it is not recommended as {{site.data.keyword.IBM}} will no longer be pr
 You can discontinue use and migrate to {{site.data.keyword.iae_full_notm}} starting today. As of 18 July 2025, all running instances will be deleted, 
 including any user data.
 
-If you have any further questions about this deprecation, you can contact {{site.data.keyword.cloud_notm}} Support until the end of support date on DD Month YYYY.
+If you have any further questions about this deprecation, you can contact {{site.data.keyword.cloud_notm}} Support until the end of support date on 18 January 2025.
 {: note}
 
 ### Migrating to {{site.data.keyword.iae_full_notm}}
