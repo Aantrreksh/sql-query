@@ -92,8 +92,5 @@ Following this process ensures that all instances and user information stored in
 If you don't manually delete your instances and data before 18 July 2025, it will be done for you on this date.
 {: note}
 
-1. <!--Provide steps for a user to successfully delete all instances and any user data -->
-1. <!--Provide steps for a user to successfully delete all instances and any user data -->
-
 For more details about data deletion policies, see [Securing your data](/docs/sql-query?topic=sql-query-securing-data).
 <!-- All services should be documenting data retention and deletion policies in a topic following this guidance https://test.cloud.ibm.com/docs/writing?topic=writing-data-doc-guidance and you can link here for the steps if they exist in that document. Otherwise, document the steps here.-->
