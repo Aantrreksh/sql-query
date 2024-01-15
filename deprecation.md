@@ -78,9 +78,9 @@ If you have any further questions about this deprecation, you can contact {{site
 
 <!-- For use cases where there is a new equivalent offering for customer to move to, you can detail that option here and provide links, steps, or guidance on how to stand up the new service. There's an example included below: -->
 
-The {{site.data.keyword.iae_full_short}} service is now available that offers equivalent functionality. You can start using the 
-{{site.data.keyword.iae_full_short}} service as you migrate and delete all {{site.data.keyword.sqlquery_short}} instances and data. 
-For more information about {{site.data.keyword.iae_full_short}}, see [Getting started with {{site.data.keyword.iae_full_short}}](/docs/AnalyticsEngine?topic=AnalyticsEngine-getting-started).
+The {{site.data.keyword.iae_short}} service is now available that offers equivalent functionality. You can start using the 
+{{site.data.keyword.iae_short}} service as you migrate and delete all {{site.data.keyword.sqlquery_short}} instances and data. 
+For more information about {{site.data.keyword.iae_short}}, see [Getting started with {{site.data.keyword.iae_short}}](/docs/AnalyticsEngine?topic=AnalyticsEngine-getting-started).
 
 ### Deleting {{site.data.keyword.sqlquery_short}} instances and data
 {: #service-delete}
