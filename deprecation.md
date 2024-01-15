@@ -41,8 +41,7 @@ End of life date is typically when all existing instances are deprovisioned and 
 | ---------------- | ----------------- | ------------------------------------------------------------ |
 | Deprecation announcement | 18 January 2024 | Announcement of the {{site.data.keyword.sqlquery_short}} deprecation. Existing instances will continue to run. |
 | End of marketing | 18 February 2024 | No new instances of {{site.data.keyword.sqlquery_short}} can be created or purchased. Existing instances will continue to run. |
-| End of support   | 18 January 2025 | You can continue to use any existing instances of {{site.data.keyword.sqlquery_short}}, but support is no longer available.  |
-| End of life | 18 July 2025 | Running instances of {{site.data.keyword.sqlquery_short}} are permanently disabled and deprovisioned. |
+| End of support   | 18 January 2025 | You can continue to use any existing instances of {{site.data.keyword.sqlquery_short}}, but support is no longer available. Running instances of {{site.data.keyword.sqlquery_short}} are permanently disabled and deprovisioned. |
 {: caption="Table 1. Deprecation timeline" caption-side="bottom"}
 
 ## Deprecation details
@@ -55,7 +54,7 @@ Review the following details about the {{site.data.keyword.sqlquery_short}} depr
 * The service will be removed from the {{site.data.keyword.cloud_notm}} catalog on 18 February 2024, and no new instances can be created after that date. 
 Your existing instances created before this date will continue to run until 18 January 2025.
 * This deprecation means that support including updates, bug fixes, and technical support for the product is no longer available effective 18 January 2025.
-* Any remaining instances will be permanently disabled and deleted as of 18 July 2025, including any user data.
+* Any remaining instances will be permanently disabled and deleted as of 18 JanuaryJ 2025, including any user data.
 * No support cases can be opened after 18 January 2025.
 * An equivalent product is available for you to start migrating to today. For more information, see [Migrating to {{site.data.keyword.iae_full}}](#migrate-analytics-engine).
 <!-- * An equivalent product is not available for purchase from {{site.data.keyword.IBM}} at this time. -->
@@ -66,8 +65,7 @@ Your existing instances created before this date will continue to run until 18 J
 <!-- How can the current customers migrate to an equivalent offering, upgrade to a new version, delete their instance and data by the EOS date, and get support for additional questions or issues with the deprecation? You can use H2s in this section if multiple processes need to be documented. The following content is just an example. Fill in details that apply to your service. -->
 
 Current users can continue using existing instances of {{site.data.keyword.sqlquery_short}} even though {{site.data.keyword.sqlquery_short}} is deprecated. 
-We encourage users to discontinue use and to immediately migrate their workloads to {{site.data.keyword.iae_full_notm}}, as support is removed on 18 January 2025. As of 18 July 2025, all running instances will be deleted, 
-including any user data.
+We encourage users to discontinue use and to immediately migrate their workloads to {{site.data.keyword.iae_full_notm}}, as support is removed on 18 January 2025. As of 18 January 2025, all running instances will be deleted, including any user data.
 
 If you have any further questions about this deprecation, you can contact {{site.data.keyword.cloud_notm}} Support until the end of support date on 18 January 2025.
 {: note}
@@ -77,18 +75,18 @@ If you have any further questions about this deprecation, you can contact {{site
 
 <!-- For use cases where there is a new equivalent offering for customer to move to, you can detail that option here and provide links, steps, or guidance on how to stand up the new service. There's an example included below: -->
 
-The {{site.data.keyword.iae_short}} service is available that offers equivalent functionality. You can start using the 
+The {{site.data.keyword.iae_short}} service is available and can be used as an alternative solution. You can start using the 
 {{site.data.keyword.iae_short}} service as you migrate and delete all {{site.data.keyword.sqlquery_short}} instances and data. 
 For more information about {{site.data.keyword.iae_short}}, see [Getting started with {{site.data.keyword.iae_short}}](/docs/AnalyticsEngine?topic=AnalyticsEngine-getting-started).
 
 ### Deleting {{site.data.keyword.sqlquery_short}} instances and data
 {: #service-delete}
 
-Existing instances of {{site.data.keyword.sqlquery_short}} can continue to be used until 18 July 2025. 
-You can start deleting your service instances and the associated data by using the following steps when you're ready. 
+Existing instances of {{site.data.keyword.sqlquery_short}} can continue to be used until 18 January 2025. 
+You can start deleting your service instances and the associated data when you're ready. 
 Following this process ensures that all instances and user information stored in the service is permanently deleted.
 
-If you don't manually delete your instances and data before 18 July 2025, it will be done for you on this date.
+If you don't manually delete your instances and data before 18 January 2025, it will be done for you on this date.
 {: note}
 
 For more details about data deletion policies, see [Securing your data](/docs/sql-query?topic=sql-query-securing-data).
