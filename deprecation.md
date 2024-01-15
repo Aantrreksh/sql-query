@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-01-12"
+lastupdated: "2024-01-15"
 
 keywords: deprecation, migration
 
@@ -41,7 +41,7 @@ End of life date is typically when all existing instances are deprovisioned and 
 | ---------------- | ----------------- | ------------------------------------------------------------ |
 | Deprecation announcement | 18 January 2024 | Announcement of the {{site.data.keyword.sqlquery_short}} deprecation. Existing instances will continue to run. |
 | End of marketing | 18 February 2024 | No new instances of {{site.data.keyword.sqlquery_short}} can be created or purchased. Existing instances will continue to run. |
-| End of support   | 31 August 2024 | You can continue to use any existing instances of {{site.data.keyword.sqlquery_short}}, but support is no longer available.  |
+| End of support   | 18 January 2025 | You can continue to use any existing instances of {{site.data.keyword.sqlquery_short}}, but support is no longer available.  |
 | End of life | 18 July 2025 | Running instances of {{site.data.keyword.sqlquery_short}} are permanently disabled and deprovisioned. |
 {: caption="Table 1. Deprecation timeline" caption-side="bottom"}
 
