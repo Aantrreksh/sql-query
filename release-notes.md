@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-01-15"
+lastupdated: "2024-01-16"
 
 keywords: release notes
 
