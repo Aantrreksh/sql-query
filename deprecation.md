@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-01-15"
+lastupdated: "2024-01-16"
 
 keywords: deprecation, migration
 
@@ -86,7 +86,7 @@ Existing instances of {{site.data.keyword.sqlquery_short}} can continue to be us
 You can start deleting your service instances and the associated data when you're ready. 
 Following this process ensures that all instances and user information stored in the service is permanently deleted.
 
-If you don't manually delete your instances and data before 18 January 2025, it will be done for you on this date.
+If you don't manually delete your instances and data before 18 January 2025, these will be deleted on this date.
 {: note}
 
 For more details about data deletion policies, see [Securing your data](/docs/sql-query?topic=sql-query-securing-data).
