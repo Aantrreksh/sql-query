@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-09-21"
+lastupdated: "2023-12-14"
 
 keywords: activity tracker, activity, event
 
@@ -15,7 +15,10 @@ subcollection: sql-query
 # Activity Tracker events
 {: #activitytracker}
 
-Use the {{site.data.keyword.at_full}} service to track how users and applications interact with {{site.data.keyword.sqlquery_full}}.
+{{site.data.keyword.sqlquery_full}} is deprecated. As of 18 February 2024 you can't create new instances, and access to free instances will be removed. Existing Standard plan instances are supported until 18 January 2025. Any instances that still exist on that date will be deleted.
+{: deprecated}
+
+Use the {{site.data.keyword.at_full}} service to track how users and applications interact with {{site.data.keyword.sqlquery_short}}.
 
 The {{site.data.keyword.at_full_notm}} service records user-initiated activities that change the state of a service in {{site.data.keyword.cloud}}. For more information, see [Getting started with {{site.data.keyword.at_short}}](/docs/Activity-Tracker-with-LogDNA?topic=Activity-Tracker-with-LogDNA-getting-started).
 

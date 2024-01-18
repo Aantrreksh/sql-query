@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-11-28"
+  years: 2019, 2023
+lastupdated: "2023-12-14"
 
 keywords: SQL query, time series, SQL, data types
 
@@ -14,6 +14,9 @@ subcollection: sql-query
 
 # Time series data types
 {: #ts_datatypes}
+
+{{site.data.keyword.sqlquery_full}} is deprecated. As of 18 February 2024 you can't create new instances, and access to free instances will be removed. Existing Standard plan instances are supported until 18 January 2025. Any instances that still exist on that date will be deleted.
+{: deprecated}
 
 Time series functions operate on a wide variety of special data types that are designed especially for time series data.
 

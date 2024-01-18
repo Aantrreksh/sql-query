@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-08-01"
+lastupdated: "2023-12-14"
 
 keywords: reading, writing, cos
 
@@ -17,6 +17,9 @@ subcollection: sql-query
 
 ## Table unique resource identifier
 {: #unique}
+
+{{site.data.keyword.sqlquery_full}} is deprecated. As of 18 February 2024 you can't create new instances, and access to free instances will be removed. Existing Standard plan instances are supported until 18 January 2025. Any instances that still exist on that date will be deleted.
+{: deprecated}
 
 Different types of table unique resource identifiers exist, depending on the type of target service used. You can either specify Cloud {{site.data.keyword.cos_short}} locations or database locations. The latter is only supported for target locations of an SQL query, and only for {{site.data.keyword.Db2_on_Cloud_long}} and {{site.data.keyword.dashdblong}} database services.
 

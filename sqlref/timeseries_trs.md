@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-12-08"
+  years: 2019, 2023
+lastupdated: "2023-12-14"
 
-keywords: SQL query, time series, SQL function, time reference system, TRS
+keywords: time series, SQL function, time reference system, TRS
 
 subcollection: sql-query
 
@@ -14,6 +14,9 @@ subcollection: sql-query
 
 # Time reference systems
 {: #TRS}
+
+{{site.data.keyword.sqlquery_full}} is deprecated. As of 18 February 2024 you can't create new instances, and access to free instances will be removed. Existing Standard plan instances are supported until 18 January 2025. Any instances that still exist on that date will be deleted.
+{: deprecated}
 
 A time reference system (TRS) defines the *granularity* of a time series (that is, the length of each timetick), 
 and the date and time from which the timeticks are to be counted (that is, the time series *start time*).

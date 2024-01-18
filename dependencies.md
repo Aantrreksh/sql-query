@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-11-25"
+  years: 2020, 2023
+lastupdated: "2023-12-14"
 
 keywords: SQL query, dependencies, cloud
 
@@ -18,7 +18,10 @@ subcollection: sql-query
 ## Dependencies to other IBM Cloud Services
 {: #dependencies_cloud}
 
-In general, customer data is not leaving the region or country, in which an instance of {{site.data.keyword.sqlquery_full}} was provisioned. This rule excludes customer data that is used by dependant service instances that are under customer responsibility.
+{{site.data.keyword.sqlquery_full}} is deprecated. As of 18 February 2024 you can't create new instances, and access to free instances will be removed. Existing Standard plan instances are supported until 18 January 2025. Any instances that still exist on that date will be deleted.
+{: deprecated}
+
+In general, customer data is not leaving the region or country, in which an instance of {{site.data.keyword.sqlquery_short}} was provisioned. This rule excludes customer data that is used by dependant service instances that are under customer responsibility.
 
 ### Critical Dependencies
 {: #critical}

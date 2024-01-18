@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-12-08"
+  years: 2019, 2023
+lastupdated: "2023-12-14"
 
 keywords: SQL query, time series, SQL, analyzing 
 
@@ -14,6 +14,9 @@ subcollection: sql-query
 
 # Analyzing time series data
 {: #ts_intro}
+
+{{site.data.keyword.sqlquery_full}} is deprecated. As of 18 February 2024 you can't create new instances, and access to free instances will be removed. Existing Standard plan instances are supported until 18 January 2025. Any instances that still exist on that date will be deleted.
+{: deprecated}
 
 A time series is a sequence of data values that are measured at successive, though not necessarily regular, points in time. You can use special SQL functions to process time series data, for example, to identify trends and to predict future values based on these trends.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020, 2023
-lastupdated: "2023-11-02"
+lastupdated: "2023-12-14"
 
 keywords: jdbc, data engine
 
@@ -27,9 +27,12 @@ Here you find the previous version for reference: [`2.7.29`](https://us.sql-quer
 ## JDBC driver class and URL format
 {: #jdbc_class}
 
+{{site.data.keyword.sqlquery_full}} is deprecated. As of 18 February 2024 you can't create new instances, and access to free instances will be removed. Existing Standard plan instances are supported until 18 January 2025. Any instances that still exist on that date will be deleted.
+{: deprecated}
+
 The Java™ class name for the JDBC driver is `com.ibm.cloud.sql.jdbc.Driver`.
 
-The JDBC URL needs to include the CRN of an {{site.data.keyword.sqlquery_full}} instance, and must match the following schema:
+The JDBC URL needs to include the CRN of an {{site.data.keyword.sqlquery_short}} instance, and must match the following schema:
 
 `jdbc:ibmcloudsql:{instance-crn}[?{key1}={value1}&{key2}={value2}...]`
 

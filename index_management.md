@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years:  2020, 2022
-lastupdated: "2022-11-25"
+  years:  2020, 2023
+lastupdated: "2023-12-14"
 
 keywords: data skipping, performance, cost, data format, indexes, sample data, index management
 
@@ -14,6 +14,9 @@ subcollection: sql-query
 
 # Index management
 {: #index_management}
+
+{{site.data.keyword.sqlquery_full}} is deprecated. As of 18 February 2024 you can't create new instances, and access to free instances will be removed. Existing Standard plan instances are supported until 18 January 2025. Any instances that still exist on that date will be deleted.
+{: deprecated}
 
 Index management, also referred to as data skipping, can significantly boost performance and reduce cost of SQL queries by skipping over irrelevant data.
 Data skipping indexes apply to structured data sets in {{site.data.keyword.cos_full}} and store summary metadata for each object in the data set. The indexes are stored in Cloud {{site.data.keyword.cos_short}} in a user-provided bucket, similarly to the data. SQL queries benefit from an index by skipping over all objects whose metadata indicates that they are not relevant to the indicated query.
@@ -27,7 +30,7 @@ Data skipping indexes apply to structured data sets in {{site.data.keyword.cos_f
 ## Overview
 {: #overview_ds}
 
-For each of the columns in an object, summary metadata can include minimum and maximum values, a list or bloom filter of the appearing values, or other metadata that represents the data in that column. The summary metadata is then used during query evaluation to skip over objects that do not contain any relevant data. All formats are supported, including Parquet, ORC, CSV, and JSON. Data skipping is used for performance optimization. Data skipping does not affect the content of query results. {{site.data.keyword.sqlquery_full}} currently supports metaindexes only. Metaindexes are indexes on a higher level, thus they index objects instead of rows.
+For each of the columns in an object, summary metadata can include minimum and maximum values, a list or bloom filter of the appearing values, or other metadata that represents the data in that column. The summary metadata is then used during query evaluation to skip over objects that do not contain any relevant data. All formats are supported, including Parquet, ORC, CSV, and JSON. Data skipping is used for performance optimization. Data skipping does not affect the content of query results. {{site.data.keyword.sqlquery_short}} currently supports metaindexes only. Metaindexes are indexes on a higher level, thus they index objects instead of rows.
 
 As {{site.data.keyword.sqlquery_short}} charges on a per-query basis based on the amount of data scanned, reducing the number of bytes scanned per query, reduces cost while it improves performance. For data skipping to work well and for good performance overall, use the [best practices for data layout](https://www.ibm.com/cloud/blog/big-data-layout), such as using the Parquet format and adopting Hive-style partitioning. Ideally, create tables by using the [Cloud Object Storage catalog](/docs/services/sql-query?topic=sql-query-hivemetastore).
 Data skipping complements these best practices and provides significant cost savings and performance benefits.

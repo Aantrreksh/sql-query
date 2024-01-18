@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2022
-lastupdated: "2022-12-15"
+  years: 2022, 2023
+lastupdated: "2022-12-14"
 
-keywords: Data Engine, SQL query, Hive, metastore, catalog
+keywords: SQL query, Hive, metastore, catalog
 
 subcollection: sql-query
 
@@ -20,7 +20,10 @@ subcollection: sql-query
 {: #hive_metastore}
 {: beta}
 
-{{site.data.keyword.sqlquery_full}} catalog provides an interface that is compatible with Apache Hive metastore. This unified metadata repository enables any Big Data engine, such as Apache Spark, to use {{site.data.keyword.sqlquery_short}} as metastore. The same definition for tables and views can be created once and used from any connected engine. Each instance of {{site.data.keyword.sqlquery_short}} exports its catalog as a database called *default*.
+{{site.data.keyword.sqlquery_full}} is deprecated. As of 18 February 2024 you can't create new instances, and access to free instances will be removed. Existing Standard plan instances are supported until 18 January 2025. Any instances that still exist on that date will be deleted.
+{: deprecated}
+
+{{site.data.keyword.sqlquery_short}} catalog provides an interface that is compatible with Apache Hive metastore. This unified metadata repository enables any Big Data engine, such as Apache Spark, to use {{site.data.keyword.sqlquery_short}} as metastore. The same definition for tables and views can be created once and used from any connected engine. Each instance of {{site.data.keyword.sqlquery_short}} exports its catalog as a database called *default*.
 {: beta}
 
 ## Catalog usage within {{site.data.keyword.sqlquery_short}}

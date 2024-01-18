@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-11-25"
+  years: 2020, 2023
+lastupdated: "2023-12-14"
 
 keywords: aspera, data lake, object storage, csv, monitoring
 
@@ -15,13 +15,16 @@ subcollection: sql-query
 # Monitoring
 {: #metrics}
 
+{{site.data.keyword.sqlquery_full}} is deprecated. As of 18 February 2024 you can't create new instances, and access to free instances will be removed. Existing Standard plan instances are supported until 18 January 2025. Any instances that still exist on that date will be deleted.
+{: deprecated}
+
 {{site.data.keyword.mon_full}} is a cloud-native, and container-intelligence management system that you can include as part of your {{site.data.keyword.cloud_notm}} architecture. Use it to gain operational visibility into the performance and health of your applications, services, and platforms. It offers administrators, DevOps teams, and developers full stack telemetry with advanced features to monitor and troubleshoot, define alerts, and design custom dashboards.
 {: shortdesc}
 
-## Opting in to and enabling {{site.data.keyword.sqlquery_full}} metrics
+## Opting in to and enabling {{site.data.keyword.sqlquery_short}} metrics
 {: #opt_in_metrics}
 
-Before you can start to use {{site.data.keyword.sqlquery_short}} metrics, you must first opt in, and then enable platform metrics by completing the following steps.
+Before you can start to use {{site.data.keyword.sqlquery_full}} metrics, you must first opt in, and then enable platform metrics by completing the following steps.
 
 1. Enable platform metrics for {{site.data.keyword.sqlquery_short}}. For more information, see [Enabling platform metrics](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-platform_metrics_enabling){: external}. The owner of the account has full access to the metrics data. For more information about managing access for other users, see [Getting started tutorial for {{site.data.keyword.mon_full}}](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-getting-started){: external}.
 

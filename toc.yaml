@@ -6,6 +6,7 @@ toc:
     category: analytics
     audience: service
     href: /docs/sql-query?topic=sql-query-getting-started
+    release-level: deprecated
     console-page: /catalog/services/sql-query
     product-page: https://www.ibm.com/cloud/sql-query
     path: sql-query
@@ -16,6 +17,7 @@ toc:
   - navgroup:
       id: learn
       topics:
+      - deprecation.md
       - getting-started.md
       - sql-query.md
       - topic: release-notes.md

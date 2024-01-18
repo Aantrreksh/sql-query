@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-11-25"
+  years: 2020, 2023
+lastupdated: "2023-12-14"
 
 keywords: best practice, faq, sql query
 
@@ -15,11 +15,13 @@ subcollection: sql-query
 # FAQ
 {: #faq}
 
-## Is {{site.data.keyword.sqlquery_full}} transaction safe?
+## Is {{site.data.keyword.sqlquery}} transaction safe?
 {: #transaction_safe}
 
-{{site.data.keyword.sqlquery_short}} does not support INSERT, UPDATE, or DELETE operations, while it can be used to create {{site.data.keyword.cos_short}} objects by using the INTO clause. For the created objects in {{site.data.keyword.cos_short}}, the question arises if this operation is transaction safe and ACID compliant?
-In other words, if you create an object in {{site.data.keyword.cos_short}} by using {{site.data.keyword.sqlquery_short}}, can you assume that this creation is transaction safe? If anything happens before the creation is done, it is rolled back?
+{{site.data.keyword.sqlquery_full}} is deprecated. As of 18 February 2024 you can't create new instances, and access to free instances will be removed. Existing Standard plan instances are supported until 18 January 2025. Any instances that still exist on that date will be deleted.
+{: deprecated}
+
+{{site.data.keyword.sqlquery_short}} does not support INSERT, UPDATE, or DELETE operations, while it can be used to create {{site.data.keyword.cos_short}} objects by using the INTO clause. For the created objects in {{site.data.keyword.cos_short}}, the question arises if this operation is transaction safe and ACID compliant? In other words, if you create an object in {{site.data.keyword.cos_short}} by using {{site.data.keyword.sqlquery_short}}, can you assume that this creation is transaction safe? If anything happens before the creation is done, it is rolled back?
 
 The answer is {{site.data.keyword.cos_full}} does not support transactions. However, an object is rolled back if you create it with a single SQL query job on a nonpartitioned object on {{site.data.keyword.cos_short}} because {{site.data.keyword.cos_short}} itself does object write in an atomic fashion. If you want to write complex hierarchies of objects with a single SQL job, two scenarios can happen: 1) the job fails half way through and only part of the objects are written, or 2) during job execution some objects are already visible while others are still in process to be written.
 For the latter scenario, use Hive-style partitioned tables, which means that the SQL job writes a new set of objects into a new {{site.data.keyword.cos_short}} prefix location. This method does not affect anything in the Hive-style partitioned table. Only when you then also issue an `ALTER TABLE … ADD PARTITION` with the newly written object location, the data is made available in the Hive-style partitioned table. That ALTER TABLE DDL is in fact also an atomic operation.

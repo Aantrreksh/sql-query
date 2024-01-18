@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-11-28"
+  years: 2018, 2023
+lastupdated: "2023-12-14"
 
 keywords: security, custom secrets, key protect, access
 
@@ -14,6 +14,8 @@ subcollection: sql-query
 
 # Setting up custom secrets in Key Protect
 {: #kpsetup}
+
+{{site.data.keyword.sqlquery_full}} is deprecated. As of 18 February 2024 you can't create new instances, and access to free instances will be removed. Existing Standard plan instances are supported until 18 January 2025. Any instances that still exist on that date will be deleted.
 
 {{site.data.keyword.keymanagementservicefull}} is the service for storing and managing secrets in {{site.data.keyword.Bluemix_notm}}. You can upload custom secrets and {{site.data.keyword.keymanagementserviceshort}} manages them for you. {{site.data.keyword.keymanagementserviceshort}} ensures that only those users and services whom you explicitly granted permission are able to access and use secrets. {{site.data.keyword.sqlquery_short}} uses {{site.data.keyword.keymanagementserviceshort}} as its secure and trusted credential broker for custom access secrets to data resources as the following diagram shows.
 

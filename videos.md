@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-06-01"
+  years: 2018, 2023
+lastupdated: "2023-12-14"
 
-keywords: SQL query, tutorial, video, provision, run query, introduction, REST API, command line, object storage, Data Engine
+keywords: tutorial, video, provision, run query, introduction, REST API, command line
 
 subcollection: sql-query
 
@@ -20,7 +20,10 @@ subcollection: sql-query
 # Video tutorials
 {: #video}
 
-The following videos help you to get provisioned and use {{site.data.keyword.sqlquery_full}}. The videos show you how to run queries, use the REST API, and how to connect to {{site.data.keyword.cos_full}} through the command line.
+{{site.data.keyword.sqlquery_full}} is deprecated. As of 18 February 2024 you can't create new instances, and access to free instances will be removed. Existing Standard plan instances are supported until 18 January 2025. Any instances that still exist on that date will be deleted.
+{: deprecated}
+
+The following videos help you to get provisioned and use {{site.data.keyword.sqlquery_short}}. The videos show you how to run queries, use the REST API, and how to connect to {{site.data.keyword.cos_full}} through the command line.
 
 ## Get started
 {: #video_getting_started}
