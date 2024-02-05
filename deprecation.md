@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-01-16"
+lastupdated: "2024-02-05"
 
 keywords: deprecation, migration
 
@@ -78,6 +78,160 @@ If you have any further questions about this deprecation, you can contact {{site
 The {{site.data.keyword.iae_short}} service is available and can be used as an alternative solution. You can start using the 
 {{site.data.keyword.iae_short}} service as you migrate and delete all {{site.data.keyword.sqlquery_short}} instances and data. 
 For more information about {{site.data.keyword.iae_short}}, see [Getting started with {{site.data.keyword.iae_short}}](/docs/AnalyticsEngine?topic=AnalyticsEngine-getting-started).
+
+#### Spark execution
+{: #spark-execution}
+
+You can execute SQL queries by using {{site.data.keyword.iae_short}}. The following script helps to read the data from the Cloud {{site.data.keyword.cos_short}} bucket, execute the query, and write it back to the Cloud {{site.data.keyword.cos_short}} bucket for batch queries. 
+
+**Before you begin:**
+
+1. Create an instance of {{site.data.keyword.iae_short}}.
+2. Create an instance of Cloud {{site.data.keyword.cos_short}} and a bucket to upload the data and the required script.
+3. Find the Python script from the given path (<file_path>) that will execute in the {{site.data.keyword.iae_short}} instance.
+
+**Execute the SQL query:**
+
+1. Upload the Python script and data file into the Cloud {{site.data.keyword.cos_short}} bucket.
+2. Find the {{site.data.keyword.iae_short}} API to execute the query:
+
+	 1. In the UI, go to the {{site.data.keyword.iae_short}} details.
+	 2. Click on **service credentials**.
+	 3. Get the application_api endpoint (for example, `https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications`).
+
+   ```
+   Method: POST
+   Authorization: Pass bearer token 
+   Headers: Content-Type application/json
+   Body:
+   {
+    "application_details": {
+
+        "conf": {
+
+        "spark.hadoop.fs.cos.service.endpoint": < Get the direct endpoint from cos bucket configuration Endpoints. It should be similer to --> "s3.direct.us-south.cloud-object-storage.appdomain.cloud">,
+
+        "spark.hadoop.fs.cos.service.iam.api.key": <Changeme_with_api_key>
+
+        },
+
+        "application": <chamge_me_with_cos_bucket_path_with_data_file similer to --> "cos://cos-de-test.service/de_sql_query_app.py">,
+
+        "runtime": {
+
+            "spark_version": <change_me_with_runtime like --> "3.3">
+
+           }
+
+       }
+
+   }
+
+   ``` 
+   
+4. 3) Api Response structure:
+
+{
+
+    "id": "a678f50b-dfb6-45a3-b8a1-4***89ca***c",
+
+    "state": "accepted"
+
+}
+
+4. Call the GET endpoint to check the state of job.
+   The API endpoint stays the same to get the list of jobs. Alternatively, you can include the jobID at the end to get the state of a specific job.
+
+   - METHOD: GET
+   - Authorization: Pass bearer token 
+   - Headers: Content-type application/json
+
+5. Get call for the response structure:
+
+"applications": [
+
+        {
+
+            "id": "a678f50b-dfb6-45a3-b8a1-4***89ca***c",
+
+            "state": "accepted",
+
+            "submission_time": "2024-01-25T10:16:01.522Z",
+
+            "runtime": {
+
+                "spark_version": "3.3"
+
+            }
+
+        },
+
+        {
+
+            "id": "c93d4b3a-ef47-4d98-bab0-***f39****5a",
+
+            "spark_application_id": "spark-application-1706173131046",
+
+            "spark_application_name": "read-write-data-to-cos-bucket",
+
+            "state": "finished",
+
+            "start_time": "2024-01-25T08:58:52Z",
+
+            "finish_time": "2024-01-25T08:58:52Z",
+
+            "end_time": "2024-01-25T08:58:52Z",
+
+            "submission_time": "2024-01-25T08:57:48.425Z",
+
+            "auto_termination_time": "2024-01-28T08:58:52Z",
+
+            "runtime": {
+
+                "spark_version": "3.3"
+
+            }
+
+        }
+
+    ]
+    
+6. Curl commands to execute sql query:
+
+   Example to submit an application:
+
+   curl -X POST --location --header "Authorization: Bearer $token"   --header "Accept: application/json"   --header "Content-Type: application/json"   --data '{
+
+    "application_details": {
+
+      "conf": {
+
+        "spark.hadoop.fs.cos.service.endpoint": "s3.direct.us-south.cloud-object-storage.appdomain.cloud",
+
+        "spark.hadoop.fs.cos.service.iam.api.key": "changeme_with_apikey"
+
+      },
+
+      "application": "cos://cos-de.service/de_sql_query_app.py",
+
+      "runtime": {
+
+        "spark_version": "3.3"
+
+      }
+
+    }
+
+  }'   "https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications"
+
+   Example to get an application: 
+
+   ```
+   curl -X GET --location --header "Authorization: Bearer $token"   --header "Accept: application/json"   --header "Content-Type: application/json" "https://api.us-   south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications/<application_id>"
+   ```
+   
+For more information, see the [IBM Analytics Engine API](/apidocs/ibm-analytics-engine-v3#get-application-state) and the [IBM Analytics Cloud CLI](/docs/AnalyticsEngine?topic=AnalyticsEngine-using-cli#ae-cli-prereqs).
+
 
 ### Deleting {{site.data.keyword.sqlquery_short}} instances and data
 {: #service-delete}
