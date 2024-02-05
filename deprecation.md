@@ -129,7 +129,8 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
    ``` 
    
 3. API response structure:
-
+4. 
+```
 {
 
     "id": "a678f50b-dfb6-45a3-b8a1-4***89ca***c",
@@ -137,6 +138,7 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
     "state": "accepted"
 
 }
+```
 
 4. Call the GET endpoint to check the state of job.
    The API endpoint stays the same to get the list of jobs. Alternatively, you can include the jobID at the end to get the state of a specific job.
@@ -147,6 +149,7 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
 
 5. Get call for the response structure:
 
+   ```
 "applications": [
 
         {
@@ -194,11 +197,13 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
         }
 
     ]
+    ```
     
 6. CURL commands to execute SQL query:
 
    - Example to submit an application:
-
+   
+   ```
    curl -X POST --location --header "Authorization: Bearer $token"   --header "Accept: application/json"   --header "Content-Type: application/json"   --data '{
 
     "application_details": {
@@ -222,6 +227,7 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
     }
 
   }'   "https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications"
+  ```
 
    - Example to get an application: 
 
