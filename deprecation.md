@@ -96,7 +96,8 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
 
 	 1. In the UI, go to the {{site.data.keyword.iae_short}} details.
 	 2. Click on **service credentials**.
-	 3. Get the application_api endpoint (for example, `https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications`).
+	 3. Get the application_api endpoint. 
+            For example, `https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications`.
 
    ```
    Method: POST
