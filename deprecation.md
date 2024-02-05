@@ -26,7 +26,6 @@ The service will no longer be supported by {{site.data.keyword.cloud}} as of 18 
 {{site.data.keyword.sqlquery_short}} that are still running will be permanently disabled and deprovisioned.
 {: shortdesc}
 
-
 ## Important dates
 {: #deprecation-timeline}
 
@@ -129,7 +128,7 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
 
    ``` 
    
-4. 3) Api Response structure:
+3. API response structure:
 
 {
 
@@ -196,9 +195,9 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
 
     ]
     
-6. Curl commands to execute sql query:
+6. CURL commands to execute SQL query:
 
-   Example to submit an application:
+   - Example to submit an application:
 
    curl -X POST --location --header "Authorization: Bearer $token"   --header "Accept: application/json"   --header "Content-Type: application/json"   --data '{
 
@@ -224,7 +223,7 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
 
   }'   "https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications"
 
-   Example to get an application: 
+   - Example to get an application: 
 
    ```
    curl -X GET --location --header "Authorization: Bearer $token"   --header "Accept: application/json"   --header "Content-Type: application/json" "https://api.us-   south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications/<application_id>"
