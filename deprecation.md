@@ -99,9 +99,9 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
 	 3. Get the application_api endpoint. 
             For example, `https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications`.
 	    
-   Method: POST
-   Authorization: Pass bearer token
-   Headers: Content-Type application/json
+   - Method: POST
+   - Authorization: Pass bearer token
+   - Headers: Content-Type application/json
    
    ```
     "application_details": {
@@ -212,17 +212,13 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
 
         "spark_version": "3.3"
 
-      }
-
-    }
-
-  } 
-  ```
+   ```
 
    - Example to get an application: 
 
      ```
      curl -X GET --location --header "Authorization: Bearer $token"   --header "Accept: application/json"   --header "Content-Type: application/json" "https://api.us-      south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications/<application_id>"
+
      ```
    
 For more information, see the [IBM Analytics Engine API](/apidocs/ibm-analytics-engine-v3#get-application-state) and the [IBM Analytics Cloud CLI](/docs/AnalyticsEngine?topic=AnalyticsEngine-using-cli#ae-cli-prereqs).
