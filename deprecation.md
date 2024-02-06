@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-02-05"
+lastupdated: "2024-02-06"
 
 keywords: deprecation, migration
 
@@ -99,17 +99,17 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
 	 3. Get the application_api endpoint. 
             For example, `https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications`.
 
-   ```
    Method: POST
    Authorization: Pass bearer token 
    Headers: Content-Type application/json
-   Body:
+   
+   ```
    {
     "application_details": {
 
         "conf": {
 
-        "spark.hadoop.fs.cos.service.endpoint": < Get the direct endpoint from cos bucket configuration Endpoints. It should be similer to --> "s3.direct.us-south.cloud-object-storage.appdomain.cloud">,
+        "spark.hadoop.fs.cos.service.endpoint": < Get the direct endpoint from cos bucket configuration Endpoints. It should be similer to --> "s3.direct.us-     south.cloud-object-storage.appdomain.cloud">,
 
         "spark.hadoop.fs.cos.service.iam.api.key": <Changeme_with_api_key>
 
@@ -130,16 +130,12 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
    ``` 
    
 3. API response structure:
-4. 
-```
-{
 
+   ```
     "id": "a678f50b-dfb6-45a3-b8a1-4***89ca***c",
 
     "state": "accepted"
-
-}
-```
+   ```
 
 4. Call the GET endpoint to check the state of job.
    The API endpoint stays the same to get the list of jobs. Alternatively, you can include the jobID at the end to get the state of a specific job.
@@ -151,7 +147,7 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
 5. Get call for the response structure:
 
    ```
-"applications": [
+   "applications": [
 
         {
 
@@ -233,7 +229,7 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
    - Example to get an application: 
 
    ```
-   curl -X GET --location --header "Authorization: Bearer $token"   --header "Accept: application/json"   --header "Content-Type: application/json" "https://api.us-   south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications/<application_id>"
+   curl -X GET --location --header "Authorization: Bearer $token"   --header "Accept: application/json"   --header "Content-Type: application/json" "https://api.us-      south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications/<application_id>"
    ```
    
 For more information, see the [IBM Analytics Engine API](/apidocs/ibm-analytics-engine-v3#get-application-state) and the [IBM Analytics Cloud CLI](/docs/AnalyticsEngine?topic=AnalyticsEngine-using-cli#ae-cli-prereqs).
