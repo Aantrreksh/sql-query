@@ -86,7 +86,7 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
 **Before you begin:**
 
 1. Create an instance of {{site.data.keyword.iae_short}}.
-2. Create an instance of Cloud {{site.data.keyword.cos_short}} and a bucket to upload the data and the required script.
+2. Create an instance of Cloud {{site.data.keyword.cos_short}} and a bucket to upload the data and the following required script.
 
    ```
       from pyspark.sql import SparkSession
