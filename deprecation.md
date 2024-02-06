@@ -87,7 +87,7 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
 
 1. Create an instance of {{site.data.keyword.iae_short}}.
 2. Create an instance of Cloud {{site.data.keyword.cos_short}} and a bucket to upload the data and the required script.
-3. Find the Python script from the given path (https://github.ibm.com/SqlServiceWdp/tools-for-ops/blob/master/spark-app/read_write_sql_query_data.py) that will execute in the {{site.data.keyword.iae_short}} instance.
+3. Find the Python script from the given path (`https://github.ibm.com/SqlServiceWdp/tools-for-ops/blob/master/spark-app/read_write_sql_query_data.py`) that will execute in the {{site.data.keyword.iae_short}} instance.
 
 **Execute the SQL query:**
 
