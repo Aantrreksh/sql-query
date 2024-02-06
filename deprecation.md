@@ -129,8 +129,9 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
       
     if __name__ == '__main__':
       main()
-  ```
-  {: codeblock}
+
+   ```
+   {: codeblock}
 
 
 **Execute the SQL query:**
@@ -166,7 +167,7 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
                   "spark_version": <change_me_with_runtime like --> "3.3">
 
                   ```
-		  {: codeblock}
+		              {: codeblock}
 		  
    
 3. API response structure:
