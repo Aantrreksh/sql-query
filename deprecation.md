@@ -89,46 +89,46 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
 2. Create an instance of Cloud {{site.data.keyword.cos_short}} and a bucket to upload the data and the required script.
 
    ```
-   from pyspark.sql import SparkSession
+      from pyspark.sql import SparkSession
 
-def init_spark():
-  spark = SparkSession.builder.appName("read-write-data-to-cos-bucket").getOrCreate()
-  sc = spark.sparkContext
-  return spark,sc
+    def init_spark():
+      spark = SparkSession.builder.appName("read-write-data-to-cos-bucket").getOrCreate()
+      sc = spark.sparkContext
+      return spark,sc
 
-def read_customer_data(spark,sc):
-  print("starting reading data from given cos bucket")
-  # read the data from cos bucket (Pass CosBucketPathWithFileName e.g cos://cos-dataengine.service/customer.csv)
-  read_df = spark.read.option("header",True).csv("<#CosBucketPathWithFileName>")
-  print("data successfully uploaded to cos bucket")
-  return read_df
+    def read_customer_data(spark,sc):
+      print("starting reading data from given cos bucket")
+      # read the data from cos bucket (Pass CosBucketPathWithFileName e.g cos://cos-dataengine.service/customer.csv)
+      read_df = spark.read.option("header",True).csv("<#CosBucketPathWithFileName>")
+      print("data successfully uploaded to cos bucket")
+      return read_df
 
-def create_table(read_df):
-  # create table from the read data frame (pass tablename like customerTable)
-  read_df.createOrReplaceTempView("#TableName")
+    def create_table(read_df):
+      # create table from the read data frame (pass tablename like customerTable)
+      read_df.createOrReplaceTempView("#TableName")
 
-def query_to_fetch_data(spark):
-  # sql query to fetch data from the table ex: SELECT customerTable.companyName FROM customerTable
-  query_df = spark.sql("#SQlQuery on above define table name")
-  # to print the data
-  query_df.show()
-  return query_df
+    def query_to_fetch_data(spark):
+      # sql query to fetch data from the table ex: SELECT customerTable.companyName FROM customerTable
+      query_df = spark.sql("#SQlQuery on above define table name")
+      # to print the data
+      query_df.show()
+      return query_df
 
-def upload_data(query_df):
-  print("starting uploading data to given cos bucket")
-  # to write the data to the given cos bucket (pass CosBucket Filename to write the data e.g: cos://cos-dataengine.service/customer_query_data_3.csv)
-  query_df.write.csv("#CosBucketPathWithFileName")
-  print("data successfully uploaded to cos bucket")
+    def upload_data(query_df):
+      print("starting uploading data to given cos bucket")
+      # to write the data to the given cos bucket (pass CosBucket Filename to write the data e.g: cos://cos-dataengine.service/customer_query_data_3.csv)
+      query_df.write.csv("#CosBucketPathWithFileName")
+      print("data successfully uploaded to cos bucket")
 
-def main():
-  spark,sc = init_spark()
-  read_df = read_customer_data(spark,sc)
-  create_table(read_df)
-  query_df = query_to_fetch_data(spark)
-  upload_data(query_df)
-  
-if __name__ == '__main__':
-  main()
+    def main():
+      spark,sc = init_spark()
+      read_df = read_customer_data(spark,sc)
+      create_table(read_df)
+      query_df = query_to_fetch_data(spark)
+      upload_data(query_df)
+      
+    if __name__ == '__main__':
+      main()
   ```
 
 
@@ -146,24 +146,25 @@ if __name__ == '__main__':
             - Authorization: Pass bearer token
             - Headers: Content-Type application/json
    
-             ```
-               "application_details": {
+   
+                  ```
+                  "application_details": {
 
-               "conf": {
+                  "conf": {
 
-               "spark.hadoop.fs.cos.service.endpoint": < Get the direct endpoint from cos bucket configuration Endpoints. It should be similer to --> "s3.direct.us-     south.cloud-object-storage.appdomain.cloud">,
+                  "spark.hadoop.fs.cos.service.endpoint": < Get the direct endpoint from cos bucket configuration Endpoints. It should be similer to --> "s3.direct.us-     south.cloud-object-storage.appdomain.cloud">,
 
-               "spark.hadoop.fs.cos.service.iam.api.key": <Changeme_with_api_key>
+                  "spark.hadoop.fs.cos.service.iam.api.key": <Changeme_with_api_key>
 
-                },
+                    },
 
-               "application": <chamge_me_with_cos_bucket_path_with_data_file similar to --> "cos://cos-de-test.service/de_sql_query_app.py">,
+                  "application": <chamge_me_with_cos_bucket_path_with_data_file similar to --> "cos://cos-de-test.service/de_sql_query_app.py">,
 
-               "runtime": {
+                  "runtime": {
 
-               "spark_version": <change_me_with_runtime like --> "3.3">
+                  "spark_version": <change_me_with_runtime like --> "3.3">
 
-             ``` 
+                  ``` 
    
 3. API response structure:
 
