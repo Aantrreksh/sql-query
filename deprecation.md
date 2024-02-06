@@ -87,7 +87,50 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
 
 1. Create an instance of {{site.data.keyword.iae_short}}.
 2. Create an instance of Cloud {{site.data.keyword.cos_short}} and a bucket to upload the data and the required script.
-3. Find the Python script from the given path (`https://github.ibm.com/SqlServiceWdp/tools-for-ops/blob/master/spark-app/read_write_sql_query_data.py`) that will execute in the {{site.data.keyword.iae_short}} instance.
+
+   ```
+   from pyspark.sql import SparkSession
+
+def init_spark():
+  spark = SparkSession.builder.appName("read-write-data-to-cos-bucket").getOrCreate()
+  sc = spark.sparkContext
+  return spark,sc
+
+def read_customer_data(spark,sc):
+  print("starting reading data from given cos bucket")
+  # read the data from cos bucket (Pass CosBucketPathWithFileName e.g cos://cos-dataengine.service/customer.csv)
+  read_df = spark.read.option("header",True).csv("<#CosBucketPathWithFileName>")
+  print("data successfully uploaded to cos bucket")
+  return read_df
+
+def create_table(read_df):
+  # create table from the read data frame (pass tablename like customerTable)
+  read_df.createOrReplaceTempView("#TableName")
+
+def query_to_fetch_data(spark):
+  # sql query to fetch data from the table ex: SELECT customerTable.companyName FROM customerTable
+  query_df = spark.sql("#SQlQuery on above define table name")
+  # to print the data
+  query_df.show()
+  return query_df
+
+def upload_data(query_df):
+  print("starting uploading data to given cos bucket")
+  # to write the data to the given cos bucket (pass CosBucket Filename to write the data e.g: cos://cos-dataengine.service/customer_query_data_3.csv)
+  query_df.write.csv("#CosBucketPathWithFileName")
+  print("data successfully uploaded to cos bucket")
+
+def main():
+  spark,sc = init_spark()
+  read_df = read_customer_data(spark,sc)
+  create_table(read_df)
+  query_df = query_to_fetch_data(spark)
+  upload_data(query_df)
+  
+if __name__ == '__main__':
+  main()
+  ```
+
 
 **Execute the SQL query:**
 
