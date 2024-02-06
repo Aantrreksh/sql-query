@@ -133,6 +133,7 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
 4. Call the GET endpoint to check the state of job.
    The API endpoint stays the same to get the list of jobs. Alternatively, you can include the jobID at the end to get the state of a specific job.
 
+
    - METHOD: GET
    - Authorization: Pass bearer token 
    - Headers: Content-type application/json
@@ -193,8 +194,8 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
 
    - Example to submit an application:
    
-   ```
-   curl -X POST --location --header "Authorization: Bearer $token"   --header "Accept: application/json"   --header "Content-Type: application/json"   --data '{
+     ```
+     curl -X POST --location --header "Authorization: Bearer $token"   --header "Accept: application/json"   --header "Content-Type: application/json"   --data '{
 
     "application_details": {
 
@@ -212,7 +213,7 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
 
         "spark_version": "3.3"
 
-   ```
+     ```
 
    - Example to get an application: 
 
