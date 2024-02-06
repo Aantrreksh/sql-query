@@ -130,6 +130,7 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
     if __name__ == '__main__':
       main()
   ```
+  {: codeblock}
 
 
 **Execute the SQL query:**
@@ -164,7 +165,9 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
 
                   "spark_version": <change_me_with_runtime like --> "3.3">
 
-                  ``` 
+                  ```
+		  {: codeblock}
+		  
    
 3. API response structure:
 
@@ -173,6 +176,7 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
 
     "state": "accepted"
    ```
+   {: codeblock}
 
 4. Call the GET endpoint to check the state of job.
    The API endpoint stays the same to get the list of jobs. Alternatively, you can include the jobID at the end to get the state of a specific job.
@@ -233,6 +237,7 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
 
     ]
     ```
+    {: codeblock}
     
 6. CURL commands to execute SQL query:
 
@@ -258,6 +263,7 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
          "spark_version": "3.3"
 
      ```
+     {: codeblock}
 
    - Example to get an application: 
 
@@ -265,6 +271,7 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
      curl -X GET --location --header "Authorization: Bearer $token"   --header "Accept: application/json"   --header "Content-Type: application/json" "https://api.us-      south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications/<application_id>"
 
      ```
+     {: codeblock}
    
 For more information, see the [IBM Analytics Engine API](/apidocs/ibm-analytics-engine-v3#get-application-state) and the [IBM Analytics Cloud CLI](/docs/AnalyticsEngine?topic=AnalyticsEngine-using-cli#ae-cli-prereqs).
 
