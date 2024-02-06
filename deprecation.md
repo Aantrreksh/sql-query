@@ -144,9 +144,10 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
 	 3. Get the application_api endpoint.<br>
       For example, `https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications`.
 
-            - Method: POST
-            - Authorization: Pass bearer token
-            - Headers: Content-Type application/json
+      - Method: POST
+      - Authorization: Pass bearer token
+      - Headers: Content-Type application/json
+
 
 
                   ```
