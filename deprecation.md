@@ -99,28 +99,28 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
 	 3. Get the application_api endpoint. 
             For example, `https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications`.
 	    
-   - Method: POST
-   - Authorization: Pass bearer token
-   - Headers: Content-Type application/json
+            - Method: POST
+            - Authorization: Pass bearer token
+            - Headers: Content-Type application/json
    
-   ```
-    "application_details": {
+               ```
+               "application_details": {
 
-        "conf": {
+               "conf": {
 
-        "spark.hadoop.fs.cos.service.endpoint": < Get the direct endpoint from cos bucket configuration Endpoints. It should be similer to --> "s3.direct.us-     south.cloud-object-storage.appdomain.cloud">,
+               "spark.hadoop.fs.cos.service.endpoint": < Get the direct endpoint from cos bucket configuration Endpoints. It should be similer to --> "s3.direct.us-     south.cloud-object-storage.appdomain.cloud">,
 
-        "spark.hadoop.fs.cos.service.iam.api.key": <Changeme_with_api_key>
+               "spark.hadoop.fs.cos.service.iam.api.key": <Changeme_with_api_key>
 
-        },
+                },
 
-        "application": <chamge_me_with_cos_bucket_path_with_data_file similar to --> "cos://cos-de-test.service/de_sql_query_app.py">,
+               "application": <chamge_me_with_cos_bucket_path_with_data_file similar to --> "cos://cos-de-test.service/de_sql_query_app.py">,
 
-        "runtime": {
+               "runtime": {
 
-            "spark_version": <change_me_with_runtime like --> "3.3">
+               "spark_version": <change_me_with_runtime like --> "3.3">
 
-   ``` 
+               ``` 
    
 3. API response structure:
 
@@ -197,21 +197,21 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
      ```
      curl -X POST --location --header "Authorization: Bearer $token"   --header "Accept: application/json"   --header "Content-Type: application/json"   --data '{
 
-    "application_details": {
+      "application_details": {
 
-      "conf": {
+       "conf": {
 
-        "spark.hadoop.fs.cos.service.endpoint": "s3.direct.us-south.cloud-object-storage.appdomain.cloud",
+         "spark.hadoop.fs.cos.service.endpoint": "s3.direct.us-south.cloud-object-storage.appdomain.cloud",
 
-        "spark.hadoop.fs.cos.service.iam.api.key": "changeme_with_apikey"
+         "spark.hadoop.fs.cos.service.iam.api.key": "changeme_with_apikey"
 
-      },
+       },
 
-      "application": "cos://cos-de.service/de_sql_query_app.py",
+       "application": "cos://cos-de.service/de_sql_query_app.py",
 
-      "runtime": {
+       "runtime": {
 
-        "spark_version": "3.3"
+         "spark_version": "3.3"
 
      ```
 
