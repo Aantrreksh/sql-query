@@ -103,7 +103,7 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
             - Authorization: Pass bearer token
             - Headers: Content-Type application/json
    
-               ```
+             ```
                "application_details": {
 
                "conf": {
@@ -120,7 +120,7 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
 
                "spark_version": <change_me_with_runtime like --> "3.3">
 
-               ``` 
+             ``` 
    
 3. API response structure:
 
