@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-02-06"
+lastupdated: "2024-02-26"
 
 keywords: deprecation, migration
 
@@ -40,7 +40,7 @@ End of life date is typically when all existing instances are deprovisioned and 
 | ---------------- | ----------------- | ------------------------------------------------------------ |
 | Deprecation announcement | 18 January 2024 | Announcement of the {{site.data.keyword.sqlquery_short}} deprecation. Existing instances will continue to run. |
 | End of marketing | 18 February 2024 | No new instances of {{site.data.keyword.sqlquery_short}} can be created or purchased. Existing instances will continue to run. |
-| End of support   | 18 January 2025 | You can continue to use any existing instances of {{site.data.keyword.sqlquery_short}}, but support is no longer available. Running instances of {{site.data.keyword.sqlquery_short}} are permanently disabled and deprovisioned. |
+| End of support   | 18 January 2025 | Support is no longer available. Running instances of {{site.data.keyword.sqlquery_short}} are permanently disabled and deprovisioned. |
 {: caption="Table 1. Deprecation timeline" caption-side="bottom"}
 
 ## Deprecation details
@@ -53,7 +53,7 @@ Review the following details about the {{site.data.keyword.sqlquery_short}} depr
 * The service will be removed from the {{site.data.keyword.cloud_notm}} catalog on 18 February 2024, and no new instances can be created after that date. 
 Your existing instances created before this date will continue to run until 18 January 2025.
 * This deprecation means that support including updates, bug fixes, and technical support for the product is no longer available effective 18 January 2025.
-* Any remaining instances will be permanently disabled and deleted as of 18 JanuaryJ 2025, including any user data.
+* Any remaining instances will be permanently disabled and deleted as of 18 January 2025, including any user data.
 * No support cases can be opened after 18 January 2025.
 * An equivalent product is available for you to start migrating to today. For more information, see [Migrating to {{site.data.keyword.iae_full}}](#migrate-analytics-engine).
 <!-- * An equivalent product is not available for purchase from {{site.data.keyword.IBM}} at this time. -->
