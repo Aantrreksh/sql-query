@@ -102,7 +102,7 @@ The batch query script helps to read the data from the Cloud {{site.data.keyword
 
          - Method: POST
          - Authorization: Pass bearer token
-         - Headers: Content-Type application/json
+         - Headers: Content-type application/JSON
 
 
 
@@ -141,7 +141,7 @@ The batch query script helps to read the data from the Cloud {{site.data.keyword
 
    - METHOD: GET
    - Authorization: Pass bearer token 
-   - Headers: Content-type application/json
+   - Headers: Content-type application/JSON
 
 5. Get call for the response structure:
 
@@ -245,8 +245,6 @@ The batch query script helps to read the data from the Cloud {{site.data.keyword
       - Method: POST
       - Authorization: Pass bearer token
       - Headers: Content-Type application/json
-
-
 
                   ```
 
