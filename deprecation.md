@@ -242,56 +242,56 @@ The batch query script helps to read the data from the Cloud {{site.data.keyword
       For example, `https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications`.
       <br>
 
-         - Method: POST
-         - Authorization: Pass bearer token
-         - Headers: Content-Type application/json
+      - Method: POST
+      - Authorization: Pass bearer token
+      - Headers: Content-Type application/json
 
 
 
                   ```
 
-		{
+                  {
 
-		    "application_details": {
+                      "application_details": {
 
-			"application": <chamge_me_with_cos_bucket_path_with_data_file similer to --> "cos://cos-de-test.service/streaming-query-test.py">,
+                    "application": <chamge_me_with_cos_bucket_path_with_data_file similer to --> "cos://cos-de-test.service/streaming-query-test.py">,
 
-			"conf": {
+                    "conf": {
 
-			    "spark.cos.url": <chamge_me_with_cos_bucket_path --> "cos://cos-de-test.service">,
+                        "spark.cos.url": <chamge_me_with_cos_bucket_path --> "cos://cos-de-test.service">,
 
-			    "spark.hadoop.fs.cos.service.endpoint": < Get the direct endpoint from cos bucket configuration Endpoints. It should be similer to --> "s3.direct.us-south.cloud-object-storage.appdomain.cloud">,
+                        "spark.hadoop.fs.cos.service.endpoint": < Get the direct endpoint from cos bucket configuration Endpoints. It should be similer to --> "s3.direct.us-south.cloud-object-storage.appdomain.cloud">,
 
-			    "spark.hadoop.fs.cos.service.iam.api.key": <Changeme_with_api_key>,
+                        "spark.hadoop.fs.cos.service.iam.api.key": <Changeme_with_api_key>,
 
-			    "spark.kafka_bootstrap_servers": <chamge_me_with_beroker_server_list --> "broker-5-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093,broker-0-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093,broker-3-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093,broker-2-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093,broker-4-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093,broker-1-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093">,
+                        "spark.kafka_bootstrap_servers": <chamge_me_with_beroker_server_list --> "broker-5-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093,broker-0-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093,broker-3-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093,broker-2-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093,broker-4-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093,broker-1-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093">,
 
-			    "spark.kafka_topic": <Changeme_with_topic_name>,
+                        "spark.kafka_topic": <Changeme_with_topic_name>,
 
-			    "spark.trigger_time_ms": "30000"
+                        "spark.trigger_time_ms": "30000"
 
-			},
+                    },
 
-			"packages": "org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.2"
+                    "packages": "org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.2"
 
-		    }
+                      }
 
-		}
-		```
-		{: codeblock}
+                  }
+                  ```
+                  {: codeblock}
 
 3. API response structure:
 
    	```
-	{
+    {
 
-	    "id": "8fad0b9d-72a4-4e5f-****-fa1f9dc***bc",
+        "id": "8fad0b9d-72a4-4e5f-****-fa1f9dc***bc",
 
-	    "state": "accepted"
+        "state": "accepted"
 
-	}
-	```
-	{: codeblock}
+    }
+    ```
+    {: codeblock}
 
 4. Call the GET endpoint to check the state of job.
    The API endpoint stays the same to get the list of jobs. Alternatively, you can include the jobID at the end to get the state of a specific job.
@@ -340,40 +340,40 @@ The batch query script helps to read the data from the Cloud {{site.data.keyword
    - Example to submit an application:
    
      ```
-	curl -X POST --location --header "Authorization: Bearer $token"   --header "Accept: application/json"   --header "Content-Type: application/json"   --data '{
+      curl -X POST --location --header "Authorization: Bearer $token"   --header "Accept: application/json"   --header "Content-Type: application/json"   --data '{
 
-	    "application_details": {
+          "application_details": {
 
-		"application": <chamge_me_with_cos_bucket_path_with_data_file similer to --> "cos://cos-de-test.service/streaming-query-test.py">,
+        "application": <chamge_me_with_cos_bucket_path_with_data_file similer to --> "cos://cos-de-test.service/streaming-query-test.py">,
 
-		"conf": {
+        "conf": {
 
-		    "spark.cos.url": <chamge_me_with_cos_bucket_path --> "cos://cos-de-test.service">,
+            "spark.cos.url": <chamge_me_with_cos_bucket_path --> "cos://cos-de-test.service">,
 
-		    "spark.hadoop.fs.cos.service.endpoint": < Get the direct endpoint from cos bucket configuration Endpoints. It should be similer to --> "s3.direct.us-south.cloud-object-storage.appdomain.cloud">,
+            "spark.hadoop.fs.cos.service.endpoint": < Get the direct endpoint from cos bucket configuration Endpoints. It should be similer to --> "s3.direct.us-south.cloud-object-storage.appdomain.cloud">,
 
-		    "spark.hadoop.fs.cos.service.iam.api.key": <Changeme_with_api_key>,
+            "spark.hadoop.fs.cos.service.iam.api.key": <Changeme_with_api_key>,
 
-		    "spark.kafka_bootstrap_servers": <chamge_me_with_beroker_server_list --> "broker-5-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093,broker-0-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093,broker-3-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093,broker-2-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093,broker-4-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093,broker-1-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093">,
+            "spark.kafka_bootstrap_servers": <chamge_me_with_beroker_server_list --> "broker-5-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093,broker-0-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093,broker-3-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093,broker-2-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093,broker-4-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093,broker-1-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093">,
 
-		    "spark.kafka_topic": <Changeme_with_topic_name>,
+            "spark.kafka_topic": <Changeme_with_topic_name>,
 
-		    "spark.trigger_time_ms": "30000"
+            "spark.trigger_time_ms": "30000"
 
-		},
+        },
 
-		"packages": "org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.2"
+        "packages": "org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.2"
 
-	    }
+          }
 
-	  }'   "https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications"
-	   ```
-	    {: codeblock}
+        }'   "https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications"
+        ```
+          {: codeblock}
 
    - Example to get an application: 
 
      ```
-	curl -X GET --location --header "Authorization: Bearer $token"   --header "Accept: application/json"   --header "Content-Type: application/json" "https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications/<application_id>"
+	  curl -X GET --location --header "Authorization: Bearer $token"   --header "Accept: application/json"   --header "Content-Type: application/json" "https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications/<application_id>"
      ```
      {: codeblock}
 
