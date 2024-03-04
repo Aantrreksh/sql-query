@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-02-26"
+lastupdated: "2024-03-04"
 
 keywords: deprecation, migration
 
@@ -74,70 +74,25 @@ If you have any further questions about this deprecation, you can contact {{site
 
 <!-- For use cases where there is a new equivalent offering for customer to move to, you can detail that option here and provide links, steps, or guidance on how to stand up the new service. There's an example included below: -->
 
-The {{site.data.keyword.iae_short}} service is available and can be used as an alternative solution. You can start using the 
-{{site.data.keyword.iae_short}} service as you migrate and delete all {{site.data.keyword.sqlquery_short}} instances and data. 
+The {{site.data.keyword.iae_short}} service is available and can be used as an alternative solution. 
+You can start using the {{site.data.keyword.iae_short}} service as you migrate and delete all {{site.data.keyword.sqlquery_short}} instances and data. 
 For more information about {{site.data.keyword.iae_short}}, see [Getting started with {{site.data.keyword.iae_short}}](/docs/AnalyticsEngine?topic=AnalyticsEngine-getting-started).
 
 #### Spark execution
 {: #spark-execution}
 
-You can execute SQL queries by using {{site.data.keyword.iae_short}}. The following script helps to read the data from the Cloud {{site.data.keyword.cos_short}} bucket, execute the query, and write it back to the Cloud {{site.data.keyword.cos_short}} bucket for batch queries. 
+The batch query script helps to read the data from the Cloud {{site.data.keyword.cos_short}} bucket, execute the query, and write it back to the Cloud {{site.data.keyword.cos_short}} bucket. The streaming script helps to stream the real time data from an {{site.data.keyword.mhub}} topic to a Cloud {{site.data.keyword.cos_short}} bucket.
 
 **Before you begin:**
 
 1. Create an instance of {{site.data.keyword.iae_short}}.
-2. Create an instance of Cloud {{site.data.keyword.cos_short}} and a bucket to upload the data and the following required script.
+2. Create an instance of Cloud {{site.data.keyword.cos_short}} and a bucket to upload the data and the required script.
 
-   ```
-      from pyspark.sql import SparkSession
+**Execute the SQL batch query:**
 
-    def init_spark():
-      spark = SparkSession.builder.appName("read-write-data-to-cos-bucket").getOrCreate()
-      sc = spark.sparkContext
-      return spark,sc
-
-    def read_customer_data(spark,sc):
-      print("starting reading data from given cos bucket")
-      # read the data from cos bucket (Pass CosBucketPathWithFileName e.g cos://cos-dataengine.service/customer.csv)
-      read_df = spark.read.option("header",True).csv("<#CosBucketPathWithFileName>")
-      print("data successfully uploaded to cos bucket")
-      return read_df
-
-    def create_table(read_df):
-      # create table from the read data frame (pass tablename like customerTable)
-      read_df.createOrReplaceTempView("#TableName")
-
-    def query_to_fetch_data(spark):
-      # sql query to fetch data from the table ex: SELECT customerTable.companyName FROM customerTable
-      query_df = spark.sql("#SQlQuery on above define table name")
-      # to print the data
-      query_df.show()
-      return query_df
-
-    def upload_data(query_df):
-      print("starting uploading data to given cos bucket")
-      # to write the data to the given cos bucket (pass CosBucket Filename to write the data e.g: cos://cos-dataengine.service/customer_query_data_3.csv)
-      query_df.write.csv("#CosBucketPathWithFileName")
-      print("data successfully uploaded to cos bucket")
-
-    def main():
-      spark,sc = init_spark()
-      read_df = read_customer_data(spark,sc)
-      create_table(read_df)
-      query_df = query_to_fetch_data(spark)
-      upload_data(query_df)
-      
-    if __name__ == '__main__':
-      main()
-
-   ```
-   {: codeblock}
-
-
-**Execute the SQL query:**
-
-1. Upload the Python script and data file into the Cloud {{site.data.keyword.cos_short}} bucket.
-2. Find the {{site.data.keyword.iae_short}} API to execute the query:
+1. Locate the [Python script](https://github.ibm.com/SqlServiceWdp/tools-for-ops/blob/master/spark-app/read_write_sql_query_data.py) that will execute in the {{site.data.keyword.iae_short}} instance.
+2. Upload the Python script and data file into the Cloud {{site.data.keyword.cos_short}} bucket.
+3. Find the {{site.data.keyword.iae_short}} API to execute the query:
 
 	 1. In the UI, go to the {{site.data.keyword.iae_short}} details.
 	 2. Click on **service credentials**.
@@ -183,7 +138,6 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
 
 4. Call the GET endpoint to check the state of job.
    The API endpoint stays the same to get the list of jobs. Alternatively, you can include the jobID at the end to get the state of a specific job.
-
 
    - METHOD: GET
    - Authorization: Pass bearer token 
@@ -275,7 +229,154 @@ You can execute SQL queries by using {{site.data.keyword.iae_short}}. The follow
 
      ```
      {: codeblock}
+
+**Execute the SQL streaming query:**
+
+1. Locate the [Python script](https://github.ibm.com/SqlServiceWdp/tools-for-ops/blob/master/spark-app/streaming_query.py) that will execute in the {{site.data.keyword.iae_short}} instance.
+2. Upload the Python script and data file into the Cloud {{site.data.keyword.cos_short}} bucket.
+3. Find the {{site.data.keyword.iae_short}} API to execute the query:
+
+	 1. In the UI, go to the {{site.data.keyword.iae_short}} details.
+	 2. Click on **service credentials**.
+	 3. Get the application_api endpoint.<br>
+      For example, `https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications`.
+      <br>
+
+         - Method: POST
+         - Authorization: Pass bearer token
+         - Headers: Content-Type application/json
+
+
+
+                  ```
+
+		{
+
+		    "application_details": {
+
+			"application": <chamge_me_with_cos_bucket_path_with_data_file similer to --> "cos://cos-de-test.service/streaming-query-test.py">,
+
+			"conf": {
+
+			    "spark.cos.url": <chamge_me_with_cos_bucket_path --> "cos://cos-de-test.service">,
+
+			    "spark.hadoop.fs.cos.service.endpoint": < Get the direct endpoint from cos bucket configuration Endpoints. It should be similer to --> "s3.direct.us-south.cloud-object-storage.appdomain.cloud">,
+
+			    "spark.hadoop.fs.cos.service.iam.api.key": <Changeme_with_api_key>,
+
+			    "spark.kafka_bootstrap_servers": <chamge_me_with_beroker_server_list --> "broker-5-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093,broker-0-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093,broker-3-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093,broker-2-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093,broker-4-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093,broker-1-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093">,
+
+			    "spark.kafka_topic": <Changeme_with_topic_name>,
+
+			    "spark.trigger_time_ms": "30000"
+
+			},
+
+			"packages": "org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.2"
+
+		    }
+
+		}
+		```
+		{: codeblock}
+
+3. API response structure:
+
+   	```
+	{
+
+	    "id": "8fad0b9d-72a4-4e5f-****-fa1f9dc***bc",
+
+	    "state": "accepted"
+
+	}
+	```
+	{: codeblock}
+
+4. Call the GET endpoint to check the state of job.
+   The API endpoint stays the same to get the list of jobs. Alternatively, you can include the jobID at the end to get the state of a specific job.
+
+   - METHOD: GET
+   - Authorization: Pass bearer token 
+   - Headers: Content-type application/json
+
+5. Get call response structure:
+
+	```
+	"applications": [
+
+		{
+
+		    "id": "8fad0b9d-72a4-4e5f-****-fa1f9dc***bc",
+
+		    "spark_application_id": "spark-application-******33082**",
+
+		    "spark_application_name": "es-spark",
+
+		    "state": "running",
+
+		    "start_time": "2024-02-28T12:28:29Z",
+
+		    "spark_ui": "https://spark-console.us-south.ae.cloud.ibm.com/v3/analytics_engines/e27f8478-a944-4b08-8cf4-a477883d623e/spark_applications/8fad0b9d-72a4-4e5f-****-fa1f9dc***bc/spark_ui/",
+
+		    "submission_time": "2024-02-28T12:27:17.202Z",
+
+		    "auto_termination_time": "2024-03-02T12:28:29Z",
+
+		    "runtime": {
+
+			"spark_version": "3.3"
+
+		    }
+
+		}
+
+	    ]
+	    ```
+	    {: codeblock}
+
+6. CURL commands to execute SQL query:
+
+   - Example to submit an application:
    
+     ```
+	curl -X POST --location --header "Authorization: Bearer $token"   --header "Accept: application/json"   --header "Content-Type: application/json"   --data '{
+
+	    "application_details": {
+
+		"application": <chamge_me_with_cos_bucket_path_with_data_file similer to --> "cos://cos-de-test.service/streaming-query-test.py">,
+
+		"conf": {
+
+		    "spark.cos.url": <chamge_me_with_cos_bucket_path --> "cos://cos-de-test.service">,
+
+		    "spark.hadoop.fs.cos.service.endpoint": < Get the direct endpoint from cos bucket configuration Endpoints. It should be similer to --> "s3.direct.us-south.cloud-object-storage.appdomain.cloud">,
+
+		    "spark.hadoop.fs.cos.service.iam.api.key": <Changeme_with_api_key>,
+
+		    "spark.kafka_bootstrap_servers": <chamge_me_with_beroker_server_list --> "broker-5-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093,broker-0-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093,broker-3-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093,broker-2-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093,broker-4-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093,broker-1-4j8ch21jxy0k5y6q.kafka.svc04.us-south.eventstreams.cloud.ibm.com:9093">,
+
+		    "spark.kafka_topic": <Changeme_with_topic_name>,
+
+		    "spark.trigger_time_ms": "30000"
+
+		},
+
+		"packages": "org.apache.spark:spark-sql-kafka-0-10_2.12:3.3.2"
+
+	    }
+
+	  }'   "https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications"
+	   ```
+	    {: codeblock}
+
+   - Example to get an application: 
+
+     ```
+	curl -X GET --location --header "Authorization: Bearer $token"   --header "Accept: application/json"   --header "Content-Type: application/json" "https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications/<application_id>"
+     ```
+     {: codeblock}
+
 For more information, see the [IBM Analytics Engine API](/apidocs/ibm-analytics-engine-v3#get-application-state) and the [IBM Analytics Cloud CLI](/docs/AnalyticsEngine?topic=AnalyticsEngine-using-cli#ae-cli-prereqs).
 
 
