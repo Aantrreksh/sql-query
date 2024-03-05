@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-03-04"
+lastupdated: "2024-03-5"
 
 keywords: deprecation, migration
 
@@ -233,7 +233,7 @@ The batch query script helps to read the data from the Cloud {{site.data.keyword
 **Execute the SQL streaming query:**
 
 1. Locate the [Python script](https://github.ibm.com/SqlServiceWdp/tools-for-ops/blob/master/spark-app/streaming_query.py) that will execute in the {{site.data.keyword.iae_short}} instance.
-2. Upload the Python script and data file into the Cloud {{site.data.keyword.cos_short}} bucket.
+2. Upload the Python script into the Cloud {{site.data.keyword.cos_short}} bucket.
 3. Find the {{site.data.keyword.iae_short}} API to execute the query:
 
 	 1. In the UI, go to the {{site.data.keyword.iae_short}} details.
