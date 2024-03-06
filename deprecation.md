@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-03-5"
+lastupdated: "2024-03-05"
 
 keywords: deprecation, migration
 
