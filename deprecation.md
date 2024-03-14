@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-03-05"
+lastupdated: "2024-03-14"
 
 keywords: deprecation, migration
 
@@ -81,7 +81,7 @@ For more information about {{site.data.keyword.iae_short}}, see [Getting started
 #### Spark execution
 {: #spark-execution}
 
-The batch query script helps to read the data from the Cloud {{site.data.keyword.cos_short}} bucket, execute the query, and write it back to the Cloud {{site.data.keyword.cos_short}} bucket. The streaming script helps to stream the real time data from an {{site.data.keyword.mhub}} topic to a Cloud {{site.data.keyword.cos_short}} bucket.
+The batch query script helps to read the data from the Cloud {{site.data.keyword.cos_short}} bucket, execute the query, and write it back to the Cloud {{site.data.keyword.cos_short}} bucket. The streaming script helps to stream the real time data from an {{site.data.keyword.messagehub}} topic to a Cloud {{site.data.keyword.cos_short}} bucket. The sample Python scripts for batch and streaming jobs can be updated or modified based on your requirement.
 
 **Before you begin:**
 
