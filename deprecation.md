@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-03-14"
+lastupdated: "2024-03-15"
 
 keywords: deprecation, migration
 
@@ -77,6 +77,9 @@ If you have any further questions about this deprecation, you can contact {{site
 The {{site.data.keyword.iae_short}} service is available and can be used as an alternative solution. 
 You can start using the {{site.data.keyword.iae_short}} service as you migrate and delete all {{site.data.keyword.sqlquery_short}} instances and data. 
 For more information about {{site.data.keyword.iae_short}}, see [Getting started with {{site.data.keyword.iae_short}}](/docs/AnalyticsEngine?topic=AnalyticsEngine-getting-started).
+
+{{site.data.keyword.sqlquery_short}} query format is not accepted by {{site.data.keyword.iae_short}} and you need to follow the [Spark SQL syntax](https://spark.apache.org/docs/latest/sql-ref-syntax.html) to prepare the SQL format accordingly.
+{: note}
 
 #### Spark execution
 {: #spark-execution}
