@@ -65,13 +65,13 @@ and re-generate the reference file from the template
 The [markdown preprocessor](https://github.ibm.com/SqlServiceWdp/md-preprocess) reads a template markdown file to generate a common mark down file.
 The preprocessor interprets the following types of HTML comments as directives to generate additional HTML and markdown code in the output markdown file.
 
-`<!--table-caption title="title text"-->`
+``
 
 This preprocessor directive has to directly follow a md table definition. This ensures that a table caption is generated and accessibility requirements are met. The directive takes care of numbering tables correctly and prevents writers from renumbering tables when new tables are added in the middle of a text. For more information see [markdown tips for tables](https://console.test.cloud.ibm.com/docs/developing/writing/markdown/tips.html#tables).
 
 Note: All attributes for `table-caption` tag are mandatory thus one has to specify at least empty strings for each atrribute.
 
-`<!--include-svg src="input-svg-path" target="output-svg-path" alt="alternate text for image" layout="layout-operator" -->`
+``
 
 This preprocessor directive reads in a svg file containing a railroad diagram for a SQL construct and parses it to
 * generate a HTML image map for the svg file,
