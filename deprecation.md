@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-03-15"
+lastupdated: "2024-08-16"
 
 keywords: deprecation, migration
 
@@ -102,8 +102,6 @@ The batch query script helps to read the data from the Cloud {{site.data.keyword
          - Authorization: Pass bearer token
          - Headers: Content-type application/JSON
 
-
-
                   ```
                   "application_details": {
 
@@ -122,7 +120,7 @@ The batch query script helps to read the data from the Cloud {{site.data.keyword
                   "spark_version": <change_me_with_runtime like --> "3.3">
 
                   ```
-		              {: codeblock}
+		  {: codeblock}
 		  
    
 3. API response structure:
@@ -231,7 +229,7 @@ The batch query script helps to read the data from the Cloud {{site.data.keyword
 **Execute the SQL streaming query:**
 
 1. Locate the [Python script](https://github.ibm.com/SqlServiceWdp/tools-for-ops/blob/master/spark-app/streaming_query.py) that will execute in the {{site.data.keyword.iae_short}} instance.
-2. Upload the Python script into the Cloud {{site.data.keyword.cos_short}} bucket.
+2. Create a new Cloud {{site.data.keyword.cos_short}} bucket. Upload the Python script into the newly created Cloud {{site.data.keyword.cos_short}} bucket.
 3. Find the {{site.data.keyword.iae_short}} API to execute the query:
 
 	 1. In the UI, go to the {{site.data.keyword.iae_short}} details.
@@ -288,50 +286,16 @@ The batch query script helps to read the data from the Cloud {{site.data.keyword
     }
     ```
     {: codeblock}
+    
+4. Get the bearer by running the following command:
 
-4. Call the GET endpoint to check the state of job.
-   The API endpoint stays the same to get the list of jobs. Alternatively, you can include the jobID at the end to get the state of a specific job.
-
-   - METHOD: GET
-   - Authorization: Pass bearer token 
-   - Headers: Content-type application/json
-
-5. Get call response structure:
-
-	```
-	"applications": [
-
-		{
-
-		    "id": "8fad0b9d-72a4-4e5f-****-fa1f9dc***bc",
-
-		    "spark_application_id": "spark-application-******33082**",
-
-		    "spark_application_name": "es-spark",
-
-		    "state": "running",
-
-		    "start_time": "2024-02-28T12:28:29Z",
-
-		    "spark_ui": "https://spark-console.us-south.ae.cloud.ibm.com/v3/analytics_engines/e27f8478-a944-4b08-8cf4-a477883d623e/spark_applications/8fad0b9d-72a4-4e5f-****-fa1f9dc***bc/spark_ui/",
-
-		    "submission_time": "2024-02-28T12:27:17.202Z",
-
-		    "auto_termination_time": "2024-03-02T12:28:29Z",
-
-		    "runtime": {
-
-			"spark_version": "3.3"
-
-		    }
-
-		}
-
-	    ]
-	    ```
-	    {: codeblock}
-
-6. CURL commands to execute SQL query:
+    ```
+    ibmcloud iam oauth-tokens
+     
+    ```
+     {: codeblock}
+     
+5. CURL commands to execute SQL query:
 
    - Example to submit an application:
    
@@ -369,10 +333,17 @@ The batch query script helps to read the data from the Cloud {{site.data.keyword
    - Example to get an application: 
 
      ```
-	  curl -X GET --location --header "Authorization: Bearer $token"   --header "Accept: application/json"   --header "Content-Type: application/json" "https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications/<application_id>"
+     curl -X GET --location --header "Authorization: Bearer $token"   --header "Accept: application/json"   --header "Content-Type: application/json" "https://api.us-south.ae.cloud.ibm.com/v3/analytics_engines/<instance_id>/spark_applications/<application_id>"
      ```
      {: codeblock}
+     
+6. Add a producer that is will inject data into the Kafka topic.
 
+     ```
+     curl -v -X POST -H "Authorization: Bearer $token" -H "Content-Type: text/plain" -H "Accept: application/json" -d 'test message' "<Event Streams HTTP API endpoint>/topics/<topic_name>/records"
+     ```
+     {: codeblock}
+	
 For more information, see the [IBM Analytics Engine API](/apidocs/ibm-analytics-engine-v3#get-application-state) and the [IBM Analytics Cloud CLI](/docs/AnalyticsEngine?topic=AnalyticsEngine-using-cli#ae-cli-prereqs).
 
 
