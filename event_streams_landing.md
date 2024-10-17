@@ -21,7 +21,7 @@ subcollection: sql-query
 
 With stream landing, you can stream your data in real time from a topic to a bucket of your choice. {{site.data.keyword.sqlquery_short}} connects to {{site.data.keyword.messagehub_full}} and copies the data to Cloud {{site.data.keyword.cos_full}} in Parquet format. This capability enables efficient analytics on the new objects created.
 
-![Stream landing.](images/streams_landing_DE.svg "Stream landing"){: caption="Figure 1. Stream landing" caption-side="bottom"}
+![Stream landing.](images/streams_landing_DE.svg "Stream landing"){: caption="Stream landing" caption-side="bottom"}
 
 You can enable a stream landing job on the {{site.data.keyword.messagehub}} UI by selecting the required resources, such as Cloud {{site.data.keyword.cos_short}} bucket, {{site.data.keyword.keymanagementservicelong}} instance, and the {{site.data.keyword.sqlquery_short}} instance by using a tailored wizard. If you want to stop the streaming job, switch to the {{site.data.keyword.messagehub}} UI. For more information about configuring stream landing in {{site.data.keyword.messagehub}}, see [Streaming to Cloud Object Storage by using Data Engine](/docs/EventStreams?topic=EventStreams-streaming_cos_sql).
 
@@ -74,7 +74,7 @@ There are two monitoring systems to check to get fully informed about your strea
 
 After you create your {{site.data.keyword.monitoringlong}} instance and select the instance for which you want to receive platform metrics, it takes a few minutes until you see **{{site.data.keyword.sqlquery_short}}** and **{{site.data.keyword.sqlquery_short}} Streaming** dashboards within the Dashboard Library. 
 
-![Monitoring stream landing.](images/monitoring_stream_landing.svg "Monitoring stream landing"){: caption="Figure 2. Monitoring stream landing" caption-side="bottom"}
+![Monitoring stream landing.](images/monitoring_stream_landing.svg "Monitoring stream landing"){: caption="Monitoring stream landing" caption-side="bottom"}
 
 Graphs for all jobs:
 

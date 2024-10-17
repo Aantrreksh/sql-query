@@ -70,4 +70,4 @@ You also have the option to store the API key as a custom standard key in a {{si
 | User and password through {{site.data.keyword.keymanagementserviceshort}} CRN | No    | Yes          | Yes                    |
 | API key through {{site.data.keyword.secrets-manager_short}} CRN       | No    | Enterprise   | Enterprise             |
 | API key through {{site.data.keyword.keymanagementserviceshort}} CRN           | No    | Enterprise   | Enterprise             |
-{: caption="Table 1. "Supported authentication methods" caption-side="bottom"}"Supported authentication methods" caption-side="bottom"}
+{: caption=""Supported authentication methods" caption-side="bottom"}"Supported authentication methods" caption-side="bottom"}

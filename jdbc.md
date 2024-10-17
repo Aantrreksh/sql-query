@@ -20,10 +20,10 @@ subcollection: sql-query
 
 [ibmcloudsql-jdbc-jar]: <> "lines=1 search=\[.*\](.*) replace=exp:[`${VERSION}`](https://us.sql-query.cloud.ibm.com/download/jdbc/ibmcloudsql-jdbc-${VERSION}.jar)"
 
-Download the latest version: [`2.7.34`](https://us.sql-query.cloud.ibm.com/download/jdbc/ibmcloudsql-jdbc-2.7.34.jar)
+Download the latest version: [`2.7.35`](https://us.sql-query.cloud.ibm.com/download/jdbc/ibmcloudsql-jdbc-2.7.35.jar)
 
 [previous-ibmcloudsql-jdbc-jar]: <> "lines=1 search=\[.*\](.*) replace=ref:ibmcloudsql-jdbc-jar:link"
-Here you find the previous version for reference: [`2.7.33`](https://us.sql-query.cloud.ibm.com/download/jdbc/ibmcloudsql-jdbc-2.7.33.jar)
+Here you find the previous version for reference: [`2.7.34`](https://us.sql-query.cloud.ibm.com/download/jdbc/ibmcloudsql-jdbc-2.7.34.jar)
 
 ## JDBC driver class and URL format
 {: #jdbc_class}
@@ -201,6 +201,6 @@ If you use such business intelligence tools, you need another way to connect to 
 
 An easy way to set up ODBC connectivity to {{site.data.keyword.sqlquery_short}} is to use the [Progress DataDirect Hybrid Data Pipeline](https://www.progress.com/cloud-and-hybrid-data-integration) product.
 
-![ODBC connectivity to {{site.data.keyword.sqlquery_short}}.](images/ODBC_image_DE.svg "ODBC connectivity to {{site.data.keyword.sqlquery_short}}"){: caption="Figure 1. ODBC connectivity to {{site.data.keyword.sqlquery_short}}" caption-side="bottom"}
+![ODBC connectivity to {{site.data.keyword.sqlquery_short}}.](images/ODBC_image_DE.svg "ODBC connectivity to {{site.data.keyword.sqlquery_short}}"){: caption="ODBC connectivity to {{site.data.keyword.sqlquery_short}}" caption-side="bottom"}
 
 A [step-by-step tutorial](https://www.ibm.com/cloud/blog/odbc-connectivity-to-ibm-cloud-sql-query) explains how easily {{site.data.keyword.sqlquery_short}} and Hybrid Data Pipeline (HDP) can complement one another to achieve this task.

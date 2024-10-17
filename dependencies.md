@@ -40,7 +40,7 @@ Business Support Services for IBM Cloud (BSS) | Used to access information about
 {{site.data.keyword.messages-for-rabbitmq_full}} | Queues used for internal communication between microservices. To learn more, see [{{site.data.keyword.messages-for-rabbitmq}}](https://cloud.ibm.com/docs/messages-for-rabbitmq).
 {{site.data.keyword.cos_full_notm}} | The service instance that is owned by the service contains out of the box sample data sets, backups of Cloudant data and IAE bootstrap config. To learn more, see [{{site.data.keyword.cos_full_notm}}](https://cloud.ibm.com/docs/cloud-object-storage).
 IBM Cloud Resource Controller and IBM Cloud Catalog | Used to load required information about your service instance and offering plan. To learn more, see [IBM Cloud Resource Controller API](https://cloud.ibm.com/apidocs/resource-controller/resource-controller).
-{: caption="Table 1. "Critical dependencies" caption-side="bottom"}
+{: caption=""Critical dependencies" caption-side="bottom"}
 
 ### Dependencies to IBM service instances owned and managed by you
 {: #dependencies_service_instances}
@@ -52,7 +52,7 @@ Service name | Description
 {{site.data.keyword.keymanagementservicefull}} | The user-provided instances provide keys for envelope encryption of customer data in the job status database ({{site.data.keyword.cloudant}}) and passwords or apikeys for access to customer Db2. To learn more, see [{{site.data.keyword.keymanagementservicefull_notm}}](https://cloud.ibm.com/docs/key-protect).
 {{site.data.keyword.cloudaccesstraillong}} with LogDNA | {{site.data.keyword.sqlquery_short}} integrates with {{site.data.keyword.cloudaccesstraillong_notm}} with LogDNA to forward location audit events to the {{site.data.keyword.cloudaccesstraillong_notm}} service instance that is set up and owned by you. To learn more, see [{{site.data.keyword.cloudaccesstraillong_notm}}](https://cloud.ibm.com/docs/Activity-Tracker-with-LogDNA).
 {{site.data.keyword.messagehub_full}} | The user-provided instance contains the data that is streamed from a topic to a bucket of your choice. To learn more, see [Stream landing](/docs/sql-query?topic=sql-query-event-streams-landing).
-{: caption="Table 2. "Dependencies to IBM service instances" caption-side="bottom"}
+{: caption=""Dependencies to IBM service instances" caption-side="bottom"}
 
 ### Other dependencies 
 {: #other_dependencies}
@@ -60,7 +60,7 @@ Service name | Description
 Service name | Description
 --- | ---
 {{site.data.keyword.databases-for-redis_full}} | Used as UI session store and for caching of Cloudant data. To learn more, see [{{site.data.keyword.databases-for-redis_full_notm}}](https://cloud.ibm.com/docs/databases-for-redis).
-{: caption="Table 3. "Other dependencies" caption-side="bottom"}
+{: caption=""Other dependencies" caption-side="bottom"}
 
 ## Dependencies to third-party services
 {: #third_party_dependencies}
@@ -69,4 +69,4 @@ Service name | Description
 --- | ---
 Amplitude, Segment | Amplitude and Segment are used to monitor user behavior in the {{site.data.keyword.Bluemix_notm}} console, such as page hits or click-through paths. This information is used for IBM-internal marketing and data analytics purposes.
 ServiceNow, Slack | Those Services are used for problem determination and alerting.
-{: caption="Table 4. "Dependencies to third-party services" caption-side="bottom"}
+{: caption=""Dependencies to third-party services" caption-side="bottom"}

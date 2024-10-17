@@ -22,7 +22,7 @@ subcollection: sql-query
 {{site.data.keyword.sqlquery_short}} is {{site.data.keyword.Bluemix_short}}'s central service for data lakes. Combining {{site.data.keyword.sqlquery_short}} with data in {{site.data.keyword.cos_short}} enables you to create an active workspace for a range of big data analytics use cases.
 {: shortdesc}
 
-![{{site.data.keyword.sqlquery_short}} overview.](images/streams_landing_DE.svg "{{site.data.keyword.sqlquery_short}} Overview"){: caption="Figure 1. {{site.data.keyword.sqlquery_short}} overview" caption-side="bottom"}
+![{{site.data.keyword.sqlquery_short}} overview.](images/streams_landing_DE.svg "{{site.data.keyword.sqlquery_short}} Overview"){: caption="{{site.data.keyword.sqlquery_short}} overview" caption-side="bottom"}
 
 Input data is read from CSV, JSON, ORC, Parquet, or AVRO objects located in one or more Cloud {{site.data.keyword.cos_short}} instances.
 Each query result is written to a CSV, JSON, ORC, Parquet, or AVRO object in a Cloud {{site.data.keyword.cos_short}} or Db2 instance of your choice.
@@ -72,7 +72,7 @@ Submit an SQL query. | sql-query.api.submit | `POST/v2/sql_jobs/` | Manager or W
 Get information for all submitted jobs. | sql-query.api.getalljobs | `GET/v2/sql_jobs/` | Manager, Writer, or Reader
 Get information for a specific submitted job. | sql-query.api.getjobinfo | `GET/v2/sql_jobs/{job_id}` | Manager, Writer, or Reader
 Submit a catalog or index management statement. | sql-query.api.managecatalog | `POST/v2/sql_jobs/` | Manager
-{: caption="Table 5. User roles" caption-side="bottom"}
+{: caption="User roles" caption-side="bottom"}
 
 ## Behavior of scanned data
 {: #data-scanned}

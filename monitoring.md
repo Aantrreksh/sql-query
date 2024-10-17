@@ -53,7 +53,7 @@ The following tables describe the specific metrics that are provided by {{site.d
 | [Number of completed jobs](#ibm_sqlquery_completed_jobs) |
 | [Number of failed jobs](#ibm_sqlquery_failed_jobs) |
 | [Number of jobs in progress](#ibm_sqlquery_jobs_in_progress) |
-{: caption="Table 1. Available metrics." caption-side="top"}
+{: caption="Available metrics." caption-side="top"}
 
 ### Number of bytes read by completed jobs
 {: #ibm_sqlquery_bytes_read}
@@ -66,7 +66,7 @@ The following table shows the cumulative number of bytes read by all {{site.data
 | `Metric type` | `gauge` |
 | `Value type`  | `byte` |
 | `Segment by` | `Service instance, Service instance name` |
-{: caption="Table 2. Number of bytes read by completed jobs metric metadata." caption-side="top"}
+{: caption="Number of bytes read by completed jobs metric metadata." caption-side="top"}
 
 ### Number of completed jobs
 {: #ibm_sqlquery_completed_jobs}
@@ -79,7 +79,7 @@ The following table shows the number of {{site.data.keyword.sqlquery_short}} job
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `Service instance, Service instance name` |
-{: caption="Table 3. Number of completed jobs metric metadata." caption-side="top"}
+{: caption="Number of completed jobs metric metadata." caption-side="top"}
 
 ### Number of failed jobs
 {: #ibm_sqlquery_failed_jobs}
@@ -92,7 +92,7 @@ The following table shows the number of {{site.data.keyword.sqlquery_short}} job
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `Service instance, Service instance name` |
-{: caption="Table 4. Number of failed jobs metric metadata." caption-side="top"}
+{: caption="Number of failed jobs metric metadata." caption-side="top"}
 
 ### Number of jobs in progress
 {: #ibm_sqlquery_jobs_in_progress}
@@ -105,7 +105,7 @@ The following table shows the number of submitted {{site.data.keyword.sqlquery_s
 | `Metric type` | `gauge` |
 | `Value type`  | `none` |
 | `Segment by` | `Service instance, Service instance name` |
-{: caption="Table 5. Number of jobs in progress metric metadata." caption-side="top"}
+{: caption="Number of jobs in progress metric metadata." caption-side="top"}
 
 ## Attributes for segmentation
 {: #attributes}
@@ -122,7 +122,7 @@ The following attributes are available for segmenting all of the listed metrics.
 | `Resource group` | `ibm_resource_group_name` | The resource group where the service instance was created. |
 | `Scope` | `ibm_scope` | The scope is the account, organization, or space GUID associated with this metric. |
 | `Service name` | `ibm_service_name` | Name of the service that generates this metric. |
-{: caption="Table 6. Global attributes." caption-side="top"}
+{: caption="Global attributes." caption-side="top"}
 
 ### More attributes
 {: #more-attributes}
@@ -133,7 +133,7 @@ The following attributes are available for segmenting one or more attributes as 
 |-----------|----------------|-----------------------|
 | `Service instance` | `ibm_service_instance` | The service instance segment identifies the instance that the metric is associated with. |
 | `Service instance name` | `ibm_service_instance_name` | The service instance name provides the user-provided name of the service instance that isn't necessarily a unique value, depending on the name provided by the user. |
-{: caption="Table 5. More attributes." caption-side="top"}
+{: caption="More attributes." caption-side="top"}
 
 ## Next Steps
 {: #monitoring-next}

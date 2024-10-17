@@ -28,4 +28,4 @@ Tenant isolation models | Tenant domain isolation | Endpoint isolation | Compute
 --- | --- | --- | --- | --- | ---
 Shared data plane | Service account | Public endpoint | Shared physical hosts | Shared physical storage devices, shared access endpoint | Service virtual network
 
-![Deployment model.](images/deployment_model_a.svg "Deployment model"){: caption="Figure 1. Deployment model" caption-side="bottom"}
+![Deployment model.](images/deployment_model_a.svg "Deployment model"){: caption="Deployment model" caption-side="bottom"}

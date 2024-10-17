@@ -36,7 +36,7 @@ The service will no longer be supported by {{site.data.keyword.cloud}} as of 18 
 | Deprecation announcement | 18 January 2024 | Announcement of the {{site.data.keyword.sqlquery_short}} deprecation. Existing instances will continue to run. |
 | End of marketing | 18 February 2024 | No new instances of {{site.data.keyword.sqlquery_short}} can be created or purchased. Existing instances will continue to run. |
 | End of support   | 18 January 2025 | Support is no longer available. Running instances of {{site.data.keyword.sqlquery_short}} are permanently disabled and deprovisioned. |
-{: caption="Table 1. Deprecation timeline" caption-side="bottom"}
+{: caption="Deprecation timeline" caption-side="bottom"}
 
 ## Deprecation details
 {: #deprecation-details}

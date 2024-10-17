@@ -87,7 +87,7 @@ The result of the example queries is shown in the following table.
 |DEPTNO|
 |------|
 |2     |
-{: caption="Table 1. Query result for the example "find the department with the highest total pay"." caption-side="bottom"}
+{: caption="Query result for the example "find the department with the highest total pay"." caption-side="bottom"}
 
 ```sql
 -- list products with a price above the average price
@@ -119,7 +119,7 @@ FROM products WHERE price > (SELECT * FROM avg_product_price)
 | 10        | 200   |  97.5     | 102.5      |
 | 11        | 300   |  97.5     | 202.5      |
 | 12        | 400   |  97.5     | 302.5      |
-{: caption="Table 2. Query result for the example "list products with a price above the average price"."}
+{: caption="Query result for the example "list products with a price above the average price"."}
 
 ### cosResultClause
 {: #cosResultClause}
@@ -306,7 +306,7 @@ The result of the example queries is shown in the following table.
 |1     |
 |3     |
 |2     |
-{: caption="Table 3. Query result for the example "set union eliminating duplicate rows"." caption-side="bottom"}
+{: caption="Query result for the example "set union eliminating duplicate rows"." caption-side="bottom"}
 
 ```sql
 -- set union with duplicate rows
@@ -324,7 +324,7 @@ The result of the example query is shown in the following table.
 |1   |
 |2   |
 |3   |
-{: caption="Table 4. Query result for the example "set union with duplicate rows"." caption-side="bottom"}
+{: caption="Query result for the example "set union with duplicate rows"." caption-side="bottom"}
 
 ```sql
 -- intersecting set eliminating duplicate rows
@@ -344,7 +344,7 @@ The result of the example queries is shown in the following table.
 |----|
 |3   |
 |2   |
-{: caption="Table 5. Query result for the example "intersecting set eliminating duplicate rows"." caption-side="bottom"}
+{: caption="Query result for the example "intersecting set eliminating duplicate rows"." caption-side="bottom"}
 
 ```sql
 -- Difference quantity eliminating duplicate rows
@@ -375,7 +375,7 @@ The result of the example queries is shown in the following table.
 |COL1|
 |----|
 |1   |
-{: caption="Table 6. Query result for the example "difference quantity eliminating duplicate rows"." caption-side="bottom"}
+{: caption="Query result for the example "difference quantity eliminating duplicate rows"." caption-side="bottom"}
 
 ### More topics - fullselect
 {: #more-topics-fullselect}
@@ -472,7 +472,7 @@ The result of the example query is shown in the following table.
 |2017|2      |500   |
 |2018|1      |400   |
 |2018|2      |400   |
-{: caption="Table 7. Query result for the example "grouping sales data per year and quarter"." caption-side="bottom"}
+{: caption="Query result for the example "grouping sales data per year and quarter"." caption-side="bottom"}
 
 A ROLLUP grouping is an extension to the *group by clause* that produces a result set containing subtotal rows in addition to the *regular* grouped rows. A `GROUP BY COL1, COL2 WITH ROLLUP` generates the following grouping sets: **(COL1, COL2)**, **(COL1)**, **()**. The **N** grouping expressions of the ROLLUP convert to **N+1** grouping sets.
 
@@ -509,7 +509,7 @@ The result of the example query is shown in the following table.
 |2018|null   |800   |
 |2018|1      |400   |
 |2018|2      |400   |
-{: caption="Table 8. Query result for the example "rollup sales data on quarter by year basis, a yearly basis, and a grand total"." caption-side="bottom"}
+{: caption="Query result for the example "rollup sales data on quarter by year basis, a yearly basis, and a grand total"." caption-side="bottom"}
 
 A CUBE grouping is an extension to the *group by* clause that produces a result set that contains all the rows of a ROLLUP aggregation and in addition, grouping sets that do not represent a subtotal or grand total. A `GROUPY BY COL1, COL2 WITH CUBE` generates the following grouping sets: **(COL1, COL2)**, **(COL1)**, **(COL2)**, **()**. The **N** elements of a CUBE convert to **2\*\*N** (2 to the power N) grouping sets.
 
@@ -550,7 +550,7 @@ The result of the example query is shown in the following table.
 |2018|null   |800   |
 |2018|1      |400   |
 |2018|2      |400   |
-{: caption="Table 9. Query result for the example "rollup sales data on a quarter by year basis, a yearly basis, a quarterly year-independent basis, and a grand total"." caption-side="bottom"}
+{: caption="Query result for the example "rollup sales data on a quarter by year basis, a yearly basis, a quarterly year-independent basis, and a grand total"." caption-side="bottom"}
 
 With a GROUPING SETS grouping, an extension to the *group by* clause, you can explicitly specify the grouping sets of interest. In other words, the ROLLUP and the CUBE groupings are shortcuts for common grouping-set use cases.
 
@@ -586,7 +586,7 @@ The result of the example query is shown in the following table.
 |2018|null   |800   |
 |2018|1      |400   |
 |2018|2      |400   |
-{: caption="Table 10. Query result for the example "rollup sales data on a quarter by year basis and a yearly basis only"." caption-side="bottom"}
+{: caption="Query result for the example "rollup sales data on a quarter by year basis and a yearly basis only"." caption-side="bottom"}
 
 ### More topics - simpleselect
 {: #more-topics-simpleselect}
@@ -856,7 +856,7 @@ The result of the example query is shown in the following table.
 |1   |
 |2   |
 |3   |
-{: caption="Table 11. Query result for the example "single column result set with three rows"." caption-side="bottom"}
+{: caption="Query result for the example "single column result set with three rows"." caption-side="bottom"}
 
 ```sql
 -- single column result set with 3 rows specifying parentheses for row expressions
@@ -871,7 +871,7 @@ The result of the example query is shown in the following table.
 |1   |
 |2   |
 |3   |
-{: caption="Table 12. Query result for the example "single column result set with three rows specifying parentheses for row expressions"." caption-side="bottom"}
+{: caption="Query result for the example "single column result set with three rows specifying parentheses for row expressions"." caption-side="bottom"}
 
 ```sql
 --- joining two multi column result sets by using their identifier
@@ -902,7 +902,7 @@ The result of the example query is shown in the following table.
 |2  |Kirk  |2000    |
 |3  |McCoy |3000    |
 |4  |Scotty|4000    |
-{: caption="Table 13. Query result for the example "joining two multi column result sets by using their identifier"." caption-side="bottom"}
+{: caption="Query result for the example "joining two multi column result sets by using their identifier"." caption-side="bottom"}
 
 ### Values statement
 {: #chapterValuesStatement}
@@ -925,7 +925,7 @@ The result of the example query is shown in the following table.
 |1   |
 |2   |
 |3   |
-{: caption="Table 14. Query result for the example "values statement with single column result set with three rows"." caption-side="bottom"}
+{: caption="Query result for the example "values statement with single column result set with three rows"." caption-side="bottom"}
 
 ```sql
 --- values statement with multi column result set
@@ -945,7 +945,7 @@ The result of the example query is shown in the following table.
 |2   |Kirk  |
 |3   |McCoy |
 |4   |Scotty|
-{: caption="Table 15. Query result for the example "values statement with multi column result set"." caption-side="bottom"}
+{: caption="Query result for the example "values statement with multi column result set"." caption-side="bottom"}
 
 ### More topics - values clause
 {: #more-topics-values}
@@ -1010,7 +1010,7 @@ The result of the example query is shown in the following table.
 |2        |4       |
 |2        |5       |
 |2        |6       |
-{: caption="Table 16. Query result for example: deal with a 1-n relation." caption-side="bottom"}
+{: caption="Query result for example: deal with a 1-n relation." caption-side="bottom"}
 
 ```sql
 -- deal with an n-m relation
@@ -1042,7 +1042,7 @@ The result of the example query is shown in the following table.
 |40       |4       |
 |40       |5       |
 |40       |6       |
-{: caption="Table 17. Query result for example: deal with an n-m relation." caption-side="bottom"}
+{: caption="Query result for example: deal with an n-m relation." caption-side="bottom"}
 
 ### More topics - lateral view
 {: #more-topics-lateral}
@@ -1103,7 +1103,7 @@ The result of the example query is shown in the following table.
 |0     |10    |0     |10    |
 |2     |12    |2     |12    |
 |4     |14    |4     |14    |
-{: caption="Table 18. Query result for example." caption-side="bottom"}
+{: caption="Query result for example." caption-side="bottom"}
 
 #### Outer join
 {: #outer-join}
@@ -1136,7 +1136,7 @@ The result of the example query is shown in the following table.
 |3     |13    |null  |null  |
 |4     |14    |4     |14    |
 |5     |14    |null  |null  |
-{: caption="Table 19. Query result for example: left outer join query." caption-side="bottom"}
+{: caption="Query result for example: left outer join query." caption-side="bottom"}
 
 A `RIGHT OUTER` or `RIGHT` join includes the rows from the right table that were missing from the inner join.
 
@@ -1163,7 +1163,7 @@ The result of the example query is shown in the following table.
 |2     |12    |2     |12    |
 |4     |14    |4     |14    |
 |null  |null  |6     |16    |
-{: caption="Table 20. Query result for example: right outer join query." caption-side="bottom"}
+{: caption="Query result for example: right outer join query." caption-side="bottom"}
 
 A `FULL OUTER` or `FULL` join includes the rows from both tables that were missing from the inner join.
 
@@ -1193,7 +1193,7 @@ The result of the example query is shown in the following table.
 |4     |14    |4     |14    |
 |2     |12    |2     |12    |
 |0     |10    |0     |10    |
-{: caption="Table 21. Query result for example: full outer join query." caption-side="bottom"}
+{: caption="Query result for example: full outer join query." caption-side="bottom"}
 
 #### Cross join
 {: #cross-join}
@@ -1222,7 +1222,7 @@ The result of the example query is shown in the following table.
 |0     |10    |0     |10    |
 |2     |12    |2     |12    |
 |4     |14    |4     |14    |
-{: caption="Table 22. Query result for example: cross join that specifies a join condition." caption-side="bottom"}
+{: caption="Query result for example: cross join that specifies a join condition." caption-side="bottom"}
 
 ```sql
 -- cross join that specifies no join condition
@@ -1265,7 +1265,7 @@ The result of the example query is shown in the following table.
 |5     |14    |2     |12    |
 |5     |14    |4     |14    |
 |5     |14    |6     |16    |
-{: caption="Table 23. Query result for the example "cross join that specifies no join condition"." caption-side="bottom"}
+{: caption="Query result for the example "cross join that specifies no join condition"." caption-side="bottom"}
 
 #### Anti join
 {: #anti-join}
@@ -1293,7 +1293,7 @@ The result of the example query is shown in the following table.
 |1     |11    |
 |3     |13    |
 |5     |14    |
-{: caption="Table 24. Query result for example: left anti join query." caption-side="bottom"}
+{: caption="Query result for example: left anti join query." caption-side="bottom"}
 
 #### Left semi join
 {: #left-semi-join}
@@ -1320,7 +1320,7 @@ The result of the example query is shown in the following table.
 |0     |10    |
 |2     |12    |
 |4     |14    |
-{: caption="Table 25. Query result for example: left semi join query." caption-side="bottom"}
+{: caption="Query result for example: left semi join query." caption-side="bottom"}
 
 ### Related references - join types
 {: #related-references-join-types}
@@ -1555,7 +1555,7 @@ The result of the example query is shown in the following table.
 |5     |3      |300  |2   |
 |9     |2      |1000 |1   |
 |4     |2      |300  |2   |
-{: caption="Table 26. Query result for example: derive posts ranking by using a named window specification." caption-side="bottom"}
+{: caption="Query result for example: derive posts ranking by using a named window specification." caption-side="bottom"}
 
 ```sql
 -- derive posts ranking by using an inline window specification
@@ -1593,7 +1593,7 @@ The result of the example query is shown in the following table.
 |5     |3      |300  |2   |
 |9     |2      |1000 |1   |
 |4     |2      |300  |2   |
-{: caption="Table 27. Query result for example: derive posts ranking by using an inline window specification." caption-side="bottom"}
+{: caption="Query result for example: derive posts ranking by using an inline window specification." caption-side="bottom"}
 
 #### Analytic function example
 {: #analytic-function-example}
@@ -1642,7 +1642,7 @@ The result of the example query is shown in the following table.
 |-200      |0.5555555555555556|
 |1000      |0.8888888888888888|
 |2000      |1.0               |
-{: caption="Table 28. Query result for example: cumulative distribution of transaction amounts." caption-side="bottom"}
+{: caption="Query result for example: cumulative distribution of transaction amounts." caption-side="bottom"}
 
 #### Aggregation Function Example
 {: #aggregation-function-example}
@@ -1692,7 +1692,7 @@ The result of the example query is shown in the following table.
 |6     |4711   |-300      |1000   |
 |7     |4711   |100       |1100   |
 |9     |4711   |-400      |700    |
-{: caption="Table 29. Query result for example: total balance of each account at the time of each transaction." caption-side="bottom"}
+{: caption="Query result for example: total balance of each account at the time of each transaction." caption-side="bottom"}
 
 ### More topics - window function
 {: #more-topics-window-function}
@@ -1874,7 +1874,7 @@ The result of the example query is shown in the following table.
 |PAST_TIMESTAMP         |
 |-----------------------|
 |2016-11-13 20:23:43.621|
-{: caption="Table 30. Query result for example: add and subtract several time units from the current timestamp." caption-side="bottom"}
+{: caption="Query result for example: add and subtract several time units from the current timestamp." caption-side="bottom"}
 
 Since interval clauses can get long, especially if days, hours, minutes, and seconds are involved, it is possible to use an abbreviated syntax by specifying a format `STRING` and by using the `TO` keyword.
 
@@ -1898,7 +1898,7 @@ The following table shows equivalent interval clauses.
 | ------------------- | ---------------------- |
 | INTERVAL 1 DAY - INTERVAL 2 HOURS - INTERVAL 3 MINUTES - INTERVAL 4 SECONDS | INTERVAL '1 2:3:4.100' DAY TO SECOND |
 | INTERVAL 1 YEAR - INTERVAL 2 MONTH | INTERVAL '1-2' YEAR TO MONTH |
-{: caption="Table 31. Equivalent INTERVAL clauses." caption-side="bottom"}
+{: caption="Equivalent INTERVAL clauses." caption-side="bottom"}
 
 The following example demonstrates equivalent interval expressions when you deal with `YEAR` and `MONTH` time units.
 
@@ -1919,7 +1919,7 @@ The result of the example query is shown in the following table.
 | LONG_VERSION            | SHORT_VERSION           |
 |-------------------------|-------------------------|
 | 2017-08-16 10:38:07.304 | 2017-08-16 10:38:07.304 |
-{: caption="Table 32. Query result for example: equivalent interval expressions with YEAR and MONTH time units." caption-side="bottom"}
+{: caption="Query result for example: equivalent interval expressions with YEAR and MONTH time units." caption-side="bottom"}
 
 The following example demonstrates equivalent interval expressions, when you deal with `DAY`, `HOUR`, `MINUTE`, and `SECOND` time units.
 
@@ -1940,7 +1940,7 @@ The result of the example query is shown in the following table.
 | LONG_VERSION           | SHORT_VERSION           |
 |------------------------|-------------------------|
 | 2018-10-15 08:33:00.84 | 2018-10-15 08:33:00.84  |
-{: caption="Table 33. Query result for example: equivalent interval expressions when you deal with DAY, HOUR, MINUTE and SECOND time units." caption-side="bottom"}
+{: caption="Query result for example: equivalent interval expressions when you deal with DAY, HOUR, MINUTE and SECOND time units." caption-side="bottom"}
 
 #### columnReference
 {: #columnReference}
@@ -2011,7 +2011,7 @@ The `IS DISTINCT FROM` predicate compares two expressions and evaluates to TRUE 
 | Both inputs are nonnull. | Evaluates to TRUE if the inputs are not identical and FALSE if they are. Equivalent to the <> operator. | Evaluates to FALSE if the inputs are not identical and TRUE if they are. Equivalent to the = operator. |
 | One input is null. | Evaluates to TRUE. | Evaluates to FALSE. |
 | Both inputs are null. | Evaluates to FALSE. | Evaluates to TRUE. |
-{: caption="Table 34. NULL Values and DISTINCT predicate value." caption-side="bottom"}
+{: caption="NULL Values and DISTINCT predicate value." caption-side="bottom"}
 
 The following DISTINCT predicates are logically equivalent to the corresponding search conditions:
 
@@ -2019,7 +2019,7 @@ The following DISTINCT predicates are logically equivalent to the corresponding 
 | ------------------ | ---------------- |
 | value 1 IS NOT DISTINCT FROM value2 | (value1 IS NOT NULL AND value2 IS NOT NULL AND value1 = value 2) OR (value1 IS NULL AND value2 IS NULL) |
 | value 1 IS DISTINCT FROM value2 | NOT (value1 IS NOT DISTINCT FROM value2)|
-{: caption="Table 35. DISTINCT predicate and search condition." caption-side="bottom"}
+{: caption="DISTINCT predicate and search condition." caption-side="bottom"}
 
 #### Examples - predicate
 {: #examples-predicate}
@@ -2052,7 +2052,7 @@ The result of the example query is shown in the following table.
 |null|2   |
 |1   |null|
 |2   |null|
-{: caption="Table 36. Query result for example: select all rows with distinct values in column A and B." caption-side="bottom"}
+{: caption="Query result for example: select all rows with distinct values in column A and B." caption-side="bottom"}
 
 ```sql
 -- all rows that have no distinct values in column A and B
@@ -2077,7 +2077,7 @@ The result of the example query is shown in the following table.
 |----|----|
 |2   |2   |
 |null|null|
-{: caption="Table 37. Query result for example: all rows that have no distinct values in column A and B." caption-side="bottom"}
+{: caption="Query result for example: all rows that have no distinct values in column A and B." caption-side="bottom"}
 
 ##### `BETWEEN ... AND ...` examples
 {: #between-and-examples}
@@ -2109,7 +2109,7 @@ The result of the example query is shown in the following table.
 |5     |5000  |
 |6     |6000  |
 |8     |8000  |
-{: caption="Table 38. Query result for example: all employees with a salary in the range 4000 - 8000." caption-side="bottom"}
+{: caption="Query result for example: all employees with a salary in the range 4000 - 8000." caption-side="bottom"}
 
 ```sql
 -- all employees with a salary not between 4000 and 8000
@@ -2138,7 +2138,7 @@ The result of the example query is shown in the following table.
 |2     |2000  |
 |3     |3000  |
 |9     |9000  |
-{: caption="Table 39. Query result for the example "all employees with a salary in a range 4000 - 8000"." caption-side="bottom"}
+{: caption="Query result for the example "all employees with a salary in a range 4000 - 8000"." caption-side="bottom"}
 
 ##### `IN` examples
 {: #in-examples}
@@ -2171,7 +2171,7 @@ The result of the example query is shown in the following table.
 |5     |D02     |
 |7     |D01     |
 |9     |D01     |
-{: caption="Table 40. Query result for the example "all employees working in department D01 or D02"." caption-side="bottom"}
+{: caption="Query result for the example "all employees working in department D01 or D02"." caption-side="bottom"}
 
 ```sql
 -- all employees that are managing a department
@@ -2207,7 +2207,7 @@ The result of the example query is shown in the following table.
 |2     |C01     |
 |4     |D01     |
 |5     |D02     |
-{: caption="Table 41. Query result for the example "all employees that are managing a department"." caption-side="bottom"}
+{: caption="Query result for the example "all employees that are managing a department"." caption-side="bottom"}
 
 ##### `LIKE` examples
 {: #like-examples}
@@ -2239,7 +2239,7 @@ The result of the example query is shown in the following table.
 |3     |C02     |
 |6     |C01     |
 |8     |C03     |
-{: caption="Table 42. Query result for the example "all employees that work in a department that starts with letter C"." caption-side="bottom"}
+{: caption="Query result for the example "all employees that work in a department that starts with letter C"." caption-side="bottom"}
 
 ```sql
 -- all department names that do not start with letter C
@@ -2265,7 +2265,7 @@ The result of the example query is shown in the following table.
 |--------|
 |D01     |
 |D02     |
-{: caption="Table 43. Query result for example: all department names that do not start with letter C." caption-side="bottom"}
+{: caption="Query result for example: all department names that do not start with letter C." caption-side="bottom"}
 
 ##### `RLIKE` examples
 {: #rlike-examples}
@@ -2291,7 +2291,7 @@ The result of the example query is shown in the following table.
 |1   |xyz abc       |
 |2   |abcabcabc     |
 |3   |abc xyzxyz abc|
-{: caption="Table 44. Query result for the example "all rows that contain in col2 a value that ends with bc"." caption-side="bottom"}
+{: caption="Query result for the example "all rows that contain in col2 a value that ends with bc"." caption-side="bottom"}
 
 ```sql
 -- all rows that contain in col2 a sequence of 3 'abc' string occurrences
@@ -2311,7 +2311,7 @@ The result of the example query is shown in the following table.
 |COL1|COL2     |
 |----|---------|
 |2   |abcabcabc|
-{: caption="Table 45. Query result for the example "all rows that contain in col2 a sequence of thee abc string occurrences"." caption-side="bottom"}
+{: caption="Query result for the example "all rows that contain in col2 a sequence of thee abc string occurrences"." caption-side="bottom"}
 
 ```sql
 -- all rows that contain in col2 a sequence of integer values (three digits) separated by blank or tab
@@ -2331,7 +2331,7 @@ The result of the example query is shown in the following table.
 |COL1|COL2       |
 |----|-----------|
 |4   |123 456 789|
-{: caption="Table 46. Query result for example: all rows that contain in col2 a sequence of integer values (3 digits) separated by blank or tab." caption-side="bottom"}
+{: caption="Query result for example: all rows that contain in col2 a sequence of integer values (3 digits) separated by blank or tab." caption-side="bottom"}
 
 ##### `IS NULL` examples</h5>
 {: #is-null-examples}
@@ -2360,7 +2360,7 @@ The result of the example query is shown in the following table.
 |EMP_ID|SALARY|
 |------|------|
 |7     |null  |
-{: caption="Table 47. Query result for example: all employees with missing salary information." caption-side="bottom"}
+{: caption="Query result for example: all employees with missing salary information." caption-side="bottom"}
 
 ### CAST expression
 {: #chapterCastExpression}
@@ -2444,7 +2444,7 @@ The result of the example query is shown in the following table.
 |2     |Development   |
 |3     |null          |
 |4     |null          |
-{: caption="Table 48. Query result for example: simple case expression with no ELSE clause." caption-side="bottom"}
+{: caption="Query result for example: simple case expression with no ELSE clause." caption-side="bottom"}
 
 ```sql
 -- simple case expression with ELSE clause
@@ -2469,7 +2469,7 @@ The result of the example query is shown in the following table.
 |2     |Development   |
 |3     |UNKOWN        |
 |4     |UNKOWN        |
-{: caption="Table 49. Query result for example: simple case expression with ELSE clause." caption-side="bottom"}
+{: caption="Query result for example: simple case expression with ELSE clause." caption-side="bottom"}
 
 The two scalar functions that are specialized to handle a subset of the functionality that is provided by `CASE` are `NULLIF()` and `COALESCE()`.
 
@@ -2478,7 +2478,7 @@ The two scalar functions that are specialized to handle a subset of the function
 | CASE WHEN e1=e2 THEN NULL ELSE e1 END | NULLIF(e1,e2) |
 | CASE WHEN e1 IS NOT NULL THEN e1 ELSE e2 END| COALESCE(e1,e2) |
 | CASE WHEN e1 IS NOT NULL THEN e1 ELSE COALESCE(e2,...,eN) END| COALESCE(e1,e2,...,eN)|
-{: caption="Table 50. CASE, NULLIF(), and COALESCE()." caption-side="bottom"}
+{: caption="CASE, NULLIF(), and COALESCE()." caption-side="bottom"}
 
 For more information, see [SQL functions](/docs/sql-query?topic=sql-query-sqlfunctions#sqlfunctions).
 
@@ -2596,7 +2596,7 @@ The following types of operators can be used:
 | `-A` | All number types | Unary negative operator. The type of the result is the same as the type of A. |
 | `+A` | All number types | Unary positive operator. The type of the result is the same as the type of A. |
 | `~A` | All number types | Bitwise NOT operator. The type of the result is the same as the type of A. |
-{: caption="Table 50. Unary operators." caption-side="bottom"}
+{: caption="Unary operators." caption-side="bottom"}
 
 ### Arithmetic operators
 {: #arithmetic-operators}
@@ -2612,7 +2612,7 @@ The following types of operators can be used:
 | `A & B` | All number types | Returns the result of bitwise AND of A and B. The type of the result is the same as the type of the operand that is highest in the type hierarchy. |
 | `A | B` | All number types | Returns the result of bitwise OR of A and B. The type of the result is the same as the type of the operand that is highest in the type hierarchy. |
 | `A ^ B` | All number types | Returns the result of bitwise XOR of A and B. The type of the result is the same as the type of the operand that is highest in the type hierarchy. |
-{: caption="Table 51. Arithmetic operators." caption-side="bottom"}
+{: caption="Arithmetic operators." caption-side="bottom"}
 
 ### String operator
 {: #string-operator}
@@ -2620,7 +2620,7 @@ The following types of operators can be used:
 | Operator | Operand types | Description |
 | :----: | ---- | ---- |
 | `A || B` | All types | Returns the concatenation of A and B. If A or B is not a string, it is first converted into a string type. The result is a string. |
-{: caption="Table 52. String operator." caption-side="bottom"}
+{: caption="String operator." caption-side="bottom"}
 
 ### Comparison operators
 {: #comparison-operators}
@@ -2638,7 +2638,7 @@ The following types of operators can be used:
 | `A >= B` |All primitive types | Returns NULL if A or B is NULL, TRUE if A is greater than or equal to B, FALSE otherwise. |
 | `A !< B` | All primitive types| Returns NULL if A or B is NULL, TRUE if A is not less than B, FALSE otherwise.|
 | `A <=> B` | All primitive types| Returns the same result as the equal (=) operator if both A and B are not NULL, TRUE if both A and B are NULL, FALSE if A or B (but not both) is NULL.|
-{: caption="Table 53. Comparison operators." caption-side="bottom"}
+{: caption="Comparison operators." caption-side="bottom"}
 
 ### Boolean operators
 {: #boolean-operators}
@@ -2648,7 +2648,7 @@ The following types of operators can be used:
 | `NOT A` | Boolean expressions | TRUE if A is FALSE, FALSE otherwise. |
 | `A AND B` | Boolean expressions | TRUE if A and B are both TRUE, FALSE otherwise. |
 | `A OR B` | Boolean expressions | FALSE if A and B are both FALSE, TRUE otherwise. |
-{: caption="Table 54. Boolean operators." caption-side="bottom"}
+{: caption="Boolean operators." caption-side="bottom"}
 
 ### Related references - operator
 {: #related-references-operator}
@@ -2713,7 +2713,7 @@ Numeric data types are summarized in the following table.
 | `FLOAT` | single precision floating point number | 4 | n/a | n/a |
 | `DOUBLE` | double precision floating point number | 8 | n/a | n/a |
 | `DECIMAL` | precision of 38 digits | n/a | -10e37+1 | 10e37-1 |
-{: caption="Table 55. Numeric data types." caption-side="bottom"}
+{: caption="Numeric data types." caption-side="bottom"}
 
 Numeric literals with fractional digits are parsed as `DECIMAL` by default. For example, `123.45` is treated as `DECIMAL(5,2)`, and `1.234e-3` is treated as `DECIMAL(6,6)` with value 0.001234, and not as a floating point number. You can force specific data types with a `CAST` expression or by adding one of the following suffix types:
 - `123L` forces `BIGINT` data type
@@ -2745,7 +2745,7 @@ The result of the example query is shown in the following table.
 |CAST(2018-10-31 23:55:00 AS TIMESTAMP)|CAST(2018-2-28 23:55:00 AS DATE)|CAST(HELLO AS TIMESTAMP)|
 |--------------------------------------|--------------------------------|------------------------|
 |2018-10-31 23:55:00.0                 |2018-02-28                      |null                    |
-{: caption="Table 56. Query result for the example "cast string values to TIMESTAMP and DATE types"." caption-side="bottom"}
+{: caption="Query result for the example "cast string values to TIMESTAMP and DATE types"." caption-side="bottom"}
 
 ### Boolean type
 {: #boolean-type}
@@ -2856,7 +2856,7 @@ The tableProperty option consists of one or more key and value pairs.
 | DELIMITER | single (possibly escaped) character | `,` (comma) | CSV | Use the DELIMITER option to specify the used delimiter in your CSV objects. All single Unicode characters are allowed as delimiters. |
 | MULTILINE | true or false | false | JSON | Use the MULITLINE option to specify whether the JSON object is single or multiline. |
 | MODE | 'FAILFAST' or 'PERMISSIVE' | 'FAILFAST' | JSON | `FAILFAST` mode causes an error when any JSON records are accessed that are either syntactically invalid or do not conform to the specicied table schema. In `PERMISSIVE` mode, illegal records or fields are implicitly converted to NULLs and do not cause the SQL statement to fail. |
-{: caption="Table 56. tableProperty option." caption-side="bottom"}
+{: caption="tableProperty option." caption-side="bottom"}
 
 ```sql
 -- Example of creating a table definition in the catalog for a CSV data without header line:
